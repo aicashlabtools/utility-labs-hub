@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelance Late Fee & Interest Calculator | Past-Due Invoice Tool</title>
+    <meta name="description" content="Calculate outstanding commercial invoice late fees and statutory compounding interest penalties. Generate and print an official past-due demand letter notice instantly.">
+    
+    <!-- SEO Keyword Alignment -->
+    <meta name="keywords" content="late payment interest calculator, freelance late fee calculator, past due invoice interest generator, how to calculate late fees on invoice, statutory interest calculator business">
+    
+    <!-- Tailwind CSS Engine -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#0B0F19',
+                        panelbg: '#111827',
+                        accentgold: '#F59E0B',
+                        bordergray: '#1F2937'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0B0F19; font-family: system-ui, -apple-system, sans-serif; }
+        /* Strict Golden Standard Print View Stylesheet */
+        @media print {
+            body { background-color: #ffffff !important; color: #000000 !important; }
+            .no-print { display: none !important; }
+            .print-container { width: 100% !important; max-width: 100% !important; margin: 0 !important; padding: 0 !important; border: none !important; background: transparent !important; }
+            .editable-area { border: none !important; padding: 0 !important; color: #000000 !important; background: transparent !important; }
+        }
+    </style>
+</head>
+<body class="text-gray-200 min-h-screen flex flex-col justify-between selection:bg-accentgold selection:text-darkbg">
+
+    <!-- HEADER (Hidden on Print) -->
+    <header class="no-print border-b border-bordergray py-5 px-6 bg-darkbg">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="../index.html" class="flex items-center space-x-2 group">
+                <span class="text-gray-400 group-hover:text-accentgold transition-colors">←</span>
+                <span class="text-sm font-semibold text-gray-400 group-hover:text-white transition-colors">Back to Directory Hub</span>
+            </a>
+            <span class="text-xs font-mono text-gray-500">UTILITY LABS // ASSET 01</span>
+        </div>
+    </header>
+
+    <!-- MAIN CALCULATOR WORKSPACE -->
+    <main class="flex-grow max-w-6xl w-full mx-auto p-4 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- LEFT COLUMN: CONTROL INTERFACE (Hidden on Print) -->
+        <section class="no-print lg:col-span-5 space-y-6">
+            <div class="bg-panelbg border border-bordergray rounded-xl p-6">
+                <h1 class="text-xl font-bold text-white mb-1">Invoice Late Fee Engine</h1>
+                <p class="text-xs text-gray-400 mb-6">Quantify past-due invoice penalty metrics instantly.</p>
+                
+                <div class="space-y-4">
+                    <!-- Input 1: Principal Amount -->
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Original Invoice Amount ($)</label>
+                        <input type="number" id="invoiceAmount" value="2500" class="w-full bg-darkbg border border-bordergray rounded-lg p-3 text-white font-bold focus:outline-none focus:border-accentgold" oninput="calculateLateFees()">
+                    </div>
+
+                    <!-- Input 2: Due Date -->
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Original Due Date</label>
+                        <input type="date" id="dueDate" class="w-full bg-darkbg border border-bordergray rounded-lg p-3 text-white font-medium focus:outline-none focus:border-accentgold" onchange="calculateLateFees()">
+                    </div>
+
+                    <!-- Input 3: Interest Type -->
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Interest Rate Option</label>
+                        <select id="interestRateType" class="w-full bg-darkbg border border-bordergray rounded-lg p-3 text-white font-medium focus:outline-none focus:border-accentgold" onchange="toggleRateInput()">
+                            <option value="8">US/UK Statutory Common Default (8% Annual)</option>
+                            <option value="10">Standard Standard Rate (10% Annual)</option>
+                            <option value="custom">Custom Annual Percentage</option>
+                        </select>
+                    </div>
+
+                    <!-- Input 4: Hidden Custom Rate -->
+                    <div id="customRateContainer" class="hidden">
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-accentgold mb-2">Enter Custom Annual Interest %</label>
+                        <input type="number" id="customRate" value="12" class="w-full bg-darkbg border border-accentgold rounded-lg p-3 text-white font-bold focus:outline-none" oninput="calculateLateFees()">
+                    </div>
+                </div>
+
+                <!-- LIVE CONSOLIDATED MATH BOX -->
+                <div class="mt-6 pt-6 border-t border-bordergray bg-darkbg/50 p-4 rounded-lg border border-dashed">
+                    <div class="flex justify-between text-sm text-gray-400 mb-2">
+                        <span>Days Past Due:</span>
+                        <span id="daysOverdueDisplay" class="font-bold text-white">0 days</span>
+                    </div>
+                    <div class="flex justify-between text-sm text-gray-400 mb-2">
+                        <span>Accrued Interest Owed:</span>
+                        <span id="interestOwedDisplay" class="font-bold text-white">$0.00</span>
+                    </div>
+                    <div class="flex justify-between text-base font-bold text-white pt-2 border-t border-bordergray">
+                        <span>Total Due Balance:</span>
+                        <span id="totalBalanceDisplay" class="text-accentgold">$2,500.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MONETIZATION BACK-FUNNEL BANNER -->
+            <div class="bg-gradient-to-br from-panelbg to-darkbg border border-bordergray rounded-xl p-6">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-accentgold bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">Operational Upgrade</span>
+                <h3 class="text-base font-bold text-white mt-3 mb-2">Stop Chasing Payments Manually</h3>
+                <p class="text-gray-400 text-xs leading-relaxed mb-4">
+                    Deploy an automated, legally backed framework to secure milestones ahead of time. Download our premium copy-ready operational sequences.
+                </p>
+                <a href="https://gumroad.com" target="_blank" rel="noopener noreferrer" class="block w-full bg-gray-800 text-center hover:bg-accentgold hover:text-darkbg transition-colors text-white font-bold text-xs py-3 rounded-lg">
+                    Get Invoice & Payment Reminder Toolkit ($19) ↗
+                </a>
+            </div>
+        </section>
+
+        <!-- RIGHT COLUMN: EDITABLE & PRINTABLE DEMAND NOTICE PREVIEW -->
+        <section class="lg:col-span-7 print-container">
+            <div class="bg-panelbg border border-bordergray rounded-xl p-6 sm:p-8 bg-white text-gray-900 shadow-xl h-full flex flex-col justify-between print-container">
+                
+                <div>
+                    <!-- Print Control Interface (Hidden on Print) -->
+                    <div class="no-print flex flex-col sm:flex-row justify-between items-start sm:items-center pb-4 mb-6 border-b border-gray-200 gap-4">
+                        <div>
+                            <span class="text-xs font-bold text-gray-500 uppercase tracking-wider block">Interactive Output Canvas</span>
+                            <span class="text-[11px] text-amber-600 font-medium">✨ Click inside the text box below to edit lines manually before printing</span>
+                        </div>
+                        <button onclick="window.print()" class="bg-darkbg text-white hover:bg-accentgold hover:text-darkbg text-xs font-bold px-4 py-2.5 rounded-lg transition-colors flex items-center gap-2 shadow-md">
+                            🖨️ Print / Save PDF
+                        </button>
+                    </div>
+
+                    <!-- THE INLINE-EDITABLE WORKSPACE CANVAS -->
+                    <div id="demandLetterCanvas" contenteditable="true" class="editable-area font-serif text-sm leading-relaxed text-gray-800 focus:outline-none min-h-[500px]">
+                        <!-- Content injected automatically by JS Engine -->
+                    </div>
+                </div>
+
+                <!-- Subtle print credit footprint -->
+                <div class="mt-8 pt-4 border-t border-gray-100 text-[10px] text-gray-400 text-center uppercase tracking-widest no-print">
+                    Generated via AICashLabTools.com
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER (Hidden on Print) -->
+    <footer class="no-print border-t border-bordergray py-6 px-6 bg-darkbg text-center text-xs text-gray-500">
+        &copy; 2026 AI Cash Lab Tools. Zero-storage local calculation architecture.
+    </footer>
+
+    <!-- CLIENT SIDE ENGINE JAVASCRIPT -->
+    <script>
+        // Set default due date to 30 days ago to showcase instant values on load
+        window.onload = function() {
+            const today = new Date();
+            const pastDate = new Date(today.setDate(today.getDate() - 30));
+            document.getElementById('dueDate').value = pastDate.toISOString().split('T')[0];
+            calculateLateFees();
+        };
+
+        function toggleRateInput() {
+            const type = document.getElementById('interestRateType').value;
+            const container = document.getElementById('customRateContainer');
+            if(type === 'custom') {
+                container.classList.remove('hidden');
+            } else {
+                container.classList.add('hidden');
+            }
+            calculateLateFees();
+        }
+
+        function calculateLateFees() {
+            // Grab Core Inputs
+            const principal = parseFloat(document.getElementById('invoiceAmount').value) || 0;
+            const dueDateValue = document.getElementById('dueDate').value;
+            
+            if(!dueDateValue) return;
+
+            const dueDate = new Date(dueDateValue);
+            const currentDate = new Date();
+            
+            // Calculate Day Differential
+            const timeDiff = currentDate.getTime() - dueDate.getTime();
+            let daysOverdue = Math.floor(timeDiff / (1000 * 3600 * 24));
+            if(daysOverdue < 0) daysOverdue = 0;
+
+            // Determine Interest Rate percentage
+            const rateType = document.getElementById('interestRateType').value;
+            const annualRate = (rateType === 'custom') ? (parseFloat(document.getElementById('customRate').value) || 0) : parseFloat(rateType);
+
+            // Execute Simple Compounding Statutory Daily Math
+            // Formula: Interest = Principal * (Rate / 100) * (Days / 365)
+            const interestAccrued = principal * (annualRate / 100) * (daysOverdue / 365);
+            const totalBalance = principal + interestAccrued;
+
+            // Render Output Numerical Badges
+            document.getElementById('daysOverdueDisplay').innerText = daysOverdue + " days";
+            document.getElementById('interestOwedDisplay').innerText = "$" + interestAccrued.toFixed(2);
+            document.getElementById('totalBalanceDisplay').innerText = "$" + totalBalance.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+            // Update Inline Template Canvas Content dynamically
+            updateLetterTemplate(principal, daysOverdue, interestAccrued, totalBalance, annualRate);
+        }
+
+        function updateLetterTemplate(principal, days, interest, total, rate) {
+            const canvas = document.getElementById('demandLetterCanvas');
+            
+            // Format dates dynamically
+            const todayFormatted = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            
+            canvas.innerHTML = `
+                <p class="mb-4"><strong>DATE:</strong> ${todayFormatted}</p>
+                <p class="mb-4"><strong>TO:</strong> [Client Name or Company Name]<br>[Client Billing Address Row 1]<br>[Client City, State, Zip]</p>
+                <p class="mb-6"><strong>FROM:</strong> [Your Name / Agency Branding]<br>[Your Return Contact Email/Phone]</p>
+                
+                <p class="mb-4 font-bold text-base border-b pb-2 text-black">NOTICE OF PAST-DUE ACCOUNT RECONCILIATION</p>
+                
+                <p class="mb-4">This formal notification serves as an official request for payment regarding outstanding invoice balance parameters linked to your account. Despite prior agreement guidelines, the cross-referenced payment milestone remains unfulfilled.</p>
+                
+                <table class="w-full text-left my-6 border-collapse text-xs">
+                    <thead>
+                        <tr class="border-b-2 border-black">
+                            <th class="py-2">Item Breakdown Description</th>
+                            <th class="py-2 text-right">Outstanding Ledger Line</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b">
+                            <td class="py-2">Original Invoice Principal Line Item Amount</td>
+                            <td class="py-2 text-right font-mono">$${principal.toFixed(2)}</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-2">Accrued Statutory Interest Penalty Fee (${days} Days Overdue @ ${rate}% Annualized)</td>
+                            <td class="py-2 text-right font-mono text-red-600 font-bold">+$${interest.toFixed(2)}</td>
+                        </tr>
+                        <tr class="bg-gray-50 font-bold text-black text-sm">
+                            <td class="py-3 px-2">Adjusted Outstand Balance Total Owed</td>
+                            <td class="py-3 px-2 text-right font-mono text-base text-amber-600">$${total.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="mb-4">Please note that daily compounding interest penalties will continue to apply to this baseline asset account for each additional 24-hour cycle of delinquency matching statutory interest codes.</p>
+                
+                <p class="mb-6">To settle this open obligation immediately and avoid further collections escalation procedures, please route the fully adjusted sum of <strong>$${total.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</strong> via your established wire/payment gateway routing coordinates within 48 business hours.</p>
+                
+                <p class="mb-12">Thank you for your immediate, decisive attention to this account reconciliation profile.</p>
+                
+                <p class="mb-0">Sincerely,</p>
+                <p class="font-bold">[Your Signed Corporate Identity Signature Block]</p>
+            `;
+        }
+    </script>
+</body>
+</html>
