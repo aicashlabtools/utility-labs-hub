@@ -86,6 +86,12 @@
                 <span class="text-[10px] font-semibold tracking-widest text-zinc-400 uppercase">Creator Tools</span>
             </div>
         </a>
+        <nav class="hidden md:flex items-center gap-5 text-xs font-semibold text-zinc-400">
+            <a href="../creator-utilities/" class="hover:text-[#facc15] transition">Creator Utilities</a>
+            <a href="../tiktok-safe-zone/" class="hover:text-[#facc15] transition">TikTok</a>
+            <a href="../youtube-shorts-safe-zone/" class="text-[#facc15]">YouTube Shorts</a>
+            <a href="../instagram-reels-safe-zone/" class="hover:text-[#facc15] transition">Instagram Reels</a>
+        </nav>
     </header>
 
     <!-- Main Production Workspace Blueprint -->
@@ -298,22 +304,22 @@
                     <button id="presetStandard" class="w-full text-left p-3 rounded-xl text-xs bg-[#1a1d24] border border-[#facc15]/30 text-white flex items-start transition">
                         <i data-lucide="star" class="w-4 h-4 text-[#facc15] mr-3 shrink-0 mt-0.5"></i>
                         <div>
-                            <span class="font-semibold block">Standard Hook Layout</span>
-                            <span class="text-[10px] text-zinc-400 mt-0.5 block">Best for text hooks & subtitles</span>
+                            <span class="font-semibold block">Shorts Title Layout</span>
+                            <span class="text-[10px] text-zinc-400 mt-0.5 block">Best for title text and hooks</span>
                         </div>
                     </button>
                     <button id="presetSubtitle" class="w-full text-left p-3 rounded-xl text-xs bg-zinc-900/20 border border-zinc-900 text-zinc-400 flex items-start transition hover:bg-zinc-900/50 hover:text-zinc-200">
                         <i data-lucide="edit-3" class="w-4 h-4 mr-3 shrink-0 mt-0.5 text-zinc-500"></i>
                         <div>
-                            <span class="font-semibold block text-zinc-300">Faceless Subtitle Layout</span>
-                            <span class="text-[10px] text-zinc-500 mt-0.5 block">Center-weighted for captions</span>
+                            <span class="font-semibold block text-zinc-300">Shorts Subtitle Layout</span>
+                            <span class="text-[10px] text-zinc-500 mt-0.5 block">Keeps subtitles clear of UI actions</span>
                         </div>
                     </button>
                     <button id="presetQuote" class="w-full text-left p-3 rounded-xl text-xs bg-zinc-900/20 border border-zinc-900 text-zinc-400 flex items-start transition hover:bg-zinc-900/50 hover:text-zinc-200">
                         <i data-lucide="help-circle" class="w-4 h-4 mr-3 shrink-0 mt-0.5 text-zinc-500"></i>
                         <div>
-                            <span class="font-semibold block text-zinc-300">Quote Video Layout</span>
-                            <span class="text-[10px] text-zinc-500 mt-0.5 block">Big text, high readability</span>
+                            <span class="font-semibold block text-zinc-300">Shorts Center Frame Layout</span>
+                            <span class="text-[10px] text-zinc-500 mt-0.5 block">For centered visuals and captions</span>
                         </div>
                     </button>
                 </div>
@@ -322,6 +328,35 @@
         </div>
         </div>
     </main>
+
+    <section class="max-w-6xl mx-auto w-full px-6 pb-16 text-zinc-400 leading-relaxed">
+        <hr class="border-0 border-t border-zinc-800 mb-10">
+        <div class="max-w-4xl">
+            <h2 class="text-2xl font-bold text-white mb-4">How to Use the YouTube Shorts Safe Zone Grid</h2>
+            <p class="mb-5">
+                YouTube Shorts uses a vertical mobile player with interface elements that can sit over your frame. This free <strong class="text-zinc-200">YouTube Shorts safe zone grid</strong> helps you review whether title text, subtitles, logos, or key visuals may be too close to common Shorts UI areas before publishing.
+            </p>
+
+            <h3 class="text-xl font-semibold text-white mb-3">Why Do Shorts Look Cropped or Covered on Phone?</h3>
+            <p class="mb-5">
+                Shorts are usually created at 1080x1920, but the viewing interface can still add channel, action, title, and lower-screen overlays. If important text sits too low or too far right, it may compete with the subscribe area, interaction buttons, or caption/title space. Keeping primary visuals inside the recommended center safe zone helps your video remain readable.
+            </p>
+
+            <h3 class="text-xl font-semibold text-white mb-3">Best Layout Checks for Shorts Creators</h3>
+            <p class="mb-3">
+                Use the preview presets as manual layout guidance, not automated detection. They help you compare common safe-zone risks quickly:
+            </p>
+            <ul class="list-disc pl-5 mb-5 space-y-2">
+                <li><strong class="text-zinc-200">Shorts Title Layout:</strong> Reviews top and center text placement for opening hooks.</li>
+                <li><strong class="text-zinc-200">Shorts Subtitle Layout:</strong> Helps keep subtitles clear of lower and right-side UI.</li>
+                <li><strong class="text-zinc-200">Shorts Center Frame Layout:</strong> Checks whether key visuals stay readable on mobile.</li>
+            </ul>
+
+            <p class="text-sm text-zinc-500">
+                Creating for other networks? Try the <a href="../tiktok-safe-zone/" class="text-[#facc15] hover:text-yellow-300 transition">TikTok Safe Zone Checker</a> or the <a href="../instagram-reels-safe-zone/" class="text-[#facc15] hover:text-yellow-300 transition">Instagram Reels Safe Zone Checker</a>.
+            </p>
+        </div>
+    </section>
 
     <!-- Global Layout System Footer Component -->
     <footer class="border-t border-zinc-800 bg-[#0d0f13] px-6 py-4 flex flex-col sm:flex-row justify-between items-center text-[11px] text-zinc-400 gap-2">
