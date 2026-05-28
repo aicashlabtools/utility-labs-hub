@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en" class="min-h-full bg-[#0d0f13]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Shorts Safe Zone Grid Tool | Free Overlay Preview</title>
+    <meta name="description" content="Free YouTube Shorts safe zone grid tool for previewing text, subtitles, logos, and key visuals against mobile Shorts UI overlays.">
+    <link rel="canonical" href="https://aicashlabtools.com/youtube-shorts-safe-zone/">
+    <meta property="og:title" content="YouTube Shorts Safe Zone Grid Tool">
+    <meta property="og:description" content="Preview short-form video frames against YouTube Shorts-style safe zones, right-side actions, captions, and header areas.">
+    <meta property="og:type" content="website">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        html {
+            overflow-y: scroll;
+            scrollbar-width: thin;
+            scrollbar-color: #71717a #14161c;
+        }
+        body { font-family: 'Inter', sans-serif; }
+
+        /* Custom scrollbar to keep it clean */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #14161c; }
+        ::-webkit-scrollbar-thumb { background: #71717a; border-radius: 999px; border: 2px solid #14161c; }
+        ::-webkit-scrollbar-thumb:hover { background: #a1a1aa; }
+
+        /* iOS Style Toggle Switch Switches */
+        .switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; inset: 0; background-color: #22252d; transition: .3s; border-radius: 24px; }
+        .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .3s; border-radius: 50%; }
+        input:checked + .slider { background-color: #facc15; }
+        input:checked + .slider:before { transform: translateX(20px); }
+
+        @keyframes borderDrift {
+            to { background-position: 28px 0, -28px 100%, 0 -28px, 100% 28px; }
+        }
+
+        .dropzone-premium {
+            position: relative;
+            background: radial-gradient(circle at 50% 0%, rgba(250, 204, 21, 0.06), transparent 34%), #151820;
+            border-color: #3f3f46;
+            transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease, background .2s ease;
+        }
+
+        .dropzone-premium::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            opacity: .55;
+            background:
+                linear-gradient(90deg, #71717a 50%, transparent 0) repeat-x,
+                linear-gradient(90deg, #71717a 50%, transparent 0) repeat-x,
+                linear-gradient(0deg, #71717a 50%, transparent 0) repeat-y,
+                linear-gradient(0deg, #71717a 50%, transparent 0) repeat-y;
+            background-position: 0 0, 0 100%, 0 0, 100% 0;
+            background-size: 14px 1px, 14px 1px, 1px 14px, 1px 14px;
+            animation: borderDrift 18s linear infinite;
+        }
+
+        .dropzone-premium:hover,
+        .dropzone-premium.is-dragging {
+            border-color: rgba(250, 204, 21, .45);
+            box-shadow: 0 0 0 1px rgba(250, 204, 21, .08), 0 18px 44px rgba(250, 204, 21, .09);
+            transform: translateY(-1px);
+        }
+
+        .dropzone-premium.is-dragging::before {
+            opacity: 1;
+            animation-duration: 3s;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-zinc-300 flex flex-col overflow-x-hidden bg-[#0d0f13]">
+
+    <!-- Premium Minimal Header -->
+    <header class="border-b border-zinc-800 bg-[#0d0f13] px-6 py-4 flex justify-between items-center z-10">
+        <a href="../index.html" class="flex items-center space-x-3 group" aria-label="AI Cash Lab Tools homepage">
+            <img src="../assets/ai-cash-lab-logo-32.png" alt="AI Cash Lab logo" class="w-7 h-7 rounded-md border border-[#facc15]/30 object-cover shadow-[0_0_14px_rgba(250,204,21,0.25)]">
+            <div class="flex items-baseline space-x-2">
+                <span class="text-sm font-bold tracking-wider text-white uppercase group-hover:text-[#facc15] transition">AI Cash Lab</span>
+                <span class="text-[10px] font-semibold tracking-widest text-zinc-400 uppercase">Creator Tools</span>
+            </div>
+        </a>
+    </header>
+
+    <!-- Main Production Workspace Blueprint -->
+    <main class="flex flex-col p-6 gap-5 overflow-visible max-w-[1800px] w-full mx-auto">
+
+        <!-- ================= HERO INTRO ================= -->
+        <section class="flex flex-col items-center text-center gap-4 pt-2 pb-2">
+            <div>
+                <span class="block text-[11px] font-bold tracking-widest uppercase text-[#facc15] mb-2">YouTube Shorts Layout Preview</span>
+                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-3">YouTube Shorts Safe Zone Grid Tool</h1>
+                <p class="max-w-2xl text-sm text-zinc-300 leading-relaxed">
+                    Upload your Shorts frame to review whether titles, subtitles, logos, or key visuals may sit too close to common YouTube Shorts interface areas.
+                </p>
+            </div>
+            <div class="border border-zinc-700 bg-[#151820] rounded-lg px-4 py-3 flex items-center space-x-3 shadow-xl">
+                <div class="w-7 h-7 rounded-full bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i>
+                </div>
+                <div class="text-left">
+                    <span class="block text-xs font-semibold text-white">Designed for YouTube Shorts</span>
+                    <span class="block text-[10px] text-zinc-400">9:16 Vertical - 1080 x 1920px</span>
+                </div>
+            </div>
+            <a href="../assets/overlays/youtube-shorts-safe-zone-overlay.png" download class="inline-flex items-center gap-2 rounded-lg border border-[#facc15]/25 bg-[#facc15]/10 px-4 py-2 text-xs font-bold text-[#facc15] hover:bg-[#facc15] hover:text-black transition">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                <span>Download Transparent YouTube Shorts Overlay PNG</span>
+            </a>
+        </section>
+
+        <div class="flex flex-col xl:flex-row gap-5 w-full">
+
+        <!-- ================= LEFT COLUMN PANEL ================= -->
+        <div class="w-full xl:w-64 flex flex-col gap-4 shrink-0">
+            <!-- Main Drag and Drop Interface Container -->
+            <div id="dropzone" class="dropzone-premium border rounded-xl p-5 text-center cursor-pointer flex flex-col items-center justify-center h-72">
+                <div class="w-12 h-12 rounded-full bg-zinc-900 flex items-center justify-center mb-4 border border-zinc-800">
+                    <i data-lucide="upload-cloud" class="h-5 w-5 text-[#facc15]"></i>
+                </div>
+                <h3 class="text-xs font-semibold text-white mb-1">Drag & drop your image</h3>
+                <p class="text-xs font-semibold text-white mb-2">or video frame</p>
+                <p class="text-[10px] text-zinc-400 mb-4">Supports JPG, PNG, WEBP<br>Max 20MB</p>
+                <button type="button" class="w-full py-2 bg-[#facc15] hover:bg-[#eab308] text-black font-bold text-xs rounded-lg transition">Choose File</button>
+                <button type="button" id="demoAsset" class="mt-2 w-full py-2 bg-zinc-900/70 hover:bg-zinc-800 border border-zinc-700 hover:border-[#facc15]/40 text-zinc-200 hover:text-white font-semibold text-xs rounded-lg transition">Try Demo Asset</button>
+                <input type="file" id="fileInput" class="hidden" accept="image/*">
+            </div>
+
+            <!-- Context Prompt Tip Widget Box -->
+            <div class="bg-[#151820] border border-zinc-800 rounded-xl p-4 flex items-start space-x-3">
+                <i data-lucide="lightbulb" class="w-4 h-4 text-[#facc15] shrink-0 mt-0.5"></i>
+                <p class="text-[11px] text-zinc-400 leading-relaxed"><span class="font-semibold text-white">Tip:</span> Export your frame as 9:16 for best results.</p>
+            </div>
+
+            <!-- Static Cheat Sheet Specification Matrix -->
+            <div class="bg-[#151820] border border-zinc-800 rounded-xl p-4">
+                <div class="flex items-center space-x-2 text-[10px] font-bold tracking-wider uppercase text-zinc-400 mb-3">
+                    <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-[#facc15]"></i>
+                    <span>Safe Zone Cheat Sheet</span>
+                </div>
+                <span class="text-[10px] font-semibold text-zinc-500 block mb-3">YouTube Shorts</span>
+                <div class="space-y-2 text-[11px] font-mono">
+                    <div class="flex justify-between"><span class="text-emerald-400">● Safe Zone (Text)</span><span class="text-zinc-500">1080 x 1420 px</span></div>
+                    <div class="flex justify-between"><span class="text-rose-400">● Right Icons Area</span><span class="text-zinc-500">120 px</span></div>
+                    <div class="flex justify-between"><span class="text-purple-400">● Bottom Caption Area</span><span class="text-zinc-500">400 px</span></div>
+                    <div class="flex justify-between"><span class="text-blue-400">● Top Header Area</span><span class="text-zinc-500">120 px</span></div>
+                    <div class="h-px bg-zinc-900 my-2"></div>
+                    <div class="flex justify-between text-zinc-400"><span>Canvas (Rec.)</span><span>1080 x 1920 px</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= CENTER WORKSPACE PANEL ================= -->
+        <div class="flex-1 flex flex-col gap-4 min-w-0">
+        <div class="flex-1 bg-[#151820]/60 border border-zinc-800 rounded-xl flex flex-col relative overflow-hidden min-h-[500px]">
+
+            <!-- Main Sandbox Display Viewport Area -->
+            <div class="flex items-start justify-center p-6 relative overflow-visible">
+
+                <!-- Dynamic Graphic State Layout Architecture -->
+                <div id="canvasContainer" class="relative shadow-2xl transition-all duration-200 aspect-[9/16] bg-[#151820] border border-zinc-700 rounded-md w-[320px] sm:w-[360px] md:w-[380px] lg:w-[400px] xl:w-[410px]">
+
+                    <!-- Pre-upload Empty Mockup State Component Layout Grid -->
+                    <div id="emptyState" class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-0">
+                        <i data-lucide="image" class="h-14 w-14 text-zinc-700 stroke-[1] mb-4"></i>
+                        <h4 class="text-xs font-semibold text-zinc-300 mb-1">Your preview will appear here</h4>
+                        <p class="text-[11px] text-zinc-500">Upload an image or video frame to get started.</p>
+                    </div>
+
+                    <!-- Client User Image Element Node -->
+                    <img id="previewImage" class="absolute inset-0 w-full h-full object-contain select-none pointer-events-none opacity-0 z-10" src="" alt="Creator Asset Area">
+
+                    <!-- Core Interactive Overlay Layer Matrix -->
+                    <div id="overlayWrapper" class="absolute inset-0 select-none pointer-events-none z-20 w-full h-full">
+                        <!-- Custom Programmatic SVG elements populate directly here via engine loop execution -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Interactive Floating Canvas Controls Panel -->
+            <div class="border-t border-zinc-800 bg-[#151820] px-4 py-3 flex justify-between items-center z-30">
+                <div class="flex items-center space-x-1.5 bg-[#0a0b0d] border border-zinc-900 rounded-lg p-0.5">
+                    <button id="zoomOut" class="w-7 h-7 flex items-center justify-center rounded hover:bg-zinc-900 text-zinc-400 hover:text-white transition"><i data-lucide="minus" class="w-3.5 h-3.5"></i></button>
+                    <span id="zoomVal" class="text-[10px] font-mono px-2 text-zinc-400 select-none">Fit</span>
+                    <button id="zoomIn" class="w-7 h-7 flex items-center justify-center rounded hover:bg-zinc-900 text-zinc-400 hover:text-white transition"><i data-lucide="plus" class="w-3.5 h-3.5"></i></button>
+                </div>
+                <button id="resetWorkspace" class="px-3 py-1.5 bg-[#0a0b0d] hover:bg-zinc-900 border border-zinc-900 rounded-lg text-xs font-medium text-zinc-400 hover:text-white flex items-center space-x-1.5 transition">
+                    <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                    <span>Clear Image / Reset</span>
+                </button>
+            </div>
+        </div>
+
+            <!-- Safe Zone Diagnosis -->
+            <div id="diagnosisCard" class="border border-zinc-800 bg-[#151820] rounded-xl p-4 shadow-xl">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-3">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-lg bg-zinc-900 flex items-center justify-center shrink-0 border border-zinc-800">
+                            <i data-lucide="scan-search" class="w-4 h-4 text-[#facc15]"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-white">Safe Zone Diagnosis</h4>
+                            <p id="diagnosisSummary" class="text-[11px] text-zinc-400 leading-normal">Upload an asset to check whether your hook text, captions, or key visuals may be covered by YouTube Shorts UI.</p>
+                        </div>
+                    </div>
+                    <span id="diagnosisBadge" class="self-start sm:self-center px-2.5 py-1 rounded-full border border-[#facc15]/25 bg-[#facc15]/10 text-[#facc15] text-[10px] font-bold uppercase tracking-wider">Awaiting Upload</span>
+                </div>
+
+                <div id="diagnosisChecklist" class="hidden grid grid-cols-1 md:grid-cols-3 gap-2 mb-3">
+                    <div class="rounded-lg border border-emerald-400/15 bg-emerald-400/5 p-3">
+                        <div class="flex items-center gap-2 text-xs font-semibold text-emerald-300 mb-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Hook / headline area</div>
+                        <p class="text-[10px] text-zinc-400 leading-relaxed">Keep key text inside the green safe zone.</p>
+                    </div>
+                    <div class="rounded-lg border border-[#facc15]/20 bg-[#facc15]/5 p-3">
+                        <div class="flex items-center gap-2 text-xs font-semibold text-[#facc15] mb-1"><span class="w-1.5 h-1.5 rounded-full bg-[#facc15]"></span>Right-side icons area</div>
+                        <p class="text-[10px] text-zinc-400 leading-relaxed">Avoid placing logos or CTAs behind the right-side interaction stack.</p>
+                    </div>
+                    <div class="rounded-lg border border-[#facc15]/20 bg-[#facc15]/5 p-3">
+                        <div class="flex items-center gap-2 text-xs font-semibold text-[#facc15] mb-1"><span class="w-1.5 h-1.5 rounded-full bg-[#facc15]"></span>Bottom caption area</div>
+                        <p class="text-[10px] text-zinc-400 leading-relaxed">Keep subtitles above the bottom caption area.</p>
+                    </div>
+                </div>
+
+                <a href="https://aicashlabofficial.gumroad.com/l/uuqxat?layout=profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-semibold text-[#facc15] hover:text-yellow-300 transition">
+                    <span>Need to fix the layout? Try the AI Image Size Checker & Resizer.</span>
+                    <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- ================= RIGHT COLUMN CONTROL PANEL ================= -->
+        <div class="w-full xl:w-96 flex flex-col gap-4 shrink-0">
+
+            <!-- Panel 1: Interactive Overlay Control Settings -->
+            <div class="bg-[#151820] border border-zinc-800 rounded-xl p-5">
+                <div class="flex items-center space-x-2 text-xs font-bold tracking-wider text-white uppercase mb-5">
+                    <i data-lucide="eye" class="w-4 h-4 text-[#facc15]"></i>
+                    <span>Overlay Toggles</span>
+                </div>
+                <div class="space-y-4">
+                    <!-- Toggle 0: Core Target Canvas Guidelines Overlay -->
+                    <div class="flex items-start justify-between">
+                        <div class="pr-4">
+                            <span class="text-xs font-semibold text-zinc-200 flex items-center"><span class="w-2 h-2 rounded-full bg-emerald-400 mr-2"></span>Safe Zone (Text)</span>
+                            <p class="text-[10px] text-zinc-500 mt-0.5">Where your text & hooks should stay</p>
+                        </div>
+                        <label class="switch"><input type="checkbox" id="toggleSafeZone" checked><span class="slider"></span></label>
+                    </div>
+                    <!-- Toggle 1: Right Side Interactive Elements Icons -->
+                    <div class="flex items-start justify-between">
+                        <div class="pr-4">
+                            <span class="text-xs font-semibold text-zinc-200 flex items-center"><span class="w-2 h-2 rounded-full bg-rose-400 mr-2"></span>Right-Side Icons</span>
+                            <p class="text-[10px] text-zinc-500 mt-0.5">Like, Comment, Share, Channel</p>
+                        </div>
+                        <label class="switch"><input type="checkbox" id="toggleIcons" checked><span class="slider"></span></label>
+                    </div>
+                    <!-- Toggle 2: Bottom Text Profile Descriptions Block -->
+                    <div class="flex items-start justify-between">
+                        <div class="pr-4">
+                            <span class="text-xs font-semibold text-zinc-200 flex items-center"><span class="w-2 h-2 rounded-full bg-purple-400 mr-2"></span>Bottom Caption</span>
+                            <p class="text-[10px] text-zinc-500 mt-0.5">Description & Audio Title Area</p>
+                        </div>
+                        <label class="switch"><input type="checkbox" id="toggleCaptions" checked><span class="slider"></span></label>
+                    </div>
+                    <!-- Toggle 3: Top Navigation Tab UI Layout -->
+                    <div class="flex items-start justify-between">
+                        <div class="pr-4">
+                            <span class="text-xs font-semibold text-zinc-200 flex items-center"><span class="w-2 h-2 rounded-full bg-blue-400 mr-2"></span>Top Navigation</span>
+                            <p class="text-[10px] text-zinc-500 mt-0.5">Shorts Header Area</p>
+                        </div>
+                        <label class="switch"><input type="checkbox" id="toggleHeader" checked><span class="slider"></span></label>
+                    </div>
+                </div>
+
+                <!-- Live Opacity Slider Component Box -->
+                <div class="mt-6 pt-5 border-t border-zinc-900">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xs font-semibold text-zinc-300">Overlay Opacity</span>
+                        <span id="opacityVal" class="text-xs font-semibold text-white">80%</span>
+                    </div>
+                    <input type="range" id="opacitySlider" min="0" max="100" value="80" class="w-full h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-[#facc15]">
+                </div>
+            </div>
+
+            <!-- Panel 2: Strategy Content Mapping Placement Targets -->
+            <div class="bg-[#151820] border border-zinc-800 rounded-xl p-5">
+                <div class="flex items-center space-x-2 text-xs font-bold tracking-wider text-white uppercase mb-4">
+                    <i data-lucide="layout" class="w-4 h-4 text-[#facc15]"></i>
+                    <span>Strategy Presets</span>
+                </div>
+                <div class="space-y-2">
+                    <button id="presetStandard" class="w-full text-left p-3 rounded-xl text-xs bg-[#1a1d24] border border-[#facc15]/30 text-white flex items-start transition">
+                        <i data-lucide="star" class="w-4 h-4 text-[#facc15] mr-3 shrink-0 mt-0.5"></i>
+                        <div>
+                            <span class="font-semibold block">Standard Hook Layout</span>
+                            <span class="text-[10px] text-zinc-400 mt-0.5 block">Best for text hooks & subtitles</span>
+                        </div>
+                    </button>
+                    <button id="presetSubtitle" class="w-full text-left p-3 rounded-xl text-xs bg-zinc-900/20 border border-zinc-900 text-zinc-400 flex items-start transition hover:bg-zinc-900/50 hover:text-zinc-200">
+                        <i data-lucide="edit-3" class="w-4 h-4 mr-3 shrink-0 mt-0.5 text-zinc-500"></i>
+                        <div>
+                            <span class="font-semibold block text-zinc-300">Faceless Subtitle Layout</span>
+                            <span class="text-[10px] text-zinc-500 mt-0.5 block">Center-weighted for captions</span>
+                        </div>
+                    </button>
+                    <button id="presetQuote" class="w-full text-left p-3 rounded-xl text-xs bg-zinc-900/20 border border-zinc-900 text-zinc-400 flex items-start transition hover:bg-zinc-900/50 hover:text-zinc-200">
+                        <i data-lucide="help-circle" class="w-4 h-4 mr-3 shrink-0 mt-0.5 text-zinc-500"></i>
+                        <div>
+                            <span class="font-semibold block text-zinc-300">Quote Video Layout</span>
+                            <span class="text-[10px] text-zinc-500 mt-0.5 block">Big text, high readability</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </main>
+
+    <!-- Global Layout System Footer Component -->
+    <footer class="border-t border-zinc-800 bg-[#0d0f13] px-6 py-4 flex flex-col sm:flex-row justify-between items-center text-[11px] text-zinc-400 gap-2">
+        <p>&copy; 2026 AI Cash Lab. All rights reserved.</p>
+        <div class="flex space-x-6">
+            <span class="hover:text-zinc-200 transition cursor-pointer">Privacy Policy</span>
+            <span class="hover:text-zinc-200 transition cursor-pointer">Terms</span>
+            <a href="mailto:support@aicashlabtools.com" class="hover:text-zinc-200 transition">Contact</a>
+        </div>
+    </footer>
+
+    <!-- Runtime JavaScript Interaction Logic Processing Matrix -->
+    <script>
+        // DOM Node Target Pointers
+        const dropzone = document.getElementById('dropzone');
+        const fileInput = document.getElementById('fileInput');
+        const demoAsset = document.getElementById('demoAsset');
+        const canvasContainer = document.getElementById('canvasContainer');
+        const previewImage = document.getElementById('previewImage');
+        const overlayWrapper = document.getElementById('overlayWrapper');
+        const emptyState = document.getElementById('emptyState');
+        const diagnosisSummary = document.getElementById('diagnosisSummary');
+        const diagnosisBadge = document.getElementById('diagnosisBadge');
+        const diagnosisChecklist = document.getElementById('diagnosisChecklist');
+
+        // Control Matrix Elements
+        const opacitySlider = document.getElementById('opacitySlider');
+        const opacityVal = document.getElementById('opacityVal');
+        const toggleSafeZone = document.getElementById('toggleSafeZone');
+        const toggleIcons = document.getElementById('toggleIcons');
+        const toggleCaptions = document.getElementById('toggleCaptions');
+        const toggleHeader = document.getElementById('toggleHeader');
+
+        // Layout Target Selection Management Buttons
+        const btnStandard = document.getElementById('presetStandard');
+        const btnSubtitle = document.getElementById('presetSubtitle');
+        const btnQuote = document.getElementById('presetQuote');
+        const resetWorkspace = document.getElementById('resetWorkspace');
+        const zoomIn = document.getElementById('zoomIn');
+        const zoomOut = document.getElementById('zoomOut');
+        const zoomVal = document.getElementById('zoomVal');
+
+        let currentPreset = 'standard';
+        let zoomScale = 1.0;
+
+        // Initialize Lucide Icons Vector Matrix
+        lucide.createIcons();
+
+        // Canvas Media Action Processing Implementation Block
+        dropzone.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', handleMediaStreamInput);
+
+        dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.classList.add('is-dragging'); });
+        dropzone.addEventListener('dragleave', () => dropzone.classList.remove('is-dragging'));
+        dropzone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropzone.classList.remove('is-dragging');
+            if (e.dataTransfer.files.length) {
+                fileInput.files = e.dataTransfer.files;
+                handleMediaStreamInput();
+            }
+        });
+
+        demoAsset.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const demoSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f2937"/><stop offset="1" stop-color="#09090b"/></linearGradient></defs><rect width="1080" height="1920" fill="url(#bg)"/><circle cx="810" cy="310" r="190" fill="#facc15" opacity=".18"/><rect x="110" y="260" width="860" height="1180" rx="44" fill="#111827" opacity=".72"/><text x="540" y="520" fill="#facc15" font-family="Arial, sans-serif" font-size="54" font-weight="700" text-anchor="middle">HOOK TEXT</text><text x="540" y="612" fill="#ffffff" font-family="Arial, sans-serif" font-size="38" font-weight="700" text-anchor="middle">Keep this inside the safe zone</text><rect x="210" y="770" width="660" height="420" rx="32" fill="#334155" opacity=".65"/><text x="540" y="995" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="34" font-weight="700" text-anchor="middle">Sample Preview</text><text x="120" y="1620" fill="#ffffff" font-family="Arial, sans-serif" font-size="34" font-weight="700">@aicashlabtools</text><text x="120" y="1680" fill="#e4e4e7" font-family="Arial, sans-serif" font-size="28">Caption text stays clear here.</text></svg>`;
+            previewImage.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(demoSvg)}`;
+            previewImage.classList.remove('opacity-0');
+            emptyState.classList.add('hidden');
+            renderVectorLayoutEngine();
+            setDiagnosisState(true);
+        });
+
+        function handleMediaStreamInput() {
+            const file = fileInput.files[0];
+            if (file && file.type.startsWith('image/')) {
+                const streamReader = new FileReader();
+                streamReader.onload = function(event) {
+                    previewImage.src = event.target.result;
+                    previewImage.classList.remove('opacity-0');
+                    emptyState.classList.add('hidden');
+                    renderVectorLayoutEngine();
+                    setDiagnosisState(true);
+                }
+                streamReader.readAsDataURL(file);
+            }
+        }
+
+        function setDiagnosisState(hasAsset) {
+            if (hasAsset) {
+                diagnosisBadge.textContent = 'Ready to Review';
+                diagnosisBadge.className = 'self-start sm:self-center px-2.5 py-1 rounded-full border border-[#facc15]/25 bg-[#facc15]/10 text-[#facc15] text-[10px] font-bold uppercase tracking-wider';
+                diagnosisSummary.textContent = 'Review the recommended safe zone overlays manually. This version does not automatically detect text or objects yet.';
+                diagnosisChecklist.classList.remove('hidden');
+            } else {
+                diagnosisBadge.textContent = 'Awaiting Upload';
+                diagnosisBadge.className = 'self-start sm:self-center px-2.5 py-1 rounded-full border border-[#facc15]/25 bg-[#facc15]/10 text-[#facc15] text-[10px] font-bold uppercase tracking-wider';
+                diagnosisSummary.textContent = 'Upload an asset to check whether your hook text, captions, or key visuals may be covered by YouTube Shorts UI.';
+                diagnosisChecklist.classList.add('hidden');
+            }
+        }
+
+        // Programmatic Dynamic Canvas Vector Engine Loop
+        function renderVectorLayoutEngine() {
+            const showSafe = toggleSafeZone.checked;
+            const showIcons = toggleIcons.checked;
+            const showCaptions = toggleCaptions.checked;
+            const showHeader = toggleHeader.checked;
+
+            let svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" class="w-full h-full absolute inset-0 select-none pointer-events-none">`;
+
+            // Canvas Vector Configuration Layer 0: Safe Box Grid Guides
+            if (showSafe) {
+                svg += `<rect x="60" y="140" width="960" height="1380" fill="none" stroke="#34d399" stroke-width="4" stroke-dasharray="8 6" opacity="0.8"/>
+                        <text x="540" y="200" fill="#34d399" font-size="24" font-weight="600" text-anchor="middle" opacity="0.5">Safe Zone (Text)</text>`;
+            }
+
+            // Canvas Vector Configuration Layer 1: App Interface Header Element
+            if (showHeader) {
+                svg += `
+                    <g opacity="0.85">
+                        <rect x="0" y="0" width="1080" height="140" fill="black" fill-opacity="0.2"/>
+                        <rect x="60" y="0" width="960" height="140" fill="none" stroke="#60a5fa" stroke-width="3" stroke-dasharray="6 4" opacity="0.6"/>
+                        <text x="540" y="90" fill="#60a5fa" font-size="26" font-weight="600" text-anchor="middle">Top Header</text>
+                    </g>`;
+            }
+
+            // Canvas Vector Configuration Layer 2: Right Hand Utility Control Rails
+            if (showIcons) {
+                svg += `
+                    <g opacity="0.85">
+                        <rect x="910" y="550" width="130" height="850" fill="none" stroke="#f43f5e" stroke-width="3" stroke-dasharray="6 4" opacity="0.6"/>
+                        <!-- Text Rotation Logic Placeholder Matrix Simulation -->
+                        <text x="975" y="975" fill="#f43f5e" font-size="24" font-weight="600" text-anchor="middle" transform="rotate(90,975,975)">Right Icons</text>
+                    </g>`;
+            }
+
+            // Canvas Vector Configuration Layer 3: Lower Description Tracking Track
+            if (showCaptions) {
+                svg += `
+                    <g opacity="0.85">
+                        <rect x="0" y="1520" width="1080" height="400" fill="black" fill-opacity="0.3"/>
+                        <rect x="60" y="1520" width="960" height="340" fill="none" stroke="#c084fc" stroke-width="3" stroke-dasharray="6 4" opacity="0.6"/>
+                        <text x="540" y="1710" fill="#c084fc" font-size="26" font-weight="600" text-anchor="middle">Bottom Caption</text>
+                    </g>`;
+            }
+
+            // Custom Content Architectural Anchor Node Presets
+            if (currentPreset === 'standard') {
+                svg += `<rect x="140" y="320" width="800" height="360" fill="#facc15" fill-opacity="0.04" stroke="#facc15" stroke-width="2" stroke-dasharray="4 4" opacity="0.4"/>`;
+            } else if (currentPreset === 'subtitle') {
+                svg += `<rect x="140" y="860" width="800" height="260" fill="#facc15" fill-opacity="0.04" stroke="#facc15" stroke-width="2" stroke-dasharray="4 4" opacity="0.4"/>`;
+            } else if (currentPreset === 'quote') {
+                svg += `<rect x="100" y="480" width="880" height="800" fill="#facc15" fill-opacity="0.04" stroke="#facc15" stroke-width="2" stroke-dasharray="4 4" opacity="0.4"/>`;
+            }
+
+            svg += `</svg>`;
+            overlayWrapper.innerHTML = svg;
+        }
+
+        // Live Real-Time Property Controls Execution Functions
+        opacitySlider.addEventListener('input', (e) => {
+            const level = e.target.value;
+            opacityVal.textContent = `${level}%`;
+            overlayWrapper.style.opacity = level / 100;
+        });
+
+        [toggleSafeZone, toggleIcons, toggleCaptions, toggleHeader].forEach(element => {
+            element.addEventListener('change', renderVectorLayoutEngine);
+        });
+
+        // Interface Preset Selection Styling Updates
+        function triggerPresetStyleSwap(activeButton, targetSelectionName) {
+            [btnStandard, btnSubtitle, btnQuote].forEach(btn => {
+                btn.className = "w-full text-left p-3 rounded-xl text-xs bg-zinc-900/20 border border-zinc-900 text-zinc-400 flex items-start transition hover:bg-zinc-900/50 hover:text-zinc-200";
+                const icon = btn.querySelector('svg');
+                icon.className.baseVal = "w-4 h-4 mr-3 shrink-0 mt-0.5 text-zinc-500";
+            });
+            activeButton.className = "w-full text-left p-3 rounded-xl text-xs bg-[#1a1d24] border border-[#facc15]/30 text-white flex items-start transition";
+            activeButton.querySelector('svg').className.baseVal = "w-4 h-4 text-[#facc15] mr-3 shrink-0 mt-0.5";
+
+            currentPreset = targetSelectionName;
+            renderVectorLayoutEngine();
+        }
+
+        btnStandard.addEventListener('click', () => triggerPresetStyleSwap(btnStandard, 'standard'));
+        btnSubtitle.addEventListener('click', () => triggerPresetStyleSwap(btnSubtitle, 'subtitle'));
+        btnQuote.addEventListener('click', () => triggerPresetStyleSwap(btnQuote, 'quote'));
+
+        // Workspace Canvas Control Logic Functions
+        zoomIn.addEventListener('click', () => {
+            if(zoomScale < 1.4) { zoomScale += 0.1; applyCanvasZoomTransformation(); }
+        });
+        zoomOut.addEventListener('click', () => {
+            if(zoomScale > 0.7) { zoomScale -= 0.1; applyCanvasZoomTransformation(); }
+        });
+        function applyCanvasZoomTransformation() {
+            canvasContainer.style.transform = `scale(${zoomScale})`;
+            zoomVal.textContent = zoomScale === 1.0 ? 'Fit' : `${Math.round(zoomScale * 100)}%`;
+        }
+
+        resetWorkspace.addEventListener('click', () => {
+            previewImage.src = "";
+            previewImage.classList.add('opacity-0');
+            emptyState.classList.remove('hidden');
+            fileInput.value = "";
+            zoomScale = 1.0;
+            applyCanvasZoomTransformation();
+            renderVectorLayoutEngine();
+            setDiagnosisState(false);
+        });
+
+        // Initialize Active Template Engine Rendering State
+        renderVectorLayoutEngine();
+    </script>
+</body>
+</html>
