@@ -20,4 +20,8 @@
     <loc>https://aicashlabtools.com/late-fee-calculator/</loc>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://aicashlabtools.com/resolution-checker/</loc>
+    <priority>0.8</priority>
+  </url>
 </urlset>
