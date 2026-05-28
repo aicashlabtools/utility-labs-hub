@@ -86,6 +86,12 @@
                 <span class="text-[10px] font-semibold tracking-widest text-zinc-400 uppercase">Creator Tools</span>
             </div>
         </a>
+        <nav class="hidden md:flex items-center gap-5 text-xs font-semibold text-zinc-400">
+            <a href="../creator-utilities/" class="hover:text-[#facc15] transition">Creator Utilities</a>
+            <a href="../tiktok-safe-zone/" class="hover:text-[#facc15] transition">TikTok</a>
+            <a href="../youtube-shorts-safe-zone/" class="hover:text-[#facc15] transition">YouTube Shorts</a>
+            <a href="../instagram-reels-safe-zone/" class="text-[#facc15]">Instagram Reels</a>
+        </nav>
     </header>
 
     <!-- Main Production Workspace Blueprint -->
@@ -298,22 +304,22 @@
                     <button id="presetStandard" class="w-full text-left p-3 rounded-xl text-xs bg-[#1a1d24] border border-[#facc15]/30 text-white flex items-start transition">
                         <i data-lucide="star" class="w-4 h-4 text-[#facc15] mr-3 shrink-0 mt-0.5"></i>
                         <div>
-                            <span class="font-semibold block">Standard Hook Layout</span>
-                            <span class="text-[10px] text-zinc-400 mt-0.5 block">Best for text hooks & subtitles</span>
+                            <span class="font-semibold block">Reels Hook Layout</span>
+                            <span class="text-[10px] text-zinc-400 mt-0.5 block">Best for hook text and cover-safe visuals</span>
                         </div>
                     </button>
                     <button id="presetSubtitle" class="w-full text-left p-3 rounded-xl text-xs bg-zinc-900/20 border border-zinc-900 text-zinc-400 flex items-start transition hover:bg-zinc-900/50 hover:text-zinc-200">
                         <i data-lucide="edit-3" class="w-4 h-4 mr-3 shrink-0 mt-0.5 text-zinc-500"></i>
                         <div>
-                            <span class="font-semibold block text-zinc-300">Faceless Subtitle Layout</span>
-                            <span class="text-[10px] text-zinc-500 mt-0.5 block">Center-weighted for captions</span>
+                            <span class="font-semibold block text-zinc-300">Reels Caption Layout</span>
+                            <span class="text-[10px] text-zinc-500 mt-0.5 block">Keeps captions above lower UI areas</span>
                         </div>
                     </button>
                     <button id="presetQuote" class="w-full text-left p-3 rounded-xl text-xs bg-zinc-900/20 border border-zinc-900 text-zinc-400 flex items-start transition hover:bg-zinc-900/50 hover:text-zinc-200">
                         <i data-lucide="help-circle" class="w-4 h-4 mr-3 shrink-0 mt-0.5 text-zinc-500"></i>
                         <div>
-                            <span class="font-semibold block text-zinc-300">Quote Video Layout</span>
-                            <span class="text-[10px] text-zinc-500 mt-0.5 block">Big text, high readability</span>
+                            <span class="font-semibold block text-zinc-300">Feed Crop Awareness</span>
+                            <span class="text-[10px] text-zinc-500 mt-0.5 block">For Reels that may appear in feed crops</span>
                         </div>
                     </button>
                 </div>
@@ -322,6 +328,35 @@
         </div>
         </div>
     </main>
+
+    <section class="max-w-6xl mx-auto w-full px-6 pb-16 text-zinc-400 leading-relaxed">
+        <hr class="border-0 border-t border-zinc-800 mb-10">
+        <div class="max-w-4xl">
+            <h2 class="text-2xl font-bold text-white mb-4">How to Use the Instagram Reels Safe Zone Checker</h2>
+            <p class="mb-5">
+                Instagram Reels can appear in multiple contexts, including the Reels tab and the main feed. This free <strong class="text-zinc-200">Instagram Reels safe zone checker</strong> helps you review whether captions, hook text, logos, or key visuals may overlap common mobile UI areas before you post.
+            </p>
+
+            <h3 class="text-xl font-semibold text-white mb-3">Why Does Reels Text Get Cut Off in Feed?</h3>
+            <p class="mb-5">
+                A Reel is often edited as a 9:16 vertical video, but it may be previewed or surfaced in feed contexts where cropping and interface overlays change what viewers see. Text placed too close to the top, bottom, or right side can become harder to read. Keeping important content inside the recommended safe area gives your Reels more room across mobile placements.
+            </p>
+
+            <h3 class="text-xl font-semibold text-white mb-3">Checking Caption and Cover-Safe Layouts</h3>
+            <p class="mb-3">
+                Use the strategy presets to manually review the most common Reels layout risks:
+            </p>
+            <ul class="list-disc pl-5 mb-5 space-y-2">
+                <li><strong class="text-zinc-200">Reels Hook Layout:</strong> Reviews headline placement for vertical mobile viewing.</li>
+                <li><strong class="text-zinc-200">Reels Caption Layout:</strong> Helps keep subtitles above lower caption and audio areas.</li>
+                <li><strong class="text-zinc-200">Feed Crop Awareness:</strong> Gives feed-visible text and visuals a quick clearance review.</li>
+            </ul>
+
+            <p class="text-sm text-zinc-500">
+                Creating for other networks? Try the <a href="../tiktok-safe-zone/" class="text-[#facc15] hover:text-yellow-300 transition">TikTok Safe Zone Checker</a> or the <a href="../youtube-shorts-safe-zone/" class="text-[#facc15] hover:text-yellow-300 transition">YouTube Shorts Safe Zone Grid</a>.
+            </p>
+        </div>
+    </section>
 
     <!-- Global Layout System Footer Component -->
     <footer class="border-t border-zinc-800 bg-[#0d0f13] px-6 py-4 flex flex-col sm:flex-row justify-between items-center text-[11px] text-zinc-400 gap-2">
