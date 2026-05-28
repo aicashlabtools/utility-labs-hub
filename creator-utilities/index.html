@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full bg-[#0a0b0d]">
+<html lang="en" class="min-h-full bg-[#0d0f13]">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +8,18 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        html {
+            overflow-y: scroll;
+            scrollbar-width: thin;
+            scrollbar-color: #71717a #14161c;
+        }
         body { font-family: 'Inter', sans-serif; }
 
         /* Custom scrollbar to keep it clean */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #0f1115; }
-        ::-webkit-scrollbar-thumb { background: #22252d; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #2c303b; }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #14161c; }
+        ::-webkit-scrollbar-thumb { background: #71717a; border-radius: 999px; border: 2px solid #14161c; }
+        ::-webkit-scrollbar-thumb:hover { background: #a1a1aa; }
 
         /* iOS Style Toggle Switch Switches */
         .switch { position: relative; display: inline-block; width: 44px; height: 24px; }
@@ -23,55 +28,109 @@
         .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .3s; border-radius: 50%; }
         input:checked + .slider { background-color: #facc15; }
         input:checked + .slider:before { transform: translateX(20px); }
+
+        @keyframes borderDrift {
+            to { background-position: 28px 0, -28px 100%, 0 -28px, 100% 28px; }
+        }
+
+        .dropzone-premium {
+            position: relative;
+            background: radial-gradient(circle at 50% 0%, rgba(250, 204, 21, 0.06), transparent 34%), #151820;
+            border-color: #3f3f46;
+            transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease, background .2s ease;
+        }
+
+        .dropzone-premium::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            opacity: .55;
+            background:
+                linear-gradient(90deg, #71717a 50%, transparent 0) repeat-x,
+                linear-gradient(90deg, #71717a 50%, transparent 0) repeat-x,
+                linear-gradient(0deg, #71717a 50%, transparent 0) repeat-y,
+                linear-gradient(0deg, #71717a 50%, transparent 0) repeat-y;
+            background-position: 0 0, 0 100%, 0 0, 100% 0;
+            background-size: 14px 1px, 14px 1px, 1px 14px, 1px 14px;
+            animation: borderDrift 18s linear infinite;
+        }
+
+        .dropzone-premium:hover,
+        .dropzone-premium.is-dragging {
+            border-color: rgba(250, 204, 21, .45);
+            box-shadow: 0 0 0 1px rgba(250, 204, 21, .08), 0 18px 44px rgba(250, 204, 21, .09);
+            transform: translateY(-1px);
+        }
+
+        .dropzone-premium.is-dragging::before {
+            opacity: 1;
+            animation-duration: 3s;
+        }
     </style>
 </head>
-<body class="h-full text-zinc-300 flex flex-col justify-between overflow-x-hidden">
+<body class="min-h-screen text-zinc-300 flex flex-col overflow-x-hidden bg-[#0d0f13]">
 
     <!-- Premium Minimal Header -->
-    <header class="border-b border-zinc-900 bg-[#0a0b0d] px-6 py-4 flex justify-between items-center z-10">
-        <div class="flex items-center space-x-3">
-            <!-- Brand Logo Mark Placeholder matched with text guidelines -->
-            <div class="w-6 h-6 rounded bg-[#facc15] flex items-center justify-center text-black font-bold text-xs tracking-tighter">⚡</div>
+    <header class="border-b border-zinc-800 bg-[#0d0f13] px-6 py-4 flex justify-between items-center z-10">
+        <a href="index.html" class="flex items-center space-x-3 group" aria-label="AI Cash Lab Tools homepage">
+            <img src="assets/ai-cash-lab-logo-32.png" alt="AI Cash Lab logo" class="w-7 h-7 rounded-md border border-[#facc15]/30 object-cover shadow-[0_0_14px_rgba(250,204,21,0.25)]">
             <div class="flex items-baseline space-x-2">
-                <span class="text-sm font-bold tracking-wider text-white uppercase">AI Cash Lab</span>
-                <span class="text-[10px] font-semibold tracking-widest text-zinc-500 uppercase">Creator Tools</span>
+                <span class="text-sm font-bold tracking-wider text-white uppercase group-hover:text-[#facc15] transition">AI Cash Lab</span>
+                <span class="text-[10px] font-semibold tracking-widest text-zinc-400 uppercase">Creator Tools</span>
             </div>
-        </div>
-        <nav class="flex items-center space-x-6 text-xs font-medium tracking-wider">
-            <span class="text-[#facc15] border-b-2 border-[#facc15] pb-4 -mb-4 cursor-default">TikTok (Mobile)</span>
-            <span class="text-zinc-500 hover:text-zinc-300 transition cursor-not-allowed">IG Reels</span>
-            <span class="text-zinc-500 hover:text-zinc-300 transition cursor-not-allowed">YT Shorts</span>
-            <button class="text-zinc-400 hover:text-white transition pl-4 border-l border-zinc-800">
-                <i data-lucide="sun" class="w-4 h-4"></i>
-            </button>
-        </nav>
+        </a>
     </header>
 
     <!-- Main Production Workspace Blueprint -->
-    <main class="flex-1 flex flex-col xl:flex-row p-6 gap-5 overflow-hidden max-w-[1800px] w-full mx-auto">
+    <main class="flex flex-col p-6 gap-5 overflow-visible max-w-[1800px] w-full mx-auto">
+
+        <!-- ================= HERO INTRO ================= -->
+        <section class="flex flex-col items-center text-center gap-4 pt-2 pb-2">
+            <div>
+                <span class="block text-[11px] font-bold tracking-widest uppercase text-[#facc15] mb-2">TikTok Safe Zone Checker</span>
+                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-3">See Your Content Before You Post</h1>
+                <p class="max-w-2xl text-sm text-zinc-300 leading-relaxed">
+                    Upload your image or video frame to preview how it will appear on TikTok. Keep your text, hooks, and important visuals inside the safe zone.
+                </p>
+            </div>
+            <div class="border border-zinc-700 bg-[#151820] rounded-lg px-4 py-3 flex items-center space-x-3 shadow-xl">
+                <div class="w-7 h-7 rounded-full bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i>
+                </div>
+                <div class="text-left">
+                    <span class="block text-xs font-semibold text-white">Designed for TikTok Mobile</span>
+                    <span class="block text-[10px] text-zinc-400">9:16 Vertical - 1080 x 1920px</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="flex flex-col xl:flex-row gap-5 w-full">
 
         <!-- ================= LEFT COLUMN PANEL ================= -->
         <div class="w-full xl:w-64 flex flex-col gap-4 shrink-0">
             <!-- Main Drag and Drop Interface Container -->
-            <div id="dropzone" class="bg-[#111318] border border-zinc-900 rounded-xl p-5 text-center transition hover:border-zinc-800 cursor-pointer flex flex-col items-center justify-center h-64">
+            <div id="dropzone" class="dropzone-premium border rounded-xl p-5 text-center cursor-pointer flex flex-col items-center justify-center h-72">
                 <div class="w-12 h-12 rounded-full bg-zinc-900 flex items-center justify-center mb-4 border border-zinc-800">
                     <i data-lucide="upload-cloud" class="h-5 w-5 text-[#facc15]"></i>
                 </div>
                 <h3 class="text-xs font-semibold text-white mb-1">Drag & drop your image</h3>
                 <p class="text-xs font-semibold text-white mb-2">or video frame</p>
-                <p class="text-[10px] text-zinc-500 mb-4">Supports JPG, PNG, WEBP<br>Max 20MB</p>
-                <button class="w-full py-2 bg-[#facc15] hover:bg-[#eab308] text-black font-bold text-xs rounded-lg transition">Choose File</button>
+                <p class="text-[10px] text-zinc-400 mb-4">Supports JPG, PNG, WEBP<br>Max 20MB</p>
+                <button type="button" class="w-full py-2 bg-[#facc15] hover:bg-[#eab308] text-black font-bold text-xs rounded-lg transition">Choose File</button>
+                <button type="button" id="demoAsset" class="mt-2 w-full py-2 bg-zinc-900/70 hover:bg-zinc-800 border border-zinc-700 hover:border-[#facc15]/40 text-zinc-200 hover:text-white font-semibold text-xs rounded-lg transition">Try Demo Asset</button>
                 <input type="file" id="fileInput" class="hidden" accept="image/*">
             </div>
 
             <!-- Context Prompt Tip Widget Box -->
-            <div class="bg-[#111318] border border-zinc-900 rounded-xl p-4 flex items-start space-x-3">
+            <div class="bg-[#151820] border border-zinc-800 rounded-xl p-4 flex items-start space-x-3">
                 <i data-lucide="lightbulb" class="w-4 h-4 text-[#facc15] shrink-0 mt-0.5"></i>
                 <p class="text-[11px] text-zinc-400 leading-relaxed"><span class="font-semibold text-white">Tip:</span> Export your frame as 9:16 for best results.</p>
             </div>
 
             <!-- Static Cheat Sheet Specification Matrix -->
-            <div class="bg-[#111318] border border-zinc-900 rounded-xl p-4 mt-auto">
+            <div class="bg-[#151820] border border-zinc-800 rounded-xl p-4">
                 <div class="flex items-center space-x-2 text-[10px] font-bold tracking-wider uppercase text-zinc-400 mb-3">
                     <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-[#facc15]"></i>
                     <span>Safe Zone Cheat Sheet</span>
@@ -89,13 +148,14 @@
         </div>
 
         <!-- ================= CENTER WORKSPACE PANEL ================= -->
-        <div class="flex-1 bg-[#111318]/40 border border-zinc-900 rounded-xl flex flex-col relative overflow-hidden min-h-[500px]">
+        <div class="flex-1 flex flex-col gap-4 min-w-0">
+        <div class="flex-1 bg-[#151820]/60 border border-zinc-800 rounded-xl flex flex-col relative overflow-hidden min-h-[500px]">
 
             <!-- Main Sandbox Display Viewport Area -->
-            <div class="flex-1 flex items-center justify-center p-6 relative overflow-auto">
+            <div class="flex items-start justify-center p-6 relative overflow-visible">
 
                 <!-- Dynamic Graphic State Layout Architecture -->
-                <div id="canvasContainer" class="relative shadow-2xl transition-all duration-200 aspect-[9/16] bg-[#111318] border border-zinc-900 rounded-md w-[320px] sm:w-[360px] md:w-[380px] lg:w-[400px] xl:w-[410px]">
+                <div id="canvasContainer" class="relative shadow-2xl transition-all duration-200 aspect-[9/16] bg-[#151820] border border-zinc-700 rounded-md w-[320px] sm:w-[360px] md:w-[380px] lg:w-[400px] xl:w-[410px]">
 
                     <!-- Pre-upload Empty Mockup State Component Layout Grid -->
                     <div id="emptyState" class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-0">
@@ -115,7 +175,7 @@
             </div>
 
             <!-- Bottom Interactive Floating Canvas Controls Panel -->
-            <div class="border-t border-zinc-900 bg-[#111318] px-4 py-3 flex justify-between items-center z-30">
+            <div class="border-t border-zinc-800 bg-[#151820] px-4 py-3 flex justify-between items-center z-30">
                 <div class="flex items-center space-x-1.5 bg-[#0a0b0d] border border-zinc-900 rounded-lg p-0.5">
                     <button id="zoomOut" class="w-7 h-7 flex items-center justify-center rounded hover:bg-zinc-900 text-zinc-400 hover:text-white transition"><i data-lucide="minus" class="w-3.5 h-3.5"></i></button>
                     <span id="zoomVal" class="text-[10px] font-mono px-2 text-zinc-400 select-none">Fit</span>
@@ -123,8 +183,45 @@
                 </div>
                 <button id="resetWorkspace" class="px-3 py-1.5 bg-[#0a0b0d] hover:bg-zinc-900 border border-zinc-900 rounded-lg text-xs font-medium text-zinc-400 hover:text-white flex items-center space-x-1.5 transition">
                     <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
-                    <span>Reset</span>
+                    <span>Clear Image / Reset</span>
                 </button>
+            </div>
+        </div>
+
+            <!-- Safe Zone Diagnosis -->
+            <div id="diagnosisCard" class="border border-zinc-800 bg-[#151820] rounded-xl p-4 shadow-xl">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-3">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-lg bg-zinc-900 flex items-center justify-center shrink-0 border border-zinc-800">
+                            <i data-lucide="scan-search" class="w-4 h-4 text-[#facc15]"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-white">Safe Zone Diagnosis</h4>
+                            <p id="diagnosisSummary" class="text-[11px] text-zinc-400 leading-normal">Upload an asset to check whether your hook text, captions, or key visuals may be covered by TikTok UI.</p>
+                        </div>
+                    </div>
+                    <span id="diagnosisBadge" class="self-start sm:self-center px-2.5 py-1 rounded-full border border-[#facc15]/25 bg-[#facc15]/10 text-[#facc15] text-[10px] font-bold uppercase tracking-wider">Awaiting Upload</span>
+                </div>
+
+                <div id="diagnosisChecklist" class="hidden grid grid-cols-1 md:grid-cols-3 gap-2 mb-3">
+                    <div class="rounded-lg border border-emerald-400/15 bg-emerald-400/5 p-3">
+                        <div class="flex items-center gap-2 text-xs font-semibold text-emerald-300 mb-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Hook / headline area</div>
+                        <p class="text-[10px] text-zinc-400 leading-relaxed">Keep key text inside the green safe zone.</p>
+                    </div>
+                    <div class="rounded-lg border border-[#facc15]/20 bg-[#facc15]/5 p-3">
+                        <div class="flex items-center gap-2 text-xs font-semibold text-[#facc15] mb-1"><span class="w-1.5 h-1.5 rounded-full bg-[#facc15]"></span>Right-side icons area</div>
+                        <p class="text-[10px] text-zinc-400 leading-relaxed">Avoid placing logos or CTAs behind the right-side interaction stack.</p>
+                    </div>
+                    <div class="rounded-lg border border-[#facc15]/20 bg-[#facc15]/5 p-3">
+                        <div class="flex items-center gap-2 text-xs font-semibold text-[#facc15] mb-1"><span class="w-1.5 h-1.5 rounded-full bg-[#facc15]"></span>Bottom caption area</div>
+                        <p class="text-[10px] text-zinc-400 leading-relaxed">Keep subtitles above the bottom caption area.</p>
+                    </div>
+                </div>
+
+                <a href="https://aicashlabofficial.gumroad.com/l/uuqxat?layout=profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-semibold text-[#facc15] hover:text-yellow-300 transition">
+                    <span>Need to fix the layout? Try the AI Image Size Checker & Resizer.</span>
+                    <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                </a>
             </div>
         </div>
 
@@ -132,7 +229,7 @@
         <div class="w-full xl:w-96 flex flex-col gap-4 shrink-0">
 
             <!-- Panel 1: Interactive Overlay Control Settings -->
-            <div class="bg-[#111318] border border-zinc-900 rounded-xl p-5">
+            <div class="bg-[#151820] border border-zinc-800 rounded-xl p-5">
                 <div class="flex items-center space-x-2 text-xs font-bold tracking-wider text-white uppercase mb-5">
                     <i data-lucide="eye" class="w-4 h-4 text-[#facc15]"></i>
                     <span>Overlay Toggles</span>
@@ -183,7 +280,7 @@
             </div>
 
             <!-- Panel 2: Strategy Content Mapping Placement Targets -->
-            <div class="bg-[#111318] border border-zinc-900 rounded-xl p-5">
+            <div class="bg-[#151820] border border-zinc-800 rounded-xl p-5">
                 <div class="flex items-center space-x-2 text-xs font-bold tracking-wider text-white uppercase mb-4">
                     <i data-lucide="layout" class="w-4 h-4 text-[#facc15]"></i>
                     <span>Strategy Presets</span>
@@ -213,32 +310,17 @@
                 </div>
             </div>
 
-            <!-- Panel 3: Highly Strategic Native Resolution Funnel Accent -->
-            <div class="border border-[#facc15]/20 bg-[#111318] rounded-xl p-4 mt-auto flex items-center justify-between shadow-xl">
-                <div class="flex items-center space-x-3 max-w-[65%]">
-                    <div class="w-8 h-8 rounded-lg bg-zinc-900 flex items-center justify-center shrink-0 border border-zinc-800">
-                        <i data-lucide="zap" class="w-4 h-4 text-[#facc15]"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-xs font-semibold text-white mb-0.5">Need to resize, reposition, or optimize this asset?</h4>
-                        <p class="text-[10px] text-zinc-500 leading-normal">Use our AI Image Size Checker & Resizer to instantly fix your content for any platform.</p>
-                    </div>
-                </div>
-                <a href="#" class="px-3 py-2 bg-[#facc15] hover:bg-[#eab308] text-black font-bold text-[11px] rounded-lg transition shrink-0 flex items-center space-x-1">
-                    <span>Try the Resizer</span>
-                    <i data-lucide="arrow-right" class="w-3 h-3"></i>
-                </a>
-            </div>
+        </div>
         </div>
     </main>
 
     <!-- Global Layout System Footer Component -->
-    <footer class="border-t border-zinc-900 bg-[#0a0b0d] px-6 py-4 flex flex-col sm:flex-row justify-between items-center text-[11px] text-zinc-600 gap-2">
+    <footer class="border-t border-zinc-800 bg-[#0d0f13] px-6 py-4 flex flex-col sm:flex-row justify-between items-center text-[11px] text-zinc-400 gap-2">
         <p>&copy; 2026 AI Cash Lab. All rights reserved.</p>
         <div class="flex space-x-6">
-            <span class="hover:text-zinc-400 transition cursor-pointer">Privacy Policy</span>
-            <span class="hover:text-zinc-400 transition cursor-pointer">Terms</span>
-            <span class="hover:text-zinc-400 transition cursor-pointer">Contact</span>
+            <span class="hover:text-zinc-200 transition cursor-pointer">Privacy Policy</span>
+            <span class="hover:text-zinc-200 transition cursor-pointer">Terms</span>
+            <a href="mailto:support@aicashlabtools.com" class="hover:text-zinc-200 transition">Contact</a>
         </div>
     </footer>
 
@@ -247,10 +329,14 @@
         // DOM Node Target Pointers
         const dropzone = document.getElementById('dropzone');
         const fileInput = document.getElementById('fileInput');
+        const demoAsset = document.getElementById('demoAsset');
         const canvasContainer = document.getElementById('canvasContainer');
         const previewImage = document.getElementById('previewImage');
         const overlayWrapper = document.getElementById('overlayWrapper');
         const emptyState = document.getElementById('emptyState');
+        const diagnosisSummary = document.getElementById('diagnosisSummary');
+        const diagnosisBadge = document.getElementById('diagnosisBadge');
+        const diagnosisChecklist = document.getElementById('diagnosisChecklist');
 
         // Control Matrix Elements
         const opacitySlider = document.getElementById('opacitySlider');
@@ -279,15 +365,25 @@
         dropzone.addEventListener('click', () => fileInput.click());
         fileInput.addEventListener('change', handleMediaStreamInput);
 
-        dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.classList.add('border-[#facc15]'); });
-        dropzone.addEventListener('dragleave', () => dropzone.classList.remove('border-[#facc15]'));
+        dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.classList.add('is-dragging'); });
+        dropzone.addEventListener('dragleave', () => dropzone.classList.remove('is-dragging'));
         dropzone.addEventListener('drop', (e) => {
             e.preventDefault();
-            dropzone.classList.remove('border-[#facc15]');
+            dropzone.classList.remove('is-dragging');
             if (e.dataTransfer.files.length) {
                 fileInput.files = e.dataTransfer.files;
                 handleMediaStreamInput();
             }
+        });
+
+        demoAsset.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const demoSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f2937"/><stop offset="1" stop-color="#09090b"/></linearGradient></defs><rect width="1080" height="1920" fill="url(#bg)"/><circle cx="810" cy="310" r="190" fill="#facc15" opacity=".18"/><rect x="110" y="260" width="860" height="1180" rx="44" fill="#111827" opacity=".72"/><text x="540" y="520" fill="#facc15" font-family="Arial, sans-serif" font-size="54" font-weight="700" text-anchor="middle">HOOK TEXT</text><text x="540" y="612" fill="#ffffff" font-family="Arial, sans-serif" font-size="38" font-weight="700" text-anchor="middle">Keep this inside the safe zone</text><rect x="210" y="770" width="660" height="420" rx="32" fill="#334155" opacity=".65"/><text x="540" y="995" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="34" font-weight="700" text-anchor="middle">Sample Preview</text><text x="120" y="1620" fill="#ffffff" font-family="Arial, sans-serif" font-size="34" font-weight="700">@aicashlabtools</text><text x="120" y="1680" fill="#e4e4e7" font-family="Arial, sans-serif" font-size="28">Caption text stays clear here.</text></svg>`;
+            previewImage.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(demoSvg)}`;
+            previewImage.classList.remove('opacity-0');
+            emptyState.classList.add('hidden');
+            renderVectorLayoutEngine();
+            setDiagnosisState(true);
         });
 
         function handleMediaStreamInput() {
@@ -299,8 +395,23 @@
                     previewImage.classList.remove('opacity-0');
                     emptyState.classList.add('hidden');
                     renderVectorLayoutEngine();
+                    setDiagnosisState(true);
                 }
                 streamReader.readAsDataURL(file);
+            }
+        }
+
+        function setDiagnosisState(hasAsset) {
+            if (hasAsset) {
+                diagnosisBadge.textContent = 'Ready to Review';
+                diagnosisBadge.className = 'self-start sm:self-center px-2.5 py-1 rounded-full border border-[#facc15]/25 bg-[#facc15]/10 text-[#facc15] text-[10px] font-bold uppercase tracking-wider';
+                diagnosisSummary.textContent = 'Review the recommended safe zone overlays manually. This version does not automatically detect text or objects yet.';
+                diagnosisChecklist.classList.remove('hidden');
+            } else {
+                diagnosisBadge.textContent = 'Awaiting Upload';
+                diagnosisBadge.className = 'self-start sm:self-center px-2.5 py-1 rounded-full border border-[#facc15]/25 bg-[#facc15]/10 text-[#facc15] text-[10px] font-bold uppercase tracking-wider';
+                diagnosisSummary.textContent = 'Upload an asset to check whether your hook text, captions, or key visuals may be covered by TikTok UI.';
+                diagnosisChecklist.classList.add('hidden');
             }
         }
 
@@ -408,9 +519,10 @@
             previewImage.classList.add('opacity-0');
             emptyState.classList.remove('hidden');
             fileInput.value = "";
-            overlayWrapper.innerHTML = "";
             zoomScale = 1.0;
             applyCanvasZoomTransformation();
+            renderVectorLayoutEngine();
+            setDiagnosisState(false);
         });
 
         // Initialize Active Template Engine Rendering State
