@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paid Traffic Profit Calculator | AI Cash Lab</title>
+    
+    <!-- SEO Architecture -->
+    <meta name="description" content="Calculate your true return on ad spend. Factor in CPC, conversion rates, and platform fees to see if your paid traffic funnel is profitable or burning cash.">
+    <meta name="keywords" content="ad spend roi calculator, paid traffic profit calculator, freelance ad roi, tiktok ad cost calculator, break-even cpc calculator">
+    
+    <style>
+        :root {
+            --bg-main: #0b0d11;
+            --bg-card: #131722;
+            --bg-input: #1e222b;
+            --accent-yellow: #fcd535;
+            --text-main: #ffffff;
+            --text-muted: #8a8d93;
+            --status-green: #22c55e;
+            --status-warning: #f39200;
+            --status-alert: #ff4d4d;
+            --border-color: #262b36;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 40px; }
+        header .brand { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-yellow); font-weight: 700; margin-bottom: 8px; }
+        header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+        header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        .workspace { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
+        @media (max-width: 900px) { .workspace { grid-template-columns: 1fr; } }
+
+        .input-panel, .dashboard-panel {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-label-row { display: flex; justify-content: space-between; align-items: center; }
+        label { font-size: 0.9rem; font-weight: 600; }
+        .label-val { color: var(--accent-yellow); font-weight: 700; font-size: 1rem; }
+        input[type="range"] { width: 100%; accent-color: var(--accent-yellow); cursor: pointer; }
+
+        /* Platform Fee Advanced Fields Styling */
+        .fee-config-toggle {
+            font-size: 0.8rem; color: var(--text-muted); text-decoration: underline; cursor: pointer; display: inline-block; margin-top: -8px; margin-bottom: 4px;
+        }
+        .fee-config-panel {
+            display: none; background-color: var(--bg-main); border: 1px solid var(--border-color); padding: 16px; border-radius: 8px; gap: 16px; flex-direction: column;
+        }
+
+        .hero-metric {
+            background: linear-gradient(135deg, #131722 0%, var(--bg-input) 100%);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .hero-metric .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 4px; }
+        .hero-metric .value { font-size: 3.5rem; font-weight: 900; color: var(--status-alert); transition: color 0.3s ease; }
+
+        .output-list { display: flex; flex-direction: column; gap: 12px; }
+        .output-row {
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--bg-input); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+        .output-row span.val { font-weight: 700; text-align: right; }
+
+        .verdict-box {
+            font-size: 0.85rem; line-height: 1.5; padding: 14px; border-radius: 8px;
+            background-color: rgba(255, 77, 77, 0.02); border: 1px dashed var(--border-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .seo-content { border-top: 1px solid var(--border-color); margin-top: 60px; padding-top: 40px; color: var(--text-muted); }
+        .seo-content h2 { color: var(--text-main); font-size: 1.5rem; margin-bottom: 12px; }
+        .seo-content p { font-size: 0.9rem; margin-bottom: 12px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="brand">AI Cash Lab • Creator Utilities</div>
+        <h1>Paid Traffic Profit Calculator</h1>
+        <p>Are you driving scalable growth or burning cash? Reveal your true paid funnel ROI instantly.</p>
+    </header>
+
+    <div class="workspace">
+        <!-- Funnel Parameters Input Panel -->
+        <div class="input-panel">
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-price">Product Sales Price</label>
+                    <span class="label-val" id="val-price">$47</span>
+                </div>
+                <input type="range" id="input-price" min="5" max="500" step="1" value="47">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-budget">Monthly Ad Budget</label>
+                    <span class="label-val" id="val-budget">$1,000</span>
+                </div>
+                <input type="range" id="input-budget" min="100" max="10000" step="100" value="1000">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-cpc">Average Cost Per Click (CPC)</label>
+                    <span class="label-val" id="val-cpc">$0.50</span>
+                </div>
+                <input type="range" id="input-cpc" min="0.05" max="4.00" step="0.05" value="0.50">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-conv">Landing Page Conversion Rate</label>
+                    <span class="label-val" id="val-conv">1.5%</span>
+                </div>
+                <input type="range" id="input-conv" min="0.1" max="15" step="0.1" value="1.5">
+            </div>
+
+            <!-- Platform Fee Adjustment Module Interface -->
+            <div>
+                <span class="fee-config-toggle" id="toggle-fees">⚙️ Adjust Platform Fees (Default: Gumroad 10% + $0.50)</span>
+                <div class="fee-config-panel" id="fee-panel">
+                    <div class="form-group">
+                        <div class="form-label-row">
+                            <label for="input-fee-pct">Platform Percent Cut</label>
+                            <span class="label-val" id="val-fee-pct">10%</span>
+                        </div>
+                        <input type="range" id="input-fee-pct" min="0" max="30" step="1" value="10">
+                    </div>
+                    <div class="form-group">
+                        <div class="form-label-row">
+                            <label for="input-fee-fixed">Fixed Fee Per Sale</label>
+                            <span class="label-val" id="val-fee-fixed">$0.50</span>
+                        </div>
+                        <input type="range" id="input-fee-fixed" min="0.00" max="2.00" step="0.05" value="0.50">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paid Traffic Profit Report Dashboard -->
+        <div class="dashboard-panel">
+            <div class="hero-metric">
+                <div class="label">Net Return on Ad Spend (ROAS)</div>
+                <div class="value" id="out-roas">0.00×</div>
+            </div>
+
+            <div class="output-list">
+                <div class="output-row">
+                    <span>Net Monthly Profit / Loss</span>
+                    <span class="val" id="out-net-profit">$0.00</span>
+                </div>
+                <div class="output-row">
+                    <span>Total Monthly Sales Generated</span>
+                    <span class="val" id="out-total-sales">0 sales</span>
+                </div>
+                <div class="output-row">
+                    <span>Customer Acquisition Cost (CAC)</span>
+                    <span class="val" id="out-cac">$0.00</span>
+                </div>
+                <div class="output-row">
+                    <span>Break-Even CPC Threshold</span>
+                    <span class="val" id="out-be-cpc" style="color: var(--accent-yellow);">$0.00</span>
+                </div>
+                <div class="output-row" style="border-color: rgba(252, 213, 53, 0.25);">
+                    <span>Break-Even Conversion Rate</span>
+                    <span class="val" id="out-be-conv" style="color: var(--accent-yellow);">0.0%</span>
+                </div>
+            </div>
+
+            <!-- Dynamic Engine Traffic Strategy Verdict Card Box -->
+            <div class="verdict-box" id="verdict-card">
+                Loading campaign valuation variables...
+            </div>
+        </div>
+    </div>
+
+    <section class="seo-content">
+        <h2>Deconstructing Paid Traffic Conversions Against Core Storefront Margins</h2>
+        <p>Using an objective <strong>ad spend roi calculator</strong> allows independent digital operators to isolate traffic bleeding metrics before expanding budgets. Running performance parameters across a unified <strong>paid traffic profit calculator</strong> provides clear visibility over tracking anomalies, acquisition costs, and storefront fee processing constraints over long acquisition timelines.</p>
+    </section>
+</div>
+
+<script>
+    const inputPrice = document.getElementById('input-price');
+    const inputBudget = document.getElementById('input-budget');
+    const inputCpc = document.getElementById('input-cpc');
+    const inputConv = document.getElementById('input-conv');
+    const inputFeePct = document.getElementById('input-fee-pct');
+    const inputFeeFixed = document.getElementById('input-fee-fixed');
+
+    const valPrice = document.getElementById('val-price');
+    const valBudget = document.getElementById('val-budget');
+    const valCpc = document.getElementById('val-cpc');
+    const valConv = document.getElementById('val-conv');
+    const valFeePct = document.getElementById('val-fee-pct');
+    const valFeeFixed = document.getElementById('val-fee-fixed');
+
+    const outRoas = document.getElementById('out-roas');
+    const outNetProfit = document.getElementById('out-net-profit');
+    const outTotalSales = document.getElementById('out-total-sales');
+    const outCac = document.getElementById('out-cac');
+    const outBeCpc = document.getElementById('out-be-cpc');
+    const outBeConv = document.getElementById('out-be-conv');
+    const verdictCard = document.getElementById('verdict-card');
+
+    // Advanced Drawer Panel UI Logic 
+    const toggleFees = document.getElementById('toggle-fees');
+    const feePanel = document.getElementById('fee-panel');
+    toggleFees.addEventListener('click', () => {
+        feePanel.style.display = feePanel.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    const inputs = [inputPrice, inputBudget, inputCpc, inputConv, inputFeePct, inputFeeFixed];
+    inputs.forEach(i => i.addEventListener('input', calculateTrafficProfit));
+
+    function calculateTrafficProfit() {
+        const price = parseFloat(inputPrice.value);
+        const budget = parseFloat(inputBudget.value);
+        const cpc = parseFloat(inputCpc.value);
+        const convPct = parseFloat(inputConv.value) / 100;
+        const feePct = parseFloat(inputFeePct.value) / 100;
+        const feeFixed = parseFloat(inputFeeFixed.value);
+
+        // Slider Value Text Syncing
+        valPrice.textContent = `$${price}`;
+        valBudget.textContent = `$${budget.toLocaleString()}`;
+        valCpc.textContent = `$${cpc.toFixed(2)}`;
+        valConv.textContent = `${(convPct * 100).toFixed(1)}%`;
+        valFeePct.textContent = `${inputFeePct.value}%`;
+        valFeeFixed.textContent = `$${feeFixed.toFixed(2)}`;
+
+        // Core Mathematical Processing Mechanics
+        const totalClicks = cpc > 0 ? (budget / cpc) : 0;
+        const totalSales = totalClicks * convPct;
+        
+        // Single Item Net Revenue Post Platform Fees
+        const netPerUnit = Math.max(0, price - (price * feePct) - feeFixed);
+        const totalNetRevenue = totalSales * netPerUnit;
+        const netProfitLoss = totalNetRevenue - budget;
+        
+        const roas = budget > 0 ? (totalNetRevenue / budget) : 0;
+        const cac = totalSales > 0 ? (budget / totalSales) : 0;
+
+        // Break-Even Threshold Formulations 
+        // Break-Even CPC = Net Unit Margin * Conversion Rate
+        const breakEvenCpc = netPerUnit * convPct;
+        // Break-Even Conv Rate = CPC / Net Unit Margin
+        const breakEvenConvPct = netPerUnit > 0 ? (cpc / netPerUnit) * 100 : 0;
+
+        // Populate Dashboard UI Elements
+        outRoas.textContent = `${roas.toFixed(2)}×`;
+        outTotalSales.textContent = `${Math.floor(totalSales)} ${Math.floor(totalSales) === 1 ? 'sale' : 'sales'}`;
+        outCac.textContent = totalSales > 0 ? `$${cac.toFixed(2)}` : '$0.00';
+        outBeCpc.textContent = `$${breakEvenCpc.toFixed(2)}`;
+        outBeConv.textContent = breakEvenConvPct <= 100 ? `${breakEvenConvPct.toFixed(1)}%` : 'Impossible (100%+)';
+
+        // Profit/Loss Statement Formatting Anchor
+        if (netProfitLoss >= 0) {
+            outNetProfit.textContent = `+$${netProfitLoss.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            outNetProfit.style.color = "var(--status-green)";
+        } else {
+            outNetProfit.textContent = `-$${Math.abs(netProfitLoss).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            outNetProfit.style.color = "var(--status-alert)";
+        }
+
+        // Three-Tier Strategy Verdict Logic Component
+        if (roas < 1.0) {
+            outRoas.style.color = "var(--status-alert)";
+            verdictCard.style.borderColor = "var(--status-alert)";
+            verdictCard.style.backgroundColor = "rgba(255, 77, 77, 0.01)";
+            verdictCard.innerHTML = `🚨 <strong>Verdict: Bleeding Capital</strong><br>You are losing money on this paid loop. Stop adding budget. You must either optimize your creative hooks to drop your CPC below <strong>$${breakEvenCpc.toFixed(2)}</strong>, or rewrite your landing page to force conversions past <strong>${breakEvenConvPct.toFixed(1)}%</strong>.`;
+        } else if (roas >= 1.0 && roas < 1.4) {
+            outRoas.style.color = "var(--status-warning)";
+            verdictCard.style.borderColor = "var(--status-warning)";
+            verdictCard.style.backgroundColor = "rgba(243, 146, 0, 0.01)";
+            verdictCard.innerHTML = `⚖️ <strong>Verdict: Break-Even Zone</strong><br>Your funnel is hovering roughly at cost baseline. You aren't losing cash, but your position is highly fragile. Any slight ad platform inflation will throw you into the negative. Consider adding an order bump or an immediate upsell to grow your Average Order Value (AOV).`;
+        } else {
+            outRoas.style.color = "var(--status-green)";
+            verdictCard.style.borderColor = "var(--status-green)";
+            verdictCard.style.backgroundColor = "rgba(34, 197, 94, 0.01)";
+            verdictCard.innerHTML = `🚀 <strong>Verdict: Scalable Funnel</strong><br>Your acquisition metrics are structurally sound. Your front-end product margin safely absorbs your traffic costs and processing overhead. Slowly lift your daily budget thresholds by 10-15% increments while checking your scaling CPC closely.`;
+        }
+    }
+
+    // Initialize Calculations Execution System Loop
+    calculateTrafficProfit();
+</script>
+
+</body>
+</html>
