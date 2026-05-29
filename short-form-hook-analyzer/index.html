@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Short-Form Hook Analyzer Engine | AI Cash Lab</title>
+    
+    <meta name="description" content="Audit your video hook scripts before recording. Calculate viral probability scores, evaluate text reading speeds, and check target claim drops.">
+    <meta name="keywords" content="hook analyzer, short form script analysis, viral hook checker, scroll stop probability, conversion copy tool">
+    
+    <style>
+        :root {
+            --bg-main: #0b0d11;
+            --bg-card: #131722;
+            --bg-input: #1e222b;
+            --accent-yellow: #fcd535;
+            --text-main: #ffffff;
+            --text-muted: #8a8d93;
+            --status-green: #22c55e;
+            --status-warning: #f39200;
+            --status-alert: #ff4d4d;
+            --border-color: #262b36;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 40px; }
+        header .brand { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-yellow); font-weight: 700; margin-bottom: 8px; }
+        header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+        header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        .workspace { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
+        @media (max-width: 900px) { .workspace { grid-template-columns: 1fr; } }
+
+        .input-panel, .dashboard-panel {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        textarea {
+            width: 100%; height: 120px; background-color: var(--bg-input); border: 1px solid var(--border-color);
+            border-radius: 8px; color: var(--text-main); padding: 16px; font-size: 1.1rem; line-height: 1.5;
+            resize: none; outline: none; font-family: inherit;
+        }
+        textarea:focus { border-color: var(--accent-yellow); }
+
+        .hero-metric {
+            background: linear-gradient(135deg, #131722 0%, var(--bg-input) 100%);
+            border: 1px solid var(--border-color); padding: 24px; border-radius: 10px; text-align: center;
+        }
+        .hero-metric .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 4px; }
+        .hero-metric .value { font-size: 3.5rem; font-weight: 900; color: var(--accent-yellow); }
+
+        .output-list { display: flex; flex-direction: column; gap: 12px; }
+        .output-row {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            background: var(--bg-input); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+        .output-row span.val { font-weight: 700; text-align: right; }
+        .output-row .sub-lbl { display: block; font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
+
+        .tag { font-size: 0.8rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; display: inline-block; }
+        .tag-gray { background-color: #2a2f3a; color: #e2e8f0; }
+
+        .advisor-box {
+            font-size: 0.85rem; line-height: 1.5; padding: 14px; border-radius: 8px;
+            background-color: rgba(252, 213, 53, 0.01); border: 1px dashed var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="brand">AI Cash Lab • Creator Intelligence Suite</div>
+        <h1>Short-Form Hook Analyzer</h1>
+        <p>Drop the first 1-2 sentences of your script to run structural audits against proven viral framework models.</p>
+    </header>
+
+    <div class="workspace">
+        <div class="input-panel">
+            <div class="form-group">
+                <label for="hook-input">Input Opening Hook Script Lines</label>
+                <textarea id="hook-input" placeholder="Example: I made $5,000 in 30 days selling standard digital asset templates..."></textarea>
+            </div>
+
+            <div class="output-list" style="gap:14px; margin-top:10px;">
+                <label>Structural Heuristic Audit Signals</label>
+                <div class="output-row">
+                    <div>
+                        <span>Curiosity Mechanics</span>
+                        <span class="sub-lbl">Withholds full execution steps open.</span>
+                    </div>
+                    <span class="val" id="sig-curiosity" style="color: var(--status-alert);">❌ Missing</span>
+                </div>
+                <div class="output-row">
+                    <div>
+                        <span>Authority & Specificity</span>
+                        <span class="sub-lbl">Uses explicit proof data parameters.</span>
+                    </div>
+                    <span class="val" id="sig-proof" style="color: var(--status-alert);">❌ Missing</span>
+                </div>
+                <div class="output-row">
+                    <div>
+                        <span>Negativity / Friction Matrix</span>
+                        <span class="sub-lbl">Addresses systemic risk factors.</span>
+                    </div>
+                    <span class="val" id="sig-negative" style="color: var(--text-muted);">Neutral</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-panel">
+            <div class="hero-metric">
+                <div class="label">Scroll Stop Probability Score</div>
+                <div class="value" id="out-score">0 / 100</div>
+            </div>
+
+            <div class="output-list">
+                <div class="output-row">
+                    <div>
+                        <span>Hook Type Classification</span>
+                        <span class="sub-lbl">Primary emotional conversion angle.</span>
+                    </div>
+                    <span class="tag tag-gray" id="out-class">Pending Input...</span>
+                </div>
+
+                <div class="output-row">
+                    <div>
+                        <span>First-3-Seconds Delivery Test</span>
+                        <span class="sub-lbl">Estimated execution arrival timeline.</span>
+                    </div>
+                    <span class="val" id="out-timing">0.0 seconds</span>
+                </div>
+            </div>
+
+            <div class="advisor-box" id="out-verdict">
+                Input your opening structural scripting lines to process algorithmic grade telemetry.
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const hookInput = document.getElementById('hook-input');
+    const sigCuriosity = document.getElementById('sig-curiosity');
+    const sigProof = document.getElementById('sig-proof');
+    const sigNegative = document.getElementById('sig-negative');
+    const outScore = document.getElementById('out-score');
+    const outClass = document.getElementById('out-class');
+    const outTiming = document.getElementById('out-timing');
+    const outVerdict = document.getElementById('out-verdict');
+
+    hookInput.addEventListener('input', runAuditSystem);
+
+    function runAuditSystem() {
+        const text = hookInput.value.trim();
+        if (!text) {
+            outScore.textContent = "0 / 100";
+            outClass.textContent = "Pending Input...";
+            outTiming.textContent = "0.0 seconds";
+            outVerdict.innerHTML = "Input your opening structural scripting lines to process algorithmic grade telemetry.";
+            sigCuriosity.innerHTML = "❌ Missing"; sigCuriosity.style.color = "var(--status-alert)";
+            sigProof.innerHTML = "❌ Missing"; sigProof.style.color = "var(--status-alert)";
+            sigNegative.innerHTML = "Neutral"; sigNegative.style.color = "var(--text-muted)";
+            return;
+        }
+
+        const words = text.split(/\s+/);
+        const wordCount = words.length;
+        
+        // Base Speed Computation (Assumes standard fast 190 WPM creation vocal tracks)
+        const timingSeconds = (wordCount / 190) * 60;
+
+        // Pattern Array Configuration Scanners
+        const curiosityRegex = /(why|secret|hidden|steal|nobody|stop|tells|unspoken|system|loop|trick|hack|is missing)/i;
+        const proofRegex = /(\d+|%|\$|dollars|views|followers|months|days|hours)/i;
+        const negativeRegex = /(fail|wrong|mistake|lose|waste|broke|quit|delete|risk|drop|destroy|scam|lie)/i;
+        const premiumRegex = /(gumroad|revenue|saas|ai|template|automated|scale|passive|income)/i;
+
+        const hasCuriosity = curiosityRegex.test(text);
+        const hasProof = proofRegex.test(text);
+        const hasNegative = negativeRegex.test(text);
+        const hasPremium = premiumRegex.test(text);
+
+        // Update Signals Panels UI UI Viewports
+        sigCuriosity.innerHTML = hasCuriosity ? "✅ Triggered" : "❌ Missing";
+        sigCuriosity.style.color = hasCuriosity ? "var(--status-green)" : "var(--status-alert)";
+        
+        sigProof.innerHTML = hasProof ? "✅ Present" : "❌ Missing";
+        sigProof.style.color = hasProof ? "var(--status-green)" : "var(--status-alert)";
+
+        sigNegative.innerHTML = hasNegative ? "⚠️ Active Threat" : "Neutral";
+        sigNegative.style.color = hasNegative ? "var(--status-warning)" : "var(--text-muted)";
+
+        // Classification Priority Sorting Routing Array 
+        let classification = "📚 Educational Hook";
+        if (hasCuriosity && hasNegative) classification = "🤯 Contrarian Hook";
+        else if (hasNegative) classification = "😱 Fear/Pain Hook";
+        else if (hasProof && hasPremium) classification = "💰 Opportunity Hook";
+        else if (hasCuriosity) classification = "🔥 Curiosity Hook";
+
+        outClass.textContent = classification;
+        outTiming.textContent = `${timingSeconds.toFixed(1)} seconds`;
+
+        // Mathematical Processing Scoring Engine
+        let baseScore = 40;
+        if (hasCuriosity) baseScore += 20;
+        if (hasProof) baseScore += 20;
+        if (hasNegative) baseScore += 15;
+        if (wordCount >= 6 && wordCount <= 14) baseScore += 10; // Optimal short sentence footprint length 
+        if (timingSeconds > 3.5) baseScore -= 15; // Speed Penalty Rule applied inside of calculation metrics
+        
+        const finalScore = Math.min(100, Math.max(10, baseScore));
+        outScore.textContent = `${finalScore} / 100`;
+
+        // Execution Target Payoff Dynamic Render Engine Blocks
+        if (timingSeconds <= 3.0) {
+            outTiming.style.color = "var(--status-green)";
+            if (finalScore >= 75) {
+                outVerdict.innerHTML = `🚀 <strong>High Retention Score:</strong> Your main thesis statement lands inside the critical 3-second attention gate (<strong>${timingSeconds.toFixed(1)}s</strong>). Pacing is lean and optimized for immediate hook locks.`;
+            } else {
+                outVerdict.innerHTML = `⚙️ <strong>Velocity Passable / Hook Lean:</strong> Core claim arrives fast enough, but psychological weight indicators are missing. Inject a specific numerical data point or use curiosity keywords to boost hook power.`;
+            }
+        } else {
+            outTiming.style.color = "var(--status-alert)";
+            outVerdict.innerHTML = `⚠️ <strong>Pacing Warning:</strong> Your full opening phrase takes <strong>${timingSeconds.toFixed(1)}s</strong> to land. Viewers will scroll past before the primary value payoff drops. Compress your word count or reduce descriptive padding to cross under the 3.0s benchmark floor.`;
+        }
+    }
+</script>
+
+</body>
+</html>
