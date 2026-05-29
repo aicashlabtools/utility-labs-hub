@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gumroad Profit Calculator | AI Cash Lab</title>
+    
+    <!-- SEO Architecture -->
+    <meta name="description" content="Calculate your true take-home pay on Gumroad. Factor in direct platform fees, Discover marketplace percentages, and monthly unit volume instantly.">
+    <meta name="keywords" content="gumroad fee calculator, gumroad profit calculator, digital product profit margin, gumroad pricing calculator">
+    
+    <style>
+        :root {
+            --bg-main: #0b0d11;
+            --bg-card: #131722;
+            --bg-input: #1e222b;
+            --accent-yellow: #fcd535;
+            --text-main: #ffffff;
+            --text-muted: #8a8d93;
+            --status-alert: #ff4d4d;
+            --status-warning: #f39200;
+            --border-color: #262b36;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 40px; }
+        header .brand { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-yellow); font-weight: 700; margin-bottom: 8px; }
+        header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+        header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        .workspace { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
+        @media (max-width: 900px) { .workspace { grid-template-columns: 1fr; } }
+
+        .input-panel, .dashboard-panel {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-label-row { display: flex; justify-content: space-between; align-items: center; }
+        label { font-size: 0.9rem; font-weight: 600; }
+        .label-val { color: var(--accent-yellow); font-weight: 700; font-size: 1rem; }
+        input[type="range"] { width: 100%; accent-color: var(--accent-yellow); cursor: pointer; }
+
+        .hero-metric {
+            background: linear-gradient(135deg, #131722 0%, var(--bg-input) 100%);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .hero-metric .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 4px; }
+        .hero-metric .value { font-size: 3rem; font-weight: 900; color: var(--accent-yellow); }
+
+        .output-list { display: flex; flex-direction: column; gap: 12px; }
+        .output-row {
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--bg-input); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border-color);
+        }
+        .output-row span.val { font-weight: 700; }
+
+        .warning-box {
+            font-size: 0.85rem; line-height: 1.5; padding: 14px; border-radius: 8px;
+            background-color: rgba(255, 77, 77, 0.02); border: 1px dashed var(--status-alert);
+            display: none;
+        }
+
+        .disclaimer-text { font-size: 0.75rem; color: var(--text-muted); text-align: center; line-height: 1.4; margin-top: 10px; }
+        .seo-content { border-top: 1px solid var(--border-color); margin-top: 60px; padding-top: 40px; color: var(--text-muted); }
+        .seo-content h2 { color: var(--text-main); font-size: 1.5rem; margin-bottom: 12px; }
+        .seo-content p { font-size: 0.9rem; margin-bottom: 12px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="brand">AI Cash Lab • Creator Utilities</div>
+        <h1>Gumroad Profit Calculator</h1>
+        <p>See your real take-home pay after Gumroad fees, Discover sales, and monthly unit volume.</p>
+    </header>
+
+    <div class="workspace">
+        <!-- Input Control Deck -->
+        <div class="input-panel">
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-price">Product Price</label>
+                    <span class="label-val" id="val-price">$27</span>
+                </div>
+                <input type="range" id="input-price" min="2" max="250" step="1" value="27">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-volume">Estimated Monthly Sales Volume</label>
+                    <span class="label-val" id="val-volume">50 sales</span>
+                </div>
+                <input type="range" id="input-volume" min="1" max="1000" step="5" value="50">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-direct-pct">Direct/Profile Sales Allocation</label>
+                    <span class="label-val" id="val-direct-pct">80%</span>
+                </div>
+                <input type="range" id="input-direct-pct" min="0" max="100" step="5" value="80">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-discover-pct">Gumroad Discover Marketplace Sales</label>
+                    <span class="label-val" id="val-discover-pct">20%</span>
+                </div>
+                <input type="range" id="input-discover-pct" min="0" max="100" step="5" value="20">
+            </div>
+        </div>
+
+        <!-- Metric Output Visualization Terminal Dashboard -->
+        <div class="dashboard-panel">
+            <div class="hero-metric">
+                <div class="label">Net Monthly Take-Home Pay</div>
+                <div class="value" id="out-net-pay">$0.00</div>
+            </div>
+
+            <div class="output-list">
+                <div class="output-row">
+                    <span>Effective Take-Home %</span>
+                    <span class="val" id="out-margin-pct">0%</span>
+                </div>
+                <div class="output-row">
+                    <span>Total Monthly Platform Fees</span>
+                    <span class="val" id="out-total-fees" style="color: var(--status-alert);">$0.00</span>
+                </div>
+                <div class="output-row">
+                    <span>Direct vs. Discover Fee Split</span>
+                    <span class="val" id="out-fee-split">$0.00 / $0.00</span>
+                </div>
+                <div class="output-row">
+                    <span>Annual Fee Projection</span>
+                    <span class="val" id="out-annual-fees" style="color: var(--text-muted);">$0.00 / yr</span>
+                </div>
+            </div>
+
+            <!-- Low-Price Product Warning Box -->
+            <div class="warning-box" id="low-price-warning">
+                ⚠️ <strong>Low-Price Product Warning:</strong> At this price point, Gumroad's fixed $0.50 fee eats a massive percentage of each sale. Consider testing a higher price, bundling products, or adding an upsell to protect your margins.
+            </div>
+
+            <div class="disclaimer-text">
+                ℹ️ <strong>Platform Data Note:</strong> Calculations reflect Gumroad's official Merchant of Record fee configuration: 10% + $0.50 for direct sales, and 30% flat for Discover marketplace sales.
+            </div>
+        </div>
+    </div>
+
+    <section class="seo-content">
+        <h2>Optimizing Your Digital Product Revenue Strategies</h2>
+        <p>Using a target <strong>gumroad fee calculator</strong> allows solo digital creators to correctly plan storefront margins before pushing traffic from short-form networks. Understanding the structural division between localized direct conversions and marketplace placement distributions preserves your underlying <strong>digital product profit margin</strong> efficiency over time.</p>
+    </section>
+</div>
+
+<script>
+    const inputPrice = document.getElementById('input-price');
+    const inputVolume = document.getElementById('input-volume');
+    const inputDirectPct = document.getElementById('input-direct-pct');
+    const inputDiscoverPct = document.getElementById('input-discover-pct');
+
+    const valPrice = document.getElementById('val-price');
+    const valVolume = document.getElementById('val-volume');
+    const valDirectPct = document.getElementById('val-direct-pct');
+    const valDiscoverPct = document.getElementById('val-discover-pct');
+
+    const outNetPay = document.getElementById('out-net-pay');
+    const outMarginPct = document.getElementById('out-margin-pct');
+    const outTotalFees = document.getElementById('out-total-fees');
+    const outFeeSplit = document.getElementById('out-fee-split');
+    const outAnnualFees = document.getElementById('out-annual-fees');
+    const lowPriceWarning = document.getElementById('low-price-warning');
+
+    // Dual Slider Balance Configuration
+    inputDirectPct.addEventListener('input', () => {
+        inputDiscoverPct.value = 100 - inputDirectPct.value;
+        calculateProfits();
+    });
+
+    inputDiscoverPct.addEventListener('input', () => {
+        inputDirectPct.value = 100 - inputDirectPct.value;
+        calculateProfits();
+    });
+
+    [inputPrice, inputVolume].forEach(i => i.addEventListener('input', calculateProfits));
+
+    function calculateProfits() {
+        const price = parseFloat(inputPrice.value);
+        const volume = parseInt(inputVolume.value);
+        const directPct = parseFloat(inputDirectPct.value) / 100;
+        const discoverPct = parseFloat(inputDiscoverPct.value) / 100;
+
+        // Visual Slider Label Syncing
+        valPrice.textContent = `$${price}`;
+        valVolume.textContent = `${volume} ${volume === 1 ? 'sale' : 'sales'}`;
+        valDirectPct.textContent = `${Math.round(directPct * 100)}%`;
+        valDiscoverPct.textContent = `${Math.round(discoverPct * 100)}%`;
+
+        const grossRevenue = price * volume;
+
+        // Separate Volume Profiles
+        const directSalesCount = volume * directPct;
+        const discoverSalesCount = volume * discoverPct;
+
+        // Gumroad Flat Fee Matrix Core Formulas
+        // Direct: 10% + $0.50 | Discover: 30% Flat
+        const directFees = directSalesCount * ((price * 0.10) + 0.50);
+        const discoverFees = discoverSalesCount * (price * 0.30);
+        const totalMonthlyFees = directFees + discoverFees;
+
+        const netTakeHomePay = Math.max(0, grossRevenue - totalMonthlyFees);
+        const effectiveMargin = grossRevenue > 0 ? ((netTakeHomePay / grossRevenue) * 100).toFixed(1) : 100;
+        const annualFeesProjected = totalMonthlyFees * 12;
+
+        // Update Dashboard Data Fields
+        outNetPay.textContent = `$${netTakeHomePay.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        outMarginPct.textContent = `${effectiveMargin}%`;
+        outTotalFees.textContent = `$${totalMonthlyFees.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        outFeeSplit.textContent = `$${directFees.toFixed(2)} / $${discoverFees.toFixed(2)}`;
+        outAnnualFees.textContent = `$${Math.round(annualFeesProjected).toLocaleString()}/yr`;
+
+        // Low-Price Product Warning Trigger Logic (Triggers under $10 where the $0.50 floor hurts)
+        if (price <= 10) {
+            lowPriceWarning.style.display = "block";
+        } else {
+            lowPriceWarning.style.display = "none";
+        }
+    }
+
+    // Initialize System Calculations
+    calculateProfits();
+</script>
+
+</body>
+</html>
