@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thumbnail Text Scaler & Readability Checker | AI Cash Lab</title>
+    
+    <meta name="description" content="Audit your thumbnail text readability before export. Calculate mobile reading scan times, word densities, and get instant asset shortening recommendations.">
+    <meta name="keywords" content="thumbnail text checker, mobile thumbnail readability, youtube thumbnail tool, content cover optimization, image text analyzer">
+    
+    <style>
+        :root {
+            --bg-main: #0b0d11;
+            --bg-card: #131722;
+            --bg-input: #1e222b;
+            --accent-yellow: #fcd535;
+            --text-main: #ffffff;
+            --text-muted: #8a8d93;
+            --status-green: #22c55e;
+            --status-warning: #f39200;
+            --status-alert: #ff4d4d;
+            --border-color: #262b36;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 40px; }
+        header .brand { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-yellow); font-weight: 700; margin-bottom: 8px; }
+        header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+        header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        .workspace { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
+        @media (max-width: 900px) { .workspace { grid-template-columns: 1fr; } }
+
+        .input-panel, .dashboard-panel {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        input[type="text"] {
+            width: 100%; background-color: var(--bg-input); border: 1px solid var(--border-color);
+            border-radius: 8px; color: var(--text-main); padding: 14px; font-size: 1rem;
+            outline: none; font-weight: 600;
+        }
+        input[type="text"]:focus { border-color: var(--accent-yellow); }
+
+        .platform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .plat-btn {
+            background-color: var(--bg-input); border: 1px solid var(--border-color); color: var(--text-main);
+            padding: 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; cursor: pointer; text-align: center;
+            transition: all 0.2s ease; text-transform: uppercase;
+        }
+        .plat-btn:hover { border-color: var(--accent-yellow); }
+        .plat-btn.active { background-color: rgba(252, 213, 53, 0.1); border-color: var(--accent-yellow); color: var(--accent-yellow); }
+
+        .preview-box {
+            background-color: var(--bg-input); border: 1px dashed var(--border-color);
+            padding: 24px; border-radius: 8px; text-align: center; font-size: 1.5rem;
+            font-weight: 900; letter-spacing: -0.5px; text-transform: uppercase;
+            color: var(--text-main); min-height: 100px; display: flex; align-items: center; justify-content: center;
+            line-height: 1.2; word-break: break-word;
+        }
+
+        .output-list { display: flex; flex-direction: column; gap: 12px; }
+        .output-row {
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--bg-input); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+        .output-row span.val { font-weight: 700; text-align: right; }
+        .output-row .sub-lbl { display: block; font-size: 0.75rem; color: var(--text-muted); font-weight: normal; margin-top: 2px; }
+
+        .status-badge { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; }
+        .badge-green { background: rgba(34, 197, 94, 0.15); color: var(--status-green); }
+        .badge-yellow { background: rgba(243, 146, 0, 0.15); color: var(--status-warning); }
+        .badge-red { background: rgba(255, 77, 77, 0.15); color: var(--status-alert); }
+
+        .suggestion-box {
+            background: rgba(252, 213, 53, 0.02); border: 1px solid rgba(252, 213, 53, 0.2);
+            padding: 16px; border-radius: 8px; display: flex; flex-direction: column; gap: 6px;
+        }
+        .suggestion-box .title { font-size: 0.8rem; text-transform: uppercase; color: var(--accent-yellow); font-weight: 700; letter-spacing: 0.5px; }
+        .suggestion-box .body { font-size: 1.2rem; font-weight: 900; font-family: inherit; text-transform: uppercase; color: #ffffff; letter-spacing: 0.5px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="brand">AI Cash Lab • Visual Asset Tools</div>
+        <h1>Thumbnail Text Scanner</h1>
+        <p>Audit visual asset text strings against clean mobile viewport thresholds before processing artwork exports.</p>
+    </header>
+
+    <div class="workspace">
+        <div class="input-panel">
+            <div class="form-group">
+                <label for="text-string">Target Thumbnail Phrasing</label>
+                <input type="text" id="text-string" placeholder="e.g., HOW I MADE $5000 IN 30 DAYS SELLING DIGITAL PRODUCTS" autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label>Platform Aspect Frame Targets</label>
+                <div class="platform-grid">
+                    <button class="plat-btn active" data-platform="yt" data-limit="5">YouTube</button>
+                    <button class="plat-btn" data-platform="tt" data-limit="4">TikTok Cover</button>
+                    <button class="plat-btn" data-platform="ig" data-limit="4">Insta Cover</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Aspect Alignment Check Layout</label>
+                <div class="preview-box" id="preview-render">Enter Text Variable...</div>
+            </div>
+        </div>
+
+        <div class="dashboard-panel">
+            <div class="output-list">
+                <div class="output-row">
+                    <div>
+                        <span>Estimated Scan Time</span>
+                        <span class="sub-lbl">Average mobile timeline comprehension run.</span>
+                    </div>
+                    <span class="val" id="out-scan-time" style="color: var(--accent-yellow);">0.0 seconds</span>
+                </div>
+
+                <div class="output-row">
+                    <div>
+                        <span>Mobile Readability Grade</span>
+                        <span class="sub-lbl">Scalability distribution profiles.</span>
+                    </div>
+                    <span class="status-badge badge-green" id="out-read-badge">Pass</span>
+                </div>
+            </div>
+
+            <div class="suggestion-box" id="box-suggestion" style="display: none;">
+                <div class="title">🔧 Recommended Actionable Compression Target</div>
+                <div class="body" id="out-suggestion">Optimized short text alternative layout</div>
+            </div>
+
+            <div class="output-list" style="gap:10px;">
+                <div class="sub-lbl" style="text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Mobile UI Block Indicators</div>
+                <div class="output-row" style="padding: 10px 14px; font-size: 0.85rem;">
+                    <span>Lower-Right Component Zone</span>
+                    <span id="ui-timestamp" style="font-weight: 600; color: var(--status-green);">⚠️ Clear of Native Overlay Stamps</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const textString = document.getElementById('text-string');
+    const platBtns = document.querySelectorAll('.plat-btn');
+    const previewRender = document.getElementById('preview-render');
+    const outScanTime = document.getElementById('out-scan-time');
+    const outReadBadge = document.getElementById('out-read-badge');
+    const boxSuggestion = document.getElementById('box-suggestion');
+    const outSuggestion = document.getElementById('out-suggestion');
+    const uiTimestamp = document.getElementById('ui-timestamp');
+
+    let currentLimit = 5;
+
+    textString.addEventListener('input', processImageTextMetrics);
+    
+    platBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            platBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentLimit = parseInt(btn.getAttribute('data-limit'));
+            processImageTextMetrics();
+        });
+    });
+
+    function processImageTextMetrics() {
+        const rawText = textString.value.trim();
+        if (!rawText) {
+            previewRender.textContent = "Enter Text Variable...";
+            outScanTime.textContent = "0.0 seconds";
+            outReadBadge.textContent = "Pass";
+            outReadBadge.className = "status-badge badge-green";
+            boxSuggestion.style.display = "none";
+            uiTimestamp.innerHTML = "⚠️ Clear of Native Overlay Stamps";
+            uiTimestamp.style.color = "var(--status-green)";
+            return;
+        }
+
+        // Synchronize visual canvas layout frame previewer text elements
+        previewRender.textContent = rawText;
+
+        const words = rawText.split(/\s+/);
+        const wordCount = words.length;
+
+        // Human Reading Density Processing Metrics Formulation: Standard tracking speeds on fast feeds
+        const readingTimeSeconds = (wordCount / 240) * 60;
+        outScanTime.textContent = `${readingTimeSeconds.toFixed(1)} ${readingTimeSeconds === 1 ? 'second' : 'seconds'}`;
+
+        // Evaluation Array Logic Rules Engines
+        if (wordCount <= currentLimit) {
+            outReadBadge.textContent = "Lean & Readable";
+            outReadBadge.className = "status-badge badge-green";
+            boxSuggestion.style.display = "none";
+        } else if (wordCount <= currentLimit + 3) {
+            outReadBadge.textContent = "At Risk Pattern";
+            outReadBadge.className = "status-badge badge-yellow";
+            boxSuggestion.style.display = "none";
+        } else {
+            outReadBadge.textContent = "Too Long / Cluttered";
+            outReadBadge.className = "status-badge badge-red";
+            generateAlternativeLayout(words);
+        }
+
+        // Interface timestamp boundary checking logic
+        if (wordCount > 6) {
+            uiTimestamp.innerHTML = "🛑 Layout Risk: Right edge bounds compromised by interface timestamps.";
+            uiTimestamp.style.color = "var(--status-alert)";
+        } else {
+            uiTimestamp.innerHTML = "⚠️ Clear of Native Overlay Stamps";
+            uiTimestamp.style.color = "var(--status-green)";
+        }
+    }
+
+    function generateAlternativeLayout(wordArr) {
+        // High impact core terms extraction filtering arrays engines
+        let cleanWords = wordArr.filter(w => {
+            let clean = w.toLowerCase().replace(/[^a-z0-9$]/g, '');
+            // Filter out fluff filler terms to optimize readability density
+            return !['how', 'i', 'made', 'in', 'selling', 'with', 'to', 'for', 'the', 'a', 'an', 'my', 'your'].includes(clean);
+        });
+
+        // Numerical currency compressor layout checks 
+        cleanWords = cleanWords.map(w => {
+            if (w.includes('000')) {
+                return w.replace('000', 'K');
+            }
+            return w;
+        });
+
+        // Cap array rendering to pull maximum structural utility impact words safely
+        let structuredLines = [];
+        if (cleanWords.length > 0) {
+            if (cleanWords.length > 2) {
+                structuredLines.push(cleanWords.slice(0, 2).join(' '));
+                structuredLines.push(cleanWords.slice(2, 5).join(' '));
+            } else {
+                structuredLines.push(cleanWords.join(' '));
+            }
+        } else {
+            structuredLines.push("SIMPLIFY TEXT BLOCKS");
+        }
+
+        outSuggestion.innerHTML = structuredLines.join('<br>');
+        boxSuggestion.style.display = "flex";
+    }
+</script>
+
+</body>
+</html>
