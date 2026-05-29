@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope Creep Cost Calculator | AI Cash Lab</title>
+    
+    <!-- SEO Architecture -->
+    <meta name="description" content="Calculate the exact financial damage of unbilled client work. Quantify unpaid revisions, communication bleed, out-of-scope tasks, and your true effective hourly rate instantly.">
+    <meta name="keywords" content="scope creep calculator, freelancer profit calculator, hourly rate calculator, freelance revenue leak, calculate billable hours">
+    
+    <style>
+        :root {
+            --bg-main: #0b0d11;
+            --bg-card: #131722;
+            --bg-input: #1e222b;
+            --accent-yellow: #fcd535;
+            --text-main: #ffffff;
+            --text-muted: #8a8d93;
+            --status-green: #22c55e;
+            --status-warning: #f39200;
+            --status-alert: #ff4d4d;
+            --border-color: #262b36;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 40px; }
+        header .brand { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-yellow); font-weight: 700; margin-bottom: 8px; }
+        header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+        header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        .workspace { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
+        @media (max-width: 900px) { .workspace { grid-template-columns: 1fr; } }
+
+        .input-panel, .dashboard-panel {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-label-row { display: flex; justify-content: space-between; align-items: center; }
+        label { font-size: 0.9rem; font-weight: 600; }
+        .label-val { color: var(--accent-yellow); font-weight: 700; font-size: 1rem; }
+        input[type="range"] { width: 100%; accent-color: var(--accent-yellow); cursor: pointer; }
+
+        /* Damage Meter Header Layout Styling */
+        .damage-meter-container {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .meter-track {
+            height: 8px;
+            background-color: var(--bg-input);
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        .meter-fill {
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease, background-color 0.3s ease;
+            background-color: var(--status-green);
+        }
+        .meter-status-text {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .hero-metric {
+            background: linear-gradient(135deg, #131722 0%, var(--bg-input) 100%);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .hero-metric .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 4px; }
+        .hero-metric .value { font-size: 3rem; font-weight: 900; color: var(--status-alert); }
+
+        .output-list { display: flex; flex-direction: column; gap: 12px; }
+        .output-row {
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--bg-input); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border-color);
+        }
+        .output-row span.val { font-weight: 700; }
+
+        .insight-box {
+            font-size: 0.85rem; line-height: 1.5; padding: 14px; border-radius: 8px;
+            background-color: rgba(252, 213, 53, 0.01); border: 1px dashed var(--border-color);
+        }
+
+        .seo-content { border-top: 1px solid var(--border-color); margin-top: 60px; padding-top: 40px; color: var(--text-muted); }
+        .seo-content h2 { color: var(--text-main); font-size: 1.5rem; margin-bottom: 12px; }
+        .seo-content p { font-size: 0.9rem; margin-bottom: 12px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="brand">AI Cash Lab • Creator Utilities</div>
+        <h1>Scope Creep Cost Calculator</h1>
+        <p>Calculate the exact financial damage of unbilled client work and reveal your real hourly rate.</p>
+    </header>
+
+    <div class="workspace">
+        <!-- Inputs Column Panel -->
+        <div class="input-panel">
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-rate">Target Hourly Rate</label>
+                    <span class="label-val" id="val-rate">$75/hr</span>
+                </div>
+                <input type="range" id="input-rate" min="20" max="250" step="5" value="75">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-billable">Paid Billable Hours This Month</label>
+                    <span class="label-val" id="val-billable">60 hours</span>
+                </div>
+                <input type="range" id="input-billable" min="10" max="160" step="5" value="60">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-revisions">Extra Revision Hours <small style="color: var(--text-muted); font-weight: normal;">(Per Month)</small></label>
+                    <span class="label-val" id="val-revisions">4 hours</span>
+                </div>
+                <input type="range" id="input-revisions" min="0" max="40" step="1" value="4">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-comm">Extra Communication Hours <small style="color: var(--text-muted); font-weight: normal;">(Per Month)</small></label>
+                    <span class="label-val" id="val-comm">6 hours</span>
+                </div>
+                <input type="range" id="input-comm" min="0" max="40" step="1" value="6">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-outofscope">Extra Out-of-Scope Work <small style="color: var(--text-muted); font-weight: normal;">(Per Month)</small></label>
+                    <span class="label-val" id="val-outofscope">5 hours</span>
+                </div>
+                <input type="range" id="input-outofscope" min="0" max="60" step="1" value="5">
+            </div>
+        </div>
+
+        <!-- Financial Damage Report Panel -->
+        <div class="dashboard-panel">
+            
+            <!-- Damage Meter Block Component Header -->
+            <div class="damage-meter-container">
+                <div class="meter-status-text">
+                    <span>Boundary Status:</span>
+                    <span id="meter-status-lbl" style="color: var(--status-green);">Healthy Boundaries</span>
+                </div>
+                <div class="meter-track">
+                    <div class="meter-fill" id="meter-fill-bar"></div>
+                </div>
+            </div>
+
+            <div class="hero-metric">
+                <div class="label">Monthly Revenue Leak</div>
+                <div class="value" id="out-leak-pay">$0.00</div>
+            </div>
+
+            <div class="output-list">
+                <div class="output-row">
+                    <span>Effective Hourly Rate After Creep</span>
+                    <span class="val" id="out-effective-rate" style="color: var(--accent-yellow);">$0.00/hr</span>
+                </div>
+                <div class="output-row">
+                    <span>Annual Lost Income</span>
+                    <span class="val" id="out-annual-loss">$0.00</span>
+                </div>
+                <div class="output-row">
+                    <span>Equivalent Free Projects Delivered</span>
+                    <span class="val" id="out-free-projects">0.0 projects/yr</span>
+                </div>
+                <div class="output-row">
+                    <span>Unpaid Hours Given Away</span>
+                    <span class="val" id="out-unpaid-hours">0 hours/mo</span>
+                </div>
+            </div>
+
+            <!-- Contextual Opportunity Cost Display Engine -->
+            <div class="insight-box" id="insight-box-text">
+                The time lost to unpaid work could have been spent on marketing, lead generation, business development, skill building, or higher-value client projects.
+            </div>
+        </div>
+    </div>
+
+    <section class="seo-content">
+        <h2>Protecting Creative Profit Margins from Uncapped Scopes</h2>
+        <p>Using a dedicated <strong>scope creep calculator</strong> helps solo practitioners analyze ongoing project bleed parameters objectively. Quantifying hidden communications overhead or manual execution additions against a baseline <strong>freelancer profit calculator</strong> framework ensures your personal time-to-income distribution models stay structured safely as your brand footprint continues to expand.</p>
+    </section>
+</div>
+
+<script>
+    const inputRate = document.getElementById('input-rate');
+    const inputBillable = document.getElementById('input-billable');
+    const inputRevisions = document.getElementById('input-revisions');
+    const inputComm = document.getElementById('input-comm');
+    const inputOutOfScope = document.getElementById('input-outofscope');
+
+    const valRate = document.getElementById('val-rate');
+    const valBillable = document.getElementById('val-billable');
+    const valRevisions = document.getElementById('val-revisions');
+    const valComm = document.getElementById('val-comm');
+    const valOutOfScope = document.getElementById('val-outofscope');
+
+    const outLeakPay = document.getElementById('out-leak-pay');
+    const outEffectiveRate = document.getElementById('out-effective-rate');
+    const outAnnualLoss = document.getElementById('out-annual-loss');
+    const outFreeProjects = document.getElementById('out-free-projects');
+    const outUnpaidHours = document.getElementById('out-unpaid-hours');
+
+    const meterStatusLbl = document.getElementById('meter-status-lbl');
+    const meterFillBar = document.getElementById('meter-fill-bar');
+    const insightBoxText = document.getElementById('insight-box-text');
+
+    const inputs = [inputRate, inputBillable, inputRevisions, inputComm, inputOutOfScope];
+    inputs.forEach(input => input.addEventListener('input', calculateCreepDamage));
+
+    function calculateCreepDamage() {
+        const rate = parseFloat(inputRate.value);
+        const billableHours = parseFloat(inputBillable.value);
+        const revisionsHours = parseFloat(inputRevisions.value);
+        const commHours = parseFloat(inputComm.value);
+        const outOfScopeHours = parseFloat(inputOutOfScope.value);
+
+        // UI Target Sliders Label Override Updates
+        valRate.textContent = `$${rate}/hr`;
+        valBillable.textContent = `${billableHours} hours`;
+        valRevisions.textContent = `${revisionsHours} ${revisionsHours === 1 ? 'hour' : 'hours'}`;
+        valComm.textContent = `${commHours} ${commHours === 1 ? 'hour' : 'hours'}`;
+        valOutOfScope.textContent = `${outOfScopeHours} ${outOfScopeHours === 1 ? 'hour' : 'hours'}`;
+
+        // Base Calculations Processing Logic
+        const totalUnpaidHours = revisionsHours + commHours + outOfScopeHours;
+        const monthlyRevenueLeak = totalUnpaidHours * rate;
+        const annualLostIncome = monthlyRevenueLeak * 12;
+
+        const paidRevenue = rate * billableHours;
+        const totalHoursWorked = billableHours + totalUnpaidHours;
+        const realizedRate = totalHoursWorked > 0 ? (paidRevenue / totalHoursWorked) : rate;
+
+        // Project Equivalency Logic Metrics Tracking
+        // Evaluates a typical standalone project size baseline value based on the user's active configuration profile.
+        const averageProjectValue = rate * billableHours; 
+        const equivalentFreeProjectsAnnually = averageProjectValue > 0 ? (annualLostIncome / averageProjectValue) : 0;
+
+        // UI Dashboard Population Allocation
+        outLeakPay.textContent = `$${monthlyRevenueLeak.toLocaleString()}`;
+        outEffectiveRate.textContent = `$${realizedRate.toFixed(2)}/hr`;
+        outAnnualLoss.textContent = `$${annualLostIncome.toLocaleString()}/yr`;
+        outUnpaidHours.textContent = `${totalUnpaidHours} ${totalUnpaidHours === 1 ? 'hour' : 'hours'}`;
+        outFreeProjects.textContent = `${equivalentFreeProjectsAnnually.toFixed(1)} ${equivalentFreeProjectsAnnually === 1 ? 'project' : 'projects'}/yr`;
+
+        // Interactive Triple Tier Boundary Status Damage Meter Architecture
+        let meterPercentage = (totalUnpaidHours / 30) * 100; // Normalizes meter visibility scale floor safely up to 30 hours
+        meterPercentage = Math.min(100, Math.max(0, meterPercentage));
+        meterFillBar.style.width = `${meterPercentage}%`;
+
+        if (totalUnpaidHours <= 5) {
+            meterStatusLbl.textContent = "Healthy Boundaries";
+            meterStatusLbl.style.color = "var(--status-green)";
+            meterFillBar.style.backgroundColor = "var(--status-green)";
+            insightBoxText.innerHTML = `💡 <strong>Boundary Profile:</strong> Your boundaries are solid. You're maintaining healthy project parameters. The time you save keeps your independent income generation efficient.`;
+        } else if (totalUnpaidHours > 5 && totalUnpaidHours <= 15) {
+            meterStatusLbl.textContent = "Revenue Leak Detected";
+            meterStatusLbl.style.color = "var(--status-warning)";
+            meterFillBar.style.backgroundColor = "var(--status-warning)";
+            insightBoxText.innerHTML = `⚠️ <strong>Boundary Profile:</strong> Scope creep is actively chipping away at your margins. Clients are stretching your baseline deliverables. The time lost to unpaid work could have been spent on marketing, lead generation, business development, skill building, or higher-value client projects.`;
+        } else {
+            meterStatusLbl.textContent = "Severe Scope Creep";
+            meterStatusLbl.style.color = "var(--status-alert)";
+            meterFillBar.style.backgroundColor = "var(--status-alert)";
+            insightBoxText.innerHTML = `🚨 <strong>Boundary Profile:</strong> Critical Boundary Failure. Your unpaid work is subsidizing client growth instead of building your own business. Reclaiming these hours allows you to redirect key energy into marketing or higher-value client assets.`;
+        }
+    }
+
+    // Initialize System Calculations
+    calculateCreepDamage();
+</script>
+
+</body>
+</html>
