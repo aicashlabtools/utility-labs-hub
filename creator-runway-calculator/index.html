@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creator Business Runway & Burn Rate Calculator | AI Cash Lab</title>
+    
+    <!-- SEO Architecture -->
+    <meta name="description" content="Calculate your business financial runway, monthly burn rate, and baseline breakeven targets as an independent creator or digital platform operator.">
+    <meta name="keywords" content="creator runway calculator, burn rate calculator, small business runway, freelance runway calculator, cash flow forecasting tool">
+    
+    <style>
+        :root {
+            --bg-main: #0b0d11;
+            --bg-card: #131722;
+            --bg-input: #1e222b;
+            --accent-blue: #3b82f6;
+            --accent-yellow: #fcd535;
+            --text-main: #ffffff;
+            --text-muted: #8a8d93;
+            --status-green: #22c55e;
+            --status-warning: #f39200;
+            --status-alert: #ff4d4d;
+            --border-color: #262b36;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 40px; }
+        header .brand { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-yellow); font-weight: 700; margin-bottom: 8px; }
+        header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+        header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        .workspace { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px; margin-bottom: 40px; }
+        @media (max-width: 900px) { .workspace { grid-template-columns: 1fr; } }
+
+        .input-panel, .dashboard-panel {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-label-row { display: flex; justify-content: space-between; align-items: center; }
+        label { font-size: 0.9rem; font-weight: 600; color: #e2e8f0; }
+        .label-val { color: var(--text-main); font-weight: 700; font-size: 1rem; }
+        
+        input[type="range"] { width: 100%; accent-color: var(--accent-yellow); cursor: pointer; }
+
+        .hero-metric {
+            background: linear-gradient(135deg, #131722 0%, var(--bg-input) 100%);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 10px;
+            text-align: center;
+            transition: border-color 0.3s ease;
+        }
+        .hero-metric .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 4px; }
+        .hero-metric .value { font-size: 3.2rem; font-weight: 900; color: var(--accent-yellow); }
+        .hero-metric.alert-border { border-color: rgba(255, 77, 77, 0.4); }
+
+        .output-list { display: flex; flex-direction: column; gap: 12px; }
+        .output-row {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            background: var(--bg-input); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+        .output-row span.val { font-weight: 700; text-align: right; }
+        .output-row .sub-lbl { display: block; font-size: 0.75rem; color: var(--text-muted); font-weight: normal; margin-top: 2px; }
+
+        .status-badge { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; }
+        .badge-green { background: rgba(34, 197, 94, 0.15); color: var(--status-green); }
+        .badge-yellow { background: rgba(243, 146, 0, 0.15); color: var(--status-warning); }
+        .badge-red { background: rgba(255, 77, 77, 0.15); color: var(--status-alert); }
+
+        .advisor-box {
+            font-size: 0.85rem; line-height: 1.5; padding: 14px; border-radius: 8px;
+            background-color: rgba(252, 213, 53, 0.01); border: 1px dashed var(--border-color);
+        }
+
+        .seo-content { border-top: 1px solid var(--border-color); margin-top: 60px; padding-top: 40px; color: var(--text-muted); }
+        .seo-content h2 { color: var(--text-main); font-size: 1.5rem; margin-bottom: 12px; }
+        .seo-content p { font-size: 0.9rem; margin-bottom: 12px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="brand">AI Cash Lab • Financial Safety Tools</div>
+        <h1>Creator Business Runway Calculator</h1>
+        <p>Map your operational timeline, calculate cash burn profiles, and identify exact revenue targets required for operational freedom.</p>
+    </header>
+
+    <div class="workspace">
+        <!-- Input Levers Panel Component -->
+        <div class="input-panel">
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-savings">Current Capital Holdings</label>
+                    <span class="label-val" id="val-savings">$15,000</span>
+                </div>
+                <input type="range" id="input-savings" min="1000" max="100000" step="1000" value="15000">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-revenue">Monthly Business Revenue</label>
+                    <span class="label-val" id="val-revenue">$1,200</span>
+                </div>
+                <input type="range" id="input-revenue" min="0" max="15000" step="100" value="1200">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-living">Monthly Personal Living Expenses</label>
+                    <span class="label-val" id="val-living">$3,000</span>
+                </div>
+                <input type="range" id="input-living" min="1000" max="10000" step="100" value="3000">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-overhead">Monthly Business Overhead</label>
+                    <span class="label-val" id="val-overhead">$300</span>
+                </div>
+                <input type="range" id="input-overhead" min="0" max="3000" step="50" value="300">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-buffer">Minimum Safety Buffer Floor</label>
+                    <span class="label-val" id="val-buffer">$3,000</span>
+                </div>
+                <input type="range" id="input-buffer" min="0" max="10000" step="500" value="3000">
+            </div>
+        </div>
+
+        <!-- Telemetry Outputs & Planning Dashboard Component -->
+        <div class="dashboard-panel">
+            <div class="hero-metric" id="hero-box">
+                <div class="label" id="hero-lbl">Estimated Runway Remaining</div>
+                <div class="value" id="out-runway">4.2 Mo</div>
+            </div>
+
+            <div class="output-list">
+                <div class="output-row">
+                    <div>
+                        <span>Runway End Date</span>
+                        <span class="sub-lbl" id="out-date-desc">Date capital draws down to your safety floor.</span>
+                    </div>
+                    <span class="val" id="out-end-date" style="color: var(--accent-yellow);">--</span>
+                </div>
+
+                <div class="output-row">
+                    <div>
+                        <span>Monthly Cash Burn</span>
+                        <span class="sub-lbl">Net monthly operating deficit.</span>
+                    </div>
+                    <span class="val" id="out-cash-burn" style="color: var(--status-alert);">$0 / mo</span>
+                </div>
+
+                <div class="output-row">
+                    <div>
+                        <span>Break-Even Revenue Target</span>
+                        <span class="sub-lbl">Monthly income needed to freeze burn.</span>
+                    </div>
+                    <span class="val" id="out-breakeven">$0 / mo</span>
+                </div>
+
+                <div class="output-row">
+                    <div>
+                        <span>Monthly Revenue Gap</span>
+                        <span class="sub-lbl">Distance away from cash flow stabilization.</span>
+                    </div>
+                    <span class="val" id="out-revenue-gap" style="color: var(--status-warning);">$0 / mo</span>
+                </div>
+
+                <div class="output-row">
+                    <div>
+                        <span>Runway Status Optimization</span>
+                        <span class="sub-lbl">Stability evaluation matrix profile.</span>
+                    </div>
+                    <span class="status-badge badge-green" id="out-status-badge">Sustainable</span>
+                </div>
+
+                <div class="output-row" style="border-color: rgba(59, 130, 246, 0.25); background: rgba(59, 130, 246, 0.02);">
+                    <div>
+                        <span style="color: #60a5fa;">Runway Extension Metric</span>
+                        <span class="sub-lbl">Monthly adjustments needed to add exactly 3 months:</span>
+                    </div>
+                    <span class="val" id="out-extension-mod" style="color: #60a5fa; font-size: 0.9rem;">--</span>
+                </div>
+            </div>
+
+            <!-- Contextual Operational Business Strategy Advisor -->
+            <div class="advisor-box" id="advisor-card">
+                Initial text allocation data payload running.
+            </div>
+        </div>
+    </div>
+
+    <section class="seo-content">
+        <h2>Strategic Cash Flow Modeling & Runway Risk Management for Platform Entrepreneurs</h2>
+        <p>Proactively mapping out capital allocations against monthly cash burn safeguards creative companies from insolvency during early product development cycles. Standardizing visibility over monthly revenue gaps and break-even targets removes ambiguity, allowing independent operators to scale production schedules predictably before exhausting liquid safety assets.</p>
+    </section>
+</div>
+
+<script>
+    // Elements Selector Mapping Architecture
+    const inputSavings = document.getElementById('input-savings');
+    const inputRevenue = document.getElementById('input-revenue');
+    const inputLiving = document.getElementById('input-living');
+    const inputOverhead = document.getElementById('input-overhead');
+    const inputBuffer = document.getElementById('input-buffer');
+
+    const valSavings = document.getElementById('val-savings');
+    const valRevenue = document.getElementById('val-revenue');
+    const valLiving = document.getElementById('val-living');
+    const valOverhead = document.getElementById('val-overhead');
+    const valBuffer = document.getElementById('val-buffer');
+
+    const outRunway = document.getElementById('out-runway');
+    const outEndDate = document.getElementById('out-end-date');
+    const outCashBurn = document.getElementById('out-cash-burn');
+    const outBreakeven = document.getElementById('out-breakeven');
+    const outRevenueGap = document.getElementById('out-revenue-gap');
+    const outStatusBadge = document.getElementById('out-status-badge');
+    const outExtensionMod = document.getElementById('out-extension-mod');
+    const outDateDesc = document.getElementById('out-date-desc');
+    const heroBox = document.getElementById('hero-box');
+    const heroLbl = document.getElementById('hero-lbl');
+    const advisorCard = document.getElementById('advisor-card');
+
+    const inputElements = [inputSavings, inputRevenue, inputLiving, inputOverhead, inputBuffer];
+
+    // Formatter Utilities Engine
+    const usdFormat = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+    inputElements.forEach(elem => {
+        elem.addEventListener('input', updateInterfaceCalculations);
+    });
+
+    function updateInterfaceCalculations() {
+        // Hydrate UI Slider Labels Dynamically
+        valSavings.textContent = usdFormat.format(inputSavings.value);
+        valRevenue.textContent = usdFormat.format(inputRevenue.value);
+        valLiving.textContent = usdFormat.format(inputLiving.value);
+        valOverhead.textContent = usdFormat.format(inputOverhead.value);
+        valBuffer.textContent = usdFormat.format(inputBuffer.value);
+
+        // Capture Primitive Value Sets
+        const savings = parseFloat(inputSavings.value);
+        const revenue = parseFloat(inputRevenue.value);
+        const living = parseFloat(inputLiving.value);
+        const overhead = parseFloat(inputOverhead.value);
+        const buffer = parseFloat(inputBuffer.value);
+
+        // Core Financial Ledger Logic Loops
+        const totalExpenses = living + overhead;
+        const netBurn = totalExpenses - revenue;
+        const availableCapital = savings - buffer;
+
+        outBreakeven.textContent = `${usdFormat.format(totalExpenses)} / mo`;
+
+        // Mathematical Operations: Runway Determinations
+        if (netBurn <= 0) {
+            // Infinite Runway Model Profile Achieved
+            outRunway.textContent = "∞";
+            heroLbl.textContent = "Business Run Status";
+            outEndDate.textContent = "Net Positive Flow";
+            outDateDesc.textContent = "Your revenue completely covers your baseline costs.";
+            outCashBurn.textContent = "$0 / mo";
+            outCashBurn.style.color = "var(--status-green)";
+            outRevenueGap.textContent = "$0 / mo";
+            outRevenueGap.style.color = "var(--status-green)";
+            outStatusBadge.textContent = "Infinite Runway";
+            outStatusBadge.className = "status-badge badge-green";
+            outExtensionMod.textContent = "Fully Stabilized";
+            heroBox.classList.remove('alert-border');
+            
+            advisorCard.innerHTML = `🔋 <strong>Cash Flow Positive:</strong> Your platform revenue matches or exceeds total overhead metrics. You have generated stable infinite runway. Use this stability to build scalable digital assets and optimize long-form revenue funnels smoothly.`;
+            return;
+        }
+
+        // Standard Run Model Deficit Calculations
+        outCashBurn.textContent = `${usdFormat.format(netBurn)} / mo`;
+        outCashBurn.style.color = "var(--status-alert)";
+        
+        const revGap = totalExpenses - revenue;
+        outRevenueGap.textContent = `${usdFormat.format(revGap)} / mo`;
+        outRevenueGap.style.color = "var(--status-warning)";
+
+        heroLbl.textContent = "Estimated Runway Remaining";
+
+        if (availableCapital <= 0) {
+            // Immediate Buffer Breached State
+            outRunway.textContent = "0.0 Mo";
+            outEndDate.textContent = "Buffer Breached";
+            outDateDesc.textContent = "Current holdings are currently at or below your safety buffer limit.";
+            outStatusBadge.textContent = "Critical Runway";
+            outStatusBadge.className = "status-badge badge-red";
+            heroBox.classList.add('alert-border');
+            outExtensionMod.textContent = `Add ${usdFormat.format(netBurn)} / mo immediately`;
+            
+            advisorCard.innerHTML = `🚨 <strong>Critical Runway Status:</strong> Liquid reserves sit directly inside your designated safety floor boundary. Prioritize high-velocity cash generation strategies: offer high-ticket consulting assets, run flash sales to active subscriber pools, or land a freelance bridge project to instantly lower burn stress.`;
+            return;
+        }
+
+        // Calculate Months Remaining Until Safety Buffer Floor Is Reached
+        const monthsRemaining = availableCapital / netBurn;
+        outRunway.textContent = `${monthsRemaining.toFixed(1)} Mo`;
+
+        // Calendar Object Math Architecture Implementation
+        const currentDate = new Date();
+        const daysRemaining = Math.round(monthsRemaining * 30.437); // Average days per month mapping variables
+        currentDate.setDate(currentDate.getDate() + daysRemaining);
+        
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        outEndDate.textContent = currentDate.toLocaleDateString('en-US', options);
+        outDateDesc.textContent = "Date capital draws down to your safety floor.";
+
+        // Calculate Revenue Needed to Add 3 More Months
+        // Formula: Current available capital / (net burn adjustment) = Current Months + 3
+        // target net burn = available capital / (months remaining + 3)
+        // delta monthly correction = netBurn - targetNetBurn
+        const targetMonths = monthsRemaining + 3;
+        const targetNetBurn = availableCapital / targetMonths;
+        const monthlyAdjustmentNeeded = netBurn - targetNetBurn;
+        outExtensionMod.textContent = `Cut expenses or add ${usdFormat.format(monthlyAdjustmentNeeded)}/mo`;
+
+        // Set Dashboard State Badges and Advisor Context Elements
+        if (monthsRemaining <= 3) {
+            outStatusBadge.textContent = "Critical Runway";
+            outStatusBadge.className = "status-badge badge-red";
+            heroBox.classList.add('alert-border');
+            
+            advisorCard.innerHTML = `⚠️ <strong>Critical Runway:</strong> Capital reserves will reach your safety floor inside of 90 days. Shift full focus toward immediate, high-converting revenue activities. Freeze non-essential software costs and execute rapid monetization channels now.`;
+        } else if (monthsRemaining <= 6) {
+            outStatusBadge.textContent = "Mid Runway Buffer";
+            outStatusBadge.className = "status-badge badge-yellow";
+            heroBox.classList.remove('alert-border');
+            
+            advisorCard.innerHTML = `⚖️ <strong>Mid Runway Buffer:</strong> Your business timeline is stable but actively bounded. Avoid drifting into long development schedules without testing conversions. Use this period to implement automated organic traffic loops to cover the remaining monthly revenue gap.`;
+        } else {
+            outStatusBadge.textContent = "Sustainable Zone";
+            outStatusBadge.className = "status-badge badge-green";
+            heroBox.classList.remove('alert-border');
+            
+            advisorCard.innerHTML = `🛡️ <strong>Sustainable Build Phase:</strong> You possess a clear runway runway window beyond 6 months before reaching your safety buffer floor. This operational safety cushion allows for clean strategic positioning. Focus on system automation and structural product scaling.`;
+        }
+    }
+
+    // Run Initialization Vector Lifecycle
+    updateInterfaceCalculations();
+</script>
+
+</body>
+</html>
