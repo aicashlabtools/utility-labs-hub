@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Magnet Value & Timeline Estimator | AI Cash Lab</title>
+    
+    <meta name="description" content="Calculate the exact subscriber base, traffic velocity, and timeline duration required to reach your monthly digital product revenue goals.">
+    <meta name="keywords" content="audience estimator, email list calculator, customer journey funnel, creator runway tracker, digital product funnel math">
+    
+    <style>
+        :root {
+            --bg-main: #0b0d11;
+            --bg-card: #131722;
+            --bg-input: #1e222b;
+            --accent-yellow: #fcd535;
+            --text-main: #ffffff;
+            --text-muted: #8a8d93;
+            --status-green: #22c55e;
+            --status-warning: #f39200;
+            --status-alert: #ff4d4d;
+            --border-color: #262b36;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 40px; }
+        header .brand { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-yellow); font-weight: 700; margin-bottom: 8px; }
+        header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+        header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        .workspace { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
+        @media (max-width: 900px) { .workspace { grid-template-columns: 1fr; } }
+
+        .input-panel, .dashboard-panel {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-label-row { display: flex; justify-content: space-between; align-items: center; }
+        label { font-size: 0.9rem; font-weight: 600; color: #e2e8f0; }
+        .label-val { color: var(--text-main); font-weight: 700; font-size: 1rem; }
+        
+        input[type="range"] { width: 100%; accent-color: var(--accent-yellow); cursor: pointer; }
+
+        /* Funnel Graphic Elements */
+        .funnel-container { display: flex; flex-direction: column; align-items: center; gap: 6px; margin: 10px 0; }
+        .funnel-stage {
+            background: var(--bg-input); border: 1px solid var(--border-color);
+            text-align: center; padding: 10px; font-weight: 800; font-size: 0.85rem;
+            transition: all 0.3s ease; border-radius: 6px; text-transform: uppercase;
+        }
+        #fn-traffic { width: 100%; color: #e2e8f0; border-color: #3b82f6; background: rgba(59, 130, 246, 0.05); }
+        #fn-subs { width: 85%; color: var(--accent-yellow); border-color: var(--accent-yellow); background: rgba(252, 213, 53, 0.05); }
+        #fn-buyers { width: 70%; color: var(--status-green); border-color: var(--status-green); background: rgba(34, 197, 94, 0.05); }
+        #fn-rev { width: 55%; color: #ffffff; background: linear-gradient(90deg, #1e222b, #2a303d); font-size: 1rem; }
+
+        .output-list { display: flex; flex-direction: column; gap: 10px; }
+        .output-row {
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--bg-input); padding: 12px 14px; border-radius: 8px; border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+        .output-row span.val { font-weight: 700; text-align: right; }
+        .output-row .sub-lbl { display: block; font-size: 0.75rem; color: var(--text-muted); font-weight: normal; margin-top: 2px; }
+
+        .time-box {
+            background: linear-gradient(135deg, #131722 0%, var(--bg-input) 100%);
+            border: 1px solid var(--border-color); padding: 20px; border-radius: 10px; text-align: center;
+        }
+        .time-box .lbl { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 4px; }
+        .time-box .val { font-size: 2.2rem; font-weight: 900; color: var(--status-warning); }
+
+        .advisor-box {
+            font-size: 0.85rem; line-height: 1.5; padding: 14px; border-radius: 8px;
+            background-color: rgba(252, 213, 53, 0.01); border: 1px dashed var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="brand">AI Cash Lab • Funnel Intelligence Suite</div>
+        <h1>Lead Magnet Value & Timeline Estimator</h1>
+        <p>Calculate the exact audience targets, velocity parameters, and execution timelines required to scale your revenue.</p>
+    </header>
+
+    <div class="workspace">
+        <!-- Control Settings -->
+        <div class="input-panel">
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-target">Target Monthly Revenue</label>
+                    <span class="label-val" id="val-target">$3,000</span>
+                </div>
+                <input type="range" id="input-target" min="500" max="20000" step="500" value="3000">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-price">Core Paid Product Price</label>
+                    <span class="label-val" id="val-price">$29</span>
+                </div>
+                <input type="range" id="input-price" min="5" max="150" step="1" value="29">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-optin-cr">Lead Magnet Opt-In Rate</label>
+                    <span class="label-val" id="val-optin-cr">25%</span>
+                </div>
+                <input type="range" id="input-optin-cr" min="5" max="60" step="1" value="25">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-sales-cr">Email Sales Conversion Rate</label>
+                    <span class="label-val" id="val-sales-cr">1.5%</span>
+                </div>
+                <input type="range" id="input-sales-cr" min="0.1" max="5.0" step="0.1" value="1.5">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-growth">Average New Subscribers / Mo</label>
+                    <span class="label-val" id="val-growth">100 / mo</span>
+                </div>
+                <input type="range" id="input-growth" min="10" max="5000" step="10" value="100">
+            </div>
+        </div>
+
+        <!-- Telemetry Metrics Dashboard -->
+        <div class="dashboard-panel">
+            <div class="time-box">
+                <div class="lbl">Estimated Time To Goal Horizon</div>
+                <div class="val" id="out-months">0.0 Months</div>
+            </div>
+
+            <!-- Shareable Graphic Funnel Structure -->
+            <div class="funnel-container">
+                <div class="funnel-stage" id="fn-traffic">Traffic: 0 Views</div>
+                <div class="funnel-stage" id="fn-subs">Subscribers: 0</div>
+                <div class="funnel-stage" id="fn-buyers">Customers: 0 Sales</div>
+                <div class="funnel-stage" id="fn-rev">Revenue: $0 / Mo</div>
+            </div>
+
+            <div class="output-list">
+                <div class="output-row">
+                    <div>
+                        <span>Required Subscriber Base</span>
+                        <span class="sub-lbl">Total active ecosystem audience baseline.</span>
+                    </div>
+                    <span class="val" id="out-base-subs">0</span>
+                </div>
+
+                <div class="output-row">
+                    <div>
+                        <span>Revenue Per Subscriber</span>
+                        <span class="sub-lbl">The underlying cash value yield per record.</span>
+                    </div>
+                    <span class="val" id="out-rev-per-sub" style="color: var(--status-green);">$0.00 / mo</span>
+                </div>
+            </div>
+
+            <div class="output-list" style="gap:8px;">
+                <div style="font-size:0.75rem; text-transform:uppercase; color:var(--text-muted); font-weight:700;">Daily Funnel Target Requirements</div>
+                <div class="output-row" style="padding:10px 14px; font-size:0.85rem;">
+                    <span>Traffic Needed Per Day</span>
+                    <span class="val" id="day-traffic" style="color:#3b82f6;">0</span>
+                </div>
+                <div class="output-row" style="padding:10px 14px; font-size:0.85rem;">
+                    <span>Subscribers Needed Per Day</span>
+                    <span class="val" id="day-subs" style="color:var(--accent-yellow);">0</span>
+                </div>
+                <div class="output-row" style="padding:10px 14px; font-size:0.85rem;">
+                    <span>Customers Needed Per Day</span>
+                    <span class="val" id="day-buyers" style="color:var(--status-green);">0</span>
+                </div>
+            </div>
+
+            <div class="advisor-box" id="out-verdict">
+                Processing pipeline telemetry...
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const inputTarget = document.getElementById('input-target');
+    const inputPrice = document.getElementById('input-price');
+    const inputOptinCr = document.getElementById('input-optin-cr');
+    const inputSalesCr = document.getElementById('input-sales-cr');
+    const inputGrowth = document.getElementById('input-growth');
+
+    const valTarget = document.getElementById('val-target');
+    const valPrice = document.getElementById('val-price');
+    const valOptinCr = document.getElementById('val-optin-cr');
+    const valSalesCr = document.getElementById('val-sales-cr');
+    const valGrowth = document.getElementById('val-growth');
+
+    const outMonths = document.getElementById('out-months');
+    const outBaseSubs = document.getElementById('out-base-subs');
+    const outRevPerSub = document.getElementById('out-rev-per-sub');
+
+    const fnTraffic = document.getElementById('fn-traffic');
+    const fnSubs = document.getElementById('fn-subs');
+    const fnBuyers = document.getElementById('fn-buyers');
+    const fnRev = document.getElementById('fn-rev');
+
+    const dayTraffic = document.getElementById('day-traffic');
+    const daySubs = document.getElementById('day-subs');
+    const dayBuyers = document.getElementById('day-buyers');
+    const outVerdict = document.getElementById('out-verdict');
+
+    const allInputs = [inputTarget, inputPrice, inputOptinCr, inputSalesCr, inputGrowth];
+    const fmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+    allInputs.forEach(i => i.addEventListener('input', runJourneyEngine));
+
+    function runJourneyEngine() {
+        // UI Display Labels Synchronizer
+        valTarget.textContent = fmt.format(inputTarget.value);
+        valPrice.textContent = fmt.format(inputPrice.value);
+        valOptinCr.textContent = `${inputOptinCr.value}%`;
+        valSalesCr.textContent = `${parseFloat(inputSalesCr.value).toFixed(1)}%`;
+        valGrowth.textContent = `${parseInt(inputGrowth.value).toLocaleString()} / mo`;
+
+        const target = parseFloat(inputTarget.value);
+        const price = parseFloat(inputPrice.value);
+        const optinRate = parseFloat(inputOptinCr.value) / 100;
+        const salesRate = parseFloat(inputSalesCr.value) / 100;
+        const monthlyGrowth = parseFloat(inputGrowth.value);
+
+        // Core Mathematical Formulations
+        const customersNeeded = Math.ceil(target / price);
+        const totalSubscribersRequired = Math.ceil(customersNeeded / salesRate);
+        const trafficRequired = Math.ceil(totalSubscribersRequired / optinRate);
+        
+        const revPerSub = target / totalSubscribersRequired;
+        const timelineMonths = totalSubscribersRequired / monthlyGrowth;
+
+        // Populate Main Screen Values
+        outBaseSubs.textContent = totalSubscribersRequired.toLocaleString();
+        outRevPerSub.textContent = `$${revPerSub.toFixed(2)} / mo`;
+        
+        if (timelineMonths > 120) {
+            outMonths.textContent = "10+ Years";
+            outMonths.style.color = "var(--status-alert)";
+        } else {
+            outMonths.textContent = `${timelineMonths.toFixed(1)} Months`;
+            outMonths.style.color = timelineMonths > 24 ? "var(--status-alert)" : (timelineMonths > 12 ? "var(--status-warning)" : "var(--status-green)");
+        }
+
+        // Render Dynamic Funnel Blocks
+        fnTraffic.textContent = `Traffic: ${trafficRequired.toLocaleString()} Page Views`;
+        fnSubs.textContent = `Required Base: ${totalSubscribersRequired.toLocaleString()} Subs`;
+        fnBuyers.textContent = `Conversions: ${customersNeeded.toLocaleString()} Sales`;
+        fnRev.textContent = `Target: ${fmt.format(target)} / Month`;
+
+        // Calculate and Render Daily Operational Targets
+        dayTraffic.textContent = `${Math.ceil(trafficRequired / 30).toLocaleString()} views / day`;
+        daySubs.textContent = `${Math.ceil(totalSubscribersRequired / 30).toLocaleString()} subs / day`;
+        dayBuyers.textContent = `${(customersNeeded / 30).toFixed(1)} sales / day`;
+
+        // Strategic Diagnostic Logic Mapping
+        if (timelineMonths > 12) {
+            outVerdict.innerHTML = `⚠️ <strong>The Timeline Trap:</strong> At your current velocity, it will take <strong>${timelineMonths.toFixed(1)} months</strong> to organically stack the list required for this income. Cross-reference this against your <strong>Creator Runway Calculator</strong>—if your savings run out first, your business fails. To fix this timeline error, you must expand your <strong>Product Ecosystem Planner</strong> inside the <strong>Creator Monetization OS</strong> to increase your value per subscriber baseline.`;
+        } else {
+            outVerdict.innerHTML = `🚀 <strong>Velocity Balanced:</strong> Your current monthly conversion footprint balances against your list building velocity. Use the operational dashboard parameters inside the <strong>Creator Monetization OS</strong> to optimize baseline growth variables cleanly.`;
+        }
+    }
+
+    // Initialize lifecycle state
+    runJourneyEngine();
+</script>
+
+</body>
+</html>
