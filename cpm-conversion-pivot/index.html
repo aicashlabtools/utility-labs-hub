@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audience CPM vs. Digital Product Conversion Pivot | AI Cash Lab</title>
+    
+    <meta name="description" content="Compare platform creator fund ad payouts against digital product asset sales. Calculate your missed revenue gap and monetize traffic effectively.">
+    <meta name="keywords" content="creator fund calculator, views to dollars, convert views to revenue, monetize audience, gumroad funnel calculator">
+    
+    <style>
+        :root {
+            --bg-main: #0b0d11;
+            --bg-card: #131722;
+            --bg-input: #1e222b;
+            --accent-yellow: #fcd535;
+            --text-main: #ffffff;
+            --text-muted: #8a8d93;
+            --status-green: #22c55e;
+            --status-alert: #ff4d4d;
+            --border-color: #262b36;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 40px; }
+        header .brand { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-yellow); font-weight: 700; margin-bottom: 8px; }
+        header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+        header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        .workspace { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
+        @media (max-width: 900px) { .workspace { grid-template-columns: 1fr; } }
+
+        .input-panel, .dashboard-panel {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-label-row { display: flex; justify-content: space-between; align-items: center; }
+        label { font-size: 0.9rem; font-weight: 600; color: #e2e8f0; }
+        .label-val { color: var(--text-main); font-weight: 700; font-size: 1rem; }
+        
+        input[type="range"] { width: 100%; accent-color: var(--accent-yellow); cursor: pointer; }
+
+        .split-display { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 10px; }
+        .ledger-box {
+            background: var(--bg-input); border: 1px solid var(--border-color);
+            padding: 20px; border-radius: 10px; text-align: center;
+        }
+        .ledger-box .lbl { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 6px; }
+        .ledger-box .amt { font-size: 2rem; font-weight: 900; }
+        .ledger-box.fund .amt { color: var(--status-alert); }
+        .ledger-box.product .amt { color: var(--status-green); }
+
+        .output-list { display: flex; flex-direction: column; gap: 12px; }
+        .output-row {
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--bg-input); padding: 14px 16px; border-radius: 8px; border: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+        .output-row span.val { font-weight: 700; text-align: right; }
+        .output-row .sub-lbl { display: block; font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
+
+        .comparison-bar-container { background: #1e222b; height: 24px; border-radius: 12px; overflow: hidden; position: relative; border: 1px solid var(--border-color); margin: 10px 0; }
+        .comparison-bar { background: var(--status-green); height: 100%; width: 0%; transition: width 0.4s ease; }
+        .comparison-bar-fill-fund { background: var(--status-alert); height: 100%; position: absolute; left: 0; top: 0; width: 0%; transition: width 0.4s ease; }
+
+        .advisor-box {
+            font-size: 0.85rem; line-height: 1.5; padding: 16px; border-radius: 8px;
+            background-color: rgba(252, 213, 53, 0.01); border: 1px dashed var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="brand">AI Cash Lab • Revenue Conversion Utilities</div>
+        <h1>Audience CPM vs. Digital Product Pivot</h1>
+        <p>Visualize the financial delta between renting platform attention and owning your monetization ecosystem.</p>
+    </header>
+
+    <div class="workspace">
+        <!-- Input Controls Component -->
+        <div class="input-panel">
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-views">Monthly Video Traffic (Views)</label>
+                    <span class="label-val" id="val-views">500,000</span>
+                </div>
+                <input type="range" id="input-views" min="10000" max="5000000" step="10000" value="500000">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-rpm">Platform Ad RPM (Per 1k Views)</label>
+                    <span class="label-val" id="val-rpm">$0.30</span>
+                </div>
+                <input type="range" id="input-rpm" min="0.05" max="2.00" step="0.05" value="0.30">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-price">Digital Product Asset Price</label>
+                    <span class="label-val" id="val-price">$29</span>
+                </div>
+                <input type="range" id="input-price" min="5" max="150" step="1" value="29">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-cr">Audience Conversion Rate</label>
+                    <span class="label-val" id="val-cr">0.30%</span>
+                </div>
+                <input type="range" id="input-cr" min="0.05" max="2.00" step="0.05" value="0.30">
+            </div>
+        </div>
+
+        <!-- Telemetry Results Output Dashboard -->
+        <div class="dashboard-panel">
+            <div class="split-display">
+                <div class="ledger-box fund">
+                    <div class="lbl">Platform Ad Pay</div>
+                    <div class="amt" id="out-fund-pay">$0</div>
+                </div>
+                <div class="ledger-box product">
+                    <div class="lbl">Owned Product Sales</div>
+                    <div class="amt" id="out-product-pay">$0</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label style="font-size:0.8rem; text-transform:uppercase; color:var(--text-muted);">Visual Revenue Proportionality Scale</label>
+                <div class="comparison-bar-container">
+                    <div class="comparison-bar" id="bar-product"></div>
+                    <div class="comparison-bar-fill-fund" id="bar-fund"></div>
+                </div>
+            </div>
+
+            <div class="output-list">
+                <div class="output-row">
+                    <div>
+                        <span>The Left-On-Table Gap</span>
+                        <span class="sub-lbl">Net value lost by avoiding owned digital offers.</span>
+                    </div>
+                    <span class="val" id="out-gap" style="color: var(--accent-yellow); font-size:1.2rem;">$0</span>
+                </div>
+
+                <div class="output-row">
+                    <div>
+                        <span>Required Unit Sales Volumes</span>
+                        <span class="sub-lbl">Total product conversions needed per month.</span>
+                    </div>
+                    <span class="val" id="out-units">0 copies</span>
+                </div>
+            </div>
+
+            <div class="advisor-box" id="advisor-verdict">
+                Processing system arrays...
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const inputViews = document.getElementById('input-views');
+    const inputRpm = document.getElementById('input-rpm');
+    const inputPrice = document.getElementById('input-price');
+    const inputCr = document.getElementById('input-cr');
+
+    const valViews = document.getElementById('val-views');
+    const valRpm = document.getElementById('val-rpm');
+    const valPrice = document.getElementById('val-price');
+    const valCr = document.getElementById('val-cr');
+
+    const outFundPay = document.getElementById('out-fund-pay');
+    const outProductPay = document.getElementById('out-product-pay');
+    const outGap = document.getElementById('out-gap');
+    const outUnits = document.getElementById('out-units');
+    
+    const barFund = document.getElementById('bar-fund');
+    const barProduct = document.getElementById('bar-product');
+    const advisorVerdict = document.getElementById('advisor-verdict');
+
+    const inputs = [inputViews, inputRpm, inputPrice, inputCr];
+    const usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+    inputs.forEach(i => i.addEventListener('input', runPivotEngine));
+
+    function runPivotEngine() {
+        // Formatter UI updates
+        valViews.textContent = parseInt(inputViews.value).toLocaleString();
+        valRpm.textContent = `$${parseFloat(inputRpm.value).toFixed(2)}`;
+        valPrice.textContent = usd.format(inputPrice.value);
+        valCr.textContent = `${parseFloat(inputCr.value).toFixed(2)}%`;
+
+        const views = parseFloat(inputViews.value);
+        const rpm = parseFloat(inputRPM = inputRpm.value);
+        const price = parseFloat(inputPrice.value);
+        const conversionRate = parseFloat(inputCr.value) / 100;
+
+        // Mathematical Ledger Processing
+        const fundRevenue = (views / 1000) * rpm;
+        const totalUnitsSold = Math.round(views * conversionRate);
+        const productRevenue = totalUnitsSold * price;
+        const revenueGap = productRevenue - fundRevenue;
+
+        // Render Outputs to screen
+        outFundPay.textContent = usd.format(fundRevenue);
+        outProductPay.textContent = usd.format(productRevenue);
+        outGap.textContent = revenueGap > 0 ? usd.format(revenueGap) : "$0";
+        outUnits.textContent = `${totalUnitsSold.toLocaleString()} copies`;
+
+        // Render Proportionality Chart Graphics Bars
+        const maxPayout = Math.max(fundRevenue, productRevenue, 1);
+        const fundWidth = (fundRevenue / maxPayout) * 100;
+        const productWidth = (productRevenue / maxPayout) * 100;
+
+        barFund.style.width = `${fundWidth}%`;
+        barProduct.style.width = `${productWidth}%`;
+
+        // Strategy Diagnostics Engine
+        if (revenueGap > 0) {
+            const multiplier = (productRevenue / Math.max(fundRevenue, 1)).toFixed(0);
+            advisorVerdict.innerHTML = `💡 <strong>The Conversion Leverage:</strong> Selling an owned digital product makes your audience <strong>${multiplier}x more valuable</strong> than relying on ad views alone. Stop chasing empty traffic and build a structural asset stack with our <strong>Creator Monetization OS</strong> to capture this hidden margin.`;
+        } else {
+            advisorVerdict.innerHTML = `⚙️ Adjust your conversion variables or increase asset pricing to visualize an optimized digital product backend layout ecosystem pipeline.`;
+        }
+    }
+
+    // Initialize lifecycle
+    runPivotEngine();
+</script>
+
+</body>
+</html>
