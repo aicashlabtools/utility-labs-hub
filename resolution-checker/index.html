@@ -4,29 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Aspect Ratio & Resolution Checker | AI Cash Lab</title>
-    
-    <!-- SEO Meta Tags -->
+
     <meta name="description" content="Free online 9:16 aspect ratio checker and TikTok resolution tool. Analyze video or image dimensions, detect compression risks, and optimize layouts.">
     <meta name="keywords" content="9:16 aspect ratio checker, tiktok resolution checker, shorts upload blurry fix, reels aspect ratio tool, vertical video dimensions">
-    
-    <!-- Open Graph Previews -->
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://aicashlabtools.com/resolution-checker/">
     <meta property="og:title" content="Video Aspect Ratio & Resolution Checker | Free Creative Suite">
     <meta property="og:description" content="Instantly analyze image and video files for exact aspect ratios, resolutions, and native platform upload compression risks.">
-    
+
     <style>
         :root {
-            --bg-main: #0b0d11;
-            --bg-card: #131722;
-            --bg-input: #1e222b;
+            --bg-main: #0d0f13;
+            --bg-card: #151820;
+            --bg-input: #1a1d24;
             --accent-yellow: #fcd535;
             --text-main: #ffffff;
-            --text-muted: #8a8d93;
+            --text-muted: #a1a1aa;
             --status-success: #0ecb81;
             --status-warning: #f39200;
             --status-danger: #f6465d;
-            --border-color: #262b36;
+            --border-color: #27272a;
+            --border-strong: #3f3f46;
         }
 
         * {
@@ -39,22 +38,111 @@
             background-color: var(--bg-main);
             color: var(--text-main);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            padding: 40px 20px;
             line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
+            padding: 0 24px;
         }
 
-        header {
-            text-align: center;
-            margin-bottom: 40px;
+        .site-header {
+            align-items: center;
+            background-color: var(--bg-main);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 24px;
+            position: relative;
+            z-index: 10;
         }
 
-        header .brand {
+        .brand-lockup {
+            align-items: center;
+            color: inherit;
+            display: flex;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-lockup img {
+            border: 1px solid rgba(252, 213, 53, 0.3);
+            border-radius: 6px;
+            box-shadow: 0 0 14px rgba(252, 213, 53, 0.22);
+            height: 28px;
+            object-fit: cover;
+            width: 28px;
+        }
+
+        .brand-row {
+            align-items: baseline;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .brand-name {
+            color: #ffffff;
+            display: block;
             font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .brand-section {
+            color: var(--text-muted);
+            display: block;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .site-nav {
+            align-items: center;
+            display: flex;
+            gap: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .site-nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .site-nav a:hover,
+        .site-nav a.active {
+            color: var(--accent-yellow);
+        }
+
+        @media (max-width: 820px) {
+            .site-nav {
+                display: none;
+            }
+        }
+
+        main {
+            flex: 1;
+            padding: 24px 0 48px;
+        }
+
+        .hero {
+            text-align: center;
+            margin: 0 auto 32px;
+            max-width: 760px;
+        }
+
+        .hero .eyebrow {
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--accent-yellow);
@@ -62,16 +150,17 @@
             margin-bottom: 8px;
         }
 
-        header h1 {
-            font-size: 2.2rem;
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 2.65rem);
             font-weight: 800;
             margin-bottom: 12px;
         }
 
-        header p {
+        .hero p {
             color: var(--text-muted);
             max-width: 600px;
             margin: 0 auto;
+            font-size: 0.95rem;
         }
 
         .workspace {
@@ -87,10 +176,9 @@
             }
         }
 
-        /* Drop Zone Styles */
         .drop-zone {
-            background-color: var(--bg-card);
-            border: 2px dashed var(--border-color);
+            background: radial-gradient(circle at 50% 0%, rgba(252, 213, 53, 0.06), transparent 34%), var(--bg-card);
+            border: 2px dashed var(--border-strong);
             border-radius: 12px;
             display: flex;
             flex-direction: column;
@@ -104,7 +192,8 @@
             min-height: 380px;
         }
 
-        .drop-zone:hover, .drop-zone.drag-over {
+        .drop-zone:hover,
+        .drop-zone.drag-over {
             border-color: var(--accent-yellow);
         }
 
@@ -140,7 +229,6 @@
             display: none;
         }
 
-        /* Preview elements hidden initially */
         .preview-container {
             display: none;
             width: 100%;
@@ -150,7 +238,6 @@
             border-radius: 6px;
         }
 
-        /* Telemetry Dashboard Panel */
         .dashboard-panel {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -167,6 +254,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 12px;
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 12px;
         }
@@ -177,6 +265,7 @@
             border-radius: 4px;
             background: var(--bg-input);
             color: var(--text-muted);
+            white-space: nowrap;
         }
 
         .telemetry-grid {
@@ -185,12 +274,19 @@
             gap: 12px;
         }
 
+        @media (max-width: 560px) {
+            .telemetry-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .metric-card {
             background-color: var(--bg-input);
             border: 1px solid var(--border-color);
             padding: 12px;
             border-radius: 8px;
             text-align: center;
+            min-width: 0;
         }
 
         .metric-card .label {
@@ -203,9 +299,9 @@
         .metric-card .value {
             font-size: 1.1rem;
             font-weight: 700;
+            overflow-wrap: anywhere;
         }
 
-        /* Platform Compatibility Matrix */
         .compatibility-list {
             display: flex;
             flex-direction: column;
@@ -216,30 +312,64 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 16px;
             background-color: var(--bg-input);
             padding: 12px 16px;
             border-radius: 8px;
             border-left: 4px solid var(--border-color);
         }
 
-        .platform-row.pass { border-left-color: var(--status-success); }
-        .platform-row.warn { border-left-color: var(--status-warning); }
-        .platform-row.fail { border-left-color: var(--status-danger); }
+        @media (max-width: 560px) {
+            .platform-row {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
 
-        .platform-info h4 { font-size: 0.95rem; }
-        .platform-info p { font-size: 0.75rem; color: var(--text-muted); }
+        .platform-row.pass {
+            border-left-color: var(--status-success);
+        }
+
+        .platform-row.warn {
+            border-left-color: var(--status-warning);
+        }
+
+        .platform-row.fail {
+            border-left-color: var(--status-danger);
+        }
+
+        .platform-info h4 {
+            font-size: 0.95rem;
+        }
+
+        .platform-info p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
 
         .status-pill {
             font-size: 0.75rem;
             font-weight: 700;
             padding: 4px 10px;
             border-radius: 20px;
+            white-space: nowrap;
         }
-        .pass .status-pill { background-color: rgba(14, 203, 129, 0.15); color: var(--status-success); }
-        .warn .status-pill { background-color: rgba(243, 146, 0, 0.15); color: var(--status-warning); }
-        .fail .status-pill { background-color: rgba(246, 70, 93, 0.15); color: var(--status-danger); }
 
-        /* Diagnostic Warning Area */
+        .pass .status-pill {
+            background-color: rgba(14, 203, 129, 0.15);
+            color: var(--status-success);
+        }
+
+        .warn .status-pill {
+            background-color: rgba(243, 146, 0, 0.15);
+            color: var(--status-warning);
+        }
+
+        .fail .status-pill {
+            background-color: rgba(246, 70, 93, 0.15);
+            color: var(--status-danger);
+        }
+
         .diagnostic-box {
             background-color: rgba(243, 146, 0, 0.05);
             border: 1px solid rgba(243, 146, 0, 0.2);
@@ -247,264 +377,411 @@
             padding: 16px;
             display: none;
         }
-        .diagnostic-box h4 { color: var(--status-warning); font-size: 0.95rem; margin-bottom: 4px; }
-        .diagnostic-box p { font-size: 0.8rem; color: var(--text-muted); }
 
-        /* SEO Footer Section */
+        .diagnostic-box h4 {
+            color: var(--status-warning);
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .diagnostic-box p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
         .seo-content {
             border-top: 1px solid var(--border-color);
             margin-top: 60px;
             padding-top: 40px;
             color: var(--text-muted);
         }
-        .seo-content h2 { color: var(--text-main); font-size: 1.5rem; margin-bottom: 12px; }
-        .seo-content h3 { color: var(--text-main); font-size: 1.1rem; margin-top: 20px; margin-bottom: 8px; }
-        .seo-content p { font-size: 0.9rem; margin-bottom: 12px; }
-        .seo-content ul { padding-left: 20px; font-size: 0.9rem; }
-        .seo-content li { margin-bottom: 6px; }
+
+        .seo-content h2 {
+            color: var(--text-main);
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .seo-content h3 {
+            color: var(--text-main);
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+        .seo-content p {
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .seo-content ul {
+            padding-left: 20px;
+            font-size: 0.9rem;
+        }
+
+        .seo-content li {
+            margin-bottom: 6px;
+        }
+
+        .promo-box {
+            align-items: flex-start;
+            background: linear-gradient(135deg, rgba(252, 213, 53, 0.16), rgba(252, 213, 53, 0.06));
+            border: 1px solid rgba(252, 213, 53, 0.32);
+            border-radius: 12px;
+            display: flex;
+            gap: 18px;
+            justify-content: space-between;
+            margin-top: 28px;
+            padding: 20px;
+        }
+
+        .promo-box h3 {
+            color: #ffffff;
+            font-size: 1.05rem;
+            margin: 0 0 6px;
+        }
+
+        .promo-box p {
+            color: #d4d4d8;
+            font-size: 0.9rem;
+            margin: 0;
+            max-width: 760px;
+        }
+
+        .promo-box a {
+            background-color: var(--accent-yellow);
+            border-radius: 8px;
+            color: #050505;
+            flex: 0 0 auto;
+            font-size: 0.82rem;
+            font-weight: 800;
+            padding: 10px 14px;
+            text-decoration: none;
+            transition: background-color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .promo-box a:hover {
+            background-color: #ffffff;
+        }
+
+        @media (max-width: 760px) {
+            .promo-box {
+                flex-direction: column;
+            }
+        }
+
+        .site-footer {
+            align-items: center;
+            background-color: var(--bg-main);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            justify-content: space-between;
+            padding: 16px 24px;
+            font-size: 0.7rem;
+        }
+
+        .site-footer a,
+        .site-footer span {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .site-footer a:hover,
+        .site-footer span:hover {
+            color: #e4e4e7;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+        }
+
+        @media (min-width: 640px) {
+            .site-footer {
+                flex-direction: row;
+            }
+        }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <header>
-        <div class="brand">AI Cash Lab • Creator Tools</div>
-        <h1>Video Resolution & Aspect Ratio Checker</h1>
-        <p>Instantly extract accurate resolution profiles, calculate mathematical aspect ratios, and detect compression warning risks entirely within your local browser canvas.</p>
+    <header class="site-header">
+        <a href="/" class="brand-lockup" aria-label="AI Cash Lab Tools homepage">
+            <img src="/AI%20cash%20lab%20tiny%2032x32%20size%20logo.png" alt="AI Cash Lab logo">
+            <div class="brand-row">
+                <span class="brand-name">AI Cash Lab</span>
+                <span class="brand-section">Creator Tools</span>
+            </div>
+        </a>
+        <nav class="site-nav" aria-label="Creator tools navigation">
+            <a href="/creator-utilities/">Creator Utilities</a>
+            <a href="/tiktok-safe-zone/">TikTok</a>
+            <a href="/youtube-shorts-safe-zone/">YouTube Shorts</a>
+            <a href="/instagram-reels-safe-zone/">Instagram Reels</a>
+            <a href="/resolution-checker/" class="active">Resolution Checker</a>
+        </nav>
     </header>
 
-    <div class="workspace">
-        <!-- Module 1: Universal Drag and Drop Upload Hub -->
-        <div class="drop-zone" id="drop-zone">
-            <div id="drop-zone-prompt">
-                <svg viewBox="0 0 24 24">
-                    <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
-                </svg>
-                <h3>Drag & drop your video frame or asset</h3>
-                <p>Supports MP4, MOV, JPG, PNG, WEBP files up to 50MB</p>
-                <button class="btn-browse" type="button">Choose File</button>
+    <main>
+        <div class="container">
+            <section class="hero">
+                <div class="eyebrow">Video Upload Quality Checker</div>
+                <h1>Video Resolution &amp; Aspect Ratio Checker</h1>
+                <p>Instantly extract accurate resolution profiles, calculate mathematical aspect ratios, and detect compression warning risks entirely within your local browser canvas.</p>
+            </section>
+
+            <div class="workspace">
+            <div class="drop-zone" id="drop-zone">
+                <div id="drop-zone-prompt">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
+                    </svg>
+                    <h3>Drag &amp; drop your video frame or asset</h3>
+                    <p>Supports MP4, MOV, JPG, PNG, WEBP files up to 50MB</p>
+                    <button class="btn-browse" type="button">Choose File</button>
+                </div>
+                <input type="file" id="file-input" accept="video/*,image/*">
+                <video id="video-preview" class="preview-container" controls muted></video>
+                <img id="image-preview" class="preview-container" alt="Asset preview">
             </div>
-            <input type="file" id="file-input" accept="video/*,image/*">
-            <video id="video-preview" class="preview-container" controls muted></video>
-            <img id="image-preview" class="preview-container" alt="Asset Preview">
+
+            <div class="dashboard-panel">
+                <div class="panel-title">
+                    Automated Telemetry Diagnostic
+                    <span class="status-badge" id="engine-status">Awaiting Upload</span>
+                </div>
+
+                <div class="telemetry-grid">
+                    <div class="metric-card">
+                        <div class="label">Resolution</div>
+                        <div class="value" id="val-res">--</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Aspect Ratio</div>
+                        <div class="value" id="val-ratio">--</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">File Weight</div>
+                        <div class="value" id="val-size">--</div>
+                    </div>
+                </div>
+
+                <div class="diagnostic-box" id="diagnostic-box">
+                    <h4 id="diag-title">Compression Risk Warning</h4>
+                    <p id="diag-desc">Analyzing asset constraints...</p>
+                </div>
+
+                <div class="compatibility-list">
+                    <div class="platform-row" id="row-vertical">
+                        <div class="platform-info">
+                            <h4>Mobile Vertical Media (TikTok/Reels/Shorts)</h4>
+                            <p>Target Dimension: 1080 x 1920 px (9:16 Ratio)</p>
+                        </div>
+                        <div class="status-pill">--</div>
+                    </div>
+                    <div class="platform-row" id="row-landscape">
+                        <div class="platform-info">
+                            <h4>Standard Landscape Media (YouTube/Gumroad Cover)</h4>
+                            <p>Target Dimension: 16:9 Aspect Ratio</p>
+                        </div>
+                        <div class="status-pill">--</div>
+                    </div>
+                    <div class="platform-row" id="row-feed">
+                        <div class="platform-info">
+                            <h4>Standard Square/Feed Layouts (Instagram/Etsy)</h4>
+                            <p>Target Dimension: 1:1 or 4:5 Aspect Ratio</p>
+                        </div>
+                        <div class="status-pill">--</div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Module 2: The Core Telemetry Matrix -->
-        <div class="dashboard-panel">
-            <div class="panel-title">
-                Automated Telemetry Diagnostic
-                <span class="status-badge" id="engine-status">Awaiting Upload</span>
-            </div>
+        <section class="seo-content">
+            <h2>Understanding 9:16 Aspect Ratio &amp; Video Resolutions for Content Creation</h2>
+            <p>In short-form content ecosystems, rendering crisp vertical assets dictates whether algorithmic loops distribute your video. Using a modern web-based <strong>9:16 aspect ratio checker</strong> allows automated faceless creators to verify canvas sizes before publication pipelines trigger massive video degradation algorithms.</p>
 
-            <div class="telemetry-grid">
-                <div class="metric-card">
-                    <div class="label">Resolution</div>
-                    <div class="value" id="val-res">—</div>
-                </div>
-                <div class="metric-card">
-                    <div class="label">Aspect Ratio</div>
-                    <div class="value" id="val-ratio">—</div>
-                </div>
-                <div class="metric-card">
-                    <div class="label">File Weight</div>
-                    <div class="value" id="val-size">—</div>
-                </div>
-            </div>
+            <h3>Why is my video blurry on YouTube Shorts or TikTok?</h3>
+            <p>Native social media compression logic scales assets automatically to preserve server bandwidth. If you upload file profiles matching a <strong>TikTok resolution checker</strong> warning, like raw 4K files or non-standard spatial aspect ratios, platform transcoding updates downscale properties harshly. Pre-compressing rendering assets directly into clean target ratios eliminates baseline blurring bugs instantly.</p>
 
-            <!-- Compression Risk Diagnostic Panel -->
-            <div class="diagnostic-box" id="diagnostic-box">
-                <h4 id="diag-title">Compression Risk Warning</h4>
-                <p id="diag-desc">Analyzing asset constraints...</p>
-            </div>
+            <h3>Optimizing Core Creative Asset Ratios</h3>
+            <ul>
+                <li><strong>TikTok / Reels / Shorts:</strong> Demands localized 9:16 aspect ratio rules at 1080x1920 pixels.</li>
+                <li><strong>Gumroad Covers &amp; YouTube Thumbnails:</strong> Native horizontal 16:9 orientation scales gracefully.</li>
+                <li><strong>Instagram Feed Grid View:</strong> Displays assets in constrained square 1:1 or 4:5 rectangular windows.</li>
+            </ul>
 
-            <!-- Smart Platform Compatibility Matrix -->
-            <div class="compatibility-list">
-                <div class="platform-row" id="row-vertical">
-                    <div class="platform-info">
-                        <h4>Mobile Vertical Media (TikTok/Reels/Shorts)</h4>
-                        <p>Target Dimension: 1080 × 1920 px (9:16 Ratio)</p>
-                    </div>
-                    <div class="status-pill">—</div>
+            <div class="promo-box">
+                <div>
+                    <h3>Need to resize the file after checking it?</h3>
+                    <p>Use the AI Image Size Checker &amp; Resizer toolkit to prep creator assets for platform specs, thumbnails, covers, and product graphics without rebuilding the layout from scratch.</p>
                 </div>
-                <div class="platform-row" id="row-landscape">
-                    <div class="platform-info">
-                        <h4>Standard Landscape Media (YouTube/Gumroad Cover)</h4>
-                        <p>Target Dimension: 16:9 Aspect Ratio</p>
-                    </div>
-                    <div class="status-pill">—</div>
-                </div>
-                <div class="platform-row" id="row-feed">
-                    <div class="platform-info">
-                        <h4>Standard Square/Feed Layouts (Instagram/Etsy)</h4>
-                        <p>Target Dimension: 1:1 or 4:5 Aspect Ratio</p>
-                    </div>
-                    <div class="status-pill">—</div>
-                </div>
+                <a href="https://aicashlabofficial.gumroad.com/l/uuqxat?layout=profile" target="_blank" rel="noopener noreferrer">Open Resizer Toolkit</a>
             </div>
+        </section>
         </div>
-    </div>
+    </main>
 
-    <!-- SEO Below-The-Fold Article Blurb Section -->
-    <section class="seo-content">
-        <h2>Understanding 9:16 Aspect Ratio & Video Resolutions for Content Creation</h2>
-        <p>In short-form content ecosystems, rendering crisp vertical assets dictates whether algorithmic loops distribute your video. Using a modern web-based <strong>9:16 aspect ratio checker</strong> allows automated faceless creators to verify canvas sizes before publication pipelines trigger massive video degradation algorithms.</p>
-        
-        <h3>Why is my video blurry on YouTube Shorts or TikTok?</h3>
-        <p>Native social media compression logic scales assets automatically to preserve server bandwidth. If you upload file profiles matching a <strong>TikTok resolution checker</strong> warning (like raw 4K files or non-standard spatial aspect ratios), platform transcoding updates downscale properties harshly. Pre-compressing rendering assets directly into clean target ratios eliminates baseline blurring bugs instantly.</p>
+    <footer class="site-footer">
+        <p>&copy; 2026 AI Cash Lab. All rights reserved.</p>
+        <div class="footer-links">
+            <span>Privacy Policy</span>
+            <span>Terms</span>
+            <a href="mailto:support@aicashlabtools.com">Contact</a>
+        </div>
+    </footer>
 
-        <h3>Optimizing Core Creative Asset Ratios</h3>
-        <ul>
-            <li><strong>TikTok / Reels / Shorts:</strong> Demands localized 9:16 aspect ratio rules at 1080x1920 pixels.</li>
-            <li><strong>Gumroad Covers & YouTube Thumbnails:</strong> Native horizontal 16:9 orientation scales gracefully.</li>
-            <li><strong>Instagram Feed Grid View:</strong> Displays assets in constrained square 1:1 or 4:5 rectangular windows.</li>
-        </ul>
-    </section>
-</div>
+    <script>
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        const browseBtn = dropZone.querySelector('.btn-browse');
+        const videoPreview = document.getElementById('video-preview');
+        const imagePreview = document.getElementById('image-preview');
+        const promptDiv = document.getElementById('drop-zone-prompt');
 
-<script>
-    const dropZone = document.getElementById('drop-zone');
-    const fileInput = document.getElementById('file-input');
-    const browseBtn = dropZone.querySelector('.btn-browse');
-    const videoPreview = document.getElementById('video-preview');
-    const imagePreview = document.getElementById('image-preview');
-    const promptDiv = document.getElementById('drop-zone-prompt');
+        const engineStatus = document.getElementById('engine-status');
+        const valRes = document.getElementById('val-res');
+        const valRatio = document.getElementById('val-ratio');
+        const valSize = document.getElementById('val-size');
+        const diagnosticBox = document.getElementById('diagnostic-box');
+        const diagTitle = document.getElementById('diag-title');
+        const diagDesc = document.getElementById('diag-desc');
 
-    // UI Status Fields
-    const engineStatus = document.getElementById('engine-status');
-    const valRes = document.getElementById('val-res');
-    const valRatio = document.getElementById('val-ratio');
-    const valSize = document.getElementById('val-size');
-    const diagnosticBox = document.getElementById('diagnostic-box');
-    const diagTitle = document.getElementById('diag-title');
-    const diagDesc = document.getElementById('diag-desc');
+        browseBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            fileInput.click();
+        });
 
-    // Trigger input via click
-    browseBtn.addEventListener('click', (e) => { e.stopPropagation(); fileInput.click(); });
-    dropZone.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('click', () => fileInput.click());
 
-    // Drag over styling hooks
-    dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('drag-over'); });
-    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
-    dropZone.addEventListener('drop', (e) => {
-        e.preventDefault();
-        dropZone.classList.remove('drag-over');
-        if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
-    });
-    fileInput.addEventListener('change', (e) => { if (e.target.files.length) handleFile(e.target.files[0]); });
+        dropZone.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            dropZone.classList.add('drag-over');
+        });
 
-    function handleFile(file) {
-        if (!file) return;
+        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
 
-        // Reset views
-        videoPreview.style.display = 'none';
-        imagePreview.style.display = 'none';
-        promptDiv.style.display = 'none';
-        diagnosticBox.style.display = 'none';
+        dropZone.addEventListener('drop', (event) => {
+            event.preventDefault();
+            dropZone.classList.remove('drag-over');
 
-        // Calculate and write human file weights
-        const sizeInMB = (file.size / (1024 * 1024)).toFixed(2);
-        valSize.textContent = `${sizeInMB} MB`;
-        engineStatus.textContent = 'Processing Locally';
-        engineStatus.style.color = 'var(--accent-yellow)';
-
-        const fileURL = URL.createObjectURL(file);
-
-        if (file.type.startsWith('video/')) {
-            videoPreview.src = fileURL;
-            videoPreview.style.display = 'block';
-            videoPreview.onloadedmetadata = () => {
-                analyzeDimensions(videoPreview.videoWidth, videoPreview.videoHeight, sizeInMB);
-            };
-        } else if (file.type.startsWith('image/')) {
-            imagePreview.src = fileURL;
-            imagePreview.style.display = 'block';
-            imagePreview.onload = () => {
-                analyzeDimensions(imagePreview.naturalWidth, imagePreview.naturalHeight, sizeInMB);
-            };
-        }
-    }
-
-    // Helper Greatest Common Divisor logic to output standard ratio terms
-    function getGCD(a, b) { return b === 0 ? a : getGCD(b, a % b); }
-
-    function analyzeDimensions(width, height, sizeInMB) {
-        valRes.textContent = `${width} × ${height}`;
-        
-        // Calculate Clean Ratios
-        const gcd = getGCD(width, height);
-        const rWidth = width / gcd;
-        const rHeight = height / gcd;
-        
-        // Handle common rough rounding ratios safely
-        let displayRatio = `${rWidth}:${rHeight}`;
-        const approximateDecimal = (width / height).toFixed(3);
-
-        if (approximateDecimal === "0.563") displayRatio = "9:16";
-        if (approximateDecimal === "1.778") displayRatio = "16:9";
-        if (approximateDecimal === "0.800") displayRatio = "4:5";
-        if (approximateDecimal === "1.000") displayRatio = "1:1";
-
-        valRatio.textContent = displayRatio;
-        engineStatus.textContent = 'Analysis Complete';
-        engineStatus.style.color = 'var(--status-success)';
-
-        // Match rows variables
-        const rowVertical = document.getElementById('row-vertical');
-        const rowLandscape = document.getElementById('row-landscape');
-        const rowFeed = document.getElementById('row-feed');
-
-        // Reset classes
-        [rowVertical, rowLandscape, rowFeed].forEach(r => r.className = 'platform-row');
-
-        // Dynamic Rule Matching Logic Matrix
-        if (displayRatio === "9:16") {
-            rowVertical.classList.add('pass');
-            rowVertical.querySelector('.status-pill').textContent = '✅ Highly Optimized';
-            
-            rowLandscape.classList.add('fail');
-            rowLandscape.querySelector('.status-pill').textContent = '❌ Mismatch';
-            
-            rowFeed.classList.add('warn');
-            rowFeed.querySelector('.status-pill').textContent = '⚠ Cropped In Feed';
-
-            // Check Resolution Warnings for 4K Vertical Platforms
-            if (width > 1080) {
-                showDiagnostic("High Compression Risk", "This asset uses high ultra-HD spatial resolutions. Social networks automatically resize files to 1080x1920 pixels, which can lead to high compression artifacts. For maximum native quality, export files natively at 1080x1920 px.");
+            if (event.dataTransfer.files.length) {
+                handleFile(event.dataTransfer.files[0]);
             }
-        } else if (displayRatio === "16:9") {
-            rowVertical.classList.add('fail');
-            rowVertical.querySelector('.status-pill').textContent = '❌ Black Bars (Pillarbox)';
-            
-            rowLandscape.classList.add('pass');
-            rowLandscape.querySelector('.status-pill').textContent = '✅ Optimized Landscape';
-            
-            rowFeed.classList.add('fail');
-            rowFeed.querySelector('.status-pill').textContent = '❌ Letterbox Fit';
-        } else if (displayRatio === "4:5" || displayRatio === "1:1") {
-            rowVertical.classList.add('warn');
-            rowVertical.querySelector('.status-pill').textContent = '⚠ Massive Top/Bottom Cuts';
-            
-            rowLandscape.classList.add('fail');
-            rowLandscape.querySelector('.status-pill').textContent = '❌ Left/Right Borders';
-            
-            rowFeed.classList.add('pass');
-            rowFeed.querySelector('.status-pill').textContent = '✅ Feed Verified';
-        } else {
-            // Non standard fallbacks
-            [rowVertical, rowLandscape, rowFeed].forEach(r => {
-                r.classList.add('warn');
-                r.querySelector('.status-pill').textContent = '⚠ Non-Standard Match';
-            });
-            showDiagnostic("Custom Structural Layout Profile", "This file has a unique structural profile format. It may face inconsistent presentation cuts depending on application rendering constraints.");
+        });
+
+        fileInput.addEventListener('change', (event) => {
+            if (event.target.files.length) {
+                handleFile(event.target.files[0]);
+            }
+        });
+
+        function handleFile(file) {
+            if (!file) return;
+
+            videoPreview.style.display = 'none';
+            imagePreview.style.display = 'none';
+            promptDiv.style.display = 'none';
+            diagnosticBox.style.display = 'none';
+
+            const sizeInMB = (file.size / (1024 * 1024)).toFixed(2);
+            valSize.textContent = `${sizeInMB} MB`;
+            engineStatus.textContent = 'Processing Locally';
+            engineStatus.style.color = 'var(--accent-yellow)';
+
+            const fileURL = URL.createObjectURL(file);
+
+            if (file.type.startsWith('video/')) {
+                videoPreview.src = fileURL;
+                videoPreview.style.display = 'block';
+                videoPreview.onloadedmetadata = () => {
+                    analyzeDimensions(videoPreview.videoWidth, videoPreview.videoHeight, sizeInMB);
+                    URL.revokeObjectURL(fileURL);
+                };
+            } else if (file.type.startsWith('image/')) {
+                imagePreview.src = fileURL;
+                imagePreview.style.display = 'block';
+                imagePreview.onload = () => {
+                    analyzeDimensions(imagePreview.naturalWidth, imagePreview.naturalHeight, sizeInMB);
+                    URL.revokeObjectURL(fileURL);
+                };
+            }
         }
-    }
 
-    function showDiagnostic(title, message) {
-        diagnosticBox.style.display = 'block';
-        diagTitle.textContent = `⚠ ${title}`;
-        diagDesc.textContent = message;
-    }
-</script>
+        function getGCD(a, b) {
+            return b === 0 ? a : getGCD(b, a % b);
+        }
 
+        function analyzeDimensions(width, height) {
+            valRes.textContent = `${width} x ${height}`;
+
+            const gcd = getGCD(width, height);
+            const rWidth = width / gcd;
+            const rHeight = height / gcd;
+            const approximateDecimal = width / height;
+            let displayRatio = `${rWidth}:${rHeight}`;
+
+            if (isNear(approximateDecimal, 9 / 16)) displayRatio = '9:16';
+            if (isNear(approximateDecimal, 16 / 9)) displayRatio = '16:9';
+            if (isNear(approximateDecimal, 4 / 5)) displayRatio = '4:5';
+            if (isNear(approximateDecimal, 1)) displayRatio = '1:1';
+
+            valRatio.textContent = displayRatio;
+            engineStatus.textContent = 'Analysis Complete';
+            engineStatus.style.color = 'var(--status-success)';
+
+            const rowVertical = document.getElementById('row-vertical');
+            const rowLandscape = document.getElementById('row-landscape');
+            const rowFeed = document.getElementById('row-feed');
+
+            [rowVertical, rowLandscape, rowFeed].forEach((row) => {
+                row.className = 'platform-row';
+            });
+
+            if (displayRatio === '9:16') {
+                setRow(rowVertical, 'pass', 'Perfect');
+                setRow(rowLandscape, 'fail', 'Mismatch');
+                setRow(rowFeed, 'warn', 'Cropped In Feed');
+
+                if (width > 1080) {
+                    showDiagnostic('High Compression Risk', 'This asset uses high ultra-HD spatial resolutions. Social networks automatically resize files to 1080x1920 pixels, which can lead to high compression artifacts. For maximum native quality, export files natively at 1080x1920 px.');
+                }
+            } else if (displayRatio === '16:9') {
+                setRow(rowVertical, 'fail', 'Black Bars');
+                setRow(rowLandscape, 'pass', 'Optimized Landscape');
+                setRow(rowFeed, 'fail', 'Letterbox Fit');
+            } else if (displayRatio === '4:5' || displayRatio === '1:1') {
+                setRow(rowVertical, 'warn', 'Top/Bottom Cuts');
+                setRow(rowLandscape, 'fail', 'Left/Right Borders');
+                setRow(rowFeed, 'pass', 'Feed Verified');
+            } else {
+                [rowVertical, rowLandscape, rowFeed].forEach((row) => {
+                    setRow(row, 'warn', 'Non-Standard Match');
+                });
+                showDiagnostic('Custom Structural Layout Profile', 'This file has a unique structural profile format. It may face inconsistent presentation cuts depending on application rendering constraints.');
+            }
+        }
+
+        function isNear(value, target) {
+            return Math.abs(value - target) < 0.01;
+        }
+
+        function setRow(row, state, text) {
+            row.classList.add(state);
+            row.querySelector('.status-pill').textContent = text;
+        }
+
+        function showDiagnostic(title, message) {
+            diagnosticBox.style.display = 'block';
+            diagTitle.textContent = title;
+            diagDesc.textContent = message;
+        }
+    </script>
 </body>
 </html>
