@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelance Freedom Rate Calculator | AI Cash Lab</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Calculate your true minimum freelance hourly rate, annual gross business revenue targets, and billable hour distribution profiles with our free interactive tool.">
+    <meta name="keywords" content="how to calculate freelance hourly rate, freelance contractor rate calculator, consulting hourly rate formula, freelance survival rate">
+    
+    <!-- Open Graph Previews -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aicashlabtools.com/hourly-rate-calculator/">
+    <meta property="og:title" content="Freelance Freedom Rate Calculator | Free Diagnostic Utility">
+    <meta property="og:description" content="Stop guessing your hourly contracting numbers. Run your income blueprints, account for unbilled overhead, and protect your baseline profit margins instantly.">
+    
+    <style>
+        :root {
+            --bg-main: #0b0d11;
+            --bg-card: #131722;
+            --bg-input: #1e222b;
+            --accent-yellow: #fcd535;
+            --text-main: #ffffff;
+            --text-muted: #8a8d93;
+            --status-success: #0ecb81;
+            --status-warning: #f39200;
+            --border-color: #262b36;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header .brand {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-yellow);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Preset Row Configuration */
+        .presets-row {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .btn-preset {
+            background-color: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-preset:hover, .btn-preset.active {
+            border-color: var(--accent-yellow);
+            background-color: var(--bg-input);
+        }
+
+        .workspace {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 900px) {
+            .workspace {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Control Input Forms */
+        .input-panel {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        label {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .label-val {
+            color: var(--accent-yellow);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            accent-color: var(--accent-yellow);
+            cursor: pointer;
+        }
+
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-input);
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+
+        .switch input { opacity: 0; width: 0; height: 0; }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: var(--border-color);
+            transition: .3s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px; width: 16px;
+            left: 4px; bottom: 4px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider { background-color: var(--accent-yellow); }
+        input:checked + .slider:before { transform: translateX(20px); }
+
+        /* Output Diagnostics Dashboard */
+        .dashboard-panel {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .hero-metric {
+            background: linear-gradient(135deg, #1e22b3 0%, var(--bg-input) 100%);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .hero-metric .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .hero-metric .value {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--accent-yellow);
+            line-height: 1.1;
+        }
+
+        .output-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .output-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-input);
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .output-row span.val {
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .reality-text-box {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            background-color: rgba(252, 213, 53, 0.03);
+            border-left: 3px solid var(--accent-yellow);
+            padding: 12px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .disclaimer-text {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.4;
+            margin-top: 10px;
+        }
+
+        /* SEO Footnote Text */
+        .seo-content {
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+            padding-top: 40px;
+            color: var(--text-muted);
+        }
+        .seo-content h2 { color: var(--text-main); font-size: 1.5rem; margin-bottom: 12px; }
+        .seo-content p { font-size: 0.9rem; margin-bottom: 12px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="brand">AI Cash Lab • Financial Utilities</div>
+        <h1>Freelance Freedom Rate Calculator</h1>
+        <p>Determine the absolute minimum baseline hourly funding required to back your localized target business take-home overhead expenses safely.</p>
+    </header>
+
+    <!-- Quick Profile Configurations Selector -->
+    <div class="presets-row">
+        <button class="btn-preset active" id="preset-side">Side Hustle</button>
+        <button class="btn-preset" id="preset-full">Full-Time Freelancer</button>
+        <button class="btn-preset" id="preset-premium">Premium Consultant</button>
+    </div>
+
+    <div class="workspace">
+        <!-- Control Inputs Grid Wrapper -->
+        <div class="input-panel">
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-net">Desired Monthly Net Income</label>
+                    <span class="label-val" id="val-net">$2,500</span>
+                </div>
+                <input type="range" id="input-net" min="1000" max="20000" step="500" value="2500">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-expenses">Monthly Business Overhead</label>
+                    <span class="label-val" id="val-expenses">$200</span>
+                </div>
+                <input type="range" id="input-expenses" min="0" max="3000" step="50" value="200">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-billable">Billable Hours Per Week</label>
+                    <span class="label-val" id="val-billable">10 hrs</span>
+                </div>
+                <input type="range" id="input-billable" min="5" max="40" step="1" value="10">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-vacation">Annual Time-Off (Vacation Weeks)</label>
+                    <span class="label-val" id="val-vacation">2 weeks</span>
+                </div>
+                <input type="range" id="input-vacation" min="0" max="10" step="1" value="2">
+            </div>
+
+            <div class="toggle-container">
+                <div>
+                    <label style="display:block; margin-bottom:2px;">Apply 30% Tax Safety Buffer</label>
+                    <span style="font-size:0.75rem; color:var(--text-muted);">Auto-retained self-employment allocation layout shield</span>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="input-tax-toggle" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Metric Output Visualization Terminal Dashboard -->
+        <div class="dashboard-panel">
+            <div class="hero-metric">
+                <div class="label">True Minimum Hourly Rate</div>
+                <div class="value" id="out-hourly">$0.00</div>
+            </div>
+
+            <div class="output-list">
+                <div class="output-row">
+                    <span>Monthly Gross Revenue Target</span>
+                    <span class="val" id="out-monthly-gross">$0.00</span>
+                </div>
+                <div class="output-row">
+                    <span>Annual Gross Target</span>
+                    <span class="val" id="out-annual-gross">$0.00</span>
+                </div>
+                <div class="output-row">
+                    <span>Billable Time Reality</span>
+                    <span class="val" id="out-time-reality">0% of workweek</span>
+                </div>
+                <div class="output-row" style="flex-direction:column; align-items:flex-start; gap:8px;">
+                    <span style="font-size:0.85rem; color:var(--text-muted);">Actionable Client/Project Target Paths:</span>
+                    <div id="out-targets-breakdown" style="font-size:0.9rem; font-weight:600; width:100%; display:flex; justify-content:space-between;">
+                        <span>—</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reality-text-box" id="reality-statement">
+                Based on your inputs...
+            </div>
+
+            <div class="disclaimer-text">
+                ⚠️ <strong>Tax Disclaimer:</strong> This tool uses a simple tax buffer estimate for planning purposes only. It is not tax, legal, or financial advice.
+            </div>
+        </div>
+    </div>
+
+    <!-- Informational Context Module Block targeting search loops -->
+    <section class="seo-content">
+        <h2>How to Correctly Calculate a Sustainable Freelance Hourly Rate</h2>
+        <p>Many independent creators fail because they map contractor rates via standard employee paradigms. Utilizing a programmatic <strong>freelance contractor rate calculator</strong> avoids critical delivery shortfalls by tracking real-world administrative parameters, variable vacation windows, and dynamic structural self-employment overhead allocations cleanly.</p>
+        <p>Using an optimized <strong>consulting hourly rate formula</strong> surfaces hidden work tracking gaps, allowing individuals to run client retention pipelines without zeroing out project margins over time.</p>
+    </section>
+</div>
+
+<script>
+    // Inputs Selectors
+    const inputNet = document.getElementById('input-net');
+    const inputExpenses = document.getElementById('input-expenses');
+    const inputBillable = document.getElementById('input-billable');
+    const inputVacation = document.getElementById('input-vacation');
+    const inputTaxToggle = document.getElementById('input-tax-toggle');
+
+    // Labels Selectors
+    const valNet = document.getElementById('val-net');
+    const valExpenses = document.getElementById('val-expenses');
+    const valBillable = document.getElementById('val-billable');
+    const valVacation = document.getElementById('val-vacation');
+
+    // Outputs Displays
+    const outHourly = document.getElementById('out-hourly');
+    const outMonthlyGross = document.getElementById('out-monthly-gross');
+    const outAnnualGross = document.getElementById('out-annual-gross');
+    const outTimeReality = document.getElementById('out-time-reality');
+    const outTargetsBreakdown = document.getElementById('out-targets-breakdown');
+    const realityStatement = document.getElementById('reality-statement');
+
+    // Presets Hooks
+    const presetSide = document.getElementById('preset-side');
+    const presetFull = document.getElementById('preset-full');
+    const presetPremium = document.getElementById('preset-premium');
+
+    // Preset Data Profiles Matrix
+    const profiles = {
+        side: { net: 2000, expenses: 100, billable: 8, vacation: 2, tax: true },
+        full: { net: 6000, expenses: 400, billable: 18, vacation: 4, tax: true },
+        premium: { net: 12000, expenses: 800, billable: 12, vacation: 6, tax: true }
+    };
+
+    function applyProfile(pKey, element) {
+        document.querySelectorAll('.btn-preset').forEach(b => b.classList.remove('active'));
+        element.classList.add('active');
+        
+        const data = profiles[pKey];
+        inputNet.value = data.net;
+        inputExpenses.value = data.expenses;
+        inputBillable.value = data.billable;
+        inputVacation.value = data.vacation;
+        inputTaxToggle.checked = data.tax;
+        
+        calculateMetrics();
+    }
+
+    presetSide.addEventListener('click', () => applyProfile('side', presetSide));
+    presetFull.addEventListener('click', () => applyProfile('full', presetFull));
+    presetPremium.addEventListener('click', () => applyProfile('premium', presetPremium));
+
+    // Dynamic Execution Listeners Hooks
+    [inputNet, inputExpenses, inputBillable, inputVacation, inputTaxToggle].forEach(input => {
+        input.addEventListener('input', () => {
+            // Uncheck active preset indicators if manual shifts occur
+            document.querySelectorAll('.btn-preset').forEach(b => b.classList.remove('active'));
+            calculateMetrics();
+        });
+    });
+
+    function calculateMetrics() {
+        const net = parseInt(inputNet.value);
+        const expenses = parseInt(inputExpenses.value);
+        const billableHoursPerWeek = parseInt(inputBillable.value);
+        const vacationWeeks = parseInt(inputVacation.value);
+        const applyTaxBuffer = inputTaxToggle.checked;
+
+        // Sync visual UI labels text values
+        valNet.textContent = `$${net.toLocaleString()}`;
+        valExpenses.textContent = `$${expenses.toLocaleString()}`;
+        valBillable.textContent = `${billableHoursPerWeek} hrs`;
+        valVacation.textContent = `${vacationWeeks} ${vacationWeeks === 1 ? 'week' : 'weeks'}`;
+
+        // Operational calculations loop
+        let monthlyGrossRequired = net + expenses;
+        if (applyTaxBuffer) {
+            monthlyGrossRequired = (net / 0.7) + expenses; 
+        }
+
+        const annualGrossRequired = monthlyGrossRequired * 12;
+        const totalWorkingWeeks = 52 - vacationWeeks;
+        const totalAnnualBillableHours = billableHoursPerWeek * totalWorkingWeeks;
+
+        // Calculate Target Hourly Number
+        let hourlyRate = 0;
+        if (totalAnnualBillableHours > 0) {
+            hourlyRate = Math.ceil(annualGrossRequired / totalAnnualBillableHours);
+        }
+
+        // Calculate Billable Percentage Reality Check (Assumed baseline standard 40 hour workweek profile)
+        const weeklyBillablePercentage = ((billableHoursPerWeek / 40) * 100).toFixed(1);
+
+        // Render Outputs Values Fields
+        outHourly.textContent = `$${hourlyRate}/hr`;
+        outMonthlyGross.textContent = `$${Math.round(monthlyGrossRequired).toLocaleString()}`;
+        outAnnualGross.textContent = `$${Math.round(annualGrossRequired).toLocaleString()}`;
+        outTimeReality.textContent = `${weeklyBillablePercentage}% of your standard 40hr week`;
+
+        // Calculate Actionable Client Project Targets Configurations
+        const clientTargetValue = Math.round(monthlyGrossRequired / 3);
+        const projectTargetValue = Math.round(monthlyGrossRequired / 5);
+
+        outTargetsBreakdown.innerHTML = `
+            <div style="background:var(--bg-card); padding:8px; border-radius:4px; width:48%; border:1px solid var(--border-color); text-align:center;">
+                <span style="display:block; font-size:0.75rem; color:var(--text-muted);">3 Retainers at</span><strong>$${clientTargetValue.toLocaleString()}/mo</strong>
+            </div>
+            <div style="background:var(--bg-card); padding:8px; border-radius:4px; width:48%; border:1px solid var(--border-color); text-align:center;">
+                <span style="display:block; font-size:0.75rem; color:var(--text-muted);">5 Projects at</span><strong>$${projectTargetValue.toLocaleString()}/ea</strong>
+            </div>
+        `;
+
+        // Qualitative diagnostic breakdown message
+        const monthlyBillableTotalHours = Math.round(totalAnnualBillableHours / 12);
+        realityStatement.textContent = `Based on your inputs, you need exactly ${monthlyBillableTotalHours} billable hours/month at this rate. The rest of your workweek can go toward admin overhead, marketing positioning, client communication workflows, or building scalable assets.`;
+    }
+
+    // Initial load ignition trigger configuration
+    calculateMetrics();
+</script>
+
+</body>
+</html>
