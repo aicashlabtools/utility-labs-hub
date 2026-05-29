@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Script Word-to-Time Calculator | AI Cash Lab</title>
+    
+    <!-- SEO Architecture -->
+    <meta name="description" content="Calculate your video script duration instantly. Convert word counts to exact video runtimes based on your target short-form pacing style.">
+    <meta name="keywords" content="script to time calculator, words to time converter, short-form script editor, tiktok script timer, words per minute calculator">
+    
+    <style>
+        :root {
+            --bg-main: #0b0d11;
+            --bg-card: #131722;
+            --bg-input: #1e222b;
+            --accent-yellow: #fcd535;
+            --text-main: #ffffff;
+            --text-muted: #8a8d93;
+            --status-green: #22c55e;
+            --status-warning: #f39200;
+            --status-alert: #ff4d4d;
+            --border-color: #262b36;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 40px; }
+        header .brand { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-yellow); font-weight: 700; margin-bottom: 8px; }
+        header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+        header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        .workspace { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; margin-bottom: 40px; }
+        @media (max-width: 900px) { .workspace { grid-template-columns: 1fr; } }
+
+        .input-panel, .dashboard-panel {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-label-row { display: flex; justify-content: space-between; align-items: center; }
+        label { font-size: 0.9rem; font-weight: 600; }
+        .label-val { color: var(--accent-yellow); font-weight: 700; font-size: 1rem; }
+        
+        textarea {
+            width: 100%; height: 260px; background-color: var(--bg-input); border: 1px solid var(--border-color);
+            border-radius: 8px; color: var(--text-main); padding: 16px; font-size: 1rem; line-height: 1.6;
+            resize: vertical; outline: none; font-family: inherit;
+        }
+        textarea:focus { border-color: var(--accent-yellow); }
+
+        /* Preset Fast Button Grids Layout */
+        .preset-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 4px; }
+        .preset-btn {
+            background-color: var(--bg-input); border: 1px solid var(--border-color); color: var(--text-main);
+            padding: 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; text-align: left;
+            transition: all 0.2s ease;
+        }
+        .preset-btn:hover { border-color: var(--accent-yellow); }
+        .preset-btn.active { background-color: rgba(252, 213, 53, 0.1); border-color: var(--accent-yellow); color: var(--accent-yellow); }
+
+        input[type="range"] { width: 100%; accent-color: var(--accent-yellow); cursor: pointer; }
+
+        .hero-metric {
+            background: linear-gradient(135deg, #131722 0%, var(--bg-input) 100%);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .hero-metric .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 4px; }
+        .hero-metric .value { font-size: 3.5rem; font-weight: 900; color: var(--accent-yellow); }
+
+        .output-list { display: flex; flex-direction: column; gap: 12px; }
+        .output-row {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            background: var(--bg-input); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+        .output-row span.val { font-weight: 700; text-align: right; }
+        .output-row .sub-lbl { display: block; font-size: 0.75rem; color: var(--text-muted); font-weight: normal; margin-top: 2px; }
+
+        .status-badge { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; }
+        .badge-green { background: rgba(34, 197, 94, 0.15); color: var(--status-green); }
+        .badge-yellow { background: rgba(243, 146, 0, 0.15); color: var(--status-warning); }
+        .badge-red { background: rgba(255, 77, 77, 0.15); color: var(--status-alert); }
+
+        .advisor-box {
+            font-size: 0.85rem; line-height: 1.5; padding: 14px; border-radius: 8px;
+            background-color: rgba(252, 213, 53, 0.01); border: 1px dashed var(--border-color);
+        }
+
+        .seo-content { border-top: 1px solid var(--border-color); margin-top: 60px; padding-top: 40px; color: var(--text-muted); }
+        .seo-content h2 { color: var(--text-main); font-size: 1.5rem; margin-bottom: 12px; }
+        .seo-content p { font-size: 0.9rem; margin-bottom: 12px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="brand">AI Cash Lab • Creator Utilities</div>
+        <h1>Video Script Word-to-Time Calculator</h1>
+        <p>Convert script counts into dead-accurate short-form timeline runs automatically before hitting record.</p>
+    </header>
+
+    <div class="workspace">
+        <!-- Script Area Inputs Section -->
+        <div class="input-panel">
+            <div class="form-group">
+                <label for="script-input">Paste Your Video Script</label>
+                <textarea id="script-input" placeholder="Type or paste your script here... The tool will isolate your hook length, word counts, and runtime optimization alerts instantly."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Pacing Presets</label>
+                <div class="preset-grid">
+                    <button class="preset-btn" data-wpm="120">🎙️ Slow Narration (120 WPM)</button>
+                    <button class="preset-btn" data-wpm="150">💬 Conversational (150 WPM)</button>
+                    <button class="preset-btn active" data-wpm="180">🚀 Short-Form Creator (180 WPM)</button>
+                    <button class="preset-btn" data-wpm="220">⚡ Hyper-Retention (220 WPM)</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-wpm">Manual Speed Control</label>
+                    <span class="label-val" id="val-wpm">180 WPM</span>
+                </div>
+                <input type="range" id="input-wpm" min="100" max="260" step="5" value="180">
+            </div>
+        </div>
+
+        <!-- Video Telemetry Outputs Section -->
+        <div class="dashboard-panel">
+            <div class="hero-metric">
+                <div class="label">Estimated Video Duration</div>
+                <div class="value" id="out-duration">0:00</div>
+            </div>
+
+            <div class="output-list">
+                <div class="output-row">
+                    <div>
+                        <span>Hook Performance</span>
+                        <span class="sub-lbl" id="out-hook-words">First sentence: 0 words</span>
+                    </div>
+                    <span class="val" id="out-hook-time" style="color: var(--accent-yellow);">0.0s</span>
+                </div>
+                
+                <div class="output-row">
+                    <div>
+                        <span>Script Density Profile</span>
+                        <span class="sub-lbl" id="out-density-desc">Enter text to evaluate density metrics.</span>
+                    </div>
+                    <span class="status-badge badge-green" id="out-density-badge">Lean Script</span>
+                </div>
+
+                <div class="output-row" id="row-words-cut" style="display: none; border-color: rgba(255, 77, 77, 0.25); background: rgba(255, 77, 77, 0.02);">
+                    <div>
+                        <span style="color: var(--status-alert);">Optimization Guardrail</span>
+                        <span class="sub-lbl" style="color: var(--text-muted);">To lock inside a 59s algorithmic threshold:</span>
+                    </div>
+                    <span class="val" id="out-words-cut" style="color: var(--status-alert);">Remove 0 words</span>
+                </div>
+
+                <div class="output-row">
+                    <div>
+                        <span>Ideal Structural Benchmarks</span>
+                        <span class="sub-lbl">Perfect target counts at current pacing:</span>
+                    </div>
+                    <span class="val" id="out-benchmarks" style="font-size: 0.85rem; line-height: 1.4; color: var(--text-muted);">
+                        15s ≈ 0 words<br>30s ≈ 0 words<br>60s ≈ 0 words
+                    </span>
+                </div>
+
+                <div class="output-row">
+                    <div>
+                        <span>Platform Distribution Matrix</span>
+                        <span class="sub-lbl">Algorithmic timeline compliance:</span>
+                    </div>
+                    <span class="val" id="out-matrix" style="font-size: 0.85rem; line-height: 1.5;">
+                        TikTok: <span style="color: var(--text-muted);">--</span><br>
+                        YouTube Shorts: <span style="color: var(--text-muted);">--</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Content Optimization Advisor Card Component -->
+            <div class="advisor-box" id="advisor-card">
+                Write or paste text content to initialize retention metrics.
+            </div>
+        </div>
+    </div>
+
+    <section class="seo-content">
+        <h2>Optimizing Retention and Delivery Pacing Metrics for Vertical Video Algorithms</h2>
+        <p>Using a standardized <strong>script to time calculator</strong> prevents short-form content developers from exceeding strict platform hard limits blindly. Checking script configurations via an interactive <strong>words to time converter</strong> tracks pacing density, ensures hooks convert within optimal windows, and guarantees video sequences capture maximum completion signals safely.</p>
+    </section>
+</div>
+
+<script>
+    const scriptInput = document.getElementById('script-input');
+    const inputWpm = document.getElementById('input-wpm');
+    const valWpm = document.getElementById('val-wpm');
+    const presetBtns = document.querySelectorAll('.preset-btn');
+
+    const outDuration = document.getElementById('out-duration');
+    const outHookWords = document.getElementById('out-hook-words');
+    const outHookTime = document.getElementById('out-hook-time');
+    const outDensityDesc = document.getElementById('out-density-desc');
+    const outDensityBadge = document.getElementById('out-density-badge');
+    const outWordsCut = document.getElementById('out-words-cut');
+    const rowWordsCut = document.getElementById('row-words-cut');
+    const outBenchmarks = document.getElementById('out-benchmarks');
+    const outMatrix = document.getElementById('out-matrix');
+    const advisorCard = document.getElementById('advisor-card');
+
+    // UI Input Event Mapping Architecture
+    scriptInput.addEventListener('input', calculateScriptTelemetry);
+    inputWpm.addEventListener('input', (e) => {
+        valWpm.textContent = `${e.target.value} WPM`;
+        // Clear active states on buttons since manual slider was tracked
+        presetBtns.forEach(btn => btn.classList.remove('active'));
+        calculateScriptTelemetry();
+    });
+
+    // Preset Speed Selection Action Logic Loops
+    presetBtns.forEach(button => {
+        button.addEventListener('click', () => {
+            presetBtns.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            const targetWpm = button.getAttribute('data-wpm');
+            inputWpm.value = targetWpm;
+            valWpm.textContent = `${targetWpm} WPM`;
+            calculateScriptTelemetry();
+        });
+    });
+
+    function calculateScriptTelemetry() {
+        const text = scriptInput.value.trim();
+        const wpm = parseInt(inputWpm.value);
+
+        // Core Word Aggregation Calculations 
+        const wordsArray = text ? text.split(/\s+/) : [];
+        const totalWords = wordsArray.length;
+
+        // Extracting The Hook Sentence Variables (Isolates sentence termination rules)
+        let hookWordCount = 0;
+        if (text) {
+            const sentences = text.split(/[.!?]+/);
+            if (sentences.length > 0 && sentences[0].trim() !== '') {
+                hookWordCount = sentences[0].trim().split(/\s+/).length;
+            }
+        }
+
+        // Processing Duration Timelines Calculations
+        const totalSeconds = wpm > 0 ? (totalWords / wpm) * 60 : 0;
+        const hookSeconds = wpm > 0 ? (hookWordCount / wpm) * 60 : 0;
+
+        // Visual Time Output Formatter Engine (Transforms raw seconds safely to M:SS formats)
+        const mins = Math.floor(totalSeconds / 60);
+        const secs = Math.floor(totalSeconds % 60);
+        const formattedDuration = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+
+        // Populate Standard Metrics Elements
+        outDuration.textContent = formattedDuration;
+        outHookWords.textContent = `First sentence: ${hookWordCount} ${hookWordCount === 1 ? 'word' : 'words'}`;
+        outHookTime.textContent = `${hookSeconds.toFixed(1)}s`;
+
+        // Render Dynamic Pacing Word Benchmarks Core Panel Text
+        const words15 = Math.round((15 / 60) * wpm);
+        const words30 = Math.round((30 / 60) * wpm);
+        const words60 = Math.round((60 / 60) * wpm);
+        outBenchmarks.innerHTML = `15 seconds ≈ ${words15} words<br>30 seconds ≈ ${words30} words<br>60 seconds ≈ ${words60} words`;
+
+        // Process Dynamic Script Reading Density Badge Logic
+        if (totalWords === 0) {
+            outDensityBadge.textContent = "Lean Script";
+            outDensityBadge.className = "status-badge badge-green";
+            outDensityDesc.textContent = "Enter text to evaluate density metrics.";
+        } else if (wpm <= 140) {
+            outDensityBadge.textContent = "Lean Script";
+            outDensityBadge.className = "status-badge badge-green";
+            outDensityDesc.textContent = "Pacing allows ample breathing room and dramatic emphasis blocks.";
+        } else if (wpm > 140 && wpm <= 190) {
+            outDensityBadge.textContent = "Dense Script";
+            outDensityBadge.className = "status-badge badge-yellow";
+            outDensityDesc.textContent = "Standard conversational short-form stream. Clean edits are required.";
+        } else {
+            outDensityBadge.textContent = "Extremely Dense";
+            outDensityBadge.className = "status-badge badge-red";
+            outDensityDesc.textContent = `At ${wpm} WPM, delivery requires aggressive voiceovers with zero dead air.`;
+        }
+
+        // Optimization Guardrail: Words to Cut Module Engine
+        if (totalSeconds > 59) {
+            const targetMaxWords = Math.floor((59 / 60) * wpm);
+            const wordsToCut = totalWords - targetMaxWords;
+            rowWordsCut.style.display = "flex";
+            outWordsCut.textContent = `Remove approx. ${wordsToCut} words`;
+        } else {
+            rowWordsCut.style.display = "none";
+        }
+
+        // Multi-Platform Algorithmic Compliance Output Matrix Engine
+        if (totalWords === 0) {
+            outMatrix.innerHTML = `TikTok: <span style="color: var(--text-muted);">--</span><br>YouTube Shorts: <span style="color: var(--text-muted);">--</span>`;
+        } else {
+            let ttStatus, ytStatus;
+            
+            // TikTok Evaluation
+            if (totalSeconds <= 45) ttStatus = `<span style="color: var(--status-green); font-weight:700;">Excellent (0-45s)</span>`;
+            else if (totalSeconds <= 60) ttStatus = `<span style="color: var(--status-warning); font-weight:700;">Acceptable (45-60s)</span>`;
+            else ttStatus = `<span style="color: var(--status-alert); font-weight:700;">Over Limit (60s+)</span>`;
+
+            // YouTube Shorts Evaluation (Hard 60s Platform Ceiling)
+            if (totalSeconds < 50) ytStatus = `<span style="color: var(--status-green); font-weight:700;">Excellent (<50s)</span>`;
+            else if (totalSeconds <= 60) ytStatus = `<span style="color: var(--status-warning); font-weight:700;">Acceptable (50-60s)</span>`;
+            else ytStatus = `<span style="color: var(--status-alert); font-weight:700;">Over Limit (60s+)</span>`;
+
+            outMatrix.innerHTML = `TikTok: ${ttStatus}<br>YouTube Shorts: ${ytStatus}`;
+        }
+
+        // Structural Advisor Diagnostic System Processing
+        if (totalWords === 0) {
+            advisorCard.innerHTML = `Write or paste text content to initialize retention metrics.`;
+        } else if (totalSeconds <= 15) {
+            advisorCard.innerHTML = `⚡ <strong>Hyper-Short Hook Pattern (0–15s):</strong> Optimized for extreme retention loops. Make certain your visual movement drops perfectly parallel with your <strong>${hookSeconds.toFixed(1)}s</strong> opening statement to capture the algorithm.`;
+        } else if (totalSeconds > 15 && totalSeconds <= 60) {
+            advisorCard.innerHTML = `📈 <strong>Standard Short-Form Zone (15–60s):</strong> High-performing short-form territory. Keep visual pacing moving smoothly by cutting out long manual spacing adjustments or breath tracks during your production phase.`;
+        } else {
+            advisorCard.innerHTML = `🎬 <strong>Long-Form Narrative Territory (60s+):</strong> Spilling past short-form algorithms. Focus production efforts towards modular chapter arcs and deep visual retention hooks every 12-15 seconds to anchor viewer focus.`;
+        }
+    }
+
+    // Initialize Global Calculation Configuration Elements
+    calculateScriptTelemetry();
+</script>
+
+</body>
+</html>
