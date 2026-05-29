@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinetic Caption Length & Line Splitter | AI Cash Lab</title>
+    
+    <meta name="description" content="Automate your short-form video caption breaking. Split scripts into perfectly timed lines using kinetic short-form and faceless story retention pacing presets.">
+    <meta name="keywords" content="caption splitter, line splitter, tiktok caption generator, kinetic text editor, text breakdown tool">
+    
+    <style>
+        :root {
+            --bg-main: #0b0d11;
+            --bg-card: #131722;
+            --bg-input: #1e222b;
+            --accent-yellow: #fcd535;
+            --text-main: #ffffff;
+            --text-muted: #8a8d93;
+            --status-green: #22c55e;
+            --border-color: #262b36;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 40px; }
+        header .brand { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-yellow); font-weight: 700; margin-bottom: 8px; }
+        header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+        header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        .workspace { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
+        @media (max-width: 900px) { .workspace { grid-template-columns: 1fr; } }
+
+        .input-panel, .dashboard-panel {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-label-row { display: flex; justify-content: space-between; align-items: center; }
+        label { font-size: 0.9rem; font-weight: 600; }
+        .label-val { color: var(--accent-yellow); font-weight: 700; font-size: 1rem; }
+        
+        textarea {
+            width: 100%; height: 200px; background-color: var(--bg-input); border: 1px solid var(--border-color);
+            border-radius: 8px; color: var(--text-main); padding: 16px; font-size: 1rem; line-height: 1.6;
+            resize: vertical; outline: none; font-family: inherit;
+        }
+        textarea:focus { border-color: var(--accent-yellow); }
+
+        .preset-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .preset-btn {
+            background-color: var(--bg-input); border: 1px solid var(--border-color); color: var(--text-main);
+            padding: 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; text-align: left;
+            transition: all 0.2s ease;
+        }
+        .preset-btn:hover { border-color: var(--accent-yellow); }
+        .preset-btn.active { background-color: rgba(252, 213, 53, 0.1); border-color: var(--accent-yellow); color: var(--accent-yellow); }
+
+        input[type="range"] { width: 100%; accent-color: var(--accent-yellow); cursor: pointer; }
+
+        .output-console {
+            background-color: var(--bg-input); border: 1px solid var(--border-color);
+            border-radius: 8px; padding: 16px; font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem; height: 350px; overflow-y: auto; white-space: pre-wrap; color: #e2e8f0;
+        }
+
+        .action-btn {
+            background-color: var(--accent-yellow); color: #000000; border: none; padding: 14px;
+            border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; text-align: center;
+            transition: opacity 0.2s ease; width: 100%;
+        }
+        .action-btn:hover { opacity: 0.9; }
+
+        .internal-link-banner {
+            font-size: 0.85rem; padding: 12px; border-radius: 6px; background-color: rgba(252, 213, 53, 0.03);
+            border: 1px dashed var(--border-color); color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="brand">AI Cash Lab • Content Flow Utilities</div>
+        <h1>Kinetic Caption Line Splitter</h1>
+        <p>Slice long scripts into perfectly timed, retention-optimized screen segments automatically.</p>
+    </header>
+
+    <div class="workspace">
+        <div class="input-panel">
+            <div class="form-group">
+                <label for="script-text">Paste Voiceover / Raw Script Text</label>
+                <textarea id="script-text" placeholder="Paste your script text here. The tool will chop it up cleanly based on your chosen reading density style."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Retention Pacing Presets</label>
+                <div class="preset-grid">
+                    <button class="preset-btn active" data-min="1" data-max="3">⚡ TikTok Kinetic (1-3 words)</button>
+                    <button class="preset-btn" data-min="3" data-max="6">🎬 Faceless Story (3-6 words)</button>
+                    <button class="preset-btn" data-min="5" data-max="8">📚 Educational (5-8 words)</button>
+                    <button class="preset-btn" data-min="8" data-max="12">🎙️ Podcast Clip (8-12 words)</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-wpm">Reference Vocal Speed</label>
+                    <span class="label-val" id="val-wpm">180 WPM</span>
+                </div>
+                <input type="range" id="input-wpm" min="120" max="240" step="10" value="180">
+            </div>
+        </div>
+
+        <div class="dashboard-panel">
+            <div class="form-group">
+                <label>Timed Caption Breakdown</label>
+                <div class="output-console" id="output-split">Line breaks will generate here...</div>
+            </div>
+
+            <button class="action-btn" id="copy-btn">Copy Generated Code Stack</button>
+
+            <div class="internal-link-banner">
+                💡 Need to check if the total script length exceeds hard platform parameters? Use our <strong>Script Word-to-Time Calculator</strong> to optimize your raw file length before editing.
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const scriptText = document.getElementById('script-text');
+    const inputWpm = document.getElementById('input-wpm');
+    const valWpm = document.getElementById('val-wpm');
+    const presetBtns = document.querySelectorAll('.preset-btn');
+    const outputSplit = document.getElementById('output-split');
+    const copyBtn = document.getElementById('copy-btn');
+
+    let currentMin = 1;
+    let currentMax = 3;
+
+    scriptText.addEventListener('input', runSplitEngine);
+    inputWpm.addEventListener('input', (e) => {
+        valWpm.textContent = `${e.target.value} WPM`;
+        runSplitEngine();
+    });
+
+    presetBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            presetBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentMin = parseInt(btn.getAttribute('data-min'));
+            currentMax = parseInt(btn.getAttribute('data-max'));
+            runSplitEngine();
+        });
+    });
+
+    function runSplitEngine() {
+        const text = scriptText.value.trim().replace(/\s+/g, ' ');
+        if (!text) {
+            outputSplit.textContent = "Line breaks will generate here...";
+            return;
+        }
+
+        const words = text.split(' ');
+        const wpm = parseInt(inputWpm.value);
+        const secondsPerWord = 60 / wpm;
+
+        let lines = [];
+        let index = 0;
+
+        while (index < words.length) {
+            // Pick a pseudo-random length within the constraints for natural pacing variance
+            let chunkLength = Math.floor(Math.random() * (currentMax - currentMin + 1)) + currentMin;
+            
+            // Check for sentence ends inside the chunk to break naturally on punctuation
+            let selectedWords = [];
+            for (let i = 0; i < chunkLength; i++) {
+                if (index < words.length) {
+                    const word = words[index];
+                    selectedWords.push(word);
+                    index++;
+                    if (word.endsWith('.') || word.endsWith('!') || word.endsWith('?')) {
+                        break;
+                    }
+                }
+            }
+            lines.push(selectedWords.join(' '));
+        }
+
+        let runningTime = 0.0;
+        let formattedOutput = '';
+
+        lines.forEach(line => {
+            const lineWordCount = line.split(' ').length;
+            const duration = lineWordCount * secondsPerWord;
+            const startTime = runningTime.toFixed(1);
+            runningTime += duration;
+            const endTime = runningTime.toFixed(1);
+
+            formattedOutput += `[${startTime}s - ${endTime}s]  ${line.toUpperCase()}\n`;
+        });
+
+        outputSplit.textContent = formattedOutput;
+    }
+
+    copyBtn.addEventListener('click', () => {
+        if (outputSplit.textContent.includes('generate here')) return;
+        navigator.clipboard.writeText(outputSplit.textContent);
+        const originalText = copyBtn.textContent;
+        copyBtn.textContent = "Copied to Clipboard! ✓";
+        copyBtn.style.backgroundColor = "var(--status-green)";
+        setTimeout(() => {
+            copyBtn.textContent = originalText;
+            copyBtn.style.backgroundColor = "var(--accent-yellow)";
+        }, 1500);
+    });
+</script>
+
+</body>
+</html>
