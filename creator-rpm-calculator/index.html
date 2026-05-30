@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creator RPM Estimator & Revenue Strategy Tool — AI Cash Lab</title>
+    <meta name="description" content="Estimate platform RPM ranges based on format, geography, and niche vectors. Formulate a realistic monetization strategy.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+        }
+        .premium-border {
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+        .accent-glow-amber {
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.08);
+        }
+    </style>
+</head>
+<body class="text-slate-200 min-h-screen flex flex-col justify-between antialiased">
+
+    <!-- Header Section -->
+    <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center border-b premium-border">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-full bg-amber-600 flex items-center justify-center font-bold text-white tracking-wider text-xs">AC</div>
+            <span class="text-sm font-semibold tracking-wider uppercase text-slate-400">AI Cash Lab</span>
+        </div>
+        <a href="../" class="text-xs text-slate-400 hover:text-white transition-colors">← Back to Tools</a>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="w-full max-w-6xl mx-auto px-6 py-10 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left Panel: Strategy Inputs Map -->
+        <section class="lg:col-span-5 bg-[#111827] p-6 rounded-xl border premium-border space-y-5">
+            <div>
+                <h1 class="text-lg font-bold text-white tracking-tight">Creator RPM Estimator</h1>
+                <p class="text-xs text-slate-400 mt-0.5">Evaluate algorithmic monetization factors to build sustainable video monetization models.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Platform & Format Selector -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="contentFormat">Platform & Video Format</label>
+                    <select id="contentFormat" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                        <option value="yt_long" selected>YouTube Long-Form (Standard Ad Inventory)</option>
+                        <option value="yt_shorts">YouTube Shorts (Fund/Revenue Pool Split)</option>
+                        <option value="tt_creativity">TikTok Creator Rewards Program (Short-Form)</option>
+                    </select>
+                </div>
+
+                <!-- Monthly View Count Volume Slider Input -->
+                <div>
+                    <div class="flex justify-between items-center mb-1.5">
+                        <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider" for="monthlyViews">Estimated Monthly Views</label>
+                        <span id="viewsDisplayValue" class="text-xs font-bold text-amber-500">250,000</span>
+                    </div>
+                    <input type="range" id="monthlyViews" min="10000" max="2500000" step="10000" value="250000" class="w-full h-1 bg-[#1f2937] rounded-lg appearance-none cursor-pointer accent-amber-500">
+                </div>
+
+                <!-- Audience Footprint Profile -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="audienceTier">Primary Geographic Footprint</label>
+                    <select id="audienceTier" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                        <option value="tier1" selected>Tier 1 (US, UK, CA, AU — High Ad Demand)</option>
+                        <option value="tier2">Tier 2 (Western Europe, JP — Balanced Ad Budgets)</option>
+                        <option value="tier3">Tier 3 (Rest of World — Developing Ad Markets)</option>
+                    </select>
+                </div>
+
+                <!-- Content Niche Spectrum -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="contentNiche">Content Category / Niche</label>
+                    <select id="contentNiche" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                        <option value="low">Entertainment, Comedy, Gaming, Vlogs</option>
+                        <option value="mid">Lifestyle, Fitness, Travel, Fashion</option>
+                        <option value="high">Tech Reviews, AI Tools, Marketing Systems</option>
+                        <option value="elite">Personal Finance, Investing, Crypto, SaaS Automation</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Contextual Operational Disclaimer Anchor -->
+            <div class="p-3.5 bg-[#1f2937]/40 rounded-lg border premium-border text-[11px] text-slate-400 leading-relaxed">
+                <strong>Educational Disclaimer:</strong> This engine outputs contextual strategic estimates based on typical industry baseline distributions. Actual dashboard payouts vary wildly by creator, monetization eligibility, individual viewer watch-time curves, ad-blocker rates, and seasonality. These ranges are not guaranteed income.
+            </div>
+        </section>
+
+        <!-- Right Panel: Strategic Strategy Matrices -->
+        <section class="lg:col-span-7 space-y-6">
+            
+            <!-- Output Metrics Module Block -->
+            <div class="bg-[#111827] border premium-border p-6 rounded-xl accent-glow-amber space-y-5">
+                <div class="flex justify-between items-center">
+                    <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider block">Yield Estimate Matrix</span>
+                    <span id="monetizationVerdict" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold border uppercase tracking-wider">Calibrating Parameters</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Dynamic Range Estimations Blocks -->
+                    <div class="p-4 bg-[#1f2937]/30 rounded-lg border premium-border">
+                        <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">Estimated RPM Range</span>
+                        <span id="outRpmRange" class="text-xl font-black text-white mt-1 block">$0.00 - $0.00</span>
+                        <span class="text-[10px] text-slate-500 mt-0.5 block">Revenue per 1,000 views baseline.</span>
+                    </div>
+
+                    <div class="p-4 bg-[#1f2937]/30 rounded-lg border premium-border">
+                        <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">Estimated Monthly Payout</span>
+                        <span id="outPayoutRange" class="text-xl font-black text-emerald-400 mt-1 block">$0.00 - $0.00</span>
+                        <span class="text-[10px] text-slate-500 mt-0.5 block">Estimated native programmatic yield.</span>
+                    </div>
+                </div>
+
+                <!-- Strategic Gaps Analytical Breakout Grid Row -->
+                <div class="border-t premium-border pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <span class="text-[10px] font-medium text-slate-400 uppercase tracking-wider block">Category Structural Yield Gap</span>
+                        <p id="outNicheGap" class="text-xs text-slate-300 mt-1 leading-relaxed">Evaluating niche positioning values...</p>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-medium text-slate-400 uppercase tracking-wider block">Revenue Growth Potential</span>
+                        <p id="outRevenueUpside" class="text-xs text-amber-400 font-medium mt-1 leading-relaxed">Calculating optimization delta parameters...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Angle Matrix Planning Guide Block -->
+            <div class="bg-[#111827] border premium-border p-6 rounded-xl space-y-4">
+                <div>
+                    <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">High-Value Topic Angles & Strategy</h3>
+                    <p class="text-[11px] text-slate-500 mt-0.5">Incorporate strategic focus frameworks to attract commercial ad spend segments naturally.</p>
+                </div>
+
+                <div id="topicAnglesContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <!-- Dynamic Strategy Cards Flow -->
+                </div>
+            </div>
+
+            <!-- Native Ecosystem Funnel Pitch -->
+            <div class="p-6 rounded-xl bg-gradient-to-r from-amber-950/20 via-[#111827] to-[#111827] border border-amber-900/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div class="space-y-1.5 max-w-md">
+                    <div class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-amber-900/60 text-amber-300 uppercase border border-amber-800/50">Digital Asset Infrastructure</div>
+                    <h3 class="text-md font-bold text-white tracking-tight">Tired of navigating programmatic ad pool volatility?</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Ad network RPM models will always fluctuate based on external market forces. The most sustainable way to decouple income from platform algorithms is to convert views directly into owned distribution ecosystems.</p>
+                </div>
+                <a href="https://gumroad.com" target="_blank" class="w-full md:w-auto text-center shrink-0 bg-amber-600 hover:bg-amber-500 text-white font-medium text-xs px-5 py-3 rounded-lg transition-colors shadow-lg shadow-amber-900/20">
+                    Get AI Traffic Playbook
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- System Footer -->
+    <footer class="w-full max-w-6xl mx-auto px-6 py-6 text-center text-[11px] text-slate-600 border-t premium-border">
+        &copy; 2026 AI Cash Lab. Platform monetization modeling architecture. Educational estimation software tools.
+    </footer>
+
+    <!-- Core Interactive Operational Logic Component Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Setup DOM Element Address Points Reference Map
+            const contentFormat = document.getElementById('contentFormat');
+            const monthlyViews = document.getElementById('monthlyViews');
+            const viewsDisplayValue = document.getElementById('viewsDisplayValue');
+            const audienceTier = document.getElementById('audienceTier');
+            const contentNiche = document.getElementById('contentNiche');
+
+            const outRpmRange = document.getElementById('outRpmRange');
+            const outPayoutRange = document.getElementById('outPayoutRange');
+            const outNicheGap = document.getElementById('outNicheGap');
+            const outRevenueUpside = document.getElementById('outRevenueUpside');
+            const monetizationVerdict = document.getElementById('monetizationVerdict');
+            const topicAnglesContainer = document.getElementById('topicAnglesContainer');
+
+            // Hook Event Handlers Up For Fluid Value Realtime Processing Update Engine
+            const formElementsInputsList = [contentFormat, monthlyViews, audienceTier, contentNiche];
+            formElementsInputsList.forEach(input => input.addEventListener('input', runRpmAnalysisAutomationPipeline));
+
+            function runRpmAnalysisAutomationPipeline() {
+                // Formatting Input Elements Node Parsing
+                const totalViewsCount = parseInt(monthlyViews.value) || 0;
+                viewsDisplayValue.innerText = totalViewsCount.toLocaleString();
+
+                const formatTypeString = contentFormat.value;
+                const geographicTierString = audienceTier.value;
+                const categoryNicheTypeString = contentNiche.value;
+
+                // Base Distribution Matrix Ranges Setup Calculations Data Map
+                let baseRpmLow = 0.50;
+                let baseRpmHigh = 1.50;
+
+                // 1. Format Foundation Vector Modifiers Assignment
+                if (formatTypeString === 'yt_long') {
+                    baseRpmLow = 3.00;
+                    baseRpmHigh = 7.00;
+                } else if (formatTypeString === 'yt_shorts') {
+                    baseRpmLow = 0.04;
+                    baseRpmHigh = 0.12;
+                } else if (formatTypeString === 'tt_creativity') {
+                    baseRpmLow = 0.40;
+                    baseRpmHigh = 0.90;
+                }
+
+                // 2. Category Scale Multiplier Adjustments Factor Allocation
+                let nicheCategoryMultiplier = 1.0;
+                if (categoryNicheTypeString === 'low') nicheCategoryMultiplier = 0.6;
+                if (categoryNicheTypeString === 'mid') nicheCategoryMultiplier = 1.1;
+                if (categoryNicheTypeString === 'high') nicheCategoryMultiplier = 2.2;
+                if (categoryNicheTypeString === 'elite') nicheCategoryMultiplier = 3.8;
+
+                // 3. Demographics Regional Matrix Factor Adjustments Scale
+                let geographicalTierMultiplier = 1.0;
+                if (geographicTierString === 'tier1') geographicalTierMultiplier = 1.3;
+                if (geographicTierString === 'tier2') geographicalTierMultiplier = 0.85;
+                if (geographicTierString === 'tier3') geographicalTierMultiplier = 0.35;
+
+                // Combine Scalar Formulas To Generate Calibrated Boundary Limits
+                const finalCalculatedRpmLow = Math.max(baseRpmLow * nicheCategoryMultiplier * geographicalTierMultiplier, 0.01);
+                const finalCalculatedRpmHigh = Math.max(baseRpmHigh * nicheCategoryMultiplier * geographicalTierMultiplier, 0.02);
+
+                // Run Absolute Revenue Bounds Math Equations Formulas
+                const computedEstimatedPayoutLow = (totalViewsCount / 1000) * finalCalculatedRpmLow;
+                const computedEstimatedPayoutHigh = (totalViewsCount / 1000) * finalCalculatedRpmHigh;
+
+                // Render Main Statistical Output Numeric Content Labels Inside Document
+                outRpmRange.innerText = `$${finalCalculatedRpmLow.toFixed(2)} - $${finalCalculatedRpmHigh.toFixed(2)}`;
+                outPayoutRange.innerText = `$${Math.ceil(computedEstimatedPayoutLow).toLocaleString()} - $${Math.ceil(computedEstimatedPayoutHigh).toLocaleString()}`;
+
+                // Calculate Structural Optimization Delta Gaps Matrix Details
+                let nicheGapExplainerText = "";
+                let revenueUpsideText = "";
+                let statusLabelText = "Standard Yield Profile";
+                let statusBadgeStyles = "bg-slate-900 border-slate-700 text-slate-400";
+
+                if (categoryNicheTypeString === 'low' || categoryNicheTypeString === 'mid') {
+                    const structuralEliteRpmLow = baseRpmLow * 3.8 * geographicalTierMultiplier;
+                    const potentialLossDeltaDiff = ((totalViewsCount / 1000) * structuralEliteRpmLow) - computedEstimatedPayoutLow;
+                    
+                    nicheGapExplainerText = `Your chosen content category operates within a lower advertiser bidding floor compared to software or finance verticals.`;
+                    revenueUpsideText = `Shifting core content themes up toward high-intent problem-solving structures could net an estimated alternate programmatic upside of +$${Math.ceil(potentialLossDeltaDiff).toLocaleString()}/mo with exactly the same view volume.`;
+                    statusLabelText = "Under-Monetized Traffic Base";
+                    statusBadgeStyles = "bg-amber-950/60 text-amber-400 border-amber-800/60";
+                } else {
+                    const maximizedTopTierRpmBounds = finalCalculatedRpmHigh * 1.25;
+                    const retentionLiftUpsideDelta = ((totalViewsCount / 1000) * maximizedTopTierRpmBounds) - computedEstimatedPayoutHigh;
+
+                    nicheGapExplainerText = `You are positioned inside a premium-tier vertical with strong inherent baseline corporate marketing interest.`;
+                    revenueUpsideText = `By increasing your video watch duration parameters past the 60% mark, you have a structural headroom upside of up to +$${Math.ceil(retentionLiftUpsideDelta).toLocaleString()}/mo.`;
+                    statusLabelText = "High-Yield Asset Strategy";
+                    statusBadgeStyles = "bg-emerald-950/60 text-emerald-400 border-emerald-800/60";
+                }
+
+                monetizationVerdict.innerText = statusLabelText;
+                monetizationVerdict.className = `px-2.5 py-0.5 rounded-full text-[10px] font-bold border uppercase tracking-wider ${statusBadgeStyles}`;
+                outNicheGap.innerText = nicheGapExplainerText;
+                outRevenueUpside.innerText = revenueUpsideText;
+
+                // Execute Structural Strategy Component Rendering Engine Loop Injection
+                renderTopicStrategyCardsFlow(categoryNicheTypeString);
+            }
+
+            function renderTopicStrategyCardsFlow(nicheKey) {
+                let strategyCardsArray = [];
+
+                if (nicheKey === 'low' || nicheKey === 'mid') {
+                    strategyCardsArray = [
+                        { title: "B2B Sponsorship Bridge", desc: "Integrate dedicated corporate partner sponsorships early inside scripts to completely bypass reliance on low platform ad-pool splits." },
+                        { title: "Commercial Software Integrations", desc: "Structure video storylines around utility tools or workflow solutions, providing natural entry points for automated high-bidding tech ads." },
+                        { title: "High-Intent Product Framing", desc: "Pivot script arcs from passive entertainment toward active tool recommendations, creating natural bridges to digital handbooks and toolkits." },
+                        { title: "Audience Filtering Hooks", desc: "Use specific professional style hooks in the first 5 seconds to deliberately screen out casual views and retain high-intent enterprise buyers." }
+                    ];
+                } else {
+                    strategyCardsArray = [
+                        { title: "Mid-Roll Retention Multipliers", desc: "Design structural pattern interrupts right before the 3-minute mark to lock in viewer retention across high-paying ad cue intervals." },
+                        { title: "Case Study Narrative Layouts", desc: "Shift from abstract tutorials to deep-dive transformation models. This retains high-value buyers who watch long-form assets until completion." },
+                        { title: "Software Ecosystem Breakdowns", desc: "Examine complex tooling networks and operational systems to automatically attract premium automated platform advertising placements." },
+                        { title: "Premium Backend Funneling", desc: "Capture high-value viewership attention and guide it straight off-platform into premium digital product suites on your owned infrastructure." }
+                    ];
+                }
+
+                topicAnglesContainer.innerHTML = strategyCardsArray.map(card => `
+                    <div class="p-3.5 bg-[#1f2937]/20 border premium-border rounded-lg space-y-1">
+                        <h4 class="text-xs font-semibold text-white tracking-tight">${card.title}</h4>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">${card.desc}</p>
+                    </div>
+                `).join('');
+            }
+
+            // Fire Operational Run Execution Routine Loop Initialization
+            runRpmAnalysisAutomationPipeline();
+        });
+    </script>
+</body>
+</html>
