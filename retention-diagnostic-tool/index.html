@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retention Diagnostic Tool & Audience Leak Map — AI Cash Lab</title>
+    <meta name="description" content="Audit your video retention curves against industry benchmarks, map structural audience leak points, and access immediate script-fixing roadmaps.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+        }
+        .premium-border {
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+        .accent-glow-amber {
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.09);
+        }
+        .accent-glow-rose {
+            box-shadow: 0 0 30px rgba(244, 63, 94, 0.09);
+        }
+    </style>
+</head>
+<body class="text-slate-200 min-h-screen flex flex-col justify-between antialiased">
+
+    <!-- Header Section -->
+    <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center border-b premium-border">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-full bg-amber-600 flex items-center justify-center font-bold text-white tracking-wider text-xs">AC</div>
+            <span class="text-sm font-semibold tracking-wider uppercase text-slate-400">AI Cash Lab</span>
+        </div>
+        <a href="../" class="text-xs text-slate-400 hover:text-white transition-colors">← Back to Tools</a>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="w-full max-w-6xl mx-auto px-6 py-10 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left Panel: Analytics Log Dashboard Inputs -->
+        <section class="lg:col-span-5 bg-[#111827] p-6 rounded-xl border premium-border space-y-6">
+            <div>
+                <h1 class="text-lg font-bold text-white tracking-tight">Retention Diagnostic Tool</h1>
+                <p class="text-xs text-slate-400 mt-0.5">Plug in your studio analytics data to isolate precisely where your script pacing leaks viewers and revenue.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Video Format Configuration Profile Selection Toggle -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-2">Video Asset Type</label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button type="button" id="btnShortForm" class="py-2.5 px-4 rounded-lg text-xs font-bold border transition-colors border-amber-500 bg-amber-600/10 text-amber-400">
+                            Short-Form (Shorts/TikTok/Reels)
+                        </button>
+                        <button type="button" id="btnLongForm" class="py-2.5 px-4 rounded-lg text-xs font-medium border transition-colors border-slate-800 bg-[#1f2937]/40 text-slate-400 hover:text-white hover:border-slate-700">
+                            Long-Form (YouTube Standard)
+                        </button>
+                    </div>
+                </div>
+
+                <hr class="premium-border">
+
+                <!-- Retention Milestone Percentage Entries -->
+                <div class="space-y-4">
+                    <!-- Hook Metric Field Entry -->
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider" for="metricHook">The Hook Retention (3-Second Mark)</label>
+                            <span id="benchHookText" class="text-[10px] font-bold text-slate-500 uppercase">90%+ Excellent</span>
+                        </div>
+                        <div class="relative">
+                            <input type="number" id="metricHook" value="62" min="0" max="100" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                            <span class="absolute right-4 top-2.5 text-slate-500 text-sm">%</span>
+                        </div>
+                    </div>
+
+                    <!-- Body Metric Field Entry -->
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider" id="lblMetricBody" for="metricBody">The Body Retention (30-Second Mark)</label>
+                            <span id="benchBodyText" class="text-[10px] font-bold text-slate-500 uppercase">70%+ Excellent</span>
+                        </div>
+                        <div class="relative">
+                            <input type="number" id="metricBody" value="28" min="0" max="100" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                            <span class="absolute right-4 top-2.5 text-slate-500 text-sm">%</span>
+                        </div>
+                    </div>
+
+                    <!-- Completion Metric Field Entry -->
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider" for="metricEnd">The End Completion (Final 1s Mark)</label>
+                            <span id="benchEndText" class="text-[10px] font-bold text-slate-500 uppercase">50%+ Excellent</span>
+                        </div>
+                        <div class="relative">
+                            <input type="number" id="metricEnd" value="12" min="0" max="100" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                            <span class="absolute right-4 top-2.5 text-slate-500 text-sm">%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Panel: Strategic Leak Maps & Corrective Playbooks -->
+        <section class="lg:col-span-7 space-y-6">
+            
+            <!-- Hero Card: Core Efficiency Score & Visual Audience Leak Map -->
+            <div class="bg-[#111827] border premium-border p-6 rounded-xl accent-glow-rose space-y-5">
+                <div class="flex justify-between items-start border-b premium-border pb-4">
+                    <div>
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Performance Diagnostics</span>
+                        <h2 class="text-md font-bold text-white mt-0.5">Retention Efficiency Profile</h2>
+                    </div>
+                    <div class="text-right">
+                        <span id="outEfficiencyScore" class="text-2xl font-black text-rose-400 block">0 / 100</span>
+                        <span id="outLeakBadge" class="text-[9px] font-bold tracking-wider px-2 py-0.5 rounded uppercase block mt-1">Analyzing</span>
+                    </div>
+                </div>
+
+                <!-- Hard-Hitting Visual Audience Leak Map Component -->
+                <div class="bg-slate-950/50 p-4 rounded-lg border premium-border space-y-3.5">
+                    <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">Audience Leak Map</span>
+                    
+                    <!-- Hook Row -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-mono"><span class="text-slate-400 font-sans font-semibold">HOOK (3s)</span> <span id="barHookLabel" class="text-white font-bold">0%</span></div>
+                        <div class="w-full bg-slate-900 h-3 rounded-sm overflow-hidden flex"><div id="barHookFill" class="bg-emerald-500 h-full transition-all duration-500" style="width: 0%"></div></div>
+                    </div>
+                    <!-- Body Row -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-mono"><span class="text-slate-400 font-sans font-semibold" id="barBodyName">BODY (30s)</span> <span id="barBodyLabel" class="text-white font-bold">0%</span></div>
+                        <div class="w-full bg-slate-900 h-3 rounded-sm overflow-hidden flex"><div id="barBodyFill" class="bg-amber-500 h-full transition-all duration-500" style="width: 0%"></div></div>
+                    </div>
+                    <!-- End Row -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-mono"><span class="text-slate-400 font-sans font-semibold">END (1s)</span> <span id="barEndLabel" class="text-white font-bold">0%</span></div>
+                        <div class="w-full bg-slate-900 h-3 rounded-sm overflow-hidden flex"><div id="barEndFill" class="bg-rose-500 h-full transition-all duration-500" style="width: 0%"></div></div>
+                    </div>
+                </div>
+
+                <!-- Secondary Leak Classifications Panel -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs border-t premium-border pt-4">
+                    <div><span class="text-slate-500 uppercase font-semibold text-[9px] block tracking-wider">Primary Structual Leak</span><span id="outPrimaryLeak" class="text-white font-bold block mt-0.5">-</span></div>
+                    <div><span class="text-slate-500 uppercase font-semibold text-[9px] block tracking-wider">Secondary Structural Leak</span><span id="outSecondaryLeak" class="text-slate-400 font-medium block mt-0.5">-</span></div>
+                </div>
+            </div>
+
+            <!-- Block 2: Opportunity Cost Matrix View -->
+            <div class="bg-[#111827] border premium-border p-4 px-6 rounded-xl grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
+                <div>
+                    <span class="text-[9px] text-slate-500 font-bold uppercase tracking-wider block">Potential Watch Time Lost</span>
+                    <span id="outWatchLoss" class="text-xl font-black text-rose-400 mt-0.5 block">0%</span>
+                </div>
+                <div class="sm:col-span-2 border-l-0 sm:border-l premium-border sm:pl-6">
+                    <span class="text-[9px] text-slate-500 font-bold uppercase tracking-wider block">Predicted Revenue Opportunity Loss</span>
+                    <span id="outRevenueLossBadge" class="inline-block mt-1 px-2.5 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase bg-rose-950/60 text-rose-400 border border-rose-800/40">High Opportunity Cost</span>
+                    <p class="text-[11px] text-slate-400 mt-1 leading-normal">Viewer value retention decays exponentially before system payment integration or creator platform fund milestones kick in.</p>
+                </div>
+            </div>
+
+            <!-- Block 3: Actionable Script Fix Roadmap -->
+            <div class="bg-[#111827] border premium-border p-6 rounded-xl space-y-4">
+                <div>
+                    <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Script Corrective Frameworks</h3>
+                    <p class="text-[11px] text-slate-500 mt-0.5">Deploy these exact tactical sequence edits on your upcoming upload scripts to patch the identified leaks.</p>
+                </div>
+
+                <div id="roadmapFixContainer" class="space-y-3">
+                    <!-- Corrective script rows inject here automatically dynamically -->
+                </div>
+            </div>
+
+            <!-- Block 4: Strategic Moat Routing Hub Panels Linker Maps -->
+            <div class="bg-[#111827] border border-slate-800 p-6 rounded-xl space-y-3">
+                <div>
+                    <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Ecosystem Loop Navigator</h3>
+                    <p class="text-[11px] text-slate-500 mt-0.5">Utilize these advanced system tools next to optimize your content workflow chain paths completely:</p>
+                </div>
+                <div id="loopLinksContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <!-- Inter-tool anchors inject here -->
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- System Footer -->
+    <footer class="w-full max-w-6xl mx-auto px-6 py-6 text-center text-[11px] text-slate-600 border-t premium-border">
+        &copy; 2026 AI Cash Lab. Content optimization metrics engineering. Script audit optimization pipeline diagnostics.
+    </footer>
+
+    <!-- Core Analytical Calculation Automations Script Block -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Document DOM Node Query Pointer Map Address Maps
+            let currentFormatType = 'short'; // Default starting track pointer
+            
+            const btnShortForm = document.getElementById('btnShortForm');
+            const btnLongForm = document.getElementById('btnLongForm');
+            const lblMetricBody = document.getElementById('lblMetricBody');
+            const barBodyName = document.getElementById('barBodyName');
+
+            const metricHook = document.getElementById('metricHook');
+            const metricBody = document.getElementById('metricBody');
+            const metricEnd = document.getElementById('metricEnd');
+
+            const benchHookText = document.getElementById('benchHookText');
+            const benchBodyText = document.getElementById('benchBodyText');
+            const benchEndText = document.getElementById('benchEndText');
+
+            const outEfficiencyScore = document.getElementById('outEfficiencyScore');
+            const outLeakBadge = document.getElementById('outLeakBadge');
+            const barHookLabel = document.getElementById('barHookLabel');
+            const barBodyLabel = document.getElementById('barBodyLabel');
+            const barEndLabel = document.getElementById('barEndLabel');
+            const barHookFill = document.getElementById('barHookFill');
+            const barBodyFill = document.getElementById('barBodyFill');
+            const barEndFill = document.getElementById('barEndFill');
+
+            const outPrimaryLeak = document.getElementById('outPrimaryLeak');
+            const outSecondaryLeak = document.getElementById('outSecondaryLeak');
+            const outWatchLoss = document.getElementById('outWatchLoss');
+            const outRevenueLossBadge = document.getElementById('outRevenueLossBadge');
+
+            const roadmapFixContainer = document.getElementById('roadmapFixContainer');
+            const loopLinksContainer = document.getElementById('loopLinksContainer');
+
+            // Wire UI Event Observers for Toggle Mode Framework Switches
+            btnShortForm.addEventListener('click', () => setVideoFormatContext('short'));
+            btnLongForm.addEventListener('click', () => setVideoFormatContext('long'));
+
+            [metricHook, metricBody, metricEnd].forEach(input => input.addEventListener('input', runRetentionDiagnosticsCorePipeline));
+
+            function setVideoFormatContext(type) {
+                currentFormatType = type;
+                if (type === 'short') {
+                    btnShortForm.className = "py-2.5 px-4 rounded-lg text-xs font-bold border transition-colors border-amber-500 bg-amber-600/10 text-amber-400";
+                    btnLongForm.className = "py-2.5 px-4 rounded-lg text-xs font-medium border transition-colors border-slate-800 bg-[#1f2937]/40 text-slate-400 hover:text-white hover:border-slate-700";
+                    lblMetricBody.innerText = "The Body Retention (30-Second Mark)";
+                    barBodyName.innerText = "BODY (30s)";
+                    
+                    benchHookText.innerText = "90%+ Excellent";
+                    benchBodyText.innerText = "70%+ Excellent";
+                    benchEndText.innerText = "50%+ Excellent";
+                } else {
+                    btnLongForm.className = "py-2.5 px-4 rounded-lg text-xs font-bold border transition-colors border-amber-500 bg-amber-600/10 text-amber-400";
+                    btnShortForm.className = "py-2.5 px-4 rounded-lg text-xs font-medium border transition-colors border-slate-800 bg-[#1f2937]/40 text-slate-400 hover:text-white hover:border-slate-700";
+                    lblMetricBody.innerText = "The Body Retention (Midpoint/50% Mark)";
+                    barBodyName.innerText = "BODY (Mid)";
+                    
+                    benchHookText.innerText = "70%+ Excellent";
+                    benchBodyText.innerText = "45%+ Excellent";
+                    benchEndText.innerText = "30%+ Excellent";
+                }
+                runRetentionDiagnosticsCorePipeline();
+            }
+
+            function runRetentionDiagnosticsCorePipeline() {
+                // Parse Metric Variables from State Inputs Block Bounds
+                let hook = Math.min(Math.max(parseInt(metricHook.value) || 0, 0), 100);
+                let body = Math.min(Math.max(parseInt(metricBody.value) || 0, 0), 100);
+                let end = Math.min(Math.max(parseInt(metricEnd.value) || 0, 0), 100);
+
+                // Logical constraint adjustments safeguarding statistical descending line structures
+                if (body > hook) body = hook;
+                if (end > body) end = body;
+
+                // Sync Labels Text Block Views
+                barHookLabel.innerText = `${hook}%`;
+                barBodyLabel.innerText = `${body}%`;
+                barEndLabel.innerText = `${end}%`;
+
+                barHookFill.style.width = `${hook}%`;
+                barBodyFill.style.width = `${body}%`;
+                barEndFill.style.width = `${end}%`;
+
+                // 1. Establish Benchmark Target Models Arrays
+                let benchmarks = { hook: 90, body: 70, end: 50 }; // Short form default matrix profile markers
+                if (currentFormatType === 'long') {
+                    benchmarks = { hook: 70, body: 45, end: 30 };
+                }
+
+                // 2. Identify Deficit Deviances to Isolate Primary & Secondary Leak Zones
+                const hookDeficit = benchmarks.hook - hook;
+                const bodyDeficit = benchmarks.body - body;
+                const endDeficit = benchmarks.end - end;
+
+                let issuesList = [
+                    { id: 'hook', label: 'Hook Drop-Off / False Promise', deficit: hookDeficit },
+                    { id: 'body', label: 'Mid-Video Boredom Slump', deficit: bodyDeficit },
+                    { id: 'end', label: 'Weak Completion Structure (CTA Exit)', deficit: endDeficit }
+                ];
+
+                // Sort lists tracking descending deficit values profiles
+                issuesList.sort((a, b) => b.deficit - a.deficit);
+
+                let primaryLeakKey = "none";
+                let primaryLeakLabel = "No Significant Structural Leaks Detected";
+                let secondaryLeakLabel = "None Identified";
+
+                if (issuesList[0].deficit > 0) {
+                    primaryLeakKey = issuesList[0].id;
+                    primaryLeakLabel = issuesList[0].label;
+                }
+                if (issuesList[1].deficit > 0) {
+                    secondaryLeakLabel = issuesList[1].label;
+                }
+
+                outPrimaryLeak.innerText = primaryLeakLabel;
+                outSecondaryLeak.innerText = secondaryLeakLabel;
+
+                // 3. Compile Consolidated Retention Efficiency Score Indexes
+                // Normalized weights: 30% Hook, 40% Body, 30% End targets achievement margins
+                const hookScorePart = (hook / benchmarks.hook) * 30;
+                const bodyScorePart = (body / benchmarks.body) * 40;
+                const endScorePart = (end / benchmarks.end) * 30;
+                let compositeScore = Math.min(Math.ceil(hookScorePart + bodyScorePart + endScorePart), 100);
+                if (compositeScore < 0) compositeScore = 0;
+
+                outEfficiencyScore.innerText = `${compositeScore} / 100`;
+
+                // Calculate Color Grading System Classes Maps
+                let badgeText = "Critical Leak Profile";
+                let badgeStyle = "bg-rose-950/60 text-rose-400 border border-rose-800/40";
+                if (compositeScore >= 85) {
+                    badgeText = "Highly Efficient Retention";
+                    badgeStyle = "bg-emerald-950/60 text-emerald-400 border border-emerald-800/40";
+                    outEfficiencyScore.className = "text-2xl font-black text-emerald-400 block";
+                } else if (compositeScore >= 65) {
+                    badgeText = "Moderate Retention Integrity";
+                    badgeStyle = "bg-amber-950/60 text-amber-400 border border-amber-800/40";
+                    outEfficiencyScore.className = "text-2xl font-black text-amber-400 block";
+                } else {
+                    outEfficiencyScore.className = "text-2xl font-black text-rose-400 block";
+                }
+                outLeakBadge.innerText = badgeText;
+                outLeakBadge.className = `text-[9px] font-bold tracking-wider px-2 py-0.5 rounded uppercase block mt-1 ${badgeStyle}`;
+
+                // 4. Calculate Opportunity Cost Realization Vectors
+                const potentialWatchTimeLostPercent = Math.max(100 - ((end / benchmarks.end) * 100), 0);
+                outWatchLoss.innerText = `${Math.ceil(potentialWatchTimeLostPercent)}%`;
+
+                if (potentialWatchTimeLostPercent > 50) {
+                    outRevenueLossBadge.innerText = "High Revenue Loss Risk";
+                    outRevenueLossBadge.className = "inline-block mt-1 px-2.5 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase bg-rose-950/60 text-rose-400 border border-rose-800/40";
+                } else if (potentialWatchTimeLostPercent > 20) {
+                    outRevenueLossBadge.innerText = "Moderate Value Decay";
+                    outRevenueLossBadge.className = "inline-block mt-1 px-2.5 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase bg-amber-950/60 text-amber-400 border border-amber-800/40";
+                } else {
+                    outRevenueLossBadge.innerText = "Optimized Revenue Capture";
+                    outRevenueLossBadge.className = "inline-block mt-1 px-2.5 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase bg-emerald-950/60 text-emerald-400 border border-emerald-800/40";
+                }
+
+                // 5. Build Script Framework Corrections Output Blocks Nodes
+                let fixContainerHtml = "";
+                
+                // Always display corrective scripts based directly on deficits found relative to tracking parameters
+                if (hookDeficit > 0) {
+                    fixContainerHtml += `
+                        <div class="p-4 bg-slate-950/40 border border-l-2 border-rose-800/40 border-l-rose-500 rounded-r-lg space-y-1.5">
+                            <span class="text-xs font-bold text-white block">Hook Leak Corrective Framework:</span>
+                            <div class="text-[11px] text-slate-400 space-y-1">
+                                <p>✓ <strong class="text-slate-300">Open with result first:</strong> Show the final outcome in the first frame instead of leading up to it.</p>
+                                <p>✓ <strong class="text-slate-300">Remove context intros:</strong> Cut phrases like "In this video I'm going to show you..." and jump directly into actionable value.</p>
+                                <p>✓ <strong class="text-slate-300">Inject visual momentum:</strong> Force a dramatic scene scale shift, textual overlay, or graphics card change inside the initial 1.5 seconds.</p>
+                            </div>
+                        </div>`;
+                }
+                if (bodyDeficit > 0) {
+                    fixContainerHtml += `
+                        <div class="p-4 bg-slate-950/40 border border-l-2 border-amber-800/40 border-l-amber-500 rounded-r-lg space-y-1.5">
+                            <span class="text-xs font-bold text-white block">Body Slump Corrective Framework:</span>
+                            <div class="text-[11px] text-slate-400 space-y-1">
+                                <p>✓ <strong class="text-slate-300">Pattern interrupts:</strong> Insert unexpected timeline visual shifts, specific callout cards, or dynamic scene zooms every 5-7 seconds.</p>
+                                <p>✓ <strong class="text-slate-300">Deploy case studies:</strong> Anchor technical explanations with direct personal data points or client screenshots to establish immediate truth weight.</p>
+                                <p>✓ <strong class="text-slate-300">Fragment deep syntax paragraphs:</strong> Break multi-sentence verbal structures down into crisp, punchy layout single sentences.</p>
+                            </div>
+                        </div>`;
+                }
+                if (endDeficit > 0) {
+                    fixContainerHtml += `
+                        <div class="p-4 bg-slate-950/40 border border-l-2 border-rose-800/40 border-l-rose-500 rounded-r-lg space-y-1.5">
+                            <span class="text-xs font-bold text-white block">CTA Exit Leak Corrective Framework:</span>
+                            <div class="text-[11px] text-slate-400 space-y-1">
+                                <p>✓ <strong class="text-slate-300">Eliminate structural conclusions:</strong> Never state tracking exit signals like "In conclusion," "To recap," or "Thanks for watching."</p>
+                                <p>✓ <strong class="text-slate-300">Seamless Bridge CTA:</strong> Weave your landing page resource recommendations directly into the execution details of your final value points.</p>
+                                <p>✓ <strong class="text-slate-300">Delay sign-off layout language:</strong> Run your resource assets text overlay instructions while your screen transitions out, keeping audio values constant.</p>
+                            </div>
+                        </div>`;
+                }
+
+                if (fixContainerHtml === "") {
+                    fixContainerHtml = `
+                        <div class="p-4 bg-emerald-950/10 border border-emerald-900/30 rounded-lg text-center text-xs text-emerald-400 font-medium">
+                            ✓ Your narrative retention curves clear ideal tracking benchmark targets. Script layouts match optimal engagement values.
+                        </div>`;
+                }
+                roadmapFixContainer.innerHTML = fixContainerHtml;
+
+                // 6. Assemble the Closed Loop Ecosystem Navigation Maps
+                let loopLinksArray = [];
+
+                if (primaryLeakKey === 'hook') {
+                    loopLinksArray.push({
+                        title: "Short-Form Hook Analyzer",
+                        desc: "Rewrite your conceptual structural angles to optimize initial click-through attention.",
+                        url: "../short-form-hook-analyzer/"
+                    });
+                } else {
+                    loopLinksArray.push({
+                        title: "Video Script Time Calculator",
+                        desc: "Re-verify verbal word velocity and pacing variables to balance narrative layout metrics.",
+                        url: "../video-script-time-calculator/"
+                    });
+                }
+
+                if (compositeScore >= 65) {
+                    // Retention is solid, check if they are translating it to revenue monetization
+                    loopLinksArray.push({
+                        title: "Creator RPM Calculator",
+                        desc: "Optimize niche audience premium positioning vectors to extract maximum monetization.",
+                        url: "../creator-rpm-calculator/"
+                    });
+                } else {
+                    // Bad retention means they need to double check layout constraints and visuals
+                    loopLinksArray.push({
+                        title: "YouTube Shorts Safe-Zone Tool",
+                        desc: "Ensure text overlays and graphics don't get choked by platform UI bounds.",
+                        url: "../youtube-shorts-safe-zone/"
+                    });
+                }
+
+                // Append foundational loop fallback anchor if retention is healthy but traffic conversion is low
+                if (compositeScore > 80 && end > benchmarks.end) {
+                    loopLinksArray.push({
+                        title: "CPM Conversion Pivot",
+                        desc: "Translate high-retention organic content traffic directly into digital asset sales conversions.",
+                        url: "../cpm-conversion-pivot/"
+                    });
+                }
+
+                // Slice array bounding index lengths to lock layouts to exactly two optimal cards
+                const finalBoundedLoops = loopLinksArray.slice(0, 2);
+
+                loopLinksContainer.innerHTML = finalBoundedLoops.map(link => `
+                    <a href="${link.url}" class="p-3.5 bg-[#1f2937]/30 border premium-border rounded-lg block hover:border-slate-600 transition-colors group">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold text-white group-hover:text-amber-400 transition-colors">${link.title} →</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">${link.desc}</p>
+                    </a>
+                `).join('');
+            }
+
+            // Run structural calculations optimization loops automatically on window initialized loading
+            setVideoFormatContext('short');
+        });
+    </script>
+</body>
+</html>
