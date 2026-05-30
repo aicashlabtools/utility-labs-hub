@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Freedom Rate Calculator | AI Cash Lab</title>
+    
+    <meta name="description" content="Calculate your true required hourly rate, income reality metrics, and rate gaps based on your actual target net income and billable capacity.">
+    <meta name="keywords" content="freedom rate calculator, freelancer hourly rate, consulting rate calculator, income reality check, hourly rate gap">
+    
+    <style>
+        :root {
+            --bg-main: #0b0d11;
+            --bg-card: #131722;
+            --bg-input: #1e222b;
+            --accent-yellow: #fcd535;
+            --text-main: #ffffff;
+            --text-muted: #8a8d93;
+            --status-green: #22c55e;
+            --status-warning: #f39200;
+            --status-alert: #ff4d4d;
+            --border-color: #262b36;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 40px; }
+        header .brand { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-yellow); font-weight: 700; margin-bottom: 8px; }
+        header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+        header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        .workspace { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 30px; }
+        @media (max-width: 900px) { .workspace { grid-template-columns: 1fr; } }
+
+        .input-panel, .dashboard-panel {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-label-row { display: flex; justify-content: space-between; align-items: center; }
+        label { font-size: 0.9rem; font-weight: 600; color: #e2e8f0; }
+        .label-val { color: var(--text-main); font-weight: 700; font-size: 1rem; }
+        
+        input[type="range"] { 
+            width: 100%; 
+            accent-color: var(--accent-yellow); 
+            background: var(--bg-input); 
+            border: 1px solid var(--border-color);
+            height: 6px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .split-display { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .ledger-box {
+            background: var(--bg-input); border: 1px solid var(--border-color);
+            padding: 16px; border-radius: 10px; text-align: center;
+        }
+        .ledger-box .lbl { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 4px; }
+        .ledger-box .val { font-size: 1.8rem; font-weight: 900; }
+
+        .status-badge {
+            text-align: center; padding: 14px; border-radius: 8px; font-weight: 900; 
+            text-transform: uppercase; letter-spacing: 2px; font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        .status-badge.green { background: rgba(34, 197, 94, 0.15); color: var(--status-green); border: 1px solid var(--status-green); }
+        .status-badge.yellow { background: rgba(243, 146, 0, 0.15); color: var(--status-warning); border: 1px solid var(--status-warning); }
+        .status-badge.red { background: rgba(255, 77, 77, 0.15); color: var(--status-alert); border: 1px solid var(--status-alert); }
+
+        .output-list { display: flex; flex-direction: column; gap: 10px; }
+        .output-row {
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--bg-input); padding: 12px 14px; border-radius: 8px; border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+        .output-row span.val { font-weight: 700; text-align: right; }
+        .output-row .sub-lbl { display: block; font-size: 0.75rem; color: var(--text-muted); font-weight: normal; margin-top: 2px; }
+
+        .gap-alert-box {
+            background: rgba(255, 77, 77, 0.08); border: 1px dashed var(--status-alert);
+            border-radius: 8px; padding: 14px; text-align: center; font-weight: 700; font-size: 0.95rem;
+        }
+        .gap-alert-box.no-gap {
+            background: rgba(34, 197, 94, 0.08); border: 1px dashed var(--status-green);
+            color: var(--status-green);
+        }
+
+        .advisor-box {
+            font-size: 0.85rem; line-height: 1.5; padding: 14px; border-radius: 8px;
+            background-color: rgba(252, 213, 53, 0.01); border: 1px dashed var(--border-color);
+        }
+
+        .footer-hub {
+            background-color: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px;
+        }
+        .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+        .routing-link {
+            background: var(--bg-input); border: 1px solid var(--border-color); padding: 10px 14px;
+            border-radius: 6px; color: var(--text-main); font-size: 0.85rem; text-decoration: none;
+            font-weight: 600; text-align: center; transition: all 0.2s;
+        }
+        .routing-link:hover { border-color: var(--accent-yellow); color: var(--accent-yellow); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="brand">AI Cash Lab • Income Reality Desk</div>
+        <h1>Freedom Rate Calculator</h1>
+        <p>Uncover the true hourly rate required to support your ideal lifestyle after accounting for real-world business drag.</p>
+    </header>
+
+    <div class="workspace">
+        <!-- Control Variables Input Frame -->
+        <div class="input-panel">
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-net-income">Target Net Monthly Income</label>
+                    <span class="label-val" id="val-net-income">$5,000</span>
+                </div>
+                <input type="range" id="input-net-income" min="1000" max="25000" step="250" value="5000">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-overhead">Monthly Business Overhead</label>
+                    <span class="label-val" id="val-overhead">$300</span>
+                </div>
+                <input type="range" id="input-overhead" min="0" max="5000" step="50" value="300">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-tax">Tax Buffer (%)</label>
+                    <span class="label-val" id="val-tax">25%</span>
+                </div>
+                <input type="range" id="input-tax" min="0" max="50" step="1" value="25">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-hours">Billable Hours Per Week</label>
+                    <span class="label-val" id="val-hours">20 hrs</span>
+                </div>
+                <input type="range" id="input-hours" min="5" max="50" step="1" value="20">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-vacation">Vacation / Sick Weeks Per Year</label>
+                    <span class="label-val" id="val-vacation">4 weeks</span>
+                </div>
+                <input type="range" id="input-vacation" min="0" max="10" step="1" value="4">
+            </div>
+
+            <div class="form-group" style="border-top: 1px dashed var(--border-color); padding-top: 15px;">
+                <div class="form-label-row">
+                    <label for="input-current-rate" style="color: var(--accent-yellow);">Current Hourly Rate</label>
+                    <span class="label-val" id="val-current-rate" style="color: var(--accent-yellow);">$40</span>
+                </div>
+                <input type="range" id="input-current-rate" min="10" max="250" step="5" value="40">
+            </div>
+        </div>
+
+        <!-- Income Reality Dashboard Panel -->
+        <div class="dashboard-panel">
+            <div id="badge-sustainability" class="status-badge green">Sustainable</div>
+
+            <div class="split-display">
+                <div class="ledger-box">
+                    <div class="lbl">Required Hourly Rate</div>
+                    <div class="val" id="out-hourly-rate" style="color: var(--accent-yellow);">$0</div>
+                </div>
+                <div class="ledger-box">
+                    <div class="lbl">Annual Gross Target</div>
+                    <div class="val" id="out-annual-gross" style="color: var(--text-main);">$0</div>
+                </div>
+            </div>
+
+            <!-- The Killer Metric Anchor Box -->
+            <div id="box-rate-gap" class="gap-alert-box">
+                Calculating rate disparity...
+            </div>
+
+            <div class="output-list">
+                <div style="font-size:0.75rem; text-transform:uppercase; color:var(--text-muted); font-weight:700;">Revenue Target Benchmarks</div>
+                <div class="output-row">
+                    <div>
+                        <span>Required Monthly Revenue</span>
+                        <span class="sub-lbl">Minimum monthly billings required to sustain baseline.</span>
+                    </div>
+                    <span class="val" id="out-monthly-rev">$0</span>
+                </div>
+                <div class="output-row">
+                    <div>
+                        <span>Required Weekly Revenue</span>
+                        <span class="sub-lbl">Your steady-state weekly target buffer.</span>
+                    </div>
+                    <span class="val" id="out-weekly-rev">$0</span>
+                </div>
+            </div>
+
+            <div class="advisor-box" id="out-verdict">
+                Parsing lifestyle allocation constraints...
+            </div>
+        </div>
+    </div>
+
+    <!-- Cross-Linking Layout Component Frame -->
+    <div class="footer-hub">
+        <div style="font-size:0.8rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); font-weight:700;">Related Business Suite Utilities</div>
+        <div class="links-grid">
+            <a href="../creator-runway-calculator/" class="routing-link">⏳ Creator Runway</a>
+            <a href="../presale-validation-tester/" class="routing-link">🔬 Presale Risk Evaluator</a>
+            <a href="../lead-magnet-estimator/" class="routing-link">🧲 Lead Magnet Estimator</a>
+            <a href="../gumroad-profit-calculator/" class="routing-link">💰 Gumroad Profit Calc</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    const inputNet = document.getElementById('input-net-income');
+    const inputOverhead = document.getElementById('input-overhead');
+    const inputTax = document.getElementById('input-tax');
+    const inputHours = document.getElementById('input-hours');
+    const inputVacation = document.getElementById('input-vacation');
+    const inputCurrentRate = document.getElementById('input-current-rate');
+
+    const valNet = document.getElementById('val-net-income');
+    const valOverhead = document.getElementById('val-overhead');
+    const valTax = document.getElementById('val-tax');
+    const valHours = document.getElementById('val-hours');
+    const valVacation = document.getElementById('val-vacation');
+    const valCurrentRate = document.getElementById('val-current-rate');
+
+    const badgeSustainability = document.getElementById('badge-sustainability');
+    const outHourlyRate = document.getElementById('out-hourly-rate');
+    const outAnnualGross = document.getElementById('out-annual-gross');
+    const boxRateGap = document.getElementById('box-rate-gap');
+    const outMonthlyRev = document.getElementById('out-monthly-rev');
+    const outWeeklyRev = document.getElementById('out-weekly-rev');
+    const outVerdict = document.getElementById('out-verdict');
+
+    const engineControls = [inputNet, inputOverhead, inputTax, inputHours, inputVacation, inputCurrentRate];
+    const cashFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+    engineControls.forEach(control => control.addEventListener('input', runFreedomEngine));
+
+    function runFreedomEngine() {
+        // Dynamic Label Syncer
+        valNet.textContent = cashFormatter.format(inputNet.value);
+        valOverhead.textContent = cashFormatter.format(inputOverhead.value);
+        valTax.textContent = `${inputTax.value}%`;
+        valHours.textContent = `${inputHours.value} hrs`;
+        valVacation.textContent = `${inputVacation.value} ${parseInt(inputVacation.value) === 1 ? 'week' : 'weeks'}`;
+        valCurrentRate.textContent = cashFormatter.format(inputCurrentRate.value);
+
+        // Fetch inputs numeric data
+        const targetNet = parseFloat(inputNet.value);
+        const monthlyOverhead = parseFloat(inputOverhead.value);
+        const taxRate = parseFloat(inputTax.value) / 100;
+        const weeklyHours = parseFloat(inputHours.value);
+        const vacationWeeks = parseInt(inputVacation.value);
+        const currentRate = parseFloat(inputCurrentRate.value);
+
+        // Advanced Back-Calculation Financial Engine Logic
+        // Calculate raw monthly target gross revenue to safely clear overhead and taxes
+        const grossMonthlyNeeded = (targetNet / (1 - taxRate)) + monthlyOverhead;
+        const annualGrossTarget = grossMonthlyNeeded * 12;
+
+        // Determine working capacity over the year window boundaries
+        const activeWorkingWeeks = 52 - vacationWeeks;
+        const totalAnnualBillableHours = activeWorkingWeeks * weeklyHours;
+
+        // Exact required metrics extractions
+        const requiredHourlyRate = Math.ceil(annualGrossTarget / totalAnnualBillableHours);
+        const requiredWeeklyRevenue = annualGrossTarget / activeWorkingWeeks;
+
+        // Map updates to UI dashboard elements
+        outHourlyRate.textContent = cashFormatter.format(requiredHourlyRate);
+        outAnnualGross.textContent = cashFormatter.format(annualGrossTarget);
+        outMonthlyRev.textContent = cashFormatter.format(grossMonthlyNeeded);
+        outWeeklyRev.textContent = cashFormatter.format(requiredWeeklyRevenue);
+
+        // Evaluate the Killer Element: Current Rate Gap Engine
+        if (currentRate < requiredHourlyRate) {
+            const gapAmount = requiredHourlyRate - currentRate;
+            boxRateGap.className = "gap-alert-box";
+            boxRateGap.style.color = "var(--status-alert)";
+            boxRateGap.style.borderColor = "var(--status-alert)";
+            boxRateGap.innerHTML = `⚠️ You are undercharging by <span style="font-size:1.1rem; font-weight:900;">${cashFormatter.format(gapAmount)}/hour</span>.`;
+        } else {
+            boxRateGap.className = "gap-alert-box no-gap";
+            boxRateGap.innerHTML = `🎉 Perfect. Your current rate clears your baseline target parameters safely.`;
+        }
+
+        // Determine Operational Sustainability Threshold States
+        badgeSustainability.className = "status-badge";
+        if (weeklyHours > 35) {
+            badgeSustainability.textContent = "Burnout Trap";
+            badgeSustainability.classList.add("red");
+            outVerdict.innerHTML = `🛑 <strong>Fatal Capacity Equation:</strong> Trying to source over 35 <em>billable</em> client hours per week while managing admin overhead guarantees burnout. You are trading time directly for safety. To protect your runway, you must stop relying entirely on freelance hours and package your core value into high-margin assets using our <strong>Creator Monetization OS</strong> workspace.`;
+        } else if (weeklyHours >= 25 || requiredHourlyRate > 135) {
+            badgeSustainability.textContent = "Grind Zone";
+            badgeSustainability.classList.add("yellow");
+            outVerdict.innerHTML = `⚡ <strong>Premium Ceiling Alert:</strong> Your target profile is doable, but requiring over $135/hr or forcing high billable volumes means you are constantly hunting high-ticket clients. To stabilize your income reality, deploy your skills into digital sandboxes. Use the blueprint structures inside <strong>Creator Monetization OS</strong> to turn single-client tasks into scalable digital product assets.`;
+        } else {
+            badgeSustainability.textContent = "Sustainable";
+            badgeSustainability.classList.add("green");
+            outVerdict.innerHTML = `✅ <strong>Optimal Operational Footprint:</strong> Your billing target and hour architecture maintain a flawless margin of flexibility. Your business profile is healthy. To accelerate past this baseline into true passive leverage, integrate your workflows with the asset bundling frameworks inside our core <strong>Creator Monetization OS</strong> architecture.`;
+        }
+    }
+
+    // Fire engine on initial layout paint lifecycle
+    runFreedomEngine();
+</script>
+
+</body>
+</html>
