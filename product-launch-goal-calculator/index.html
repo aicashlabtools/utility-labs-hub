@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Product Launch Goal Calculator — AI Cash Lab</title>
+    <meta name="description" content="Reverse-engineer your digital product revenue goals. Calculate daily sales velocity, required traffic inputs, and audience conversion gaps.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+        }
+        .premium-border {
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+        .accent-glow-amber {
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.08);
+        }
+    </style>
+</head>
+<body class="text-slate-200 min-h-screen flex flex-col justify-between antialiased">
+
+    <!-- Header Section -->
+    <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center border-b premium-border">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-full bg-amber-600 flex items-center justify-center font-bold text-white tracking-wider text-xs">AC</div>
+            <span class="text-sm font-semibold tracking-wider uppercase text-slate-400">AI Cash Lab</span>
+        </div>
+        <a href="../" class="text-xs text-slate-400 hover:text-white transition-colors">← Back to Tools</a>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="w-full max-w-6xl mx-auto px-6 py-10 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left Panel: Input Architecture -->
+        <section class="lg:col-span-5 bg-[#111827] p-6 rounded-xl border premium-border space-y-5">
+            <div>
+                <h1 class="text-lg font-bold text-white tracking-tight">The Product Launch Goal Calculator</h1>
+                <p class="text-xs text-slate-400 mt-0.5">Reverse-engineer your revenue targets into real-world traffic requirements.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Target Revenue Input -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="targetRevenue">Target Revenue Goal ($)</label>
+                    <input type="number" id="targetRevenue" value="2500" min="1" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                </div>
+
+                <!-- Product Price Point Input -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="productPrice">Product Price ($)</label>
+                    <input type="number" id="productPrice" value="47" min="1" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                </div>
+
+                <!-- Launch Window Duration -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="launchDuration">Launch Window Duration</label>
+                    <select id="launchDuration" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                        <option value="5">5 Days (High-Velocity Sprint)</option>
+                        <option value="7" selected>7 Days (Standard Launch Week)</option>
+                        <option value="14">14 Days (Extended Promotional Cycle)</option>
+                        <option value="30">30 Days (Full Month Campaign)</option>
+                    </select>
+                </div>
+
+                <hr class="premium-border">
+
+                <!-- Current Traffic Base Size -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="trafficBase">Current Baseline Audience Size</label>
+                    <div class="flex space-x-2">
+                        <input type="number" id="trafficBase" value="1500" min="0" class="w-2/3 bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                        <select id="trafficType" class="w-1/3 bg-[#1f2937] border premium-border rounded-lg px-2 py-2.5 text-slate-300 text-xs focus:outline-none focus:border-amber-500 transition-colors">
+                            <option value="email">Email Subs</option>
+                            <option value="views">Avg Views</option>
+                            <option value="followers">Followers</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Expected Conversion Benchmark -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="conversionBenchmark">Expected Conversion Rate (%)</label>
+                    <select id="conversionBenchmark" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                        <option value="0.01">Conservative (1.0% - Cold/New Traffic)</option>
+                        <option value="0.02" selected>Standard (2.0% - Nurtured Warm Audience)</option>
+                        <option value="0.04">Aggressive (4.0% - Hyper-Engaged Core List)</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Panel: Diagnostics & Analytical Outputs -->
+        <section class="lg:col-span-7 space-y-6">
+            
+            <!-- Strategic Feasibility Dashboard Block -->
+            <div class="bg-[#111827] border premium-border p-6 rounded-xl accent-glow-amber space-y-5">
+                <div class="flex justify-between items-center">
+                    <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider block">Goal Calibration Report</span>
+                    <span id="launchFeasibilityBadge" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold border uppercase tracking-wider">Calibrating</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Core High-Value Metric Yield Callouts -->
+                    <div class="p-4 bg-[#1f2937]/30 rounded-lg border premium-border">
+                        <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">Total Units Needed</span>
+                        <span id="outUnitsNeeded" class="text-2xl font-black text-white mt-1 block">0</span>
+                        <span id="outRequiredConvRate" class="text-[10px] text-slate-500 mt-0.5 block">Implied conversion: 0.0%</span>
+                    </div>
+
+                    <div class="p-4 bg-[#1f2937]/30 rounded-lg border premium-border">
+                        <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">Audience Matrix Balance</span>
+                        <span id="outTrafficStatusLabel" class="text-xs font-bold text-slate-300 mt-1 block">Target Traffic: 0</span>
+                        <span id="outAudienceGap" class="text-xs font-semibold text-amber-400 mt-0.5 block">Gap: 0</span>
+                    </div>
+                </div>
+
+                <!-- Daily Breakdown Distribution Metrics Sub-Matrix -->
+                <div class="border-t premium-border pt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 text-center sm:text-left">
+                    <div>
+                        <span class="text-[9px] font-medium text-slate-500 uppercase tracking-wider block">Sales Velocity / Day</span>
+                        <span id="outDailySales" class="text-sm font-bold text-slate-200 mt-0.5 block">0 units</span>
+                    </div>
+                    <div>
+                        <span class="text-[9px] font-medium text-slate-500 uppercase tracking-wider block">Traffic Runway / Day</span>
+                        <span id="outDailyTraffic" class="text-sm font-bold text-slate-200 mt-0.5 block">0 visits</span>
+                    </div>
+                    <div>
+                        <span class="text-[9px] font-medium text-slate-500 uppercase tracking-wider block">Campaign Push Pace</span>
+                        <span id="outDailyPush" class="text-sm font-bold text-slate-200 mt-0.5 block">1 Asset/Day</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contextual Operational Launch Checklist Block -->
+            <div class="bg-[#111827] border premium-border p-6 rounded-xl space-y-4">
+                <div>
+                    <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Required Launch Runway Checklist</h3>
+                    <p class="text-[11px] text-slate-500 mt-0.5">Execution parameters based on your math architecture.</p>
+                </div>
+
+                <div id="launchChecklist" class="space-y-2.5">
+                    <!-- Dynamic Checklist Insertion -->
+                </div>
+            </div>
+
+            <!-- Native Funnel Cross-Over CTA -->
+            <div class="p-6 rounded-xl bg-gradient-to-r from-amber-950/20 via-[#111827] to-[#111827] border border-amber-900/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div class="space-y-1.5 max-w-md">
+                    <div class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-amber-900/60 text-amber-300 uppercase border border-amber-800/50">Traffic Arbitrage Systems</div>
+                    <h3 class="text-md font-bold text-white tracking-tight">Traffic gap holding back your launch target limits?</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Math doesn't lie: an exceptional product launch falls flat without top-of-funnel velocity. Secure the reach parameters your calculator demands before your asset goes live.</p>
+                </div>
+                <a href="https://gumroad.com" target="_blank" class="w-full md:w-auto text-center shrink-0 bg-amber-600 hover:bg-emerald-500 text-white font-medium text-xs px-5 py-3 rounded-lg transition-colors shadow-lg shadow-amber-900/20">
+                    Get AI Traffic Playbook
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- System Footer -->
+    <footer class="w-full max-w-6xl mx-auto px-6 py-6 text-center text-[11px] text-slate-600 border-t premium-border">
+        &copy; 2026 AI Cash Lab. Launch structural mechanics and predictive conversion modeling tools.
+    </footer>
+
+    <!-- Core Dynamic Functional Script Automation Architecture Engine -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Document Nodes Target Pointers Map
+            const targetRevenue = document.getElementById('targetRevenue');
+            const productPrice = document.getElementById('productPrice');
+            const launchDuration = document.getElementById('launchDuration');
+            const trafficBase = document.getElementById('trafficBase');
+            const trafficType = document.getElementById('trafficType');
+            const conversionBenchmark = document.getElementById('conversionBenchmark');
+
+            const outUnitsNeeded = document.getElementById('outUnitsNeeded');
+            const outRequiredConvRate = document.getElementById('outRequiredConvRate');
+            const outTrafficStatusLabel = document.getElementById('outTrafficStatusLabel');
+            const outAudienceGap = document.getElementById('outAudienceGap');
+            const outDailySales = document.getElementById('outDailySales');
+            const outDailyTraffic = document.getElementById('outDailyTraffic');
+            const outDailyPush = document.getElementById('outDailyPush');
+            const launchFeasibilityBadge = document.getElementById('launchFeasibilityBadge');
+            const launchChecklist = document.getElementById('launchChecklist');
+
+            // Set Up Dynamic Event Loops Observer Matrix
+            const elementInputArray = [targetRevenue, productPrice, launchDuration, trafficBase, trafficType, conversionBenchmark];
+            elementInputArray.forEach(el => el.addEventListener('input', runLaunchCalculationEngine));
+
+            function runLaunchCalculationEngine() {
+                // Collect Form Numeric Baseline Elements Context
+                const revenueTarget = Math.max(parseFloat(targetRevenue.value) || 0, 0);
+                const priceTarget = Math.max(parseFloat(productPrice.value) || 1, 1);
+                const daysDuration = parseInt(launchDuration.value) || 7;
+                const currentAudience = Math.max(parseInt(trafficBase.value) || 0, 0);
+                const targetConvRate = parseFloat(conversionBenchmark.value);
+                const audienceTypeName = trafficType.value === 'email' ? 'Subscribers' : (trafficType.value === 'views' ? 'Views' : 'Followers');
+
+                // Basic Logic Calculations Pipeline Equations
+                const netUnitsRequiredToClear = Math.ceil(revenueTarget / priceTarget);
+                const impliedRequiredConvRate = currentAudience > 0 ? (netUnitsRequiredToClear / currentAudience) : 0;
+                const mathematicalTotalTrafficNeeded = Math.ceil(netUnitsRequiredToClear / targetConvRate);
+                const absoluteNetAudienceGap = Math.max(mathematicalTotalTrafficNeeded - currentAudience, 0);
+
+                // Run Segmented Daily Cadence Modifiers Split
+                const unitsPerDayVelocity = (netUnitsRequiredToClear / daysDuration).toFixed(1);
+                const trafficPerDayVelocity = Math.ceil(mathematicalTotalTrafficNeeded / daysDuration);
+                
+                // Content distribution push density estimations formulas parameters
+                let distributionPushAssetCountString = "1 Core Asset / Day";
+                if (daysDuration <= 7 && absoluteNetAudienceGap > 2000) {
+                    distributionPushAssetCountString = "2-3 Shorts + 1 Email / Day";
+                } else if (absoluteNetAudienceGap > 500) {
+                    distributionPushAssetCountString = "1-2 Short Clips / Day";
+                }
+
+                // Render Variable Values Into View Fields Nodes
+                outUnitsNeeded.innerText = `${netUnitsRequiredToClear.toLocaleString()} Units`;
+                outRequiredConvRate.innerText = `Implied conversion needed: ${(impliedRequiredConvRate * 100).toFixed(1)}%`;
+                outTrafficStatusLabel.innerText = `Required Traffic Base: ${mathematicalTotalTrafficNeeded.toLocaleString()}`;
+                
+                outDailySales.innerText = `${unitsPerDayVelocity} units`;
+                outDailyTraffic.innerText = `${trafficPerDayVelocity.toLocaleString()} visits`;
+                outDailyPush.innerText = distributionPushAssetCountString;
+
+                // Execute Feasibility Logic Condition Boundaries Mapping Layout Matrix
+                let badgeText = "Launch Math Looks Realistic";
+                let badgeStyles = "bg-emerald-950/50 text-emerald-400 border-emerald-800/60";
+                
+                if (impliedRequiredConvRate > targetConvRate * 1.5) {
+                    badgeText = "Traffic Deficit";
+                    badgeStyles = "bg-red-950/50 text-red-400 border-red-800/60";
+                } else if (impliedRequiredConvRate > targetConvRate) {
+                    badgeText = "Metric Push Required";
+                    badgeStyles = "bg-amber-950/50 text-amber-400 border-amber-800/60";
+                }
+
+                launchFeasibilityBadge.innerText = badgeText;
+                launchFeasibilityBadge.className = `px-2.5 py-0.5 rounded-full text-[10px] font-bold border uppercase tracking-wider ${badgeStyles}`;
+
+                // Render Custom Gap Alerts
+                if (absoluteNetAudienceGap > 0) {
+                    outAudienceGap.innerText = `Traffic Deficit: -${absoluteNetAudienceGap.toLocaleString()} ${audienceTypeName}`;
+                    outAudienceGap.className = "text-xs font-semibold text-rose-400 mt-0.5 block";
+                } else {
+                    outAudienceGap.innerText = "Audience base is mathematically sufficient";
+                    outAudienceGap.className = "text-xs font-semibold text-emerald-400 mt-0.5 block";
+                }
+
+                // Generate Content Tasks Array Loop
+                generateChecklistOutputs(badgeText, daysDuration, audienceTypeName, absoluteNetAudienceGap);
+            }
+
+            function generateChecklistOutputs(status, days, type, gap) {
+                let checkItemsHTML = [];
+                
+                // Add Standard Base Requirements Metrics Arrays
+                checkItemsHTML.push(`Set up a high-performance Gumroad conversion landing page configured specifically for your target price point.`);
+                checkItemsHTML.push(`Map out your exact ${days}-day campaign promo structure inside your distribution pipeline templates.`);
+
+                if (status === "Traffic Deficit") {
+                    checkItemsHTML.push(`<strong>High Alert:</strong> Prioritize top-of-funnel traffic generation. You need to close a deficit of ${gap.toLocaleString()} ${type} to avoid conversion stress during launch week.`);
+                    checkItemsHTML.push(`Deploy high-retention problem-centric video hooks to rapidly expand reach metrics before opening cart options.`);
+                } else if (status === "Metric Push Required") {
+                    checkItemsHTML.push(`Incorporate strong interactive bonuses or limited-time fast-action pricing incentives to lift conversion rates toward target baselines.`);
+                    checkItemsHTML.push(`Queue a secondary email follow-up sequence variant explicitly targeted at non-buyers halfway through the launch sequence.`);
+                } else {
+                    checkItemsHTML.push(`Ecosystem balance indicators look stable. Focus entirely on maintaining warm audience engagement signals prior to launch.`);
+                }
+
+                checkItemsHTML.push(`Verify asset payment bridges and product fulfillment links to ensure a frictionless checkout experience.`);
+
+                // Map Out Arrays Directly Into Structural Checkbox Rows Layout Containers
+                launchChecklist.innerHTML = checkItemsHTML.map(item => `
+                    <label class="flex items-start space-x-3 text-xs text-slate-300 cursor-pointer select-none group">
+                        <input type="checkbox" class="mt-0.5 rounded bg-slate-900 border-slate-800 text-amber-600 focus:ring-0 w-3.5 h-3.5 shrink-0 transition-all">
+                        <span class="group-hover:text-slate-200 transition-colors leading-relaxed">${item}</span>
+                    </label>
+                `).join('');
+            }
+
+            // Execute Engine Initialization Routine Loop
+            runLaunchCalculationEngine();
+        });
+    </script>
+</body>
+</html>
