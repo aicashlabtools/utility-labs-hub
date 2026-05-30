@@ -3,207 +3,551 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Cash Lab Tools | Free Freelancer Calculators & Creator Systems</title>
-    <meta name="description" content="Free lightweight client-side utility tools, operational calculators, and business systems for freelancers, creators, and digital operators. No signups, fast execution.">
-    <link rel="icon" type="image/png" href="AI%20cash%20lab%20tiny%2032x32%20size%20logo.png">
-    
-    <!-- Meta Tags for Search Engine Optimization (SEO) -->
-    <meta name="keywords" content="freelancer tools, creator tools, freelance calculators, late fee calculator, scope creep tool, business systems, digital operators, contract tools">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph for Social Sharing -->
-    <meta property="og:title" content="AI Cash Lab Tools | Free Freelancer Calculators & Creator Systems">
-    <meta property="og:description" content="Free single-purpose utility tools and lightweight business systems for digital operators. Fast, client-side, zero bloat.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="AI%20cash%20lab%20logo%20in%20600X600%20size.png">
-    
-    <!-- Tailwind CSS CDN for high-velocity layout rendering -->
+    <title>AI Cash Lab Tools — Free Tools For Freelancers & Creators</title>
+    <meta name="description" content="Free calculators, workflow tools, and creator business utilities for freelancers, content creators, and digital product sellers.">
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        darkbg: '#111827',
-                        panelbg: '#172033',
-                        accentgold: '#F59E0B',
-                        bordergray: '#263244'
-                    }
-                }
-            }
-        }
-    </script>
     <style>
-        body { background-color: #111827; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+            scroll-behavior: smooth;
+        }
+        .premium-border {
+            border-color: rgba(255, 255, 255, 0.06);
+        }
+        .accent-glow-amber {
+            box-shadow: 0 0 40px rgba(245, 158, 11, 0.05);
+        }
+        /* Sticky Navigation Bar Tuning */
+        .sticky-nav {
+            background-color: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
     </style>
 </head>
-<body class="text-gray-200 min-h-screen flex flex-col justify-between selection:bg-accentgold selection:text-darkbg">
+<body class="text-slate-200 min-h-screen flex flex-col justify-between antialiased">
 
-    <!-- HEADER / NAVIGATION -->
-    <header class="border-b border-bordergray py-5 px-6 sm:px-12 bg-darkbg sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-3 group" aria-label="AI Cash Lab Tools homepage">
-                <img src="AI%20cash%20lab%20tiny%2032x32%20size%20logo.png" alt="AI Cash Lab logo" class="w-9 h-9 rounded-lg border border-amber-400/30 object-cover shadow-[0_0_18px_rgba(245,158,11,0.25)]">
-                <div>
-                    <span class="font-bold tracking-tight text-white block text-lg group-hover:text-accentgold transition-colors">AI CASH LAB</span>
-                    <span class="text-[10px] tracking-widest text-gray-400 uppercase font-semibold block -mt-1">FREELANCER TOOLS</span>
+    <!-- Sticky Header & Anchor Navigation -->
+    <header class="sticky top-0 z-50 w-full sticky-nav border-b premium-border transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Brand Logo Frame -->
+            <div class="flex items-center space-x-3 shrink-0">
+                <div class="w-7 h-7 rounded-full bg-amber-600 flex items-center justify-center font-bold text-white tracking-wider text-[10px]">AC</div>
+                <div class="flex flex-col">
+                    <span class="text-xs font-bold text-white tracking-wider uppercase">AI Cash Lab</span>
+                    <span class="text-[9px] text-slate-500 font-medium tracking-tight -mt-0.5">Freelancer Tools</span>
                 </div>
-            </a>
-            <nav class="hidden sm:flex space-x-6 text-sm text-gray-400 font-medium">
-                <a href="creator-utilities/" class="hover:text-accentgold transition-colors">Free Utilities</a>
-                <a href="resolution-checker/" class="hover:text-accentgold transition-colors">Resolution Checker</a>
-                <a href="#premium-systems" class="hover:text-accentgold transition-colors">Premium Upgrades</a>
+            </div>
+
+            <!-- Scroll Anchor Menu Links Grid -->
+            <nav class="hidden lg:flex items-center space-x-6 text-xs font-medium text-slate-400">
+                <a href="#" class="hover:text-white transition-colors">Home</a>
+                <a href="#creator-production" class="hover:text-white transition-colors">Creator Tools</a>
+                <a href="#creator-monetization" class="hover:text-white transition-colors">Creator Monetization</a>
+                <a href="#product-launch" class="hover:text-white transition-colors">Product Launch</a>
+                <a href="#freelancer-business" class="hover:text-white transition-colors">Freelancer Tools</a>
+                <a href="#premium-workspaces" class="text-amber-500 hover:text-amber-400 transition-colors">Premium Workspaces</a>
+                <a href="https://gumroad.com" target="_blank" class="hover:text-white transition-colors">Gumroad Hub</a>
             </nav>
+
+            <!-- Storefront Call-To-Action Button Header Anchor -->
+            <div class="flex items-center space-x-3">
+                <a href="https://gumroad.com" target="_blank" class="text-[11px] font-bold tracking-wide uppercase px-3.5 py-1.5 rounded bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 transition-all">
+                    Storefront ↗
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <main class="flex-grow px-6 sm:px-12 py-20 max-w-6xl mx-auto w-full">
-        <section class="text-center max-w-3xl mx-auto mb-24">
-            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-6 leading-tight">
-                Practical Tools For <span class="text-accentgold">Freelancers and Creators</span>
+    <!-- Main Dynamic Application Content Container Frame Grid -->
+    <main class="flex-grow pb-24">
+
+        <!-- Unified Hero Presentation Suite Section Frame -->
+        <section class="max-w-4xl mx-auto text-center px-6 pt-16 pb-12">
+            <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-none">
+                Practical Tools For <span class="text-amber-500">Freelancers</span> <br class="hidden sm:inline"> <span class="text-slate-400">and Creators</span>
             </h1>
-            <p class="text-lg text-gray-400 leading-relaxed">
-                Free calculators and lightweight business tools for freelancers, creators, and digital service providers. No mandatory signups, no heavy setup. Just open the tool and get the answer you need.
+            <p class="text-sm text-slate-400 max-w-2xl mx-auto mt-6 leading-relaxed">
+                Free calculators, workflow tools, and creator business utilities for freelancers, content creators, and digital product sellers. No mandatory signups, no heavy setup. Just open the tool and get the answer you need.
             </p>
-        </section>
-
-        <!-- FREE TOOLS UTILITY GRID -->
-        <section id="free-tools" class="mb-24 scroll-mt-24">
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 border-b border-bordergray pb-5">
-                <div>
-                    <h2 class="text-2xl font-bold text-white tracking-tight">Free Utility Tools Catalog</h2>
-                </div>
-                <span class="text-xs font-semibold uppercase tracking-wider text-accentgold bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full mt-3 sm:mt-0">
-                    100% Client-Side Static Architecture
-                </span>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-7">
-                <!-- TOOL CARD 1: ACTIVE LIVE BUILD TARGET -->
-                <div class="bg-panelbg border border-bordergray rounded-xl p-6 sm:p-7 hover:border-gray-600 transition-all flex flex-col justify-between relative group">
-                    <div>
-                        <div class="flex flex-wrap justify-between items-start gap-2 mb-4">
-                            <span class="text-xs font-bold text-accentgold uppercase tracking-wider bg-amber-500/10 px-2.5 py-1 rounded">FREE TOOL</span>
-                            <span class="text-xs text-green-400 font-medium flex items-center gap-1">&bull; Ready to Use</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accentgold transition-colors">Invoice Late Fee & Interest Demand Generator</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                            Calculate annual interest estimates and late fees for past-due client invoices. Instantly generates an editable payment follow-up letter template for immediate PDF export.
-                        </p>
-                    </div>
-                    <a href="late-fee-calculator/index.html" class="w-full bg-accentgold text-darkbg font-bold text-sm py-3 px-4 rounded-lg text-center hover:bg-white transition-colors block">
-                        Open Calculator Workspace &rarr;
-                    </a>
-                </div>
-
-                <!-- TOOL CARD 2: ACTIVE CREATOR UTILITY -->
-                <div class="bg-panelbg border border-bordergray rounded-xl p-6 sm:p-7 hover:border-gray-600 transition-all flex flex-col justify-between relative group">
-                    <div>
-                        <div class="flex flex-wrap justify-between items-start gap-2 mb-4">
-                            <span class="text-xs font-bold text-accentgold uppercase tracking-wider bg-amber-500/10 px-2.5 py-1 rounded">FREE TOOL</span>
-                            <span class="text-xs text-green-400 font-medium flex items-center gap-1">&bull; Ready to Use</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accentgold transition-colors">Creator Safe Zone Previewer</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                            Preview short-form graphics against mobile safe zones, right-side icons, bottom captions, and top navigation overlays before publishing.
-                        </p>
-                    </div>
-                    <div class="space-y-2">
-                        <a href="creator-utilities/" class="w-full bg-accentgold text-darkbg font-bold text-sm py-3 px-4 rounded-lg text-center hover:bg-white transition-colors block">
-                            Open Creator Utility &rarr;
-                        </a>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px] font-semibold">
-                            <a href="tiktok-safe-zone/" class="rounded-lg border border-accentgold/40 bg-amber-500/10 px-3 py-2 text-center text-accentgold hover:bg-accentgold hover:text-darkbg transition-colors">Try our Free TikTok Safe Zone Tool</a>
-                            <a href="youtube-shorts-safe-zone/" class="rounded-lg border border-accentgold/40 bg-amber-500/10 px-3 py-2 text-center text-accentgold hover:bg-accentgold hover:text-darkbg transition-colors">Try our Free YouTube Shorts Safe Zone Grid</a>
-                            <a href="instagram-reels-safe-zone/" class="rounded-lg border border-accentgold/40 bg-amber-500/10 px-3 py-2 text-center text-accentgold hover:bg-accentgold hover:text-darkbg transition-colors">Try our Free Instagram Reels Safe Zone Tool</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- TOOL CARD 3: ACTIVE CREATOR QUALITY CHECKER -->
-                <div class="bg-panelbg border border-bordergray rounded-xl p-6 sm:p-7 hover:border-gray-600 transition-all flex flex-col justify-between relative group">
-                    <div>
-                        <div class="flex flex-wrap justify-between items-start gap-2 mb-4">
-                            <span class="text-xs font-bold text-accentgold uppercase tracking-wider bg-amber-500/10 px-2.5 py-1 rounded">FREE TOOL</span>
-                            <span class="text-xs text-green-400 font-medium flex items-center gap-1">&bull; Ready to Use</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accentgold transition-colors">Video Resolution &amp; Aspect Ratio Checker</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                            Check video or image dimensions, exact aspect ratio, file weight, and compression risk before uploading to TikTok, Reels, Shorts, YouTube, or Gumroad.
-                        </p>
-                    </div>
-                    <a href="resolution-checker/" class="w-full bg-accentgold text-darkbg font-bold text-sm py-3 px-4 rounded-lg text-center hover:bg-white transition-colors block">
-                        Check Resolution &amp; Compression Risk &rarr;
-                    </a>
-                </div>
-
+            <div class="flex justify-center items-center space-x-2 mt-6">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-[10px] font-bold font-mono uppercase tracking-widest text-slate-500">100% Client-Side Static Architecture Utility Network</span>
             </div>
         </section>
 
-        <!-- FEATURED PREMIUM TOOLS BACK-FUNNEL -->
-        <section id="premium-systems" class="bg-gradient-to-r from-[#1E293B] to-panelbg border border-[#334155] rounded-2xl p-9 sm:p-14 scroll-mt-24">
-            <div class="max-w-3xl">
-                <span class="text-xs font-bold uppercase tracking-widest text-accentgold bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
-                    Upgrade Your Workspace Infrastructure
-                </span>
-                <h2 class="text-3xl font-extrabold text-white tracking-tight mt-4 mb-3">
-                    Need a Complete Payment Workflow?
-                </h2>
-                <p class="text-gray-400 text-sm sm:text-base leading-relaxed mb-8">
-                    Free tools help with one urgent task. Premium workspaces give you the bigger system: client management, delivery checklists, financial trackers, and policy-based contract workflows you can reuse across projects.
-                </p>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                    <div class="flex items-center space-x-3 text-sm text-gray-300">
-                        <span class="text-accentgold text-base">⚡</span>
-                        <span>Invoice & Payment Reminder Toolkit</span>
-                    </div>
-                    <div class="flex items-center space-x-3 text-sm text-gray-300">
-                        <span class="text-accentgold text-base">⚡</span>
-                        <span>Contract & Policy Toolkit</span>
-                    </div>
-                    <div class="flex items-center space-x-3 text-sm text-gray-300">
-                        <span class="text-accentgold text-base">⚡</span>
-                        <span>Freelancer Client Onboarding HQ</span>
-                    </div>
-                    <div class="flex items-center space-x-3 text-sm text-gray-300">
-                        <span class="text-accentgold text-base">⚡</span>
-                        <span>Freelancer Pricing & Profit Matrix</span>
+        <!-- Global Master Catalog Wrapper Core Grid -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+
+            <!-- ================= SECTION 1: FEATURED UTILITIES ================= -->
+            <section id="featured-tools" class="space-y-6 scroll-mt-24">
+                <div class="border-b premium-border pb-3 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                    <div>
+                        <h2 class="text-base font-bold text-white tracking-wide">Featured Ecosystem Tools</h2>
+                        <p class="text-xs text-slate-500 mt-0.5">High-impact entry points designed to audit mechanics and reverse engineer project viability parameters.</p>
                     </div>
                 </div>
 
-                <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="inline-block bg-accentgold text-darkbg font-bold px-8 py-4 rounded-xl text-sm shadow-lg hover:bg-white transition-colors">
-                    Explore Premium Workspaces On Gumroad &nearr;
-                </a>
-            </div>
-        </section>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- Featured 1: Caption Line Splitter -->
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between accent-glow-amber">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[9px] font-bold bg-amber-500/10 text-amber-400 px-2 py-0.5 rounded tracking-wide uppercase">Free Tool</span>
+                                <span class="text-[10px] text-emerald-400 font-semibold flex items-center space-x-1">● <span class="ml-1 text-slate-500 text-[9px] uppercase font-bold tracking-wider">Ready to Use</span></span>
+                            </div>
+                            <h3 class="text-sm font-bold text-white tracking-tight">Caption Line Splitter</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">Split raw scripts into short, readable caption chunks for TikTok, Reels, Shorts, CapCut, and fast-paced video overlays.</p>
+                        </div>
+                        <a href="./caption-line-splitter/" class="w-full mt-5 text-center text-xs font-bold text-slate-950 bg-amber-500 hover:bg-amber-400 py-2 rounded-lg transition-colors block">Open Splitter Tool →</a>
+                    </div>
+
+                    <!-- Featured 2: Product Idea Validator -->
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between accent-glow-amber">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[9px] font-bold bg-amber-500/10 text-amber-400 px-2 py-0.5 rounded tracking-wide uppercase">Free Tool</span>
+                                <span class="text-[10px] text-emerald-400 font-semibold flex items-center space-x-1">● <span class="ml-1 text-slate-500 text-[9px] uppercase font-bold tracking-wider">Ready to Use</span></span>
+                            </div>
+                            <h3 class="text-sm font-bold text-white tracking-tight">Product Idea Validator</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">Score your digital product idea, check demand signals, and get a simple pricing and pre-sell direction before building.</p>
+                        </div>
+                        <a href="./product-idea-validator/" class="w-full mt-5 text-center text-xs font-bold text-slate-950 bg-amber-500 hover:bg-amber-400 py-2 rounded-lg transition-colors block">Open Validator Tool →</a>
+                    </div>
+
+                    <!-- Featured 3: Brand Deal Calculator -->
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between accent-glow-amber">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[9px] font-bold bg-amber-500/10 text-amber-400 px-2 py-0.5 rounded tracking-wide uppercase">Free Tool</span>
+                                <span class="text-[10px] text-emerald-400 font-semibold flex items-center space-x-1">● <span class="ml-1 text-slate-500 text-[9px] uppercase font-bold tracking-wider">Ready to Use</span></span>
+                            </div>
+                            <h3 class="text-sm font-bold text-white tracking-tight">Brand Deal Calculator</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">Estimate what to charge for sponsorships using views, platform, niche, engagement, usage rights, and deliverables.</p>
+                        </div>
+                        <a href="./brand-deal-calculator/" class="w-full mt-5 text-center text-xs font-bold text-slate-950 bg-amber-500 hover:bg-amber-400 py-2 rounded-lg transition-colors block">Open Calculator Workspace →</a>
+                    </div>
+
+                    <!-- Featured 4: Retention Diagnostic Tool -->
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between accent-glow-amber">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[9px] font-bold bg-amber-500/10 text-amber-400 px-2 py-0.5 rounded tracking-wide uppercase">Free Tool</span>
+                                <span class="text-[10px] text-emerald-400 font-semibold flex items-center space-x-1">● <span class="ml-1 text-slate-500 text-[9px] uppercase font-bold tracking-wider">Ready to Use</span></span>
+                            </div>
+                            <h3 class="text-sm font-bold text-white tracking-tight">Retention Diagnostic Tool</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">Diagnose where your video loses viewers and get structural fixes for hook, body, or CTA drop-off analytics records.</p>
+                        </div>
+                        <a href="./retention-diagnostic-tool/" class="w-full mt-5 text-center text-xs font-bold text-slate-950 bg-amber-500 hover:bg-amber-400 py-2 rounded-lg transition-colors block">Open Diagnosis Suite →</a>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ================= SECTION 2: CREATOR PRODUCTION TOOLS ================= -->
+            <section id="creator-production" class="space-y-6 scroll-mt-24">
+                <div class="border-b premium-border pb-3">
+                    <h2 class="text-base font-bold text-white tracking-wide">Creator Production Tools</h2>
+                    <p class="text-xs text-slate-500 mt-0.5">Asset mechanics calculators, alignment engines, script timers, and safe zone preview frames to patch technical output errors.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Tool Card template loops initialization inside repo snapshot -->
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Caption Line Splitter</h3>
+                            <p class="text-xs text-slate-400">Parse multi-sentence verbal voiceovers into optimized chunk structures formatted specifically for organic shorts retention workflows.</p>
+                        </div>
+                        <a href="./caption-line-splitter/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Short-Form Hook Analyzer</h3>
+                            <p class="text-xs text-slate-400">Score and analyze short-form pacing hooks against behavioral retention benchmarks before filming scripts.</p>
+                        </div>
+                        <a href="./short-form-hook-analyzer/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Thumbnail Text Checker</h3>
+                            <p class="text-xs text-slate-400">Verify typographical layout visibility density ranges across responsive mobile screens to maximize raw search click-through performance.</p>
+                        </div>
+                        <a href="./thumbnail-text-checker/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Video Script Time Calculator</h3>
+                            <p class="text-xs text-slate-400">Convert spoken textual lines into precise timing calculations to stay securely under strict platform timeline limitations.</p>
+                        </div>
+                        <a href="./video-script-time-calculator/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Repurposing Matrix</h3>
+                            <p class="text-xs text-slate-400">Map structural video asset conversions out into clean, cross-platform scheduling distribution strategies automatically.</p>
+                        </div>
+                        <a href="./repurposing-matrix/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Creator Safe Zone Previewer</h3>
+                            <p class="text-xs text-slate-400">Preview short form graphics against mobile safe zones, right side icons, bottom captions, and navigation overlays.</p>
+                        </div>
+                        <a href="./creator-utilities/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Creator Utility →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">TikTok Safe Zone Checker</h3>
+                            <p class="text-xs text-slate-400">Map graphic boundaries directly against mobile TikTok user-interface comment containers and profile layouts.</p>
+                        </div>
+                        <a href="./tiktok-safe-zone/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">YouTube Shorts Safe Zone Checker</h3>
+                            <p class="text-xs text-slate-400">Align short-form visual text layers against vertical layout boundaries to avoid player-action overlap zones.</p>
+                        </div>
+                        <a href="./youtube-shorts-safe-zone/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Instagram Reels Safe Zone Checker</h3>
+                            <p class="text-xs text-slate-400">Audit asset visual positioning matrices to bypass structural feed croppings and UI account handle containers.</p>
+                        </div>
+                        <a href="./instagram-reels-safe-zone/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Video Resolution & Aspect Ratio Checker</h3>
+                            <p class="text-xs text-slate-400">Check video or image dimensions, exact aspect ratio, file weight, and compression risk before uploading content assets.</p>
+                        </div>
+                        <a href="./resolution-checker/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Check Resolution & Compression Risk →</a>
+                    </div>
+                    <!-- Future Production Tools Can Be Appended Directly Here -->
+                </div>
+            </section>
+
+
+            <!-- ================= SECTION 3: CREATOR MONETIZATION TOOLS ================= -->
+            <section id="creator-monetization" class="space-y-6 scroll-mt-24">
+                <div class="border-b premium-border pb-3">
+                    <h2 class="text-base font-bold text-white tracking-wide">Creator Monetization Tools</h2>
+                    <p class="text-xs text-slate-500 mt-0.5">Value matrix modeling utilities, unit economics calculators, and performance pricing tools to calibrate monetization pipelines.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Subscriber LTV Calculator</h3>
+                            <p class="text-xs text-slate-400">Calculate precision recurring individual audience values across long-term purchase timelines and retention boundaries.</p>
+                        </div>
+                        <a href="./subscriber-ltv-calculator/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Monetization Gap Calculator</h3>
+                            <p class="text-xs text-slate-400">Isolate architectural revenue bottlenecks between operational infrastructure scales and annual performance trajectories.</p>
+                        </div>
+                        <a href="./monetization-gap-calculator/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">CPM vs Product Revenue Calculator</h3>
+                            <p class="text-xs text-slate-400">Analyze potential revenue yield differences between legacy ad networks and sovereign product conversion layers.</p>
+                        </div>
+                        <a href="./cpm-conversion-pivot/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Creator RPM Calculator</h3>
+                            <p class="text-xs text-slate-400">Calculate specialized niche value distributions per thousand impressions to analyze premium content market positioning angles.</p>
+                        </div>
+                        <a href="./creator-rpm-calculator/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Brand Deal Calculator</h3>
+                            <p class="text-xs text-slate-400">Analyze baseline valuation pricing models for digital placement sponsorships based on niche audience tracking indices.</p>
+                        </div>
+                        <a href="./brand-deal-calculator/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Lead Magnet Estimator</h3>
+                            <p class="text-xs text-slate-400">Project total conversions and audience subscription volumes coming off specific lead generation opt-in layouts.</p>
+                        </div>
+                        <a href="./lead-magnet-estimator/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Product Profit Calculator</h3>
+                            <p class="text-xs text-slate-400">Calculate net margins on digital assets by deducting platform transaction costs, payment gateways, and asset delivery pipelines.</p>
+                        </div>
+                        <a href="./product-profit-calculator/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Paid Traffic Profit Calculator</h3>
+                            <p class="text-xs text-slate-400">Model acquisition math limits to analyze funnel profitability margins against variable customer ad spend acquisitions.</p>
+                        </div>
+                        <a href="./paid-traffic-profit-calculator/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+                    <!-- Future Monetization Tools Can Be Appended Directly Here -->
+                </div>
+            </section>
+
+
+            <!-- ================= SECTION 4: PRODUCT LAUNCH TOOLS ================= -->
+            <section id="product-launch" class="space-y-6 scroll-mt-24">
+                <div class="border-b premium-border pb-3">
+                    <h2 class="text-base font-bold text-white tracking-wide">Product Launch Tools</h2>
+                    <p class="text-xs text-slate-500 mt-0.5">Campaign validation frameworks, launch goal systems, pricing calculators, and platform distribution margin models.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Product Idea Validator</h3>
+                            <p class="text-xs text-slate-400">Score digital concepts and asset variations against market demand signals prior to entering building phases.</p>
+                        </div>
+                        <a href="./product-idea-validator/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Presale Validation Tester</h3>
+                            <p class="text-xs text-slate-400">Calculate initial buyer conversions and transaction validation volume limits during early offer deployment tests.</p>
+                        </div>
+                        <a href="./presale-validation-tester/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Product Launch Calculator</h3>
+                            <p class="text-xs text-slate-400">Model target conversions and total open-cart trajectories across multi-phase campaign timelines.</p>
+                        </div>
+                        <a href="./product-launch-calculator/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Product Launch Goal Calculator</h3>
+                            <p class="text-xs text-slate-400">Reverse-engineer specific financial milestones into clean traffic volumes and checkout conversion requirements.</p>
+                        </div>
+                        <a href="./product-launch-goal-calculator/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Pricing Strategy Calculator</h3>
+                            <p class="text-xs text-slate-400">Model tier distributions, discount structures, and product configurations to balance overall customer conversions.</p>
+                        </div>
+                        <a href="./pricing-strategy-calculator/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Gumroad Profit Calculator</h3>
+                            <p class="text-xs text-slate-400">Analyze raw net asset payout distributions after platform fees and international banking processing overhead deductions.</p>
+                        </div>
+                        <a href="./gumroad-profit-calculator/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+                    <!-- Future Launch Tools Can Be Appended Directly Here -->
+                </div>
+            </section>
+
+
+            <!-- ================= SECTION 5: FREELANCER BUSINESS TOOLS ================= -->
+            <section id="freelancer-business" class="space-y-6 scroll-mt-24">
+                <div class="border-b premium-border pb-3">
+                    <h2 class="text-base font-bold text-white tracking-wide">Freelancer Business Tools</h2>
+                    <p class="text-xs text-slate-500 mt-0.5">Rate calculators, runway trackers, scope-creep guards, and statutory invoice late fee demand generators.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Freedom Rate Calculator</h3>
+                            <p class="text-xs text-slate-400">Deconstruct absolute minimum life costs and financial savings targets into exact baseline target client billable metrics.</p>
+                        </div>
+                        <a href="./freedom-rate-calculator/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Hourly Rate Calculator</h3>
+                            <p class="text-xs text-slate-400">Factor corporate overhead costs, tax liabilities, and non-billable operational structures into stable hourly client targets.</p>
+                        </div>
+                        <a href="./hourly-rate-calculator/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Scope Creep Calculator</h3>
+                            <p class="text-xs text-slate-400">Expose the compounding financial loss of out-of-scope revisions and calculate billable remediation pricing points.</p>
+                        </div>
+                        <a href="./scope-creep-calculator/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Invoice Late Fee & Interest Demand Generator</h3>
+                            <p class="text-xs text-slate-400">Calculate annual interest estimates and late fees for past due client invoices. Instantly generates an editable payment follow-up letter template.</p>
+                        </div>
+                        <a href="./late-fee-calculator/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Calculator Workspace →</a>
+                    </div>
+
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center"><span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Free Tool</span> <span class="text-[9px] font-bold text-emerald-400 tracking-wider">● Ready to Use</span></div>
+                            <h3 class="text-sm font-bold text-white">Creator Runway Calculator</h3>
+                            <p class="text-xs text-slate-400">Measure precise project financial survival limits based on recurring liquid holdings against operational business burn metrics.</p>
+                        </div>
+                        <a href="./creator-runway-calculator/" class="w-full mt-4 text-center text-xs font-semibold bg-[#1f2937] border border-slate-800 text-slate-200 hover:bg-slate-800 hover:text-white py-2 rounded-lg transition-all block">Open Utility Asset →</a>
+                    </div>
+                    <!-- Future Freelancer Tools Can Be Appended Directly Here -->
+                </div>
+            </section>
+
+
+            <!-- ================= SECTION 6: PREMIUM WORKSPACES ================= -->
+            <section id="premium-workspaces" class="space-y-6 scroll-mt-24">
+                <div class="bg-[#111827] border border-amber-900/20 p-6 sm:p-8 rounded-2xl accent-glow-amber">
+                    <div class="max-w-3xl space-y-2">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-amber-500 block">Upgrade Your Workspace Infrastructure</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight">Need Complete Specialized System Frameworks?</h2>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Free single-file calculators excel at isolating immediate answers. Premium workspaces provide institutional end-to-end operational systems, built natively to structure document controls, pipelines, checklists, and delivery templates.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                        <!-- Premium Card 1: Freelancer Business OS -->
+                        <div class="p-5 rounded-xl bg-slate-950/40 border border-slate-800/60 flex flex-col justify-between space-y-4">
+                            <div class="space-y-2">
+                                <h3 class="text-sm font-bold text-white">Freelancer Business OS</h3>
+                                <p class="text-xs text-slate-400 leading-relaxed">Premium workspaces for managing proposals, invoices, onboarding sequences, unified client portals, legal contract scopes, and policy enforcement matrices.</p>
+                            </div>
+                            <a href="https://gumroad.com" target="_blank" class="text-center text-xs font-bold text-slate-950 bg-amber-500 hover:bg-amber-400 py-2.5 rounded-lg transition-colors block">
+                                Explore Freelancer Tools on Gumroad ↗
+                            </a>
+                        </div>
+
+                        <!-- Premium Card 2: Creator OS -->
+                        <div class="p-5 rounded-xl bg-slate-950/40 border border-slate-800/60 flex flex-col justify-between space-y-4">
+                            <div class="space-y-2">
+                                <h3 class="text-sm font-bold text-white">Creator OS</h3>
+                                <p class="text-xs text-slate-400 leading-relaxed">Premium system configurations engineered to streamline short-form scripting, systemic launch pacing, offer validation rules, and automated content-to-commerce distribution pipelines.</p>
+                            </div>
+                            <button type="button" disabled class="w-full text-center text-xs font-bold bg-[#1f2937]/50 border border-slate-800/80 text-slate-500 py-2.5 rounded-lg cursor-not-allowed">
+                                Creator Workspaces Coming Soon
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="border-t border-bordergray py-12 px-6 sm:px-12 bg-darkbg text-xs text-gray-500">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
-            <a href="index.html" class="text-center md:text-left flex flex-col md:flex-row items-center gap-3 group" aria-label="AI Cash Lab Tools homepage">
-                <img src="AI%20cash%20lab%20tiny%2032x32%20size%20logo.png" alt="AI Cash Lab logo" class="w-8 h-8 rounded-md border border-amber-400/20 object-cover">
-                <div>
-                    <span class="font-bold text-gray-400 text-sm block mb-1 group-hover:text-accentgold transition-colors">AI CASH LAB TOOLS</span>
-                    <p class="max-w-xs text-gray-600">Simple business tools for freelancers, creators, and digital operators.</p>
+    <!-- Global Layout System Footer Frame -->
+    <footer class="w-full bg-[#111827] border-t premium-border py-10 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+            
+            <!-- Left Branding Column block -->
+            <div class="md:col-span-5 space-y-3">
+                <div class="flex items-center space-x-2">
+                    <div class="w-5 h-5 rounded-full bg-amber-600 flex items-center justify-center font-bold text-white text-[9px] tracking-wider">AC</div>
+                    <span class="text-xs font-bold text-white uppercase tracking-wider">AI Cash Lab Tools</span>
                 </div>
-            </a>
-            <div class="flex flex-wrap justify-center gap-6 text-gray-400 font-medium">
-                <a href="#free-tools" class="hover:text-accentgold transition-colors">Calculators</a>
-                <a href="creator-utilities/" class="hover:text-accentgold transition-colors">Creator Utilities</a>
-                <a href="resolution-checker/" class="hover:text-accentgold transition-colors">Resolution Checker</a>
-                <a href="#premium-systems" class="hover:text-accentgold transition-colors">Storefront</a>
-                <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="hover:text-accentgold transition-colors">Gumroad Hub</a>
+                <p class="text-[11px] text-slate-500 max-w-sm leading-relaxed">
+                    Simple business tools for freelancers, creators, and digital service providers. Client-side execution layer engine ensuring personal metrics data remains local and secure.
+                </p>
             </div>
-            <div class="text-gray-600 text-center md:text-right">
-                &copy; 2026 AI Cash Lab. All Rights Reserved. <br>
-                Static global deployment secure.
+
+            <!-- Right Links Category Columns Matrix -->
+            <div class="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-6 text-[11px]">
+                <div class="space-y-2.5">
+                    <span class="font-bold text-slate-400 uppercase tracking-wider block">Production Hub</span>
+                    <div class="flex flex-col space-y-1.5 text-slate-500">
+                        <a href="#creator-production" class="hover:text-slate-300 transition-colors">Creator Tools</a>
+                        <a href="./caption-line-splitter/" class="hover:text-slate-300 transition-colors">Caption Splitter</a>
+                        <a href="./resolution-checker/" class="hover:text-slate-300 transition-colors">Resolution Checker</a>
+                    </div>
+                </div>
+
+                <div class="space-y-2.5">
+                    <span class="font-bold text-slate-400 uppercase tracking-wider block">Monetization OS</span>
+                    <div class="flex flex-col space-y-1.5 text-slate-500">
+                        <a href="#creator-monetization" class="hover:text-slate-300 transition-colors">Creator Monetization</a>
+                        <a href="#product-launch" class="hover:text-slate-300 transition-colors">Product Launch</a>
+                        <a href="#freelancer-business" class="hover:text-slate-300 transition-colors">Freelancer Tools</a>
+                    </div>
+                </div>
+
+                <div class="space-y-2.5 col-span-2 sm:col-span-1">
+                    <span class="font-bold text-slate-400 uppercase tracking-wider block">Commercial Infrastructure</span>
+                    <div class="flex flex-col space-y-1.5 text-slate-500">
+                        <a href="#premium-workspaces" class="hover:text-slate-300 transition-colors">Premium Workspaces</a>
+                        <a href="https://gumroad.com" target="_blank" class="hover:text-slate-300 transition-colors">Storefront ↗</a>
+                        <a href="https://gumroad.com" target="_blank" class="hover:text-slate-300 transition-colors">Gumroad Hub ↗</a>
+                    </div>
+                </div>
             </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-[10px] text-slate-600 mt-10 pt-6 border-t border-slate-900">
+            &copy; 2026 AI Cash Lab. All Rights Reserved. Client-side compilation node framework structure.
         </div>
     </footer>
 
 </body>
 </html>
-
