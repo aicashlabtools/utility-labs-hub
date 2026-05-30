@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monetization Gap & Ecosystem Calculator — AI Cash Lab</title>
+    <meta name="description" content="Identify your structural revenue ceiling, audit your offer ladder infrastructure, and map out your progressive path to optimized revenue per subscriber.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+        }
+        .premium-border {
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+        .accent-glow-amber {
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.09);
+        }
+        .accent-glow-emerald {
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.09);
+        }
+    </style>
+</head>
+<body class="text-slate-200 min-h-screen flex flex-col justify-between antialiased">
+
+    <!-- Header Section -->
+    <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center border-b premium-border">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-full bg-amber-600 flex items-center justify-center font-bold text-white tracking-wider text-xs">AC</div>
+            <span class="text-sm font-semibold tracking-wider uppercase text-slate-400">AI Cash Lab</span>
+        </div>
+        <a href="../" class="text-xs text-slate-400 hover:text-white transition-colors">← Back to Tools</a>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="w-full max-w-6xl mx-auto px-6 py-10 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left Panel: Audience & Infrastructure Inputs -->
+        <section class="lg:col-span-5 bg-[#111827] p-6 rounded-xl border premium-border space-y-6">
+            <div>
+                <h1 class="text-lg font-bold text-white tracking-tight">Monetization Gap Calculator</h1>
+                <p class="text-xs text-slate-400 mt-0.5">Diagnose your current monetization ceiling and identify structural infrastructure gaps holding back your business value.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Current Audience Base -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="audienceSize">Current Audience Size (Subscribers/Community)</label>
+                    <input type="number" id="audienceSize" value="5000" min="10" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                </div>
+
+                <!-- Annual Target Income Goal -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="revenueGoal">Target Annual Revenue Goal ($)</label>
+                    <input type="number" id="revenueGoal" value="60000" min="1000" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                </div>
+
+                <!-- Estimated/Calculated Baseline LTV -->
+                <div>
+                    <div class="flex justify-between items-center mb-1.5">
+                        <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider" for="currentLtv">Current Lifetime Value per Subscriber (LTV)</label>
+                        <span class="text-[10px] text-slate-500">See: Subscriber LTV Calculator</span>
+                    </div>
+                    <div class="relative">
+                        <span class="absolute left-4 top-2.5 text-slate-500 text-sm">$</span>
+                        <input type="number" id="currentLtv" value="12" min="0" step="1" class="w-full bg-[#1f2937] border premium-border rounded-lg pl-8 pr-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                    </div>
+                </div>
+
+                <hr class="premium-border">
+
+                <!-- Point-Based Offer Ladder Audit Checklist -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5">Offer Infrastructure Checklist</label>
+                    <p class="text-[11px] text-slate-500 mb-3">Check off the functional layers currently live in your active content ecosystem:</p>
+                    
+                    <div class="space-y-3" id="ladderChecklist">
+                        <label class="flex items-start space-x-3 text-xs text-slate-300 cursor-pointer select-none">
+                            <input type="checkbox" id="checkLead" value="20" class="ladder-checkbox mt-0.5 rounded bg-slate-950 border-slate-800 text-amber-600 focus:ring-0 w-4 h-4 shrink-0 transition-all" checked>
+                            <div>
+                                <span class="font-medium block">Free Lead Magnet / Value Opt-In</span>
+                                <span class="text-[10px] text-slate-500 block mt-0.5">Captures traffic and builds your owned audience container.</span>
+                            </div>
+                        </label>
+                        <label class="flex items-start space-x-3 text-xs text-slate-300 cursor-pointer select-none">
+                            <input type="checkbox" id="checkLow" value="25" class="ladder-checkbox mt-0.5 rounded bg-slate-950 border-slate-800 text-amber-600 focus:ring-0 w-4 h-4 shrink-0 transition-all">
+                            <div>
+                                <span class="font-medium block">Low-Ticket Conversion Bridge ($9 - $29 Offer)</span>
+                                <span class="text-[10px] text-slate-500 block mt-0.5">Liquidates ad costs and converts passive viewers into active buyers.</span>
+                            </div>
+                        </label>
+                        <label class="flex items-start space-x-3 text-xs text-slate-300 cursor-pointer select-none">
+                            <input type="checkbox" id="checkMid" value="30" class="ladder-checkbox mt-0.5 rounded bg-slate-950 border-slate-800 text-amber-600 focus:ring-0 w-4 h-4 shrink-0 transition-all" checked>
+                            <div>
+                                <span class="font-medium block">Mid-Tier Core Transformation ($49 - $99 Offer)</span>
+                                <span class="text-[10px] text-slate-500 block mt-0.5">Your core system or playbook solving an explicit premium problem.</span>
+                            </div>
+                        </label>
+                        <label class="flex items-start space-x-3 text-xs text-slate-300 cursor-pointer select-none">
+                            <input type="checkbox" id="checkHigh" value="25" class="ladder-checkbox mt-0.5 rounded bg-slate-950 border-slate-800 text-amber-600 focus:ring-0 w-4 h-4 shrink-0 transition-all">
+                            <div>
+                                <span class="font-medium block">High-Ticket Premium Backend ($150+ Offer)</span>
+                                <span class="text-[10px] text-slate-500 block mt-0.5">Advanced curriculum, implementation engines, or deeper infrastructure.</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Panel: Dynamic Diagnostic Metrics & Workflow Engine -->
+        <section class="lg:col-span-7 space-y-6">
+            
+            <!-- Hero Card: The Traffic Burden Multiplier -->
+            <div class="bg-[#111827] border border-amber-900/30 p-6 rounded-xl accent-glow-amber space-y-4">
+                <div>
+                    <span class="text-[10px] font-bold text-amber-500 uppercase tracking-wider block">The Traffic Burden Multiplier</span>
+                    <h2 class="text-md font-bold text-white mt-0.5">How much traffic do you actually need to clear your annual goals?</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                    <div class="p-4 bg-slate-950/40 rounded-lg border premium-border">
+                        <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">At Your Current LTV Infrastructure:</span>
+                        <div class="flex items-baseline space-x-1.5 mt-2">
+                            <span id="outBurdenCurrent" class="text-2xl font-black text-rose-400">0</span>
+                            <span class="text-xs text-slate-400">total subscribers needed</span>
+                        </div>
+                        <span id="outBurdenNetCurrent" class="text-[10px] text-slate-500 mt-1 block">Requires adding +0 new community sign-ups.</span>
+                    </div>
+
+                    <div class="p-4 bg-emerald-950/10 border border-emerald-900/30 rounded-lg accent-glow-emerald">
+                        <span class="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider block">With an Optimized Offer Ladder Layout:</span>
+                        <div class="flex items-baseline space-x-1.5 mt-2">
+                            <span id="outBurdenOptimized" class="text-2xl font-black text-emerald-400">0</span>
+                            <span class="text-xs text-emerald-400">total subscribers needed</span>
+                        </div>
+                        <span id="outBurdenNetOptimized" class="text-[10px] text-emerald-600 font-medium mt-1 block">Requires adding only +0 new community sign-ups.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Block 2: Structural Ceilings, Benchmarks & Revenue Gaps -->
+            <div class="bg-[#111827] border premium-border p-6 rounded-xl grid grid-cols-1 md:grid-cols-12 gap-6">
+                <!-- Financial Core Metrics Stack -->
+                <div class="md:col-span-5 space-y-4 border-b md:border-b-0 md:border-r premium-border pb-4 md:pb-0 md:pr-4">
+                    <div>
+                        <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">Current Revenue Ceiling</span>
+                        <span id="outRevCeiling" class="text-2xl font-black text-white mt-0.5 block">$0</span>
+                        <span class="text-[9px] text-slate-500 block mt-0.5">Max asset capability at current baseline.</span>
+                    </div>
+                    <div>
+                        <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">Monetization Gap</span>
+                        <span id="outRevGap" class="text-2xl font-black text-amber-500 mt-0.5 block">$0</span>
+                        <span class="text-[9px] text-slate-500 block mt-0.5">Shortfall from target annual roadmap.</span>
+                    </div>
+                </div>
+
+                <!-- LTV and Revenue Per Subscriber Targets -->
+                <div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="space-y-3">
+                        <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">Subscriber LTV Target</span>
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs"><span class="text-slate-400">Current:</span> <span id="lblLtvCurrent" class="font-bold text-white">$0</span></div>
+                            <div class="flex justify-between text-xs"><span class="text-slate-400">Healthy Target:</span> <span class="font-bold text-amber-400">$50</span></div>
+                            <div class="flex justify-between text-xs"><span class="text-slate-400">Advanced Target:</span> <span class="font-bold text-emerald-400">$100+</span></div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">Revenue Per Subscriber / Mo</span>
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs"><span class="text-slate-400">Current Yield:</span> <span id="lblRpsCurrent" class="font-bold text-white">$0.00</span></div>
+                            <div class="flex justify-between text-xs"><span class="text-slate-400">Target Level:</span> <span id="lblRpsTarget" class="font-bold text-amber-400">$0.00</span></div>
+                            <span class="text-[9px] text-slate-500 block leading-tight pt-1">Monthly value realization velocity metric.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Block 3: Dynamic Score and Progressive Recommendations Breakdown Roadmap -->
+            <div class="bg-[#111827] border premium-border p-6 rounded-xl space-y-4">
+                <div class="flex justify-between items-center border-b premium-border pb-3">
+                    <div>
+                        <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Monetization Infrastructure Score</h3>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Your core structural offer capability diagnosis.</p>
+                    </div>
+                    <div class="text-right">
+                        <span id="outScoreValue" class="text-lg font-black text-white block">0 / 100</span>
+                        <span id="outScoreVerdict" class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded block mt-0.5">Analyzing</span>
+                    </div>
+                </div>
+
+                <!-- Progressive Roadmap Target Output Blocks -->
+                <div id="roadmapTargetContainer" class="space-y-3">
+                    <!-- Dynamic priority rows get injected programmatically inside here -->
+                </div>
+            </div>
+
+            <!-- Block 4: Multi-Tool Strategic Loop Routing Panel -->
+            <div class="bg-[#111827] border border-slate-800 p-6 rounded-xl space-y-3.5">
+                <div>
+                    <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Ecosystem Loop Navigator</h3>
+                    <p class="text-[11px] text-slate-500 mt-0.5">Your current diagnostic configuration suggests utilizing the following specialized operational resource tools next:</p>
+                </div>
+                <div id="loopLinksContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <!-- Dynamic routing anchor maps populate inside this node -->
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- System Footer -->
+    <footer class="w-full max-w-6xl mx-auto px-6 py-6 text-center text-[11px] text-slate-600 border-t premium-border">
+        &copy; 2026 AI Cash Lab. Offer architecture engineering. S-Tier business calibration system framework utilities.
+    </footer>
+
+    <!-- Core Analytical Calculation Automations Script Block -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Setup DOM Reference Element Address Maps Reference Map
+            const audienceSize = document.getElementById('audienceSize');
+            const revenueGoal = document.getElementById('revenueGoal');
+            const currentLtv = document.getElementById('currentLtv');
+
+            const checkLead = document.getElementById('checkLead');
+            const checkLow = document.getElementById('checkLow');
+            const checkMid = document.getElementById('checkMid');
+            const checkHigh = document.getElementById('checkHigh');
+
+            const outBurdenCurrent = document.getElementById('outBurdenCurrent');
+            const outBurdenNetCurrent = document.getElementById('outBurdenNetCurrent');
+            const outBurdenOptimized = document.getElementById('outBurdenOptimized');
+            const outBurdenNetOptimized = document.getElementById('outBurdenNetOptimized');
+
+            const outRevCeiling = document.getElementById('outRevCeiling');
+            const outRevGap = document.getElementById('outRevGap');
+            const lblLtvCurrent = document.getElementById('lblLtvCurrent');
+            const lblRpsCurrent = document.getElementById('lblRpsCurrent');
+            const lblRpsTarget = document.getElementById('lblRpsTarget');
+
+            const outScoreValue = document.getElementById('outScoreValue');
+            const outScoreVerdict = document.getElementById('outScoreVerdict');
+            const roadmapTargetContainer = document.getElementById('roadmapTargetContainer');
+            const loopLinksContainer = document.getElementById('loopLinksContainer');
+
+            // Wire input events up to drive immediate real-time rendering calculations pipeline loop
+            const inputElementsArray = [audienceSize, revenueGoal, currentLtv, checkLead, checkLow, checkMid, checkHigh];
+            inputElementsArray.forEach(elem => elem.addEventListener('input', runEcosystemAnalysisPipeline));
+
+            function runEcosystemAnalysisPipeline() {
+                // Formatting Input Elements Variables Values Parsing
+                const currentSubscribers = Math.max(parseInt(audienceSize.value) || 0, 0);
+                const targetAnnualRevenue = Math.max(parseInt(revenueGoal.value) || 0, 0);
+                const baselineUserLtv = Math.max(parseFloat(currentLtv.value) || 0, 0);
+
+                // 1. Calculate Score Based On Checkbox Point Systems Matrix
+                let score = 0;
+                if (checkLead.checked) score += parseInt(checkLead.value);
+                if (checkLow.checked) score += parseInt(checkLow.value);
+                if (checkMid.checked) score += parseInt(checkMid.value);
+                if (checkHigh.checked) score += parseInt(checkHigh.value);
+
+                outScoreValue.innerText = `${score} / 100`;
+
+                // Calculate Verdict Classes Labels Mapping Matrix Array
+                let verdictText = "Fragile";
+                let verdictStyle = "bg-rose-950/60 text-rose-400 border border-rose-800/50";
+                if (score > 80) {
+                    verdictText = "Monetization Engine";
+                    verdictStyle = "bg-emerald-950/60 text-emerald-400 border border-emerald-800/50";
+                } else if (score > 60) {
+                    verdictText = "Optimized";
+                    verdictStyle = "bg-teal-950/60 text-teal-400 border border-teal-800/50";
+                } else if (score > 30) {
+                    verdictText = "Emerging";
+                    verdictStyle = "bg-amber-950/60 text-amber-400 border border-amber-800/50";
+                }
+
+                outScoreVerdict.innerText = verdictText;
+                outScoreVerdict.className = `text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded block mt-0.5 ${verdictStyle}`;
+
+                // 2. Compute Core Financial Ceiling Boundaries
+                const currentCeilingValue = currentSubscribers * baselineUserLtv;
+                const calculatedMonetizationGap = Math.max(targetAnnualRevenue - currentCeilingValue, 0);
+
+                outRevCeiling.innerText = `$${Math.ceil(currentCeilingValue).toLocaleString()}/yr`;
+                outRevGap.innerText = `$${Math.ceil(calculatedMonetizationGap).toLocaleString()}/yr`;
+
+                // Calculate RPS Metrics (Assuming standard 12-month value lifecycle container)
+                const currentMonthlyRps = baselineUserLtv / 12;
+                const targetMonthlyRps = currentSubscribers > 0 ? (targetAnnualRevenue / currentSubscribers) / 12 : 0;
+
+                lblLtvCurrent.innerText = `$${baselineUserLtv.toFixed(2)}`;
+                lblRpsCurrent.innerText = `$${currentMonthlyRps.toFixed(2)}/mo`;
+                lblRpsTarget.innerText = `$${targetMonthlyRps.toFixed(2)}/mo`;
+
+                // 3. Process The Core Traffic Burden Multiplier Features Math Metrics
+                // Establish dynamic alternate milestone optimization target bracket benchmarks based on infrastructure maturity
+                let targetLtvBenchmark = 50; 
+                if (baselineUserLtv >= 50) targetLtvBenchmark = 100;
+                if (baselineUserLtv >= 100) targetLtvBenchmark = baselineUserLtv * 1.5;
+
+                const totalSubsNeededCurrentModel = baselineUserLtv > 0 ? Math.ceil(targetAnnualRevenue / baselineUserLtv) : 0;
+                const totalSubsNeededOptimizedModel = Math.ceil(targetAnnualRevenue / targetLtvBenchmark);
+
+                outBurdenCurrent.innerText = totalSubsNeededCurrentModel.toLocaleString();
+                outBurdenOptimized.innerText = totalSubsNeededOptimizedModel.toLocaleString();
+
+                const missingSubsCurrentNet = Math.max(totalSubsNeededCurrentModel - currentSubscribers, 0);
+                const missingSubsOptimizedNet = Math.max(totalSubsNeededOptimizedModel - currentSubscribers, 0);
+
+                outBurdenNetCurrent.innerText = `Requires generating +${missingSubsCurrentNet.toLocaleString()} new community sign-ups at your current framework value.`;
+                outBurdenNetOptimized.innerText = `Requires generating only +${missingSubsOptimizedNet.toLocaleString()} new sign-ups to clear identical milestones.`;
+
+                // 4. Render Out The Progressive Roadmap Components Engine
+                let roadmapHtml = "";
+                if (!checkLead.checked) {
+                    roadmapHtml += `
+                        <div class="p-3.5 bg-slate-950/40 border border-l-2 border-rose-800/40 border-l-rose-500 rounded-r-lg space-y-1">
+                            <div class="flex justify-between items-center"><span class="text-xs font-bold text-white">Priority #1: Build an Owned Lead Magnet</span> <span class="text-[9px] font-bold tracking-wider text-rose-400 bg-rose-950/80 px-1.5 py-0.5 rounded uppercase">Critical Gap</span></div>
+                            <p class="text-[11px] text-slate-400 leading-relaxed">You currently have no friction-free entry infrastructure for cold top-of-funnel short-form traffic. You are leaving initial click interest uncaptured.</p>
+                        </div>`;
+                }
+                if (!checkLow.checked) {
+                    roadmapHtml += `
+                        <div class="p-3.5 bg-slate-950/40 border border-l-2 border-amber-800/40 border-l-amber-500 rounded-r-lg space-y-1">
+                            <div class="flex justify-between items-center"><span class="text-xs font-bold text-white">Priority #2: Deploy a Low-Ticket Bridge Offer ($9 - $29)</span> <span class="text-[9px] font-bold tracking-wider text-amber-400 bg-amber-950/80 px-1.5 py-0.5 rounded uppercase">Conversion Bridge</span></div>
+                            <p class="text-[11px] text-slate-400 leading-relaxed">Add a liquid low-ticket micro-asset to convert passive subscribers into high-intent verified transactional buyers immediately.</p>
+                        </div>`;
+                }
+                if (!checkMid.checked) {
+                    roadmapHtml += `
+                        <div class="p-3.5 bg-slate-950/40 border border-l-2 border-amber-800/40 border-l-amber-500 rounded-r-lg space-y-1">
+                            <div class="flex justify-between items-center"><span class="text-xs font-bold text-white">Priority #3: Architect a Core Problem Playbook ($49 - $99)</span> <span class="text-[9px] font-bold tracking-wider text-amber-400 bg-amber-950/80 px-1.5 py-0.5 rounded uppercase">Core Monetization</span></div>
+                            <p class="text-[11px] text-slate-400 leading-relaxed">Build your foundational transformation asset to structure a high-yield monetization core that solves a comprehensive professional friction point.</p>
+                        </div>`;
+                }
+                if (!checkHigh.checked) {
+                    roadmapHtml += `
+                        <div class="p-3.5 bg-slate-950/40 border border-l-2 border-teal-800/40 border-l-teal-500 rounded-r-lg space-y-1">
+                            <div class="flex justify-between items-center"><span class="text-xs font-bold text-white">Priority #4: Introduce a Premium Backend Framework ($150+)</span> <span class="text-[9px] font-bold tracking-wider text-teal-400 bg-teal-950/80 px-1.5 py-0.5 rounded uppercase">Ceiling Expansion</span></div>
+                            <p class="text-[11px] text-slate-400 leading-relaxed">Establish a premium implementation tier, curriculum package, or deep toolkit option to unlock the maximum economic value of your top 5% superfan buyers.</p>
+                        </div>`;
+                }
+
+                if (roadmapHtml === "") {
+                    roadmapHtml = `
+                        <div class="p-4 bg-emerald-950/10 border border-emerald-900/30 rounded-lg text-center text-xs text-emerald-400 font-medium">
+                            ✓ Your foundational offer architecture ladder layers are entirely intact. Proceed directly to monitoring conversion volumes and scaling top-of-funnel metrics.
+                        </div>`;
+                }
+                roadmapTargetContainer.innerHTML = roadmapHtml;
+
+                // 5. Structure & Inject The Adaptive Multi-Tool Workflow Loops Mapping Connections
+                let loopLinksArray = [];
+
+                // Audience scaling constraint condition check
+                if (missingSubsCurrentNet > currentSubscribers) {
+                    loopLinksArray.push({
+                        title: "Lead Magnet Estimator",
+                        desc: "Analyze top-of-funnel optimization metrics to expand your owned base container.",
+                        url: "../lead-magnet-estimator/"
+                    });
+                } else {
+                    loopLinksArray.push({
+                        title: "Subscriber LTV Calculator",
+                        desc: "Deep dive directly into your precision segment values to isolate explicit core unit metrics.",
+                        url: "../subscriber-ltv-calculator/"
+                    });
+                }
+
+                // Asset construction infrastructure diagnosis check
+                if (!checkLow.checked || !checkMid.checked) {
+                    loopLinksArray.push({
+                        title: "Product Idea Validator",
+                        desc: "Score and test your new pending low-to-mid ticket offer concepts against raw market signals.",
+                        url: "../product-idea-validator/"
+                    });
+                } else {
+                    loopLinksArray.push({
+                        title: "Product Launch Goal Calculator",
+                        desc: "Map campaign parameters and volume conversion math models to deploy your offer suite.",
+                        url: "../product-launch-goal-calculator/"
+                    });
+                }
+
+                loopLinksContainer.innerHTML = loopLinksArray.map(link => `
+                    <a href="${link.url}" class="p-3.5 bg-[#1f2937]/30 border premium-border rounded-lg block hover:border-slate-600 transition-colors group">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold text-white group-hover:text-amber-400 transition-colors">${link.title} →</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">${link.desc}</p>
+                    </a>
+                `).join('');
+            }
+
+            // Trigger the initial analytical calculation sequence routine run on window load execution
+            runEcosystemAnalysisPipeline();
+        });
+    </script>
+</body>
+</html>
