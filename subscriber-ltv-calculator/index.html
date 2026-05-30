@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscriber Lifetime Value Calculator — AI Cash Lab</title>
+    <meta name="description" content="Calculate what an email subscriber is actually worth to your creator business. Uncover your potential list asset value and reverse-engineer your monetization engine.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+        }
+        .premium-border {
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+        .accent-glow {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+        }
+    </style>
+</head>
+<body class="text-slate-200 min-h-screen flex flex-col justify-between antialiased">
+
+    <!-- Header Section -->
+    <header class="w-full max-w-5xl mx-auto px-6 py-8 flex justify-between items-center border-b premium-border">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold text-white tracking-wider text-xs">AC</div>
+            <span class="text-sm font-semibold tracking-wider uppercase text-slate-400">AI Cash Lab</span>
+        </div>
+        <a href="../" class="text-xs text-slate-400 hover:text-white transition-colors">← Back to Tools</a>
+    </header>
+
+    <!-- Main Container -->
+    <main class="w-full max-w-5xl mx-auto px-6 py-12 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left Column: Input Form -->
+        <section class="lg:col-span-5 bg-[#111827] p-6 rounded-xl border premium-border space-y-6">
+            <div>
+                <h1 class="text-xl font-bold text-white tracking-tight">Subscriber LTV Calculator</h1>
+                <p class="text-xs text-slate-400 mt-1">Determine the lifetime valuation of your audience and backend offer ladder.</p>
+            </div>
+
+            <!-- Benchmark Toggle -->
+            <div class="flex items-center justify-between p-3 bg-[#1f2937]/50 rounded-lg border premium-border">
+                <div>
+                    <label for="benchmarkMode" class="text-xs font-semibold text-slate-300 block">Benchmark Mode</label>
+                    <span class="text-[11px] text-slate-400 block">Use creator industry averages for pre-revenue lists</span>
+                </div>
+                <input type="checkbox" id="benchmarkMode" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-blue-600 focus:ring-blue-500 focus:ring-offset-gray-900">
+            </div>
+
+            <div class="space-y-4">
+                <!-- Input: List Size -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="listSize">Email List Size</label>
+                    <input type="number" id="listSize" value="2500" min="1" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                </div>
+
+                <!-- Input: Growth Rate -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="monthlyGrowth">Monthly Subscriber Growth</label>
+                    <input type="number" id="monthlyGrowth" value="150" min="0" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                </div>
+
+                <!-- Input: Low-Ticket Rev -->
+                <div id="lowTicketContainer">
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="lowTicketRev">
+                        Annual Low-Ticket Revenue <span class="text-[11px] text-slate-500 normal-case">($0–$49 products, ads, sponsors)</span>
+                    </label>
+                    <div class="relative">
+                        <span class="absolute left-4 top-2.5 text-sm text-slate-500">$</span>
+                        <input type="number" id="lowTicketRev" value="4800" min="0" class="w-full bg-[#1f2937] border premium-border rounded-lg pl-8 pr-4 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                    </div>
+                </div>
+
+                <!-- Input: High-Ticket Rev -->
+                <div id="highTicketContainer">
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="highTicketRev">
+                        Annual High-Ticket Revenue <span class="text-[11px] text-slate-500 normal-case">($50+ courses, coaching, memberships)</span>
+                    </label>
+                    <div class="relative">
+                        <span class="absolute left-4 top-2.5 text-sm text-slate-500">$</span>
+                        <input type="number" id="highTicketRev" value="18500" min="0" class="w-full bg-[#1f2937] border premium-border rounded-lg pl-8 pr-4 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                    </div>
+                </div>
+
+                <!-- Input: Subscriber Lifespan -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="lifespan">Expected Subscriber Lifespan <span class="text-[11px] text-slate-500 normal-case">(months)</span></label>
+                    <input type="number" id="lifespan" value="24" min="1" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Outputs & Dashboard -->
+        <section class="lg:col-span-7 space-y-6">
+            
+            <!-- Output Metrics Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Metric 1: Subscriber LTV -->
+                <div class="bg-[#111827] border premium-border p-5 rounded-xl accent-glow">
+                    <span class="text-[11px] font-semibold text-blue-400 uppercase tracking-wider block">Subscriber LTV</span>
+                    <div id="outLtv" class="text-3xl font-bold text-white mt-1.5">$0.00</div>
+                    <p class="text-[11px] text-slate-400 mt-2">The average historical lifetime gross financial value generated per individual email contact.</p>
+                </div>
+
+                <!-- Metric 2: Potential List Value -->
+                <div class="bg-[#111827] border premium-border p-5 rounded-xl">
+                    <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block">Potential List Value</span>
+                    <div id="outPotentialValue" class="text-3xl font-bold text-white mt-1.5">$0.00</div>
+                    <p class="text-[11px] text-slate-400 mt-2">The estimated collective asset scale of your existing database across its full predicted lifespan.</p>
+                </div>
+
+                <!-- Metric 3: 12-Month Growth Value -->
+                <div class="bg-[#111827] border premium-border p-5 rounded-xl">
+                    <span class="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider block">12-Mo Growth Value</span>
+                    <div id="outGrowthValue" class="text-3xl font-bold text-white mt-1.5">$0.00</div>
+                    <p class="text-[11px] text-slate-400 mt-2">The potential compounding pipeline asset equity added over the next year at current growth velocities.</p>
+                </div>
+            </div>
+
+            <!-- Context / Narrative Analysis -->
+            <div class="bg-[#111827] border premium-border p-6 rounded-xl space-y-3">
+                <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Strategic Breakdown</h3>
+                <p id="analysisText" class="text-sm text-slate-300 leading-relaxed">
+                    Processing inputs...
+                </p>
+                <div class="pt-3 border-t premium-border text-[11px] text-slate-500 italic leading-relaxed">
+                    *Disclaimer: This is a planning estimate based on your revenue inputs and list parameters. Actual subscriber values fluctuate and depend heavily upon product offer quality, inbox deliverability, active consumer engagement patterns, and systemic future sales execution behaviors.
+                </div>
+            </div>
+
+            <!-- Ecosystem CTA (Native Upsell) -->
+            <div class="p-6 rounded-xl bg-gradient-to-r from-blue-950/40 via-[#111827] to-[#111827] border border-blue-900/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div class="space-y-1.5 max-w-md">
+                    <div class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-blue-900/60 text-blue-300 uppercase border border-blue-800/50">System Optimization</div>
+                    <h3 class="text-md font-bold text-white tracking-tight">Is your audience leaving monetization capital on the table?</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Knowing your baseline valuation thresholds is step one. Architecting automated high-converting front-end lead capture, low-ticket tripwires, and high-ticket backend pathways is how you systematically collect it.</p>
+                </div>
+                <a href="https://gumroad.com" target="_blank" class="w-full md:w-auto text-center shrink-0 bg-blue-600 hover:bg-blue-500 text-white font-medium text-xs px-5 py-3 rounded-lg transition-colors shadow-lg shadow-blue-900/20">
+                    Deploy Creator Monetization OS
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full max-w-5xl mx-auto px-6 py-6 text-center text-[11px] text-slate-600 border-t premium-border">
+        &copy; 2026 AI Cash Lab. Engineered for premium digital products distribution framework analytics.
+    </footer>
+
+    <!-- Logic Engine JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const listSizeInput = document.getElementById('listSize');
+            const monthlyGrowthInput = document.getElementById('monthlyGrowth');
+            const lowTicketRevInput = document.getElementById('lowTicketRev');
+            const highTicketRevInput = document.getElementById('highTicketRev');
+            const lifespanInput = document.getElementById('lifespan');
+            const benchmarkModeCheck = document.getElementById('benchmarkMode');
+            
+            const lowTicketContainer = document.getElementById('lowTicketContainer');
+            const highTicketContainer = document.getElementById('highTicketContainer');
+
+            const outLtv = document.getElementById('outLtv');
+            const outPotentialValue = document.getElementById('outPotentialValue');
+            const outGrowthValue = document.getElementById('outGrowthValue');
+            const analysisText = document.getElementById('analysisText');
+
+            // Listeners
+            const inputs = [listSizeInput, monthlyGrowthInput, lowTicketRevInput, highTicketRevInput, lifespanInput, benchmarkModeCheck];
+            inputs.forEach(input => input.addEventListener('input', calculateLtv));
+            benchmarkModeCheck.addEventListener('change', toggleBenchmarkMode);
+
+            function toggleBenchmarkMode() {
+                if (benchmarkModeCheck.checked) {
+                    lowTicketContainer.style.opacity = '0.3';
+                    highTicketContainer.style.opacity = '0.3';
+                    lowTicketRevInput.disabled = true;
+                    highTicketRevInput.disabled = true;
+                } else {
+                    lowTicketContainer.style.opacity = '1';
+                    highTicketContainer.style.opacity = '1';
+                    lowTicketRevInput.disabled = false;
+                    highTicketRevInput.disabled = false;
+                }
+                calculateLtv();
+            }
+
+            function formatCurrency(val) {
+                return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(val);
+            }
+
+            function calculateLtv() {
+                // Read and Parse Values
+                const listSize = Math.max(parseFloat(listSizeInput.value) || 0, 1);
+                const monthlyGrowth = parseFloat(monthlyGrowthInput.value) || 0;
+                const lifespanMonths = Math.max(parseFloat(lifespanInput.value) || 0, 1);
+                
+                let annualLowTicket = parseFloat(lowTicketRevInput.value) || 0;
+                let annualHighTicket = parseFloat(highTicketRevInput.value) || 0;
+                let totalAnnualRevenue = annualLowTicket + annualHighTicket;
+
+                let ltv = 0;
+                let isBenchmark = benchmarkModeCheck.checked;
+
+                if (isBenchmark) {
+                    // Benchmark Model: Assume conservative industry metrics
+                    // ~$1.50 monthly value per subscriber generated on a optimized automated engine stack
+                    const benchmarkMonthlyValuePerSub = 1.50; 
+                    ltv = benchmarkMonthlyValuePerSub * lifespanMonths;
+                    totalAnnualRevenue = (benchmarkMonthlyValuePerSub * listSize) * 12;
+                } else {
+                    // Core Production Math
+                    const annualARPU = totalAnnualRevenue / listSize;
+                    const monthlyARPU = annualARPU / 12;
+                    ltv = monthlyARPU * lifespanMonths;
+                }
+
+                // Metric Matrix Projections
+                const potentialListValue = listSize * ltv;
+                const twelveMonthNewSubs = monthlyGrowth * 12;
+                const growthPipelineValue = twelveMonthNewSubs * ltv;
+
+                // Render Outputs
+                outLtv.innerText = formatCurrency(ltv);
+                outPotentialValue.innerText = formatCurrency(potentialListValue);
+                outGrowthValue.innerText = formatCurrency(growthPipelineValue);
+
+                // Narrative Insights Generator
+                let insight = "";
+                if (isBenchmark) {
+                    insight = `Based on established creator benchmarks, a fully optimized digital product infrastructure yields roughly $1.50/mo per list member. Under this baseline, every individual lead that subscribes represents a projected <strong>${formatCurrency(ltv)}</strong> in lifetime enterprise equity asset value.`;
+                } else {
+                    insight = `Your engine generates an annual average run-rate of <strong>${formatCurrency(totalAnnualRevenue / listSize)}</strong> per subscriber tracking over a 12-month sequence. This marks each new target lead as worth <strong>${formatCurrency(ltv)}</strong> across their expected ${lifespanMonths}-month operational retention lifespan.`;
+                }
+
+                if (potentialListValue > totalAnnualRevenue && !isBenchmark) {
+                    insight += ` Note that your <strong>Potential List Value of ${formatCurrency(potentialListValue)}</strong> scales beyond current raw yearly payouts, reflecting the unrealized long-term recurring value trapped across your retention model. Optimize backend funnels to unlock this cash more rapidly.`;
+                } else if (!isBenchmark) {
+                    insight += ` If your actual cash returns don't align with these baseline asset values, it indicates high system leaks or unoptimized offer ladder structures.`;
+                }
+
+                analysisText.innerHTML = insight;
+            }
+
+            // Initial Execution
+            calculateLtv();
+        });
+    </script>
+</body>
+</html>
