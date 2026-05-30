@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Product Idea Validator & Pricing Matrix — AI Cash Lab</title>
+    <meta name="description" content="Score your digital product ideas based on raw validation signals, calculate build time ROI, and structure your pre-sell framework.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+        }
+        .premium-border {
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+        .accent-glow-amber {
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.08);
+        }
+    </style>
+</head>
+<body class="text-slate-200 min-h-screen flex flex-col justify-between antialiased">
+
+    <!-- Header Section -->
+    <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center border-b premium-border">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-full bg-amber-600 flex items-center justify-center font-bold text-white tracking-wider text-xs">AC</div>
+            <span class="text-sm font-semibold tracking-wider uppercase text-slate-400">AI Cash Lab</span>
+        </div>
+        <a href="../" class="text-xs text-slate-400 hover:text-white transition-colors">← Back to Tools</a>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="w-full max-w-6xl mx-auto px-6 py-10 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left Panel: Inputs & Checklists -->
+        <section class="lg:col-span-5 bg-[#111827] p-6 rounded-xl border premium-border space-y-5">
+            <div>
+                <h1 class="text-lg font-bold text-white tracking-tight">Product Idea Validator</h1>
+                <p class="text-xs text-slate-400 mt-0.5">Audit your digital product concept against point-based audience demand markers before writing code.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Concept Asset Naming -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="productName">Product Concept Name</label>
+                    <input type="text" id="productName" value="Client Onboarding System" placeholder="e.g., Notion Freelancer OS" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                </div>
+
+                <!-- Core Format Architecture Selection -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="productFormat">Primary Core Format</label>
+                    <select id="productFormat" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                        <option value="micro" selected>Micro-Asset (Notion Template, PDF Checklist, Spreadsheet)</option>
+                        <option value="playbook">Deep-Dive Playbook (Comprehensive Guide, Framework Handbook)</option>
+                        <option value="premium">Premium Curriculum (Multi-module Video Course, Live Workshop)</option>
+                    </select>
+                </div>
+
+                <!-- Estimated Build Time Configuration -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="buildTime">Estimated Asset Build Time (Hours)</label>
+                    <input type="number" id="buildTime" value="8" min="1" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                </div>
+
+                <hr class="premium-border">
+
+                <!-- Point-Based Demand Signals Checklist -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-2">Demand Signals Checklist</label>
+                    <p class="text-[11px] text-slate-500 mb-3">Select every point metric that currently applies to this specific topic framework:</p>
+                    
+                    <div class="space-y-3" id="signalsChecklist">
+                        <label class="flex items-start space-x-3 text-xs text-slate-300 cursor-pointer select-none">
+                            <input type="checkbox" value="15" class="signal-checkbox mt-0.5 rounded bg-slate-950 border-slate-800 text-amber-600 focus:ring-0 w-4 h-4 shrink-0 transition-all" checked>
+                            <span>People have explicitly asked you questions about this topic via text/email.</span>
+                        </label>
+                        <label class="flex items-start space-x-3 text-xs text-slate-300 cursor-pointer select-none">
+                            <input type="checkbox" value="20" class="signal-checkbox mt-0.5 rounded bg-slate-950 border-slate-800 text-amber-600 focus:ring-0 w-4 h-4 shrink-0 transition-all" checked>
+                            <span>Viewers have dropped comments on your videos asking for help with this problem.</span>
+                        </label>
+                        <label class="flex items-start space-x-3 text-xs text-slate-300 cursor-pointer select-none">
+                            <input type="checkbox" value="25" class="signal-checkbox mt-0.5 rounded bg-slate-950 border-slate-800 text-amber-600 focus:ring-0 w-4 h-4 shrink-0 transition-all">
+                            <span>Prospects have sent direct DMs seeking a step-by-step resolution.</span>
+                        </label>
+                        <label class="flex items-start space-x-3 text-xs text-slate-300 cursor-pointer select-none">
+                            <input type="checkbox" value="25" class="signal-checkbox mt-0.5 rounded bg-slate-950 border-slate-800 text-amber-600 focus:ring-0 w-4 h-4 shrink-0 transition-all">
+                            <span>People have willingly signed up for an early waitlist or landing page.</span>
+                        </label>
+                        <label class="flex items-start space-x-3 text-xs text-slate-300 cursor-pointer select-none">
+                            <input type="checkbox" value="15" class="signal-checkbox mt-0.5 rounded bg-slate-950 border-slate-800 text-amber-600 focus:ring-0 w-4 h-4 shrink-0 transition-all">
+                            <span>Customers have bought a closely related low-ticket offer from you before.</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Panel: Strategic Feasibility Engine -->
+        <section class="lg:col-span-7 space-y-6">
+            
+            <!-- Hero Validation Analytics Block -->
+            <div class="bg-[#111827] border premium-border p-6 rounded-xl accent-glow-amber space-y-6">
+                <div class="flex justify-between items-center border-b premium-border pb-4">
+                    <div>
+                        <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">Hero Validation Engine</span>
+                        <h2 id="displayProductTitle" class="text-md font-bold text-white mt-0.5">Client Onboarding System</h2>
+                    </div>
+                    <span id="validationVerdictBadge" class="px-3 py-1 rounded-full text-[10px] font-bold border uppercase tracking-wider">Analyzing</span>
+                </div>
+
+                <!-- Score Metric Stack Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="p-4 bg-[#1f2937]/30 rounded-lg border premium-border text-center sm:text-left">
+                        <span class="text-[9px] text-slate-400 font-medium uppercase tracking-wider block">Product Score</span>
+                        <span id="outValidationScore" class="text-3xl font-black text-white mt-1 block">0</span>
+                        <span class="text-[10px] text-slate-500 mt-0.5 block">Based on logged demand signals.</span>
+                    </div>
+
+                    <div class="p-4 bg-[#1f2937]/30 rounded-lg border premium-border text-center sm:text-left">
+                        <span class="text-[9px] text-slate-400 font-medium uppercase tracking-wider block">Suggested Next Action</span>
+                        <span id="outSuggestedAction" class="text-xs font-bold text-amber-400 mt-2 block">Pivot Strategy</span>
+                    </div>
+
+                    <div class="p-4 bg-[#1f2937]/30 rounded-lg border premium-border text-center sm:text-left">
+                        <span class="text-[9px] text-slate-400 font-medium uppercase tracking-wider block">Build Time ROI Matrix</span>
+                        <span id="outRoiUnits" class="text-md font-black text-emerald-400 mt-1.5 block">0 Sales Needed</span>
+                        <span id="outRoiHours" class="text-[10px] text-slate-500 mt-0.5 block">To recover 0 hours of production time.</span>
+                    </div>
+                </div>
+
+                <!-- Balanced Pricing Tiers Layout Matrix Block -->
+                <div class="border-t premium-border pt-5 space-y-3">
+                    <span class="text-xs font-semibold text-slate-300 uppercase tracking-wider block">Calibrated Pricing Matrix Options</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div class="p-3 bg-slate-900/40 rounded-lg border premium-border text-center">
+                            <span class="text-[10px] text-slate-500 font-medium uppercase tracking-wider block">Floor Price</span>
+                            <span id="outPriceFloor" class="text-lg font-bold text-slate-300 mt-0.5 block">$0</span>
+                        </div>
+                        <div class="p-3 bg-amber-950/20 rounded-lg border border-amber-900/40 text-center">
+                            <span class="text-[10px] text-amber-500 font-semibold uppercase tracking-wider block">Recommended Sweet Spot</span>
+                            <span id="outPriceSweet" class="text-xl font-extrabold text-amber-400 mt-0.5 block">$0</span>
+                        </div>
+                        <div class="p-3 bg-slate-900/40 rounded-lg border premium-border text-center">
+                            <span class="text-[10px] text-slate-500 font-medium uppercase tracking-wider block">Premium Ceiling</span>
+                            <span id="outPriceCeiling" class="text-lg font-bold text-slate-300 mt-0.5 block">$0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pre-Sell Text Framework Panel Block -->
+            <div class="bg-[#111827] border premium-border p-6 rounded-xl space-y-4">
+                <div>
+                    <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">72-Hour Pre-Sell Content Framework</h3>
+                    <p class="text-[11px] text-slate-500 mt-0.5">Deploy this validation text framework layout to audit real market transactional wallet-intent before asset creation.</p>
+                </div>
+
+                <div class="bg-slate-950/80 rounded-lg border premium-border p-4 font-mono text-xs text-slate-300 space-y-3 select-all cursor-pointer group hover:border-slate-700 transition-colors">
+                    <div>
+                        <span class="text-[10px] font-bold text-amber-600 block mb-0.5 font-sans uppercase tracking-wider">[1. PROBLEM]</span>
+                        <p class="italic text-slate-400">I'm thinking about creating a system that helps creators/freelancers manage <span class="text-white font-semibold underline" id="frameTopicText">Client Onboarding</span> without endless manual back-and-forth communication emails.</p>
+                    </div>
+                    <div class="border-t premium-border pt-2">
+                        <span class="text-[10px] font-bold text-amber-600 block mb-0.5 font-sans uppercase tracking-wider">[2. OUTCOME]</span>
+                        <p class="text-slate-400">The goal is to hand you an optimized, drop-in structure that locks down deliverables, saves hours of build execution time, and secures premium onboarding data instantly.</p>
+                    </div>
+                    <div class="border-t premium-border pt-2">
+                        <span class="text-[10px] font-bold text-amber-600 block mb-0.5 font-sans uppercase tracking-wider">[3. QUESTION]</span>
+                        <p class="text-slate-200 font-medium">Would this system be useful to your workflow right now?</p>
+                    </div>
+                    <div class="border-t premium-border pt-2">
+                        <span class="text-[10px] font-bold text-amber-600 block mb-0.5 font-sans uppercase tracking-wider">[4. CALL TO ACTION]</span>
+                        <p class="text-slate-400">Reply <strong class="text-amber-400 font-bold font-sans">YES</strong> below if you want early-bird access to the testing group before the system goes live.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Strategic Ecosystem Funnel Cross-Promotion Container -->
+            <div class="p-6 rounded-xl bg-gradient-to-r from-amber-950/20 via-[#111827] to-[#111827] border border-amber-900/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div class="space-y-1.5 max-w-md">
+                    <div class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-amber-900/60 text-amber-300 uppercase border border-amber-800/50">Digital Asset Frameworks</div>
+                    <h3 class="text-md font-bold text-white tracking-tight">Got validation signals? Choose your distribution architecture.</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Securing market interest signals is step one. Step two is deploying your minimum viable asset onto the exact right checkout system to clear optimization limits without platform design friction.</p>
+                </div>
+                <a href="https://gumroad.com" target="_blank" class="w-full md:w-auto text-center shrink-0 bg-amber-600 hover:bg-amber-500 text-white font-medium text-xs px-5 py-3 rounded-lg transition-colors shadow-lg shadow-amber-900/20">
+                    Get Platform Field Guide
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- System Footer -->
+    <footer class="w-full max-w-6xl mx-auto px-6 py-6 text-center text-[11px] text-slate-600 border-t premium-border">
+        &copy; 2026 AI Cash Lab. Pre-launch optimization architecture and concept validation modeling software tools.
+    </footer>
+
+    <!-- Core Analytical Calculation Automations Script Block -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Setup Document DOM Reference Nodes Map pointers
+            const productName = document.getElementById('productName');
+            const productFormat = document.getElementById('productFormat');
+            const buildTime = document.getElementById('buildTime');
+            const signalsChecklist = document.getElementById('signalsChecklist');
+            const frameTopicText = document.getElementById('frameTopicText');
+            const displayProductTitle = document.getElementById('displayProductTitle');
+
+            const outValidationScore = document.getElementById('outValidationScore');
+            const outSuggestedAction = document.getElementById('outSuggestedAction');
+            const outRoiUnits = document.getElementById('outRoiUnits');
+            const outRoiHours = document.getElementById('outRoiHours');
+            const outPriceFloor = document.getElementById('outPriceFloor');
+            const outPriceSweet = document.getElementById('outPriceSweet');
+            const outPriceCeiling = document.getElementById('outPriceCeiling');
+            const validationVerdictBadge = document.getElementById('validationVerdictBadge');
+
+            // Wire Up Interface Inputs Observers Array Grid
+            productName.addEventListener('input', function() {
+                const textInputString = productName.value.trim();
+                displayProductTitle.innerText = textInputString || "Unnamed Concept Asset";
+                frameTopicText.innerText = textInputString || "this digital framework system";
+            });
+
+            productFormat.addEventListener('input', runIdeaValidationEngineCore);
+            buildTime.addEventListener('input', runIdeaValidationEngineCore);
+            
+            const checkboxElementsList = document.querySelectorAll('.signal-checkbox');
+            checkboxElementsList.forEach(box => box.addEventListener('change', runIdeaValidationEngineCore));
+
+            function runIdeaValidationEngineCore() {
+                // 1. Compile Checkbox Validation System Score Parameters
+                let evaluatedSignalsTotalScore = 0;
+                checkboxElementsList.forEach(box => {
+                    if (box.checked) evaluatedSignalsTotalScore += parseInt(box.value);
+                });
+                
+                // Enforce absolute cap constraint boundaries
+                evaluatedSignalsTotalScore = Math.min(evaluatedSignalsTotalScore, 100);
+                outValidationScore.innerText = evaluatedSignalsTotalScore;
+
+                // 2. Generate Base Format Pricing Models Matrix Maps
+                const selectedFormatType = productFormat.value;
+                let floorPrice = 19;
+                let sweetPrice = 29;
+                let ceilingPrice = 49;
+
+                if (selectedFormatType === 'playbook') {
+                    floorPrice = 39;
+                    sweetPrice = 59;
+                    ceilingPrice = 99;
+                } else if (selectedFormatType === 'premium') {
+                    floorPrice = 99;
+                    sweetPrice = 149;
+                    ceilingPrice = 299;
+                }
+
+                // Render Calculated Values To Matrix Fields
+                outPriceFloor.innerText = `$${floorPrice}`;
+                outPriceSweet.innerText = `$${sweetPrice}`;
+                outPriceCeiling.innerText = `$${ceilingPrice}`;
+
+                // 3. Evaluate Build Time ROI Equations Layout Metrics
+                const processingHoursTarget = Math.max(parseInt(buildTime.value) || 0, 0);
+                const salesRequiredToBreakEven = sweetPrice > 0 ? Math.ceil((processingHoursTarget * 35) / sweetPrice) : 0; // Baseline valuation factor $35/hr opportunity cost
+                const cleanFinalUnitsCount = Math.max(salesRequiredToBreakEven, 1);
+
+                outRoiUnits.innerText = `${cleanFinalUnitsCount} ${cleanFinalUnitsCount === 1 ? 'Sale' : 'Sales'} Needed`;
+                outRoiHours.innerText = `To validate & recover ${processingHoursTarget} ${processingHoursTarget === 1 ? 'hour' : 'hours'} of effort.`;
+
+                // 4. Determine Verdict Badging Output Text Structures Content Blocks
+                let statusBadgeText = "Weak Validation Signals";
+                let statusBadgeStyle = "bg-rose-950/50 text-rose-400 border-rose-800/60";
+                let descriptiveActionMessage = "Do Not Build Yet. Push out validation text surveys or hook content frameworks to source verified audience demand before programming asset lines.";
+
+                if (evaluatedSignalsTotalScore >= 60) {
+                    statusBadgeText = "Strong Validation Signals";
+                    statusBadgeStyle = "bg-emerald-950/50 text-emerald-400 border-emerald-800/60";
+                    descriptiveActionMessage = "Clear Validation Signals. Deploy your pre-sell checkout links to lock in transactions before finalizing asset production loops.";
+                } else if (evaluatedSignalsTotalScore >= 30) {
+                    statusBadgeText = "Mixed Validation Signals";
+                    statusBadgeStyle = "bg-amber-950/50 text-amber-400 border-amber-800/60";
+                    descriptiveActionMessage = "Incentivize Intent. Refine topic positioning and focus on sourcing warm email waitlist targets prior to initiating deep asset development timelines.";
+                }
+
+                validationVerdictBadge.innerText = statusBadgeText;
+                validationVerdictBadge.className = `px-3 py-1 rounded-full text-[10px] font-bold border uppercase tracking-wider ${statusBadgeStyle}`;
+                outSuggestedAction.innerText = descriptiveActionMessage;
+            }
+
+            // Fire Main Initialization Automation Sequence Run
+            runIdeaValidationEngineCore();
+        });
+    </script>
+</body>
+</html>
