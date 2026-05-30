@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Channel Repurposing Matrix — AI Cash Lab</title>
+    <meta name="description" content="Turn a single content asset into a multi-platform distribution engine based on your available production time.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+        }
+        .premium-border {
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+        .accent-glow-blue {
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.1);
+        }
+        /* Custom styling for scrollbars within workflow cards */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="text-slate-200 min-h-screen flex flex-col justify-between antialiased">
+
+    <!-- Header Section -->
+    <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center border-b premium-border">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold text-white tracking-wider text-xs">AC</div>
+            <span class="text-sm font-semibold tracking-wider uppercase text-slate-400">AI Cash Lab</span>
+        </div>
+        <div class="flex items-center space-x-4">
+            <a href="../video-script-time-calculator/" class="text-xs text-slate-500 hover:text-slate-300 transition-colors hidden sm:inline">Script Timer</a>
+            <a href="../caption-line-splitter/" class="text-xs text-slate-500 hover:text-slate-300 transition-colors hidden sm:inline">Caption Splitter</a>
+            <a href="../" class="text-xs text-slate-400 hover:text-white transition-colors">← Back to Tools</a>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="w-full max-w-6xl mx-auto px-6 py-10 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left Panel: Context Architecture Inputs -->
+        <section class="lg:col-span-5 bg-[#111827] p-6 rounded-xl border premium-border space-y-5">
+            <div>
+                <h1 class="text-lg font-bold text-white tracking-tight">Repurposing Matrix</h1>
+                <p class="text-xs text-slate-400 mt-0.5">Stop asking "how to repurpose." Map out exactly what you can execute today.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Input 1: The Core Foundational Asset -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="coreAsset">Your Core Existing Asset</label>
+                    <select id="coreAsset" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                        <option value="longform" selected>Long-Form Video / Podcast Episode</option>
+                        <option value="newsletter">Deep-Dive Written Newsletter / Article</option>
+                        <option value="shortform">Single Standalone Short-Form Video</option>
+                    </select>
+                </div>
+
+                <!-- Input 2: Dynamic Time Constraint Context Wrapper -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="timeAvailable">Time Available Right Now</label>
+                    <select id="timeAvailable" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                        <option value="15min">15 Minutes (Micro-Execution)</option>
+                        <option value="30min" selected>30 Minutes (Standard Adaptation)</option>
+                        <option value="1hour">1 Hour (Deep Focused Slicing)</option>
+                        <option value="halfday">Half Day (Comprehensive Batching)</option>
+                        <option value="fullday">Full Day (Total Content Leverage Storm)</option>
+                    </select>
+                </div>
+
+                <hr class="premium-border">
+
+                <!-- Targeted Velocity Output Distribution Matrix Toggles -->
+                <div class="space-y-2.5">
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider">Target Channels to Attack</label>
+                    
+                    <label class="flex items-center space-x-3 text-xs text-slate-300 cursor-pointer">
+                        <input type="checkbox" id="chShorts" checked class="rounded bg-slate-800 border-slate-700 text-blue-600 focus:ring-0 w-4 h-4">
+                        <span>TikTok & YouTube Shorts (Vertical Reach)</span>
+                    </label>
+
+                    <label class="flex items-center space-x-3 text-xs text-slate-300 cursor-pointer">
+                        <input type="checkbox" id="chLinkedin" checked class="rounded bg-slate-800 border-slate-700 text-blue-600 focus:ring-0 w-4 h-4">
+                        <span>LinkedIn Feed (Authority & Professional Flow)</span>
+                    </label>
+
+                    <label class="flex items-center space-x-3 text-xs text-slate-300 cursor-pointer">
+                        <input type="checkbox" id="chX" checked class="rounded bg-slate-800 border-slate-700 text-blue-600 focus:ring-0 w-4 h-4">
+                        <span>X / Threads (High Velocity Text Loops)</span>
+                    </label>
+
+                    <label class="flex items-center space-x-3 text-xs text-slate-300 cursor-pointer">
+                        <input type="checkbox" id="chNewsletter" class="rounded bg-slate-800 border-slate-700 text-blue-600 focus:ring-0 w-4 h-4">
+                        <span>Email Newsletter (Direct Community Vault)</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Panel: Dynamic Production Action Steps Dashboard -->
+        <section class="lg:col-span-7 space-y-6">
+            
+            <!-- Gamified Leverage Metrics Engine Block -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="bg-[#111827] border premium-border p-4 rounded-xl accent-glow-blue">
+                    <span class="text-[10px] font-semibold text-blue-400 uppercase tracking-wider block">Content Leverage Yield</span>
+                    <div id="outYield" class="text-2xl font-black text-white mt-1">1 Asset → 3 Assets</div>
+                    <p class="text-[10px] text-slate-500 mt-0.5">Total high-leverage assets created from your baseline.</p>
+                </div>
+                <div class="bg-[#111827] border premium-border p-4 rounded-xl">
+                    <span class="text-[10px] font-semibold text-emerald-400 uppercase tracking-wider block">Estimated Visibility Multiplier</span>
+                    <div id="outMultiplier" class="text-2xl font-black text-white mt-1">1.0x Reach</div>
+                    <p class="text-[10px] text-slate-500 mt-0.5">Directional multi-channel ecosystem reach potential.</p>
+                </div>
+            </div>
+
+            <!-- Dynamic Workflow Step Iteration Destination Frame -->
+            <div class="bg-[#111827] border premium-border p-6 rounded-xl space-y-4">
+                <div>
+                    <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Your Custom Production Blueprint</h3>
+                    <p class="text-[11px] text-slate-500 mt-0.5">Check off tasks as you execute them to maintain your production momentum.</p>
+                </div>
+
+                <!-- Empty State Handler Message Indicator -->
+                <div id="emptyChannelsAlert" class="hidden text-xs text-center p-6 text-slate-500 border border-dashed border-slate-800 rounded-lg">
+                    Select at least one destination distribution channel to assemble your operational blueprint.
+                </div>
+
+                <!-- Generated Operational Step Cards Container Inner Destination -->
+                <div id="blueprintContainer" class="space-y-4">
+                    <!-- JavaScript Dynamic Insertion Matrix -->
+                </div>
+            </div>
+
+            <!-- Native Native Contextual Upsell Conversion Box Panel -->
+            <div class="p-6 rounded-xl bg-gradient-to-r from-blue-950/30 via-[#111827] to-[#111827] border border-blue-900/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div class="space-y-1.5 max-w-md">
+                    <div class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-blue-900/60 text-blue-300 uppercase border border-blue-800/50">Production Vault Accelerator</div>
+                    <h3 class="text-md font-bold text-white tracking-tight">The plan is locked down. Can you write the hooks to back it up?</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Knowing your execution structure saves your energy. Driving actual view metrics requires high-retention frameworks optimized for short attention spans. Turn your repurposed nodes into raw pipeline conversions.</p>
+                </div>
+                <a href="https://gumroad.com" target="_blank" class="w-full md:w-auto text-center shrink-0 bg-blue-600 hover:bg-blue-500 text-white font-medium text-xs px-5 py-3 rounded-lg transition-colors shadow-lg shadow-blue-900/20">
+                    Get AI Traffic Playbook Engine
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- System Footer Layout Context -->
+    <footer class="w-full max-w-6xl mx-auto px-6 py-6 text-center text-[11px] text-slate-600 border-t premium-border">
+        &copy; 2026 AI Cash Lab. Operational distribution strategy matrices for multi-channel scaling parameters.
+    </footer>
+
+    <!-- Script Automation Architecture Matrix Engine Execution -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Track Node Elements Pointers
+            const coreAsset = document.getElementById('coreAsset');
+            const timeAvailable = document.getElementById('timeAvailable');
+            const chShorts = document.getElementById('chShorts');
+            const chLinkedin = document.getElementById('chLinkedin');
+            const chX = document.getElementById('chX');
+            const chNewsletter = document.getElementById('chNewsletter');
+
+            const outYield = document.getElementById('outYield');
+            const outMultiplier = document.getElementById('outMultiplier');
+            const blueprintContainer = document.getElementById('blueprintContainer');
+            const emptyChannelsAlert = document.getElementById('emptyChannelsAlert');
+
+            // Wire UI Observers Array
+            const controlInputs = [coreAsset, timeAvailable, chShorts, chLinkedin, chX, chNewsletter];
+            controlInputs.forEach(input => input.addEventListener('input', updateRepurposingMatrixEngine));
+
+            // Core Mapping Data Strategy Blueprint Database Values Matrix 
+            const blueprints = {
+                longform: {
+                    name: "Long-Form Video / Podcast",
+                    channels: {
+                        shorts: {
+                            "15min": { count: 1, name: "Extract 1 Quick Short-Form Clip", steps: ["Scout video timeline file for a high-value 30-sec insight point.", "Slice raw vertical frame layout aspect coordinates.", "Write a fresh, pattern-interrupt verbal hook for the first 3 seconds.", "Render out instantly using minimal system typography blocks."] },
+                            "30min": { count: 1, name: "Slice 1 Highly Optimized Vertical Short", steps: ["Isolate a clean, single stand-alone lesson framework point.", "Draft an aggressive, curiosity-driven text screen overlay title.", "Cut out verbal dead spaces or parsing gaps tightly.", "Adapt final call to action to lead back to your full original link vault."] },
+                            "1hour": { count: 2, name: "Extract 2 Targeted Concept Short Videos", steps: ["Identify two distinct lesson clusters inside the long video file.", "Re-hook each clip with separate psychological angles.", "Optimize background audio parameters for high mobile engagement.", "Prepare separate visual title hooks for both variations."] },
+                            "halfday": { count: 4, name: "Batch 4 Multi-Angle Viral Short Snippets", steps: ["Map video content sections into a 4-part modular concept stack.", "Write individual contextual hooks (e.g., Case Study vs Contrarian).", "Deep slice, apply caption overlays, and sync dynamic visual frames.", "Schedule assets across separated publication windows."] },
+                            "fullday": { count: 6, name: "Generate 6 High-Retention Short Assets Pack", steps: ["Systematically harvest every valuable content insight block.", "Apply dynamic vertical framework edits across all six nodes.", "A/B test different visual hook variations for the top 2 elements.", "Organize your short-form media assets pipeline for the upcoming week."] }
+                        },
+                        linkedin: {
+                            "15min": { count: 1, name: "Generate 1 Insight Key Takeaway Text Post", steps: ["Transcribe a powerful 60-second summary from the video text data.", "Format clean mobile spacing parameters with clear line breaks.", "Add a high-intent text hook line right at the very top header.", "Place a direct source video access asset bridge in the comments."] },
+                            "30min": { count: 1, name: "Draft 1 Detailed Actionable Breakdown Post", steps: ["Isolate a complex problem solved inside your core timeline video.", "Format structural steps clearly using bullet points for scannability.", "Write a strong personal point-of-view perspective headline anchor.", "Formulate an engaging question line to drive profile interaction rows."] },
+                            "1hour": { count: 1, name: "Construct 1 High-Value Case Study Post", steps: ["Structure the video content under a clean 'Challenge vs Solution' layout.", "Deconstruct individual data points, metrics, or frameworks systematically.", "Incorporate contextual takeaways tailored specifically for an executive reader group.", "Add clean profile link indicators to your digital portfolio assets."] },
+                            "halfday": { count: 2, name: "Build 2 Authority Breakdown Articles", steps: ["Create one core framework breakdown and one contrarian insight node.", "Rewrite raw script concepts into professional, long-form editorial formats.", "Design minimal custom banner images matching your brand identity.", "Schedule the posts across alternative high-traffic publishing days."] },
+                            "fullday": { count: 3, name: "Formulate a 3-Part Modular Authority Series", steps: ["Deconstruct the core asset video into an integrated thematic mini-series.", "Build comprehensive blueprints for every distinct conceptual chapter.", "Incorporate highly detailed step-by-step frameworks across each post.", "Embed subtle native calls-to-action leading into your core product lines."] }
+                        },
+                        x: {
+                            "15min": { count: 1, name: "Write 1 High-Velocity Single Value Hook Post", steps: ["Summarize the single most striking insight or stat from the video.", "Condense the core idea down to under 240 punchy characters.", "Add a clear visual structure to draw readers in as they scroll past."] },
+                            "30min": { count: 1, name: "Draft 1 Concise 5-Tweet Value Essay Thread", steps: ["Tweet 1: High-repetition hook statement mapping a major transformation.", "Tweets 2–4: Modular step-by-step framework takeaways.", "Tweet 5: Clean bridge back to your primary channel asset platform link."] },
+                            "1hour": { count: 1, name: "Build 1 Comprehensive 10-Tweet Deep Thread", steps: ["Deconstruct the narrative arc of the entire long-form video asset.", "Incorporate precise numbers, screenshots, or logical framework formulas.", "Write punchy transition lines between tweets to maintain reading velocity.", "Optimize the final tweet call-to-action for direct digital product signups."] },
+                            "halfday": { count: 2, name: "Batch 2 Independent Value Thread Sequences", steps: ["Develop one highly tactical guide thread and one contrarian argument thread.", "Refine all text layouts to emphasize whitespace and maximize readability.", "Prepare secondary follow-up comment hooks to keep engagement high over 48 hours.", "Queue both sequences into your automated scheduling dashboard pipeline."] },
+                            "fullday": { count: 3, name: "Generate a Complete Viral Narrative Launch Pack", steps: ["Construct a comprehensive multi-day narrative sequence structure.", "Build out data-heavy teardowns, micro-guides, and case study loops.", "Maximize pattern-interrupt headers across every individual thread starter.", "Cross-link threads to amplify internal traffic loops across your profile."] }
+                        },
+                        newsletter: {
+                            "15min": { count: 1, name: "Send 1 Quick Resource Link Broadcast", steps: ["Draft an explicit, high-curiosity email subject header line.", "Provide a punchy 3-sentence summary of the main problem your video solves.", "Insert an obvious, single-click access button to drive traffic directly to the video."] },
+                            "30min": { count: 1, name: "Write 1 Actionable Tactical Lesson Email", steps: ["Extract one major standalone insight from your primary video.", "Flesh out the lesson with a quick, engaging backstory or context loop.", "Link directly to the core video for viewers who want the full picture."] },
+                            "1hour": { count: 1, name: "Draft 1 Structured Value Manifesto Newsletter", steps: ["Convert the entire outline of your long-form video into a clean text essay.", "Organize the content with bold subheadings and clear bulleted takeaways.", "Include a native promotional block for your premium digital product suite."] },
+                            "halfday": { count: 1, name: "Craft a Premium Weekly Deep-Dive Issue", steps: ["Fully adapt your video script into an editorial-grade newsletter issue.", "Integrate data points, step-by-step systems, and clear text summaries.", "A/B test your subject lines to maximize email open rates.", "Place native lead-generation funnels throughout the body copy."] },
+                            "fullday": { count: 2, name: "Build an Integrated Multi-Part Email Training Sequence", steps: ["Break your long-form video concepts into a cohesive multi-day email crash course.", "Write high-retention onboarding loops that build anticipation for the next lesson.", "Optimize your email templates for ultra-clean mobile text readability.", "Directly align the educational content with your Launch OS ecosystem."] }
+                        }
+                    }
+                },
+                newsletter: {
+                    name: "Deep-Dive Written Newsletter",
+                    channels: {
+                        shorts: {
+                            "15min": { count: 1, name: "Record 1 Fast Talking-Head Script Clip", steps: ["Isolate the single most compelling paragraph or data point from your writing.", "Use your script timer to budget a punchy 45-second spoken voiceover sequence.", "Open with an authoritative verbal hook to stop the scroll immediately."] },
+                            "30min": { count: 1, name: "Construct 1 Visual B-Roll Voiceover Text Match", steps: ["Select an educational text block and format it into a 60-second voiceover.", "Pair the audio track with minimalist, premium aesthetic video loops.", "Keep on-screen text overlays clean and scannable for mobile viewers."] },
+                            "1hour": { count: 2, name: "Produce 2 Distinct Faceless Concept Shorts", steps: ["Identify two independent thesis points from your newsletter issue.", "Write separate high-retention visual scripts using your caption splitter layouts.", "Apply dark background aesthetics with contrasting text color accents."] },
+                            "halfday": { count: 4, name: "Batch 4 Highly Targeted Educational Short Clips", steps: ["Map out a 4-part vertical micro-series tracking your written frameworks.", "Record clean audio tracks using a consistent, professional delivery style.", "Batch edit text safe-zones and layout templates for multiple platforms.", "Schedule posts to consistently feed your top-of-funnel conversion pipelines."] },
+                            "fullday": { count: 6, name: "Assemble a Full Multi-Week Short-Form Asset Vault", steps: ["Deconstruct your entire newsletter essay into 6 stand-alone video assets.", "Incorporate dynamic pattern-interrupt elements across all assets.", "Build out specialized landing page links tailored for video traffic.", "Organize your content repository pipelines for seamless publishing."] }
+                        },
+                        linkedin: {
+                            "15min": { count: 1, name: "Format 1 Clean Essay Condensation Post", steps: ["Extract the core thesis statement from your newsletter text.", "Reformat the copy with ample whitespace and sharp mobile line breaks.", "Add a clean call-to-action invite for users to join your email list community."] },
+                            "30min": { count: 1, name: "Draft 1 Structured Action Framework Post", steps: ["Convert your written advice into an operational step-by-step checklist.", "Write a strong, authoritative personal perspective headline loop.", "Clean up industry jargon to ensure immediate readability and clarity."] },
+                            "1hour": { count: 1, name: "Build 1 Text-Based Micro-Carousel Blueprint", steps: ["Group your key written points into 5-7 clear textual slide blocks.", "Draft a high-conversion cover page title layout matching your brand identity.", "Write an executive summary text description to accompany the asset post."] },
+                            "halfday": { count: 2, name: "Construct 2 Comprehensive Framework Guides", steps: ["Build one comprehensive guide post and one actionable step checklist.", "Incorporate clear real-world examples to ground your written frameworks.", "Optimize your text structures to maximize reader time-on-page metrics."] },
+                            "fullday": { count: 3, name: "Formulate a Full 3-Part Thought Leadership Series", steps: ["Map your newsletter concepts into a high-authority 3-part content series.", "Deepen every individual argument with fresh industry case studies.", "Integrate clear asset loops that guide readers back to your main website."] }
+                        },
+                        x: {
+                            "15min": { count: 1, name: "Isolate 1 High-Impact Core Insight Post", steps: ["Condense your main written conclusion into a single, punchy statement.", "Refine your word choice to maximize viral sharing potential on text feeds.", "Include an organic newsletter sign-up link directly in the reply thread."] },
+                            "30min": { count: 1, name: "Deconstruct 1 Written Framework into a Thread", steps: ["Convert your core newsletter thesis into a high-velocity 5-tweet sequence.", "Ensure each tweet delivers a standalone takeaway to encourage retweets.", "Add clear visual markers like emojis or numbers to break up the text blocks."] },
+                            "1hour": { count: 1, name: "Construct 1 High-Retention 10-Tweet Deep Thread", steps: ["Fully adapt your deep-dive newsletter into a structured essay thread.", "Open with an aggressive hook targeting an audience pain point.", "Weave clear analytical steps throughout the body of the thread sequence.", "End with an organic signup call-to-action for your free resource tools."] },
+                            "halfday": { count: 2, name: "Batch 2 Independent Analytical Value Threads", steps: ["Develop one highly tactical guide thread and one contrarian case study thread.", "Refine your spacing parameters to optimize readability on mobile device screens.", "Set up automated scheduling parameters to space out the thread publications."] },
+                            "fullday": { count: 3, name: "Generate a Complete Multi-Day Authority Launch Pack", steps: ["Build three separate high-leverage thread sequences from your source text.", "Incorporate comprehensive tactical breakdowns across all assets.", "Map out cross-promotional hooks to maximize traction across your entire profile."] }
+                        },
+                        newsletter: {
+                            "15min": { count: 1, name: "Optimize & Clean Existing Source Copy", steps: ["Audit your primary newsletter file for clear text scannability metrics.", "Ensure your digital product call-to-action links are active and prominent."] },
+                            "30min": { count: 1, name: "Build 1 Segmented Follow-Up Sequence Node", steps: ["Draft a short, high-value value post specifically for your unengaged readers.", "Offer a quick, actionable insight to build immediate relationship authority."] },
+                            "1hour": { count: 1, name: "Construct 1 Evergreen Resource Asset", steps: ["Package your core written newsletter content into a clean PDF resource format.", "Set up a streamlined landing page funnel to turn future traffic into email leads."] },
+                            "halfday": { count: 1, name: "Create a Comprehensive Automated Email Sequence", steps: ["Adapt your core deep-dive essay into a multi-part evergreen automated email campaign.", "Incorporate clear native conversion checkpoints for your premium digital product lines."] },
+                            "fullday": { count: 2, name: "Formulate a Complete Content Vault Expansion Pack", steps: ["Build a multi-part email sequence alongside a dedicated standalone resource guide.", "Ensure your brand design systems are consistent across all assets."] }
+                        }
+                    }
+                },
+                shortform: {
+                    name: "Single Standalone Short-Form Video",
+                    channels: {
+                        shorts: {
+                            "15min": { count: 1, name: "Deploy Asset to Alternative Channels", steps: ["Take your existing short-form video file and strip any platform watermarks.", "Publish it directly to YouTube Shorts and Instagram Reels to scale reach.", "Ensure all descriptions are optimized with platform-specific keyword tags."] },
+                            "30min": { count: 1, name: "Execute 1 Target Hook Variation Variable Post", steps: ["Take your original video timeline asset and swap out the first 3 seconds with a new hook.", "Publish the alternative version to capture segments of the algorithm you missed.", "Compare engagement metrics between both versions to see what lands."] },
+                            "1hour": { count: 2, name: "Construct 2 Mirror Platform Optimizations", steps: ["Tailor the caption descriptions and tags specifically for TikTok vs Instagram Reels.", "Set up localized comment starters on both platforms to kickstart engagement."] },
+                            "halfday": { count: 3, name: "Build 3 Contextual A/B Test Variants Pack", steps: ["Generate three unique video iterations by testing distinct hook variations.", "Optimize on-screen caption layouts and background audio selections across each clip.", "Publish variations across alternative times slots to maximize organic visibility."] },
+                            "fullday": { count: 4, name: "Formulate a Comprehensive Multi-Platform Vault", steps: ["Develop 4 distinct asset variations from your primary video concept loop.", "Incorporate different thumbnail cover styles and title keywords across variants.", "Organize your asset management pipeline for hands-off automated publishing."] }
+                        },
+                        linkedin: {
+                            "15min": { count: 1, name: "Transcribe Voiceover Script into Text Post", steps: ["Run your video voiceover audio through a basic text transcription tool.", "Format the output with clean spacing parameters to make it easy to scan.", "Add a direct video link in the comments to drive cross-platform traffic."] },
+                            "30min": { count: 1, name: "Draft 1 Actionable Breakdown Post", steps: ["Take the script from your short video and expand it with contextual analysis.", "Reformat the lesson steps into clean, professional bulleted points.", "Write a strong authority headline that clearly frames the business value."] },
+                            "1hour": { count: 1, name: "Construct 1 Detailed Framework Teardown", steps: ["Expand your video script into a deep-dive case study or framework teardown.", "Incorporate clear structural explanations tailored for an industry audience.", "Add a direct call-to-action link guiding users to your digital product vault."] },
+                            "halfday": { count: 2, name: "Develop 2 Executive Authority Insights Posts", steps: ["Create one core strategy post and one tactical execution checklist post.", "Refine the tone of your video script to resonate with B2B professionals.", "Include clear links to your free tools ecosystem to capture high-intent leads."] },
+                            "fullday": { count: 3, name: "Formulate a Full 3-Part Educational Series", steps: ["Expand your short-form video concept into a high-authority 3-part text series.", "Deepen each concept with real-world industry examples and metrics.", "Incorporate subtle native funnels leading into your core product lines."] }
+                        },
+                        x: {
+                            "15min": { count: 1, name: "Isolate 1 Punchy Core Concept Tweet", steps: ["Condense the main takeaway of your short video into a single value post.", "Craft a high-repetition hook headline that stands out on text feeds.", "Drop a link to your short video in the replies to drive view loops."] },
+                            "30min": { count: 1, name: "Convert Video Script into a 5-Tweet Value Thread", steps: ["Tweet 1: High-curiosity hook tracking your video's core lesson.", "Tweets 2–4: Modular step-by-step breakdown of your voiceover points.", "Tweet 5: Clean bridge back to your primary digital products or website."] },
+                            "1hour": { count: 1, name: "Build 1 Comprehensive Multi-Tweet Guide Thread", steps: ["Expand your short-form script into a structured, analytical thread sequence.", "Add precise real-world context, numbers, or logic formulas to back up your points.", "Optimize thread text layouts to maximize reading velocity and retweets."] },
+                            "halfday": { count: 2, name: "Batch 2 Independent Value Thread Sequences", steps: ["Develop one tactical guide thread and one contrarian insight thread from your script.", "Refine all spacing parameters to maximize mobile reading comfort.", "Queue both sequences into your automated scheduling dashboard pipeline."] },
+                            "fullday": { count: 3, name: "Generate a Complete Narrative Profile Multiplier Pack", steps: ["Build three separate high-leverage thread sequences from your video script.", "Incorporate deep-dive tactical breakdowns and step checklists across all assets.", "Map out cross-promotional hooks to maximize traction across your entire profile."] }
+                        },
+                        newsletter: {
+                            "15min": { count: 1, name: "Send 1 Quick Insight Broadcast Email", steps: ["Write a curiosity-inducing subject line based on your video's core hook.", "Draft a quick 3-sentence summary highlighting the primary problem your video solves.", "Insert an obvious click-through button to send subscribers directly to the video asset."] },
+                            "30min": { count: 1, name: "Write 1 Tactical Lesson Community Email", steps: ["Extract one standalone lesson from your short-form video voiceover script.", "Flesh out the lesson with a quick, engaging backstory or context loop.", "Link directly to your video asset to capture cross-platform engagement loops."] },
+                            "1hour": { count: 1, name: "Draft 1 Structured Value Manifesto Newsletter", steps: ["Convert your short video script outline into a clean text essay format.", "Organize the content with bold subheadings and clear bulleted takeaways.", "Include a native promotional block for your premium digital product suite."] },
+                            "halfday": { count: 1, name: "Craft a Premium Weekly Deep-Dive Issue", steps: ["Fully expand your short-form script into an editorial-grade newsletter issue.", "Integrate data points, step-by-step systems, and clear text summaries.", "Place native lead-generation funnels throughout the body copy."] },
+                            "fullday": { count: 2, name: "Build an Integrated Multi-Part Email Training Sequence", steps: ["Break your short video concepts into a cohesive multi-day email crash course.", "Write high-retention onboarding loops that build anticipation for the next lesson.", "Directly align the educational content with your Launch OS ecosystem."] }
+                        }
+                    }
+                }
+            };
+
+            function updateRepurposingMatrixEngine() {
+                const assetType = coreAsset.value;
+                const timeValue = timeAvailable.value;
+
+                // Track Active Channels Checkboxes Status
+                const targetChannels = [
+                    { id: 'shorts', checked: chShorts.checked, name: 'TikTok & Shorts', multiplier: 1.5 },
+                    { id: 'linkedin', checked: chLinkedin.checked, name: 'LinkedIn Feed', multiplier: 1.2 },
+                    { id: 'x', checked: chX.checked, name: 'X / Threads', multiplier: 1.3 },
+                    { id: 'newsletter', checked: chNewsletter.checked, name: 'Email Newsletter', multiplier: 1.1 }
+                ];
+
+                // Check for Empty Channels Selection
+                const activeChannels = targetChannels.filter(c => c.checked);
+                if (activeChannels.length === 0) {
+                    emptyChannelsAlert.classList.remove('hidden');
+                    blueprintContainer.innerHTML = '';
+                    outYield.innerText = "1 Asset → 1 Asset";
+                    outMultiplier.innerText = "1.0x Reach";
+                    return;
+                } else {
+                    emptyChannelsAlert.classList.add('hidden');
+                }
+
+                // Process Yield Score Metrics
+                let totalOutputAssetsCount = 1; // Start with the core baseline asset
+                let totalReachMultiplier = 1.0;
+
+                blueprintContainer.innerHTML = '';
+
+                // Generate Content and Compute Metrics Across Active Channels
+                activeChannels.forEach(channel => {
+                    const dataLookup = blueprints[assetType]?.channels?.[channel.id]?.[timeValue];
+                    if (dataLookup) {
+                        totalOutputAssetsCount += dataLookup.count;
+                        totalReachMultiplier += channel.multiplier * dataLookup.count * 0.4;
+
+                        // Build Step Checklist Content Output Card
+                        const card = document.createElement('div');
+                        card.className = "p-4 rounded-lg bg-[#1f2937]/30 border premium-border space-y-3 hover:bg-[#1f2937]/50 transition-colors";
+                        
+                        // Assemble Header Component
+                        let headerHTML = `
+                            <div class="flex justify-between items-start border-b premium-border pb-2">
+                                <div>
+                                    <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">${channel.name}</span>
+                                    <h4 class="text-xs font-bold text-white mt-2 tracking-tight">${dataLookup.name}</h4>
+                                </div>
+                                <span class="text-[10px] font-mono text-blue-400 font-semibold">+${dataLookup.count} Yield Node</span>
+                            </div>
+                            <div class="space-y-2 mt-2">
+                                <span class="text-[10px] text-slate-500 font-semibold uppercase tracking-wider block">Quick Workflow Checklist:</span>
+                        `;
+
+                        // Assemble Checklist Item Rows Node Array Loop
+                        dataLookup.steps.forEach((step, idx) => {
+                            headerHTML += `
+                                <label class="flex items-start space-x-3 text-xs text-slate-300 cursor-pointer select-none group">
+                                    <input type="checkbox" class="mt-0.5 rounded bg-slate-900 border-slate-800 text-blue-600 focus:ring-0 w-3.5 h-3.5 shrink-0 transition-all">
+                                    <span class="group-hover:text-slate-200 transition-colors leading-relaxed">${step}</span>
+                                </label>
+                            `;
+                        });
+
+                        headerHTML += `</div>`;
+                        card.innerHTML = headerHTML;
+                        blueprintContainer.appendChild(card);
+                    }
+                });
+
+                // Render Dashboard Stats Metrics Values Text Fields
+                outYield.innerText = `1 Asset → ${totalOutputAssetsCount} Assets`;
+                outMultiplier.innerText = `${totalReachMultiplier.toFixed(1)}x Reach`;
+            }
+
+            // Run Base Initialization Automation On Instantiation Load
+            updateRepurposingMatrixEngine();
+        });
+    </script>
+</body>
+</html>
