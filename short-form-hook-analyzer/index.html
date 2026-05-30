@@ -3,244 +3,415 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Short-Form Hook Analyzer Engine | AI Cash Lab</title>
-    
-    <meta name="description" content="Audit your video hook scripts before recording. Calculate viral probability scores, evaluate text reading speeds, and check target claim drops.">
-    <meta name="keywords" content="hook analyzer, short form script analysis, viral hook checker, scroll stop probability, conversion copy tool">
-    
+    <title>Viral Video Hook Generator & Analyzer — AI Cash Lab</title>
+    <meta name="description" content="Analyze your video hooks for scroll-stop potential or instantly generate a 12-part library of psychological hooks across Curiosity, Contrarian, and Case Study frameworks.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --bg-main: #0b0d11;
-            --bg-card: #131722;
-            --bg-input: #1e222b;
-            --accent-yellow: #fcd535;
-            --text-main: #ffffff;
-            --text-muted: #8a8d93;
-            --status-green: #22c55e;
-            --status-warning: #f39200;
-            --status-alert: #ff4d4d;
-            --border-color: #262b36;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body {
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            padding: 40px 20px;
-            line-height: 1.5;
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
         }
-        .container { max-width: 1200px; margin: 0 auto; }
-        header { text-align: center; margin-bottom: 40px; }
-        header .brand { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-yellow); font-weight: 700; margin-bottom: 8px; }
-        header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
-        header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
-
-        .workspace { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
-        @media (max-width: 900px) { .workspace { grid-template-columns: 1fr; } }
-
-        .input-panel, .dashboard-panel {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .premium-border {
+            border-color: rgba(255, 255, 255, 0.08);
         }
-
-        textarea {
-            width: 100%; height: 120px; background-color: var(--bg-input); border: 1px solid var(--border-color);
-            border-radius: 8px; color: var(--text-main); padding: 16px; font-size: 1.1rem; line-height: 1.5;
-            resize: none; outline: none; font-family: inherit;
+        .accent-glow-blue {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.12);
         }
-        textarea:focus { border-color: var(--accent-yellow); }
-
-        .hero-metric {
-            background: linear-gradient(135deg, #131722 0%, var(--bg-input) 100%);
-            border: 1px solid var(--border-color); padding: 24px; border-radius: 10px; text-align: center;
+        .accent-glow-emerald {
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.12);
         }
-        .hero-metric .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 4px; }
-        .hero-metric .value { font-size: 3.5rem; font-weight: 900; color: var(--accent-yellow); }
-
-        .output-list { display: flex; flex-direction: column; gap: 12px; }
-        .output-row {
-            display: flex; justify-content: space-between; align-items: flex-start;
-            background: var(--bg-input); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border-color);
-            font-size: 0.95rem;
+        /* Custom scrollbar for library */
+        ::-webkit-scrollbar {
+            width: 6px;
         }
-        .output-row span.val { font-weight: 700; text-align: right; }
-        .output-row .sub-lbl { display: block; font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
-
-        .tag { font-size: 0.8rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; display: inline-block; }
-        .tag-gray { background-color: #2a2f3a; color: #e2e8f0; }
-
-        .advisor-box {
-            font-size: 0.85rem; line-height: 1.5; padding: 14px; border-radius: 8px;
-            background-color: rgba(252, 213, 53, 0.01); border: 1px dashed var(--border-color);
+        ::-webkit-scrollbar-track {
+            background: #111827;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #374151;
+            border-radius: 3px;
         }
     </style>
 </head>
-<body>
+<body class="text-slate-200 min-h-screen flex flex-col justify-between antialiased">
 
-<div class="container">
-    <header>
-        <div class="brand">AI Cash Lab • Creator Intelligence Suite</div>
-        <h1>Short-Form Hook Analyzer</h1>
-        <p>Drop the first 1-2 sentences of your script to run structural audits against proven viral framework models.</p>
+    <!-- Header Section -->
+    <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center border-b premium-border">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold text-white tracking-wider text-xs">AC</div>
+            <span class="text-sm font-semibold tracking-wider uppercase text-slate-400">AI Cash Lab</span>
+        </div>
+        <a href="../" class="text-xs text-slate-400 hover:text-white transition-colors">← Back to Tools</a>
     </header>
 
-    <div class="workspace">
-        <div class="input-panel">
-            <div class="form-group">
-                <label for="hook-input">Input Opening Hook Script Lines</label>
-                <textarea id="hook-input" placeholder="Example: I made $5,000 in 30 days selling standard digital asset templates..."></textarea>
+    <!-- Main Workspace -->
+    <main class="w-full max-w-6xl mx-auto px-6 py-8 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left Workspace: Dual Console (Input & Controls) -->
+        <div class="lg:col-span-5 space-y-6">
+            
+            <!-- Tab Switching System -->
+            <div class="bg-[#111827] p-1.5 rounded-xl border premium-border grid grid-cols-2 gap-2 text-center text-xs font-medium">
+                <button id="tabGenerate" class="bg-blue-600 text-white py-2 px-3 rounded-lg transition-all focus:outline-none">
+                    Hook Generator
+                </button>
+                <button id="tabAnalyze" class="text-slate-400 hover:text-slate-200 py-2 px-3 rounded-lg transition-all focus:outline-none">
+                    Hook Analyzer & Rewrite
+                </button>
             </div>
 
-            <div class="output-list" style="gap:14px; margin-top:10px;">
-                <label>Structural Heuristic Audit Signals</label>
-                <div class="output-row">
+            <!-- Dynamic Input Card -->
+            <section class="bg-[#111827] p-6 rounded-xl border premium-border space-y-5">
+                
+                <!-- GENERATOR CONTROLS -->
+                <div id="panelGenerate" class="space-y-4">
                     <div>
-                        <span>Curiosity Mechanics</span>
-                        <span class="sub-lbl">Withholds full execution steps open.</span>
+                        <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="topicInput">What is your video concept about?</label>
+                        <textarea id="topicInput" rows="3" placeholder="e.g., How I made $3k selling simple templates, why your short views are flat" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500 transition-colors resize-none"></textarea>
                     </div>
-                    <span class="val" id="sig-curiosity" style="color: var(--status-alert);">❌ Missing</span>
-                </div>
-                <div class="output-row">
+
                     <div>
-                        <span>Authority & Specificity</span>
-                        <span class="sub-lbl">Uses explicit proof data parameters.</span>
+                        <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="tonePreset">Tone Architecture</label>
+                        <select id="tonePreset" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                            <option value="clean">Clean & Authoritative</option>
+                            <option value="bold">Bold & Pattern-Interrupting</option>
+                            <option value="aggressive">Aggressive & Contrarian</option>
+                            <option value="educational">Educational & Analytical</option>
+                        </select>
                     </div>
-                    <span class="val" id="sig-proof" style="color: var(--status-alert);">❌ Missing</span>
+
+                    <button id="btnGenerate" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium text-xs py-3 rounded-lg transition-colors tracking-wide uppercase">
+                        Generate 12-Hook Library
+                    </button>
                 </div>
-                <div class="output-row">
+
+                <!-- ANALYZER CONTROLS -->
+                <div id="panelAnalyze" class="space-y-4 hidden">
                     <div>
-                        <span>Negativity / Friction Matrix</span>
-                        <span class="sub-lbl">Addresses systemic risk factors.</span>
+                        <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="existingHookInput">Paste your current video hook</label>
+                        <textarea id="existingHookInput" rows="3" placeholder="e.g., Here are 3 tips to get more views on TikTok if you are stuck..." class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors resize-none"></textarea>
                     </div>
-                    <span class="val" id="sig-negative" style="color: var(--text-muted);">Neutral</span>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <button id="btnAnalyzeHook" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs py-3 rounded-lg transition-colors tracking-wide uppercase">
+                            Analyze Strength
+                        </button>
+                        <button id="btnRewriteHook" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 border premium-border font-medium text-xs py-3 rounded-lg transition-colors tracking-wide uppercase">
+                            ⚡ Rewrite Hook
+                        </button>
+                    </div>
                 </div>
-            </div>
+
+            </section>
+
+            <!-- Favorites Ledger Dashboard Section -->
+            <section class="bg-[#111827] p-5 rounded-xl border premium-border space-y-3">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Saved Hooks Sandbox</h3>
+                    <button id="btnClearFavorites" class="text-[10px] text-slate-500 hover:text-red-400 transition-colors">Clear All</button>
+                </div>
+                <div id="favoritesList" class="max-h-48 overflow-y-auto space-y-2 pr-1 text-xs text-slate-400">
+                    <p class="italic text-slate-600 text-center py-2">No hooks saved in this local terminal session yet.</p>
+                </div>
+            </section>
+
         </div>
 
-        <div class="dashboard-panel">
-            <div class="hero-metric">
-                <div class="label">Scroll Stop Probability Score</div>
-                <div class="value" id="out-score">0 / 100</div>
-            </div>
-
-            <div class="output-list">
-                <div class="output-row">
-                    <div>
-                        <span>Hook Type Classification</span>
-                        <span class="sub-lbl">Primary emotional conversion angle.</span>
+        <!-- Right Workspace: Interactive Terminal / Output Matrix -->
+        <div class="lg:col-span-7 space-y-6">
+            
+            <!-- ANALYZER VIEW COMPONENT -->
+            <div id="viewAnalyzer" class="hidden space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl accent-glow-emerald">
+                        <span class="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider block">Hook Strength Score</span>
+                        <div id="scoreMetric" class="text-3xl font-bold text-white mt-1">0%</div>
+                        <div class="w-full bg-slate-800 h-1.5 rounded-full mt-3 overflow-hidden">
+                            <div id="scoreBar" class="bg-emerald-500 h-full w-0 transition-all duration-500"></div>
+                        </div>
                     </div>
-                    <span class="tag tag-gray" id="out-class">Pending Input...</span>
+                    <div class="bg-[#111827] border premium-border p-5 rounded-xl">
+                        <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block">Scroll-Stop Potential</span>
+                        <div id="potentialTier" class="text-xl font-bold text-slate-300 mt-2">Awaiting Diagnosis</div>
+                    </div>
                 </div>
 
-                <div class="output-row">
-                    <div>
-                        <span>First-3-Seconds Delivery Test</span>
-                        <span class="sub-lbl">Estimated execution arrival timeline.</span>
-                    </div>
-                    <span class="val" id="out-timing">0.0 seconds</span>
+                <div class="bg-[#111827] border premium-border p-6 rounded-xl space-y-3">
+                    <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Diagnostic Analysis</h3>
+                    <p id="analyzerOutput" class="text-sm text-slate-400 leading-relaxed italic">Input structural data into the control panel to evaluate hook composition matrices.</p>
                 </div>
             </div>
 
-            <div class="advisor-box" id="out-verdict">
-                Input your opening structural scripting lines to process algorithmic grade telemetry.
+            <!-- GENERATOR VIEW COMPONENT -->
+            <div id="viewGenerator" class="space-y-4">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-[#111827] p-4 rounded-xl border premium-border">
+                    <div>
+                        <h2 class="text-sm font-semibold text-white">Generated Library Matrix</h2>
+                        <p class="text-[11px] text-slate-400 mt-0.5">12 programmatic variants targeted across psychology frameworks.</p>
+                    </div>
+                    <button id="btnCopyAll" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-slate-200 px-4 py-2 rounded-lg border premium-border text-xs font-medium transition-colors hidden">
+                        📋 Copy All 12 Hooks
+                    </button>
+                </div>
+
+                <!-- Library Display Grid -->
+                <div id="libraryContainer" class="grid grid-cols-1 gap-3 max-h-[600px] overflow-y-auto pr-1">
+                    <div class="bg-[#111827] border premium-border p-8 rounded-xl text-center text-slate-500 text-sm italic">
+                        Input a video concept on the left pane and select "Generate Library" to construct variations.
+                    </div>
+                </div>
             </div>
+
+            <!-- Unified Ecosystem CTA -->
+            <div class="p-6 rounded-xl bg-gradient-to-r from-blue-950/40 via-[#111827] to-[#111827] border border-blue-900/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div class="space-y-1.5 max-w-lg">
+                    <div class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-blue-900/60 text-blue-300 uppercase border border-blue-800/50">Retention Maximization</div>
+                    <h3 class="text-md font-bold text-white tracking-tight">Hooks capture the click. Frameworks hold the retention loop.</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">The first 3 seconds stop the scroll. The remaining sequence dictating asset pacing, visual safe zones, and pattern interrupts defines your monetization channel velocity.</p>
+                </div>
+                <a href="https://gumroad.com" target="_blank" class="w-full md:w-auto text-center shrink-0 bg-blue-600 hover:bg-blue-500 text-white font-medium text-xs px-5 py-3 rounded-lg transition-colors shadow-lg shadow-blue-900/20">
+                    Get Short-Form Creator Toolkit
+                </a>
+            </div>
+
         </div>
-    </div>
-</div>
+    </main>
 
-<script>
-    const hookInput = document.getElementById('hook-input');
-    const sigCuriosity = document.getElementById('sig-curiosity');
-    const sigProof = document.getElementById('sig-proof');
-    const sigNegative = document.getElementById('sig-negative');
-    const outScore = document.getElementById('out-score');
-    const outClass = document.getElementById('out-class');
-    const outTiming = document.getElementById('out-timing');
-    const outVerdict = document.getElementById('out-verdict');
+    <!-- Footer Component -->
+    <footer class="w-full max-w-6xl mx-auto px-6 py-6 text-center text-[11px] text-slate-600 border-t premium-border">
+        &copy; 2026 AI Cash Lab. Structured algorithm assets engineered for premium metadata analytics optimization.
+    </footer>
 
-    hookInput.addEventListener('input', runAuditSystem);
+    <!-- Logic Script Matrix Code -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // State System
+            let activeTab = 'generate';
+            let currentLibrary = [];
+            let favorites = JSON.parse(localStorage.getItem('acl_saved_hooks') || '[]');
 
-    function runAuditSystem() {
-        const text = hookInput.value.trim();
-        if (!text) {
-            outScore.textContent = "0 / 100";
-            outClass.textContent = "Pending Input...";
-            outTiming.textContent = "0.0 seconds";
-            outVerdict.innerHTML = "Input your opening structural scripting lines to process algorithmic grade telemetry.";
-            sigCuriosity.innerHTML = "❌ Missing"; sigCuriosity.style.color = "var(--status-alert)";
-            sigProof.innerHTML = "❌ Missing"; sigProof.style.color = "var(--status-alert)";
-            sigNegative.innerHTML = "Neutral"; sigNegative.style.color = "var(--text-muted)";
-            return;
-        }
+            // DOM Elements Mapping
+            const tabGenerate = document.getElementById('tabGenerate');
+            const tabAnalyze = document.getElementById('tabAnalyze');
+            const panelGenerate = document.getElementById('panelGenerate');
+            const panelAnalyze = document.getElementById('panelAnalyze');
+            const viewGenerator = document.getElementById('viewGenerator');
+            const viewAnalyzer = document.getElementById('viewAnalyzer');
+            
+            const topicInput = document.getElementById('topicInput');
+            const tonePreset = document.getElementById('tonePreset');
+            const btnGenerate = document.getElementById('btnGenerate');
+            const libraryContainer = document.getElementById('libraryContainer');
+            const btnCopyAll = document.getElementById('btnCopyAll');
 
-        const words = text.split(/\s+/);
-        const wordCount = words.length;
-        
-        // Base Speed Computation (Assumes standard fast 190 WPM creation vocal tracks)
-        const timingSeconds = (wordCount / 190) * 60;
+            const existingHookInput = document.getElementById('existingHookInput');
+            const btnAnalyzeHook = document.getElementById('btnAnalyzeHook');
+            const btnRewriteHook = document.getElementById('btnRewriteHook');
+            const scoreMetric = document.getElementById('scoreMetric');
+            const scoreBar = document.getElementById('scoreBar');
+            const potentialTier = document.getElementById('potentialTier');
+            const analyzerOutput = document.getElementById('analyzerOutput');
+            
+            const favoritesList = document.getElementById('favoritesList');
+            const btnClearFavorites = document.getElementById('btnClearFavorites');
 
-        // Pattern Array Configuration Scanners
-        const curiosityRegex = /(why|secret|hidden|steal|nobody|stop|tells|unspoken|system|loop|trick|hack|is missing)/i;
-        const proofRegex = /(\d+|%|\$|dollars|views|followers|months|days|hours)/i;
-        const negativeRegex = /(fail|wrong|mistake|lose|waste|broke|quit|delete|risk|drop|destroy|scam|lie)/i;
-        const premiumRegex = /(gumroad|revenue|saas|ai|template|automated|scale|passive|income)/i;
+            // Tab Navigation System Implementation
+            tabGenerate.addEventListener('click', () => switchTab('generate'));
+            tabAnalyze.addEventListener('click', () => switchTab('analyze'));
 
-        const hasCuriosity = curiosityRegex.test(text);
-        const hasProof = proofRegex.test(text);
-        const hasNegative = negativeRegex.test(text);
-        const hasPremium = premiumRegex.test(text);
-
-        // Update Signals Panels UI UI Viewports
-        sigCuriosity.innerHTML = hasCuriosity ? "✅ Triggered" : "❌ Missing";
-        sigCuriosity.style.color = hasCuriosity ? "var(--status-green)" : "var(--status-alert)";
-        
-        sigProof.innerHTML = hasProof ? "✅ Present" : "❌ Missing";
-        sigProof.style.color = hasProof ? "var(--status-green)" : "var(--status-alert)";
-
-        sigNegative.innerHTML = hasNegative ? "⚠️ Active Threat" : "Neutral";
-        sigNegative.style.color = hasNegative ? "var(--status-warning)" : "var(--text-muted)";
-
-        // Classification Priority Sorting Routing Array 
-        let classification = "📚 Educational Hook";
-        if (hasCuriosity && hasNegative) classification = "🤯 Contrarian Hook";
-        else if (hasNegative) classification = "😱 Fear/Pain Hook";
-        else if (hasProof && hasPremium) classification = "💰 Opportunity Hook";
-        else if (hasCuriosity) classification = "🔥 Curiosity Hook";
-
-        outClass.textContent = classification;
-        outTiming.textContent = `${timingSeconds.toFixed(1)} seconds`;
-
-        // Mathematical Processing Scoring Engine
-        let baseScore = 40;
-        if (hasCuriosity) baseScore += 20;
-        if (hasProof) baseScore += 20;
-        if (hasNegative) baseScore += 15;
-        if (wordCount >= 6 && wordCount <= 14) baseScore += 10; // Optimal short sentence footprint length 
-        if (timingSeconds > 3.5) baseScore -= 15; // Speed Penalty Rule applied inside of calculation metrics
-        
-        const finalScore = Math.min(100, Math.max(10, baseScore));
-        outScore.textContent = `${finalScore} / 100`;
-
-        // Execution Target Payoff Dynamic Render Engine Blocks
-        if (timingSeconds <= 3.0) {
-            outTiming.style.color = "var(--status-green)";
-            if (finalScore >= 75) {
-                outVerdict.innerHTML = `🚀 <strong>High Retention Score:</strong> Your main thesis statement lands inside the critical 3-second attention gate (<strong>${timingSeconds.toFixed(1)}s</strong>). Pacing is lean and optimized for immediate hook locks.`;
-            } else {
-                outVerdict.innerHTML = `⚙️ <strong>Velocity Passable / Hook Lean:</strong> Core claim arrives fast enough, but psychological weight indicators are missing. Inject a specific numerical data point or use curiosity keywords to boost hook power.`;
+            function switchTab(target) {
+                activeTab = target;
+                if(target === 'generate') {
+                    tabGenerate.className = "bg-blue-600 text-white py-2 px-3 rounded-lg transition-all focus:outline-none";
+                    tabAnalyze.className = "text-slate-400 hover:text-slate-200 py-2 px-3 rounded-lg transition-all focus:outline-none";
+                    panelGenerate.classList.remove('hidden');
+                    panelAnalyze.classList.add('hidden');
+                    viewGenerator.classList.remove('hidden');
+                    viewAnalyzer.classList.add('hidden');
+                } else {
+                    tabAnalyze.className = "bg-emerald-600 text-white py-2 px-3 rounded-lg transition-all focus:outline-none";
+                    tabGenerate.className = "text-slate-400 hover:text-slate-200 py-2 px-3 rounded-lg transition-all focus:outline-none";
+                    panelAnalyze.classList.remove('hidden');
+                    panelGenerate.classList.add('hidden');
+                    viewAnalyzer.classList.remove('hidden');
+                    viewGenerator.classList.add('hidden');
+                }
             }
-        } else {
-            outTiming.style.color = "var(--status-alert)";
-            outVerdict.innerHTML = `⚠️ <strong>Pacing Warning:</strong> Your full opening phrase takes <strong>${timingSeconds.toFixed(1)}s</strong> to land. Viewers will scroll past before the primary value payoff drops. Compress your word count or reduce descriptive padding to cross under the 3.0s benchmark floor.`;
-        }
-    }
-</script>
 
+            // Framework Engine Matrix Blueprint
+            const frameworks = [
+                { cat: 'Curiosity', template: 'The weirdest part about {X} is something nobody talks about...' },
+                { cat: 'Curiosity', template: 'Everyone is looking at the wrong metrics for {X}. Watch this instead.' },
+                { cat: 'Contrarian', template: 'Stop optimizing for {X}. It is silently slowing down your execution velocity.' },
+                { cat: 'Contrarian', template: '99% of structural blueprints for {X} are completely backward.' },
+                { cat: 'Mistake', template: 'Most creators fail at {X} because they make this one basic execution mistake.' },
+                { cat: 'Mistake', template: 'You think you are failing at {X}? No, you are just triggering this trap.' },
+                { cat: 'Case Study', template: 'How we scaled a simple concept regarding {X} from zero parameters in 14 days.' },
+                { cat: 'Case Study', template: 'The architecture behind turning {X} into a highly repeatable output stream.' },
+                { cat: 'Pain Point', template: 'If you are tired of spending hours processing calculations for {X}, look here.' },
+                { cat: 'Pain Point', template: 'The hidden structural drag behind {X} that ruins your retention velocity.' },
+                { cat: 'Opportunity', template: 'This simple script asset alteration modifies how people look at {X}.' },
+                { cat: 'Opportunity', template: 'The fastest path to compound your channel results inside the {X} niche right now.' }
+            ];
+
+            // Stylistic Modifiers
+            const modifiers = {
+                clean: { prefix: '', suffix: '' },
+                bold: { prefix: 'Listen close: ', suffix: ' Read that again.' },
+                aggressive: { prefix: 'Unpopular truth: ', suffix: ' Most people are entirely blind to this.' },
+                educational: { prefix: 'Structural breakdown: ', suffix: ' Let us look at the data.' }
+            };
+
+            // Generation Engine Call
+            btnGenerate.addEventListener('click', function() {
+                const topic = topicInput.value.trim() || "short form digital assets optimization";
+                const tone = tonePreset.value;
+                const mods = modifiers[tone];
+
+                currentLibrary = [];
+                libraryContainer.innerHTML = '';
+
+                frameworks.forEach((fw, idx) => {
+                    let formatted = fw.template.replace('{X}', `<span class="text-blue-400 font-semibold">${topic}</span>`);
+                    let plainText = fw.template.replace('{X}', topic);
+                    
+                    // Apply tone structural modifiers
+                    formatted = `${mods.prefix}${formatted}${mods.suffix}`;
+                    plainText = `${mods.prefix}${plainText}${mods.suffix}`;
+
+                    currentLibrary.push(plainText);
+
+                    // Render Hook Element Block
+                    const div = document.createElement('div');
+                    div.className = "bg-[#161f30] border premium-border p-4 rounded-xl flex items-start justify-between gap-4";
+                    div.innerHTML = `
+                        <div class="space-y-1.5">
+                            <span class="text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-400 border premium-border">${fw.cat}</span>
+                            <p class="text-sm text-slate-200 leading-relaxed">${formatted}</p>
+                        </div>
+                        <div class="flex space-x-2 shrink-0">
+                            <button data-idx="${idx}" class="btn-fav text-slate-500 hover:text-yellow-400 transition-colors text-sm">★</button>
+                            <button data-text="${plainText}" class="btn-copy text-slate-500 hover:text-white transition-colors text-xs uppercase bg-slate-800/80 px-2 py-1 rounded border premium-border">Copy</button>
+                        </div>
+                    `;
+                    libraryContainer.appendChild(div);
+                });
+
+                btnCopyAll.classList.remove('hidden');
+                attachCardEvents();
+            });
+
+            // Analyzer Engine Mechanics
+            btnAnalyzeHook.addEventListener('click', function() {
+                const text = existingHookInput.value.trim();
+                if(!text) return;
+                
+                // Diagnostic Calculation Framework
+                let score = 35; // Baseline
+                if(text.length > 20 && text.length < 75) score += 25; // Length balance
+                if(/\?|\!/.test(text)) score += 15; // Psychological trigger chars
+                if(/how|why|stop|never|99%|fail/i.test(text)) score += 25; // Power word index match
+
+                score = Math.min(score, 100);
+
+                // Update UI Display Elements
+                scoreMetric.innerText = `${score}%`;
+                scoreBar.style.width = `${score}%`;
+                
+                if (score > 85) {
+                    potentialTier.innerText = "High-Velocity (Tier 1)";
+                    potentialTier.className = "text-xl font-bold text-emerald-400 mt-2";
+                    analyzerOutput.innerHTML = `This hook demonstrates structural optimization patterns. High concentration of psychological framework triggers. Ensure your asset safe zones match YouTube/TikTok parameters to avoid cropping structural impact layouts.`;
+                } else if (score > 60) {
+                    potentialTier.innerText = "Moderate Stability";
+                    potentialTier.className = "text-xl font-bold text-yellow-400 mt-2";
+                    analyzerOutput.innerHTML = `Moderate structural retention risk. The hook states the thematic layout concept clearly but lacks structural speed or urgency anchors. Consider injecting pattern-interrupt prefixes or numbers to scale focus thresholds.`;
+                } else {
+                    potentialTier.innerText = "Critical Drag Detected";
+                    potentialTier.className = "text-xl font-bold text-red-400 mt-2";
+                    analyzerOutput.innerHTML = `Low scroll-stop index. The entry phrasing presents dead-weight concepts or soft data introductions. Users will scroll past before processing the target information layout. Optimize using the explicit rewrite engine button.`;
+                }
+            });
+
+            // "Rewrite My Hook" Engine Path Integration
+            btnRewriteHook.addEventListener('click', function() {
+                const text = existingHookInput.value.trim();
+                if(!text) return;
+
+                // Strip common filler structures
+                let cleaned = text.replace(/here are 3 tips to|i will show you how to|today i am going to talk about/i, '').trim();
+                if(cleaned.length < 5) cleaned = "scale digital product monetization frameworks";
+
+                // Seed data automatically back directly to generator engine
+                topicInput.value = cleaned;
+                switchTab('generate');
+                tonePreset.value = 'aggressive';
+                btnGenerate.click();
+            });
+
+            // Utilities Event Binding Mapping
+            function attachCardEvents() {
+                document.querySelectorAll('.btn-copy').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const txt = this.getAttribute('data-text');
+                        navigator.clipboard.writeText(txt);
+                        const oldText = this.innerText;
+                        this.innerText = 'Copied';
+                        setTimeout(() => this.innerText = oldText, 1200);
+                    });
+                });
+
+                document.querySelectorAll('.btn-fav').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const idx = this.getAttribute('data-idx');
+                        const targetHook = currentLibrary[idx];
+                        if(!favorites.includes(targetHook)) {
+                            favorites.push(targetHook);
+                            localStorage.setItem('acl_saved_hooks', JSON.stringify(favorites));
+                            this.className = "btn-fav text-yellow-400 text-sm";
+                            renderFavorites();
+                        }
+                    });
+                });
+            }
+
+            btnCopyAll.addEventListener('click', function() {
+                if(currentLibrary.length === 0) return;
+                navigator.clipboard.writeText(currentLibrary.join('\n'));
+                const oldText = this.innerText;
+                this.innerText = '📋 Library Copied!';
+                setTimeout(() => this.innerText = oldText, 1500);
+            });
+
+            btnClearFavorites.addEventListener('click', function() {
+                favorites = [];
+                localStorage.removeItem('acl_saved_hooks');
+                renderFavorites();
+            });
+
+            function renderFavorites() {
+                favoritesList.innerHTML = '';
+                if(favorites.length === 0) {
+                    favoritesList.innerHTML = `<p class="italic text-slate-600 text-center py-2">No hooks saved in this local terminal session yet.</p>`;
+                    return;
+                }
+                favorites.forEach(fav => {
+                    const p = document.createElement('p');
+                    p.className = "bg-[#1f2937]/40 p-2 rounded border premium-border leading-relaxed text-[11px] hover:text-white transition-colors cursor-pointer";
+                    p.innerText = fav;
+                    p.addEventListener('click', () => {
+                        navigator.clipboard.writeText(fav);
+                        alert('Hook copy confirmation executed.');
+                    });
+                    favoritesList.appendChild(p);
+                });
+            }
+
+            // Initial Load Check
+            renderFavorites();
+        });
+    </script>
 </body>
 </html>
