@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Deal Rate Calculator — AI Cash Lab</title>
+    <meta name="description" content="Calculate professional brand deal rates across TikTok, Instagram, and YouTube based on deliverable types, median views, engagement metrics, and usage rights.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+        }
+        .premium-border {
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+        .accent-glow-emerald {
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.08);
+        }
+    </style>
+</head>
+<body class="text-slate-200 min-h-screen flex flex-col justify-between antialiased">
+
+    <!-- Header Section -->
+    <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center border-b premium-border">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center font-bold text-white tracking-wider text-xs">AC</div>
+            <span class="text-sm font-semibold tracking-wider uppercase text-slate-400">AI Cash Lab</span>
+        </div>
+        <a href="../" class="text-xs text-slate-400 hover:text-white transition-colors">← Back to Tools</a>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="w-full max-w-6xl mx-auto px-6 py-10 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left Panel: Input Architecture -->
+        <section class="lg:col-span-5 bg-[#111827] p-6 rounded-xl border premium-border space-y-5">
+            <div>
+                <h1 class="text-lg font-bold text-white tracking-tight">Brand Deal Rate Calculator</h1>
+                <p class="text-xs text-slate-400 mt-0.5">Value your deliverables objectively using data-backed baseline parameters.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Deliverable Type Metric -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="deliverableType">Deliverable Type</label>
+                    <select id="deliverableType" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors">
+                        <option value="0.4">Story Mention / Brief Shoutout (0.4x)</option>
+                        <option value="1.0" selected>Short-Form Video Post (1.0x Baseline)</option>
+                        <option value="2.2">Dedicated Video Asset (2.2x)</option>
+                        <option value="3.0">Multi-Platform Bundle Package (3.0x)</option>
+                    </select>
+                </div>
+
+                <!-- Channel Platform Selection Matrix -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="platformSelect">Primary Channel Platform</label>
+                    <select id="platformSelect" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors">
+                        <option value="3.50">TikTok / YouTube Shorts (Short-Form Vertical)</option>
+                        <option value="5.50">Instagram Reels (Short-Form Premium Placement)</option>
+                        <option value="9.00">YouTube Long-Form Integration (Long-Form Asset)</option>
+                    </select>
+                </div>
+
+                <!-- Performance Parameter: Median Impression Views -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="medianViews">Median Views <span class="text-slate-500 normal-case">(Last 30 Days)</span></label>
+                    <input type="number" id="medianViews" value="25000" min="0" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors">
+                </div>
+
+                <!-- Engagement Rate Multipliers -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="engagementSelect">Average Engagement Rate</label>
+                    <select id="engagementSelect" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors">
+                        <option value="0.8">Under 2% (Lower Baseline Modifier)</option>
+                        <option value="1.0" selected>2% - 5% (Standard Baseline Modifier)</option>
+                        <option value="1.2">5% - 8% (High Retention Community Modifier)</option>
+                        <option value="1.4">8%+ (Hyper-Active Engagement Modifier)</option>
+                    </select>
+                </div>
+
+                <!-- Industry Cluster Niche -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="nicheSelect">Content Category / Niche Group</label>
+                    <select id="nicheSelect" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors">
+                        <option value="1.0">General Lifestyle / Vlogs / Entertainment</option>
+                        <option value="1.1">Beauty / Fashion / Fitness / Creative</option>
+                        <option value="1.3" selected>Tech / AI Tools / Business / Finance</option>
+                    </select>
+                </div>
+
+                <hr class="premium-border">
+
+                <!-- Licensing Constraints & Campaign Add-ons -->
+                <div class="space-y-2.5">
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider">Campaign Multipliers & Licensing</label>
+                    
+                    <label class="flex items-center space-x-3 text-xs text-slate-300 cursor-pointer">
+                        <input type="checkbox" id="addPaidUsage" class="rounded bg-slate-800 border-slate-700 text-emerald-600 focus:ring-0 w-4 h-4">
+                        <span>Paid Ad Whitelisting Usage Rights (+30% Base Fee)</span>
+                    </label>
+
+                    <label class="flex items-center space-x-3 text-xs text-slate-300 cursor-pointer">
+                        <input type="checkbox" id="addExclusivity" class="rounded bg-slate-800 border-slate-700 text-emerald-600 focus:ring-0 w-4 h-4">
+                        <span>30-Day Category Exclusivity Lockout (+25% Base Fee)</span>
+                    </label>
+
+                    <label class="flex items-center space-x-3 text-xs text-slate-300 cursor-pointer">
+                        <input type="checkbox" id="addRevisions" class="rounded bg-slate-800 border-slate-700 text-emerald-600 focus:ring-0 w-4 h-4">
+                        <span>Extra Round of Asset Content Revisions (+15% Base Fee)</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Panel: Output Valuation Metrics & Strategy Blocks -->
+        <section class="lg:col-span-7 space-y-6">
+            
+            <!-- Tiered Rate Ranges Component Dashboard Panel -->
+            <div class="bg-[#111827] border premium-border p-6 rounded-xl accent-glow-emerald space-y-5">
+                <div class="flex justify-between items-center">
+                    <span class="text-xs font-semibold text-emerald-400 uppercase tracking-wider block">Recommended Pricing Matrix</span>
+                    <span id="rateConfidenceBadge" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold border uppercase tracking-wider">Calculating</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <!-- Starter Floor Limit -->
+                    <div class="p-4 bg-[#1f2937]/30 rounded-lg border premium-border text-center">
+                        <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">Starter Rate (Floor)</span>
+                        <span id="outRateStarter" class="text-xl font-bold text-slate-200 mt-1 block">$0</span>
+                    </div>
+                    <!-- Recommended Anchor Point -->
+                    <div class="p-4 bg-emerald-950/20 rounded-lg border border-emerald-900/40 text-center ring-1 ring-emerald-500/10">
+                        <span class="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider block">Recommended Ask</span>
+                        <span id="outRateRecommended" class="text-2xl font-extrabold text-white mt-1 block">$0</span>
+                    </div>
+                    <!-- Premium Ceiling Ask Limit -->
+                    <div class="p-4 bg-[#1f2937]/30 rounded-lg border premium-border text-center">
+                        <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">Premium Target (Ceiling)</span>
+                        <span id="outRatePremium" class="text-xl font-bold text-slate-200 mt-1 block">$0</span>
+                    </div>
+                </div>
+
+                <!-- Absolute System Industry Disclaimer Notice -->
+                <div class="text-[11px] text-slate-500 leading-relaxed bg-[#1f2937]/20 p-3 rounded border premium-border">
+                    <strong>Disclaimer:</strong> Brand deal pricing variations are anchored dynamically by qualitative niche variables, specific marketing campaign budgets, regional demographics, asset usage weights, and manual negotiation protocols. This diagnostic model acts as a metric-backed baseline estimate, not a guaranteed contractual rate.
+                </div>
+            </div>
+
+            <!-- Calculated Line Item Values Structural Breakout Block -->
+            <div class="bg-[#111827] border premium-border p-5 rounded-xl space-y-3.5">
+                <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Calculated Value Breakdowns</h3>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div class="p-3 bg-[#1f2937]/20 rounded-lg border premium-border">
+                        <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Base Organic Fee</span>
+                        <span id="outBaseFee" class="text-sm font-bold text-slate-200 mt-0.5 block">$0</span>
+                    </div>
+                    <div class="p-3 bg-[#1f2937]/20 rounded-lg border premium-border">
+                        <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Licensing/Exclusivity Total</span>
+                        <span id="outAddonFee" class="text-sm font-bold text-slate-200 mt-0.5 block">$0</span>
+                    </div>
+                    <div class="p-3 bg-[#1f2937]/20 rounded-lg border premium-border">
+                        <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Implied Effective CPM</span>
+                        <span id="outEffectiveCPM" class="text-sm font-bold text-slate-200 mt-0.5 block">$0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Real-Time Pitch Copywriting Frame Output -->
+            <div class="bg-[#111827] border premium-border p-6 rounded-xl space-y-3">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Copy-Paste Pitch Framework</h3>
+                    <span class="text-[10px] text-slate-500">Click content box below to copy asset parameters</span>
+                </div>
+                
+                <div id="pitchTextarea" class="relative bg-[#1f2937]/40 border premium-border p-4 rounded-lg text-xs font-mono text-slate-300 whitespace-pre-wrap leading-relaxed select-all cursor-pointer" title="Click to select all pitch content">
+"Based on our rolling 30-day channel parameters, our performance matrix maps to a median view index of <span id="scriptViews" class="text-emerald-400 font-bold">0</span> impressions per asset. 
+
+My standard rate range for this specific deliverable is <span id="scriptRange" class="text-emerald-400 font-bold">$0–$0</span>. This includes one organic post and one standard revision format. Extended paid ad usage rights, revision cycles, or category exclusivity locks can be easily scaled separately depending on your timeline scope parameters. Let me know if this structural framework aligns with your allocation goals!"</div>
+            </div>
+
+            <!-- Native Monetization Funnel Cross-Over CTA -->
+            <div class="p-6 rounded-xl bg-gradient-to-r from-emerald-950/20 via-[#111827] to-[#111827] border border-emerald-900/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div class="space-y-1.5 max-w-md">
+                    <div class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-emerald-900/60 text-emerald-300 uppercase border border-emerald-800/50">Monetization Engine</div>
+                    <h3 class="text-md font-bold text-white tracking-tight">Quotes look clean. Do you have the traffic to fill the queue?</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Securing premium brand rates is straightforward when partners discover you organically. Scale your view counts and turn your social channels into automated lead generators using high-retention content loops.</p>
+                </div>
+                <a href="https://gumroad.com" target="_blank" class="w-full md:w-auto text-center shrink-0 bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs px-5 py-3 rounded-lg transition-colors shadow-lg shadow-emerald-900/20">
+                    Get AI Traffic Playbook
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- System Footer -->
+    <footer class="w-full max-w-6xl mx-auto px-6 py-6 text-center text-[11px] text-slate-600 border-t premium-border">
+        &copy; 2026 AI Cash Lab. Diagnostic calculation matrix for creator integration asset valuation. All rights reserved.
+    </footer>
+
+    <!-- Processing Core Calculation Engine Automation Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select DOM Elements Nodes Mapping
+            const deliverableType = document.getElementById('deliverableType');
+            const platformSelect = document.getElementById('platformSelect');
+            const medianViews = document.getElementById('medianViews');
+            const engagementSelect = document.getElementById('engagementSelect');
+            const nicheSelect = document.getElementById('nicheSelect');
+            const addPaidUsage = document.getElementById('addPaidUsage');
+            const addExclusivity = document.getElementById('addExclusivity');
+            const addRevisions = document.getElementById('addRevisions');
+
+            const outRateStarter = document.getElementById('outRateStarter');
+            const outRateRecommended = document.getElementById('outRateRecommended');
+            const outRatePremium = document.getElementById('outRatePremium');
+            const outBaseFee = document.getElementById('outBaseFee');
+            const outAddonFee = document.getElementById('outAddonFee');
+            const outEffectiveCPM = document.getElementById('outEffectiveCPM');
+            const rateConfidenceBadge = document.getElementById('rateConfidenceBadge');
+            
+            const scriptViews = document.getElementById('scriptViews');
+            const scriptRange = document.getElementById('scriptRange');
+            const pitchTextarea = document.getElementById('pitchTextarea');
+
+            // Set Up Input Listeners Array Loop
+            const inputElementsArray = [deliverableType, platformSelect, medianViews, engagementSelect, nicheSelect, addPaidUsage, addExclusivity, addRevisions];
+            inputElementsArray.forEach(element => element.addEventListener('input', runValuationEngine));
+
+            // Select All Click Handler for Clipboard Ease
+            pitchTextarea.addEventListener('click', function() {
+                const range = document.createRange();
+                range.selectNodeContents(this);
+                const selection = window.getSelection();
+                selection.removeAllRanges();
+                selection.addRange(range);
+            });
+
+            function runValuationEngine() {
+                // Parse Form Inputs Parameters
+                const typeModifier = parseFloat(deliverableType.value);
+                const platformAnchorCpm = parseFloat(platformSelect.value);
+                const viewsCountValue = Math.max(parseInt(medianViews.value) || 0, 0);
+                const engagementModifier = parseFloat(engagementSelect.value);
+                const nicheModifier = parseFloat(nicheSelect.value);
+
+                // Formula Rule Matrix Engine Execution
+                const viewThousandsBase = viewsCountValue / 1000;
+                const baseOrganicRateCalculated = viewThousandsBase * platformAnchorCpm * typeModifier * engagementModifier * nicheModifier;
+
+                // Tabulate Add-on Percentages Variables
+                let addonMultiplierSum = 0;
+                if(addPaidUsage.checked) addonMultiplierSum += 0.30;
+                if(addExclusivity.checked) addonMultiplierSum += 0.25;
+                if(addRevisions.checked) addonMultiplierSum += 0.15;
+
+                const licensingAddonFeesTotal = baseOrganicRateCalculated * addonMultiplierSum;
+                const netTargetBaselinePricing = baseOrganicRateCalculated + licensingAddonFeesTotal;
+
+                // Formulate Segmented Structural Ranges
+                const starterFloorPrice = Math.round(netTargetBaselinePricing * 0.85);
+                const recommendedAskPrice = Math.round(netTargetBaselinePricing);
+                const premiumCeilingPrice = Math.round(netTargetBaselinePricing * 1.20);
+
+                // Run Metrics Calculations
+                const finalEffectiveCpmRate = viewsCountValue > 0 ? ((recommendedAskPrice / viewsCountValue) * 1000).toFixed(2) : "0.00";
+
+                // Render Dynamic Value Output Arrays
+                outRateStarter.innerText = `$${starterFloorPrice.toLocaleString()}`;
+                outRateRecommended.innerText = `$${recommendedAskPrice.toLocaleString()}`;
+                outRatePremium.innerText = `$${premiumCeilingPrice.toLocaleString()}`;
+                
+                outBaseFee.innerText = `$${Math.round(baseOrganicRateCalculated).toLocaleString()}`;
+                outAddonFee.innerText = `$${Math.round(licensingAddonFeesTotal).toLocaleString()}`;
+                outEffectiveCPM.innerText = `$${finalEffectiveCpmRate}`;
+
+                // Set Dynamic State Value for Rate Confidence Badge Elements
+                updateConfidenceBadge(viewsCountValue, engagementModifier);
+
+                // Inject text variables contextually straight into the pitch script view layout blocks
+                scriptViews.innerText = viewsCountValue.toLocaleString();
+                scriptRange.innerText = `$${starterFloorPrice.toLocaleString()}–$${recommendedAskPrice.toLocaleString()}`;
+            }
+
+            function updateConfidenceBadge(views, engagement) {
+                // Rate evaluation diagnostic metrics scaling
+                if (views >= 50000 && engagement >= 1.2) {
+                    rateConfidenceBadge.innerText = "Premium Authority";
+                    rateConfidenceBadge.className = "px-2.5 py-0.5 rounded-full text-[10px] font-bold border uppercase tracking-wider bg-emerald-950/50 text-emerald-400 border-emerald-800/60";
+                } else if (views >= 10000) {
+                    rateConfidenceBadge.innerText = "Strong Market Fit";
+                    rateConfidenceBadge.className = "px-2.5 py-0.5 rounded-full text-[10px] font-bold border uppercase tracking-wider bg-blue-950/50 text-blue-400 border-blue-800/60";
+                } else {
+                    rateConfidenceBadge.innerText = "Emerging Baseline";
+                    rateConfidenceBadge.className = "px-2.5 py-0.5 rounded-full text-[10px] font-bold border uppercase tracking-wider bg-slate-800 text-slate-400 border-slate-700";
+                }
+            }
+
+            // Run Baseline Loop Instantiation
+            runValuationEngine();
+        });
+    </script>
+</body>
+</html>
