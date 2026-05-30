@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Digital Product Profit Calculator | AI Cash Lab</title>
+    
+    <meta name="description" content="Calculate complete unit economics for your digital product. Model platform fees, affiliate commissions, CPA, refunds, and fixed monthly overhead.">
+    <meta name="keywords" content="product profit calculator, digital product unit economics, gumroad profit margin, cpa calculator, affiliate payout estimator">
+    
+    <style>
+        :root {
+            --bg-main: #0b0d11;
+            --bg-card: #131722;
+            --bg-input: #1e222b;
+            --accent-yellow: #fcd535;
+            --text-main: #ffffff;
+            --text-muted: #8a8d93;
+            --status-green: #22c55e;
+            --status-warning: #f39200;
+            --status-alert: #ff4d4d;
+            --border-color: #262b36;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 40px; }
+        header .brand { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-yellow); font-weight: 700; margin-bottom: 8px; }
+        header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+        header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        .workspace { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 30px; }
+        @media (max-width: 900px) { .workspace { grid-template-columns: 1fr; } }
+
+        .input-panel, .dashboard-panel {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .form-group { display: flex; flex-direction: column; gap: 6px; }
+        .form-label-row { display: flex; justify-content: space-between; align-items: center; }
+        label { font-size: 0.85rem; font-weight: 600; color: #e2e8f0; }
+        .label-val { color: var(--text-main); font-weight: 700; font-size: 0.95rem; }
+        
+        input[type="range"] { 
+            width: 100%; 
+            accent-color: var(--accent-yellow); 
+            background: var(--bg-input); 
+            border: 1px solid var(--border-color);
+            height: 6px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .split-display { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .ledger-box {
+            background: var(--bg-input); border: 1px solid var(--border-color);
+            padding: 14px; border-radius: 8px; text-align: center;
+        }
+        .ledger-box .lbl { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 2px; }
+        .ledger-box .val { font-size: 1.5rem; font-weight: 900; }
+
+        .status-badge {
+            text-align: center; padding: 12px; border-radius: 8px; font-weight: 900; 
+            text-transform: uppercase; letter-spacing: 2px; font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        .status-badge.green { background: rgba(34, 197, 94, 0.15); color: var(--status-green); border: 1px solid var(--status-green); }
+        .status-badge.yellow { background: rgba(243, 146, 0, 0.15); color: var(--status-warning); border: 1px solid var(--status-warning); }
+        .status-badge.red { background: rgba(255, 77, 77, 0.15); color: var(--status-alert); border: 1px solid var(--status-alert); }
+
+        .output-list { display: flex; flex-direction: column; gap: 8px; }
+        .output-row {
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--bg-input); padding: 10px 12px; border-radius: 6px; border: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+        .output-row span.val { font-weight: 700; text-align: right; }
+        .output-row .sub-lbl { display: block; font-size: 0.7rem; color: var(--text-muted); font-weight: normal; margin-top: 1px; }
+
+        .advisor-box {
+            font-size: 0.85rem; line-height: 1.5; padding: 14px; border-radius: 8px;
+            background-color: rgba(252, 213, 53, 0.01); border: 1px dashed var(--border-color);
+        }
+
+        .footer-hub {
+            background-color: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px;
+        }
+        .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+        .routing-link {
+            background: var(--bg-input); border: 1px solid var(--border-color); padding: 10px 14px;
+            border-radius: 6px; color: var(--text-main); font-size: 0.85rem; text-decoration: none;
+            font-weight: 600; text-align: center; transition: all 0.2s;
+        }
+        .routing-link:hover { border-color: var(--accent-yellow); color: var(--accent-yellow); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="brand">AI Cash Lab • Product Analytics Hub</div>
+        <h1>Product Profit Calculator</h1>
+        <p>Run a complete unit economics audit on your offer. Factor in platform fees, acquisition, commissions, and revenue leaks.</p>
+    </header>
+
+    <div class="workspace">
+        <!-- Control Variables Input Panel -->
+        <div class="input-panel">
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-price">Product List Price</label>
+                    <span class="label-val" id="val-price">$49</span>
+                </div>
+                <input type="range" id="input-price" min="5" max="999" step="1" value="49">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-volume">Monthly Sales Volume</label>
+                    <span class="label-val" id="val-volume">100 units</span>
+                </div>
+                <input type="range" id="input-volume" min="5" max="2000" step="5" value="100">
+            </div>
+
+            <div class="split-display">
+                <div class="form-group">
+                    <div class="form-label-row">
+                        <label for="input-fee-pct">Platform Fee %</label>
+                        <span class="label-val" id="val-fee-pct">10%</span>
+                    </div>
+                    <input type="range" id="input-fee-pct" min="1" max="15" step="0.5" value="10">
+                </div>
+                <div class="form-group">
+                    <div class="form-label-row">
+                        <label for="input-fee-fixed">Fixed Fee / Sale</label>
+                        <span class="label-val" id="val-fee-fixed">$0.30</span>
+                    </div>
+                    <input type="range" id="input-fee-fixed" min="0.00" max="2.00" step="0.05" value="0.30">
+                </div>
+            </div>
+
+            <div class="split-display">
+                <div class="form-group">
+                    <div class="form-label-row">
+                        <label for="input-aff-share">Affiliate Share %</label>
+                        <span class="label-val" id="val-aff-share">20%</span>
+                    </div>
+                    <input type="range" id="input-aff-share" min="0" max="100" step="5" value="20">
+                </div>
+                <div class="form-group">
+                    <div class="form-label-row">
+                        <label for="input-aff-comm">Affiliate Comm. %</label>
+                        <span class="label-val" id="val-aff-comm">50%</span>
+                    </div>
+                    <input type="range" id="input-aff-comm" min="10" max="100" step="5" value="50">
+                </div>
+            </div>
+
+            <div class="split-display">
+                <div class="form-group">
+                    <div class="form-label-row">
+                        <label for="input-paid-share">Paid Traffic Share %</label>
+                        <span class="label-val" id="val-paid-share">15%</span>
+                    </div>
+                    <input type="range" id="input-paid-share" min="0" max="100" step="5" value="15">
+                </div>
+                <div class="form-group">
+                    <div class="form-label-row">
+                        <label for="input-cpa">Acquisition Cost (CPA)</label>
+                        <span class="label-val" id="val-cpa">$20</span>
+                    </div>
+                    <input type="range" id="input-cpa" min="5" max="200" step="5" value="20">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-refund">Expected Refund Rate (%)</label>
+                    <span class="label-val" id="val-refund">3%</span>
+                </div>
+                <input type="range" id="input-refund" min="0" max="20" step="0.5" value="3">
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-row">
+                    <label for="input-fixed-costs">Fixed Monthly Product Costs</label>
+                    <span class="label-val" id="val-fixed-costs">$150</span>
+                </div>
+                <input type="range" id="input-fixed-costs" min="0" max="5000" step="25" value="150">
+            </div>
+        </div>
+
+        <!-- Income Reality Dashboard Panel -->
+        <div class="dashboard-panel">
+            <div id="badge-margin" class="status-badge green">High Leverage</div>
+
+            <div class="split-display">
+                <div class="ledger-box">
+                    <div class="lbl">Total Monthly Take-Home</div>
+                    <div class="val" id="out-total-profit" style="color: var(--accent-yellow);">$0</div>
+                </div>
+                <div class="ledger-box">
+                    <div class="lbl">Profit Per Unit</div>
+                    <div class="val" id="out-unit-profit" style="color: var(--text-main);">$0</div>
+                </div>
+            </div>
+
+            <div class="split-display" style="gap:12px; margin-top: -5px;">
+                <div class="ledger-box" style="padding:10px;">
+                    <div class="lbl">Profit Margin %</div>
+                    <div class="val" id="out-margin-pct" style="font-size:1.2rem; color: var(--status-green);">0%</div>
+                </div>
+                <div class="ledger-box" style="padding:10px;">
+                    <div class="lbl">Break-Even Sales Needed</div>
+                    <div class="val" id="out-breakeven-units" style="font-size:1.2rem; color: #fff;">0</div>
+                </div>
+            </div>
+
+            <div class="output-list">
+                <div style="font-size:0.7rem; text-transform:uppercase; color:var(--text-muted); font-weight:700; letter-spacing:0.5px;">Financial Ledger Metrics Breakdown</div>
+                <div class="output-row">
+                    <div>Gross Monthly Revenue<span class="sub-lbl">Top-line earnings before any leaks.</span></div>
+                    <span class="val" id="out-gross" style="color: var(--status-green);">$0</span>
+                </div>
+                <div class="output-row">
+                    <div>Refund Loss Deductions<span class="sub-lbl">Capital clawed back due to customer refunds.</span></div>
+                    <span class="val" id="out-leak-refund" style="color: var(--status-alert);">$0</span>
+                </div>
+                <div class="output-row">
+                    <div>Platform Gateway Fees<span class="sub-lbl">Merchant costs processing transaction volumes.</span></div>
+                    <span class="val" id="out-leak-platform">$0</span>
+                </div>
+                <div class="output-row">
+                    <div>Affiliate Payouts<span class="sub-lbl">Commissions distributed out to promotional partners.</span></div>
+                    <span class="val" id="out-leak-affiliate">$0</span>
+                </div>
+                <div class="output-row">
+                    <div>Paid Acquisition Costs<span class="sub-lbl">Direct advertising expenditure used to convert buyers.</span></div>
+                    <span class="val" id="out-leak-paid">$0</span>
+                </div>
+                <div class="output-row">
+                    <div>Fixed Monthly Overhead Costs<span class="sub-lbl">Hosting, support infrastructure tools, and apps.</span></div>
+                    <span class="val" id="out-leak-fixed">$0</span>
+                </div>
+            </div>
+
+            <div class="advisor-box" id="out-verdict">
+                Analyzing individual offer unit matrices...
+            </div>
+        </div>
+    </div>
+
+    <!-- Cross-Linking Layout Footers Frame Component -->
+    <div class="footer-hub">
+        <div style="font-size:0.8rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); font-weight:700;">Related Business Suite Utilities</div>
+        <div class="links-grid">
+            <a href="../gumroad-profit-calculator/" class="routing-link">💳 Gumroad Profit Calc</a>
+            <a href="../paid-traffic-profit-calculator/" class="routing-link">📊 Paid Ads Calculator</a>
+            <a href="../presale-validation-tester/" class="routing-link">🔬 Presale Risk Evaluator</a>
+            <a href="../freedom-rate-calculator/" class="routing-link">💸 Freedom Rate Calc</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    const inputPrice = document.getElementById('input-price');
+    const inputVolume = document.getElementById('input-volume');
+    const inputFeePct = document.getElementById('input-fee-pct');
+    const inputFeeFixed = document.getElementById('input-fee-fixed');
+    const inputAffShare = document.getElementById('input-aff-share');
+    const inputAffComm = document.getElementById('input-aff-comm');
+    const inputPaidShare = document.getElementById('input-paid-share');
+    const inputCpa = document.getElementById('input-cpa');
+    const inputRefund = document.getElementById('input-refund');
+    const inputFixedCosts = document.getElementById('input-fixed-costs');
+
+    const valPrice = document.getElementById('val-price');
+    const valVolume = document.getElementById('val-volume');
+    const valFeePct = document.getElementById('val-fee-pct');
+    const valFeeFixed = document.getElementById('val-fee-fixed');
+    const valAffShare = document.getElementById('val-aff-share');
+    const valAffComm = document.getElementById('val-aff-comm');
+    const valPaidShare = document.getElementById('val-paid-share');
+    const valCpa = document.getElementById('val-cpa');
+    const valRefund = document.getElementById('val-refund');
+    const valFixedCosts = document.getElementById('val-fixed-costs');
+
+    const badgeMargin = document.getElementById('badge-margin');
+    const outTotalProfit = document.getElementById('out-total-profit');
+    const outUnitProfit = document.getElementById('out-unit-profit');
+    const outMarginPct = document.getElementById('out-margin-pct');
+    const outBreakevenUnits = document.getElementById('out-breakeven-units');
+
+    const outGross = document.getElementById('out-gross');
+    const outLeakRefund = document.getElementById('out-leak-refund');
+    const outLeakPlatform = document.getElementById('out-leak-platform');
+    const outLeakAffiliate = document.getElementById('out-leak-affiliate');
+    const outLeakPaid = document.getElementById('out-leak-paid');
+    const outLeakFixed = document.getElementById('out-leak-fixed');
+    const outVerdict = document.getElementById('out-verdict');
+
+    const coreEngineTriggers = [
+        inputPrice, inputVolume, inputFeePct, inputFeeFixed, 
+        inputAffShare, inputAffComm, inputPaidShare, inputCpa, 
+        inputRefund, inputFixedCosts
+    ];
+    
+    const cashFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+    const cashCentsFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 });
+
+    coreEngineTriggers.forEach(control => control.addEventListener('input', runProfitEngine));
+
+    function runProfitEngine() {
+        // Dynamic Label Syncer
+        valPrice.textContent = cashFormatter.format(inputPrice.value);
+        valVolume.textContent = `${inputVolume.value} units`;
+        valFeePct.textContent = `${inputFeePct.value}%`;
+        valFeeFixed.textContent = cashCentsFormatter.format(inputFeeFixed.value);
+        valAffShare.textContent = `${inputAffShare.value}%`;
+        valAffComm.textContent = `${inputAffComm.value}%`;
+        valPaidShare.textContent = `${inputPaidShare.value}%`;
+        valCpa.textContent = cashFormatter.format(inputCpa.value);
+        valRefund.textContent = `${inputRefund.value}%`;
+        valFixedCosts.textContent = cashFormatter.format(inputFixedCosts.value);
+
+        // Fetch inputs data
+        const price = parseFloat(inputPrice.value);
+        const volume = parseFloat(inputVolume.value);
+        const platformFeePct = parseFloat(inputFeePct.value) / 100;
+        const platformFeeFixed = parseFloat(inputFeeFixed.value);
+        const affiliateSharePct = parseFloat(inputAffShare.value) / 100;
+        const affiliateCommPct = parseFloat(inputAffComm.value) / 100;
+        const paidSharePct = parseFloat(inputPaidShare.value) / 100;
+        const cpa = parseFloat(inputCpa.value);
+        const refundRate = parseFloat(inputRefund.value) / 100;
+        const fixedMonthlyCosts = parseFloat(inputFixedCosts.value);
+
+        // Advanced Economic Architecture Calculations
+        const grossMonthlyRevenue = price * volume;
+        const refundLoss = grossMonthlyRevenue * refundRate;
+        
+        // Effective gross after instant refunds
+        const platformFeeTotal = (grossMonthlyRevenue * platformFeePct) + (volume * platformFeeFixed);
+        
+        const totalAffiliateSalesVolume = volume * affiliateSharePct;
+        const affiliatePayoutTotal = totalAffiliateSalesVolume * (price * affiliateCommPct);
+        
+        const totalPaidSalesVolume = volume * paidSharePct;
+        const paidAcquisitionTotal = totalPaidSalesVolume * cpa;
+
+        // Cumulative structural leaks pipeline
+        const totalVariableExpenses = refundLoss + platformFeeTotal + affiliatePayoutTotal + paidAcquisitionTotal;
+        const totalMonthlyTakeHome = grossMonthlyRevenue - totalVariableExpenses - fixedMonthlyCosts;
+        
+        // Per unit diagnostics math
+        const avgVariableCostPerUnit = volume > 0 ? (totalVariableExpenses / volume) : 0;
+        const netProfitPerUnit = price - avgVariableCostPerUnit - (volume > 0 ? (fixedMonthlyCosts / volume) : 0);
+        
+        const profitMarginPercentage = grossMonthlyRevenue > 0 ? ((totalMonthlyTakeHome / grossMonthlyRevenue) * 100) : 0;
+
+        // Break Even math (Contribution Margin per individual item sold basis)
+        const unitContributionMargin = price - (refundRate * price) - (price * platformFeePct + platformFeeFixed) - (affiliateSharePct * price * affiliateCommPct) - (paidSharePct * cpa);
+        const breakEvenUnitsNeeded = unitContributionMargin > 0 ? Math.ceil(fixedMonthlyCosts / unitContributionMargin) : "Infinite";
+
+        // Push calculations cleanly to display cards
+        outTotalProfit.textContent = cashFormatter.format(totalMonthlyTakeHome);
+        outUnitProfit.textContent = cashCentsFormatter.format(netProfitPerUnit);
+        outMarginPct.textContent = `${profitMarginPercentage.toFixed(0)}%`;
+        outBreakevenUnits.textContent = breakEvenUnitsNeeded;
+
+        outGross.textContent = cashFormatter.format(grossMonthlyRevenue);
+        outLeakRefund.textContent = cashFormatter.format(refundLoss);
+        outLeakPlatform.textContent = cashFormatter.format(platformFeeTotal);
+        outLeakAffiliate.textContent = cashFormatter.format(affiliatePayoutTotal);
+        outLeakPaid.textContent = cashFormatter.format(paidAcquisitionTotal);
+        outLeakFixed.textContent = cashFormatter.format(fixedMonthlyCosts);
+
+        // Evaluate Status Badges Threshold levels
+        badgeMargin.className = "status-badge";
+        if (profitMarginPercentage >= 80) {
+            badgeMargin.textContent = "High Leverage Margin";
+            badgeMargin.classList.add("green");
+            outMarginPct.style.color = "var(--status-green)";
+            outVerdict.innerHTML = `✅ <strong>Flawless Unit Economics:</strong> This product operates with elite structural health. Relying heavily on clean, organic distribution pathways shields your take-home margins. Protect this structure inside your ecosystem using the baseline blueprints in <strong>Creator Monetization OS</strong> to stack multi-product variants.`;
+        } else if (profitMarginPercentage >= 50) {
+            badgeMargin.textContent = "Paid Scale Zone";
+            badgeMargin.classList.add("yellow");
+            outMarginPct.style.color = "var(--status-warning)";
+            outVerdict.innerHTML = `⚡ <strong>Balanced Traction Matrix:</strong> Paid acquisition channels or partner commissions are chewing through some capital, but the underlying cash yield remains viable. To scale your margins past transaction frictions without inflating ad budgets, implement the audience-capture engines from our premium <strong>Creator Monetization OS</strong> workspace.`;
+        } else {
+            badgeMargin.textContent = "Leaky Profit Bucket";
+            badgeMargin.classList.add("red");
+            outMarginPct.style.color = "var(--status-alert)";
+            outVerdict.innerHTML = `🛑 <strong>High Vulnerability Threat:</strong> Over half your product's top-line revenue vanishes into third-party hands, refunds, or customer acquisition costs. If ad platforms change algorithms, your profit collapse accelerates. To fix this, build an organic traffic safeguard. Deploy the framework strategies inside the <strong>AI Traffic Playbook</strong> to capture pure-profit traffic for $0.`;
+        }
+    }
+
+    // Initialize layout lifecycle execution
+    runProfitEngine();
+</script>
+
+</body>
+</html>
