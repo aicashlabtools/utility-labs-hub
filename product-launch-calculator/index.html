@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Launch Goal Calculator — AI Cash Lab</title>
+    <meta name="description" content="Reverse-engineer your digital product launch goals. Calculate required traffic, buyers, and day-by-day milestone velocity targets to hit your revenue targets.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+        }
+        .premium-border {
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+        .accent-glow-blue {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.12);
+        }
+    </style>
+</head>
+<body class="text-slate-200 min-h-screen flex flex-col justify-between antialiased">
+
+    <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center border-b premium-border">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold text-white tracking-wider text-xs">AC</div>
+            <span class="text-sm font-semibold tracking-wider uppercase text-slate-400">AI Cash Lab</span>
+        </div>
+        <a href="../" class="text-xs text-slate-400 hover:text-white transition-colors">← Back to Tools</a>
+    </header>
+
+    <main class="w-full max-w-6xl mx-auto px-6 py-10 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <section class="lg:col-span-5 bg-[#111827] p-6 rounded-xl border premium-border space-y-5">
+            <div>
+                <h1 class="text-lg font-bold text-white tracking-tight">Launch Goal Calculator</h1>
+                <p class="text-xs text-slate-400 mt-0.5">Reverse-engineer specific distribution metrics from your launch targets.</p>
+            </div>
+
+            <div class="bg-[#1f2937]/40 p-1 rounded-lg border premium-border grid grid-cols-2 gap-1 text-center text-xs font-medium">
+                <button id="modeRevenue" class="bg-blue-600 text-white py-1.5 px-2 rounded-md transition-all focus:outline-none">
+                    Revenue Goal Mode
+                </button>
+                <button id="modeUnits" class="text-slate-400 hover:text-slate-200 py-1.5 px-2 rounded-md transition-all focus:outline-none">
+                    Units Sold Mode
+                </button>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label id="targetInputLabel" class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="targetInputValue">Target Revenue Goal</label>
+                    <div class="relative">
+                        <span id="currencySymbol" class="absolute left-4 top-2.5 text-sm text-slate-500">$</span>
+                        <input type="number" id="targetInputValue" value="5000" min="1" class="w-full bg-[#1f2937] border premium-border rounded-lg pl-8 pr-4 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="productPrice">Product Price</label>
+                    <div class="relative">
+                        <span class="absolute left-4 top-2.5 text-sm text-slate-500">$</span>
+                        <input type="number" id="productPrice" value="49" min="1" class="w-full bg-[#1f2937] border premium-border rounded-lg pl-8 pr-4 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex justify-between items-center mb-1.5">
+                        <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider" for="conversionRate">Target Conversion Rate</label>
+                        <span id="conversionValueLabel" class="text-xs font-semibold text-blue-400">2.0%</span>
+                    </div>
+                    <input type="range" id="conversionRate" min="0.5" max="10" step="0.1" value="2.0" class="w-full accent-blue-600 bg-slate-800 rounded-lg cursor-pointer">
+                    <span class="text-[10px] text-slate-500 block mt-1">Industry standard ranges typically hover between 1% to 3%.</span>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="launchDuration">Launch Window Duration</label>
+                    <select id="launchDuration" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                        <option value="5">5 Days (Standard Open/Close)</option>
+                        <option value="7">7 Days (Full Multi-Sequence)</option>
+                        <option value="14">14 Days (Extended Cohort Strategy)</option>
+                    </select>
+                </div>
+
+                <hr class="premium-border">
+
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="currentListSize">
+                        Current Email / Audience Pool Size <span class="text-[11px] text-slate-500 normal-case">(Optional)</span>
+                    </label>
+                    <input type="number" id="currentListSize" placeholder="e.g., 1200" min="0" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                </div>
+            </div>
+        </section>
+
+        <section class="lg:col-span-7 space-y-6">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-[#111827] border premium-border p-4 rounded-xl">
+                    <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">Buyers Needed</span>
+                    <div id="outBuyers" class="text-2xl font-bold text-white mt-1">0</div>
+                </div>
+                <div class="bg-[#111827] border premium-border p-4 rounded-xl accent-glow-blue">
+                    <span class="text-[10px] font-semibold text-blue-400 uppercase tracking-wider block">Warm Leads Needed</span>
+                    <div id="outLeads" class="text-2xl font-bold text-white mt-1">0</div>
+                </div>
+                <div class="bg-[#111827] border premium-border p-4 rounded-xl">
+                    <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">Daily Avg Target</span>
+                    <div id="outDailyAvg" class="text-2xl font-bold text-white mt-1">0</div>
+                </div>
+                <div class="bg-[#111827] border premium-border p-4 rounded-xl">
+                    <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">Launch Gap</span>
+                    <div id="outGap" class="text-2xl font-bold text-white mt-1">0</div>
+                </div>
+            </div>
+
+            <div class="bg-[#111827] border premium-border p-6 rounded-xl space-y-4">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Suggested Launch Curve Estimate</h3>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Calculated based on psychological urgency-surge distribution modeling.</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-[10px] text-slate-400 uppercase block tracking-wider">Final Push Target</span>
+                        <span id="outFinalPush" class="text-sm font-bold text-emerald-400">0 units</span>
+                    </div>
+                </div>
+
+                <div id="timelineContainer" class="space-y-3 relative border-l border-slate-800 pl-4 ml-2">
+                    </div>
+            </div>
+
+            <div class="p-6 rounded-xl bg-gradient-to-r from-blue-950/40 via-[#111827] to-[#111827] border border-blue-900/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div class="space-y-1.5 max-w-md">
+                    <div class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-blue-900/60 text-blue-300 uppercase border border-blue-800/50">Execution Blueprints</div>
+                    <h3 class="text-md font-bold text-white tracking-tight">Milestone parameters map the logic. Strategy drives the conversion.</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Knowing your daily sales target limits speculation. Owning the exact launch email sequence blueprints, promotional hype cycles, and urgency frameworks ensures you actually close the pipeline gap.</p>
+                </div>
+                <a href="https://gumroad.com" target="_blank" class="w-full md:w-auto text-center shrink-0 bg-blue-600 hover:bg-blue-500 text-white font-medium text-xs px-5 py-3 rounded-lg transition-colors shadow-lg shadow-blue-900/20">
+                    Acquire Launch OS Engine
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="w-full max-w-6xl mx-auto px-6 py-6 text-center text-[11px] text-slate-600 border-t premium-border">
+        &copy; 2026 AI Cash Lab. Diagnostic calculation matrix for creator monetization platform distribution protocols.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // State Parameter Tracking
+            let activeMode = 'revenue';
+
+            // Element Map Pointers
+            const modeRevenue = document.getElementById('modeRevenue');
+            const modeUnits = document.getElementById('modeUnits');
+            const targetInputLabel = document.getElementById('targetInputLabel');
+            const currencySymbol = document.getElementById('currencySymbol');
+            const targetInputValue = document.getElementById('targetInputValue');
+            const productPrice = document.getElementById('productPrice');
+            const conversionRate = document.getElementById('conversionRate');
+            const conversionValueLabel = document.getElementById('conversionValueLabel');
+            const launchDuration = document.getElementById('launchDuration');
+            const currentListSize = document.getElementById('currentListSize');
+
+            const outBuyers = document.getElementById('outBuyers');
+            const outLeads = document.getElementById('outLeads');
+            const outDailyAvg = document.getElementById('outDailyAvg');
+            const outGap = document.getElementById('outGap');
+            const outFinalPush = document.getElementById('outFinalPush');
+            const timelineContainer = document.getElementById('timelineContainer');
+
+            // Wire Listeners
+            modeRevenue.addEventListener('click', () => setMode('revenue'));
+            modeUnits.addEventListener('click', () => setMode('units'));
+            
+            const inputs = [targetInputValue, productPrice, conversionRate, launchDuration, currentListSize];
+            inputs.forEach(el => el.addEventListener('input', runCalculationEngine));
+            launchDuration.addEventListener('change', runCalculationEngine);
+
+            function setMode(mode) {
+                activeMode = mode;
+                if(mode === 'revenue') {
+                    modeRevenue.className = "bg-blue-600 text-white py-1.5 px-2 rounded-md transition-all focus:outline-none";
+                    modeUnits.className = "text-slate-400 hover:text-slate-200 py-1.5 px-2 rounded-md transition-all focus:outline-none";
+                    targetInputLabel.innerText = "Target Revenue Goal";
+                    currencySymbol.classList.remove('hidden');
+                    targetInputValue.value = "5000";
+                    targetInputValue.className = "w-full bg-[#1f2937] border premium-border rounded-lg pl-8 pr-4 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500 transition-colors";
+                } else {
+                    modeUnits.className = "bg-blue-600 text-white py-1.5 px-2 rounded-md transition-all focus:outline-none";
+                    modeRevenue.className = "text-slate-400 hover:text-slate-200 py-1.5 px-2 rounded-md transition-all focus:outline-none";
+                    targetInputLabel.innerText = "Target Total Units Sold";
+                    currencySymbol.classList.add('hidden');
+                    targetInputValue.value = "100";
+                    targetInputValue.className = "w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500 transition-colors";
+                }
+                runCalculationEngine();
+            }
+
+            function runCalculationEngine() {
+                // Update dynamic text value indicator elements
+                const convValue = parseFloat(conversionRate.value);
+                conversionValueLabel.innerText = `${convValue.toFixed(1)}%`;
+
+                // Read and Parse Inputs safely
+                const targetValue = Math.max(parseFloat(targetInputValue.value) || 0, 0);
+                const price = Math.max(parseFloat(productPrice.value) || 1, 1);
+                const convDecimal = convValue / 100;
+                const days = parseInt(launchDuration.value);
+                const listSize = parseInt(currentListSize.value) || 0;
+
+                // Core Logic Calculators
+                let totalBuyers = 0;
+                if(activeMode === 'revenue') {
+                    totalBuyers = Math.ceil(targetValue / price);
+                } else {
+                    totalBuyers = Math.ceil(targetValue);
+                }
+
+                const warmLeadsNeeded = Math.ceil(totalBuyers / convDecimal);
+                const dailyAvgSales = (totalBuyers / days).toFixed(1);
+                
+                // Track & Render Launch Gap Metric
+                let alignmentGap = 0;
+                if(listSize > 0) {
+                    alignmentGap = Math.max(warmLeadsNeeded - listSize, 0);
+                    outGap.innerText = alignmentGap.toLocaleString();
+                    outGap.className = alignmentGap > 0 ? "text-2xl font-bold text-red-400 mt-1" : "text-2xl font-bold text-emerald-400 mt-1";
+                } else {
+                    outGap.innerText = "—";
+                    outGap.className = "text-2xl font-bold text-slate-500 mt-1";
+                }
+
+                // Render Dashboard Stats Block
+                outBuyers.innerText = totalBuyers.toLocaleString();
+                outLeads.innerText = warmLeadsNeeded.toLocaleString();
+                outDailyAvg.innerText = dailyAvgSales;
+
+                // Build Suggested Launch Sequence Velocity Milestones 
+                // Softer parabolic modeling curve applied across discrete step profiles
+                timelineContainer.innerHTML = '';
+                let finalPushUnits = 0;
+
+                for(let i = 1; i <= days; i++) {
+                    let dayPercentage = 0;
+
+                    if (days === 5) {
+                        // 5-Day profile structure layout weights
+                        if(i === 1) dayPercentage = 0.35; // Spike Open
+                        else if(i === 5) dayPercentage = 0.30; // Final Spike Close
+                        else dayPercentage = 0.11; // Mid-week plateau values
+                    } else if (days === 7) {
+                        // 7-Day sequence layout metrics
+                        if(i === 1) dayPercentage = 0.30;
+                        else if(i === 7) dayPercentage = 0.28;
+                        else dayPercentage = 0.084;
+                    } else {
+                        // 14-Day wider curve array calculations
+                        if(i === 1) dayPercentage = 0.25;
+                        else if(i === 14) dayPercentage = 0.25;
+                        else dayPercentage = 0.041;
+                    }
+
+                    const dayTargetUnits = Math.round(totalBuyers * dayPercentage);
+                    if(i === days || (days === 5 && i === 5) || (days === 7 && i === 7)) {
+                        finalPushUnits += dayTargetUnits;
+                    }
+
+                    // Strategic contextual operational advice messaging strings
+                    let advice = "Maintain stable visibility pathways.";
+                    if(i === 1) advice = "Cart opens. Maximize community notification networks and direct link access distribution.";
+                    else if(i === days) advice = "Cart closes. Implement high-urgency final sequences and direct countdown triggers.";
+                    else if(i === 2 || i === 3) advice = "Inject real-time FAQ processing and functional case-study validation patterns.";
+
+                    // Structural HTML node generation append execution
+                    const row = document.createElement('div');
+                    row.className = "relative flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 rounded-lg bg-[#1f2937]/20 border premium-border hover:bg-[#1f2937]/40 transition-colors";
+                    row.innerHTML = `
+                        <div class="flex items-start space-x-3">
+                            <div class="absolute -left-[23px] w-2.5 h-2.5 rounded-full bg-slate-700 border-2 border-gray-900 mt-1.5"></div>
+                            <div>
+                                <span class="text-xs font-semibold text-white block">Day ${i} Milestone</span>
+                                <span class="text-[11px] text-slate-400 block mt-0.5 max-w-sm sm:max-w-md leading-relaxed">${advice}</span>
+                            </div>
+                        </div>
+                        <div class="text-left sm:text-right font-mono text-xs font-medium text-slate-300 shrink-0">
+                            Target: <span class="text-blue-400 font-bold">${dayTargetUnits}</span> units
+                        </div>
+                    `;
+                    timelineContainer.appendChild(row);
+                }
+
+                outFinalPush.innerText = `${finalPushUnits.toLocaleString()} units`;
+            }
+
+            // Fire Base Execution State Loop on instantiation loading
+            runCalculationEngine();
+        });
+    </script>
+</body>
+</html>
