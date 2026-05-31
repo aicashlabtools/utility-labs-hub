@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Product Launch Goal Calculator — AI Cash Lab</title>
-    <meta name="description" content="Reverse-engineer your digital product revenue goals. Calculate daily sales velocity, required traffic inputs, and audience conversion gaps.">
+    <title>Product Launch Goal Calculator | Calculate Traffic and Sales Targets</title>
+    <meta name="description" content="Calculate the traffic, conversion rate, and sales volume needed to hit a product launch revenue goal.">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -20,19 +20,370 @@
             box-shadow: 0 0 25px rgba(245, 158, 11, 0.08);
         }
     </style>
+<style id="acl-shared-tool-shell">
+html, body {
+  min-height: 100%;
+  overflow-y: auto;
+}
+:root {
+  --bg-main: #0d0f13 !important;
+  --bg-card: #151820 !important;
+  --bg-input: #1a1d24 !important;
+  --border-color: #27272a !important;
+  --accent-yellow: #f59e0b !important;
+}
+body {
+  scrollbar-color: #f59e0b #0b1020;
+  background: #0d0f13 !important;
+  padding: 0 !important;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b1020;
+}
+::-webkit-scrollbar-thumb {
+  background: #f59e0b;
+  border-radius: 999px;
+}
+.acl-shell-header,
+.acl-shell-footer,
+.acl-related-tools {
+  box-sizing: border-box;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.acl-shell-header {
+  background: rgba(11, 15, 25, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin: 0 !important;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+}
+.acl-shell-inner {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  height: 64px;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 clamp(16px, 4vw, 32px);
+  width: 100%;
+}
+.acl-brand {
+  align-items: center;
+  color: #fff;
+  display: inline-flex;
+  gap: 12px;
+  min-width: max-content;
+  text-decoration: none;
+}
+.acl-logo-frame {
+  align-items: center;
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 8px;
+  display: inline-flex;
+  height: 32px;
+  justify-content: center;
+  overflow: hidden;
+  width: 32px;
+}
+.acl-brand img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+.acl-brand strong {
+  color: #fff;
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.acl-brand small {
+  color: #64748b;
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  margin-top: 3px;
+  text-transform: uppercase;
+}
+.acl-shell-nav {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  gap: clamp(16px, 2.2vw, 28px);
+  justify-content: center;
+  min-width: 0;
+}
+.acl-shell-nav a,
+.acl-back-link,
+.acl-footer-links a {
+  color: #a1a1aa;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.acl-shell-nav a:hover,
+.acl-footer-links a:hover {
+  color: #fff;
+}
+.acl-shell-nav .acl-premium-link {
+  color: #f59e0b;
+}
+.acl-back-link {
+  border: 1px solid rgba(245, 158, 11, .45);
+  border-radius: 8px;
+  color: #f8fafc;
+  padding: 8px 12px;
+  white-space: nowrap;
+}
+.acl-back-link:hover {
+  background: rgba(245, 158, 11, .12);
+  box-shadow: 0 0 16px rgba(245, 158, 11, .18);
+  color: #fff;
+}
+main {
+  padding-bottom: 72px !important;
+}
+body > .container:last-of-type,
+body > .max-w-6xl:last-of-type,
+body > .max-w-7xl:last-of-type {
+  margin-bottom: 72px !important;
+}
+.acl-related-tools {
+  align-self: stretch !important;
+  background: #151820;
+  border: 1px solid #27272a;
+  border-radius: 14px;
+  box-sizing: border-box;
+  clear: both;
+  color: #d4d4d8;
+  display: grid !important;
+  gap: 22px;
+  grid-column: 1 / -1 !important;
+  grid-template-columns: minmax(0, .85fr) minmax(320px, 1.4fr);
+  justify-self: stretch !important;
+  margin: 56px auto 0 !important;
+  max-width: 1120px;
+  padding: 22px;
+  width: min(100%, 1120px) !important;
+}
+.acl-related-tools h2 {
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 4px 0 6px;
+}
+.acl-related-tools p {
+  color: #a1a1aa;
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0;
+}
+.acl-related-eyebrow {
+  color: #f59e0b;
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.acl-related-grid {
+  align-content: start;
+  display: grid !important;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-width: 0;
+}
+.acl-related-grid a {
+  background: #0f141f;
+  border: 1px solid rgba(245, 158, 11, .25);
+  border-radius: 9px;
+  color: #f8fafc;
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  padding: 10px 12px;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+}
+.acl-related-grid a:hover {
+  background: rgba(245, 158, 11, .12);
+  border-color: rgba(245, 158, 11, .6);
+  color: #f59e0b;
+}
+.acl-shell-footer {
+  background: #111827;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: #64748b;
+  margin: 0 !important;
+  padding: 40px 0;
+  text-align: left !important;
+  width: 100%;
+}
+.acl-footer-inner {
+  align-items: start;
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 clamp(16px, 4vw, 32px);
+  width: 100%;
+}
+.acl-footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.acl-footer-brand strong {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.acl-footer-brand span {
+  color: #64748b;
+  font-size: 11px;
+  max-width: 360px;
+}
+.acl-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: flex-end;
+}
+img, video, canvas, svg {
+  max-width: 100%;
+}
+input, select, textarea, button {
+  max-width: 100%;
+}
+@media (max-width: 900px) {
+  .acl-shell-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 14px;
+    padding-top: 14px;
+  }
+  .acl-shell-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    width: 100%;
+  }
+  .acl-related-tools {
+    grid-template-columns: 1fr;
+    width: min(calc(100% - 32px), 1120px) !important;
+  }
+  .acl-related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .acl-footer-inner {
+    grid-template-columns: 1fr;
+  }
+  .acl-footer-links {
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 640px) {
+  .acl-shell-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .acl-shell-nav a,
+  .acl-back-link,
+  .acl-footer-links a {
+    font-size: 11px;
+  }
+  .acl-related-tools {
+    margin-top: 36px !important;
+    width: calc(100% - 24px) !important;
+  }
+  .acl-related-grid {
+    grid-template-columns: 1fr;
+  }
+  .acl-shell-footer {
+    padding: 28px 0;
+  }
+}
+</style>
+<style id="acl-global-tool-polish">
+.acl-tool-hero,.acl-quick-start{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-left:auto;margin-right:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
+.acl-tool-hero{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(17,24,39,.96));border:1px solid rgba(245,158,11,.22);border-radius:14px;color:#fff;margin-top:40px;padding:clamp(24px,4vw,38px)}
+.acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
+.acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
+.acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
+.acl-quick-start{background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;margin-top:18px;margin-bottom:24px;padding:20px 22px}
+.acl-quick-start h2{color:#fff;font-size:16px;margin:0 0 12px}
+.acl-quick-start ol{display:grid;gap:8px 18px;grid-template-columns:repeat(5,minmax(0,1fr));list-style-position:inside;margin:0;padding:0}
+.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.45}
+@media (max-width:900px){.acl-quick-start ol{grid-template-columns:1fr}}
+.acl-faq-section{box-sizing:border-box;background:#151820;border:1px solid #27272a;border-radius:14px;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(calc(100% - 32px),1120px)}
+.acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
+.acl-faq-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:14px}
+.acl-faq-item h3{color:#f8fafc;font-size:14px;margin:0 0 6px}
+.acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}
+@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px;width:calc(100% - 24px)}}
+.acl-related-tools{margin-bottom:80px !important}
+</style>
 </head>
 <body class="text-slate-200 min-h-screen flex flex-col justify-between antialiased">
+<header class="acl-shell-header no-print">
+    <div class="acl-shell-inner">
+        <a href="/" class="acl-brand" aria-label="AI Cash Lab Tools homepage">
+            <span class="acl-logo-frame"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab logo"></span>
+            <span><strong>AI Cash Lab</strong><small>Utility Ecosystem</small></span>
+        </a>
+        <nav class="acl-shell-nav" aria-label="Tool categories">
+            <a href="/">Home</a>
+            <a href="/#creator-production">Production</a>
+            <a href="/#creator-monetization">Monetization</a>
+            <a href="/#product-launch">Launch</a>
+            <a href="/#freelancer-business">Freelancer</a>
+            <a href="/#premium-workspaces" class="acl-premium-link">Premium</a>
+        </nav>
+        <a href="/" class="acl-back-link">Back to All Tools</a>
+    </div>
+</header>
 
-    <!-- Header Section -->
-    <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center border-b premium-border">
-        <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 rounded-full bg-amber-600 flex items-center justify-center font-bold text-white tracking-wider text-xs">AC</div>
-            <span class="text-sm font-semibold tracking-wider uppercase text-slate-400">AI Cash Lab</span>
-        </div>
-        <a href="../" class="text-xs text-slate-400 hover:text-white transition-colors">← Back to Tools</a>
-    </header>
+<section class="acl-tool-hero no-print">
+    <div class="acl-tool-kicker">Product Launch Tool</div>
+    <h1>Product Launch Goal Calculator</h1>
+    <p>Work backward from a launch revenue goal to estimate the traffic, buyers, and conversion needed.</p>
+</section>
 
-    <!-- Main Content Grid -->
+<section class="acl-quick-start no-print">
+    <h2>Quick Start</h2>
+    <ol>
+            <li>Enter the launch inputs</li>
+            <li>Set the target assumptions</li>
+            <li>Review demand or revenue math</li>
+            <li>Compare the weak points</li>
+            <li>Choose the next validation step</li>
+    </ol>
+</section>
+<!-- Main Content Grid -->
     <main class="w-full max-w-6xl mx-auto px-6 py-10 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         <!-- Left Panel: Input Architecture -->
@@ -154,18 +505,41 @@
                     <h3 class="text-md font-bold text-white tracking-tight">Traffic gap holding back your launch target limits?</h3>
                     <p class="text-xs text-slate-400 leading-relaxed">Math doesn't lie: an exceptional product launch falls flat without top-of-funnel velocity. Secure the reach parameters your calculator demands before your asset goes live.</p>
                 </div>
-                <a href="https://gumroad.com" target="_blank" class="w-full md:w-auto text-center shrink-0 bg-amber-600 hover:bg-emerald-500 text-white font-medium text-xs px-5 py-3 rounded-lg transition-colors shadow-lg shadow-amber-900/20">
-                    Get AI Traffic Playbook
-                </a>
+                <button type="button" disabled class="w-full md:w-auto text-center shrink-0 bg-slate-800 border border-amber-500/30 text-amber-200 font-medium text-xs px-5 py-3 rounded-lg cursor-not-allowed opacity-90">
+                    Launch Traffic Toolkit (Coming Soon)
+                </button>
             </div>
 
         </section>
-    </main>
-
-    <!-- System Footer -->
-    <footer class="w-full max-w-6xl mx-auto px-6 py-6 text-center text-[11px] text-slate-600 border-t premium-border">
-        &copy; 2026 AI Cash Lab. Launch structural mechanics and predictive conversion modeling tools.
-    </footer>
+<section class="acl-faq-section no-print" aria-label="Frequently Asked Questions">
+    <h2>Frequently Asked Questions</h2>
+    <div class="acl-faq-grid">
+        <article class="acl-faq-item">
+            <h3>What is a launch goal calculator?</h3>
+            <p>It works backward from your revenue target to estimate the number of buyers, visitors, or leads you may need.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Why work backward from the goal?</h3>
+            <p>Backward planning makes the launch target more concrete and shows whether price, traffic, or conversion is the main constraint.</p>
+        </article>
+    </div>
+</section>
+<section class="acl-related-tools no-print" aria-label="Related Launch Tools">
+    <div>
+        <span class="acl-related-eyebrow">Related Launch Tools</span>
+        <h2>Plan the next launch step.</h2>
+        <p>Use these tools to validate demand, estimate launch targets, and pressure-test the offer before building.</p>
+    </div>
+    <div class="acl-related-grid">
+        <a href="/product-idea-validator/">Product Idea Validator</a>
+        <a href="/presale-validation-tester/">Presale Validation Tester</a>
+        <a href="/product-launch-calculator/">Product Launch Calculator</a>
+        <a href="/pricing-strategy-calculator/">Pricing Strategy Calculator</a>
+        <a href="/gumroad-profit-calculator/">Gumroad Profit Calculator</a>
+        <a href="/paid-traffic-profit-calculator/">Paid Traffic Profit Calculator</a>
+    </div>
+</section>
+</main>
 
     <!-- Core Dynamic Functional Script Automation Architecture Engine -->
     <script>
@@ -288,5 +662,21 @@
             runLaunchCalculationEngine();
         });
     </script>
+<footer class="acl-shell-footer no-print">
+    <div class="acl-footer-inner">
+        <div class="acl-footer-brand">
+            <strong>AI Cash Lab Tools</strong>
+            <span>Simple business tools for freelancers, creators, and digital operators.</span>
+        </div>
+        <div class="acl-footer-links">
+            <a href="/">All Tools</a>
+            <a href="/resolution-checker/">Resolution Checker</a>
+            <a href="/creator-utilities/">Creator Utilities</a>
+            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
+            <a href="mailto:support@aicashlabtools.com">Contact</a>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
+
