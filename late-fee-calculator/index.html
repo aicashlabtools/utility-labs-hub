@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freelance Late Fee & Interest Calculator | Past-Due Invoice Tool</title>
-    <meta name="description" content="Calculate outstanding commercial invoice late fees and annual interest estimates. Generate and print an editable payment follow-up letter instantly.">
+    <title>Late Fee Calculator | Estimate Past-Due Invoice Charges</title>
+    <meta name="description" content="Calculate estimated late fees and interest for past-due invoices using invoice amount, due date, grace period, and fee rules.">
     
     <!-- SEO Keyword Alignment -->
     <meta name="keywords" content="late payment interest calculator, freelance late fee calculator, past due invoice interest generator, how to calculate late fees on invoice, statutory interest calculator business">
@@ -35,21 +35,370 @@
             .editable-area { border: none !important; padding: 0 !important; color: #000000 !important; background: transparent !important; }
         }
     </style>
+<style id="acl-shared-tool-shell">
+html, body {
+  min-height: 100%;
+  overflow-y: auto;
+}
+:root {
+  --bg-main: #0d0f13 !important;
+  --bg-card: #151820 !important;
+  --bg-input: #1a1d24 !important;
+  --border-color: #27272a !important;
+  --accent-yellow: #f59e0b !important;
+}
+body {
+  scrollbar-color: #f59e0b #0b1020;
+  background: #0d0f13 !important;
+  padding: 0 !important;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b1020;
+}
+::-webkit-scrollbar-thumb {
+  background: #f59e0b;
+  border-radius: 999px;
+}
+.acl-shell-header,
+.acl-shell-footer,
+.acl-related-tools {
+  box-sizing: border-box;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.acl-shell-header {
+  background: rgba(11, 15, 25, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin: 0 !important;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+}
+.acl-shell-inner {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  height: 64px;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 clamp(16px, 4vw, 32px);
+  width: 100%;
+}
+.acl-brand {
+  align-items: center;
+  color: #fff;
+  display: inline-flex;
+  gap: 12px;
+  min-width: max-content;
+  text-decoration: none;
+}
+.acl-logo-frame {
+  align-items: center;
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 8px;
+  display: inline-flex;
+  height: 32px;
+  justify-content: center;
+  overflow: hidden;
+  width: 32px;
+}
+.acl-brand img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+.acl-brand strong {
+  color: #fff;
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.acl-brand small {
+  color: #64748b;
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  margin-top: 3px;
+  text-transform: uppercase;
+}
+.acl-shell-nav {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  gap: clamp(16px, 2.2vw, 28px);
+  justify-content: center;
+  min-width: 0;
+}
+.acl-shell-nav a,
+.acl-back-link,
+.acl-footer-links a {
+  color: #a1a1aa;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.acl-shell-nav a:hover,
+.acl-footer-links a:hover {
+  color: #fff;
+}
+.acl-shell-nav .acl-premium-link {
+  color: #f59e0b;
+}
+.acl-back-link {
+  border: 1px solid rgba(245, 158, 11, .45);
+  border-radius: 8px;
+  color: #f8fafc;
+  padding: 8px 12px;
+  white-space: nowrap;
+}
+.acl-back-link:hover {
+  background: rgba(245, 158, 11, .12);
+  box-shadow: 0 0 16px rgba(245, 158, 11, .18);
+  color: #fff;
+}
+main {
+  padding-bottom: 72px !important;
+}
+body > .container:last-of-type,
+body > .max-w-6xl:last-of-type,
+body > .max-w-7xl:last-of-type {
+  margin-bottom: 72px !important;
+}
+.acl-related-tools {
+  align-self: stretch !important;
+  background: #151820;
+  border: 1px solid #27272a;
+  border-radius: 14px;
+  box-sizing: border-box;
+  clear: both;
+  color: #d4d4d8;
+  display: grid !important;
+  gap: 22px;
+  grid-column: 1 / -1 !important;
+  grid-template-columns: minmax(0, .85fr) minmax(320px, 1.4fr);
+  justify-self: stretch !important;
+  margin: 56px auto 0 !important;
+  max-width: 1120px;
+  padding: 22px;
+  width: min(100%, 1120px) !important;
+}
+.acl-related-tools h2 {
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 4px 0 6px;
+}
+.acl-related-tools p {
+  color: #a1a1aa;
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0;
+}
+.acl-related-eyebrow {
+  color: #f59e0b;
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.acl-related-grid {
+  align-content: start;
+  display: grid !important;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-width: 0;
+}
+.acl-related-grid a {
+  background: #0f141f;
+  border: 1px solid rgba(245, 158, 11, .25);
+  border-radius: 9px;
+  color: #f8fafc;
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  padding: 10px 12px;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+}
+.acl-related-grid a:hover {
+  background: rgba(245, 158, 11, .12);
+  border-color: rgba(245, 158, 11, .6);
+  color: #f59e0b;
+}
+.acl-shell-footer {
+  background: #111827;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: #64748b;
+  margin: 0 !important;
+  padding: 40px 0;
+  text-align: left !important;
+  width: 100%;
+}
+.acl-footer-inner {
+  align-items: start;
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 clamp(16px, 4vw, 32px);
+  width: 100%;
+}
+.acl-footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.acl-footer-brand strong {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.acl-footer-brand span {
+  color: #64748b;
+  font-size: 11px;
+  max-width: 360px;
+}
+.acl-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: flex-end;
+}
+img, video, canvas, svg {
+  max-width: 100%;
+}
+input, select, textarea, button {
+  max-width: 100%;
+}
+@media (max-width: 900px) {
+  .acl-shell-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 14px;
+    padding-top: 14px;
+  }
+  .acl-shell-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    width: 100%;
+  }
+  .acl-related-tools {
+    grid-template-columns: 1fr;
+    width: min(calc(100% - 32px), 1120px) !important;
+  }
+  .acl-related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .acl-footer-inner {
+    grid-template-columns: 1fr;
+  }
+  .acl-footer-links {
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 640px) {
+  .acl-shell-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .acl-shell-nav a,
+  .acl-back-link,
+  .acl-footer-links a {
+    font-size: 11px;
+  }
+  .acl-related-tools {
+    margin-top: 36px !important;
+    width: calc(100% - 24px) !important;
+  }
+  .acl-related-grid {
+    grid-template-columns: 1fr;
+  }
+  .acl-shell-footer {
+    padding: 28px 0;
+  }
+}
+</style>
+<style id="acl-global-tool-polish">
+.acl-tool-hero,.acl-quick-start{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-left:auto;margin-right:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
+.acl-tool-hero{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(17,24,39,.96));border:1px solid rgba(245,158,11,.22);border-radius:14px;color:#fff;margin-top:40px;padding:clamp(24px,4vw,38px)}
+.acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
+.acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
+.acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
+.acl-quick-start{background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;margin-top:18px;margin-bottom:24px;padding:20px 22px}
+.acl-quick-start h2{color:#fff;font-size:16px;margin:0 0 12px}
+.acl-quick-start ol{display:grid;gap:8px 18px;grid-template-columns:repeat(5,minmax(0,1fr));list-style-position:inside;margin:0;padding:0}
+.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.45}
+@media (max-width:900px){.acl-quick-start ol{grid-template-columns:1fr}}
+.acl-faq-section{box-sizing:border-box;background:#151820;border:1px solid #27272a;border-radius:14px;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(calc(100% - 32px),1120px)}
+.acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
+.acl-faq-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:14px}
+.acl-faq-item h3{color:#f8fafc;font-size:14px;margin:0 0 6px}
+.acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}
+@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px;width:calc(100% - 24px)}}
+.acl-related-tools{margin-bottom:80px !important}
+</style>
 </head>
 <body class="text-gray-600 min-h-screen flex flex-col justify-between selection:bg-accentgold selection:text-darkbg">
+<header class="acl-shell-header no-print">
+    <div class="acl-shell-inner">
+        <a href="/" class="acl-brand" aria-label="AI Cash Lab Tools homepage">
+            <span class="acl-logo-frame"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab logo"></span>
+            <span><strong>AI Cash Lab</strong><small>Utility Ecosystem</small></span>
+        </a>
+        <nav class="acl-shell-nav" aria-label="Tool categories">
+            <a href="/">Home</a>
+            <a href="/#creator-production">Production</a>
+            <a href="/#creator-monetization">Monetization</a>
+            <a href="/#product-launch">Launch</a>
+            <a href="/#freelancer-business">Freelancer</a>
+            <a href="/#premium-workspaces" class="acl-premium-link">Premium</a>
+        </nav>
+        <a href="/" class="acl-back-link">Back to All Tools</a>
+    </div>
+</header>
 
-    <!-- HEADER (Hidden on Print) -->
-    <header class="no-print border-b border-bordergray py-5 px-6 bg-darkbg">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="../index.html" class="flex items-center space-x-2 group">
-                <span class="text-gray-600 group-hover:text-accentgold transition-colors">←</span>
-                <span class="text-sm font-semibold text-gray-600 group-hover:text-white transition-colors">Back to Directory Hub</span>
-            </a>
-            <span class="text-xs font-mono text-gray-600">UTILITY LABS // ASSET 01</span>
-        </div>
-    </header>
+<section class="acl-tool-hero no-print">
+    <div class="acl-tool-kicker">Freelancer Business Tool</div>
+    <h1>Late Fee Calculator</h1>
+    <p>Estimate late fees and interest for overdue invoices with clear payment follow-up math.</p>
+</section>
 
-    <!-- MAIN CALCULATOR WORKSPACE -->
+<section class="acl-quick-start no-print">
+    <h2>Quick Start</h2>
+    <ol>
+            <li>Enter the client or income inputs</li>
+            <li>Adjust time and pricing assumptions</li>
+            <li>Review the calculated result</li>
+            <li>Check the risk or gap</li>
+            <li>Use the result before quoting</li>
+    </ol>
+</section>
+<!-- MAIN CALCULATOR WORKSPACE -->
     <main class="flex-grow max-w-6xl w-full mx-auto p-4 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
         
         <!-- LEFT COLUMN: CONTROL INTERFACE (Hidden on Print) -->
@@ -113,18 +462,18 @@
                     Use the premium Invoice & Payment Reminder Toolkit to create professional invoices, reminder emails, payment follow-ups, and client-ready billing workflows.
                 </p>
                 <a href="https://aicashlabofficial.gumroad.com/l/hdfde?layout=profile" target="_blank" rel="noopener noreferrer" class="block w-full bg-gray-800 text-center hover:bg-accentgold hover:text-darkbg transition-colors text-white font-bold text-xs py-3 rounded-lg">
-                    Get Invoice & Payment Reminder Toolkit ($19) ↗
+                    Get Invoice & Payment Reminder Toolkit ($19) ->
                 </a>
                 <!-- Local Security & Operations Trust Box -->
 <div class="mt-4 p-4 rounded-lg bg-slate-200 border border-bordergray text-xs text-slate-700 space-y-2 w-full block">
     <div class="flex items-center gap-2 text-[#E2B13C]">
-        <span>⚙️</span>
+        <span>Note:</span>
         <span class="font-medium tracking-wide uppercase text-[10px]">Operational Protocol</span>
     </div>
     <p>This calculator runs entirely via client-side architecture. No input parameters, invoice values, or corporate identity details are transmitted or stored on external servers.</p>
     <div class="pt-1 flex gap-4 text-[10px] text-slate-500 font-mono">
-        <span>✓ ZERO STORAGE</span>
-        <span>✓ NO SIGNUP REQUIRED</span>
+        <span> ZERO STORAGE</span>
+        <span> NO SIGNUP REQUIRED</span>
     </div>
 </div>
             </div>
@@ -139,10 +488,10 @@
                     <div class="no-print flex flex-col sm:flex-row justify-between items-start sm:items-center pb-4 mb-6 border-b border-gray-200 gap-4">
                         <div>
                             <span class="text-xs font-bold text-gray-500 uppercase tracking-wider block">Interactive Output Canvas</span>
-                            <span class="text-[11px] text-amber-600 font-medium">✨ Click inside the text box below to edit lines manually before printing</span>
+                            <span class="text-[11px] text-amber-600 font-medium">Note: Click inside the text box below to edit lines manually before printing</span>
                         </div>
                         <button onclick="window.print()" class="bg-darkbg text-white hover:bg-accentgold hover:text-darkbg text-xs font-bold px-4 py-2.5 rounded-lg transition-colors flex items-center gap-2 shadow-md">
-                            🖨️ Print / Save PDF
+                            Print / Save PDF
                         </button>
                     </div>
 
@@ -155,11 +504,38 @@
                 <!-- Watermark Removed -->
             </div>
         </section>
-
-    </main>
+<section class="acl-faq-section no-print" aria-label="Frequently Asked Questions">
+    <h2>Frequently Asked Questions</h2>
+    <div class="acl-faq-grid">
+        <article class="acl-faq-item">
+            <h3>What does the late fee calculator estimate?</h3>
+            <p>It estimates a late fee or interest amount based on invoice value, timing, and the fee rules you enter.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Is this legal advice?</h3>
+            <p>No. It is a calculation aid. Always use fee terms that match your contract and local requirements.</p>
+        </article>
+    </div>
+</section>
+<section class="acl-related-tools no-print" aria-label="Related Freelancer Tools">
+    <div>
+        <span class="acl-related-eyebrow">Related Freelancer Tools</span>
+        <h2>Protect your time and pricing.</h2>
+        <p>Use these tools to set rates, protect scope, estimate runway, and handle client payment decisions.</p>
+    </div>
+    <div class="acl-related-grid">
+        <a href="/freedom-rate-calculator/">Freedom Rate Calculator</a>
+        <a href="/hourly-rate-calculator/">Hourly Rate Calculator</a>
+        <a href="/scope-creep-calculator/">Scope Creep Calculator</a>
+        <a href="/creator-runway-calculator/">Creator Runway Calculator</a>
+        <a href="/brand-deal-calculator/">Brand Deal Calculator</a>
+        <a href="/paid-traffic-profit-calculator/">Paid Traffic Profit Calculator</a>
+    </div>
+</section>
+</main>
 
     <!-- SEO CONTENT LAYER: PAGE 1 - STATUTORY INTEREST GUIDE -->
-    <section class="max-w-4xl mx-auto px-6 py-12 mt-12 border-t border-slate-800 text-left no-print">
+    <section class="max-w-4xl mx-auto px-6 py-14 mt-12 border-t border-slate-800 text-left no-print">
         
         <!-- Keyword Grouping Header -->
         <div class="mb-8">
@@ -209,7 +585,7 @@
                     <p class="text-xs text-slate-400">Scroll back to our interactive engine at the top of this workspace to generate your printable ledger breakdown.</p>
                 </div>
                 <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="whitespace-nowrap px-4 py-2 bg-accentgold text-slate-950 font-bold text-xs rounded hover:bg-amber-500 transition-colors uppercase tracking-wider">
-                    Run Calculation Now ↑
+                    Run Calculation Now 
                 </button>
             </div>
 
@@ -217,7 +593,7 @@
     </section>
 
     <!-- SEO CONTENT LAYER: PAGE 2 - RECONCILIATION LETTER TEMPLATE -->
-    <section class="max-w-4xl mx-auto px-6 py-12 border-t border-slate-800 text-left no-print">
+    <section class="max-w-4xl mx-auto px-6 py-14 border-t border-slate-800 text-left no-print">
         
         <!-- Keyword Grouping Header -->
         <div class="mb-8">
@@ -272,7 +648,7 @@
                     <p class="text-xs text-slate-400">Scroll back to the top to input your data and watch our interactive document canvas format this notice for you in real time.</p>
                 </div>
                 <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="whitespace-nowrap px-4 py-2 bg-accentgold text-slate-950 font-bold text-xs rounded hover:bg-amber-500 transition-colors uppercase tracking-wider">
-                    Generate My Document ↑
+                    Generate My Document 
                 </button>
             </div>
 
@@ -280,7 +656,7 @@
     </section>
 
     <!-- SEO CONTENT LAYER: PAGE 3 - COMPOUNDING PENALTY BLUEPRINT -->
-    <section class="max-w-4xl mx-auto px-6 py-12 border-t border-slate-800 text-left no-print">
+    <section class="max-w-4xl mx-auto px-6 py-14 border-t border-slate-800 text-left no-print">
         
         <!-- Keyword Grouping Header -->
         <div class="mb-8">
@@ -333,26 +709,26 @@
                     <p class="text-xs text-slate-400">Our local calculation architecture handles the selected annual rate and elapsed-day formula for you automatically.</p>
                 </div>
                 <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="whitespace-nowrap px-4 py-2 bg-accentgold text-slate-950 font-bold text-xs rounded hover:bg-amber-500 transition-colors uppercase tracking-wider">
-                    Calculate Accrued Interest ↑
+                    Calculate Accrued Interest 
                 </button>
             </div>
 
         </div>
     </section>
 
-    <!-- SEO CONTENT LAYER: PAGE 4 - MILESTONE SECURITY GUIDE -->
-    <section class="max-w-4xl mx-auto px-6 py-12 border-t border-slate-800 text-left no-print">
+    <!-- SEO CONTENT LAYER: PAGE 4 - PROTECTING PROJECT PAYMENTS -->
+    <section class="max-w-4xl mx-auto px-6 py-14 border-t border-slate-800 text-left no-print">
         
         <!-- Keyword Grouping Header -->
         <div class="mb-8">
             <span class="text-[10px] font-bold uppercase tracking-widest text-accentgold bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
-                Operational Blueprint
+                Payment Workflow
             </span>
             <h2 class="text-2xl font-bold text-white mt-3 mb-2">
-                The Commercial Milestone Security Guide
+                Protecting Project Payments Before Work Begins
             </h2>
             <p class="text-sm text-slate-400">
-                A comprehensive operational overview on protecting cash flow pipelines and eliminating billing friction.
+                A practical guide to clearer payment terms, fewer awkward reminders, and steadier cash flow.
             </p>
         </div>
 
@@ -360,15 +736,15 @@
         <div class="space-y-6 text-sm text-slate-300 leading-relaxed font-sans">
             
             <p>
-                Building a successful digital product or service company requires more than just scaling client acquisitions. True financial stability relies on deploying an airtight, systematic billing infrastructure. Business leaders must learn <strong class="text-white">how to secure business payment milestones</strong> effectively to safeguard incoming capital before development pipelines ever begin.
+                Building a healthy freelance or service business is not only about finding more clients. It also depends on clear payment checkpoints before the work begins. Business leaders must learn <strong class="text-white">how to secure business payment milestones</strong> effectively so projects do not turn into unpaid follow-up loops.
             </p>
 
             <h3 class="text-base font-semibold text-white pt-2">How to Stop Chasing Client Payments Manually</h3>
             <p>
-                Chasing down late accounts manually drains critical focus and professional momentum. By setting clear parameters early on, you condition clients to respect your payment terms. When you actively configure a <strong class="text-white">policy-based payment reminder framework</strong> inside your billing workflow, compliance becomes a structured expectation rather than an ongoing conversation.
+                Chasing late accounts manually drains focus and momentum. By setting clear expectations early, you make payment terms easier for clients to follow. When you add a <strong class="text-white">policy-based payment reminder framework</strong> to your billing workflow, reminders become part of the process instead of an uncomfortable one-off message.
             </p>
             <p>
-                For digital agencies looking to save hours of administrative friction, relying on a trusted, <strong class="text-white">free tool to generate invoice late fee notices</strong> is the first line of defense. It instantly provides an objective ledger statement that removes emotion from collection follow-ups.
+                For digital agencies looking to save hours of admin friction, a trusted <strong class="text-white">free tool to generate invoice late fee notices</strong> gives you a clear starting point. It creates an objective balance summary that keeps payment follow-ups calm and specific.
             </p>
 
             <!-- Product Upsell / Monetization Component Block -->
@@ -381,19 +757,19 @@
                 </span>
                 <h4 class="text-lg font-bold text-white mt-3 mb-1">Get the Invoice & Payment Reminder Toolkit</h4>
                 <p class="text-xs text-slate-400 max-w-xl mb-4">
-                    Access premium, copy-ready operational sequences, automated email cadences, and structured client billing language built to secure your project boundaries.
+                    Access premium payment workflows, reminder emails, follow-up scripts, and structured client billing language built to clarify your project boundaries.
                 </p>
                 <a href="https://aicashlabofficial.gumroad.com/l/hdfde?layout=profile" target="_blank" rel="noopener noreferrer" class="inline-block px-5 py-2.5 bg-slate-800 text-white font-bold text-xs rounded hover:bg-slate-700 hover:text-accentgold transition-colors uppercase tracking-wider border border-slate-700">
-                    Access Premium Toolkit ($19) ↗
+                    Access Premium Toolkit ($19) ->
                 </a>
             </div>
 
-            <h3 class="text-base font-semibold text-white pt-2">Deploying Copy-Ready Operational Sequences</h3>
+            <h3 class="text-base font-semibold text-white pt-2">Using Copy-Ready Payment Workflows</h3>
             <p>
-                The difference between struggling freelancers and top-tier studios comes down to standard operating procedures. Deploying pre-formatted, <strong class="text-white">premium copy ready operational sequences</strong> across your email and messaging touchpoints ensures that late payment notices are handled instantly and professionally. 
+                The difference between stressful billing and steady billing often comes down to having the right message ready before you need it. Using pre-formatted, <strong class="text-white">premium copy ready operational sequences</strong> across your email and messaging touchpoints helps late payment notices stay fast, clear, and professional. 
             </p>
             <p>
-                Combining a robust communication strategy with our local calculation suite puts you in complete control of your finances. You can run immediate calculations, generate an organized outstanding breakdown, and completely <strong class="text-white">stop chasing client payments manually</strong> starting today.
+                Combining a simple communication plan with our local calculator gives you a cleaner way to handle overdue balances. You can run immediate calculations, generate an organized outstanding breakdown, and <strong class="text-white">stop chasing client payments manually</strong> starting today.
             </p>
 
             <!-- Direct Internal Funnel Link Back to Top Calculator Workspace -->
@@ -403,17 +779,12 @@
                     <p class="text-xs text-slate-400">Scroll back to the top of this workspace to generate your custom past-due reconciliation document instantly.</p>
                 </div>
                 <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="whitespace-nowrap px-4 py-2 bg-accentgold text-slate-950 font-bold text-xs rounded hover:bg-amber-500 transition-colors uppercase tracking-wider">
-                    Launch Workspace Engine ↑
+                    Open Payment Tool 
                 </button>
             </div>
 
         </div>
     </section>
-
-    <!-- FOOTER (Hidden on Print) -->
-    <footer class="no-print border-t border-bordergray py-6 px-6 bg-darkbg text-center text-xs text-gray-500">
-        &copy; 2026 AI Cash Lab Tools. Zero-storage local calculation architecture.
-    </footer>
 
     <!-- CLIENT SIDE ENGINE JAVASCRIPT -->
     <script>
@@ -518,5 +889,22 @@
             `;
         }
     </script>
+<footer class="acl-shell-footer no-print">
+    <div class="acl-footer-inner">
+        <div class="acl-footer-brand">
+            <strong>AI Cash Lab Tools</strong>
+            <span>Simple business tools for freelancers, creators, and digital operators.</span>
+        </div>
+        <div class="acl-footer-links">
+            <a href="/">All Tools</a>
+            <a href="/resolution-checker/">Resolution Checker</a>
+            <a href="/creator-utilities/">Creator Utilities</a>
+            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
+            <a href="mailto:support@aicashlabtools.com">Contact</a>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
+
+
