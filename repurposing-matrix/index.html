@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multi-Channel Repurposing Matrix — AI Cash Lab</title>
-    <meta name="description" content="Turn a single content asset into a multi-platform distribution engine based on your available production time.">
+    <title>Repurposing Matrix | Turn One Content Asset Into More Channels</title>
+    <meta name="description" content="Plan how to repurpose one video, post, or idea into multiple content assets across short-form, email, articles, and social channels.">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -31,23 +31,370 @@
             border-radius: 2px;
         }
     </style>
+<style id="acl-shared-tool-shell">
+html, body {
+  min-height: 100%;
+  overflow-y: auto;
+}
+:root {
+  --bg-main: #0d0f13 !important;
+  --bg-card: #151820 !important;
+  --bg-input: #1a1d24 !important;
+  --border-color: #27272a !important;
+  --accent-yellow: #f59e0b !important;
+}
+body {
+  scrollbar-color: #f59e0b #0b1020;
+  background: #0d0f13 !important;
+  padding: 0 !important;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b1020;
+}
+::-webkit-scrollbar-thumb {
+  background: #f59e0b;
+  border-radius: 999px;
+}
+.acl-shell-header,
+.acl-shell-footer,
+.acl-related-tools {
+  box-sizing: border-box;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.acl-shell-header {
+  background: rgba(11, 15, 25, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin: 0 !important;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+}
+.acl-shell-inner {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  height: 64px;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 clamp(16px, 4vw, 32px);
+  width: 100%;
+}
+.acl-brand {
+  align-items: center;
+  color: #fff;
+  display: inline-flex;
+  gap: 12px;
+  min-width: max-content;
+  text-decoration: none;
+}
+.acl-logo-frame {
+  align-items: center;
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 8px;
+  display: inline-flex;
+  height: 32px;
+  justify-content: center;
+  overflow: hidden;
+  width: 32px;
+}
+.acl-brand img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+.acl-brand strong {
+  color: #fff;
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.acl-brand small {
+  color: #64748b;
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  margin-top: 3px;
+  text-transform: uppercase;
+}
+.acl-shell-nav {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  gap: clamp(16px, 2.2vw, 28px);
+  justify-content: center;
+  min-width: 0;
+}
+.acl-shell-nav a,
+.acl-back-link,
+.acl-footer-links a {
+  color: #a1a1aa;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.acl-shell-nav a:hover,
+.acl-footer-links a:hover {
+  color: #fff;
+}
+.acl-shell-nav .acl-premium-link {
+  color: #f59e0b;
+}
+.acl-back-link {
+  border: 1px solid rgba(245, 158, 11, .45);
+  border-radius: 8px;
+  color: #f8fafc;
+  padding: 8px 12px;
+  white-space: nowrap;
+}
+.acl-back-link:hover {
+  background: rgba(245, 158, 11, .12);
+  box-shadow: 0 0 16px rgba(245, 158, 11, .18);
+  color: #fff;
+}
+main {
+  padding-bottom: 72px !important;
+}
+body > .container:last-of-type,
+body > .max-w-6xl:last-of-type,
+body > .max-w-7xl:last-of-type {
+  margin-bottom: 72px !important;
+}
+.acl-related-tools {
+  align-self: stretch !important;
+  background: #151820;
+  border: 1px solid #27272a;
+  border-radius: 14px;
+  box-sizing: border-box;
+  clear: both;
+  color: #d4d4d8;
+  display: grid !important;
+  gap: 22px;
+  grid-column: 1 / -1 !important;
+  grid-template-columns: minmax(0, .85fr) minmax(320px, 1.4fr);
+  justify-self: stretch !important;
+  margin: 56px auto 0 !important;
+  max-width: 1120px;
+  padding: 22px;
+  width: min(100%, 1120px) !important;
+}
+.acl-related-tools h2 {
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 4px 0 6px;
+}
+.acl-related-tools p {
+  color: #a1a1aa;
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0;
+}
+.acl-related-eyebrow {
+  color: #f59e0b;
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.acl-related-grid {
+  align-content: start;
+  display: grid !important;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-width: 0;
+}
+.acl-related-grid a {
+  background: #0f141f;
+  border: 1px solid rgba(245, 158, 11, .25);
+  border-radius: 9px;
+  color: #f8fafc;
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  padding: 10px 12px;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+}
+.acl-related-grid a:hover {
+  background: rgba(245, 158, 11, .12);
+  border-color: rgba(245, 158, 11, .6);
+  color: #f59e0b;
+}
+.acl-shell-footer {
+  background: #111827;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: #64748b;
+  margin: 0 !important;
+  padding: 40px 0;
+  text-align: left !important;
+  width: 100%;
+}
+.acl-footer-inner {
+  align-items: start;
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 clamp(16px, 4vw, 32px);
+  width: 100%;
+}
+.acl-footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.acl-footer-brand strong {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.acl-footer-brand span {
+  color: #64748b;
+  font-size: 11px;
+  max-width: 360px;
+}
+.acl-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: flex-end;
+}
+img, video, canvas, svg {
+  max-width: 100%;
+}
+input, select, textarea, button {
+  max-width: 100%;
+}
+@media (max-width: 900px) {
+  .acl-shell-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 14px;
+    padding-top: 14px;
+  }
+  .acl-shell-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    width: 100%;
+  }
+  .acl-related-tools {
+    grid-template-columns: 1fr;
+    width: min(calc(100% - 32px), 1120px) !important;
+  }
+  .acl-related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .acl-footer-inner {
+    grid-template-columns: 1fr;
+  }
+  .acl-footer-links {
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 640px) {
+  .acl-shell-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .acl-shell-nav a,
+  .acl-back-link,
+  .acl-footer-links a {
+    font-size: 11px;
+  }
+  .acl-related-tools {
+    margin-top: 36px !important;
+    width: calc(100% - 24px) !important;
+  }
+  .acl-related-grid {
+    grid-template-columns: 1fr;
+  }
+  .acl-shell-footer {
+    padding: 28px 0;
+  }
+}
+</style>
+<style id="acl-global-tool-polish">
+.acl-tool-hero,.acl-quick-start{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-left:auto;margin-right:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
+.acl-tool-hero{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(17,24,39,.96));border:1px solid rgba(245,158,11,.22);border-radius:14px;color:#fff;margin-top:40px;padding:clamp(24px,4vw,38px)}
+.acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
+.acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
+.acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
+.acl-quick-start{background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;margin-top:18px;margin-bottom:24px;padding:20px 22px}
+.acl-quick-start h2{color:#fff;font-size:16px;margin:0 0 12px}
+.acl-quick-start ol{display:grid;gap:8px 18px;grid-template-columns:repeat(5,minmax(0,1fr));list-style-position:inside;margin:0;padding:0}
+.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.45}
+@media (max-width:900px){.acl-quick-start ol{grid-template-columns:1fr}}
+.acl-faq-section{box-sizing:border-box;background:#151820;border:1px solid #27272a;border-radius:14px;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(calc(100% - 32px),1120px)}
+.acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
+.acl-faq-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:14px}
+.acl-faq-item h3{color:#f8fafc;font-size:14px;margin:0 0 6px}
+.acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}
+@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px;width:calc(100% - 24px)}}
+.acl-related-tools{margin-bottom:80px !important}
+</style>
 </head>
 <body class="text-slate-200 min-h-screen flex flex-col justify-between antialiased">
+<header class="acl-shell-header no-print">
+    <div class="acl-shell-inner">
+        <a href="/" class="acl-brand" aria-label="AI Cash Lab Tools homepage">
+            <span class="acl-logo-frame"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab logo"></span>
+            <span><strong>AI Cash Lab</strong><small>Utility Ecosystem</small></span>
+        </a>
+        <nav class="acl-shell-nav" aria-label="Tool categories">
+            <a href="/">Home</a>
+            <a href="/#creator-production">Production</a>
+            <a href="/#creator-monetization">Monetization</a>
+            <a href="/#product-launch">Launch</a>
+            <a href="/#freelancer-business">Freelancer</a>
+            <a href="/#premium-workspaces" class="acl-premium-link">Premium</a>
+        </nav>
+        <a href="/" class="acl-back-link">Back to All Tools</a>
+    </div>
+</header>
 
-    <!-- Header Section -->
-    <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center border-b premium-border">
-        <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold text-white tracking-wider text-xs">AC</div>
-            <span class="text-sm font-semibold tracking-wider uppercase text-slate-400">AI Cash Lab</span>
-        </div>
-        <div class="flex items-center space-x-4">
-            <a href="../video-script-time-calculator/" class="text-xs text-slate-500 hover:text-slate-300 transition-colors hidden sm:inline">Script Timer</a>
-            <a href="../caption-line-splitter/" class="text-xs text-slate-500 hover:text-slate-300 transition-colors hidden sm:inline">Caption Splitter</a>
-            <a href="../" class="text-xs text-slate-400 hover:text-white transition-colors">← Back to Tools</a>
-        </div>
-    </header>
+<section class="acl-tool-hero no-print">
+    <div class="acl-tool-kicker">Creator Production Tool</div>
+    <h1>Repurposing Matrix</h1>
+    <p>Turn one core content asset into a practical distribution plan across multiple channels.</p>
+</section>
 
-    <!-- Main Content Grid -->
+<section class="acl-quick-start no-print">
+    <h2>Quick Start</h2>
+    <ol>
+            <li>Choose your source asset</li>
+            <li>Select time available</li>
+            <li>Pick target channels</li>
+            <li>Review the production blueprint</li>
+            <li>Check off each asset task</li>
+    </ol>
+</section>
+<!-- Main Content Grid -->
     <main class="w-full max-w-6xl mx-auto px-6 py-10 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         <!-- Left Panel: Context Architecture Inputs -->
@@ -115,14 +462,14 @@
             <!-- Gamified Leverage Metrics Engine Block -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="bg-[#111827] border premium-border p-4 rounded-xl accent-glow-blue">
-                    <span class="text-[10px] font-semibold text-blue-400 uppercase tracking-wider block">Content Leverage Yield</span>
-                    <div id="outYield" class="text-2xl font-black text-white mt-1">1 Asset → 3 Assets</div>
-                    <p class="text-[10px] text-slate-500 mt-0.5">Total high-leverage assets created from your baseline.</p>
+                    <span class="text-[10px] font-semibold text-blue-400 uppercase tracking-wider block">Repurposing Multiplier</span>
+                    <div id="outYield" class="text-2xl font-black text-white mt-1">1 Asset -> 3 Assets</div>
+                    <p class="text-[10px] text-slate-500 mt-0.5">Repurposed assets created from your original source.</p>
                 </div>
                 <div class="bg-[#111827] border premium-border p-4 rounded-xl">
-                    <span class="text-[10px] font-semibold text-emerald-400 uppercase tracking-wider block">Estimated Visibility Multiplier</span>
-                    <div id="outMultiplier" class="text-2xl font-black text-white mt-1">1.0x Reach</div>
-                    <p class="text-[10px] text-slate-500 mt-0.5">Directional multi-channel ecosystem reach potential.</p>
+                    <span class="text-[10px] font-semibold text-emerald-400 uppercase tracking-wider block">Distribution Expansion</span>
+                    <div id="outMultiplier" class="text-2xl font-black text-white mt-1">3 Channels</div>
+                    <p class="text-[10px] text-slate-500 mt-0.5">Active platforms selected for distribution.</p>
                 </div>
             </div>
 
@@ -145,24 +492,47 @@
             </div>
 
             <!-- Native Native Contextual Upsell Conversion Box Panel -->
-            <div class="p-6 rounded-xl bg-gradient-to-r from-blue-950/30 via-[#111827] to-[#111827] border border-blue-900/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div class="p-6 rounded-xl bg-gradient-to-r from-yellow-500/10 via-[#111827] to-[#111827] border border-yellow-500/25 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                 <div class="space-y-1.5 max-w-md">
-                    <div class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-blue-900/60 text-blue-300 uppercase border border-blue-800/50">Production Vault Accelerator</div>
-                    <h3 class="text-md font-bold text-white tracking-tight">The plan is locked down. Can you write the hooks to back it up?</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">Knowing your execution structure saves your energy. Driving actual view metrics requires high-retention frameworks optimized for short attention spans. Turn your repurposed nodes into raw pipeline conversions.</p>
+                    <div class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-yellow-500/15 text-yellow-300 uppercase border border-yellow-500/30">Short-Form Creator Toolkit (upcoming)</div>
+                    <h3 class="text-md font-bold text-white tracking-tight">Need help turning these repurposed assets into stronger hooks, scripts, and retention structures?</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Use this matrix to map the assets now. The upcoming toolkit will help tighten hooks, scripts, and retention frameworks after the plan is mapped.</p>
                 </div>
-                <a href="https://gumroad.com" target="_blank" class="w-full md:w-auto text-center shrink-0 bg-blue-600 hover:bg-blue-500 text-white font-medium text-xs px-5 py-3 rounded-lg transition-colors shadow-lg shadow-blue-900/20">
-                    Get AI Traffic Playbook Engine
-                </a>
+                <button type="button" disabled class="w-full md:w-auto text-center shrink-0 bg-slate-800 border border-yellow-500/30 text-yellow-200 font-medium text-xs px-5 py-3 rounded-lg cursor-not-allowed opacity-90">
+                    Short-Form Creator Toolkit (Coming Soon)
+                </button>
             </div>
 
         </section>
-    </main>
-
-    <!-- System Footer Layout Context -->
-    <footer class="w-full max-w-6xl mx-auto px-6 py-6 text-center text-[11px] text-slate-600 border-t premium-border">
-        &copy; 2026 AI Cash Lab. Operational distribution strategy matrices for multi-channel scaling parameters.
-    </footer>
+<section class="acl-faq-section no-print" aria-label="Frequently Asked Questions">
+    <h2>Frequently Asked Questions</h2>
+    <div class="acl-faq-grid">
+        <article class="acl-faq-item">
+            <h3>What is a repurposing matrix?</h3>
+            <p>It maps one idea or asset into multiple formats so you can publish more consistently without starting from scratch.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Who should use this tool?</h3>
+            <p>Creators, freelancers, and digital product sellers can use it to stretch strong ideas across more platforms.</p>
+        </article>
+    </div>
+</section>
+<section class="acl-related-tools no-print" aria-label="Related Creator Tools">
+    <div>
+        <span class="acl-related-eyebrow">Related Creator Tools</span>
+        <h2>Keep improving the creative workflow.</h2>
+        <p>Use these tools to tighten hooks, captions, safe zones, resolution, and production planning.</p>
+    </div>
+    <div class="acl-related-grid">
+        <a href="/caption-line-splitter/">Caption Line Splitter</a>
+        <a href="/short-form-hook-analyzer/">Short-Form Hook Analyzer</a>
+        <a href="/retention-diagnostic-tool/">Retention Diagnostic Tool</a>
+        <a href="/creator-utilities/">Creator Safe Zone Previewer</a>
+        <a href="/video-script-time-calculator/">Video Script Time Calculator</a>
+        <a href="/resolution-checker/">Video Resolution &amp; Aspect Ratio Checker</a>
+    </div>
+</section>
+</main>
 
     <!-- Script Automation Architecture Matrix Engine Execution -->
     <script>
@@ -205,7 +575,7 @@
                         },
                         x: {
                             "15min": { count: 1, name: "Write 1 High-Velocity Single Value Hook Post", steps: ["Summarize the single most striking insight or stat from the video.", "Condense the core idea down to under 240 punchy characters.", "Add a clear visual structure to draw readers in as they scroll past."] },
-                            "30min": { count: 1, name: "Draft 1 Concise 5-Tweet Value Essay Thread", steps: ["Tweet 1: High-repetition hook statement mapping a major transformation.", "Tweets 2–4: Modular step-by-step framework takeaways.", "Tweet 5: Clean bridge back to your primary channel asset platform link."] },
+                            "30min": { count: 1, name: "Draft 1 Concise 5-Tweet Value Essay Thread", steps: ["Tweet 1: High-repetition hook statement mapping a major transformation.", "Tweets 2-4: Modular step-by-step framework takeaways.", "Tweet 5: Clean bridge back to your primary channel asset platform link."] },
                             "1hour": { count: 1, name: "Build 1 Comprehensive 10-Tweet Deep Thread", steps: ["Deconstruct the narrative arc of the entire long-form video asset.", "Incorporate precise numbers, screenshots, or logical framework formulas.", "Write punchy transition lines between tweets to maintain reading velocity.", "Optimize the final tweet call-to-action for direct digital product signups."] },
                             "halfday": { count: 2, name: "Batch 2 Independent Value Thread Sequences", steps: ["Develop one highly tactical guide thread and one contrarian argument thread.", "Refine all text layouts to emphasize whitespace and maximize readability.", "Prepare secondary follow-up comment hooks to keep engagement high over 48 hours.", "Queue both sequences into your automated scheduling dashboard pipeline."] },
                             "fullday": { count: 3, name: "Generate a Complete Viral Narrative Launch Pack", steps: ["Construct a comprehensive multi-day narrative sequence structure.", "Build out data-heavy teardowns, micro-guides, and case study loops.", "Maximize pattern-interrupt headers across every individual thread starter.", "Cross-link threads to amplify internal traffic loops across your profile."] }
@@ -271,7 +641,7 @@
                         },
                         x: {
                             "15min": { count: 1, name: "Isolate 1 Punchy Core Concept Tweet", steps: ["Condense the main takeaway of your short video into a single value post.", "Craft a high-repetition hook headline that stands out on text feeds.", "Drop a link to your short video in the replies to drive view loops."] },
-                            "30min": { count: 1, name: "Convert Video Script into a 5-Tweet Value Thread", steps: ["Tweet 1: High-curiosity hook tracking your video's core lesson.", "Tweets 2–4: Modular step-by-step breakdown of your voiceover points.", "Tweet 5: Clean bridge back to your primary digital products or website."] },
+                            "30min": { count: 1, name: "Convert Video Script into a 5-Tweet Value Thread", steps: ["Tweet 1: High-curiosity hook tracking your video's core lesson.", "Tweets 2-4: Modular step-by-step breakdown of your voiceover points.", "Tweet 5: Clean bridge back to your primary digital products or website."] },
                             "1hour": { count: 1, name: "Build 1 Comprehensive Multi-Tweet Guide Thread", steps: ["Expand your short-form script into a structured, analytical thread sequence.", "Add precise real-world context, numbers, or logic formulas to back up your points.", "Optimize thread text layouts to maximize reading velocity and retweets."] },
                             "halfday": { count: 2, name: "Batch 2 Independent Value Thread Sequences", steps: ["Develop one tactical guide thread and one contrarian insight thread from your script.", "Refine all spacing parameters to maximize mobile reading comfort.", "Queue both sequences into your automated scheduling dashboard pipeline."] },
                             "fullday": { count: 3, name: "Generate a Complete Narrative Profile Multiplier Pack", steps: ["Build three separate high-leverage thread sequences from your video script.", "Incorporate deep-dive tactical breakdowns and step checklists across all assets.", "Map out cross-promotional hooks to maximize traction across your entire profile."] }
@@ -304,8 +674,8 @@
                 if (activeChannels.length === 0) {
                     emptyChannelsAlert.classList.remove('hidden');
                     blueprintContainer.innerHTML = '';
-                    outYield.innerText = "1 Asset → 1 Asset";
-                    outMultiplier.innerText = "1.0x Reach";
+                    outYield.innerText = "1 Asset -> 1 Asset";
+                    outMultiplier.innerText = "0 Channels";
                     return;
                 } else {
                     emptyChannelsAlert.classList.add('hidden');
@@ -313,7 +683,6 @@
 
                 // Process Yield Score Metrics
                 let totalOutputAssetsCount = 1; // Start with the core baseline asset
-                let totalReachMultiplier = 1.0;
 
                 blueprintContainer.innerHTML = '';
 
@@ -322,7 +691,6 @@
                     const dataLookup = blueprints[assetType]?.channels?.[channel.id]?.[timeValue];
                     if (dataLookup) {
                         totalOutputAssetsCount += dataLookup.count;
-                        totalReachMultiplier += channel.multiplier * dataLookup.count * 0.4;
 
                         // Build Step Checklist Content Output Card
                         const card = document.createElement('div');
@@ -358,13 +726,29 @@
                 });
 
                 // Render Dashboard Stats Metrics Values Text Fields
-                outYield.innerText = `1 Asset → ${totalOutputAssetsCount} Assets`;
-                outMultiplier.innerText = `${totalReachMultiplier.toFixed(1)}x Reach`;
+                outYield.innerText = `1 Asset -> ${totalOutputAssetsCount} Assets`;
+                outMultiplier.innerText = `${activeChannels.length} ${activeChannels.length === 1 ? "Channel" : "Channels"}`;
             }
 
             // Run Base Initialization Automation On Instantiation Load
             updateRepurposingMatrixEngine();
         });
     </script>
+<footer class="acl-shell-footer no-print">
+    <div class="acl-footer-inner">
+        <div class="acl-footer-brand">
+            <strong>AI Cash Lab Tools</strong>
+            <span>Simple business tools for freelancers, creators, and digital operators.</span>
+        </div>
+        <div class="acl-footer-links">
+            <a href="/">All Tools</a>
+            <a href="/resolution-checker/">Resolution Checker</a>
+            <a href="/creator-utilities/">Creator Utilities</a>
+            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
+            <a href="mailto:support@aicashlabtools.com">Contact</a>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
+
