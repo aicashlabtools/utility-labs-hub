@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brand Deal Rate Calculator — AI Cash Lab</title>
+    <title>Brand Deal Rate Calculator  -  AI Cash Lab</title>
     <meta name="description" content="Calculate professional brand deal rates across TikTok, Instagram, and YouTube based on deliverable types, median views, engagement metrics, and usage rights.">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,20 +19,391 @@
         .accent-glow-emerald {
             box-shadow: 0 0 25px rgba(16, 185, 129, 0.08);
         }
+        .recommended-ask-card {
+            background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.28), rgba(6, 78, 59, 0.22) 44%, rgba(17, 24, 39, 0.9) 100%);
+            border-color: rgba(52, 211, 153, 0.62);
+            box-shadow: 0 0 28px rgba(16, 185, 129, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        }
+        .recommended-ask-value {
+            color: #ecfdf5;
+            text-shadow: 0 0 18px rgba(52, 211, 153, 0.42);
+        }
+        .addon-live-value {
+            min-width: 52px;
+            text-align: right;
+        }
+        .tooltip-chip {
+            align-items: center;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            border-radius: 999px;
+            color: #cbd5e1;
+            display: inline-flex;
+            font-size: 10px;
+            font-weight: 800;
+            height: 16px;
+            justify-content: center;
+            line-height: 1;
+            margin-left: 4px;
+            width: 16px;
+        }
     </style>
+<style id="acl-shared-tool-shell">
+html, body {
+  min-height: 100%;
+  overflow-y: auto;
+}
+:root {
+  --bg-main: #0d0f13 !important;
+  --bg-card: #151820 !important;
+  --bg-input: #1a1d24 !important;
+  --border-color: #27272a !important;
+  --accent-yellow: #f59e0b !important;
+}
+body {
+  scrollbar-color: #f59e0b #0b1020;
+  background: #0d0f13 !important;
+  padding: 0 !important;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b1020;
+}
+::-webkit-scrollbar-thumb {
+  background: #f59e0b;
+  border-radius: 999px;
+}
+.acl-shell-header,
+.acl-shell-footer,
+.acl-related-tools {
+  box-sizing: border-box;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.acl-shell-header {
+  background: rgba(11, 15, 25, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin: 0 !important;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+}
+.acl-shell-inner {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  height: 64px;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 clamp(16px, 4vw, 32px);
+  width: 100%;
+}
+.acl-brand {
+  align-items: center;
+  color: #fff;
+  display: inline-flex;
+  gap: 12px;
+  min-width: max-content;
+  text-decoration: none;
+}
+.acl-logo-frame {
+  align-items: center;
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 8px;
+  display: inline-flex;
+  height: 32px;
+  justify-content: center;
+  overflow: hidden;
+  width: 32px;
+}
+.acl-brand img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+.acl-brand strong {
+  color: #fff;
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.acl-brand small {
+  color: #64748b;
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  margin-top: 3px;
+  text-transform: uppercase;
+}
+.acl-shell-nav {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  gap: clamp(16px, 2.2vw, 28px);
+  justify-content: center;
+  min-width: 0;
+}
+.acl-shell-nav a,
+.acl-back-link,
+.acl-footer-links a {
+  color: #a1a1aa;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.acl-shell-nav a:hover,
+.acl-footer-links a:hover {
+  color: #fff;
+}
+.acl-shell-nav .acl-premium-link {
+  color: #f59e0b;
+}
+.acl-back-link {
+  border: 1px solid rgba(245, 158, 11, .45);
+  border-radius: 8px;
+  color: #f8fafc;
+  padding: 8px 12px;
+  white-space: nowrap;
+}
+.acl-back-link:hover {
+  background: rgba(245, 158, 11, .12);
+  box-shadow: 0 0 16px rgba(245, 158, 11, .18);
+  color: #fff;
+}
+main {
+  padding-bottom: 72px !important;
+}
+body > .container:last-of-type,
+body > .max-w-6xl:last-of-type,
+body > .max-w-7xl:last-of-type {
+  margin-bottom: 72px !important;
+}
+.acl-related-tools {
+  align-self: stretch !important;
+  background: #151820;
+  border: 1px solid #27272a;
+  border-radius: 14px;
+  box-sizing: border-box;
+  clear: both;
+  color: #d4d4d8;
+  display: grid !important;
+  gap: 22px;
+  grid-column: 1 / -1 !important;
+  grid-template-columns: minmax(0, .85fr) minmax(320px, 1.4fr);
+  justify-self: stretch !important;
+  margin: 56px auto 0 !important;
+  max-width: 1120px;
+  padding: 22px;
+  width: min(100%, 1120px) !important;
+}
+.acl-related-tools h2 {
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 4px 0 6px;
+}
+.acl-related-tools p {
+  color: #a1a1aa;
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0;
+}
+.acl-related-eyebrow {
+  color: #f59e0b;
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.acl-related-grid {
+  align-content: start;
+  display: grid !important;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-width: 0;
+}
+.acl-related-grid a {
+  background: #0f141f;
+  border: 1px solid rgba(245, 158, 11, .25);
+  border-radius: 9px;
+  color: #f8fafc;
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  padding: 10px 12px;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+}
+.acl-related-grid a:hover {
+  background: rgba(245, 158, 11, .12);
+  border-color: rgba(245, 158, 11, .6);
+  color: #f59e0b;
+}
+.acl-shell-footer {
+  background: #111827;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: #64748b;
+  margin: 0 !important;
+  padding: 40px 0;
+  text-align: left !important;
+  width: 100%;
+}
+.acl-footer-inner {
+  align-items: start;
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 clamp(16px, 4vw, 32px);
+  width: 100%;
+}
+.acl-footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.acl-footer-brand strong {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.acl-footer-brand span {
+  color: #64748b;
+  font-size: 11px;
+  max-width: 360px;
+}
+.acl-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: flex-end;
+}
+img, video, canvas, svg {
+  max-width: 100%;
+}
+input, select, textarea, button {
+  max-width: 100%;
+}
+@media (max-width: 900px) {
+  .acl-shell-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 14px;
+    padding-top: 14px;
+  }
+  .acl-shell-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    width: 100%;
+  }
+  .acl-related-tools {
+    grid-template-columns: 1fr;
+    width: min(calc(100% - 32px), 1120px) !important;
+  }
+  .acl-related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .acl-footer-inner {
+    grid-template-columns: 1fr;
+  }
+  .acl-footer-links {
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 640px) {
+  .acl-shell-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .acl-shell-nav a,
+  .acl-back-link,
+  .acl-footer-links a {
+    font-size: 11px;
+  }
+  .acl-related-tools {
+    margin-top: 36px !important;
+    width: calc(100% - 24px) !important;
+  }
+  .acl-related-grid {
+    grid-template-columns: 1fr;
+  }
+  .acl-shell-footer {
+    padding: 28px 0;
+  }
+}
+</style>
+<style id="acl-global-tool-polish">
+.acl-tool-hero,.acl-quick-start{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-left:auto;margin-right:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
+.acl-tool-hero{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(17,24,39,.96));border:1px solid rgba(245,158,11,.22);border-radius:14px;color:#fff;margin-top:40px;padding:clamp(24px,4vw,38px)}
+.acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
+.acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
+.acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
+.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:grid;gap:14px;grid-template-columns:auto minmax(0,1fr);margin-top:14px;margin-bottom:20px;padding:12px 18px}
+.acl-quick-start h2{color:#fff;font-size:13px;margin:0;white-space:nowrap}
+.acl-quick-start ol{align-items:center;display:grid;gap:8px 18px;grid-template-columns:repeat(4,minmax(0,1fr));list-style-position:inside;margin:0;padding:0}
+.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.45}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" ->";font-weight:800;margin-left:8px}
+@media (max-width:900px){.acl-quick-start{align-items:start;grid-template-columns:1fr}.acl-quick-start ol{grid-template-columns:1fr}}
+@media (max-width:900px){.acl-quick-start li:not(:last-child)::after{content:""}}
+</style>
 </head>
 <body class="text-slate-200 min-h-screen flex flex-col justify-between antialiased">
+<header class="acl-shell-header no-print">
+    <div class="acl-shell-inner">
+        <a href="/" class="acl-brand" aria-label="AI Cash Lab Tools homepage">
+            <span class="acl-logo-frame"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab logo"></span>
+            <span><strong>AI Cash Lab</strong><small>Utility Ecosystem</small></span>
+        </a>
+        <nav class="acl-shell-nav" aria-label="Tool categories">
+            <a href="/">Home</a>
+            <a href="/#creator-production">Production</a>
+            <a href="/#creator-monetization">Monetization</a>
+            <a href="/#product-launch">Launch</a>
+            <a href="/#freelancer-business">Freelancer</a>
+            <a href="/#premium-workspaces" class="acl-premium-link">Premium</a>
+        </nav>
+        <a href="/" class="acl-back-link">Back to All Tools</a>
+    </div>
+</header>
 
-    <!-- Header Section -->
-    <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center border-b premium-border">
-        <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center font-bold text-white tracking-wider text-xs">AC</div>
-            <span class="text-sm font-semibold tracking-wider uppercase text-slate-400">AI Cash Lab</span>
-        </div>
-        <a href="../" class="text-xs text-slate-400 hover:text-white transition-colors">← Back to Tools</a>
-    </header>
+<section class="acl-tool-hero no-print">
+    <div class="acl-tool-kicker">Creator Monetization Tool</div>
+    <h1>Brand Deal Calculator</h1>
+    <p>Estimate sponsored content pricing from audience size, deliverables, usage, and campaign complexity.</p>
+</section>
 
-    <!-- Main Content Grid -->
+<section class="acl-quick-start no-print">
+    <h2>Quick Start</h2>
+    <ol>
+            <li>Configure Deal</li>
+            <li>Review Pricing</li>
+            <li>Compare Monetization</li>
+            <li>Explore Next Tool</li>
+    </ol>
+</section>
+<!-- Main Content Grid -->
     <main class="w-full max-w-6xl mx-auto px-6 py-10 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         <!-- Left Panel: Input Architecture -->
@@ -40,6 +411,12 @@
             <div>
                 <h1 class="text-lg font-bold text-white tracking-tight">Brand Deal Rate Calculator</h1>
                 <p class="text-xs text-slate-400 mt-0.5">Value your deliverables objectively using data-backed baseline parameters.</p>
+            </div>
+
+            <div class="rounded-lg border border-amber-500/25 bg-amber-500/10 p-4">
+                <span class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-amber-300">Industry Baseline</span>
+                <p class="mt-2 text-xs leading-relaxed text-slate-300">Short-form creators with 20k-50k monthly views typically charge:</p>
+                <p class="mt-1 text-xl font-black text-white">$75-$250 <span class="text-xs font-semibold text-slate-400">per sponsored post</span></p>
             </div>
 
             <div class="space-y-4">
@@ -97,19 +474,28 @@
                 <div class="space-y-2.5">
                     <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider">Campaign Multipliers & Licensing</label>
                     
-                    <label class="flex items-center space-x-3 text-xs text-slate-300 cursor-pointer">
+                    <label class="flex items-center gap-3 text-xs text-slate-300 cursor-pointer">
                         <input type="checkbox" id="addPaidUsage" class="rounded bg-slate-800 border-slate-700 text-emerald-600 focus:ring-0 w-4 h-4">
-                        <span>Paid Ad Whitelisting Usage Rights (+30% Base Fee)</span>
+                        <span class="flex flex-1 items-center justify-between gap-3">
+                            <span>Paid Usage Rights</span>
+                            <span id="paidUsageValue" class="addon-live-value text-slate-500 font-semibold">+$0</span>
+                        </span>
                     </label>
 
-                    <label class="flex items-center space-x-3 text-xs text-slate-300 cursor-pointer">
+                    <label class="flex items-center gap-3 text-xs text-slate-300 cursor-pointer">
                         <input type="checkbox" id="addExclusivity" class="rounded bg-slate-800 border-slate-700 text-emerald-600 focus:ring-0 w-4 h-4">
-                        <span>30-Day Category Exclusivity Lockout (+25% Base Fee)</span>
+                        <span class="flex flex-1 items-center justify-between gap-3">
+                            <span>Category Exclusivity</span>
+                            <span id="exclusivityValue" class="addon-live-value text-slate-500 font-semibold">+$0</span>
+                        </span>
                     </label>
 
-                    <label class="flex items-center space-x-3 text-xs text-slate-300 cursor-pointer">
+                    <label class="flex items-center gap-3 text-xs text-slate-300 cursor-pointer">
                         <input type="checkbox" id="addRevisions" class="rounded bg-slate-800 border-slate-700 text-emerald-600 focus:ring-0 w-4 h-4">
-                        <span>Extra Round of Asset Content Revisions (+15% Base Fee)</span>
+                        <span class="flex flex-1 items-center justify-between gap-3">
+                            <span>Extra Revision Round</span>
+                            <span id="revisionsValue" class="addon-live-value text-slate-500 font-semibold">+$0</span>
+                        </span>
                     </label>
                 </div>
             </div>
@@ -132,9 +518,9 @@
                         <span id="outRateStarter" class="text-xl font-bold text-slate-200 mt-1 block">$0</span>
                     </div>
                     <!-- Recommended Anchor Point -->
-                    <div class="p-4 bg-emerald-950/20 rounded-lg border border-emerald-900/40 text-center ring-1 ring-emerald-500/10">
-                        <span class="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider block">Recommended Ask</span>
-                        <span id="outRateRecommended" class="text-2xl font-extrabold text-white mt-1 block">$0</span>
+                    <div class="recommended-ask-card p-5 rounded-lg border text-center ring-1 ring-emerald-400/30">
+                        <span class="text-[10px] text-emerald-300 font-extrabold uppercase tracking-wider block">Recommended Ask</span>
+                        <span id="outRateRecommended" class="recommended-ask-value text-4xl font-black mt-1 block">$0</span>
                     </div>
                     <!-- Premium Ceiling Ask Limit -->
                     <div class="p-4 bg-[#1f2937]/30 rounded-lg border premium-border text-center">
@@ -163,10 +549,18 @@
                         <span id="outAddonFee" class="text-sm font-bold text-slate-200 mt-0.5 block">$0</span>
                     </div>
                     <div class="p-3 bg-[#1f2937]/20 rounded-lg border premium-border">
-                        <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Implied Effective CPM</span>
+                        <span class="text-[10px] text-slate-400 uppercase tracking-wider flex items-center">Implied Effective CPM <span class="tooltip-chip" title="Estimated revenue earned per 1,000 views">?</span></span>
                         <span id="outEffectiveCPM" class="text-sm font-bold text-slate-200 mt-0.5 block">$0</span>
+                        <span class="text-[10px] text-slate-500 leading-snug mt-1 block">Estimated revenue earned per 1,000 views.</span>
                     </div>
                 </div>
+            </div>
+
+            <!-- Reality Check Block -->
+            <div class="bg-[#111827] border border-amber-500/25 p-5 rounded-xl space-y-2">
+                <h3 class="text-xs font-semibold text-amber-300 uppercase tracking-wider">Reality Check</h3>
+                <p id="realityCheckText" class="text-sm text-slate-200 leading-relaxed">At 25,000 monthly views, 1 brand deal at $0 equals roughly 0 TikTok creator fund views.</p>
+                <p class="text-xs text-slate-400 leading-relaxed">Your audience is often worth more to brands than platforms.</p>
             </div>
 
             <!-- Real-Time Pitch Copywriting Frame Output -->
@@ -179,28 +573,35 @@
                 <div id="pitchTextarea" class="relative bg-[#1f2937]/40 border premium-border p-4 rounded-lg text-xs font-mono text-slate-300 whitespace-pre-wrap leading-relaxed select-all cursor-pointer" title="Click to select all pitch content">
 "Based on our rolling 30-day channel parameters, our performance matrix maps to a median view index of <span id="scriptViews" class="text-emerald-400 font-bold">0</span> impressions per asset. 
 
-My standard rate range for this specific deliverable is <span id="scriptRange" class="text-emerald-400 font-bold">$0–$0</span>. This includes one organic post and one standard revision format. Extended paid ad usage rights, revision cycles, or category exclusivity locks can be easily scaled separately depending on your timeline scope parameters. Let me know if this structural framework aligns with your allocation goals!"</div>
+My standard rate range for this specific deliverable is <span id="scriptRange" class="text-emerald-300 font-extrabold bg-emerald-500/10 px-1 rounded">$0-$0</span>. This includes one organic post and one standard revision format. Extended paid ad usage rights, revision cycles, or category exclusivity locks can be easily scaled separately depending on your timeline scope parameters. Let me know if this structural framework aligns with your allocation goals!"</div>
             </div>
 
             <!-- Native Monetization Funnel Cross-Over CTA -->
             <div class="p-6 rounded-xl bg-gradient-to-r from-emerald-950/20 via-[#111827] to-[#111827] border border-emerald-900/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                 <div class="space-y-1.5 max-w-md">
                     <div class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-emerald-900/60 text-emerald-300 uppercase border border-emerald-800/50">Monetization Engine</div>
-                    <h3 class="text-md font-bold text-white tracking-tight">Quotes look clean. Do you have the traffic to fill the queue?</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">Securing premium brand rates is straightforward when partners discover you organically. Scale your view counts and turn your social channels into automated lead generators using high-retention content loops.</p>
+                    <h3 class="text-md font-bold text-white tracking-tight">Need More Brand Opportunities?</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Turn one content asset into multiple distribution channels with the Repurposing Matrix.</p>
                 </div>
-                <a href="https://gumroad.com" target="_blank" class="w-full md:w-auto text-center shrink-0 bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs px-5 py-3 rounded-lg transition-colors shadow-lg shadow-emerald-900/20">
-                    Get AI Traffic Playbook
+                <a href="/repurposing-matrix/" class="w-full md:w-auto text-center shrink-0 bg-emerald-500 text-slate-950 font-bold text-xs px-5 py-3 rounded-lg hover:bg-emerald-400 transition-colors">
+                    Use the Repurposing Matrix
                 </a>
             </div>
 
         </section>
-    </main>
-
-    <!-- System Footer -->
-    <footer class="w-full max-w-6xl mx-auto px-6 py-6 text-center text-[11px] text-slate-600 border-t premium-border">
-        &copy; 2026 AI Cash Lab. Diagnostic calculation matrix for creator integration asset valuation. All rights reserved.
-    </footer>
+    <section class="acl-related-tools no-print" aria-label="Related Revenue Tools">
+    <div>
+        <span class="acl-related-eyebrow">Next Steps</span>
+        <h2>Keep pricing from becoming a guess.</h2>
+        <p>Use the next calculator based on the revenue question you need answered.</p>
+    </div>
+    <div class="acl-related-grid">
+        <a href="/subscriber-ltv-calculator/">How much is your audience worth? -> Subscriber LTV Calculator</a>
+        <a href="/monetization-gap-calculator/">How much revenue are you leaving on the table? -> Monetization Gap Calculator</a>
+        <a href="/product-launch-goal-calculator/">How much traffic do you need to hit income goals? -> Product Launch Goal Calculator</a>
+    </div>
+</section>
+</main>
 
     <!-- Processing Core Calculation Engine Automation Logic -->
     <script>
@@ -214,6 +615,9 @@ My standard rate range for this specific deliverable is <span id="scriptRange" c
             const addPaidUsage = document.getElementById('addPaidUsage');
             const addExclusivity = document.getElementById('addExclusivity');
             const addRevisions = document.getElementById('addRevisions');
+            const paidUsageValue = document.getElementById('paidUsageValue');
+            const exclusivityValue = document.getElementById('exclusivityValue');
+            const revisionsValue = document.getElementById('revisionsValue');
 
             const outRateStarter = document.getElementById('outRateStarter');
             const outRateRecommended = document.getElementById('outRateRecommended');
@@ -221,6 +625,7 @@ My standard rate range for this specific deliverable is <span id="scriptRange" c
             const outBaseFee = document.getElementById('outBaseFee');
             const outAddonFee = document.getElementById('outAddonFee');
             const outEffectiveCPM = document.getElementById('outEffectiveCPM');
+            const realityCheckText = document.getElementById('realityCheckText');
             const rateConfidenceBadge = document.getElementById('rateConfidenceBadge');
             
             const scriptViews = document.getElementById('scriptViews');
@@ -253,6 +658,9 @@ My standard rate range for this specific deliverable is <span id="scriptRange" c
                 const baseOrganicRateCalculated = viewThousandsBase * platformAnchorCpm * typeModifier * engagementModifier * nicheModifier;
 
                 // Tabulate Add-on Percentages Variables
+                const paidUsageFee = baseOrganicRateCalculated * 0.30;
+                const exclusivityFee = baseOrganicRateCalculated * 0.25;
+                const revisionsFee = baseOrganicRateCalculated * 0.15;
                 let addonMultiplierSum = 0;
                 if(addPaidUsage.checked) addonMultiplierSum += 0.30;
                 if(addExclusivity.checked) addonMultiplierSum += 0.25;
@@ -277,13 +685,30 @@ My standard rate range for this specific deliverable is <span id="scriptRange" c
                 outBaseFee.innerText = `$${Math.round(baseOrganicRateCalculated).toLocaleString()}`;
                 outAddonFee.innerText = `$${Math.round(licensingAddonFeesTotal).toLocaleString()}`;
                 outEffectiveCPM.innerText = `$${finalEffectiveCpmRate}`;
+                updateAddonValue(paidUsageValue, paidUsageFee, addPaidUsage.checked);
+                updateAddonValue(exclusivityValue, exclusivityFee, addExclusivity.checked);
+                updateAddonValue(revisionsValue, revisionsFee, addRevisions.checked);
 
                 // Set Dynamic State Value for Rate Confidence Badge Elements
                 updateConfidenceBadge(viewsCountValue, engagementModifier);
 
                 // Inject text variables contextually straight into the pitch script view layout blocks
                 scriptViews.innerText = viewsCountValue.toLocaleString();
-                scriptRange.innerText = `$${starterFloorPrice.toLocaleString()}–$${recommendedAskPrice.toLocaleString()}`;
+                scriptRange.innerText = `$${starterFloorPrice.toLocaleString()}-$${recommendedAskPrice.toLocaleString()}`;
+                updateRealityCheck(viewsCountValue, recommendedAskPrice);
+            }
+
+            function updateAddonValue(element, value, isActive) {
+                element.innerText = `+$${Math.round(value).toLocaleString()}`;
+                element.className = isActive
+                    ? "addon-live-value text-emerald-300 font-extrabold"
+                    : "addon-live-value text-slate-500 font-semibold";
+            }
+
+            function updateRealityCheck(viewsCount, recommendedAskPrice) {
+                const estimatedCreatorFundCpm = 3.50;
+                const equivalentFundViews = Math.round((recommendedAskPrice / estimatedCreatorFundCpm) * 1000 / 500) * 500;
+                realityCheckText.innerText = `At ${viewsCount.toLocaleString()} monthly views, 1 brand deal at $${recommendedAskPrice.toLocaleString()} equals roughly ${equivalentFundViews.toLocaleString()} TikTok creator fund views.`;
             }
 
             function updateConfidenceBadge(views, engagement) {
@@ -292,7 +717,7 @@ My standard rate range for this specific deliverable is <span id="scriptRange" c
                     rateConfidenceBadge.innerText = "Premium Authority";
                     rateConfidenceBadge.className = "px-2.5 py-0.5 rounded-full text-[10px] font-bold border uppercase tracking-wider bg-emerald-950/50 text-emerald-400 border-emerald-800/60";
                 } else if (views >= 10000) {
-                    rateConfidenceBadge.innerText = "Strong Market Fit";
+                    rateConfidenceBadge.innerText = "Competitive Rate Range";
                     rateConfidenceBadge.className = "px-2.5 py-0.5 rounded-full text-[10px] font-bold border uppercase tracking-wider bg-blue-950/50 text-blue-400 border-blue-800/60";
                 } else {
                     rateConfidenceBadge.innerText = "Emerging Baseline";
@@ -304,5 +729,23 @@ My standard rate range for this specific deliverable is <span id="scriptRange" c
             runValuationEngine();
         });
     </script>
+<footer class="acl-shell-footer no-print">
+    <div class="acl-footer-inner">
+        <div class="acl-footer-brand">
+            <strong>AI Cash Lab Tools</strong>
+            <span>Simple business tools for freelancers, creators, and digital operators.</span>
+        </div>
+        <div class="acl-footer-links">
+            <a href="/">All Tools</a>
+            <a href="/resolution-checker/">Resolution Checker</a>
+            <a href="/creator-utilities/">Creator Utilities</a>
+            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
+            <a href="mailto:support@aicashlabtools.com">Contact</a>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
+
+
+
