@@ -67,6 +67,12 @@
         }
         .preset-btn:hover { border-color: var(--accent-yellow); }
         .preset-btn.active { background-color: rgba(252, 213, 53, 0.1); border-color: var(--accent-yellow); color: var(--accent-yellow); }
+        .preset-helper {
+            color: #cbd5e1;
+            font-size: 0.78rem;
+            line-height: 1.45;
+            min-height: 18px;
+        }
 
         input[type="range"] { width: 100%; accent-color: var(--accent-yellow); cursor: pointer; }
 
@@ -75,6 +81,33 @@
             border-radius: 8px; padding: 16px; font-family: 'Courier New', Courier, monospace;
             font-size: 0.9rem; height: 350px; overflow-y: auto; white-space: pre-wrap; color: #e2e8f0;
         }
+        .output-console.example-state { color: #cbd5e1; }
+        .caption-stats {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        .caption-stat {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .caption-stat span {
+            color: var(--text-muted);
+            display: block;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+        .caption-stat strong {
+            color: #fff;
+            display: block;
+            font-size: 1rem;
+            margin-top: 2px;
+        }
+        @media (max-width: 640px) { .caption-stats { grid-template-columns: 1fr; } }
 
         .action-btn {
             background-color: var(--accent-yellow); color: #000000; border: none; padding: 14px;
@@ -87,16 +120,365 @@
             font-size: 0.85rem; padding: 12px; border-radius: 6px; background-color: rgba(252, 213, 53, 0.03);
             border: 1px dashed var(--border-color); color: var(--text-muted);
         }
+        .internal-link-banner a { color: var(--accent-yellow); font-weight: 800; text-decoration: none; }
+        .internal-link-banner a:hover { text-decoration: underline; }
     </style>
+<style id="acl-shared-tool-shell">
+html, body {
+  min-height: 100%;
+  overflow-y: auto;
+}
+:root {
+  --bg-main: #0d0f13 !important;
+  --bg-card: #151820 !important;
+  --bg-input: #1a1d24 !important;
+  --border-color: #27272a !important;
+  --accent-yellow: #f59e0b !important;
+}
+body {
+  scrollbar-color: #f59e0b #0b1020;
+  background: #0d0f13 !important;
+  padding: 0 !important;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b1020;
+}
+::-webkit-scrollbar-thumb {
+  background: #f59e0b;
+  border-radius: 999px;
+}
+.acl-shell-header,
+.acl-shell-footer,
+.acl-related-tools {
+  box-sizing: border-box;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.acl-shell-header {
+  background: rgba(11, 15, 25, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin: 0 !important;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+}
+.acl-shell-inner {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  height: 64px;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 clamp(16px, 4vw, 32px);
+  width: 100%;
+}
+.acl-brand {
+  align-items: center;
+  color: #fff;
+  display: inline-flex;
+  gap: 12px;
+  min-width: max-content;
+  text-decoration: none;
+}
+.acl-logo-frame {
+  align-items: center;
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 8px;
+  display: inline-flex;
+  height: 32px;
+  justify-content: center;
+  overflow: hidden;
+  width: 32px;
+}
+.acl-brand img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+.acl-brand strong {
+  color: #fff;
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.acl-brand small {
+  color: #64748b;
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  margin-top: 3px;
+  text-transform: uppercase;
+}
+.acl-shell-nav {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  gap: clamp(16px, 2.2vw, 28px);
+  justify-content: center;
+  min-width: 0;
+}
+.acl-shell-nav a,
+.acl-back-link,
+.acl-footer-links a {
+  color: #a1a1aa;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.acl-shell-nav a:hover,
+.acl-footer-links a:hover {
+  color: #fff;
+}
+.acl-shell-nav .acl-premium-link {
+  color: #f59e0b;
+}
+.acl-back-link {
+  border: 1px solid rgba(245, 158, 11, .45);
+  border-radius: 8px;
+  color: #f8fafc;
+  padding: 8px 12px;
+  white-space: nowrap;
+}
+.acl-back-link:hover {
+  background: rgba(245, 158, 11, .12);
+  box-shadow: 0 0 16px rgba(245, 158, 11, .18);
+  color: #fff;
+}
+main {
+  padding-bottom: 72px !important;
+}
+body > .container:last-of-type,
+body > .max-w-6xl:last-of-type,
+body > .max-w-7xl:last-of-type {
+  margin-bottom: 72px !important;
+}
+.acl-related-tools {
+  align-self: stretch !important;
+  background: #151820;
+  border: 1px solid #27272a;
+  border-radius: 14px;
+  box-sizing: border-box;
+  clear: both;
+  color: #d4d4d8;
+  display: grid !important;
+  gap: 22px;
+  grid-column: 1 / -1 !important;
+  grid-template-columns: minmax(0, .85fr) minmax(320px, 1.4fr);
+  justify-self: stretch !important;
+  margin: 56px auto 0 !important;
+  max-width: 1120px;
+  padding: 22px;
+  width: min(100%, 1120px) !important;
+}
+.acl-related-tools h2 {
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 4px 0 6px;
+}
+.acl-related-tools p {
+  color: #a1a1aa;
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0;
+}
+.acl-related-eyebrow {
+  color: #f59e0b;
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.acl-related-grid {
+  align-content: start;
+  display: grid !important;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-width: 0;
+}
+.acl-related-grid a {
+  background: #0f141f;
+  border: 1px solid rgba(245, 158, 11, .25);
+  border-radius: 9px;
+  color: #f8fafc;
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  padding: 10px 12px;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+}
+.acl-related-grid a:hover {
+  background: rgba(245, 158, 11, .12);
+  border-color: rgba(245, 158, 11, .6);
+  color: #f59e0b;
+}
+.acl-shell-footer {
+  background: #111827;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: #64748b;
+  margin: 0 !important;
+  padding: 40px 0;
+  text-align: left !important;
+  width: 100%;
+}
+.acl-footer-inner {
+  align-items: start;
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 clamp(16px, 4vw, 32px);
+  width: 100%;
+}
+.acl-footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.acl-footer-brand strong {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.acl-footer-brand span {
+  color: #64748b;
+  font-size: 11px;
+  max-width: 360px;
+}
+.acl-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: flex-end;
+}
+img, video, canvas, svg {
+  max-width: 100%;
+}
+input, select, textarea, button {
+  max-width: 100%;
+}
+@media (max-width: 900px) {
+  .acl-shell-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 14px;
+    padding-top: 14px;
+  }
+  .acl-shell-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    width: 100%;
+  }
+  .acl-related-tools {
+    grid-template-columns: 1fr;
+    width: min(calc(100% - 32px), 1120px) !important;
+  }
+  .acl-related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .acl-footer-inner {
+    grid-template-columns: 1fr;
+  }
+  .acl-footer-links {
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 640px) {
+  .acl-shell-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .acl-shell-nav a,
+  .acl-back-link,
+  .acl-footer-links a {
+    font-size: 11px;
+  }
+  .acl-related-tools {
+    margin-top: 36px !important;
+    width: calc(100% - 24px) !important;
+  }
+  .acl-related-grid {
+    grid-template-columns: 1fr;
+  }
+  .acl-shell-footer {
+    padding: 28px 0;
+  }
+}
+</style>
+<style id="acl-global-tool-polish">
+.acl-tool-hero,.acl-quick-start{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-left:auto;margin-right:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
+.acl-tool-hero{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(17,24,39,.96));border:1px solid rgba(245,158,11,.22);border-radius:14px;color:#fff;margin-top:40px;padding:clamp(24px,4vw,38px)}
+.acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
+.acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
+.acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
+.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:12px;justify-content:center;margin-top:14px;margin-bottom:20px;padding:12px 18px}
+.acl-quick-start h2{color:#fff;font-size:13px;margin:0}
+.acl-quick-start ol{align-items:center;display:flex;flex-wrap:wrap;gap:10px 12px;list-style:none;margin:0;padding:0}
+.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.35}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" ->";font-weight:800;margin-left:10px}
+.acl-related-tools{margin-bottom:80px !important}
+@media (max-width:900px){.acl-quick-start{align-items:flex-start;flex-direction:column}.acl-quick-start li:not(:last-child)::after{content:""}}
+</style>
 </head>
 <body>
+<header class="acl-shell-header no-print">
+    <div class="acl-shell-inner">
+        <a href="/" class="acl-brand" aria-label="AI Cash Lab Tools homepage">
+            <span class="acl-logo-frame"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab logo"></span>
+            <span><strong>AI Cash Lab</strong><small>Utility Ecosystem</small></span>
+        </a>
+        <nav class="acl-shell-nav" aria-label="Tool categories">
+            <a href="/">Home</a>
+            <a href="/#creator-production">Production</a>
+            <a href="/#creator-monetization">Monetization</a>
+            <a href="/#product-launch">Launch</a>
+            <a href="/#freelancer-business">Freelancer</a>
+            <a href="/#premium-workspaces" class="acl-premium-link">Premium</a>
+        </nav>
+        <a href="/" class="acl-back-link">Back to All Tools</a>
+    </div>
+</header>
 
+<section class="acl-tool-hero no-print">
+    <div class="acl-tool-kicker">Creator Production Tool</div>
+    <h1>Caption Line Splitter</h1>
+    <p>Break long captions and scripts into cleaner on-screen lines for short-form videos, captions, and editing workflows.</p>
+</section>
+
+<section class="acl-quick-start no-print">
+    <h2>Quick Start</h2>
+    <ol>
+            <li>Paste Script</li>
+            <li>Choose Preset</li>
+            <li>Copy Captions</li>
+    </ol>
+</section>
 <div class="container">
-    <header>
-        <div class="brand">AI Cash Lab • Content Flow Utilities</div>
-        <h1>Kinetic Caption Line Splitter</h1>
-        <p>Slice long scripts into perfectly timed, retention-optimized screen segments automatically.</p>
-    </header>
 
     <div class="workspace">
         <div class="input-panel">
@@ -108,11 +490,12 @@
             <div class="form-group">
                 <label>Retention Pacing Presets</label>
                 <div class="preset-grid">
-                    <button class="preset-btn active" data-min="1" data-max="3">⚡ TikTok Kinetic (1-3 words)</button>
-                    <button class="preset-btn" data-min="3" data-max="6">🎬 Faceless Story (3-6 words)</button>
-                    <button class="preset-btn" data-min="5" data-max="8">📚 Educational (5-8 words)</button>
-                    <button class="preset-btn" data-min="8" data-max="12">🎙️ Podcast Clip (8-12 words)</button>
+                    <button class="preset-btn active" data-min="1" data-max="3" data-helper="Fast-paced captions for retention-heavy edits.">TikTok Kinetic (1-3 words)</button>
+                    <button class="preset-btn" data-min="3" data-max="6" data-helper="Medium-speed blocks for story-driven faceless videos.">Faceless Story (3-6 words)</button>
+                    <button class="preset-btn" data-min="5" data-max="8" data-helper="Slower pacing for tutorials and explanations.">Educational (5-8 words)</button>
+                    <button class="preset-btn" data-min="8" data-max="12" data-helper="Longer caption lines for conversational clips.">Podcast Clip (8-12 words)</button>
                 </div>
+                <p class="preset-helper" id="preset-helper">Fast-paced captions for retention-heavy edits.</p>
             </div>
 
             <div class="form-group">
@@ -127,13 +510,42 @@
         <div class="dashboard-panel">
             <div class="form-group">
                 <label>Timed Caption Breakdown</label>
-                <div class="output-console" id="output-split">Line breaks will generate here...</div>
+                <div class="output-console example-state" id="output-split">THIS IS WHY
+MOST CREATORS
+STRUGGLE TO
+GROW
+
+->
+
+THIS IS WHY
+MOST CREATORS
+
+STRUGGLE TO GROW</div>
+            </div>
+            <div class="caption-stats" aria-label="Caption output estimates">
+                <div class="caption-stat">
+                    <span>Caption Blocks</span>
+                    <strong id="stat-caption-blocks">4</strong>
+                </div>
+                <div class="caption-stat">
+                    <span>Estimated Duration</span>
+                    <strong id="stat-duration">5 sec</strong>
+                </div>
+                <div class="caption-stat">
+                    <span>Avg Display Time</span>
+                    <strong id="stat-display-time">1.3 sec</strong>
+                </div>
+                <div class="caption-stat">
+                    <span>Avg Words / Caption</span>
+                    <strong id="stat-avg-words">2.3</strong>
+                </div>
             </div>
 
-            <button class="action-btn" id="copy-btn">Copy Generated Code Stack</button>
+            <button class="action-btn" id="copy-btn">Copy Split Captions</button>
 
             <div class="internal-link-banner">
-                💡 Need to check if the total script length exceeds hard platform parameters? Use our <strong>Script Word-to-Time Calculator</strong> to optimize your raw file length before editing.
+                <strong>Script too long?</strong><br>
+                Check your estimated video length with the <a href="/video-script-time-calculator/">Video Script Time Calculator -></a>
             </div>
         </div>
     </div>
@@ -146,9 +558,25 @@
     const presetBtns = document.querySelectorAll('.preset-btn');
     const outputSplit = document.getElementById('output-split');
     const copyBtn = document.getElementById('copy-btn');
+    const presetHelper = document.getElementById('preset-helper');
+    const statCaptionBlocks = document.getElementById('stat-caption-blocks');
+    const statDuration = document.getElementById('stat-duration');
+    const statDisplayTime = document.getElementById('stat-display-time');
+    const statAvgWords = document.getElementById('stat-avg-words');
 
     let currentMin = 1;
     let currentMax = 3;
+    const exampleOutput = `THIS IS WHY
+MOST CREATORS
+STRUGGLE TO
+GROW
+
+->
+
+THIS IS WHY
+MOST CREATORS
+
+STRUGGLE TO GROW`;
 
     scriptText.addEventListener('input', runSplitEngine);
     inputWpm.addEventListener('input', (e) => {
@@ -162,6 +590,7 @@
             btn.classList.add('active');
             currentMin = parseInt(btn.getAttribute('data-min'));
             currentMax = parseInt(btn.getAttribute('data-max'));
+            presetHelper.textContent = btn.getAttribute('data-helper');
             runSplitEngine();
         });
     });
@@ -169,9 +598,12 @@
     function runSplitEngine() {
         const text = scriptText.value.trim().replace(/\s+/g, ' ');
         if (!text) {
-            outputSplit.textContent = "Line breaks will generate here...";
+            outputSplit.textContent = exampleOutput;
+            outputSplit.classList.add('example-state');
+            updateStats(4, 5, 2.3);
             return;
         }
+        outputSplit.classList.remove('example-state');
 
         const words = text.split(' ');
         const wpm = parseInt(inputWpm.value);
@@ -213,13 +645,22 @@
         });
 
         outputSplit.textContent = formattedOutput;
+        const averageWordsPerCaption = words.length / Math.max(lines.length, 1);
+        updateStats(lines.length, runningTime, averageWordsPerCaption);
+    }
+
+    function updateStats(captionBlocks, durationSeconds, averageWords) {
+        statCaptionBlocks.textContent = captionBlocks.toLocaleString();
+        statDuration.textContent = `${Math.round(durationSeconds)} sec`;
+        statDisplayTime.textContent = `${(durationSeconds / Math.max(captionBlocks, 1)).toFixed(1)} sec`;
+        statAvgWords.textContent = averageWords.toFixed(1);
     }
 
     copyBtn.addEventListener('click', () => {
-        if (outputSplit.textContent.includes('generate here')) return;
+        if (outputSplit.classList.contains('example-state')) return;
         navigator.clipboard.writeText(outputSplit.textContent);
         const originalText = copyBtn.textContent;
-        copyBtn.textContent = "Copied to Clipboard! ✓";
+        copyBtn.textContent = "Copied to Clipboard! ";
         copyBtn.style.backgroundColor = "var(--status-green)";
         setTimeout(() => {
             copyBtn.textContent = originalText;
@@ -228,5 +669,36 @@
     });
 </script>
 
+<section class="acl-related-tools no-print" aria-label="Related Creator Tools">
+    <div>
+        <span class="acl-related-eyebrow">Related Creator Tools</span>
+        <h2>Keep improving the creative workflow.</h2>
+        <p>Use these tools to tighten hooks, captions, safe zones, resolution, and production planning.</p>
+    </div>
+    <div class="acl-related-grid">
+        <a href="/short-form-hook-analyzer/">Short-Form Hook Analyzer</a>
+        <a href="/retention-diagnostic-tool/">Retention Diagnostic Tool</a>
+        <a href="/video-script-time-calculator/">Video Script Time Calculator</a>
+        <a href="/resolution-checker/">Video Resolution &amp; Aspect Ratio Checker</a>
+        <a href="/creator-utilities/">Creator Safe Zone Previewer</a>
+        <a href="/paid-traffic-profit-calculator/">Paid Traffic Profit Calculator</a>
+    </div>
+</section>
+<footer class="acl-shell-footer no-print">
+    <div class="acl-footer-inner">
+        <div class="acl-footer-brand">
+            <strong>AI Cash Lab Tools</strong>
+            <span>Simple business tools for freelancers, creators, and digital operators.</span>
+        </div>
+        <div class="acl-footer-links">
+            <a href="/">All Tools</a>
+            <a href="/resolution-checker/">Resolution Checker</a>
+            <a href="/creator-utilities/">Creator Utilities</a>
+            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
+            <a href="mailto:support@aicashlabtools.com">Contact</a>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
+
