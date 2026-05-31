@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Product Presale Risk Evaluator | AI Cash Lab</title>
+    <title>Presale Validation Tester | Check Product Demand Before Launch</title>
     
-    <meta name="description" content="Calculate your product build risk score, potential time exposure, and audience conversion reality checks before creating digital products.">
+    <meta name="description" content="Evaluate presale demand, audience fit, price confidence, and launch risk before building a digital product.">
     <meta name="keywords" content="presale validation, product validation calculator, product market fit tester, creator runway, digital product launch strategy">
     
     <style>
@@ -101,15 +101,370 @@
             background-color: rgba(252, 213, 53, 0.01); border: 1px dashed var(--border-color);
         }
     </style>
+<style id="acl-shared-tool-shell">
+html, body {
+  min-height: 100%;
+  overflow-y: auto;
+}
+:root {
+  --bg-main: #0d0f13 !important;
+  --bg-card: #151820 !important;
+  --bg-input: #1a1d24 !important;
+  --border-color: #27272a !important;
+  --accent-yellow: #f59e0b !important;
+}
+body {
+  scrollbar-color: #f59e0b #0b1020;
+  background: #0d0f13 !important;
+  padding: 0 !important;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b1020;
+}
+::-webkit-scrollbar-thumb {
+  background: #f59e0b;
+  border-radius: 999px;
+}
+.acl-shell-header,
+.acl-shell-footer,
+.acl-related-tools {
+  box-sizing: border-box;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.acl-shell-header {
+  background: rgba(11, 15, 25, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin: 0 !important;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+}
+.acl-shell-inner {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  height: 64px;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 clamp(16px, 4vw, 32px);
+  width: 100%;
+}
+.acl-brand {
+  align-items: center;
+  color: #fff;
+  display: inline-flex;
+  gap: 12px;
+  min-width: max-content;
+  text-decoration: none;
+}
+.acl-logo-frame {
+  align-items: center;
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 8px;
+  display: inline-flex;
+  height: 32px;
+  justify-content: center;
+  overflow: hidden;
+  width: 32px;
+}
+.acl-brand img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+.acl-brand strong {
+  color: #fff;
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.acl-brand small {
+  color: #64748b;
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  margin-top: 3px;
+  text-transform: uppercase;
+}
+.acl-shell-nav {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  gap: clamp(16px, 2.2vw, 28px);
+  justify-content: center;
+  min-width: 0;
+}
+.acl-shell-nav a,
+.acl-back-link,
+.acl-footer-links a {
+  color: #a1a1aa;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.acl-shell-nav a:hover,
+.acl-footer-links a:hover {
+  color: #fff;
+}
+.acl-shell-nav .acl-premium-link {
+  color: #f59e0b;
+}
+.acl-back-link {
+  border: 1px solid rgba(245, 158, 11, .45);
+  border-radius: 8px;
+  color: #f8fafc;
+  padding: 8px 12px;
+  white-space: nowrap;
+}
+.acl-back-link:hover {
+  background: rgba(245, 158, 11, .12);
+  box-shadow: 0 0 16px rgba(245, 158, 11, .18);
+  color: #fff;
+}
+main {
+  padding-bottom: 72px !important;
+}
+body > .container:last-of-type,
+body > .max-w-6xl:last-of-type,
+body > .max-w-7xl:last-of-type {
+  margin-bottom: 72px !important;
+}
+.acl-related-tools {
+  align-self: stretch !important;
+  background: #151820;
+  border: 1px solid #27272a;
+  border-radius: 14px;
+  box-sizing: border-box;
+  clear: both;
+  color: #d4d4d8;
+  display: grid !important;
+  gap: 22px;
+  grid-column: 1 / -1 !important;
+  grid-template-columns: minmax(0, .85fr) minmax(320px, 1.4fr);
+  justify-self: stretch !important;
+  margin: 56px auto 0 !important;
+  max-width: 1120px;
+  padding: 22px;
+  width: min(100%, 1120px) !important;
+}
+.acl-related-tools h2 {
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 4px 0 6px;
+}
+.acl-related-tools p {
+  color: #a1a1aa;
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0;
+}
+.acl-related-eyebrow {
+  color: #f59e0b;
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.acl-related-grid {
+  align-content: start;
+  display: grid !important;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-width: 0;
+}
+.acl-related-grid a {
+  background: #0f141f;
+  border: 1px solid rgba(245, 158, 11, .25);
+  border-radius: 9px;
+  color: #f8fafc;
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  padding: 10px 12px;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+}
+.acl-related-grid a:hover {
+  background: rgba(245, 158, 11, .12);
+  border-color: rgba(245, 158, 11, .6);
+  color: #f59e0b;
+}
+.acl-shell-footer {
+  background: #111827;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: #64748b;
+  margin: 0 !important;
+  padding: 40px 0;
+  text-align: left !important;
+  width: 100%;
+}
+.acl-footer-inner {
+  align-items: start;
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 clamp(16px, 4vw, 32px);
+  width: 100%;
+}
+.acl-footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.acl-footer-brand strong {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.acl-footer-brand span {
+  color: #64748b;
+  font-size: 11px;
+  max-width: 360px;
+}
+.acl-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: flex-end;
+}
+img, video, canvas, svg {
+  max-width: 100%;
+}
+input, select, textarea, button {
+  max-width: 100%;
+}
+@media (max-width: 900px) {
+  .acl-shell-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 14px;
+    padding-top: 14px;
+  }
+  .acl-shell-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    width: 100%;
+  }
+  .acl-related-tools {
+    grid-template-columns: 1fr;
+    width: min(calc(100% - 32px), 1120px) !important;
+  }
+  .acl-related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .acl-footer-inner {
+    grid-template-columns: 1fr;
+  }
+  .acl-footer-links {
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 640px) {
+  .acl-shell-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .acl-shell-nav a,
+  .acl-back-link,
+  .acl-footer-links a {
+    font-size: 11px;
+  }
+  .acl-related-tools {
+    margin-top: 36px !important;
+    width: calc(100% - 24px) !important;
+  }
+  .acl-related-grid {
+    grid-template-columns: 1fr;
+  }
+  .acl-shell-footer {
+    padding: 28px 0;
+  }
+}
+</style>
+<style id="acl-global-tool-polish">
+.acl-tool-hero,.acl-quick-start{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-left:auto;margin-right:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
+.acl-tool-hero{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(17,24,39,.96));border:1px solid rgba(245,158,11,.22);border-radius:14px;color:#fff;margin-top:40px;padding:clamp(24px,4vw,38px)}
+.acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
+.acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
+.acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
+.acl-quick-start{background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;margin-top:18px;margin-bottom:24px;padding:20px 22px}
+.acl-quick-start h2{color:#fff;font-size:16px;margin:0 0 12px}
+.acl-quick-start ol{display:grid;gap:8px 18px;grid-template-columns:repeat(5,minmax(0,1fr));list-style-position:inside;margin:0;padding:0}
+.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.45}
+@media (max-width:900px){.acl-quick-start ol{grid-template-columns:1fr}}
+.acl-faq-section{box-sizing:border-box;background:#151820;border:1px solid #27272a;border-radius:14px;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(calc(100% - 32px),1120px)}
+.acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
+.acl-faq-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:14px}
+.acl-faq-item h3{color:#f8fafc;font-size:14px;margin:0 0 6px}
+.acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}
+@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px;width:calc(100% - 24px)}}
+.acl-related-tools{margin-bottom:80px !important}
+</style>
 </head>
 <body>
+<header class="acl-shell-header no-print">
+    <div class="acl-shell-inner">
+        <a href="/" class="acl-brand" aria-label="AI Cash Lab Tools homepage">
+            <span class="acl-logo-frame"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab logo"></span>
+            <span><strong>AI Cash Lab</strong><small>Utility Ecosystem</small></span>
+        </a>
+        <nav class="acl-shell-nav" aria-label="Tool categories">
+            <a href="/">Home</a>
+            <a href="/#creator-production">Production</a>
+            <a href="/#creator-monetization">Monetization</a>
+            <a href="/#product-launch">Launch</a>
+            <a href="/#freelancer-business">Freelancer</a>
+            <a href="/#premium-workspaces" class="acl-premium-link">Premium</a>
+        </nav>
+        <a href="/" class="acl-back-link">Back to All Tools</a>
+    </div>
+</header>
 
+<section class="acl-tool-hero no-print">
+    <div class="acl-tool-kicker">Product Launch Tool</div>
+    <h1>Presale Validation Tester</h1>
+    <p>Check whether a product idea has enough demand, clarity, and buyer intent before you build the full offer.</p>
+</section>
+
+<section class="acl-quick-start no-print">
+    <h2>Quick Start</h2>
+    <ol>
+            <li>Enter the launch inputs</li>
+            <li>Set the target assumptions</li>
+            <li>Review demand or revenue math</li>
+            <li>Compare the weak points</li>
+            <li>Choose the next validation step</li>
+    </ol>
+</section>
 <div class="container">
-    <header>
-        <div class="brand">AI Cash Lab • Risk Validation Desk</div>
-        <h1>Digital Product Presale Risk Evaluator</h1>
-        <p>Stress-test your digital product ideas before spending single calendar minutes creating unvalidated content.</p>
-    </header>
 
     <div class="workspace">
         <!-- Control Variables Input Frame -->
@@ -328,29 +683,73 @@
 
         // Reality Check Subtitle Text Dynamic Update
         if (conversionRequired > 2.0) {
-            realityCheckSub.textContent = "🚨 Required conversion exceeds typical platform behaviors.";
+            realityCheckSub.textContent = " Required conversion exceeds typical platform behaviors.";
             realityCheckSub.style.color = "var(--status-alert)";
         } else if (conversionRequired > 1.0) {
-            realityCheckSub.textContent = "⚠️ High effort required to convert this audience scale.";
+            realityCheckSub.textContent = "Warning: High effort required to convert this audience scale.";
             realityCheckSub.style.color = "var(--status-warning)";
         } else {
-            realityCheckSub.textContent = "✅ Target sits within optimal conversion ranges.";
+            realityCheckSub.textContent = "PASS: Target sits within optimal conversion ranges.";
             realityCheckSub.style.color = "var(--status-green)";
         }
 
         // Actionable Strategic Advisory Content Assembly Block
         if (badgeStatus.textContent === "Build Now") {
-            outVerdict.innerHTML = `🚀 <strong>Market Signal Confirmed:</strong> Your audience has backed this product with real financial skin in the game. Your exposure risks are completely clear. Proceed directly to full deployment operations using the framework parameters inside our <strong>Launch OS</strong> to coordinate your delivery sequence without hitch.`;
+            outVerdict.innerHTML = ` <strong>Market Signal Confirmed:</strong> Your audience has backed this product with real financial skin in the game. Your exposure risks are completely clear. Proceed directly to full deployment operations using the framework parameters inside our <strong>Launch OS</strong> to coordinate your delivery sequence without hitch.`;
         } else if (badgeStatus.textContent === "Validate Further") {
-            outVerdict.innerHTML = `⚡ <strong>Partial Signal Acquired:</strong> Interest is present, but financial validation thresholds remain unfulfilled. Do not begin coding or writing content assets yet. Use the audience formatting and engagement metrics inside the <strong>Creator Monetization OS</strong> to design a hyper-focused promotional sprint to cross your conversion finish line safely.`;
+            outVerdict.innerHTML = `<strong>Partial Signal Acquired:</strong> Interest is present, but financial validation thresholds remain unfulfilled. Do not begin coding or writing content assets yet. Use audience formatting and engagement metrics to design a focused promotional sprint before building.`;
         } else {
-            outVerdict.innerHTML = `🛑 <strong>High Exposure Alert:</strong> Building at this stage places <strong>${buildDays} Days of your time completely at risk</strong>. If this asset fails, that baseline runway is gone forever. Halt asset engineering immediately and deploy structured validation frameworks using our <strong>Launch OS</strong> to acquire initial pre-orders before creating content lines.`;
+            outVerdict.innerHTML = `<strong>High Exposure Alert:</strong> Building at this stage places <strong>${buildDays} Days of your time completely at risk</strong>. If this asset fails, that baseline runway is gone forever. Pause production and acquire initial pre-orders before creating the full asset.`;
         }
     }
 
     // Initialize layout lifecycle triggers
     runRiskEngine();
 </script>
-
+<section class="acl-faq-section no-print" aria-label="Frequently Asked Questions">
+    <h2>Frequently Asked Questions</h2>
+    <div class="acl-faq-grid">
+        <article class="acl-faq-item">
+            <h3>What is presale validation?</h3>
+            <p>Presale validation tests whether people show real buying interest before you invest heavily in building the product.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>What signals should I look for?</h3>
+            <p>Look for clear pain, specific buyer intent, audience fit, price tolerance, and repeatable demand.</p>
+        </article>
+    </div>
+</section>
+<section class="acl-related-tools no-print" aria-label="Related Launch Tools">
+    <div>
+        <span class="acl-related-eyebrow">Related Launch Tools</span>
+        <h2>Plan the next launch step.</h2>
+        <p>Use these tools to validate demand, estimate launch targets, and pressure-test the offer before building.</p>
+    </div>
+    <div class="acl-related-grid">
+        <a href="/product-idea-validator/">Product Idea Validator</a>
+        <a href="/product-launch-calculator/">Product Launch Calculator</a>
+        <a href="/product-launch-goal-calculator/">Product Launch Goal Calculator</a>
+        <a href="/pricing-strategy-calculator/">Pricing Strategy Calculator</a>
+        <a href="/gumroad-profit-calculator/">Gumroad Profit Calculator</a>
+        <a href="/paid-traffic-profit-calculator/">Paid Traffic Profit Calculator</a>
+    </div>
+</section>
+<footer class="acl-shell-footer no-print">
+    <div class="acl-footer-inner">
+        <div class="acl-footer-brand">
+            <strong>AI Cash Lab Tools</strong>
+            <span>Simple business tools for freelancers, creators, and digital operators.</span>
+        </div>
+        <div class="acl-footer-links">
+            <a href="/">All Tools</a>
+            <a href="/resolution-checker/">Resolution Checker</a>
+            <a href="/creator-utilities/">Creator Utilities</a>
+            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
+            <a href="mailto:support@aicashlabtools.com">Contact</a>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
+
+
