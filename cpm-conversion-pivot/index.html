@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audience CPM vs. Digital Product Conversion Pivot | AI Cash Lab</title>
+    <title>CPM vs Product Revenue Calculator | Compare Ads and Products</title>
     
-    <meta name="description" content="Compare platform creator fund ad payouts against digital product asset sales. Calculate your missed revenue gap and monetize traffic effectively.">
+    <meta name="description" content="Compare creator ad revenue against digital product revenue and see how views, RPM, product price, and conversion rate change monthly earnings.">
     <meta name="keywords" content="creator fund calculator, views to dollars, convert views to revenue, monetize audience, gumroad funnel calculator">
     
     <style>
@@ -77,21 +77,443 @@
         .comparison-bar-container { background: #1e222b; height: 24px; border-radius: 12px; overflow: hidden; position: relative; border: 1px solid var(--border-color); margin: 10px 0; }
         .comparison-bar { background: var(--status-green); height: 100%; width: 0%; transition: width 0.4s ease; }
         .comparison-bar-fill-fund { background: var(--status-alert); height: 100%; position: absolute; left: 0; top: 0; width: 0%; transition: width 0.4s ease; }
+        .comparison-labels {
+            display: grid;
+            gap: 8px;
+            grid-template-columns: 1fr 1fr;
+            margin-top: 4px;
+        }
+        .comparison-label {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            padding: 8px 10px;
+        }
+        .comparison-label strong { color: #fff; display: block; font-size: 0.9rem; margin-top: 1px; }
+        .assumption-box, .reality-box, .leverage-badge {
+            border-radius: 10px;
+            padding: 16px;
+        }
+        .assumption-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-color);
+            color: #cbd5e1;
+            font-size: 0.85rem;
+        }
+        .assumption-box span {
+            color: var(--text-muted);
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .reality-box {
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+        }
+        .reality-box h3 {
+            color: var(--accent-yellow);
+            font-size: 0.75rem;
+            letter-spacing: .12em;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .reality-box p { color: #cbd5e1; font-size: 0.9rem; }
+        .leverage-badge {
+            background: radial-gradient(circle at 50% 0%, rgba(34, 197, 94, 0.22), rgba(19, 23, 34, 0.98) 66%);
+            border: 1px solid rgba(34, 197, 94, 0.45);
+            text-align: center;
+        }
+        .leverage-badge span {
+            color: var(--status-green);
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 900;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+        .leverage-badge strong {
+            color: #fff;
+            display: block;
+            font-size: 3rem;
+            line-height: 1;
+            margin: 6px 0;
+        }
+        .leverage-badge p { color: #cbd5e1; font-size: 0.85rem; }
+        @media (max-width: 640px) { .split-display, .comparison-labels { grid-template-columns: 1fr; } }
 
         .advisor-box {
             font-size: 0.85rem; line-height: 1.5; padding: 16px; border-radius: 8px;
             background-color: rgba(252, 213, 53, 0.01); border: 1px dashed var(--border-color);
         }
     </style>
+<style id="acl-shared-tool-shell">
+html, body {
+  min-height: 100%;
+  overflow-y: auto;
+}
+:root {
+  --bg-main: #0d0f13 !important;
+  --bg-card: #151820 !important;
+  --bg-input: #1a1d24 !important;
+  --border-color: #27272a !important;
+  --accent-yellow: #f59e0b !important;
+}
+body {
+  scrollbar-color: #f59e0b #0b1020;
+  background: #0d0f13 !important;
+  padding: 0 !important;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b1020;
+}
+::-webkit-scrollbar-thumb {
+  background: #f59e0b;
+  border-radius: 999px;
+}
+.acl-shell-header,
+.acl-shell-footer,
+.acl-related-tools {
+  box-sizing: border-box;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.acl-shell-header {
+  background: rgba(11, 15, 25, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin: 0 !important;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+}
+.acl-shell-inner {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  height: 64px;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 clamp(16px, 4vw, 32px);
+  width: 100%;
+}
+.acl-brand {
+  align-items: center;
+  color: #fff;
+  display: inline-flex;
+  gap: 12px;
+  min-width: max-content;
+  text-decoration: none;
+}
+.acl-logo-frame {
+  align-items: center;
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 8px;
+  display: inline-flex;
+  height: 32px;
+  justify-content: center;
+  overflow: hidden;
+  width: 32px;
+}
+.acl-brand img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+.acl-brand strong {
+  color: #fff;
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.acl-brand small {
+  color: #64748b;
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  margin-top: 3px;
+  text-transform: uppercase;
+}
+.acl-shell-nav {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  gap: clamp(16px, 2.2vw, 28px);
+  justify-content: center;
+  min-width: 0;
+}
+.acl-shell-nav a,
+.acl-back-link,
+.acl-footer-links a {
+  color: #a1a1aa;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.acl-shell-nav a:hover,
+.acl-footer-links a:hover {
+  color: #fff;
+}
+.acl-shell-nav .acl-premium-link {
+  color: #f59e0b;
+}
+.acl-back-link {
+  border: 1px solid rgba(245, 158, 11, .45);
+  border-radius: 8px;
+  color: #f8fafc;
+  padding: 8px 12px;
+  white-space: nowrap;
+}
+.acl-back-link:hover {
+  background: rgba(245, 158, 11, .12);
+  box-shadow: 0 0 16px rgba(245, 158, 11, .18);
+  color: #fff;
+}
+main {
+  padding-bottom: 72px !important;
+}
+body > .container:last-of-type,
+body > .max-w-6xl:last-of-type,
+body > .max-w-7xl:last-of-type {
+  margin-bottom: 72px !important;
+}
+.acl-related-tools {
+  align-self: stretch !important;
+  background: #151820;
+  border: 1px solid #27272a;
+  border-radius: 14px;
+  box-sizing: border-box;
+  clear: both;
+  color: #d4d4d8;
+  display: grid !important;
+  gap: 22px;
+  grid-column: 1 / -1 !important;
+  grid-template-columns: minmax(0, .85fr) minmax(320px, 1.4fr);
+  justify-self: stretch !important;
+  margin: 56px auto 0 !important;
+  max-width: 1120px;
+  padding: 22px;
+  width: min(100%, 1120px) !important;
+}
+.acl-related-tools h2 {
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 4px 0 6px;
+}
+.acl-related-tools p {
+  color: #a1a1aa;
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0;
+}
+.acl-related-eyebrow {
+  color: #f59e0b;
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.acl-related-grid {
+  align-content: start;
+  display: grid !important;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-width: 0;
+}
+.acl-related-grid a {
+  background: #0f141f;
+  border: 1px solid rgba(245, 158, 11, .25);
+  border-radius: 9px;
+  color: #f8fafc;
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  padding: 10px 12px;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+}
+.acl-related-grid a:hover {
+  background: rgba(245, 158, 11, .12);
+  border-color: rgba(245, 158, 11, .6);
+  color: #f59e0b;
+}
+.acl-shell-footer {
+  background: #111827;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: #64748b;
+  margin: 0 !important;
+  padding: 40px 0;
+  text-align: left !important;
+  width: 100%;
+}
+.acl-footer-inner {
+  align-items: start;
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 clamp(16px, 4vw, 32px);
+  width: 100%;
+}
+.acl-footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.acl-footer-brand strong {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.acl-footer-brand span {
+  color: #64748b;
+  font-size: 11px;
+  max-width: 360px;
+}
+.acl-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: flex-end;
+}
+img, video, canvas, svg {
+  max-width: 100%;
+}
+input, select, textarea, button {
+  max-width: 100%;
+}
+@media (max-width: 900px) {
+  .acl-shell-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 14px;
+    padding-top: 14px;
+  }
+  .acl-shell-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    width: 100%;
+  }
+  .acl-related-tools {
+    grid-template-columns: 1fr;
+    width: min(calc(100% - 32px), 1120px) !important;
+  }
+  .acl-related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .acl-footer-inner {
+    grid-template-columns: 1fr;
+  }
+  .acl-footer-links {
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 640px) {
+  .acl-shell-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .acl-shell-nav a,
+  .acl-back-link,
+  .acl-footer-links a {
+    font-size: 11px;
+  }
+  .acl-related-tools {
+    margin-top: 36px !important;
+    width: calc(100% - 24px) !important;
+  }
+  .acl-related-grid {
+    grid-template-columns: 1fr;
+  }
+  .acl-shell-footer {
+    padding: 28px 0;
+  }
+}
+</style>
+<style id="acl-global-tool-polish">
+.acl-tool-hero,.acl-quick-start{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-left:auto;margin-right:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
+.acl-tool-hero{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(17,24,39,.96));border:1px solid rgba(245,158,11,.22);border-radius:14px;color:#fff;margin-top:40px;padding:clamp(24px,4vw,38px)}
+.acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
+.acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
+.acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
+.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:12px;justify-content:center;margin-top:14px;margin-bottom:20px;padding:12px 18px}
+.acl-quick-start h2{color:#fff;font-size:13px;margin:0}
+.acl-quick-start ol{align-items:center;display:flex;flex-wrap:wrap;gap:10px 12px;list-style:none;margin:0;padding:0}
+.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.35}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" ->";font-weight:800;margin-left:10px}
+@media (max-width:900px){.acl-quick-start{align-items:flex-start;flex-direction:column}.acl-quick-start li:not(:last-child)::after{content:""}}
+.acl-faq-section{box-sizing:border-box;background:#151820;border:1px solid #27272a;border-radius:14px;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(calc(100% - 32px),1120px)}
+.acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
+.acl-faq-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:14px}
+.acl-faq-item h3{color:#f8fafc;font-size:14px;margin:0 0 6px}
+.acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}
+@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px;width:calc(100% - 24px)}}
+.acl-related-tools{margin-bottom:80px !important}
+</style>
 </head>
 <body>
+<header class="acl-shell-header no-print">
+    <div class="acl-shell-inner">
+        <a href="/" class="acl-brand" aria-label="AI Cash Lab Tools homepage">
+            <span class="acl-logo-frame"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab logo"></span>
+            <span><strong>AI Cash Lab</strong><small>Utility Ecosystem</small></span>
+        </a>
+        <nav class="acl-shell-nav" aria-label="Tool categories">
+            <a href="/">Home</a>
+            <a href="/#creator-production">Production</a>
+            <a href="/#creator-monetization">Monetization</a>
+            <a href="/#product-launch">Launch</a>
+            <a href="/#freelancer-business">Freelancer</a>
+            <a href="/#premium-workspaces" class="acl-premium-link">Premium</a>
+        </nav>
+        <a href="/" class="acl-back-link">Back to All Tools</a>
+    </div>
+</header>
 
+<section class="acl-tool-hero no-print">
+    <div class="acl-tool-kicker">Creator Monetization Tool</div>
+    <h1>CPM vs Product Revenue Calculator</h1>
+    <p>Compare ad revenue against product revenue to see when owned offers beat CPM-based monetization.</p>
+</section>
+
+<section class="acl-quick-start no-print">
+    <h2>Quick Start</h2>
+    <ol>
+            <li>Adjust Inputs</li>
+            <li>Compare Outcomes</li>
+            <li>Explore Next Tool</li>
+    </ol>
+</section>
 <div class="container">
-    <header>
-        <div class="brand">AI Cash Lab • Revenue Conversion Utilities</div>
-        <h1>Audience CPM vs. Digital Product Pivot</h1>
-        <p>Visualize the financial delta between renting platform attention and owning your monetization ecosystem.</p>
-    </header>
 
     <div class="workspace">
         <!-- Input Controls Component -->
@@ -143,11 +565,26 @@
             </div>
 
             <div class="form-group">
-                <label style="font-size:0.8rem; text-transform:uppercase; color:var(--text-muted);">Visual Revenue Proportionality Scale</label>
+                <label style="font-size:0.8rem; text-transform:uppercase; color:var(--text-muted);">Revenue Comparison Scale</label>
                 <div class="comparison-bar-container">
                     <div class="comparison-bar" id="bar-product"></div>
                     <div class="comparison-bar-fill-fund" id="bar-fund"></div>
                 </div>
+                <div class="comparison-labels">
+                    <div class="comparison-label">Ads <strong id="bar-label-ads">$0</strong></div>
+                    <div class="comparison-label">Products <strong id="bar-label-products">$0</strong></div>
+                </div>
+            </div>
+
+            <div class="leverage-badge" id="leverage-badge">
+                <span>Product Leverage</span>
+                <strong id="out-multiplier">0x</strong>
+                <p>More revenue than ads</p>
+            </div>
+
+            <div class="assumption-box">
+                <span>Assumes</span>
+                <p id="assumption-math">500,000 views x 0.30% conversion = 1,500 buyers</p>
             </div>
 
             <div class="output-list">
@@ -161,11 +598,24 @@
 
                 <div class="output-row">
                     <div>
-                        <span>Required Unit Sales Volumes</span>
-                        <span class="sub-lbl">Total product conversions needed per month.</span>
+                        <span>Estimated Monthly Buyers</span>
+                        <span class="sub-lbl">Estimated people buying from this traffic each month.</span>
                     </div>
-                    <span class="val" id="out-units">0 copies</span>
+                    <span class="val" id="out-units">0 buyers</span>
                 </div>
+
+                <div class="output-row">
+                    <div>
+                        <span>Break-Even Conversion Rate</span>
+                        <span class="sub-lbl">Conversion needed for product revenue to equal ad revenue.</span>
+                    </div>
+                    <span class="val" id="out-break-even">0.000%</span>
+                </div>
+            </div>
+
+            <div class="reality-box">
+                <h3>Reality Check</h3>
+                <p id="reality-check">0.30% conversion means: 1,000 viewers -> 3 buyers. This is why even small conversion rates can outperform ad revenue.</p>
             </div>
 
             <div class="advisor-box" id="advisor-verdict">
@@ -190,6 +640,12 @@
     const outProductPay = document.getElementById('out-product-pay');
     const outGap = document.getElementById('out-gap');
     const outUnits = document.getElementById('out-units');
+    const outBreakEven = document.getElementById('out-break-even');
+    const outMultiplier = document.getElementById('out-multiplier');
+    const assumptionMath = document.getElementById('assumption-math');
+    const realityCheck = document.getElementById('reality-check');
+    const barLabelAds = document.getElementById('bar-label-ads');
+    const barLabelProducts = document.getElementById('bar-label-products');
     
     const barFund = document.getElementById('bar-fund');
     const barProduct = document.getElementById('bar-product');
@@ -208,7 +664,7 @@
         valCr.textContent = `${parseFloat(inputCr.value).toFixed(2)}%`;
 
         const views = parseFloat(inputViews.value);
-        const rpm = parseFloat(inputRPM = inputRpm.value);
+        const rpm = parseFloat(inputRpm.value);
         const price = parseFloat(inputPrice.value);
         const conversionRate = parseFloat(inputCr.value) / 100;
 
@@ -217,12 +673,21 @@
         const totalUnitsSold = Math.round(views * conversionRate);
         const productRevenue = totalUnitsSold * price;
         const revenueGap = productRevenue - fundRevenue;
+        const breakEvenConversionRate = price > 0 && views > 0 ? (fundRevenue / (views * price)) * 100 : 0;
+        const multiplier = productRevenue / Math.max(fundRevenue, 1);
+        const buyersPerThousand = Math.round(1000 * conversionRate * 10) / 10;
 
         // Render Outputs to screen
         outFundPay.textContent = usd.format(fundRevenue);
         outProductPay.textContent = usd.format(productRevenue);
         outGap.textContent = revenueGap > 0 ? usd.format(revenueGap) : "$0";
-        outUnits.textContent = `${totalUnitsSold.toLocaleString()} copies`;
+        outUnits.textContent = `${totalUnitsSold.toLocaleString()} buyers`;
+        outBreakEven.textContent = `${breakEvenConversionRate.toFixed(3)}%`;
+        outMultiplier.textContent = `${multiplier.toFixed(0)}x`;
+        assumptionMath.textContent = `${views.toLocaleString()} views x ${(conversionRate * 100).toFixed(2)}% conversion = ${totalUnitsSold.toLocaleString()} buyers`;
+        realityCheck.textContent = `${(conversionRate * 100).toFixed(2)}% conversion means: 1,000 viewers -> ${buyersPerThousand.toLocaleString()} buyers. This is why even small conversion rates can outperform ad revenue.`;
+        barLabelAds.textContent = usd.format(fundRevenue);
+        barLabelProducts.textContent = usd.format(productRevenue);
 
         // Render Proportionality Chart Graphics Bars
         const maxPayout = Math.max(fundRevenue, productRevenue, 1);
@@ -234,16 +699,58 @@
 
         // Strategy Diagnostics Engine
         if (revenueGap > 0) {
-            const multiplier = (productRevenue / Math.max(fundRevenue, 1)).toFixed(0);
-            advisorVerdict.innerHTML = `💡 <strong>The Conversion Leverage:</strong> Selling an owned digital product makes your audience <strong>${multiplier}x more valuable</strong> than relying on ad views alone. Stop chasing empty traffic and build a structural asset stack with our <strong>Creator Monetization OS</strong> to capture this hidden margin.`;
+            advisorVerdict.innerHTML = `<strong>The Conversion Leverage:</strong> Selling an owned digital product makes this traffic <strong>${multiplier.toFixed(0)}x more valuable</strong> than relying on ad views alone. The key assumption is visible above: views multiplied by conversion rate equals estimated buyers.`;
         } else {
-            advisorVerdict.innerHTML = `⚙️ Adjust your conversion variables or increase asset pricing to visualize an optimized digital product backend layout ecosystem pipeline.`;
+            advisorVerdict.innerHTML = `Note: Raise the product price, improve conversion, or increase traffic to see when product revenue starts beating ad revenue.`;
         }
     }
 
     // Initialize lifecycle
     runPivotEngine();
 </script>
-
+<section class="acl-faq-section no-print" aria-label="Frequently Asked Questions">
+    <h2>Frequently Asked Questions</h2>
+    <div class="acl-faq-grid">
+        <article class="acl-faq-item">
+            <h3>What does this calculator compare?</h3>
+            <p>It compares platform ad revenue from views against estimated digital product revenue from buyers and product price.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Why can product revenue beat ad revenue?</h3>
+            <p>Even a small conversion rate can create more revenue because product sales are based on buyer value, not only ad RPM.</p>
+        </article>
+    </div>
+</section>
+<section class="acl-related-tools no-print" aria-label="Related Revenue Tools">
+    <div>
+        <span class="acl-related-eyebrow">Related Revenue Tools</span>
+        <h2>Build the rest of the revenue model.</h2>
+        <p>Use these calculators to compare profit, pricing gaps, subscriber value, launch goals, and offer demand.</p>
+    </div>
+    <div class="acl-related-grid">
+        <a href="/product-profit-calculator/">Product Profit Calculator</a>
+        <a href="/monetization-gap-calculator/">Monetization Gap Calculator</a>
+        <a href="/subscriber-ltv-calculator/">Subscriber LTV Calculator</a>
+        <a href="/product-launch-goal-calculator/">Product Launch Goal Calculator</a>
+        <a href="/lead-magnet-estimator/">Lead Magnet Estimator</a>
+        <a href="/paid-traffic-profit-calculator/">Paid Traffic Profit Calculator</a>
+    </div>
+</section>
+<footer class="acl-shell-footer no-print">
+    <div class="acl-footer-inner">
+        <div class="acl-footer-brand">
+            <strong>AI Cash Lab Tools</strong>
+            <span>Simple business tools for freelancers, creators, and digital operators.</span>
+        </div>
+        <div class="acl-footer-links">
+            <a href="/">All Tools</a>
+            <a href="/resolution-checker/">Resolution Checker</a>
+            <a href="/creator-utilities/">Creator Utilities</a>
+            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
+            <a href="mailto:support@aicashlabtools.com">Contact</a>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
+
