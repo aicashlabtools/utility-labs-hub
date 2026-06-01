@@ -400,26 +400,29 @@ input, select, textarea, button {
 }
 </style>
 <style id="acl-global-tool-polish">
+.acl-privacy-trust{align-items:center;background:#10151f;border:1px solid rgba(245,158,11,.18);border-radius:10px;box-sizing:border-box;color:#cbd5e1;display:flex;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:12px;font-weight:650;gap:8px;line-height:1.45;margin:10px auto 20px;max-width:1120px;padding:10px 14px;width:min(calc(100% - 32px),1120px)}.acl-privacy-trust span{color:#f59e0b;flex:0 0 auto;font-size:13px}.acl-privacy-trust p{margin:0}@media (max-width:700px){.acl-privacy-trust{align-items:flex-start;margin-top:10px;width:calc(100% - 24px)}}
+
 .acl-tool-hero,.acl-quick-start{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-left:auto;margin-right:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
 .acl-tool-hero{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(17,24,39,.96));border:1px solid rgba(245,158,11,.22);border-radius:14px;color:#fff;margin-top:40px;padding:clamp(24px,4vw,38px)}
 .acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
 .acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
-.acl-quick-start{background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;margin-top:18px;margin-bottom:24px;padding:20px 22px}
-.acl-quick-start h2{color:#fff;font-size:16px;margin:0 0 12px}
-.acl-quick-start ol{display:grid;gap:8px 18px;grid-template-columns:repeat(5,minmax(0,1fr));list-style-position:inside;margin:0;padding:0}
-.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.45}
-@media (max-width:900px){.acl-quick-start ol{grid-template-columns:1fr}}
-.acl-faq-section{box-sizing:border-box;background:#151820;border:1px solid #27272a;border-radius:14px;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(calc(100% - 32px),1120px)}
+.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
+.acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
+.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
+.acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+@media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
+.acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
-.acl-faq-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
-.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:14px}
-.acl-faq-item h3{color:#f8fafc;font-size:14px;margin:0 0 6px}
+.acl-faq-grid{align-items:stretch;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;min-width:0;padding:14px}
+.acl-faq-item h3{color:#f8fafc;font-size:14px;line-height:1.35;margin:0 0 6px}
 .acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}
-@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px;width:calc(100% - 24px)}}
+@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px!important;width:calc(100% - 24px)!important}}
 .acl-related-tools{margin-bottom:80px !important}
-</style>
-</head>
+</style></head>
 <body>
 <header class="acl-shell-header no-print">
     <div class="acl-shell-inner">
@@ -448,13 +451,13 @@ input, select, textarea, button {
 <section class="acl-quick-start no-print">
     <h2>Quick Start</h2>
     <ol>
-            <li>Enter your revenue inputs</li>
-            <li>Adjust price or traffic assumptions</li>
-            <li>Review the calculated result</li>
-            <li>Compare the gap or target</li>
-            <li>Choose the next growth lever</li>
+            <li>Input Data</li>
+            <li>Adjust Settings</li>
+            <li>Review Results</li>
+            <li>Take Action</li>
     </ol>
 </section>
+<section class="acl-privacy-trust no-print" aria-label="Privacy notice"><span aria-hidden="true">&#128274;</span><p>Private by default: Your inputs stay in your browser and are not saved or sent to our servers.</p></section>
 <div class="container">
 
     <div class="workspace">
@@ -494,7 +497,7 @@ input, select, textarea, button {
 
             <!-- Platform Fee Adjustment Module Interface -->
             <div>
-                <span class="fee-config-toggle" id="toggle-fees">Note: Adjust Platform Fees (Default: Gumroad 10% + $0.50)</span>
+                <span class="fee-config-toggle" id="toggle-fees">Platform fees: Built for Gumroad by default. Adjust assumptions if using another platform.</span>
                 <div class="fee-config-panel" id="fee-panel">
                     <div class="form-group">
                         <div class="form-label-row">
@@ -518,10 +521,14 @@ input, select, textarea, button {
         <div class="dashboard-panel">
             <div class="hero-metric">
                 <div class="label">Net Return on Ad Spend (ROAS)</div>
-                <div class="value" id="out-roas">0.00-</div>
+                <div class="value" id="out-roas">0.00x</div>
             </div>
 
             <div class="output-list">
+                <div class="output-row">
+                    <span>Estimated Revenue Generated</span>
+                    <span class="val" id="out-gross-revenue">$0.00</span>
+                </div>
                 <div class="output-row">
                     <span>Net Monthly Profit / Loss</span>
                     <span class="val" id="out-net-profit">$0.00</span>
@@ -552,8 +559,8 @@ input, select, textarea, button {
     </div>
 
     <section class="seo-content">
-        <h2>Deconstructing Paid Traffic Conversions Against Core Storefront Margins</h2>
-        <p>Using an objective <strong>ad spend roi calculator</strong> allows independent digital operators to isolate traffic bleeding metrics before expanding budgets. Running performance parameters across a unified <strong>paid traffic profit calculator</strong> provides clear visibility over tracking anomalies, acquisition costs, and storefront fee processing constraints over long acquisition timelines.</p>
+        <h2>Can Paid Ads Actually Make You Money?</h2>
+        <p>This calculator estimates whether your advertising campaign is profitable after ad spend, conversion rates, product pricing, and platform fees. Use it to compare revenue, costs, ROAS, CAC, and net profit before increasing your budget.</p>
     </section>
 </div>
 
@@ -573,6 +580,7 @@ input, select, textarea, button {
     const valFeeFixed = document.getElementById('val-fee-fixed');
 
     const outRoas = document.getElementById('out-roas');
+    const outGrossRevenue = document.getElementById('out-gross-revenue');
     const outNetProfit = document.getElementById('out-net-profit');
     const outTotalSales = document.getElementById('out-total-sales');
     const outCac = document.getElementById('out-cac');
@@ -609,6 +617,7 @@ input, select, textarea, button {
         // Core Mathematical Processing Mechanics
         const totalClicks = cpc > 0 ? (budget / cpc) : 0;
         const totalSales = totalClicks * convPct;
+        const totalGrossRevenue = totalSales * price;
         
         // Single Item Net Revenue Post Platform Fees
         const netPerUnit = Math.max(0, price - (price * feePct) - feeFixed);
@@ -625,7 +634,8 @@ input, select, textarea, button {
         const breakEvenConvPct = netPerUnit > 0 ? (cpc / netPerUnit) * 100 : 0;
 
         // Populate Dashboard UI Elements
-        outRoas.textContent = `${roas.toFixed(2)}-`;
+        outRoas.textContent = `${roas.toFixed(2)}x`;
+        outGrossRevenue.textContent = `$${totalGrossRevenue.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
         outTotalSales.textContent = `${Math.floor(totalSales)} ${Math.floor(totalSales) === 1 ? 'sale' : 'sales'}`;
         outCac.textContent = totalSales > 0 ? `$${cac.toFixed(2)}` : '$0.00';
         outBeCpc.textContent = `$${breakEvenCpc.toFixed(2)}`;
@@ -641,21 +651,21 @@ input, select, textarea, button {
         }
 
         // Three-Tier Strategy Verdict Logic Component
-        if (roas < 1.0) {
+        if (netProfitLoss < 0 || roas < 1.0) {
             outRoas.style.color = "var(--status-alert)";
             verdictCard.style.borderColor = "var(--status-alert)";
             verdictCard.style.backgroundColor = "rgba(255, 77, 77, 0.01)";
-            verdictCard.innerHTML = ` <strong>Verdict: Bleeding Capital</strong><br>You are losing money on this paid loop. Stop adding budget. You must either optimize your creative hooks to drop your CPC below <strong>$${breakEvenCpc.toFixed(2)}</strong>, or rewrite your landing page to force conversions past <strong>${breakEvenConvPct.toFixed(1)}%</strong>.`;
-        } else if (roas >= 1.0 && roas < 1.4) {
+            verdictCard.innerHTML = `<strong>Verdict: Losing Money</strong><br>This campaign is not profitable after ad spend and platform fees. Lower CPC below <strong>$${breakEvenCpc.toFixed(2)}</strong>, improve conversion above <strong>${breakEvenConvPct.toFixed(1)}%</strong>, raise price, or reduce fees before scaling.`;
+        } else if (roas < 1.4) {
             outRoas.style.color = "var(--status-warning)";
             verdictCard.style.borderColor = "var(--status-warning)";
             verdictCard.style.backgroundColor = "rgba(243, 146, 0, 0.01)";
-            verdictCard.innerHTML = `Balanced: <strong>Verdict: Break-Even Zone</strong><br>Your funnel is hovering roughly at cost baseline. You aren't losing cash, but your position is highly fragile. Any slight ad platform inflation will throw you into the negative. Consider adding an order bump or an immediate upsell to grow your Average Order Value (AOV).`;
+            verdictCard.innerHTML = `<strong>Verdict: Profitable but Fragile</strong><br>This campaign is making a small profit, but the margin is thin. A higher CPC, lower conversion rate, refund spike, or extra fee could erase the gain. Consider raising average order value with an order bump, bundle, or upsell before scaling.`;
         } else {
             outRoas.style.color = "var(--status-green)";
             verdictCard.style.borderColor = "var(--status-green)";
             verdictCard.style.backgroundColor = "rgba(34, 197, 94, 0.01)";
-            verdictCard.innerHTML = ` <strong>Verdict: Scalable Funnel</strong><br>Your acquisition metrics are structurally sound. Your front-end product margin safely absorbs your traffic costs and processing overhead. Slowly lift your daily budget thresholds by 10-15% increments while checking your scaling CPC closely.`;
+            verdictCard.innerHTML = `<strong>Verdict: Strong Profit Potential</strong><br>Your product margin is covering ad spend and platform fees with room to breathe. Increase budget gradually and keep watching CPC, conversion rate, refunds, and net profit.`;
         }
     }
 
@@ -666,12 +676,12 @@ input, select, textarea, button {
     <h2>Frequently Asked Questions</h2>
     <div class="acl-faq-grid">
         <article class="acl-faq-item">
-            <h3>What does this paid traffic calculator measure?</h3>
-            <p>It estimates campaign revenue, profit, CPA, ROAS, and margin based on your traffic and conversion assumptions.</p>
+            <h3>What is a good ROAS?</h3>
+            <p>A good ROAS depends on your margins. A 2x ROAS can be strong for high-margin digital products, but weak for products with high fees, refunds, fulfillment costs, or support costs.</p>
         </article>
         <article class="acl-faq-item">
-            <h3>Why does profit matter more than ROAS?</h3>
-            <p>ROAS can look strong while profit is weak if product costs, fees, refunds, or fulfillment expenses are too high.</p>
+            <h3>Is a 2x ROAS profitable?</h3>
+            <p>Not always. A 2x ROAS means revenue is twice ad spend, but profit depends on product cost, platform fees, payment processing, refunds, and any delivery expenses.</p>
         </article>
     </div>
 </section>
@@ -683,7 +693,7 @@ input, select, textarea, button {
     </div>
     <div class="acl-related-grid">
         <a href="/product-profit-calculator/">Product Profit Calculator</a>
-        <a href="/monetization-gap-calculator/">Monetization Gap Calculator</a>
+        <a href="/monetization-gap-calculator/">Creator Monetization Gap Analyzer</a>
         <a href="/subscriber-ltv-calculator/">Subscriber LTV Calculator</a>
         <a href="/product-launch-goal-calculator/">Product Launch Goal Calculator</a>
         <a href="/cpm-conversion-pivot/">CPM vs Product Revenue Calculator</a>
@@ -698,7 +708,7 @@ input, select, textarea, button {
         </div>
         <div class="acl-footer-links">
             <a href="/">All Tools</a>
-            <a href="/resolution-checker/">Resolution Checker</a>
+            <a href="/">Free Tools</a>
             <a href="/creator-utilities/">Creator Utilities</a>
             <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
             <a href="mailto:support@aicashlabtools.com">Contact</a>
