@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online Teleprompter (No Signup Required) | AI Cash Lab</title>
+    <style>
+        /* ==========================================
+           PREMIUM UI THEME ENGINE (CSS)
+           Matches your live look on aicashlabtools.com
+           ========================================== */
+        :root {
+            --bg-dark: #070a12;
+            --card-bg: #0e1320;
+            --border-color: #1c2638;
+            --text-main: #ffffff;
+            --text-muted: #64748b;
+            --neon-blue: #3b82f6;
+            --neon-green: #10b981;
+            --neon-red: #f43f5e;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .teleprompter-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header UI Elements */
+        .tool-header {
+            margin-bottom: 30px;
+        }
+        .header-meta {
+            color: #f59e0b;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+        }
+        .header-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+        }
+        .header-subtitle {
+            color: var(--text-muted);
+            font-size: 15px;
+            max-width: 700px;
+            margin: 0;
+        }
+
+        /* Privacy Ribbon Strip */
+        .privacy-strip {
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px dashed rgba(59, 130, 246, 0.25);
+            border-radius: 6px;
+            padding: 10px 15px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #93c5fd;
+        }
+
+        /* Step Bar Indicators */
+        .step-navbar {
+            display: flex;
+            background: #0b0f19;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 30px;
+        }
+        .step-item {
+            flex: 1;
+            text-align: center;
+            padding: 14px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+        .step-item.active {
+            color: var(--text-main);
+            background: rgba(255,255,255,0.02);
+        }
+
+        /* Premium Card Construction layout block */
+        .grid-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        /* Analytical Script Meta Counters metrics dashboard row */
+        .meta-counter-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .counter-box {
+            background: #070a12;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .counter-box.highlighted {
+            border-color: rgba(16, 185, 129, 0.4);
+            background: rgba(16, 185, 129, 0.02);
+        }
+        .counter-box.highlighted .counter-value { color: var(--neon-green); }
+        .counter-label { font-size: 11px; color: var(--text-muted); font-weight: 700; text-transform: uppercase; }
+        .counter-value { font-size: 24px; font-weight: 700; margin-top: 4px; }
+
+        textarea {
+            width: 100%;
+            height: 320px;
+            background: #070a12;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+            font-size: 16px;
+            line-height: 1.6;
+            resize: none;
+            outline: none;
+        }
+        textarea:focus { border-color: var(--neon-blue); }
+
+        .setup-controls { margin-top: 25px; display: flex; justify-content: flex-end; }
+
+        /* Dashboard Toolbar Panels */
+        .dashboard-controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            background: #070a12;
+            padding: 15px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .control-group { display: flex; gap: 15px; align-items: center; font-size: 13px; color: var(--text-muted); }
+
+        /* Custom Action buttons styles */
+        button { font-weight: 600; padding: 10px 18px; border-radius: 6px; border: none; cursor: pointer; font-size: 13px; transition: all 0.2s; }
+        .btn-green { background: var(--neon-green); color: #000; }
+        .btn-green:hover { background: #0ca673; }
+        .btn-blue { background: var(--neon-blue); color: white; }
+        .btn-toggle { background: #1c2638; color: white; }
+        .btn-toggle.active { background: var(--neon-blue); }
+        .btn-secondary { background: transparent; border: 1px solid var(--border-color); color: var(--text-muted); }
+        .btn-secondary:hover { color: white; border-color: white; }
+
+        /* Active Display Screen Viewports Canvas blocks */
+        .viewport-box {
+            position: relative;
+            background: #03050a;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            height: 55vh;
+            overflow: hidden;
+        }
+
+        .teleprompter-canvas {
+            height: 100%;
+            overflow-y: scroll;
+            padding: 22vh 12% 40vh 12%;
+            box-sizing: border-box;
+            color: white;
+            font-weight: 700;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            scroll-behavior: linear;
+        }
+        .teleprompter-canvas::-webkit-scrollbar { display: none; }
+
+        /* Layout State Modifications rules */
+        .mirrored-canvas { transform: scaleX(-1); }
+
+        /* Eyeline Guide Layer Markup */
+        .eyeline-guide-layer {
+            position: absolute;
+            top: 30%;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            border-top: 2px dashed rgba(59, 130, 246, 0.4);
+            border-bottom: 2px dashed rgba(59, 130, 246, 0.4);
+            background: rgba(59, 130, 246, 0.04);
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        /* Screen Countdown Prompt styling overlay layer */
+        .countdown-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #03050a;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 90px; font-weight: 800; color: var(--neon-blue);
+            z-index: 5;
+        }
+
+        .shortcut-tip-strip { margin-top: 15px; text-align: center; font-size: 12px; color: var(--text-muted); }
+
+        /* Footer Link Collections Grid rules structural framework layout match */
+        .ecosystem-footer { margin-top: 60px; border-top: 1px solid var(--border-color); padding-top: 40px; }
+        .footer-title { font-size: 16px; font-weight: 700; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+        .footer-link-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 6px; padding: 20px; text-decoration: none; transition: transform 0.2s, border-color 0.2s; }
+        .footer-link-card:hover { transform: translateY(-2px); border-color: var(--neon-blue); }
+        .footer-link-card h4 { margin: 0 0 8px 0; color: white; font-size: 14px; }
+        .footer-link-card p { margin: 0; color: var(--text-muted); font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div class="teleprompter-container">
+        
+        <!-- Premium Header Match -->
+        <header class="tool-header">
+            <div class="header-meta">CREATOR PRODUCTION TOOL</div>
+            <h1 class="header-title">Script & Teleprompter Studio</h1>
+            <p class="header-subtitle">Analyze your pacing, estimate reading time, and record smooth short-form videos with a distraction-free layout.</p>
+            
+            <!-- Privacy Strip Entry -->
+            <div class="privacy-strip">
+                <span>🔒 Private by default: Scripts are processed locally in your browser. Nothing is uploaded or stored.</span>
+            </div>
+        </header>
+
+        <!-- Live Step Bar Navigation Indicator Look -->
+        <div class="step-navbar">
+            <div class="step-item active" id="step-1-nav">1. Paste & Analyze</div>
+            <div class="step-item" id="step-2-nav">2. Production Preview</div>
+        </div>
+
+        <!-- MAIN UTILITY ENGINE -->
+        <main class="workspace">
+            
+            <!-- VIEW STATE 1: SETUP PANEL -->
+            <section id="setup-panel" class="grid-card">
+                <div class="card-title">Prepare Your Script</div>
+                
+                <!-- Live Analytical Metadata Counter Row -->
+                <div class="meta-counter-row">
+                    <div class="counter-box">
+                        <span class="counter-label">Words</span>
+                        <span id="count-words" class="counter-value">0</span>
+                    </div>
+                    <div class="counter-box">
+                        <span class="counter-label">Characters</span>
+                        <span id="count-chars" class="counter-value">0</span>
+                    </div>
+                    <div class="counter-box highlighted">
+                        <span class="counter-label">Est. Read Time</span>
+                        <span id="count-time" class="counter-value">0s</span>
+                    </div>
+                </div>
+
+                <textarea id="script-input" placeholder="Paste your short-form video script or hook here to instantly analyze timing metrics..."></textarea>
+                
+                <div class="setup-controls">
+                    <button id="start-button" class="btn-green">Launch Teleprompter</button>
+                </div>
+            </section>
+
+            <!-- VIEW STATE 2: ACTIVE RUNTIME DISPLAY PANEL -->
+            <section id="production-panel" class="grid-card" style="display: none;">
+                
+                <!-- Advanced Control Dashboard -->
+                <div class="dashboard-controls">
+                    <div class="control-group">
+                        <label>Speed: <input type="range" id="speed-control" min="1" max="10" value="3"></label>
+                        <label>Font: <input type="range" id="size-control" min="24" max="80" value="42">px</label>
+                    </div>
+                    
+                    <div class="control-group">
+                        <button id="toggle-eyeline" class="btn-toggle">Eyeline Guide: OFF</button>
+                        <button id="flip-button" class="btn-toggle">Mirror Mode</button>
+                        <button id="fullscreen-button" class="btn-toggle">Fullscreen</button>
+                    </div>
+
+                    <div class="control-group action-group">
+                        <button id="play-pause-button" class="btn-blue">Pause</button>
+                        <button id="edit-button" class="btn-secondary">Edit Script</button>
+                    </div>
+                </div>
+
+                <!-- Production Viewport Screen wrapper -->
+                <div class="viewport-box" id="viewport-box">
+                    <!-- Dynamic Countdown Overlay -->
+                    <div id="countdown-overlay" class="countdown-overlay" style="display: none;">3</div>
+                    
+                    <!-- Eyeline Guide Layer Line -->
+                    <div id="eyeline-guide" class="eyeline-guide-layer" style="display: none;"></div>
+                    
+                    <!-- Scrolling Canvas Box -->
+                    <div id="teleprompter-canvas" class="teleprompter-canvas"></div>
+                </div>
+                
+                <div class="shortcut-tip-strip">
+                    Tip: Press [Spacebar] to Play/Pause • [↑ / ↓] Arrows to alter scroll speed instantly.
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER ECOSYSTEM MATCH -->
+        <footer class="ecosystem-footer">
+            <div class="footer-title">Other Creator Tools</div>
+            <div class="footer-grid">
+                <a href="/short-form-hook-analyzer/" class="footer-link-card">
+                    <h4>Hook Analyzer</h4>
+                    <p>Test hook retention score vectors.</p>
+                </a>
+                <a href="/caption-line-splitter/" class="footer-link-card">
+                    <h4>Caption Splitter</h4>
+                    <p>Format timing script alignments.</p>
+                </a>
+                <a href="/thumbnail-text-checker/" class="footer-link-card">
+                    <h4>Thumbnail Text Checker</h4>
+                    <p>Check text legibility rules instantly.</p>
+                </a>
+                <a href="/brand-deal-calculator/" class="footer-link-card">
+                    <h4>Brand Deal Calculator</h4>
+                    <p>Value your asset sponsorship contracts.</p>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // ==========================================
+        // COMPLETE CLIENT CONTROLLER ENGINE (JAVASCRIPT)
+        // Everything runs directly in the browser
+        // ==========================================
+
+        // Interface View Management targets
+        const scriptInput = document.getElementById('script-input');
+        const setupPanel = document.getElementById('setup-panel');
+        const productionPanel = document.getElementById('production-panel');
+        const step1Nav = document.getElementById('step-1-nav');
+        const step2Nav = document.getElementById('step-2-nav');
+
+        // Calculation Target Nodes
+        const countWords = document.getElementById('count-words');
+        const countChars = document.getElementById('count-chars');
+        const countTime = document.getElementById('count-time');
+
+        // Action Trigger Elements
+        const startButton = document.getElementById('start-button');
+        const editButton = document.getElementById('edit-button');
+        const playPauseButton = document.getElementById('play-pause-button');
+        const toggleEyeline = document.getElementById('toggle-eyeline');
+        const flipButton = document.getElementById('flip-button');
+        const fullscreenButton = document.getElementById('fullscreen-button');
+
+        // Viewport System Nodes
+        const viewportBox = document.getElementById('viewport-box');
+        const teleprompterCanvas = document.getElementById('teleprompter-canvas');
+        const eyelineGuide = document.getElementById('eyeline-guide');
+        const countdownOverlay = document.getElementById('countdown-overlay');
+
+        // Configuration Modifiers
+        const speedControl = document.getElementById('speed-control');
+        const sizeControl = document.getElementById('size-control');
+
+        // State Engine variables tracking parameters
+        let scrollTimeline;
+        let isPlaying = false;
+        let currentScrollPos = 0;
+
+        // 1. Analytical Metric Calculations Engine
+        scriptInput.addEventListener('input', () => {
+            const textStr = scriptInput.value.trim();
+            const metrics = calculateMetrics(textStr);
+            
+            countWords.textContent = metrics.words;
+            countChars.textContent = metrics.chars;
+            countTime.textContent = `${metrics.seconds}s`;
+        });
+
+        function calculateMetrics(text) {
+            if (!text) return { words: 0, chars: 0, seconds: 0 };
+            const wordArr = text.split(/\s+/).filter(w => w.length > 0);
+            const wordsCount = wordArr.length;
+            
+            // Base creator speech velocity assumption framework index (150 words per minute average metric)
+            const readingTimeSec = Math.ceil((wordsCount / 150) * 60);
+            
+            return {
+                words: wordsCount,
+                chars: text.length,
+                seconds: readingTimeSec
+            };
+        }
+
+        // 2. Control Layout Modifier Configuration bindings
+        sizeControl.addEventListener('input', () => {
+            teleprompterCanvas.style.fontSize = `${sizeControl.value}px`;
+        });
+
+        flipButton.addEventListener('click', () => {
+            teleprompterCanvas.classList.toggle('mirrored-canvas');
+            flipButton.classList.toggle('active');
+        });
+
+        toggleEyeline.addEventListener('click', () => {
+            if (eyelineGuide.style.display === 'none') {
+                eyelineGuide.style.display = 'block';
+                toggleEyeline.textContent = 'Eyeline Guide: ON';
+                toggleEyeline.classList.add('active');
+            } else {
+                eyelineGuide.style.display = 'none';
+                toggleEyeline.textContent = 'Eyeline Guide: OFF';
+                toggleEyeline.classList.remove('active');
+            }
+        });
+
+        fullscreenButton.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                viewportBox.requestFullscreen().catch(err => {
+                    alert(`Fullscreen failed: ${err.message}`);
+                });
+                fullscreenButton.classList.add('active');
+            } else {
+                document.exitFullscreen();
+                fullscreenButton.classList.remove('active');
+            }
+        });
+
+        // Clean up state changes when exiting hardware fullscreen manually
+        document.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) {
+                fullscreenButton.classList.remove('active');
+            }
+        });
+
+        // 3. Playback Runtime Loop Scroller Engines
+        function scrollAnimatorLoop() {
+            if (!isPlaying) return;
+            
+            const speedRate = parseFloat(speedControl.value) * 0.35;
+            currentScrollPos += speedRate;
+            teleprompterCanvas.scrollTop = currentScrollPos;
+
+            // Detect if container has scrolled completely to max height threshold limits
+            const maxScroll = teleprompterCanvas.scrollHeight - teleprompterCanvas.clientHeight;
+            if (teleprompterCanvas.scrollTop >= maxScroll) {
+                pauseScrollEngine();
+            } else {
+                scrollTimeline = requestAnimationFrame(scrollAnimatorLoop);
+            }
+        }
+
+        function startScrollEngine() {
+            isPlaying = true;
+            playPauseButton.textContent = 'Pause';
+            playPauseButton.className = 'btn-blue';
+            scrollTimeline = requestAnimationFrame(scrollAnimatorLoop);
+        }
+
+        function pauseScrollEngine() {
+            isPlaying = false;
+            playPauseButton.textContent = 'Resume';
+            playPauseButton.className = 'btn-green';
+            cancelAnimationFrame(scrollTimeline);
+        }
+
+        playPauseButton.addEventListener('click', () => {
+            if (isPlaying) {
+                pauseScrollEngine();
+            } else {
+                startScrollEngine();
+            }
+        });
+
+        // 4. View State Toggle Launch Actions
+        startButton.addEventListener('click', () => {
+            const rawScript = scriptInput.value.trim();
+            if (!rawScript) return alert("Please enter your video script text lines first.");
+
+            // Shift interface view panels
+            setupPanel.style.display = 'none';
+            productionPanel.style.display = 'block';
+            step1Nav.classList.remove('active');
+            step2Nav.classList.add('active');
+
+            // Populate canvas
+            teleprompterCanvas.textContent = rawScript;
+            teleprompterCanvas.style.fontSize = `${sizeControl.value}px`;
+            teleprompterCanvas.scrollTop = 0;
+            currentScrollPos = 0;
+
+            // Trigger Countdown Sequence before starting scroller
+            countdownOverlay.style.display = 'flex';
+            let countdownVal = 3;
+            countdownOverlay.textContent = countdownVal;
+
+            const timerInterval = setInterval(() => {
+                countdownVal--;
+                if (countdownVal > 0) {
+                    countdownOverlay.textContent = countdownVal;
+                } else {
+                    clearInterval(timerInterval);
+                    countdownOverlay.style.display = 'none';
+                    startScrollEngine();
+                }
+            }, 1000);
+        });
+
+        editButton.addEventListener('click', () => {
+            pauseScrollEngine();
+            
+            // Return to dashboard configuration view state
+            setupPanel.style.display = 'block';
+            productionPanel.style.display = 'none';
+            step1Nav.classList.add('active');
+            step2Nav.classList.remove('active');
+        });
+
+        // 5. Global Keyboard Shortcuts Handler Mapping
+        window.addEventListener('keydown', (e) => {
+            // Only accept keyboard triggers if production panel is actively displayed
+            if (productionPanel.style.display === 'block') {
+                if (e.code === 'Space') {
+                    e.preventDefault(); // Stop spacebar default page layout drop down scrolling behavior
+                    playPauseButton.click();
+                }
+                if (e.code === 'ArrowUp') {
+                    e.preventDefault();
+                    let currSpeed = parseFloat(speedControl.value);
+                    if (currSpeed < 10) speedControl.value = currSpeed + 1;
+                }
+                if (e.code === 'ArrowDown') {
+                    e.preventDefault();
+                    let currSpeed = parseFloat(speedControl.value);
+                    if (currSpeed > 1) speedControl.value = currSpeed - 1;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
