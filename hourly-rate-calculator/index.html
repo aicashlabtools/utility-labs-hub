@@ -7,7 +7,7 @@
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Calculate a sustainable freelance hourly rate from salary goals, expenses, taxes, billable hours, and vacation time.">
-    <meta name="keywords" content="how to calculate freelance hourly rate, freelance contractor rate calculator, consulting hourly rate formula, freelance survival rate">
+    <meta name="keywords" content="freelance hourly rate calculator, beginner freelancer rate, billable hours calculator, day rate calculator">
     
     <!-- Open Graph Previews -->
     <meta property="og:type" content="website">
@@ -587,18 +587,20 @@ input, select, textarea, button {
 .acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
 .acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
-.acl-quick-start{background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;margin-top:18px;margin-bottom:24px;padding:20px 22px}
-.acl-quick-start h2{color:#fff;font-size:16px;margin:0 0 12px}
-.acl-quick-start ol{display:grid;gap:8px 18px;grid-template-columns:repeat(5,minmax(0,1fr));list-style-position:inside;margin:0;padding:0}
-.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.45}
-@media (max-width:900px){.acl-quick-start ol{grid-template-columns:1fr}}
-.acl-faq-section{box-sizing:border-box;background:#151820;border:1px solid #27272a;border-radius:14px;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(calc(100% - 32px),1120px)}
+.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
+.acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
+.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
+.acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+@media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
+.acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
-.acl-faq-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
-.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:14px}
-.acl-faq-item h3{color:#f8fafc;font-size:14px;margin:0 0 6px}
+.acl-faq-grid{align-items:stretch;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;min-width:0;padding:14px}
+.acl-faq-item h3{color:#f8fafc;font-size:14px;line-height:1.35;margin:0 0 6px}
 .acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}
-@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px;width:calc(100% - 24px)}}
+@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px!important;width:calc(100% - 24px)!important}}
 .acl-related-tools{margin-bottom:80px !important}
 </style>
 </head>
@@ -630,14 +632,12 @@ input, select, textarea, button {
 <section class="acl-quick-start no-print">
     <h2>Quick Start</h2>
     <ol>
-            <li>Enter the client or income inputs</li>
-            <li>Adjust time and pricing assumptions</li>
-            <li>Review the calculated result</li>
-            <li>Check the risk or gap</li>
-            <li>Use the result before quoting</li>
+            <li>Input Data</li>
+            <li>Adjust Settings</li>
+            <li>Review Results</li>
+            <li>Take Action</li>
     </ol>
-</section>
-<div class="container">
+</section><div class="container">
 
     <!-- Quick Profile Configurations Selector -->
     <div class="presets-row">
@@ -684,7 +684,7 @@ input, select, textarea, button {
             <div class="toggle-container">
                 <div>
                     <label style="display:block; margin-bottom:2px;">Apply 30% Tax Safety Buffer</label>
-                    <span style="font-size:0.75rem; color:var(--text-muted);">Auto-retained self-employment allocation layout shield</span>
+                    <span style="font-size:0.75rem; color:var(--text-muted);">Adds a planning buffer for self-employment taxes.</span>
                 </div>
                 <label class="switch">
                     <input type="checkbox" id="input-tax-toggle" checked>
@@ -702,8 +702,12 @@ input, select, textarea, button {
 
             <div class="output-list">
                 <div class="output-row">
-                    <span>Monthly Gross Revenue Target</span>
+                    <span>Required Monthly Revenue</span>
                     <span class="val" id="out-monthly-gross">$0.00</span>
+                </div>
+                <div class="output-row">
+                    <span>Equivalent Day Rate</span>
+                    <span class="val" id="out-day-rate">$0/day</span>
                 </div>
                 <div class="output-row">
                     <span>Annual Gross Target</span>
@@ -726,7 +730,7 @@ input, select, textarea, button {
             </div>
 
             <div class="disclaimer-text">
-                Warning: <strong>Tax Disclaimer:</strong> This tool uses a simple tax buffer estimate for planning purposes only. It is not tax, legal, or financial advice.
+                <strong>Planning Disclaimer:</strong> This calculator provides estimates only and is not tax, legal, or financial advice.
             </div>
         </div>
     </div>
@@ -734,8 +738,7 @@ input, select, textarea, button {
     <!-- Informational Context Module Block targeting search loops -->
     <section class="seo-content">
         <h2>How to Correctly Calculate a Sustainable Freelance Hourly Rate</h2>
-        <p>Many independent creators fail because they map contractor rates via standard employee paradigms. Utilizing a programmatic <strong>freelance contractor rate calculator</strong> avoids critical delivery shortfalls by tracking real-world administrative parameters, variable vacation windows, and dynamic structural self-employment overhead allocations cleanly.</p>
-        <p>Using an optimized <strong>consulting hourly rate formula</strong> surfaces hidden work tracking gaps, allowing individuals to run client retention pipelines without zeroing out project margins over time.</p>
+        <p>Most freelancers underestimate how many hours are actually billable. This calculator helps you account for expenses, taxes, vacation time, and non-billable work so you can set a sustainable hourly rate.</p>
     </section>
 </div>
 
@@ -756,6 +759,7 @@ input, select, textarea, button {
     // Outputs Displays
     const outHourly = document.getElementById('out-hourly');
     const outMonthlyGross = document.getElementById('out-monthly-gross');
+    const outDayRate = document.getElementById('out-day-rate');
     const outAnnualGross = document.getElementById('out-annual-gross');
     const outTimeReality = document.getElementById('out-time-reality');
     const outTargetsBreakdown = document.getElementById('out-targets-breakdown');
@@ -835,6 +839,7 @@ input, select, textarea, button {
         // Render Outputs Values Fields
         outHourly.textContent = `$${hourlyRate}/hr`;
         outMonthlyGross.textContent = `$${Math.round(monthlyGrossRequired).toLocaleString()}`;
+        outDayRate.textContent = `$${(hourlyRate * 8).toLocaleString()}/day`;
         outAnnualGross.textContent = `$${Math.round(annualGrossRequired).toLocaleString()}`;
         outTimeReality.textContent = `${weeklyBillablePercentage}% of your standard 40hr week`;
 
@@ -863,12 +868,12 @@ input, select, textarea, button {
     <h2>Frequently Asked Questions</h2>
     <div class="acl-faq-grid">
         <article class="acl-faq-item">
-            <h3>How do I calculate my freelance hourly rate?</h3>
-            <p>Start with your income goal, add expenses and tax assumptions, then divide by realistic billable hours.</p>
+            <h3>How much should a beginner freelancer charge per hour?</h3>
+            <p>A beginner freelancer should charge enough to cover income goals, expenses, taxes, and non-billable time. Start with your required rate, then adjust for skill level, demand, and client results.</p>
         </article>
         <article class="acl-faq-item">
-            <h3>Why should I include non-billable time?</h3>
-            <p>Freelancers spend time on admin, sales, planning, and revisions, so the rate must cover more than delivery hours.</p>
+            <h3>What percentage of freelancer time is billable?</h3>
+            <p>Many freelancers only bill a portion of their working hours because admin, sales, revisions, client communication, and planning take time. This calculator lets you set a realistic weekly billable-hour target.</p>
         </article>
     </div>
 </section>
@@ -882,7 +887,7 @@ input, select, textarea, button {
         <a href="/freedom-rate-calculator/">Freedom Rate Calculator</a>
         <a href="/scope-creep-calculator/">Scope Creep Calculator</a>
         <a href="/late-fee-calculator/">Late Fee Calculator</a>
-        <a href="/creator-runway-calculator/">Creator Runway Calculator</a>
+        <a href="/creator-runway-calculator/">Business Runway Calculator</a>
         <a href="/brand-deal-calculator/">Brand Deal Calculator</a>
         <a href="/paid-traffic-profit-calculator/">Paid Traffic Profit Calculator</a>
     </div>
@@ -895,7 +900,7 @@ input, select, textarea, button {
         </div>
         <div class="acl-footer-links">
             <a href="/">All Tools</a>
-            <a href="/resolution-checker/">Resolution Checker</a>
+            <a href="/">Free Tools</a>
             <a href="/creator-utilities/">Creator Utilities</a>
             <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
             <a href="mailto:support@aicashlabtools.com">Contact</a>
@@ -904,4 +909,3 @@ input, select, textarea, button {
 </footer>
 </body>
 </html>
-
