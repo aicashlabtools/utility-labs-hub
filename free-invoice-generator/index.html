@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Invoice Generator (No Signup Required) | Simple Invoice Creator Online | AI Cash Lab</title>
+    <style>
+        /* ==========================================
+           PREMIUM ENGINE CSS VARIABLE SYSTEM
+           ========================================== */
+        :root {
+            --bg-dark: #070a12;
+            --card-bg: #0e1320;
+            --border-color: #1c2638;
+            --text-main: #ffffff;
+            --text-muted: #64748b;
+            --neon-blue: #3b82f6;
+            --neon-green: #10b981;
+            --neon-red: #f43f5e;
+            --amber-warn: #f59e0b;
+            --paper-bg: #ffffff;
+            --paper-text: #1e293b;
+            --paper-muted: #64748b;
+            --paper-border: #e2e8f0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Unified Studio Header Layout */
+        .tool-header {
+            margin-bottom: 35px;
+        }
+        .header-meta {
+            color: var(--amber-warn);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+        }
+        .header-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+        }
+        .header-subtitle {
+            color: var(--text-muted);
+            font-size: 15px;
+            max-width: 700px;
+            margin: 0;
+        }
+
+        /* INLINE WORKSPACE: THE INVOICE IS THE FORM */
+        .invoice-workspace {
+            background-color: var(--paper-bg);
+            color: var(--paper-text);
+            border-radius: 8px;
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        /* Interactive Typography Elements Configuration */
+        [contenteditable="true"] {
+            outline: none;
+            padding: 2px 4px;
+            border-radius: 4px;
+            transition: background 0.15s, box-shadow 0.15s;
+        }
+        [contenteditable="true"]:hover {
+            background: #f1f5f9;
+        }
+        [contenteditable="true"]:focus {
+            background: #f1f5f9;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+
+        /* Structural Document Grid Blocks */
+        .invoice-top-split {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .invoice-brand-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #0f172a;
+            letter-spacing: -0.5px;
+        }
+        .invoice-meta-block {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            align-items: flex-end;
+        }
+        .meta-field {
+            display: flex;
+            gap: 10px;
+            font-size: 14px;
+        }
+        .meta-label {
+            color: var(--paper-muted);
+            font-weight: 600;
+        }
+        .meta-val {
+            font-weight: 700;
+            color: #0f172a;
+            min-width: 80px;
+            text-align: right;
+        }
+
+        .address-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+            border-top: 1px solid var(--paper-border);
+            padding-top: 25px;
+        }
+        .address-group h3 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--paper-muted);
+            margin: 0 0 10px 0;
+        }
+        .address-block {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--paper-text);
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        /* Line Items Interactive Layout Table */
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        .items-table th {
+            text-align: left;
+            padding: 10px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--paper-muted);
+            border-bottom: 2px solid var(--paper-border);
+        }
+        .items-table td {
+            padding: 14px 10px;
+            border-bottom: 1px solid var(--paper-border);
+            font-size: 14px;
+            vertical-align: top;
+        }
+        
+        .col-desc { width: 55%; }
+        .col-qty { width: 12%; text-align: right; }
+        .col-rate { width: 15%; text-align: right; }
+        .col-amt { width: 15%; text-align: right; font-weight: 700; color: #0f172a; }
+        .col-act { width: 3%; text-align: center; }
+
+        .qty-val, .rate-val { text-align: right; display: inline-block; width: 100%; }
+
+        /* Dynamic Row Modifier Controls */
+        .btn-row-action {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            line-height: 1;
+        }
+        .btn-row-action:hover {
+            color: var(--neon-red);
+            background: #fee2e2;
+        }
+        .add-row-container {
+            margin-bottom: 40px;
+        }
+        .btn-add-row {
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .btn-add-row:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+
+        /* Financial Aggregations Totals Layout Block */
+        .invoice-bottom-summary {
+            display: flex;
+            justify-content: flex-end;
+            border-top: 2px solid #0f172a;
+            padding-top: 20px;
+        }
+        .totals-matrix {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+        .total-row.grand-total {
+            font-size: 20px;
+            font-weight: 800;
+            color: #0f172a;
+            border-top: 1px solid var(--paper-border);
+            padding-top: 12px;
+            margin-top: 4px;
+        }
+
+        /* ACTION TRIGGER RAIL ELEMENTS */
+        .action-control-rail {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .rail-left-notes {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .btn-primary-action {
+            background: var(--neon-blue);
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 12px 24px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-primary-action:hover {
+            background: #2563eb;
+        }
+
+        /* CONTEXTUAL FREELANCE HEALTH SURVEY CROSS-LINK BLOCK */
+        .health-check-card {
+            background: rgba(245, 158, 11, 0.05);
+            border: 1px dashed rgba(245, 158, 11, 0.3);
+            border-radius: 8px;
+            padding: 22px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        .health-left h4 {
+            margin: 0 0 6px 0;
+            font-size: 15px;
+            color: #fde047;
+            font-weight: 700;
+        }
+        .health-left p {
+            margin: 0;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .btn-health-trigger {
+            background: #1c2638;
+            color: white;
+            border: 1px solid var(--border-color);
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+        .btn-health-trigger:hover {
+            background: #2d394e;
+            border-color: var(--text-muted);
+        }
+
+        /* STRATEGIC CONVERSION DECK ANCHOR SYSTEM BLOCK */
+        .conversion-deck {
+            background: linear-gradient(135deg, #0e1320 0%, #070a12 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 35px;
+            margin-bottom: 60px;
+        }
+        .deck-badge {
+            background: rgba(244, 63, 94, 0.1);
+            color: var(--neon-red);
+            font-size: 10px;
+            font-weight: 800;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .deck-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+        }
+        .deck-subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin: 0 0 25px 0;
+            max-width: 650px;
+        }
+        .value-matrix-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        @media (min-width: 600px) {
+            .value-matrix-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .value-bullet {
+            display: flex;
+            gap: 10px;
+            font-size: 13px;
+            color: #e2e8f0;
+        }
+        .value-bullet span { color: var(--neon-green); font-weight: 700; }
+        
+        .btn-master-upsell {
+            background: #ffffff;
+            color: #070a12;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 14px 28px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+        .btn-master-upsell:hover {
+            background: #e2e8f0;
+        }
+
+        /* DYNAMIC RECURSIVE ROUTER MATRIX SYSTEM FOOTER */
+        .ecosystem-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 40px;
+        }
+        .footer-title {
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+        .footer-link-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            text-decoration: none;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .footer-link-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--neon-blue);
+        }
+        .footer-link-card h4 {
+            margin: 0 0 8px 0;
+            color: white;
+            font-size: 14px;
+        }
+        .footer-link-card p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        /* ==========================================
+           COMPREHENSIVE NATIVE HARD PRINT OVERRIDES
+           ========================================== */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+            }
+            .container {
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .tool-header,
+            .action-control-rail,
+            .add-row-container,
+            .col-act,
+            .health-check-card,
+            .conversion-deck,
+            .ecosystem-footer,
+            [data-print-hide] {
+                display: none !important;
+            }
+            .invoice-workspace {
+                box-shadow: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                background: #ffffff !important;
+                color: #000000 !important;
+            }
+            [contenteditable="true"]:hover {
+                background: none !important;
+            }
+            .items-table th {
+                color: #000000 !important;
+                border-bottom: 2px solid #000000 !important;
+            }
+            .items-table td {
+                border-bottom: 1px solid #e2e8f0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Studio Configuration Header Module -->
+        <header class="tool-header">
+            <div class="header-meta">OPERATIONAL UTILITY CORE</div>
+            <h1 class="header-title">Free Invoice Generator (No Signup Required)</h1>
+            <p class="header-subtitle">Create structured, print-ready minimalist invoices instantly in under 60 seconds. All values compute locally. Export directly to PDF through your browser print terminal.</p>
+        </header>
+
+        <!-- Dynamic Live Execution Manipulation Deck Rail Toolbar -->
+        <section class="action-control-rail">
+            <div class="rail-left-notes">
+                <span>⚡ <b>Auto-Save Enabled:</b> Your Business Sender profile data updates automatically to your local browser cache layout for subsequent sessions.</span>
+            </div>
+            <div>
+                <button class="btn-primary-action" onclick="window.print()">Print / Save PDF Asset</button>
+            </div>
+        </section>
+
+        <!-- MASTER SHEET STAGE: THE INVOICE IS THE FORM -->
+        <main id="invoice-sheet" class="invoice-workspace">
+            
+            <!-- Document Base Meta Split Configurations -->
+            <div class="invoice-top-split">
+                <div>
+                    <div id="editable-brand-header" class="invoice-brand-title" contenteditable="true">INVOICE</div>
+                </div>
+                <div class="invoice-meta-block">
+                    <div class="meta-field">
+                        <span class="meta-label">Invoice #</span>
+                        <div class="meta-val" contenteditable="true">INV-2026-001</div>
+                    </div>
+                    <div class="meta-field">
+                        <span class="meta-label">Date:</span>
+                        <div class="meta-val" contenteditable="true" id="current-date-setter">June 01, 2026</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Addresses Mapping Layers -->
+            <div class="address-grid">
+                <div class="address-group">
+                    <h3>From (Sender Profile)</h3>
+                    <div class="address-block">
+                        <b contenteditable="true" id="sender-name" data-sender-field="name">Your Business Name</b>
+                        <span contenteditable="true" id="sender-address" data-sender-field="address">123 Studio Core Way</span>
+                        <span contenteditable="true" id="sender-email" data-sender-field="email">billing@yourbrand.com</span>
+                        <span contenteditable="true" id="sender-phone" data-sender-field="phone">+1 (555) 000-0000</span>
+                    </div>
+                </div>
+                <div class="address-group">
+                    <h3>Issued To (Client Profile)</h3>
+                    <div class="address-block">
+                        <b contenteditable="true">Client Corporate Name</b>
+                        <span contenteditable="true">456 Enterprise Boulevard</span>
+                        <span contenteditable="true">accounts@clientdomain.com</span>
+                        <span contenteditable="true">Attn: Accounts Payable</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabular Line Items Space Ledger Grid -->
+            <table class="items-table" id="items-ledger">
+                <thead>
+                    <tr>
+                        <th class="col-desc">Line Item Description</th>
+                        <th class="col-qty">Qty</th>
+                        <th class="col-rate">Unit Rate ($)</th>
+                        <th class="col-amt">Amount</th>
+                        <th class="col-act" data-print-hide></th>
+                    </tr>
+                </thead>
+                <tbody id="ledger-rows-injector">
+                    <!-- Standard Line Rows Default Target Template -->
+                    <tr>
+                        <td class="col-desc" contenteditable="true">Premium Content Strategy Formulation & Brand Identity Mapping Bundle</td>
+                        <td class="col-qty"><span class="qty-val" contenteditable="true">1</span></td>
+                        <td class="col-rate"><span class="rate-val" contenteditable="true">1500.00</span></td>
+                        <td class="col-amt">$1,500.00</td>
+                        <td class="col-act" data-print-hide><button class="btn-row-action" onclick="deleteLedgerRowItem(this)">×</button></td>
+                    </tr>
+                    <tr>
+                        <td class="col-desc" contenteditable="true">Short-Form Motion Graphics Editing Sequence Run (Batch of 5 Reels)</td>
+                        <td class="col-qty"><span class="qty-val" contenteditable="true">5</span></td>
+                        <td class="col-rate"><span class="rate-val" contenteditable="true">100.00</span></td>
+                        <td class="col-amt">$500.00</td>
+                        <td class="col-act" data-print-hide><button class="btn-row-action" onclick="deleteLedgerRowItem(this)">×</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="add-row-container" data-print-hide>
+                <button class="btn-add-row" onclick="injectNewBlankLedgerRow()">+ Add Line Item</button>
+            </div>
+
+            <!-- Document Aggregation Mathematical Matrix Calculations -->
+            <div class="invoice-bottom-summary">
+                <div class="totals-matrix">
+                    <div class="total-row">
+                        <span class="meta-label">Subtotal:</span>
+                        <span id="subtotal-display-box" style="font-weight: 600;">$2,000.00</span>
+                    </div>
+                    <div class="total-row grand-total">
+                        <span>Total Due:</span>
+                        <span id="grand-total-display-box">$2,000.00</span>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- SUBTLE CONTEXTUAL FREELANCER HEALTH INTERSECTION DECK -->
+        <section class="health-check-card">
+            <div class="health-left">
+                <h4>Want to know if you're charging enough for this asset payload?</h4>
+                <p>Don't guess your value metrics. Run this project's structural totals pipeline instantly through the optimization engine matrix.</p>
+            </div>
+            <a href="/freedom-rate-calculator/" class="btn-health-trigger">Check Your Rate →</a>
+        </section>
+
+        <!-- EXPLICIT SYSTEM PRODUCT CONVERSION UPSELL CROSSROAD DECK BLOCK -->
+        <section class="conversion-deck">
+            <div class="deck-badge">CRITICAL PROTOCOL EXTENSION</div>
+            <h3 class="deck-title">Need help getting your invoices paid on time?</h3>
+            <p class="deck-subtitle">The free interface generates documents. The premium <b>Invoice & Payment Reminder Toolkit</b> delivers an ongoing collection engine framework built specifically to secure freelancer revenue and eradicate late accounts.</p>
+            
+            <div class="value-matrix-grid">
+                <div class="value-bullet"><span>✓</span> <b>Track Unpaid Balances:</b> Never lose visibility on open invoicing balances again.</div>
+                <div class="value-bullet"><span>✓</span> <b>High-Impact Reminder Layouts:</b> 14-day, 30-day, and collection escalation messaging blocks.</div>
+                <div class="value-bullet"><span>✓</span> <b>Contractual Late-Fee Parameters:</b> Build direct structural automated friction constraints for tardy buyers.</div>
+                <div class="value-bullet"><span>✓</span> <b>Consistent Professional Separation:</b> Run execution templates that secure funds without awkward interactions.</div>
+            </div>
+
+            <a href="/invoice-payment-reminder-toolkit/" class="btn-master-upsell">View Invoice & Payment Reminder Toolkit →</a>
+        </section>
+
+        <!-- RECURSIVE CROSS-ROUTING MULTI-UTILITY ENGINE GRID -->
+        <footer class="ecosystem-footer">
+            <div class="footer-title">Related Freelancer System Tools</div>
+            <div class="footer-grid">
+                <a href="/late-fee-calculator/" class="footer-link-card">
+                    <h4>Late Fee Calculator</h4>
+                    <p>Determine penalty variables for unpaid assets past contract parameters.</p>
+                </a>
+                <a href="/scope-creep-calculator/" class="footer-link-card">
+                    <h4>Scope Creep Calculator</h4>
+                    <p>Audit project requests to gauge billable hour modifications.</p>
+                </a>
+                <a href="/freedom-rate-calculator/" class="footer-link-card">
+                    <h4>Freedom Rate Calculator</h4>
+                    <p>Uncover true underlying floor pricing requirements based on business structures.</p>
+                </a>
+                <a href="/invoice-payment-reminder-toolkit/" class="footer-link-card">
+                    <h4>Invoice Toolkit Bundle</h4>
+                    <p>Acquire systemic workflow execution frameworks to ensure continuous collection streams.</p>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // ==========================================
+        // LOCAL SHEET DECOUPLED COMPUTING SCRIPTS
+        // ==========================================
+
+        const ledgerInjector = document.getElementById('ledger-rows-injector');
+        const subtotalDisplay = document.getElementById('subtotal-display-box');
+        const grandTotalDisplay = document.getElementById('grand-total-display-box');
+
+        // Automatic Local Date Stamping Init Logic
+        const formattedDateInstance = new Date();
+        const dateOptionsMap = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date-setter').textContent = formattedDateInstance.toLocaleDateString('en-US', dateOptionsMap);
+
+        // Track and configure inline tracking state mutations
+        document.addEventListener('input', (e) => {
+            if (e.target.classList.contains('qty-val') || e.target.classList.contains('rate-val')) {
+                executeMathematicalMatrixCalculations();
+            }
+            if (e.target.hasAttribute('data-sender-field')) {
+                commitSenderProfileDataToCache();
+            }
+        });
+
+        // Initialize and safely map LocalStorage Sender Registry Configurations
+        window.addEventListener('DOMContentLoaded', () => {
+            retrieveSenderProfileDataFromCache();
+            executeMathematicalMatrixCalculations();
+        });
+
+        function injectNewBlankLedgerRow() {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td class="col-desc" contenteditable="true">New custom line service execution element description...</td>
+                <td class="col-qty"><span class="qty-val" contenteditable="true">1</span></td>
+                <td class="col-rate"><span class="rate-val" contenteditable="true">0.00</span></td>
+                <td class="col-amt">$0.00</td>
+                <td class="col-act" data-print-hide><button class="btn-row-action" onclick="deleteLedgerRowItem(this)">×</button></td>
+            `;
+            ledgerInjector.appendChild(tr);
+            executeMathematicalMatrixCalculations();
+        }
+
+        window.deleteLedgerRowItem = function(buttonRef) {
+            const rowTarget = buttonRef.closest('tr');
+            if (rowTarget) {
+                rowTarget.remove();
+                executeMathematicalMatrixCalculations();
+            }
+        };
+
+        // Real-Time Matrix Compilation Logic Engine
+        function executeMathematicalMatrixCalculations() {
+            const totalRowCollection = ledgerInjector.querySelectorAll('tr');
+            let aggregatedSubtotalSum = 0;
+
+            totalRowCollection.forEach(row => {
+                const qtyValText = row.querySelector('.qty-val').textContent.replace(/[^\d.]/g, '') || 0;
+                const rateValText = row.querySelector('.rate-val').textContent.replace(/[^\d.]/g, '') || 0;
+
+                const parseQty = parseFloat(qtyValText) || 0;
+                const parseRate = parseFloat(rateValText) || 0;
+
+                const computedLineTotalAmount = parseQty * parseRate;
+                aggregatedSubtotalSum += computedLineTotalAmount;
+
+                // Format inline row text amount metrics visualization cleanly
+                row.querySelector('.col-amt').textContent = formatCurrencyDigitsMarkup(computedLineTotalAmount);
+            });
+
+            subtotalDisplay.textContent = formatCurrencyDigitsMarkup(aggregatedSubtotalSum);
+            grandTotalDisplay.textContent = formatCurrencyDigitsMarkup(aggregatedSubtotalSum);
+        }
+
+        function formatCurrencyDigitsMarkup(numericalRawValue) {
+            return '$' + numericalRawValue.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+        }
+
+        // Browser Native Persistence Modules (Safe Cache Only Profile Storing)
+        function commitSenderProfileDataToCache() {
+            const senderPayloadData = {
+                name: document.getElementById('sender-name').textContent,
+                address: document.getElementById('sender-address').textContent,
+                email: document.getElementById('sender-email').textContent,
+                phone: document.getElementById('sender-phone').textContent
+            };
+            localStorage.setItem('ai-lab-sender-profile', JSON.stringify(senderPayloadData));
+        }
+
+        function retrieveSenderProfileDataFromCache() {
+            const cachedStringData = localStorage.getItem('ai-lab-sender-profile');
+            if (!cachedStringData) return;
+
+            try {
+                const parsedPayload = JSON.parse(cachedStringData);
+                if (parsedPayload.name) document.getElementById('sender-name').textContent = parsedPayload.name;
+                if (parsedPayload.address) document.getElementById('sender-address').textContent = parsedPayload.address;
+                if (parsedPayload.email) document.getElementById('sender-email').textContent = parsedPayload.email;
+                if (parsedPayload.phone) document.getElementById('sender-phone').textContent = parsedPayload.phone;
+            } catch(e) {
+                console.error("Browser memory retrieval parsing fault vectors bypassed safely:", e);
+            }
+        }
+    </script>
+</body>
+</html>
