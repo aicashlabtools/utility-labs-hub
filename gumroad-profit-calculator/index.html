@@ -6,8 +6,8 @@
     <title>Gumroad Profit Calculator | Estimate Fees, Revenue, and Net Profit</title>
     
     <!-- SEO Architecture -->
-    <meta name="description" content="Estimate Gumroad product profit after platform fees, payment processing, refunds, taxes, and product costs.">
-    <meta name="keywords" content="gumroad fee calculator, gumroad profit calculator, digital product profit margin, gumroad pricing calculator">
+    <meta name="description" content="Estimate Gumroad fees, net earnings, platform costs, and how much Gumroad takes from direct or Discover sales.">
+    <meta name="keywords" content="gumroad fee calculator, gumroad profit calculator, gumroad earnings calculator, how much does gumroad take, digital product profit margin">
     
     <style>
         :root {
@@ -396,18 +396,20 @@ input, select, textarea, button {
 .acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
 .acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
-.acl-quick-start{background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;margin-top:18px;margin-bottom:24px;padding:20px 22px}
-.acl-quick-start h2{color:#fff;font-size:16px;margin:0 0 12px}
-.acl-quick-start ol{display:grid;gap:8px 18px;grid-template-columns:repeat(5,minmax(0,1fr));list-style-position:inside;margin:0;padding:0}
-.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.45}
-@media (max-width:900px){.acl-quick-start ol{grid-template-columns:1fr}}
-.acl-faq-section{box-sizing:border-box;background:#151820;border:1px solid #27272a;border-radius:14px;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(calc(100% - 32px),1120px)}
+.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
+.acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
+.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
+.acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+@media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
+.acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
-.acl-faq-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
-.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:14px}
-.acl-faq-item h3{color:#f8fafc;font-size:14px;margin:0 0 6px}
+.acl-faq-grid{align-items:stretch;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;min-width:0;padding:14px}
+.acl-faq-item h3{color:#f8fafc;font-size:14px;line-height:1.35;margin:0 0 6px}
 .acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}
-@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px;width:calc(100% - 24px)}}
+@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px!important;width:calc(100% - 24px)!important}}
 .acl-related-tools{margin-bottom:80px !important}
 </style>
 </head>
@@ -433,20 +435,18 @@ input, select, textarea, button {
 <section class="acl-tool-hero no-print">
     <div class="acl-tool-kicker">Creator Monetization Tool</div>
     <h1>Gumroad Profit Calculator</h1>
-    <p>Estimate how much money you keep from Gumroad sales after fees, refunds, taxes, and costs.</p>
+    <p>Use this Gumroad fee calculator to estimate how much Gumroad takes per sale, forecast Gumroad earnings, and see how much money you keep after platform and processing fees.</p>
 </section>
 
 <section class="acl-quick-start no-print">
     <h2>Quick Start</h2>
     <ol>
-            <li>Enter your revenue inputs</li>
-            <li>Adjust price or traffic assumptions</li>
-            <li>Review the calculated result</li>
-            <li>Compare the gap or target</li>
-            <li>Choose the next growth lever</li>
+            <li>Input Data</li>
+            <li>Adjust Settings</li>
+            <li>Review Results</li>
+            <li>Take Action</li>
     </ol>
-</section>
-<div class="container">
+</section><div class="container">
 
     <div class="workspace">
         <!-- Input Control Deck -->
@@ -493,11 +493,15 @@ input, select, textarea, button {
 
             <div class="output-list">
                 <div class="output-row">
+                    <span>Monthly Gross Revenue</span>
+                    <span class="val" id="out-gross-revenue">$0.00</span>
+                </div>
+                <div class="output-row">
                     <span>Effective Take-Home %</span>
                     <span class="val" id="out-margin-pct">0%</span>
                 </div>
                 <div class="output-row">
-                    <span>Total Monthly Platform Fees</span>
+                    <span>Platform Fees</span>
                     <span class="val" id="out-total-fees" style="color: var(--status-alert);">$0.00</span>
                 </div>
                 <div class="output-row">
@@ -505,8 +509,8 @@ input, select, textarea, button {
                     <span class="val" id="out-fee-split">$0.00 / $0.00</span>
                 </div>
                 <div class="output-row">
-                    <span>Annual Fee Projection</span>
-                    <span class="val" id="out-annual-fees" style="color: var(--text-muted);">$0.00 / yr</span>
+                    <span>Annual Net Income</span>
+                    <span class="val" id="out-annual-net" style="color: var(--text-main);">$0.00/yr</span>
                 </div>
             </div>
 
@@ -516,14 +520,14 @@ input, select, textarea, button {
             </div>
 
             <div class="disclaimer-text">
-                Info: <strong>Platform Data Note:</strong> Calculations reflect Gumroad's official Merchant of Record fee configuration: 10% + $0.50 for direct sales, and 30% flat for Discover marketplace sales.
+                Info: <strong>Platform Data Note:</strong> Estimates are based on publicly available Gumroad fee structures and should be used for planning purposes only.
             </div>
         </div>
     </div>
 
     <section class="seo-content">
-        <h2>Optimizing Your Digital Product Revenue Strategies</h2>
-        <p>Using a target <strong>gumroad fee calculator</strong> allows solo digital creators to correctly plan storefront margins before pushing traffic from short-form networks. Understanding the structural division between localized direct conversions and marketplace placement distributions preserves your underlying <strong>digital product profit margin</strong> efficiency over time.</p>
+        <h2>Estimate Gumroad Fees Before You Launch</h2>
+        <p>This <strong>Gumroad profit calculator</strong> helps you estimate Gumroad fees, net earnings, and monthly take-home revenue before you price a product. Use it as a <strong>Gumroad earnings calculator</strong> to answer how much Gumroad takes from direct sales compared with Gumroad Discover sales.</p>
     </section>
 </div>
 
@@ -539,10 +543,11 @@ input, select, textarea, button {
     const valDiscoverPct = document.getElementById('val-discover-pct');
 
     const outNetPay = document.getElementById('out-net-pay');
+    const outGrossRevenue = document.getElementById('out-gross-revenue');
     const outMarginPct = document.getElementById('out-margin-pct');
     const outTotalFees = document.getElementById('out-total-fees');
     const outFeeSplit = document.getElementById('out-fee-split');
-    const outAnnualFees = document.getElementById('out-annual-fees');
+    const outAnnualNet = document.getElementById('out-annual-net');
     const lowPriceWarning = document.getElementById('low-price-warning');
 
     // Dual Slider Balance Configuration
@@ -576,22 +581,24 @@ input, select, textarea, button {
         const directSalesCount = volume * directPct;
         const discoverSalesCount = volume * discoverPct;
 
-        // Gumroad Flat Fee Matrix Core Formulas
-        // Direct: 10% + $0.50 | Discover: 30% Flat
-        const directFees = directSalesCount * ((price * 0.10) + 0.50);
+        // Gumroad fee assumptions:
+        // Direct/profile sales: 10% + $0.50 plus card processing of 2.9% + $0.30.
+        // Discover marketplace sales: 30% flat, including processing.
+        const directFees = directSalesCount * ((price * 0.10) + 0.50 + (price * 0.029) + 0.30);
         const discoverFees = discoverSalesCount * (price * 0.30);
         const totalMonthlyFees = directFees + discoverFees;
 
         const netTakeHomePay = Math.max(0, grossRevenue - totalMonthlyFees);
         const effectiveMargin = grossRevenue > 0 ? ((netTakeHomePay / grossRevenue) * 100).toFixed(1) : 100;
-        const annualFeesProjected = totalMonthlyFees * 12;
+        const annualNetProjected = netTakeHomePay * 12;
 
         // Update Dashboard Data Fields
         outNetPay.textContent = `$${netTakeHomePay.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        outGrossRevenue.textContent = `$${grossRevenue.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
         outMarginPct.textContent = `${effectiveMargin}%`;
         outTotalFees.textContent = `$${totalMonthlyFees.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
         outFeeSplit.textContent = `$${directFees.toFixed(2)} / $${discoverFees.toFixed(2)}`;
-        outAnnualFees.textContent = `$${Math.round(annualFeesProjected).toLocaleString()}/yr`;
+        outAnnualNet.textContent = `$${Math.round(annualNetProjected).toLocaleString()}/yr`;
 
         // Low-Price Product Warning Trigger Logic (Triggers under $10 where the $0.50 floor hurts)
         if (price <= 10) {
@@ -608,12 +615,12 @@ input, select, textarea, button {
     <h2>Frequently Asked Questions</h2>
     <div class="acl-faq-grid">
         <article class="acl-faq-item">
-            <h3>What costs does this calculator include?</h3>
-            <p>It estimates revenue after common platform fees, payment processing, refunds, taxes, and direct product costs.</p>
+            <h3>How much does Gumroad take per sale?</h3>
+            <p>For direct/profile sales, this calculator estimates Gumroad's public 10% + $0.50 fee plus card processing. For Gumroad Discover sales, it estimates the public 30% marketplace fee.</p>
         </article>
         <article class="acl-faq-item">
-            <h3>Can I use this for other marketplaces?</h3>
-            <p>Yes, if you adjust the fee and cost assumptions to match the platform you are selling through.</p>
+            <h3>Is Gumroad Discover worth it?</h3>
+            <p>Gumroad Discover can be worth it when the extra marketplace exposure brings sales you would not have earned otherwise. Compare the 30% fee against the net revenue and customer volume it creates.</p>
         </article>
     </div>
 </section>
@@ -625,11 +632,9 @@ input, select, textarea, button {
     </div>
     <div class="acl-related-grid">
         <a href="/product-profit-calculator/">Product Profit Calculator</a>
-        <a href="/monetization-gap-calculator/">Monetization Gap Calculator</a>
-        <a href="/subscriber-ltv-calculator/">Subscriber LTV Calculator</a>
+        <a href="/pricing-strategy-calculator/">Pricing Strategy Calculator</a>
         <a href="/product-launch-goal-calculator/">Product Launch Goal Calculator</a>
-        <a href="/cpm-conversion-pivot/">CPM vs Product Revenue Calculator</a>
-        <a href="/lead-magnet-estimator/">Lead Magnet Estimator</a>
+        <a href="/subscriber-ltv-calculator/">Subscriber LTV Calculator</a>
     </div>
 </section>
 <footer class="acl-shell-footer no-print">
@@ -640,7 +645,7 @@ input, select, textarea, button {
         </div>
         <div class="acl-footer-links">
             <a href="/">All Tools</a>
-            <a href="/resolution-checker/">Resolution Checker</a>
+            <a href="/">Free Tools</a>
             <a href="/creator-utilities/">Creator Utilities</a>
             <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
             <a href="mailto:support@aicashlabtools.com">Contact</a>
@@ -649,5 +654,4 @@ input, select, textarea, button {
 </footer>
 </body>
 </html>
-
 
