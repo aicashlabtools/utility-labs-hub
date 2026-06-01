@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creator Runway Calculator | Estimate Cash Burn and Survival Time</title>
+    <title>Business Runway Calculator | Estimate Cash Burn and Survival Time</title>
     
     <!-- SEO Architecture -->
-    <meta name="description" content="Calculate how many months your creator business can operate based on cash reserves, monthly income, expenses, and burn rate.">
-    <meta name="keywords" content="creator runway calculator, burn rate calculator, small business runway, freelance runway calculator, cash flow forecasting tool">
+    <meta name="description" content="Calculate how many months your business can operate based on cash reserves, monthly income, expenses, and burn rate.">
+    <meta name="keywords" content="business runway calculator, burn rate calculator, small business runway, freelance runway calculator, cash flow forecasting tool">
     
     <style>
         :root {
@@ -406,18 +406,20 @@ input, select, textarea, button {
 .acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
 .acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
-.acl-quick-start{background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;margin-top:18px;margin-bottom:24px;padding:20px 22px}
-.acl-quick-start h2{color:#fff;font-size:16px;margin:0 0 12px}
-.acl-quick-start ol{display:grid;gap:8px 18px;grid-template-columns:repeat(5,minmax(0,1fr));list-style-position:inside;margin:0;padding:0}
-.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.45}
-@media (max-width:900px){.acl-quick-start ol{grid-template-columns:1fr}}
-.acl-faq-section{box-sizing:border-box;background:#151820;border:1px solid #27272a;border-radius:14px;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(calc(100% - 32px),1120px)}
+.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
+.acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
+.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
+.acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+@media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
+.acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
-.acl-faq-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
-.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:14px}
-.acl-faq-item h3{color:#f8fafc;font-size:14px;margin:0 0 6px}
+.acl-faq-grid{align-items:stretch;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;min-width:0;padding:14px}
+.acl-faq-item h3{color:#f8fafc;font-size:14px;line-height:1.35;margin:0 0 6px}
 .acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}
-@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px;width:calc(100% - 24px)}}
+@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px!important;width:calc(100% - 24px)!important}}
 .acl-related-tools{margin-bottom:80px !important}
 </style>
 </head>
@@ -442,21 +444,19 @@ input, select, textarea, button {
 
 <section class="acl-tool-hero no-print">
     <div class="acl-tool-kicker">Freelancer Business Tool</div>
-    <h1>Creator Runway Calculator</h1>
-    <p>Estimate how long your creator business can keep operating based on income, expenses, savings, and monthly burn.</p>
+    <h1>Business Runway Calculator</h1>
+    <p>Estimate how long your business can keep operating based on income, expenses, savings, and monthly burn.</p>
 </section>
 
 <section class="acl-quick-start no-print">
     <h2>Quick Start</h2>
     <ol>
-            <li>Enter the client or income inputs</li>
-            <li>Adjust time and pricing assumptions</li>
-            <li>Review the calculated result</li>
-            <li>Check the risk or gap</li>
-            <li>Use the result before quoting</li>
+            <li>Input Data</li>
+            <li>Adjust Settings</li>
+            <li>Review Results</li>
+            <li>Take Action</li>
     </ol>
-</section>
-<div class="container">
+</section><div class="container">
 
     <div class="workspace">
         <!-- Input Levers Panel Component -->
@@ -506,7 +506,7 @@ input, select, textarea, button {
         <div class="dashboard-panel">
             <div class="hero-metric" id="hero-box">
                 <div class="label" id="hero-lbl">Estimated Runway Remaining</div>
-                <div class="value" id="out-runway">4.2 Mo</div>
+                <div class="value" id="out-runway">4.2 Months</div>
             </div>
 
             <div class="output-list">
@@ -520,7 +520,7 @@ input, select, textarea, button {
 
                 <div class="output-row">
                     <div>
-                        <span>Monthly Cash Burn</span>
+                        <span>Net Monthly Burn</span>
                         <span class="sub-lbl">Net monthly operating deficit.</span>
                     </div>
                     <span class="val" id="out-cash-burn" style="color: var(--status-alert);">$0 / mo</span>
@@ -544,7 +544,7 @@ input, select, textarea, button {
 
                 <div class="output-row">
                     <div>
-                        <span>Runway Status Optimization</span>
+                        <span>Runway Status</span>
                         <span class="sub-lbl">Stability evaluation matrix profile.</span>
                     </div>
                     <span class="status-badge badge-green" id="out-status-badge">Sustainable</span>
@@ -552,8 +552,8 @@ input, select, textarea, button {
 
                 <div class="output-row" style="border-color: rgba(59, 130, 246, 0.25); background: rgba(59, 130, 246, 0.02);">
                     <div>
-                        <span style="color: #60a5fa;">Runway Extension Metric</span>
-                        <span class="sub-lbl">Monthly adjustments needed to add exactly 3 months:</span>
+                        <span style="color: #60a5fa;">Add 3 Months of Runway</span>
+                        <span class="sub-lbl">Increase revenue or reduce expenses by:</span>
                     </div>
                     <span class="val" id="out-extension-mod" style="color: #60a5fa; font-size: 0.9rem;">--</span>
                 </div>
@@ -567,8 +567,8 @@ input, select, textarea, button {
     </div>
 
     <section class="seo-content">
-        <h2>Strategic Cash Flow Modeling & Runway Risk Management for Platform Entrepreneurs</h2>
-        <p>Proactively mapping out capital allocations against monthly cash burn safeguards creative companies from insolvency during early product development cycles. Standardizing visibility over monthly revenue gaps and break-even targets removes ambiguity, allowing independent operators to scale production schedules predictably before exhausting liquid safety assets.</p>
+        <h2>Understanding Business Runway</h2>
+        <p>Your runway is the amount of time your business can operate before cash reserves run out. Tracking burn rate and revenue gaps helps you make smarter growth decisions before money becomes a problem.</p>
     </section>
 </div>
 
@@ -632,7 +632,7 @@ input, select, textarea, button {
         // Mathematical Operations: Runway Determinations
         if (netBurn <= 0) {
             // Infinite Runway Model Profile Achieved
-            outRunway.textContent = "infinite";
+            outRunway.textContent = "Infinite";
             heroLbl.textContent = "Business Run Status";
             outEndDate.textContent = "Net Positive Flow";
             outDateDesc.textContent = "Your revenue completely covers your baseline costs.";
@@ -640,12 +640,12 @@ input, select, textarea, button {
             outCashBurn.style.color = "var(--status-green)";
             outRevenueGap.textContent = "$0 / mo";
             outRevenueGap.style.color = "var(--status-green)";
-            outStatusBadge.textContent = "Infinite Runway";
+            outStatusBadge.textContent = "Healthy Runway";
             outStatusBadge.className = "status-badge badge-green";
-            outExtensionMod.textContent = "Fully Stabilized";
+            outExtensionMod.textContent = "$0/month";
             heroBox.classList.remove('alert-border');
             
-            advisorCard.innerHTML = `" <strong>Cash Flow Positive:</strong> Your platform revenue matches or exceeds total overhead metrics. You have generated stable infinite runway. Use this stability to build scalable digital assets and optimize long-form revenue funnels smoothly.`;
+            advisorCard.innerHTML = `<strong>Healthy Runway:</strong> Your revenue covers your baseline costs. Keep protecting reserves while you test growth opportunities and improve profit margins.`;
             return;
         }
 
@@ -661,21 +661,21 @@ input, select, textarea, button {
 
         if (availableCapital <= 0) {
             // Immediate Buffer Breached State
-            outRunway.textContent = "0.0 Mo";
+            outRunway.textContent = "0.0 Months";
             outEndDate.textContent = "Buffer Breached";
             outDateDesc.textContent = "Current holdings are currently at or below your safety buffer limit.";
             outStatusBadge.textContent = "Critical Runway";
             outStatusBadge.className = "status-badge badge-red";
             heroBox.classList.add('alert-border');
-            outExtensionMod.textContent = `Add ${usdFormat.format(netBurn)} / mo immediately`;
+            outExtensionMod.textContent = `${usdFormat.format(netBurn)}/month`;
             
-            advisorCard.innerHTML = ` <strong>Critical Runway Status:</strong> Liquid reserves sit directly inside your designated safety floor boundary. Prioritize high-velocity cash generation strategies: offer high-ticket consulting assets, run flash sales to active subscriber pools, or land a freelance bridge project to instantly lower burn stress.`;
+            advisorCard.innerHTML = `<strong>Critical Runway:</strong> Your reserves are at or below your safety buffer. Focus on immediate revenue, reduce non-essential expenses, and protect cash before taking on more risk.`;
             return;
         }
 
         // Calculate Months Remaining Until Safety Buffer Floor Is Reached
         const monthsRemaining = availableCapital / netBurn;
-        outRunway.textContent = `${monthsRemaining.toFixed(1)} Mo`;
+        outRunway.textContent = `${monthsRemaining.toFixed(1)} Months`;
 
         // Calendar Object Math Architecture Implementation
         const currentDate = new Date();
@@ -693,7 +693,7 @@ input, select, textarea, button {
         const targetMonths = monthsRemaining + 3;
         const targetNetBurn = availableCapital / targetMonths;
         const monthlyAdjustmentNeeded = netBurn - targetNetBurn;
-        outExtensionMod.textContent = `Cut expenses or add ${usdFormat.format(monthlyAdjustmentNeeded)}/mo`;
+        outExtensionMod.textContent = `${usdFormat.format(monthlyAdjustmentNeeded)}/month`;
 
         // Set Dashboard State Badges and Advisor Context Elements
         if (monthsRemaining <= 3) {
@@ -701,19 +701,19 @@ input, select, textarea, button {
             outStatusBadge.className = "status-badge badge-red";
             heroBox.classList.add('alert-border');
             
-            advisorCard.innerHTML = `Warning: <strong>Critical Runway:</strong> Capital reserves will reach your safety floor inside of 90 days. Shift full focus toward immediate, high-converting revenue activities. Freeze non-essential software costs and execute rapid monetization channels now.`;
+            advisorCard.innerHTML = `<strong>Critical Runway:</strong> Capital reserves will reach your safety floor inside of 90 days. Focus on immediate revenue, reduce non-essential expenses, and protect cash before taking on more risk.`;
         } else if (monthsRemaining <= 6) {
-            outStatusBadge.textContent = "Mid Runway Buffer";
+            outStatusBadge.textContent = "Moderate Runway";
             outStatusBadge.className = "status-badge badge-yellow";
             heroBox.classList.remove('alert-border');
             
-            advisorCard.innerHTML = `Balanced: <strong>Mid Runway Buffer:</strong> Your business timeline is stable but actively bounded. Avoid drifting into long development schedules without testing conversions. Use this period to implement automated organic traffic loops to cover the remaining monthly revenue gap.`;
+            advisorCard.innerHTML = `<strong>Moderate Runway:</strong> You have enough time to improve revenue, but your current burn rate will eventually deplete reserves. Focus on closing the monthly revenue gap before expanding expenses.`;
         } else {
-            outStatusBadge.textContent = "Sustainable Zone";
+            outStatusBadge.textContent = "Healthy Runway";
             outStatusBadge.className = "status-badge badge-green";
             heroBox.classList.remove('alert-border');
             
-            advisorCard.innerHTML = ` <strong>Sustainable Build Phase:</strong> You possess a clear runway runway window beyond 6 months before reaching your safety buffer floor. This operational safety cushion allows for clean strategic positioning. Focus on system automation and structural product scaling.`;
+            advisorCard.innerHTML = `<strong>Healthy Runway:</strong> You have a stronger cash cushion before reaching your safety buffer. Keep improving revenue while protecting your highest-return expenses.`;
         }
     }
 
@@ -724,12 +724,16 @@ input, select, textarea, button {
     <h2>Frequently Asked Questions</h2>
     <div class="acl-faq-grid">
         <article class="acl-faq-item">
-            <h3>What does creator runway mean?</h3>
-            <p>Creator runway is the estimated amount of time your business can operate before cash reserves run out.</p>
+            <h3>What does business runway mean?</h3>
+            <p>Business runway is the estimated amount of time your business can operate before cash reserves run out.</p>
         </article>
         <article class="acl-faq-item">
             <h3>What should I do if my runway is short?</h3>
             <p>Look for ways to reduce fixed costs, increase predictable income, or create faster monetization paths before taking on more risk.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>How much runway is considered healthy?</h3>
+            <p>Many small businesses aim for at least 6–12 months of runway. More runway gives you time to improve revenue, test new offers, and handle unexpected expenses.</p>
         </article>
     </div>
 </section>
@@ -743,9 +747,9 @@ input, select, textarea, button {
         <a href="/freedom-rate-calculator/">Freedom Rate Calculator</a>
         <a href="/hourly-rate-calculator/">Hourly Rate Calculator</a>
         <a href="/scope-creep-calculator/">Scope Creep Calculator</a>
-        <a href="/late-fee-calculator/">Late Fee Calculator</a>
-        <a href="/brand-deal-calculator/">Brand Deal Calculator</a>
-        <a href="/paid-traffic-profit-calculator/">Paid Traffic Profit Calculator</a>
+        <a href="/monetization-gap-calculator/">Monetization Gap Calculator</a>
+        <a href="/product-launch-goal-calculator/">Product Launch Goal Calculator</a>
+        <a href="/subscriber-ltv-calculator/">Subscriber LTV Calculator</a>
     </div>
 </section>
 <footer class="acl-shell-footer no-print">
