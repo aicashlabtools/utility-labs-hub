@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract Colors From Image | Image Color Picker Online | AI Cash Lab</title>
+    <style>
+        /* ==========================================
+           PREMIUM PLATFORM BRAND Matrix (CSS)
+           ========================================== */
+        :root {
+            --bg-dark: #070a12;
+            --card-bg: #0e1320;
+            --border-color: #1c2638;
+            --text-main: #ffffff;
+            --text-muted: #64748b;
+            --neon-blue: #3b82f6;
+            --neon-green: #10b981;
+            --neon-red: #f43f5e;
+            --amber-warn: #f59e0b;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Standardized Studio Header */
+        .tool-header {
+            margin-bottom: 30px;
+        }
+        .header-meta {
+            color: var(--amber-warn);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+        }
+        .header-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+        }
+        .header-subtitle {
+            color: var(--text-muted);
+            font-size: 15px;
+            max-width: 700px;
+            margin: 0;
+        }
+
+        /* Unified Privacy Trust Ribbon */
+        .privacy-strip {
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px dashed rgba(59, 130, 246, 0.25);
+            border-radius: 6px;
+            padding: 12px 15px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #93c5fd;
+        }
+
+        /* Master Two-Column Studio Workspace Split */
+        .workspace-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        @media (min-width: 992px) {
+            .workspace-grid {
+                grid-template-columns: 1.1fr 0.9fr;
+            }
+        }
+
+        /* Structural Panel Modules */
+        .grid-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            height: fit-content;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        /* Dynamic Drag & Drop Upload Landing Deck Zone */
+        .upload-deck {
+            border: 2px dashed var(--border-color);
+            background: #070a12;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+            position: relative;
+        }
+        .upload-deck:hover, .upload-deck.dragover {
+            border-color: var(--neon-blue);
+            background: rgba(59, 130, 246, 0.02);
+        }
+        .upload-deck p {
+            margin: 10px 0 0 0;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        .upload-deck input[type="file"] {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        /* Canvas Inspection Stage Map layout controls */
+        .canvas-wrapper {
+            position: relative;
+            margin-top: 20px;
+            background: #02050a;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        canvas {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            cursor: crosshair;
+        }
+
+        /* Dynamic Realtime Precision Loupe Tracking System */
+        #loupe-hud {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.8);
+            pointer-events: none;
+            display: none;
+            background-repeat: no-repeat;
+            z-index: 100;
+        }
+
+        /* Top Dominant Swatches Interface Grid Modules */
+        .palette-matrix {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .swatch-row {
+            display: flex;
+            align-items: center;
+            background: #070a12;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 10px 14px;
+            justify-content: space-between;
+        }
+        .swatch-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .color-block {
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background-color: transparent;
+        }
+        .hex-value {
+            font-family: monospace;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+        .swatch-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Small action context drop selector fields */
+        .role-select {
+            background: #0e1320;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            outline: none;
+        }
+        .role-select:focus {
+            color: white;
+            border-color: var(--neon-blue);
+        }
+
+        /* Buttons Core Standardizations */
+        button {
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+        .btn-blue { background: var(--neon-blue); color: white; }
+        .btn-blue:hover { background: #2563eb; }
+        .btn-secondary { background: #1c2638; color: var(--text-main); }
+        .btn-secondary:hover { background: #2d394e; }
+        
+        .btn-master-action {
+            width: 100%;
+            font-size: 14px;
+            padding: 14px;
+            font-weight: 700;
+            margin-top: 15px;
+        }
+
+        /* Audit & Export Module Elements Rows */
+        .audit-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .audit-box {
+            background: #070a12;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+        }
+        .audit-lbl {
+            font-size: 10px;
+            color: var(--text-muted);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .audit-val {
+            font-size: 16px;
+            font-weight: 700;
+            margin-top: 6px;
+        }
+        .status-pass { color: var(--neon-green); }
+        .status-warn { color: var(--amber-warn); }
+
+        /* Export Output Formatting Blocks */
+        .code-panel {
+            background: #070a12;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 15px;
+            font-family: monospace;
+            font-size: 12px;
+            color: #94a3b8;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+
+        /* Global Toast Banner */
+        .toast-banner {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 6px;
+            padding: 12px;
+            text-align: center;
+            font-size: 13px;
+            color: #a7f3d0;
+            font-weight: 600;
+            margin-top: 15px;
+            display: none;
+        }
+
+        /* Dynamic Collection Tray Vault Styles */
+        .vault-container {
+            margin-top: 25px;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 20px;
+        }
+        .vault-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .vault-item {
+            background: #070a12;
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .vault-swatches-row {
+            display: flex;
+            gap: 6px;
+        }
+        .vault-mini-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* ==========================================
+           SEQUENTIAL INTERNALS WORKFLOW FOOTER
+           ========================================== */
+        .ecosystem-footer {
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 40px;
+        }
+        .footer-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+        .footer-link-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            text-decoration: none;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .footer-link-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--neon-blue);
+        }
+        .footer-link-card h4 {
+            margin: 0 0 8px 0;
+            color: white;
+            font-size: 14px;
+        }
+        .footer-link-card p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Standardized Layout Header Module Context -->
+        <header class="tool-header">
+            <div class="header-meta">CREATOR PRODUCTION ASSET ENGINE</div>
+            <h1 class="header-title">Extract Hex Colors From Image Online</h1>
+            <p class="header-subtitle">Upload your thumbnail layouts or reference branding assets to instantly pull clean dominant swatches, query precision loupe coordinates, and audit theme compatibility rules.</p>
+            
+            <div class="privacy-strip">
+                <span>🔒 Private by default: Image raster analytics compile 100% locally inside browser cache memory. Zero asset elements data vectors hit servers.</span>
+            </div>
+        </header>
+
+        <!-- Studio Main Operation Split Layout Grid -->
+        <main class="workspace-grid">
+            
+            <!-- COLUMN 1: INTERACTIVE IMAGE COMPLIANCE & PICKER CANVAS -->
+            <section class="grid-card">
+                <div class="card-title">Image Target Workbench</div>
+                
+                <div id="drop-zone" class="upload-deck">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                    <p>Drag & Drop Reference Image Asset Here or <b>Browse Files</b></p>
+                    <input type="file" id="file-uploader" accept="image/*">
+                </div>
+
+                <div id="stage-wrapper" class="canvas-wrapper">
+                    <div id="loupe-hud"></div>
+                    <canvas id="source-canvas"></canvas>
+                </div>
+
+                <div id="toast-notif" class="toast-banner">✓ Hex Code Saved to Clipboard Module System Tray!</div>
+            </section>
+
+            <!-- COLUMN 2: ANALYTICAL SWATCH MATRIX & DEVELOPER EXPORTS -->
+            <section class="grid-card">
+                <div class="card-title">Top 5 Dominant Color Swatches</div>
+
+                <!-- Strategic Brand Compatibility Verification Dashboard -->
+                <div class="audit-grid">
+                    <div class="audit-box">
+                        <span class="audit-lbl">AI Cash Lab Integration</span>
+                        <span id="audit-lab-theme" class="audit-val status-pass">Premium Ready ✓</span>
+                    </div>
+                    <div class="audit-box">
+                        <span class="audit-lbl">Contrast Readability</span>
+                        <span id="audit-accessibility" class="audit-val status-pass">High Contrast ✓</span>
+                    </div>
+                </div>
+
+                <!-- Dynamic Extraction Layout Output Rows Holder -->
+                <div id="palette-injector" class="palette-matrix">
+                    <!-- Standard Fallback Placeholder View States -->
+                    <div style="text-align: center; padding: 40px; color: var(--text-muted); font-size: 13px; border: 1px dashed var(--border-color); border-radius: 6px;">
+                        Drop or select an image asset to pull deep hex structural layers instantly.
+                    </div>
+                </div>
+
+                <div id="export-actions-block" style="display: none; margin-top: 20px;">
+                    <div style="display: flex; gap: 10px;">
+                        <button id="btn-copy-all-hex" class="btn-secondary" style="flex: 1;">Copy All HEX Codes</button>
+                        <button id="btn-save-vault-palette" class="btn-blue" style="flex: 1;">Save Palette to Vault</button>
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <span class="audit-lbl">Compiled Token CSS Variables</span>
+                        <div id="css-export-panel" class="code-panel"></div>
+                    </div>
+                </div>
+
+                <!-- Dynamic No-Account Infinite Browser Local Storage Saving Vault Module Block -->
+                <div class="vault-container">
+                    <span class="audit-lbl" style="font-size: 11px; color: var(--text-main);">My Saved Brand Vault Palettes</span>
+                    <div id="vault-list-injector" class="vault-list">
+                        <!-- Filled Programmatically -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- AUTOMATED CREATOR MANUFACTURING STEP DISTRIBUTION INTERNALS SYSTEM FOOTER -->
+        <footer class="ecosystem-footer">
+            <div class="footer-title">Other Creator Tools</div>
+            <div class="footer-grid">
+                <a href="/short-form-hook-analyzer/" class="footer-link-card">
+                    <h4>Short-Form Hook Analyzer</h4>
+                    <p>Test hook retention score vectors before production.</p>
+                </a>
+                <a href="/linkedin-post-formatter/" class="footer-link-card">
+                    <h4>LinkedIn Post Formatter</h4>
+                    <p>Format LinkedIn posts with proper spacing, readability checks, and mobile preview truncation barriers.</p>
+                </a>
+                <a href="/instagram-line-break-generator/" class="footer-link-card">
+                    <h4>Instagram Line Break Generator</h4>
+                    <p>Preserve clean caption spacing and check first-line feed previews.</p>
+                </a>
+                <a href="/thumbnail-text-checker/" class="footer-link-card">
+                    <h4>Thumbnail Text Checker</h4>
+                    <p>Audit title frame typographic structural legibility rules.</p>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // ==========================================
+        // LOCAL RASTER PROCESSING ENGINE (JS)
+        // 100% Native Browser Memory Executions
+        // ==========================================
+
+        const dropZone = document.getElementById('drop-zone');
+        const fileUploader = document.getElementById('file-uploader');
+        const stageWrapper = document.getElementById('stage-wrapper');
+        const canvas = document.getElementById('source-canvas');
+        const ctx = canvas.getContext('2d', { willReadFrequently: true });
+        const loupe = document.getElementById('loupe-hud');
+
+        const paletteInjector = document.getElementById('palette-injector');
+        const exportActionsBlock = document.getElementById('export-actions-block');
+        const cssExportPanel = document.getElementById('css-export-panel');
+        const toastNotif = document.getElementById('toast-notif');
+        const vaultListInjector = document.getElementById('vault-list-injector');
+
+        const btnCopyAllHex = document.getElementById('btn-copy-all-hex');
+        const btnSaveVaultPalette = document.getElementById('btn-save-vault-palette');
+
+        const auditLabTheme = document.getElementById('audit-lab-theme');
+        const auditAccessibility = document.getElementById('audit-accessibility');
+
+        let currentActiveExtractedPalette = [];
+
+        // Upload Framework Drag State Bindings
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, (e) => { e.preventDefault(); dropZone.classList.add('dragover'); }, false);
+        });
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, (e) => { e.preventDefault(); dropZone.classList.remove('dragover'); }, false);
+        });
+        dropZone.addEventListener('drop', (e) => {
+            const files = e.dataTransfer.files;
+            if (files.length) handleImageSourceLoading(files[0]);
+        });
+        fileUploader.addEventListener('change', (e) => {
+            if (e.target.files.length) handleImageSourceLoading(e.target.files[0]);
+        });
+
+        // Initialize Local Storage Vault Assets
+        window.addEventListener('DOMContentLoaded', updateVaultDisplayViewTray);
+
+        function handleImageSourceLoading(file) {
+            if (!file.type.match('image.*')) return alert('Please drop a standardized image asset file.');
+            
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const img = new Image();
+                img.onload = () => {
+                    // Normalize standard workbench canvas rendering widths cleanly
+                    const targetScaleWidth = Math.min(img.width, 600);
+                    const scaleFactor = targetScaleWidth / img.width;
+                    canvas.width = targetScaleWidth;
+                    canvas.height = img.height * scaleFactor;
+                    
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    stageWrapper.style.display = 'flex';
+                    exportActionsBlock.style.display = 'block';
+
+                    // Parse matrix layers 
+                    extractDominantColorLayersMatrix();
+                    setupLoupeTrackingContext(img);
+                };
+                img.src = event.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Color Analytics Vector Engine Configuration
+        function extractDominantColorLayersMatrix() {
+            const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+            const pixelBinsColorMap = {};
+            const precisionStepStride = 8; // Performance calculation optimization row sample skips
+
+            for (let i = 0; i < imgData.length; i += (4 * precisionStepStride)) {
+                const r = imgData[i];
+                const g = imgData[i+1];
+                const b = imgData[i+2];
+                const alpha = imgData[i+3];
+
+                if (alpha < 125) continue; // Drop transparent pixels safely
+
+                // Group color spectrum clusters into structural buckets to optimize counting calculations
+                const bucketR = Math.round(r / 12) * 12;
+                const bucketG = Math.round(g / 12) * 12;
+                const bucketB = Math.round(b / 12) * 12;
+                const key = `${bucketR},${bucketG},${bucketB}`;
+
+                pixelBinsColorMap[key] = (pixelBinsColorMap[key] || 0) + 1;
+            }
+
+            const sortedPixelsDataRows = Object.keys(pixelBinsColorMap).sort((x, y) => pixelBinsColorMap[y] - pixelBinsColorMap[x]);
+            
+            currentActiveExtractedPalette = [];
+            paletteInjector.innerHTML = '';
+
+            // Pull Top 5 Dominant Color Arrays Profiles safely
+            const maximumDisplayCap = Math.min(sortedPixelsDataRows.length, 5);
+            for (let idx = 0; idx < maximumDisplayCap; idx++) {
+                const rgbRawTokens = sortedPixelsDataRows[idx].split(',');
+                const generatedHexValue = transformRgbToHexStr(parseInt(rgbRawTokens[0]), parseInt(rgbRawTokens[1]), parseInt(rgbRawTokens[2]));
+                currentActiveExtractedPalette.push(generatedHexValue);
+
+                renderSwatchRowItemMarkup(generatedHexValue, idx);
+            }
+
+            generateDeveloperCssVariablesStringOutput();
+            runPremiumBrandAuditorEngine();
+        }
+
+        function renderSwatchRowItemMarkup(hex, positionIndex) {
+            const row = document.createElement('div');
+            row.className = 'swatch-row';
+            row.innerHTML = `
+                <div class="swatch-left">
+                    <div class="color-block" style="background-color: ${hex};"></div>
+                    <div>
+                        <div class="hex-value">${hex}</div>
+                    </div>
+                </div>
+                <div class="swatch-actions">
+                    <select class="role-select" data-hex="${hex}">
+                        <option value="none">Assign Role</option>
+                        <option value="bg" ${positionIndex === 0 ? 'selected' : ''}>Background</option>
+                        <option value="accent1" ${positionIndex === 1 ? 'selected' : ''}>Primary Accent</option>
+                        <option value="accent2" ${positionIndex === 2 ? 'selected' : ''}>Neon Secondary</option>
+                        <option value="text" ${positionIndex === 3 ? 'selected' : ''}>Text Contrast</option>
+                        <option value="muted" ${positionIndex === 4 ? 'selected' : ''}>Muted Tone</option>
+                    </select>
+                    <button class="btn-secondary" onclick="executeSystemClipboardCopyString('${hex}')">Copy</button>
+                </div>
+            `;
+            paletteInjector.appendChild(row);
+
+            // Re-bind token variables on selector configuration change cycles
+            row.querySelector('.role-select').addEventListener('change', generateDeveloperCssVariablesStringOutput);
+        }
+
+        // Micro Loupe Tracking & Targeting Engine Configuration Logic
+        function setupLoupeTrackingContext(originalImageInstance) {
+            canvas.addEventListener('mousemove', (e) => {
+                loupe.style.display = 'block';
+                
+                const bounds = canvas.getBoundingClientRect();
+                const currentCursorX = e.clientX - bounds.left;
+                const currentCursorY = e.clientY - bounds.top;
+
+                // Adjust positioning shifts matching elements overlays safely
+                loupe.style.left = `${currentCursorX - 40}px`;
+                loupe.style.top = `${currentCursorY - 40}px`;
+
+                // Calculate matching target pixel mappings inside image canvas arrays
+                const pixelXCoord = Math.floor((currentCursorX / bounds.width) * canvas.width);
+                const pixelYCoord = Math.floor((currentCursorY / bounds.height) * canvas.height);
+
+                const pixelData = ctx.getImageData(pixelXCoord, pixelYCoord, 1, 1).data;
+                const activeHexCoordString = transformRgbToHexStr(pixelData[0], pixelData[1], pixelData[2]);
+
+                // Map canvas magnifying loops visual backgrounds safely
+                loupe.style.backgroundColor = activeHexCoordString;
+            });
+
+            canvas.addEventListener('mouseleave', () => {
+                loupe.style.display = 'none';
+            });
+
+            canvas.addEventListener('click', (e) => {
+                const bounds = canvas.getBoundingClientRect();
+                const currentCursorX = e.clientX - bounds.left;
+                const currentCursorY = e.clientY - bounds.top;
+                const pixelXCoord = Math.floor((currentCursorX / bounds.width) * canvas.width);
+                const pixelYCoord = Math.floor((currentCursorY / bounds.height) * canvas.height);
+
+                const pixelData = ctx.getImageData(pixelXCoord, pixelYCoord, 1, 1).data;
+                const targetedClickHex = transformRgbToHexStr(pixelData[0], pixelData[1], pixelData[2]);
+
+                // Unshift targeted loupe hex values into the tracking array if not present
+                if(!currentActiveExtractedPalette.includes(targetedClickHex)){
+                    currentActiveExtractedPalette.unshift(targetedClickHex);
+                    if(currentActiveExtractedPalette.length > 5) currentActiveExtractedPalette.pop();
+                    
+                    paletteInjector.innerHTML = '';
+                    currentActiveExtractedPalette.forEach((h, i) => renderSwatchRowItemMarkup(h, i));
+                    generateDeveloperCssVariablesStringOutput();
+                    runPremiumBrandAuditorEngine();
+                }
+
+                executeSystemClipboardCopyString(targetedClickHex);
+            });
+        }
+
+        // Strategic Contrast & Accessibility Matrix Audit Algorithms
+        function runPremiumBrandAuditorEngine() {
+            if (currentActiveExtractedPalette.length === 0) return;
+
+            let containsVibrantNeonAccent = false;
+            let containsHighContrastWhiteText = false;
+
+            currentActiveExtractedPalette.forEach(hex => {
+                const rgb = parseHexToRgbValues(hex);
+                if (!rgb) return;
+
+                // Relative Luminance Math
+                const l = 0.2126 * rgb.r + 0.7152 * rgb.g + 0.0722 * rgb.b;
+
+                // Detect bright/neon components or light contrast tags
+                if (l > 130 && l < 230) containsVibrantNeonAccent = true;
+                if (l >= 230) containsHighContrastWhiteText = true;
+            });
+
+            // Match exact brand styling configurations
+            if (containsVibrantNeonAccent) {
+                auditLabTheme.textContent = "Premium Ready ✓";
+                auditLabTheme.className = "audit-val status-pass";
+            } else {
+                auditLabTheme.textContent = "Muted Profile";
+                auditLabTheme.className = "audit-val status-warn";
+            }
+
+            if (containsHighContrastWhiteText || containsVibrantNeonAccent) {
+                auditAccessibility.textContent = "High Contrast ✓";
+                auditAccessibility.className = "audit-val status-pass";
+            } else {
+                auditAccessibility.textContent = "Low Contrast Warning";
+                auditAccessibility.className = "audit-val status-warn";
+            }
+        }
+
+        // Dynamic Developer Tokens Mapping
+        function generateDeveloperCssVariablesStringOutput() {
+            const dropdownSelectors = document.querySelectorAll('.role-select');
+            let cssBlockBuffer = `:root {\n`;
+
+            dropdownSelectors.forEach(select => {
+                const targetedHexValue = select.getAttribute('data-hex');
+                const selectedRoleType = select.value;
+
+                if (selectedRoleType !== 'none') {
+                    cssBlockBuffer += `  --color-${selectedRoleType}: ${targetedHexValue};\n`;
+                }
+            });
+
+            cssBlockBuffer += `}`;
+            cssExportPanel.textContent = cssBlockBuffer;
+        }
+
+        // System Action Event Connections
+        btnCopyAllHex.addEventListener('click', () => {
+            if (!currentActiveExtractedPalette.length) return;
+            const textBlockBufferString = currentActiveExtractedPalette.join('\n');
+            executeSystemClipboardCopyString(textBlockBufferString);
+        });
+
+        btnSaveVaultPalette.addEventListener('click', () => {
+            if (!currentActiveExtractedPalette.length) return;
+
+            const existingVaultCollectionArray = JSON.parse(localStorage.getItem('ai-lab-palette-vault') || '[]');
+            existingVaultCollectionArray.unshift(currentActiveExtractedPalette);
+
+            localStorage.setItem('ai-lab-palette-vault', JSON.stringify(existingVaultCollectionArray));
+            
+            updateVaultDisplayViewTray();
+            
+            // Pulse visual button context changes
+            const originalText = btnSaveVaultPalette.textContent;
+            btnSaveVaultPalette.textContent = "Vault Saved ✓";
+            setTimeout(() => { btnSaveVaultPalette.textContent = originalText; }, 1500);
+        });
+
+        function updateVaultDisplayViewTray() {
+            const existingVaultCollectionArray = JSON.parse(localStorage.getItem('ai-lab-palette-vault') || '[]');
+            vaultListInjector.innerHTML = '';
+
+            if (existingVaultCollectionArray.length === 0) {
+                vaultListInjector.innerHTML = `<span style="font-size: 12px; color: var(--text-muted); padding: 10px;">No saved palettes found in your local vault.</span>`;
+                return;
+            }
+
+            existingVaultCollectionArray.forEach((paletteArr, savedRecordIdx) => {
+                const vaultRow = document.createElement('div');
+                vaultRow.className = 'vault-item';
+                
+                let swatchesMarkupBuffer = `<div class="vault-swatches-row">`;
+                paletteArr.forEach(hexColorCode => {
+                    swatchesMarkupBuffer += `<div class="vault-mini-dot" style="background-color: ${hexColorCode};" title="${hexColorCode}"></div>`;
+                });
+                swatchesMarkupBuffer += `</div>`;
+
+                vaultRow.innerHTML = `
+                    ${swatchesMarkupBuffer}
+                    <div style="display: flex; gap: 8px;">
+                        <button class="btn-secondary" style="padding: 4px 8px; font-size: 10px;" onclick="loadVaultPaletteBackToWorkspace(${savedRecordIdx})">Load</button>
+                        <button class="btn-secondary" style="padding: 4px 8px; font-size: 10px; color: var(--neon-red);" onclick="deleteVaultPaletteRecord(${savedRecordIdx})">Wipe</button>
+                    </div>
+                `;
+                vaultListInjector.appendChild(vaultRow);
+            });
+        }
+
+        window.loadVaultPaletteBackToWorkspace = function(targetIndex) {
+            const existingVaultCollectionArray = JSON.parse(localStorage.getItem('ai-lab-palette-vault') || '[]');
+            const targetedPaletteData = existingVaultCollectionArray[targetIndex];
+
+            if (targetedPaletteData) {
+                currentActiveExtractedPalette = [...targetedPaletteData];
+                paletteInjector.innerHTML = '';
+                currentActiveExtractedPalette.forEach((hex, idx) => renderSwatchRowItemMarkup(hex, idx));
+                generateDeveloperCssVariablesStringOutput();
+                runPremiumBrandAuditorEngine();
+            }
+        };
+
+        window.deleteVaultPaletteRecord = function(targetIndex) {
+            const existingVaultCollectionArray = JSON.parse(localStorage.getItem('ai-lab-palette-vault') || '[]');
+            existingVaultCollectionArray.splice(targetIndex, 1);
+            localStorage.setItem('ai-lab-palette-vault', JSON.stringify(existingVaultCollectionArray));
+            updateVaultDisplayViewTray();
+        };
+
+        window.executeSystemClipboardCopyString = function(textStr) {
+            navigator.clipboard.writeText(textStr).then(() => {
+                toastNotif.style.display = 'block';
+                setTimeout(() => { toastNotif.style.display = 'none'; }, 2000);
+            }).catch(err => {
+                alert('Clipboard interaction error: ' + err);
+            });
+        };
+
+        // Utility Parsing Formula Foundations
+        function transformRgbToHexStr(r, g, b) {
+            return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
+        }
+
+        function parseHexToRgbValues(hexString) {
+            const shorthandRegexPattern = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+            const fullHexStr = hexString.replace(shorthandRegexPattern, (m, r, g, b) => r + r + g + g + b + b);
+            const execResult = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(fullHexStr);
+            return execResult ? {
+                r: parseInt(execResult[1], 16),
+                g: parseInt(execResult[2], 16),
+                b: parseInt(execResult[3], 16)
+            } : null;
+        }
+    </script>
+</body>
+</html>
