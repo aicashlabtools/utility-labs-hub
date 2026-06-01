@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Statement of Work Generator | Simple Freelancer SOW Template | AI Cash Lab</title>
+    <style>
+        /* ==========================================
+           PREMIUM ENGINE CSS VARIABLE SYSTEM
+           ========================================== */
+        :root {
+            --bg-dark: #070a12;
+            --card-bg: #0e1320;
+            --border-color: #1c2638;
+            --text-main: #ffffff;
+            --text-muted: #64748b;
+            --neon-blue: #3b82f6;
+            --neon-green: #10b981;
+            --neon-red: #f43f5e;
+            --amber-warn: #f59e0b;
+            --paper-bg: #ffffff;
+            --paper-text: #1e293b;
+            --paper-muted: #64748b;
+            --paper-border: #cbd5e1;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Standardized Studio Header */
+        .tool-header {
+            margin-bottom: 35px;
+        }
+        .header-meta {
+            color: var(--neon-blue);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .header-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+        }
+        .header-subtitle {
+            color: var(--text-muted);
+            font-size: 15px;
+            max-width: 700px;
+            margin: 0;
+        }
+
+        /* Operational Safety Notice Card */
+        .legal-disclaimer-card {
+            background: rgba(245, 158, 11, 0.03);
+            border: 1px dashed rgba(245, 158, 11, 0.25);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        .disclaimer-icon {
+            color: var(--amber-warn);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .disclaimer-text {
+            font-size: 13px;
+            color: #cbd5e1;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* CONTROL INTERFACE RAIL */
+        .action-control-rail {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+            align-items: center;
+        }
+        @media (min-width: 768px) {
+            .action-control-rail {
+                grid-template-columns: 1fr auto;
+            }
+        }
+        .preset-select-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+        .preset-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+        }
+        .btn-preset {
+            background: #1c2638;
+            color: #94a3b8;
+            border: 1px solid var(--border-color);
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-preset:hover {
+            color: white;
+            border-color: var(--text-muted);
+        }
+        .btn-preset.active {
+            background: var(--neon-blue);
+            color: white;
+            border-color: var(--neon-blue);
+        }
+        .btn-primary-action {
+            background: var(--neon-blue);
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 12px 24px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-primary-action:hover {
+            background: #2563eb;
+        }
+
+        /* TWO-COLUMN STUDIO WORKSPACE SPLIT */
+        .workspace-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        @media (min-width: 992px) {
+            .workspace-layout {
+                grid-template-columns: 1.25fr 0.75fr;
+            }
+        }
+
+        /* INLINE WORKSPACE DOCUMENT INTERFACE */
+        .document-canvas {
+            background-color: var(--paper-bg);
+            color: var(--paper-text);
+            border-radius: 8px;
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        .doc-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #0f172a;
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 0.5px;
+        }
+        
+        [contenteditable="true"] {
+            outline: none;
+            padding: 1px 4px;
+            border-radius: 4px;
+            font-weight: 700;
+            color: #0f172a;
+            background: #f1f5f9;
+            transition: background 0.15s;
+        }
+        [contenteditable="true"]:hover, [contenteditable="true"]:focus {
+            background: #e2e8f0;
+        }
+
+        .doc-section-title {
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #0f172a;
+            margin: 30px 0 12px 0;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 4px;
+        }
+
+        .doc-p {
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+
+        /* Core Structure Lists */
+        .doc-list {
+            margin: 0 0 20px 0;
+            padding-left: 20px;
+        }
+        .doc-list li {
+            margin-bottom: 8px;
+        }
+
+        /* Milestone Table System */
+        .ledger-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0 25px 0;
+        }
+        .ledger-table th {
+            background: #f8fafc;
+            color: #475569;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-align: left;
+            padding: 10px 12px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .ledger-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+        .col-amount {
+            text-align: right;
+            width: 130px;
+        }
+        .ledger-table th.col-amount {
+            text-align: right;
+        }
+        .row-total-label {
+            text-align: right;
+            font-weight: 800;
+            color: #0f172a;
+        }
+        .row-total-value {
+            text-align: right;
+            font-weight: 800;
+            color: #0f172a;
+            border-bottom: 3px double #0f172a !important;
+        }
+
+        /* Cross-linked Ecosystem Clause Callout */
+        .ecosystem-clause-box {
+            background: #f8fafc;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Action Pill Injectors */
+        .inner-canvas-injector {
+            background: #f1f5f9;
+            border: 1px dashed #cbd5e1;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .injector-meta {
+            font-size: 12px;
+            font-weight: 600;
+            color: #475569;
+        }
+        .btn-inject {
+            background: white;
+            color: #0f172a;
+            border: 1px solid #cbd5e1;
+            padding: 6px 12px;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn-inject:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+        }
+
+        /* SIDEBAR INTERACTIVE PANEL */
+        .sidebar-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .hud-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+        }
+        .panel-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+            margin: 0 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Deliverables Diagnostic Module */
+        .counter-display {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .counter-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1;
+        }
+        .counter-lbl {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .diagnostic-msg {
+            font-size: 12px;
+            padding: 10px 12px;
+            border-radius: 6px;
+            line-height: 1.4;
+        }
+        .diagnostic-msg.pass {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            color: #a7f3d0;
+        }
+        .diagnostic-msg.warn {
+            background: rgba(244, 63, 94, 0.05);
+            border: 1px solid rgba(244, 63, 94, 0.2);
+            color: #fecdd3;
+        }
+
+        /* Revision Fast Toggles */
+        .policy-option-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 13px;
+            color: #cbd5e1;
+            cursor: pointer;
+        }
+        .policy-option-row input {
+            accent-color: var(--neon-blue);
+            margin: 0;
+        }
+
+        /* STRATEGIC CONVERSION BLOCK */
+        .conversion-deck {
+            background: linear-gradient(135deg, #0e1320 0%, #070a12 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 35px;
+            margin-bottom: 60px;
+        }
+        .deck-badge {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--neon-blue);
+            font-size: 10px;
+            font-weight: 800;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .deck-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+        }
+        .deck-subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin: 0 0 25px 0;
+            max-width: 700px;
+            line-height: 1.5;
+        }
+        .value-matrix-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        @media (min-width: 600px) {
+            .value-matrix-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .value-bullet {
+            display: flex;
+            gap: 10px;
+            font-size: 13px;
+            color: #e2e8f0;
+        }
+        .value-bullet span { color: var(--neon-green); font-weight: 700; }
+        
+        .btn-master-upsell {
+            background: #ffffff;
+            color: #070a12;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 14px 28px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+        .btn-master-upsell:hover {
+            background: #e2e8f0;
+        }
+
+        /* INTEGRATED RECURSIVE SYSTEM WORKFLOW FOOTER */
+        .ecosystem-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 40px;
+        }
+        .footer-title {
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+        .footer-link-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            text-decoration: none;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .footer-link-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--neon-blue);
+        }
+        .footer-link-card h4 {
+            margin: 0 0 6px 0;
+            color: white;
+            font-size: 13px;
+        }
+        .footer-link-card span {
+            display: block;
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--neon-blue);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+        .footer-link-card p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 11px;
+            line-height: 1.4;
+        }
+
+        /* ==========================================
+           NATIVE PRINT MEDIA STYLE OVERRIDES
+           ========================================== */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+            }
+            .container {
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .tool-header,
+            .legal-disclaimer-card,
+            .action-control-rail,
+            .sidebar-panel,
+            .inner-canvas-injector,
+            .conversion-deck,
+            .ecosystem-footer {
+                display: none !important;
+            }
+            .workspace-layout {
+                grid-template-columns: 1fr !important;
+                margin: 0 !important;
+            }
+            .document-canvas {
+                box-shadow: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                background: #ffffff !important;
+                color: #000000 !important;
+            }
+            [contenteditable="true"] {
+                background: none !important;
+                padding: 0 !important;
+            }
+            .ecosystem-clause-box {
+                background: #f8fafc !important;
+                border-left: 4px solid #000000 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Studio Header Module -->
+        <header class="tool-header">
+            <div class="header-meta">Scope Operations Engine</div>
+            <h1 class="header-title">Free Statement of Work (SOW) Generator</h1>
+            <p class="header-subtitle">Lock down your project goals, timelines, and deliverables. Select an operational framework preset, refine specifications inline, and export a clean contract addendum.</p>
+        </header>
+
+        <!-- Protective Disclaimer Module Card -->
+        <section class="legal-disclaimer-card">
+            <div class="disclaimer-icon">⚠️</div>
+            <p class="disclaimer-text">
+                <b>Operational Notice:</b> This Statement of Work generator is a functional layout utility and does not constitute formal legal counsel. Ensure this document is attached to or references an approved Master Services Agreement (MSA) or standard independent contract framework prior to client execution.
+            </p>
+        </section>
+
+        <!-- Live Layout Adjustment Switching Rail -->
+        <section class="action-control-rail">
+            <div class="preset-select-group">
+                <span class="preset-label">Project Structure:</span>
+                <button id="preset-fixed" class="btn-preset active" onclick="applySowWorkflowPreset('fixed')">Fixed-Price Milestones</button>
+                <button id="preset-retainer" class="btn-preset" onclick="applySowWorkflowPreset('retainer')">Monthly Retainer</button>
+                <button id="preset-hourly" class="btn-preset" onclick="applySowWorkflowPreset('hourly')">Hourly / Time & Materials</button>
+            </div>
+            <div>
+                <button class="btn-primary-action" onclick="window.print()">Print / Save PDF</button>
+            </div>
+        </section>
+
+        <!-- Work Area Layout Matrix Split -->
+        <div class="workspace-layout">
+            
+            <!-- COLUMN 1: INTERACTIVE SOW SHEET -->
+            <main id="sow-sheet" class="document-canvas">
+                <div class="doc-title">STATEMENT OF WORK (SOW)</div>
+
+                <div class="doc-p">
+                    This Statement of Work ("SOW") is issued pursuant to the agreements by and between 
+                    <span contenteditable="true" id="fld-provider">Your Name / Agency</span> ("Service Provider") and 
+                    <span contenteditable="true" id="fld-client">Client Company Name</span> ("Client") dated 
+                    <span contenteditable="true" id="fld-date">June 1, 2026</span>.
+                </div>
+
+                <div class="doc-section-title">1. Project Summary & Objectives</div>
+                <div class="doc-p" contenteditable="true" id="fld-objectives">
+                    Service Provider will deliver comprehensive short-form video optimization structures, data asset scaling pipelines, and organic channel architecture adjustments designed to accelerate client system outreach goals.
+                </div>
+
+                <div class="doc-section-title">2. Scope of Work & Deliverables</div>
+                <div class="doc-p">
+                    The specific, measurable outcomes required under this engagement are itemized explicitly below. Any outcome asset not explicitly detailed within this list is considered completely out of scope:
+                </div>
+                
+                <!-- Dynamic Deliverable Content Node List Wrapper -->
+                <ul class="doc-list" id="deliverables-node-list" contenteditable="true">
+                    <li>Phase 1: Deep data market validation audit tracking competitor metrics.</li>
+                    <li>Phase 2: 5 polished short-form video production draft assets.</li>
+                    <li>Phase 3: Final structural campaign launch blueprint configuration file.</li>
+                </ul>
+
+                <!-- Embedded Section Insertion Anchor Option Point -->
+                <div class="inner-canvas-injector" id="revision-insertion-ui">
+                    <span class="injector-meta">Need to specify revision protections?</span>
+                    <button class="btn-inject" onclick="injectRevisionPolicySection()">+ Add Revision Policy Clause</button>
+                </div>
+
+                <div id="dynamic-policy-target-wrapper"></div>
+
+                <div class="doc-section-title">3. Financial Terms & Compensation Ledger</div>
+                <div class="doc-p">
+                    Client agrees to compensate Service Provider according to the calculated scheduling parameters outlined within the transaction table below:
+                </div>
+
+                <!-- AUTO-CALCULATING FINANCIAL MATRIX LEDGER -->
+                <table class="ledger-table" id="compensation-ledger-table">
+                    <thead>
+                        <tr>
+                            <th>Phase / Line Item Description</th>
+                            <th class="col-amount">Amount (USD)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ledger-rows-body">
+                        <!-- Default Fixed Preset Rows Loaded In via App Boot -->
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="row-total-label">Total Compensation Value:</td>
+                            <td class="row-total-value" id="ledger-computed-total">$0.00</td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                <!-- INTEGRATED ECOSYSTEM ALIGNED CLAUSE MODULE -->
+                <div class="doc-section-title">4. Out-of-Scope Requests</div>
+                <div class="ecosystem-clause-box">
+                    <div class="doc-p" style="margin:0; font-style: italic;">
+                        <b>Important Change Provision:</b> Any request for modifications, additional feature layouts, asset updates, or altered deployment parameters falling outside the explicit boundaries defined in Section 2 of this document will be treated as an <b>Out-of-Scope Request</b>. Such requests will require a formal project change review and separate billable estimation adjustments prior to production execution.
+                    </div>
+                </div>
+
+                <!-- Basic Agreement Verification Anchors -->
+                <div class="doc-p" style="margin-top: 40px; font-size: 12px; color: var(--paper-muted);">
+                    By signing below or issuing written confirmation to initiate development tasks, both parties formally accept the parameters, terms, and boundaries mapped out within this Statement of Work.
+                </div>
+            </main>
+
+            <!-- COLUMN 2: DATA AUDIT CONTROL HUB -->
+            <aside class="sidebar-panel">
+                
+                <!-- Live Quality Diagnostic HUD -->
+                <div class="hud-card">
+                    <div class="panel-title">Scope Integrity Audit</div>
+                    <div class="counter-display">
+                        <div class="counter-number" id="live-deliv-count">0</div>
+                        <div class="counter-lbl">Explicit Deliverables Bound</div>
+                    </div>
+                    <div id="diagnostic-badge" class="diagnostic-msg pass">✓ Scope definitions active.</div>
+                </div>
+
+                <!-- Revision Selection Helper -->
+                <div class="hud-card">
+                    <div class="panel-title">Revision Configuration</div>
+                    <label class="policy-option-row">
+                        <input type="radio" name="rev-opt" value="2rounds" checked onclick="syncActiveRevisionSetting('2rounds')">
+                        <span>Standard (2 Revision Rounds)</span>
+                    </label>
+                    <label class="policy-option-row">
+                        <input type="radio" name="rev-opt" value="strict" onclick="syncActiveRevisionSetting('strict')">
+                        <span>Strict (1 Round, Fixed Cap)</span>
+                    </label>
+                    <label class="policy-option-row">
+                        <input type="radio" name="rev-opt" value="none" onclick="syncActiveRevisionSetting('none')">
+                        <span>No Revisions Included</span>
+                    </label>
+                </div>
+            </aside>
+        </div>
+
+        <!-- STRATEGIC VALUE TRANSITION EXPLICIT CONVERSION UPSELL BLOCK -->
+        <section class="conversion-deck">
+            <div class="deck-badge">System Upgrade</div>
+            <h3 class="deck-title">A Statement of Work only works if you enforce it.</h3>
+            <p class="deck-subtitle">The free SOW generator defines your boundaries. The premium <b>Client Portal & Freelancer Business OS</b> gives you a comprehensive operational infrastructure to track client production steps, log project communication histories, and stop scope creep automatically after the project begins.</p>
+            
+            <div class="value-matrix-grid">
+                <div class="value-bullet"><span>✓</span> <b>Shared Client Portals:</b> Keep client review timelines organized in a dedicated operations dashboard.</div>
+                <div class="value-bullet"><span>✓</span> <b>Deliverable Checkpoints:</b> Secure client sign-offs at each step before moving forward.</div>
+                <div class="value-bullet"><span>✓</span> <b>Scope Creep Registers:</b> Log and track out-of-scope requests in a clean client ledger.</div>
+                <div class="value-bullet"><span>✓</span> <b>Workflow Architecture:</b> Run day-to-day services systematically to secure reliable renewal orders.</div>
+            </div>
+
+            <a href="/client-portal-freelancer-os/" class="btn-master-upsell">View Client Portal & Freelancer Business OS →</a>
+        </section>
+
+        <!-- LOGICAL FIVE-STEP INTEGRATED ECOSYSTEM LINK WHEEL FOOTER -->
+        <footer class="ecosystem-footer">
+            <div class="footer-title">The Independent Creator Project Onboarding Lifecycle</div>
+            <div class="footer-grid">
+                <a href="/proposal-generator/" class="footer-link-card">
+                    <span>Step 1</span>
+                    <h4>Proposal Generator</h4>
+                    <p>Pitch high-level strategy ideas and align client vision fast.</p>
+                </a>
+                <a href="/scope-creep-calculator/" class="footer-link-card">
+                    <span>Step 2</span>
+                    <h4>Scope Creep Calculator</h4>
+                    <p>Analyze scope additions to calculate budget adjustments.</p>
+                </a>
+                <a href="/free-sow-generator/" class="footer-link-card" style="border-color: var(--neon-blue);">
+                    <span>Step 3</span>
+                    <h4>SOW Generator</h4>
+                    <p>Lock down clear boundaries and project phases layout.</p>
+                </a>
+                <a href="/free-invoice-generator/" class="footer-link-card">
+                    <span>Step 4</span>
+                    <h4>Invoice Generator</h4>
+                    <p>Generate professional client billing documents instantly.</p>
+                </a>
+                <a href="/client-portal-freelancer-os/" class="footer-link-card">
+                    <span>Step 5</span>
+                    <h4>Freelancer OS Hub</h4>
+                    <p>Access the core framework to manage ongoing project workflows cleanly.</p>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // ==========================================
+        // DYNAMIC RENDERING & CALCULATION CONTROLLERS
+        // ==========================================
+
+        const deliverablesList = document.getElementById('deliverables-node-list');
+        const liveCountDisplay = document.getElementById('live-deliv-count');
+        const diagnosticBadge = document.getElementById('diagnostic-badge');
+        const rowsBody = document.getElementById('ledger-rows-body');
+        const computedTotalEl = document.getElementById('ledger-computed-total');
+        const wrapperPolicyTarget = document.getElementById('dynamic-policy-target-wrapper');
+        const insertionUiRow = document.getElementById('revision-insertion-ui');
+
+        let selectedRevisionModeKey = '2rounds';
+
+        // Predefined Core Matrix Layout Data Blocks
+        const sowPresets = {
+            fixed: {
+                deliverables: `<li>Phase 1: Deep data market validation audit tracking competitor metrics.</li>
+                               <li>Phase 2: 5 polished short-form video production draft assets.</li>
+                               <li>Phase 3: Final structural campaign launch blueprint configuration file.</li>`,
+                rows: `<tr>
+                        <td contenteditable="true">Phase 1 Discovery & Market Analysis Audit</td>
+                        <td class="col-amount" contenteditable="true" data-type="amount">500</td>
+                       </tr>
+                       <tr>
+                        <td contenteditable="true">Phase 2 Asset Production & Strategy Design</td>
+                        <td class="col-amount" contenteditable="true" data-type="amount">1000</td>
+                       </tr>
+                       <tr>
+                        <td contenteditable="true">Phase 3 Final Engineering Optimization & Delivery</td>
+                        <td class="col-amount" contenteditable="true" data-type="amount">1500</td>
+                       </tr>`
+            },
+            retainer: {
+                deliverables: `<li>Ongoing Delivery: 4 optimized social asset files deployed weekly.</li>
+                               <li>Monthly Analysis: 1 performance audit reporting metric growth paths.</li>
+                               <li>Communication: 1 bi-weekly tactical optimization sync check.</li>`,
+                rows: `<tr>
+                        <td contenteditable="Monthly Retainer Management Allocation Fees">Monthly Retainer Allocation Fee (Cycle 1)</td>
+                        <td class="col-amount" contenteditable="true" data-type="amount">2500</td>
+                       </tr>`
+            },
+            hourly: {
+                deliverables: `<li>Targeted platform software adjustments and template component creation.</li>
+                               <li>Ad-hoc technical optimization troubleshooting and consulting support.</li>`,
+                rows: `<tr>
+                        <td contenteditable="true">Estimated Development Runway (Estimated: 40 Hours @ $75/hr)</td>
+                        <td class="col-amount" contenteditable="true" data-type="amount">3000</td>
+                       </tr>
+                       <tr>
+                        <td contenteditable="true">Maximum Project Cost Cap Limit (Strict Budget Cap Allocation)</td>
+                        <td class="col-amount" contenteditable="false" style="color:var(--paper-muted)">Noted</td>
+                       </tr>`
+            }
+        };
+
+        const policyTextBlocks = {
+            '2rounds': '<b>3. Revision Parameters.</b> Service Provider builds in up to two (2) separate rounds of constructive feedback processing at no extra charge. Any subsequent modification requests submitted outside these iterations will be processed at baseline agency time-and-materials values.',
+            'strict': '<b>3. Revision Parameters.</b> Service Provider builds in one (1) single strict round of structural design adjustment review. All change requests must be consolidated into a clear engineering brief. Additional rounds require a separate out-of-scope estimate.',
+            'none': '<b>3. Revision Parameters.</b> Deliverables are evaluated and finalized matching the requirements outline directly. This project structure features zero (0) included out-of-bounds revision iteration rounds. Ongoing edits require distinct commercial project pricing.'
+        };
+
+        // Real-Time Event Monitoring Core Loops
+        deliverablesList.addEventListener('input', runEcosystemScopeAudit);
+        rowsBody.addEventListener('input', calculateLedgerFinancialTotalSum);
+
+        window.addEventListener('DOMContentLoaded', () => {
+            applySowWorkflowPreset('fixed');
+        });
+
+        function applySowWorkflowPreset(presetKey) {
+            // Manage Structural UI Toggles
+            document.querySelectorAll('.btn-preset').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`preset-${presetKey}`).classList.add('active');
+
+            // Swap Node Content Structures Safely
+            const data = sowPresets[presetKey];
+            deliverablesList.innerHTML = data.deliverables;
+            rowsBody.innerHTML = data.rows;
+
+            runEcosystemScopeAudit();
+            calculateLedgerFinancialTotalSum();
+        }
+
+        // Live Scope Audit Parser Engine
+        function runEcosystemScopeAudit() {
+            // Count raw bullet point items inside the workspace list container
+            const totalBulletNodesCount = deliverablesList.getElementsByTagName('li').length;
+            const strippedTextPayload = deliverablesList.textContent.trim();
+
+            if (totalBulletNodesCount === 0 || strippedTextPayload === "") {
+                liveCountDisplay.textContent = "0";
+                diagnosticBadge.textContent = "Warning: No specific deliverables defined. Add project boundaries.";
+                diagnosticBadge.className = "diagnostic-msg warn";
+            } else {
+                liveCountDisplay.textContent = totalBulletNodesCount;
+                diagnosticBadge.textContent = "✓ Deliverable criteria registered cleanly.";
+                diagnosticBadge.className = "diagnostic-msg pass";
+            }
+        }
+
+        // Auto-Calculating Matrix Summation Loop
+        function calculateLedgerFinancialTotalSum() {
+            let computationalRunningSumTotal = 0;
+            const targetPriceCells = rowsBody.querySelectorAll('td[data-type="amount"]');
+
+            targetPriceCells.forEach(cell => {
+                const rawStringCleanValue = cell.textContent.replace(/[$,\s]/g, '');
+                const evaluatedFloatNumeric = parseFloat(rawStringCleanValue);
+                if (!isNaN(evaluatedFloatNumeric)) {
+                    computationalRunningSumTotal += evaluatedFloatNumeric;
+                }
+            });
+
+            // Format monetary tracking value output systematically
+            computedTotalEl.textContent = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            }).format(computationalRunningSumTotal);
+        }
+
+        // Inline Structural Revision Policy Section Injector Methods
+        function injectRevisionPolicySection() {
+            insertionUiRow.style.display = 'none';
+            
+            const outerBoxNode = document.createElement('div');
+            outerBoxNode.id = 'inserted-policy-clause-node';
+            outerBoxNode.className = 'doc-p';
+            outerBoxNode.setAttribute('contenteditable', 'true');
+            outerBoxNode.style.marginTop = '20px';
+            
+            wrapperPolicyTarget.appendChild(outerBoxNode);
+            syncActiveRevisionSetting(selectedRevisionModeKey);
+        }
+
+        function syncActiveRevisionSetting(modeKey) {
+            selectedRevisionModeKey = modeKey;
+            const targetContainerNode = document.getElementById('inserted-policy-clause-node');
+            
+            if (targetContainerNode) {
+                targetContainerNode.innerHTML = policyTextBlocks[modeKey];
+            }
+        }
+    </script>
+</body>
+</html>
