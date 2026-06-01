@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Post Formatter (No Signup Required) | AI Cash Lab</title>
+    <style>
+        /* ==========================================
+           PREMIUM BRAND DESIGN ENGINE (CSS)
+           ========================================== */
+        :root {
+            --bg-dark: #070a12;
+            --card-bg: #0e1320;
+            --border-color: #1c2638;
+            --text-main: #ffffff;
+            --text-muted: #64748b;
+            --neon-blue: #3b82f6;
+            --neon-green: #10b981;
+            --neon-red: #f43f5e;
+            --amber-warn: #f59e0b;
+            --ln-bg: #ffffff;
+            --ln-border: #deebd5;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Standardized Tool Header */
+        .tool-header {
+            margin-bottom: 30px;
+        }
+        .header-meta {
+            color: #f59e0b;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+        }
+        .header-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+        }
+        .header-subtitle {
+            color: var(--text-muted);
+            font-size: 15px;
+            max-width: 700px;
+            margin: 0;
+        }
+
+        /* Unified Privacy Trust Ribbon */
+        .privacy-strip {
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px dashed rgba(59, 130, 246, 0.25);
+            border-radius: 6px;
+            padding: 12px 15px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #93c5fd;
+        }
+
+        /* Two-Column Studio Layout Wrapper */
+        .workspace-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        @media (min-width: 992px) {
+            .workspace-grid {
+                grid-template-columns: 1.2fr 0.8fr;
+            }
+        }
+
+        /* Structural Grid Card Panels */
+        .grid-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            height: fit-content;
+        }
+        .card-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        /* Local Storage Preset Dropdowns */
+        .preset-select {
+            background: #070a12;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        /* Analytical Matrix Counters Display Rails */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        @media (min-width: 576px) {
+            .metrics-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .metric-box {
+            background: #070a12;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .metric-lbl {
+            font-size: 10px;
+            color: var(--text-muted);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .metric-val {
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 6px;
+        }
+        .metric-subtext {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Status colors for metrics tracking */
+        .status-good { color: var(--neon-green); }
+        .status-warn { color: var(--amber-warn); }
+        .status-alert { color: var(--neon-red); }
+
+        /* Workspace Text Area */
+        textarea {
+            width: 100%;
+            height: 360px;
+            background: #070a12;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: white;
+            padding: 18px;
+            box-sizing: border-box;
+            font-size: 15px;
+            line-height: 1.6;
+            resize: none;
+            outline: none;
+            font-family: inherit;
+        }
+        textarea:focus {
+            border-color: var(--neon-blue);
+        }
+
+        /* Action Controls Layout Ribbon Layouts */
+        .action-ribbon {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        .btn-blue { background: var(--neon-blue); color: white; }
+        .btn-blue:hover { background: #2563eb; }
+        .btn-green { background: var(--neon-green); color: #070a12; width: 100%; font-size: 14px; padding: 14px; }
+        .btn-green:hover { background: #0ca673; }
+        .btn-secondary { background: #1c2638; color: var(--text-main); }
+        .btn-secondary:hover { background: #2d394e; }
+        
+        .cta-group {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        /* Copy & Redirection Banners */
+        .success-banner {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 6px;
+            padding: 12px;
+            text-align: center;
+            font-size: 13px;
+            color: #a7f3d0;
+            font-weight: 600;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .btn-linkedin {
+            background: #0a66c2;
+            color: #ffffff;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            display: none;
+            transition: background 0.2s;
+        }
+        .btn-linkedin:hover { background: #004182; }
+
+        /* ==========================================
+           REALISTIC LINKEDIN FEED SIMULATOR (RIGHT)
+           ========================================== */
+        .mock-ln-container {
+            background: #ffffff;
+            color: #191919;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            max-width: 420px;
+            margin: 0 auto;
+            width: 100%;
+            font-size: 14px;
+        }
+        .ln-post-header {
+            display: flex;
+            align-items: center;
+            padding: 16px 16px 12px 16px;
+        }
+        .ln-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #ececec;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: #666666;
+        }
+        .ln-meta-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .ln-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #191919;
+        }
+        .ln-headline {
+            font-size: 12px;
+            color: #666666;
+            margin-top: 2px;
+        }
+        .ln-time {
+            font-size: 12px;
+            color: #666666;
+            margin-top: 2px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .ln-caption-body {
+            padding: 0 16px 16px 16px;
+            line-height: 1.5;
+            color: #191919;
+            word-wrap: break-word;
+        }
+        
+        /* Truncation Divider Fence */
+        .truncation-fence {
+            border-top: 1px dashed var(--neon-red);
+            position: relative;
+            margin: 15px 0;
+            display: none;
+        }
+        .truncation-tag {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: var(--neon-red);
+            color: #ffffff;
+            font-size: 9px;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .preview-text-render {
+            white-space: pre-wrap;
+        }
+        .ln-see-more {
+            color: #0a66c2;
+            cursor: pointer;
+            font-weight: 600;
+            display: none;
+        }
+        .ln-action-footer {
+            border-top: 1px solid #f3f2ef;
+            padding: 8px 12px;
+            display: flex;
+            justify-content: space-around;
+            color: #666666;
+            font-weight: 600;
+            font-size: 13px;
+            background: #fcfbf9;
+        }
+
+        /* ==========================================
+           SEQUENTIAL WORKFLOW FOOTER (INTERNAL LINKS)
+           ========================================== */
+        .ecosystem-footer {
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 40px;
+        }
+        .footer-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+        .footer-link-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            text-decoration: none;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .footer-link-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--neon-blue);
+        }
+        .footer-link-card h4 {
+            margin: 0 0 8px 0;
+            color: white;
+            font-size: 14px;
+        }
+        .footer-link-card p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Standardized Layout Header Module -->
+        <header class="tool-header">
+            <div class="header-meta">CREATOR PRODUCTION STUDIO</div>
+            <h1 class="header-title">Free LinkedIn Post Formatter & Readability Checker</h1>
+            <p class="header-subtitle">Format LinkedIn posts with proper spacing, readability checks, and preview truncation indicators before publishing.</p>
+            
+            <div class="privacy-strip">
+                <span>🔒 Private by default: Captions are processed locally in your browser and are never uploaded or stored.</span>
+            </div>
+        </header>
+
+        <!-- Main Studio Split Grid -->
+        <main class="workspace-grid">
+            
+            <!-- COLUMN 1: ANALYTICS CONTROLLER & INPUT PANEL -->
+            <section class="grid-card">
+                <div class="card-title-row">
+                    <div class="card-title">Draft Your Post</div>
+                    
+                    <!-- Local Storage Presets Dropdown Module Layer -->
+                    <select id="preset-selector" class="preset-select">
+                        <option value="none">-- Load Built-in Framework Preset --</option>
+                        <option value="preset-1">Preset 1: Step-by-Step Tutorial</option>
+                        <option value="preset-2">Preset 2: The Contrarian Take</option>
+                        <option value="preset-3">Preset 3: The Metrics Case Study</option>
+                        <option value="preset-4">Preset 4: The Story / Core Lesson</option>
+                        <option value="preset-5">Preset 5: Digital Resource Launch</option>
+                    </select>
+                </div>
+
+                <!-- Structured Algorithmic Analytics Counters Dashboard Grid -->
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <span class="metric-lbl">Mobile Readability Score</span>
+                        <span id="lbl-readability" class="metric-val status-good">Excellent</span>
+                        <span id="sub-readability" class="metric-subtext">Clean formatting</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-lbl">Hook Monitor</span>
+                        <span id="lbl-hook" class="metric-val status-good">0 Chars</span>
+                        <span id="sub-hook" class="metric-subtext">Safe from truncation</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-lbl">Engagement Prompt</span>
+                        <span id="lbl-engagement" class="metric-val status-alert">Missing</span>
+                        <span id="sub-engagement" class="metric-subtext">End with a question</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-lbl">Post Length Meter</span>
+                        <span id="lbl-length" class="metric-val">Short Post</span>
+                        <span id="sub-length" class="metric-subtext">0 characters total</span>
+                    </div>
+                </div>
+
+                <div class="textarea-container">
+                    <textarea id="post-textarea" placeholder="Write or paste your LinkedIn post text framework here... Use line returns normally; the compiler handles format structure injection locally."></textarea>
+                </div>
+
+                <div class="action-ribbon">
+                    <button id="clean-markdown-btn" class="btn-secondary" title="Cleans system markdown artifacts and system space bloat anomalies instantly">Sanitize AI Markdown</button>
+                    <button id="save-preset-btn" class="btn-secondary">Save to Current Dropdown Slot</button>
+                </div>
+
+                <div class="cta-group">
+                    <button id="copy-master-btn" class="btn-green">Copy LinkedIn Formatted Post</button>
+                    <div id="success-toast" class="success-banner">✓ Post Structure Converted & Copied to Clipboard!</div>
+                    <a id="open-ln-btn" href="https://www.linkedin.com" target="_blank" class="btn-linkedin">Open LinkedIn Workspace</a>
+                </div>
+            </section>
+
+            <!-- COLUMN 2: REALISTIC LINKEDIN FEED SIMULATOR DISPLAY FRAME -->
+            <section class="grid-card">
+                <div class="card-title" style="margin-bottom: 20px;">Live Feed Optimization Preview</div>
+                
+                <div class="mock-ln-container">
+                    <div class="ln-post-header">
+                        <div class="ln-avatar">LAB</div>
+                        <div class="ln-meta-text">
+                            <span class="ln-name">aicashlab_creator</span>
+                            <span class="ln-headline">Founder @ AI Cash Lab Studio • Digital Assets</span>
+                            <span class="ln-time">1h • 🌐</span>
+                        </div>
+                    </div>
+
+                    <div class="ln-caption-body">
+                        <!-- Dynamic First-Line Truncation Fence Indicator Overlay Layer -->
+                        <div id="preview-visible-hook" class="preview-text-render" style="display:inline;"></div>
+                        <span id="preview-see-more-btn" class="ln-see-more"> ...see more</span>
+                        
+                        <div id="truncation-divider" class="truncation-fence">
+                            <span class="truncation-tag">LinkedIn Mobile Truncation Barrier (...see more)</span>
+                        </div>
+
+                        <div id="preview-hidden-remainder" class="preview-text-render"></div>
+                    </div>
+
+                    <div class="ln-action-footer">
+                        <span>👍 Like</span> <span>💬 Comment</span> <span>🔁 Repost</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- STANDARDIZED SEQUENTIAL CREATOR WORKFLOW LINKS -->
+        <footer class="ecosystem-footer">
+            <div class="footer-title">Other Creator Tools</div>
+            <div class="footer-grid">
+                <a href="/short-form-hook-analyzer/" class="footer-link-card">
+                    <h4>Short-Form Hook Analyzer</h4>
+                    <p>Test hook retention score vectors before production.</p>
+                </a>
+                <a href="/instagram-line-break-generator/" class="footer-link-card">
+                    <h4>Instagram Line Break Generator</h4>
+                    <p>Preserve clean caption spacing and check first-line feed previews.</p>
+                </a>
+                <a href="/caption-line-splitter/" class="footer-link-card">
+                    <h4>Caption Line Splitter</h4>
+                    <p>Format timing script alignments into clean visual rows.</p>
+                </a>
+                <a href="/teleprompter/index.html" class="footer-link-card">
+                    <h4>Script Timing Teleprompter</h4>
+                    <p>Launch an advanced screen pacing reader tool with automated scrolling.</p>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // ==========================================
+        // COMPLETE INTERACTIVE PLATFORM MOTOR (JS)
+        // Processing operations execute 100% locally
+        // ==========================================
+
+        const textInput = document.getElementById('post-textarea');
+        
+        // Analytical Feedback Metric Displays
+        const lblReadability = document.getElementById('lbl-readability');
+        const subReadability = document.getElementById('sub-readability');
+        const lblHook = document.getElementById('lbl-hook');
+        const subHook = document.getElementById('sub-hook');
+        const lblEngagement = document.getElementById('lbl-engagement');
+        const subEngagement = document.getElementById('sub-engagement');
+        const lblLength = document.getElementById('lbl-length');
+        const subLength = document.getElementById('sub-length');
+
+        // Actions Elements
+        const presetSelector = document.getElementById('preset-selector');
+        const savePresetBtn = document.getElementById('save-preset-btn');
+        const cleanMarkdownBtn = document.getElementById('clean-markdown-btn');
+        const copyBtn = document.getElementById('copy-master-btn');
+        const successToast = document.getElementById('success-toast');
+        const openLnBtn = document.getElementById('open-ln-btn');
+
+        // Simulator Containers Links
+        const viewHook = document.getElementById('preview-visible-hook');
+        const viewRemainder = document.getElementById('preview-hidden-remainder');
+        const viewSeeMoreBtn = document.getElementById('preview-see-more-btn');
+        const truncationDivider = document.getElementById('truncation-divider');
+
+        // Data Profile Presets Definition Core Matrix Map
+        const frameworkPresets = {
+            'preset-1': "🔥 THE THREE-STEP SYSTEM TO SCALABLE DIGITAL INCOME\n\nMost creators waste months building assets before proving market demand exists. Run this structural loop instead:\n\n1. Discover Current Search Demand Vectors\nFind exactly what users are asking via search data profiles.\n\n2. Outline a Minimal Asset Framework\nBuild the minimal structural roadmap value layer inside a basic doc sheet.\n\n3. Leverage Static Platforms for Distribution\nLaunch instantly using scalable storefront vectors like Gumroad.\n\nWhat is your current main friction point holding you back from shipping? Drop a comment below.\n\n#digitalproducts #creatorgrowth #solopreneur",
+            'preset-2': "💡 Unpopular opinion: Finding more 'traffic' will not fix a broken product cover.\n\nCreators constantly spend hours optimizing video hooks while ignoring the asset structural value offering itself.\n\nIf the core value promise is muddy, scaling visibility metrics just burns your audience distribution faster.\n\nFix your baseline design assets first, then scale the traffic funnel engine system lines.\n\nDo you agree or disagree with this strategy shift? Let me know below.\n\n#marketingstrategy #creators #businessmodels",
+            'preset-3': "📈 CASE STUDY: From zero visibility to active monthly distribution footprints.\n\nHere is the exact growth data breakdown across our new digital playbook testing channels over a 30-day window:\n\n• Baseline Impressions: 1,420 total scope\n• Asset Conversion Ratio: +8.4% click-through parameter\n• Total Cleared Asset Volume: $2,450 scalable layout value\n\nThe entire process was executed utilizing free, browser-native client tools without manual advertising budgets.\n\nWant the structural layout blueprint? Let me know in the comments below.\n\n#analytics #growthmarketing #casestudy",
+            'preset-4': "Every time I tried to manually optimize asset deployment systems across isolated distribution channels, things fell apart.\n\nI used to spend hours copy-pasting code fragments between styling templates while breaking formatting rules along the way.\n\nThe turning point was simple: shifting tasks into browser-native, sandboxed client scripts that execute instantly without cloud overhead processing lag.\n\nBuild systems that save your creative layout focus instead of adding heavy pipeline management fatigue cycles.\n\nWhat automated creation systems have you deployed this quarter?\n\n#productivity #systems #creators",
+            'preset-5': "🎁 THE COMPLETE SHORT-FORM TOOLSTACK MANUAL IS COMPLED.\n\nNo signups. No registration walls. No hidden transaction tracking scripts.\n\nInside this open release package layout asset:\n• 50 high-conversion hooks matrix frameworks\n• Dynamic subtitle layout parsing rulesets\n• Feed truncation layout barrier templates\n\n👇 The link is attached inside the first comment row down below.\n\n#freeresources #contentcreation #distribution"
+        };
+
+        // Initialize Workspace Bindings
+        window.addEventListener('DOMContentLoaded', () => {
+            loadCustomPresetsFromStorage();
+        });
+
+        textInput.addEventListener('input', runPostAnalysisEngine);
+
+        function runPostAnalysisEngine() {
+            const textRaw = textInput.value;
+            const charCount = textRaw.length;
+
+            // 1. Post Length Meter Logic
+            subLength.textContent = `${charCount} characters total`;
+            if (charCount === 0) {
+                lblLength.textContent = "Empty Post";
+                lblLength.style.color = "var(--text-muted)";
+            } else if (charCount < 400) {
+                lblLength.textContent = "Short Post";
+                lblLength.style.color = "var(--neon-blue)";
+            } else if (charCount <= 1500) {
+                lblLength.textContent = "Medium Post";
+                lblLength.style.color = "var(--neon-green)";
+            } else {
+                lblLength.textContent = "Long-Form Post";
+                lblLength.style.color = "var(--amber-warn)";
+            }
+
+            // 2. Engagement Question Detector Engine
+            const cleanTrim = textRaw.trim();
+            if (cleanTrim.endsWith('?') || textRaw.match(/\?\s*\n*$/)) {
+                lblEngagement.textContent = "Detected ✓";
+                lblEngagement.className = "metric-val status-good";
+                subEngagement.textContent = "Engaging end-prompt verified";
+            } else {
+                lblEngagement.textContent = "Missing";
+                lblEngagement.className = "metric-val status-alert";
+                subEngagement.textContent = "End with a question";
+            }
+
+            // 3. Mobile Readability Score Calculation Engine
+            const linesArray = textRaw.split('\n');
+            let maxConsecutiveDenseLines = 0;
+            let currentDenseLineStreak = 0;
+
+            linesArray.forEach(line => {
+                // Check if a line is structurally dense (roughly over 45 chars) or if multiple lines stack without breaks
+                if (line.trim().length > 0) {
+                    currentDenseLineStreak++;
+                    if (currentDenseLineStreak > maxConsecutiveDenseLines) {
+                        maxConsecutiveDenseLines = currentDenseLineStreak;
+                    }
+                } else {
+                    currentDenseLineStreak = 0;
+                }
+            });
+
+            if (charCount === 0) {
+                lblReadability.textContent = "Excellent";
+                lblReadability.className = "metric-val status-good";
+                subReadability.textContent = "Clean formatting";
+            } else if (maxConsecutiveDenseLines <= 2) {
+                lblReadability.textContent = "Excellent";
+                lblReadability.className = "metric-val status-good";
+                subReadability.textContent = "High mobile skimmability";
+            } else if (maxConsecutiveDenseLines === 3) {
+                lblReadability.textContent = "Good";
+                lblReadability.className = "metric-val status-warn";
+                subReadability.textContent = "Watch paragraph density";
+            } else {
+                lblReadability.textContent = "Wall of Text Risk";
+                lblReadability.className = "metric-val status-alert";
+                subReadability.textContent = "Break up long paragraphs";
+            }
+
+            // 4. Hook Score Box Monitor Engine & Truncation Simulation
+            // LinkedIn truncates feeds on mobile roughly around the 140 character mark
+            lblHook.textContent = `${Math.min(charCount, 140)} / 140 Chars`;
+            
+            if (charCount <= 140) {
+                lblHook.className = "metric-val status-good";
+                subHook.textContent = "Safe from truncation";
+                
+                viewHook.textContent = textRaw;
+                viewRemainder.textContent = "";
+                viewSeeMoreBtn.style.display = 'none';
+                truncationDivider.style.display = 'none';
+            } else {
+                // Find a clean splitting space boundary to balance simulation look
+                let splitIdx = textRaw.indexOf(' ', 130);
+                if (splitIdx === -1 || splitIdx > 155) {
+                    splitIdx = 140;
+                }
+
+                if (splitIdx > 140) {
+                    lblHook.className = "metric-val status-warn";
+                    subHook.textContent = "Hook likely truncated";
+                } else {
+                    lblHook.className = "metric-val status-good";
+                    subHook.textContent = "Hook visible before see-more";
+                }
+
+                const hookText = textRaw.substring(0, splitIdx);
+                const remainderText = textRaw.substring(splitIdx);
+
+                viewHook.textContent = hookText;
+                viewRemainder.textContent = remainderText;
+                viewSeeMoreBtn.style.display = 'inline';
+                truncationDivider.style.display = 'block';
+            }
+        }
+
+        // AI Markdown Clean Sanitization Trigger
+        cleanMarkdownBtn.addEventListener('click', () => {
+            let txt = textInput.value;
+            
+            // Wipe standard markdown artifacts cleanly
+            txt = txt.replace(/\*\*([^*]+)\*\*/g, '$1');
+            txt = txt.replace(/\*([^*]+)\*/g, '$1');
+            txt = txt.replace(/__([^_]+)__/g, '$1');
+            txt = txt.replace(/`([^`]+)`/g, '$1');
+            txt = txt.replace(/###?\s+/g, ''); // Clear header symbols
+            
+            // Clean space trails across row splits safely
+            let rows = txt.split('\n');
+            let cleanedRows = rows.map(r => r.trimEnd());
+            
+            textInput.value = cleanedRows.join('\n');
+            runPostAnalysisEngine();
+        });
+
+        // Preset Slots Control Engines
+        presetSelector.addEventListener('change', () => {
+            const currentKey = presetSelector.value;
+            if (currentKey === 'none') return;
+            
+            const localCustomData = localStorage.getItem(`ln-lab-${currentKey}`);
+            if (localCustomData) {
+                textInput.value = localCustomData;
+            } else if (frameworkPresets[currentKey]) {
+                textInput.value = frameworkPresets[currentKey];
+            }
+            runPostAnalysisEngine();
+        });
+
+        savePresetBtn.addEventListener('click', () => {
+            const targetSlot = presetSelector.value;
+            if (targetSlot === 'none') {
+                return alert("Please select a target preset dropdown framework slot to save your text into.");
+            }
+            localStorage.setItem(`ln-lab-${targetSlot}`, textInput.value);
+            
+            const baseTxt = savePresetBtn.textContent;
+            savePresetBtn.textContent = "Preset Saved ✓";
+            savePresetBtn.style.color = "var(--neon-green)";
+            
+            setTimeout(() => {
+                savePresetBtn.textContent = baseTxt;
+                savePresetBtn.style.color = "";
+            }, 1500);
+        });
+
+        function loadCustomPresetsFromStorage() {
+            Object.keys(frameworkPresets).forEach(k => {
+                if (localStorage.getItem(`ln-lab-${k}`)) {
+                    const opt = presetSelector.querySelector(`option[value="${k}"]`);
+                    if (opt && !opt.textContent.includes('(Custom)')) opt.textContent += " (Custom)";
+                }
+            });
+        }
+
+        // Comprehensive Output Injector Clipboard Copy Execution Pipeline
+        copyBtn.addEventListener('click', () => {
+            const currentRawText = textInput.value;
+            if (!currentRawText.trim()) return alert("Please enter your post content copy first before compiling format rules.");
+
+            // Standard approach targets replacing double carriage lines with spacing code token characters
+            let compiledPost = currentRawText.replace(/\n\s*\n/g, '\n\u2800\n');
+            
+            compiledPost = compiledPost.split('\n').map(r => {
+                return r === '' ? '\u2800' : r;
+            }).join('\n');
+
+            navigator.clipboard.writeText(compiledPost).then(() => {
+                successToast.style.display = 'block';
+                openLnBtn.style.display = 'block';
+            }).catch(err => {
+                alert("Clipboard transaction allocation copy fault error: " + err);
+            });
+        });
+    </script>
+</body>
+</html>
