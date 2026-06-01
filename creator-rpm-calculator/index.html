@@ -333,21 +333,22 @@ input, select, textarea, button {
 .acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
 .acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
-.acl-quick-start{background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;margin-top:18px;margin-bottom:24px;padding:20px 22px}
-.acl-quick-start h2{color:#fff;font-size:16px;margin:0 0 12px}
-.acl-quick-start ol{display:grid;gap:8px 18px;grid-template-columns:repeat(5,minmax(0,1fr));list-style-position:inside;margin:0;padding:0}
-.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.45}
-@media (max-width:900px){.acl-quick-start ol{grid-template-columns:1fr}}
-.acl-faq-section{box-sizing:border-box;background:#151820;border:1px solid #27272a;border-radius:14px;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(calc(100% - 32px),1120px)}
+.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
+.acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
+.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
+.acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+@media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
+.acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
-.acl-faq-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
-.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:14px}
-.acl-faq-item h3{color:#f8fafc;font-size:14px;margin:0 0 6px}
+.acl-faq-grid{align-items:stretch;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;min-width:0;padding:14px}
+.acl-faq-item h3{color:#f8fafc;font-size:14px;line-height:1.35;margin:0 0 6px}
 .acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}
-@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px;width:calc(100% - 24px)}}
+@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px!important;width:calc(100% - 24px)!important}}
 .acl-related-tools{margin-bottom:80px !important}
-</style>
-</head>
+</style></head>
 <body class="text-slate-200 min-h-screen flex flex-col justify-between antialiased">
 <header class="acl-shell-header no-print">
     <div class="acl-shell-inner">
@@ -370,17 +371,16 @@ input, select, textarea, button {
 <section class="acl-tool-hero no-print">
     <div class="acl-tool-kicker">Creator Monetization Tool</div>
     <h1>Creator RPM Calculator</h1>
-    <p>Estimate how much revenue your creator business earns per 1,000 views across monetization channels.</p>
+    <p>Estimate how much your content earns per 1,000 views and discover ways to increase your revenue without getting more traffic.</p>
 </section>
 
 <section class="acl-quick-start no-print">
     <h2>Quick Start</h2>
     <ol>
-            <li>Enter your revenue inputs</li>
-            <li>Adjust price or traffic assumptions</li>
-            <li>Review the calculated result</li>
-            <li>Compare the gap or target</li>
-            <li>Choose the next growth lever</li>
+            <li>Input Data</li>
+            <li>Adjust Settings</li>
+            <li>Review Results</li>
+            <li>Take Action</li>
     </ol>
 </section>
 <!-- Main Content Grid -->
@@ -447,11 +447,11 @@ input, select, textarea, button {
             <!-- Output Metrics Module Block -->
             <div class="bg-[#111827] border premium-border p-6 rounded-xl accent-glow-amber space-y-5">
                 <div class="flex justify-between items-center">
-                    <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider block">Yield Estimate Matrix</span>
+                    <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider block">Creator Revenue Snapshot</span>
                     <span id="monetizationVerdict" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold border uppercase tracking-wider">Calibrating Parameters</span>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <!-- Dynamic Range Estimations Blocks -->
                     <div class="p-4 bg-[#1f2937]/30 rounded-lg border premium-border">
                         <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">Estimated RPM Range</span>
@@ -464,6 +464,24 @@ input, select, textarea, button {
                         <span id="outPayoutRange" class="text-xl font-black text-emerald-400 mt-1 block">$0.00 - $0.00</span>
                         <span class="text-[10px] text-slate-500 mt-0.5 block">Estimated native programmatic yield.</span>
                     </div>
+
+                    <div class="p-4 bg-[#1f2937]/30 rounded-lg border premium-border">
+                        <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">Revenue Per 100,000 Views</span>
+                        <span id="outRevenuePer100k" class="text-xl font-black text-white mt-1 block">$0</span>
+                        <span class="text-[10px] text-slate-500 mt-0.5 block">A milestone view-volume estimate.</span>
+                    </div>
+
+                    <div class="p-4 bg-[#1f2937]/30 rounded-lg border premium-border">
+                        <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">Industry Benchmark</span>
+                        <span id="outBenchmarkRange" class="text-xl font-black text-white mt-1 block">$8 - $15 RPM</span>
+                        <span class="text-[10px] text-slate-500 mt-0.5 block">Common high-value creator range.</span>
+                    </div>
+
+                    <div class="p-4 bg-[#1f2937]/30 rounded-lg border premium-border">
+                        <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">Your Gap</span>
+                        <span id="outRpmGap" class="text-xl font-black text-rose-400 mt-1 block">0%</span>
+                        <span class="text-[10px] text-slate-500 mt-0.5 block">Compared with a $10 RPM target.</span>
+                    </div>
                 </div>
 
                 <!-- Strategic Gaps Analytical Breakout Grid Row -->
@@ -474,7 +492,7 @@ input, select, textarea, button {
                     </div>
                     <div>
                         <span class="text-[10px] font-medium text-slate-400 uppercase tracking-wider block">Revenue Growth Potential</span>
-                        <p id="outRevenueUpside" class="text-xs text-amber-400 font-medium mt-1 leading-relaxed">Calculating optimization delta parameters...</p>
+                        <div id="outRevenueUpside" class="text-xs text-amber-400 font-medium mt-1 leading-relaxed space-y-1">Calculating revenue potential...</div>
                     </div>
                 </div>
             </div>
@@ -482,8 +500,8 @@ input, select, textarea, button {
             <!-- Content Angle Matrix Planning Guide Block -->
             <div class="bg-[#111827] border premium-border p-6 rounded-xl space-y-4">
                 <div>
-                    <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">High-Value Topic Angles & Strategy</h3>
-                    <p class="text-[11px] text-slate-500 mt-0.5">Incorporate strategic focus frameworks to attract commercial ad spend segments naturally.</p>
+                    <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">High RPM Content Ideas</h3>
+                    <p class="text-[11px] text-slate-500 mt-0.5">Use clearer creator-friendly angles that tend to attract higher-value viewers and advertisers.</p>
                 </div>
 
                 <div id="topicAnglesContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -498,9 +516,9 @@ input, select, textarea, button {
                     <h3 class="text-md font-bold text-white tracking-tight">Tired of navigating programmatic ad pool volatility?</h3>
                     <p class="text-xs text-slate-400 leading-relaxed">Ad network RPM models will always fluctuate based on external market forces. The most sustainable way to decouple income from platform algorithms is to convert views directly into owned distribution ecosystems.</p>
                 </div>
-                <button type="button" disabled class="w-full md:w-auto text-center shrink-0 bg-slate-800 border border-amber-500/30 text-amber-200 font-medium text-xs px-5 py-3 rounded-lg cursor-not-allowed opacity-90">
-                    Creator Monetization Toolkit (Coming Soon)
-                </button>
+                <a href="/cpm-conversion-pivot/" class="w-full md:w-auto text-center shrink-0 bg-amber-500 text-slate-950 font-bold text-xs px-5 py-3 rounded-lg hover:bg-amber-400 transition-colors">
+                    See How Product Revenue Compares
+                </a>
             </div>
 
         </section>
@@ -514,6 +532,14 @@ input, select, textarea, button {
         <article class="acl-faq-item">
             <h3>How should I use this result?</h3>
             <p>Use it to compare monetization channels and identify whether traffic, conversion, or offer value is the biggest revenue lever.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>What is a good RPM?</h3>
+            <p>Entertainment content often earns lower RPMs than business, software, finance, and educational content. A higher RPM means advertisers value your audience more.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Does RPM affect sponsorship rates?</h3>
+            <p>Higher RPM niches often attract advertisers and sponsors willing to pay more because audiences have stronger purchase intent.</p>
         </article>
     </div>
 </section>
@@ -546,10 +572,14 @@ input, select, textarea, button {
 
             const outRpmRange = document.getElementById('outRpmRange');
             const outPayoutRange = document.getElementById('outPayoutRange');
+            const outRevenuePer100k = document.getElementById('outRevenuePer100k');
+            const outRpmGap = document.getElementById('outRpmGap');
             const outNicheGap = document.getElementById('outNicheGap');
             const outRevenueUpside = document.getElementById('outRevenueUpside');
             const monetizationVerdict = document.getElementById('monetizationVerdict');
             const topicAnglesContainer = document.getElementById('topicAnglesContainer');
+            const benchmarkTargetRpm = 10;
+            const potentialRpm = 11.5;
 
             // Hook Event Handlers Up For Fluid Value Realtime Processing Update Engine
             const formElementsInputsList = [contentFormat, monthlyViews, audienceTier, contentNiche];
@@ -600,39 +630,45 @@ input, select, textarea, button {
                 // Run Absolute Revenue Bounds Math Equations Formulas
                 const computedEstimatedPayoutLow = (totalViewsCount / 1000) * finalCalculatedRpmLow;
                 const computedEstimatedPayoutHigh = (totalViewsCount / 1000) * finalCalculatedRpmHigh;
+                const averageCalculatedRpm = (finalCalculatedRpmLow + finalCalculatedRpmHigh) / 2;
+                const revenuePer100kViews = averageCalculatedRpm * 100;
+                const rpmGapPercent = Math.round((averageCalculatedRpm / benchmarkTargetRpm - 1) * 100);
+                const potentialMonthlyDifference = Math.max(0, (potentialRpm - averageCalculatedRpm) * (totalViewsCount / 1000));
 
                 // Render Main Statistical Output Numeric Content Labels Inside Document
                 outRpmRange.innerText = `$${finalCalculatedRpmLow.toFixed(2)} - $${finalCalculatedRpmHigh.toFixed(2)}`;
                 outPayoutRange.innerText = `$${Math.ceil(computedEstimatedPayoutLow).toLocaleString()} - $${Math.ceil(computedEstimatedPayoutHigh).toLocaleString()}`;
+                outRevenuePer100k.innerText = `$${Math.round(revenuePer100kViews).toLocaleString()}`;
+                outRpmGap.innerText = `${rpmGapPercent > 0 ? '+' : ''}${rpmGapPercent}%`;
+                outRpmGap.className = `text-xl font-black mt-1 block ${rpmGapPercent >= 0 ? 'text-emerald-400' : rpmGapPercent > -35 ? 'text-amber-400' : 'text-rose-400'}`;
 
                 // Calculate Structural Optimization Delta Gaps Matrix Details
                 let nicheGapExplainerText = "";
-                let revenueUpsideText = "";
-                let statusLabelText = "Standard Yield Profile";
-                let statusBadgeStyles = "bg-slate-900 border-slate-700 text-slate-400";
+                let statusLabelText = "Average Revenue Profile";
+                let statusBadgeStyles = "bg-amber-950/60 text-amber-300 border-amber-800/60";
+
+                if (averageCalculatedRpm >= 8) {
+                    statusLabelText = "High-Yield Traffic";
+                    statusBadgeStyles = "bg-emerald-950/60 text-emerald-400 border-emerald-800/60";
+                } else if (averageCalculatedRpm < 4) {
+                    statusLabelText = "Under-Monetized Traffic";
+                    statusBadgeStyles = "bg-rose-950/60 text-rose-300 border-rose-800/60";
+                }
 
                 if (categoryNicheTypeString === 'low' || categoryNicheTypeString === 'mid') {
-                    const structuralEliteRpmLow = baseRpmLow * 3.8 * geographicalTierMultiplier;
-                    const potentialLossDeltaDiff = ((totalViewsCount / 1000) * structuralEliteRpmLow) - computedEstimatedPayoutLow;
-                    
                     nicheGapExplainerText = `Your chosen content category operates within a lower advertiser bidding floor compared to software or finance verticals.`;
-                    revenueUpsideText = `Shifting core content themes up toward high-intent problem-solving structures could net an estimated alternate programmatic upside of +$${Math.ceil(potentialLossDeltaDiff).toLocaleString()}/mo with exactly the same view volume.`;
-                    statusLabelText = "Under-Monetized Traffic Base";
-                    statusBadgeStyles = "bg-amber-950/60 text-amber-400 border-amber-800/60";
                 } else {
-                    const maximizedTopTierRpmBounds = finalCalculatedRpmHigh * 1.25;
-                    const retentionLiftUpsideDelta = ((totalViewsCount / 1000) * maximizedTopTierRpmBounds) - computedEstimatedPayoutHigh;
-
                     nicheGapExplainerText = `You are positioned inside a premium-tier vertical with strong inherent baseline corporate marketing interest.`;
-                    revenueUpsideText = `By increasing your video watch duration parameters past the 60% mark, you have a structural headroom upside of up to +$${Math.ceil(retentionLiftUpsideDelta).toLocaleString()}/mo.`;
-                    statusLabelText = "High-Yield Asset Strategy";
-                    statusBadgeStyles = "bg-emerald-950/60 text-emerald-400 border-emerald-800/60";
                 }
 
                 monetizationVerdict.innerText = statusLabelText;
                 monetizationVerdict.className = `px-2.5 py-0.5 rounded-full text-[10px] font-bold border uppercase tracking-wider ${statusBadgeStyles}`;
                 outNicheGap.innerText = nicheGapExplainerText;
-                outRevenueUpside.innerText = revenueUpsideText;
+                outRevenueUpside.innerHTML = `
+                    <p>Current RPM: <strong class="text-white">$${averageCalculatedRpm.toFixed(2)}</strong></p>
+                    <p>Potential RPM: <strong class="text-white">$${potentialRpm.toFixed(2)}</strong></p>
+                    <p>Potential Monthly Difference: <strong class="text-white">+$${Math.ceil(potentialMonthlyDifference).toLocaleString()}</strong></p>
+                `;
 
                 // Execute Structural Strategy Component Rendering Engine Loop Injection
                 renderTopicStrategyCardsFlow(categoryNicheTypeString);
@@ -641,21 +677,14 @@ input, select, textarea, button {
             function renderTopicStrategyCardsFlow(nicheKey) {
                 let strategyCardsArray = [];
 
-                if (nicheKey === 'low' || nicheKey === 'mid') {
-                    strategyCardsArray = [
-                        { title: "B2B Sponsorship Bridge", desc: "Integrate dedicated corporate partner sponsorships early inside scripts to completely bypass reliance on low platform ad-pool splits." },
-                        { title: "Commercial Software Integrations", desc: "Structure video storylines around utility tools or workflow solutions, providing natural entry points for automated high-bidding tech ads." },
-                        { title: "High-Intent Product Framing", desc: "Pivot script arcs from passive entertainment toward active tool recommendations, creating natural bridges to digital handbooks and toolkits." },
-                        { title: "Audience Filtering Hooks", desc: "Use specific professional style hooks in the first 5 seconds to deliberately screen out casual views and retain high-intent enterprise buyers." }
-                    ];
-                } else {
-                    strategyCardsArray = [
-                        { title: "Mid-Roll Retention Multipliers", desc: "Design structural pattern interrupts right before the 3-minute mark to lock in viewer retention across high-paying ad cue intervals." },
-                        { title: "Case Study Narrative Layouts", desc: "Shift from abstract tutorials to deep-dive transformation models. This retains high-value buyers who watch long-form assets until completion." },
-                        { title: "Software Ecosystem Breakdowns", desc: "Examine complex tooling networks and operational systems to automatically attract premium automated platform advertising placements." },
-                        { title: "Premium Backend Funneling", desc: "Capture high-value viewership attention and guide it straight off-platform into premium digital product suites on your owned infrastructure." }
-                    ];
-                }
+                strategyCardsArray = [
+                    { title: "Software Tutorials", desc: "Walk viewers through practical tools, setup steps, and workflow improvements." },
+                    { title: "AI Tool Reviews", desc: "Compare AI products, use cases, pricing, and realistic creator or business outcomes." },
+                    { title: "Business Systems", desc: "Teach repeatable systems for sales, operations, content, client delivery, or analytics." },
+                    { title: "Automation Workflows", desc: "Show how to save time or reduce manual work with templates, scripts, and tool stacks." },
+                    { title: "Personal Finance", desc: "Explain budgeting, investing, income planning, and money decisions in plain language." },
+                    { title: "Marketing Case Studies", desc: "Break down campaigns, funnels, launches, and growth experiments with clear takeaways." }
+                ];
 
                 topicAnglesContainer.innerHTML = strategyCardsArray.map(card => `
                     <div class="p-3.5 bg-[#1f2937]/20 border premium-border rounded-lg space-y-1">
@@ -686,4 +715,5 @@ input, select, textarea, button {
 </footer>
 </body>
 </html>
+
 
