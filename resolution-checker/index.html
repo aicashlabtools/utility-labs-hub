@@ -860,18 +860,20 @@ input, select, textarea, button {
 .acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
 .acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
-.acl-quick-start{background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;margin-top:18px;margin-bottom:24px;padding:20px 22px}
-.acl-quick-start h2{color:#fff;font-size:16px;margin:0 0 12px}
-.acl-quick-start ol{display:grid;gap:8px 18px;grid-template-columns:repeat(5,minmax(0,1fr));list-style-position:inside;margin:0;padding:0}
-.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.45}
-@media (max-width:900px){.acl-quick-start ol{grid-template-columns:1fr}}
-.acl-faq-section{box-sizing:border-box;background:#151820;border:1px solid #27272a;border-radius:14px;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(calc(100% - 32px),1120px)}
+.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:grid;gap:14px;grid-template-columns:auto minmax(0,1fr);margin-top:14px;margin-bottom:20px;padding:12px 18px}
+.acl-quick-start h2{color:#fff;font-size:13px;margin:0;white-space:nowrap}
+.acl-quick-start ol{align-items:center;display:grid;gap:8px 18px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));list-style:none;margin:0;padding:0}
+.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.35;min-width:0}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" ->";font-weight:800;margin-left:8px}
+@media (max-width:900px){.acl-quick-start{align-items:start;grid-template-columns:1fr}.acl-quick-start ol{grid-template-columns:1fr}}
+@media (max-width:900px){.acl-quick-start li:not(:last-child)::after{content:""}}
+.acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
-.acl-faq-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
-.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:14px}
-.acl-faq-item h3{color:#f8fafc;font-size:14px;margin:0 0 6px}
+.acl-faq-grid{align-items:stretch;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;min-width:0;padding:14px}
+.acl-faq-item h3{color:#f8fafc;font-size:14px;line-height:1.35;margin:0 0 6px}
 .acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}
-@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px;width:calc(100% - 24px)}}
+@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px!important;width:calc(100% - 24px)!important}}
 .acl-related-tools{margin-bottom:80px !important}
 </style>
 </head>
@@ -894,28 +896,12 @@ input, select, textarea, button {
     </div>
 </header>
 
-<section class="acl-tool-hero no-print">
-    <div class="acl-tool-kicker">Creator Production Tool</div>
-    <h1>Video Resolution & Aspect Ratio Checker</h1>
-    <p>Check video dimensions, aspect ratio, and platform fit before uploading or resizing creative assets.</p>
-</section>
-
-<section class="acl-quick-start no-print">
-    <h2>Quick Start</h2>
-    <ol>
-            <li>Upload or preview your creative</li>
-            <li>Check platform layout rules</li>
-            <li>Review risk areas</li>
-            <li>Adjust text or subject placement</li>
-            <li>Recheck before publishing</li>
-    </ol>
-</section>
 <main>
         <div class="container">
             <section class="hero">
                 <div class="eyebrow">Video Upload Quality Checker</div>
                 <h1>Video Resolution &amp; Aspect Ratio Checker</h1>
-                <p>Instantly extract accurate resolution profiles, calculate mathematical aspect ratios, and detect compression warning risks entirely within your local browser canvas.</p>
+                <p>Avoid blurry uploads and sizing mistakes. Check resolution, aspect ratio, and platform compatibility before publishing your content.</p>
             </section>
 
             <div class="workspace">
@@ -924,7 +910,7 @@ input, select, textarea, button {
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
                     </svg>
-                    <h3>Drag &amp; drop a video or image</h3>
+                    <h3>Drag &amp; drop a video or image to check sizing and platform compatibility</h3>
                     <p>Supports MP4, MOV, JPG, PNG, WEBP up to 50MB</p>
                     <button class="btn-browse" type="button">Choose File</button>
                 </div>
@@ -935,7 +921,7 @@ input, select, textarea, button {
 
             <div class="dashboard-panel">
                 <div class="panel-title">
-                    Video Quality Report
+                    File Compatibility Report
                     <span class="status-badge" id="engine-status">Ready for Analysis (waiting for file)</span>
                 </div>
 
@@ -968,21 +954,21 @@ input, select, textarea, button {
                 <div class="compatibility-list">
                     <div class="platform-row" id="row-vertical">
                         <div class="platform-info">
-                            <h4>Mobile Vertical Media (TikTok/Reels/Shorts)</h4>
+                            <h4>TikTok / Reels / Shorts</h4>
                             <p>Target Dimension: 1080 x 1920 px (9:16 Ratio)</p>
                         </div>
                         <div class="status-pill">--</div>
                     </div>
                     <div class="platform-row" id="row-landscape">
                         <div class="platform-info">
-                            <h4>Standard Landscape Media (YouTube/Gumroad Cover)</h4>
+                            <h4>YouTube &amp; Gumroad Covers</h4>
                             <p>Target Dimension: 16:9 Aspect Ratio</p>
                         </div>
                         <div class="status-pill">--</div>
                     </div>
                     <div class="platform-row" id="row-feed">
                         <div class="platform-info">
-                            <h4>Standard Square/Feed Layouts (Instagram/Etsy)</h4>
+                            <h4>Instagram Feed &amp; Square Posts</h4>
                             <p>Target Dimension: 1:1 or 4:5 Aspect Ratio</p>
                         </div>
                         <div class="status-pill">--</div>
@@ -1007,8 +993,8 @@ input, select, textarea, button {
 
             <div class="promo-box">
                 <div>
-                    <h3>Need to resize the file after checking it?</h3>
-                    <p>Use the AI Image Size Checker &amp; Resizer toolkit to prep creator assets for platform specs, thumbnails, covers, and product graphics without rebuilding the layout from scratch.</p>
+                    <h3>Wrong Size? Fix It In Seconds.</h3>
+                    <p>Open the AI Image Size Checker &amp; Resizer to automatically resize your file for common platform dimensions.</p>
                 </div>
                 <a href="https://aicashlabofficial.gumroad.com/l/uuqxat?layout=profile" target="_blank" rel="noopener noreferrer">Get the Resizer Toolkit</a>
             </div>
@@ -1025,6 +1011,10 @@ input, select, textarea, button {
             <h3>When should I use it?</h3>
             <p>Use it before publishing, resizing, editing thumbnails, or preparing platform-specific creative assets.</p>
         </article>
+        <article class="acl-faq-item">
+            <h3>What file types are supported?</h3>
+            <p>MP4, MOV, JPG, PNG, and WEBP files up to 50MB.</p>
+        </article>
     </div>
 </section>
 <section class="acl-related-tools no-print" aria-label="Related Creator Tools">
@@ -1039,7 +1029,7 @@ input, select, textarea, button {
         <a href="/youtube-shorts-safe-zone/">YouTube Shorts Safe Zone Checker</a>
         <a href="/instagram-reels-safe-zone/">Instagram Reels Safe Zone Checker</a>
         <a href="/thumbnail-text-checker/">Thumbnail Text Checker</a>
-        <a href="/paid-traffic-profit-calculator/">Paid Traffic Profit Calculator</a>
+        <a href="/video-script-time-calculator/">Video Script Time Calculator</a>
     </div>
 </section>
 </main>
