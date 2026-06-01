@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free YouTube Description Formatter | Video Template Generator | AI Cash Lab</title>
+    <style>
+        /* ==========================================
+           PREMIUM CREATOR TOOL CSS VARIABLE SYSTEM
+           ========================================== */
+        :root {
+            --bg-dark: #070a12;
+            --card-bg: #0e1320;
+            --border-color: #1c2638;
+            --text-main: #ffffff;
+            --text-muted: #64748b;
+            --neon-blue: #3b82f6;
+            --neon-green: #10b981;
+            --neon-red: #f43f5e;
+            --amber-warn: #f59e0b;
+            --paper-bg: #ffffff;
+            --paper-text: #1e293b;
+            --paper-muted: #64748b;
+            --paper-border: #cbd5e1;
+            --input-bg: #0b0f19;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Standardized Creator Studio Header */
+        .tool-header {
+            margin-bottom: 35px;
+        }
+        .header-meta {
+            color: var(--neon-blue);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .header-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+        }
+        .header-subtitle {
+            color: var(--text-muted);
+            font-size: 15px;
+            max-width: 750px;
+            margin: 0;
+        }
+
+        /* CONTROL INTERFACE RAIL */
+        .action-control-rail {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+            align-items: center;
+        }
+        @media (min-width: 992px) {
+            .action-control-rail {
+                grid-template-columns: 1fr auto;
+            }
+        }
+        .preset-select-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+        .preset-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+        }
+        .btn-preset {
+            background: #1c2638;
+            color: #94a3b8;
+            border: 1px solid var(--border-color);
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-preset:hover {
+            color: white;
+            border-color: var(--text-muted);
+        }
+        .btn-preset.active {
+            background: var(--neon-blue);
+            color: white;
+            border-color: var(--neon-blue);
+        }
+        .btn-primary-action {
+            background: var(--neon-blue);
+            color: white;
+            font-weight: 700;
+            font-size: 13px;
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-primary-action:hover {
+            background: #2563eb;
+        }
+
+        /* TWO-COLUMN STUDIO WORKSPACE SPLIT */
+        .workspace-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        @media (min-width: 992px) {
+            .workspace-layout {
+                grid-template-columns: 1.1fr 0.9fr;
+            }
+        }
+
+        /* LEFT SIDE: STRUCTURED INPUT BLOCKS */
+        .input-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .input-block {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .block-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .block-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #cbd5e1;
+            letter-spacing: 0.5px;
+        }
+        .block-counter {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-family: monospace;
+        }
+        .block-field {
+            width: 100%;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: #ffffff;
+            padding: 12px;
+            font-size: 13px;
+            line-height: 1.5;
+            box-sizing: border-box;
+            outline: none;
+            font-family: system-ui, sans-serif;
+        }
+        .block-field:focus {
+            border-color: var(--neon-blue);
+        }
+        textarea.block-field {
+            resize: vertical;
+            min-height: 70px;
+        }
+        textarea#field-timestamps, textarea#field-resources {
+            min-height: 100px;
+        }
+
+        /* RIGHT SIDE: LIVE OUTPUT VIEW */
+        .output-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: sticky;
+            top: 20px;
+        }
+        
+        /* Interactive Diagnostics & Indicators Frame */
+        .hud-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .hud-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .hud-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+        .hud-status-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+        .hud-status-row:last-child {
+            margin-bottom: 0;
+        }
+        .status-badge {
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+        .status-badge.pass { background: rgba(16, 185, 129, 0.1); color: var(--neon-green); }
+        .status-badge.warn { background: rgba(245, 158, 11, 0.1); color: var(--amber-warn); }
+        .status-badge.fail { background: rgba(244, 63, 94, 0.1); color: var(--neon-red); }
+
+        /* Clean Studio Copy Canvas */
+        .studio-canvas {
+            background: #111827;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            color: #e5e7eb;
+            font-family: monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            min-height: 480px;
+            box-sizing: border-box;
+        }
+
+        /* STRATEGIC CONVERSION BLOCK */
+        .conversion-deck {
+            background: linear-gradient(135deg, #0e1320 0%, #070a12 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 35px;
+            margin-bottom: 60px;
+        }
+        .deck-badge {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--neon-blue);
+            font-size: 10px;
+            font-weight: 800;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .deck-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+        }
+        .deck-subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin: 0 0 25px 0;
+            max-width: 750px;
+            line-height: 1.5;
+        }
+        .value-matrix-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        @media (min-width: 600px) {
+            .value-matrix-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .value-bullet {
+            display: flex;
+            gap: 10px;
+            font-size: 13px;
+            color: #e2e8f0;
+        }
+        .value-bullet span { color: var(--neon-green); font-weight: 700; }
+        
+        .btn-master-upsell {
+            background: #ffffff;
+            color: #070a12;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 14px 28px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+        .btn-master-upsell:hover {
+            background: #e2e8f0;
+        }
+
+        /* INTEGRATED RECURSIVE CREATOR LINK FOOTER */
+        .ecosystem-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 40px;
+        }
+        .footer-title {
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+        .footer-link-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            text-decoration: none;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .footer-link-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--neon-blue);
+        }
+        .footer-link-card h4 {
+            margin: 0 0 6px 0;
+            color: white;
+            font-size: 13px;
+        }
+        .footer-link-card span {
+            display: block;
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--neon-blue);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+        .footer-link-card p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 11px;
+            line-height: 1.4;
+        }
+
+        /* Toast Popup Alerts */
+        .toast-notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--neon-green);
+            color: #070a12;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            display: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Creator Studio Tool Header -->
+        <header class="tool-header">
+            <div class="header-meta">Publishing Deployment Engine</div>
+            <h1 class="header-title">Free YouTube Description Formatter</h1>
+            <p class="header-subtitle">Structure video copy to protect primary layout conversions. Load templates instantly, audit link positions, and test metadata visibility limits above the fold.</p>
+        </header>
+
+        <!-- Template Selection Bar Matrix -->
+        <section class="action-control-rail">
+            <div class="preset-select-group">
+                <span class="preset-label">Description Template:</span>
+                <button id="preset-launch" class="btn-preset active" onclick="loadTemplateStructure('launch')">Product Launch</button>
+                <button id="preset-tutorial" class="btn-preset" onclick="loadTemplateStructure('tutorial')">Tutorial / How-To</button>
+                <button id="preset-review" class="btn-preset" onclick="loadTemplateStructure('review')">Product Review</button>
+                <button id="preset-faceless" class="btn-preset" onclick="loadTemplateStructure('faceless')">Faceless Channel</button>
+            </div>
+            <div>
+                <button class="btn-primary-action" onclick="copyDescriptionOutputToClipboard()">Copy Output Layout</button>
+            </div>
+        </section>
+
+        <!-- Master Split Studio Workspace Layout -->
+        <div class="workspace-layout">
+            
+            <!-- COLUMN 1: STRUCTURED STEP BLOCKS -->
+            <main class="input-panel">
+                
+                <!-- Block 1: The Hook Summary -->
+                <div class="input-block">
+                    <div class="block-header">
+                        <label class="block-title" for="field-hook">1. Hook Summary (First 3 Lines)</label>
+                        <span class="block-counter" id="cnt-hook">0 chars</span>
+                    </div>
+                    <textarea id="field-hook" class="block-field" oninput="runLiveFormatterEngine()" placeholder="Write the immediate summary hook. Keep it punchy for search indexes."></textarea>
+                </div>
+
+                <!-- Block 2: Primary Strategic CTA -->
+                <div class="input-block">
+                    <div class="block-header">
+                        <label class="block-title" for="field-cta">2. Primary Strategic Call-To-Action</label>
+                        <span class="block-counter" id="cnt-cta">0 chars</span>
+                    </div>
+                    <input type="text" id="field-cta" class="block-field" oninput="runLiveFormatterEngine()" placeholder="e.g., Download the playbook: https://aicashlab.gumroad.com/l/traffic">
+                </div>
+
+                <!-- Block 3: Timestamps / Chapters -->
+                <div class="input-block">
+                    <div class="block-header">
+                        <label class="block-title" for="field-timestamps">3. Video Chapters / Timestamps</label>
+                        <span class="block-counter" id="cnt-timestamps">0 chars</span>
+                    </div>
+                    <textarea id="field-timestamps" class="block-field" oninput="runLiveFormatterEngine()" placeholder="0:00 - Introduction&#10;1:45 - Core Strategy Breakdown"></textarea>
+                </div>
+
+                <!-- Block 4: Resources & Secondary Links -->
+                <div class="input-block">
+                    <div class="block-header">
+                        <label class="block-title" for="field-resources">4. Resource Roundup & Social Grid</label>
+                        <span class="block-counter" id="cnt-resources">0 chars</span>
+                    </div>
+                    <textarea id="field-resources" class="block-field" oninput="runLiveFormatterEngine()" placeholder="List secondary references, equipment setups, and permanent network channels."></textarea>
+                </div>
+
+            </main>
+
+            <!-- COLUMN 2: ANALYTICS HUD & CANVAS EYE -->
+            <aside class="output-panel">
+                
+                <!-- Live Operational Quality Indicator Block Grid -->
+                <div class="hud-grid">
+                    
+                    <!-- Safe Zone Evaluation Display -->
+                    <div class="hud-card">
+                        <div class="hud-title">Above-The-Fold Safe Zone</div>
+                        <div class="hud-status-row">
+                            <span>Text Character Limit</span>
+                            <span id="badge-fold-text" class="status-badge pass">✓ Safe</span>
+                        </div>
+                        <div class="hud-status-row">
+                            <span>CTA Visibility Status</span>
+                            <span id="badge-fold-cta" class="status-badge pass">✓ Visible</span>
+                        </div>
+                    </div>
+
+                    <!-- Link Structure Metric Audit Box -->
+                    <div class="hud-card">
+                        <div class="hud-title">Link Placement Audit</div>
+                        <div class="hud-status-row">
+                            <span>Total Links Found</span>
+                            <span id="hud-links-total" class="hud-status-row" style="font-weight:700; margin:0;">0</span>
+                        </div>
+                        <div class="hud-status-row">
+                            <span>Primary CTA Rank</span>
+                            <span id="badge-link-audit" class="status-badge pass">#1 Spot</span>
+                        </div>
+                    </div>
+
+                    <!-- Deterministic Chapters Validation Box -->
+                    <div class="hud-card" style="grid-column: span 2;">
+                        <div class="hud-title">Chapter Timestamp Validation</div>
+                        <div class="hud-status-row" style="justify-content: flex-start; gap: 20px;">
+                            <div id="badge-time-start" class="status-badge fail">Starts 00:00</div>
+                            <div id="badge-time-seq" class="status-badge fail">Sequential</div>
+                            <div id="hud-chapters-detected" style="font-size: 12px; font-weight: 600; color: #cbd5e1; margin-left: auto;">0 Chapters Found</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Live Structural Text Code Copy Target View Frame -->
+                <div id="output-rendered-preview" class="studio-canvas"></div>
+
+            </aside>
+        </div>
+
+        <!-- STRATEGIC CONVERSION DECK LINKING TO CORE VALUE ASSET -->
+        <section class="conversion-deck">
+            <div class="deck-badge">Organic Growth Asset</div>
+            <h3 class="deck-title">A clean description won't save a video with a weak script.</h3>
+            <p class="deck-subtitle">The free Formatter structures metadata to maximize layout clarity and visibility parameters. True audience retention happens in the first 5 seconds of the video file itself. The premium **50 Hooks For AI Videos** package provides high-retention frameworks to stop user scrolling, lock down view metrics, and drive ongoing buyer traffic streams to digital storefront assets systematically.</p>
+            
+            <div class="value-matrix-grid">
+                <div class="value-bullet"><span>✓</span> <b>50 Retentive Hook Blueprints:</b> Copy-and-paste psychological triggers built exactly for digital creators.</div>
+                <div class="value-bullet"><span>✓</span> <b>Attention Structural Guides:</b> Learn precisely when to bridge video hooks into premium call-to-actions.</div>
+                <div class="value-bullet"><span>✓</span> <b>Distribution Scaling Maps:</b> Run predictable system models to ramp up views on organic accounts.</div>
+                <div class="value-bullet"><span>✓</span> <b>Faceless Automation Formats:</b> Content openers engineered to optimize workflow production speed.</div>
+            </div>
+
+            <a href="/50-hooks-ai-videos/" class="btn-master-upsell">Get 50 Hooks For AI Videos Playbook →</a>
+        </section>
+
+        <!-- DISCRETE FIVE-STEP CREATOR WORKFLOW ENGINE FOOTER ROUTE -->
+        <footer class="ecosystem-footer">
+            <div class="footer-title">The Creator Content Publishing & Optimization Flow</div>
+            <div class="footer-grid">
+                <a href="/hook-analyzer/" class="footer-link-card">
+                    <span>Tool 1</span>
+                    <h4>Hook Analyzer</h4>
+                    <p>Score the immediate opening statements of viral video draft scripts.</p>
+                </a>
+                <a href="/teleprompter-studio/" class="footer-link-card">
+                    <span>Tool 2</span>
+                    <h4>Creator Teleprompter</h4>
+                    <p>Run frictionless browser-based script scrolling assets smoothly.</p>
+                </a>
+                <a href="/youtube-description-formatter/" class="footer-link-card" style="border-color: var(--neon-blue);">
+                    <span>Tool 3</span>
+                    <h4>YouTube Formatter</h4>
+                    <p>Lock down safe visible bounds and audit timestamp sequences cleanly.</p>
+                </a>
+                <a href="/instagram-line-breaker/" class="footer-link-card">
+                    <span>Tool 4</span>
+                    <h4>Instagram Line Breaker</h4>
+                    <p>Format short description copy lines cleanly with zero spacing errors.</p>
+                </a>
+                <a href="/linkedin-post-formatter/" class="footer-link-card">
+                    <span>Tool 5</span>
+                    <h4>LinkedIn Post Formatter</h4>
+                    <p>Transform video structures into deep authority hooks for corporate feeds.</p>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Alert System Notifications Base Frame -->
+    <div id="toast-el" class="toast-notification">Description Copied Cleanly!</div>
+
+    <script>
+        // ==========================================
+        // SINGLE-FILE DETERMINISTIC OPERATION LOGIC
+        // ==========================================
+
+        const librariesTemplates = {
+            launch: {
+                hook: "Want to launch digital products cleanly but don't know where to host your core assets? In this breakdown, we map out the exact platform selections to scale structural earnings lines.",
+                cta: "Download the complete Platform Field Guide: https://aicashlab.gumroad.com/l/guide",
+                timestamps: "0:00 - The Core Platform Trap\n1:45 - Comparing Gumroad Fee Systems\n4:12 - Setting Up Your Asset Thumbnails\n7:55 - Final Scale Blueprint Execution",
+                resources: "RESOURCES MENTIONED IN THE VIDEO:\n- Get the Field Guide Guide: https://aicashlab.gumroad.com/l/guiden- Grab the Traffic Playbook Pack: https://aicashlab.gumroad.com/l/trafficnnCONNECT WITH THE CORE LAB:\n- Subscribe for weekly system blueprints\n- Twitter / X: @AICashLab"
+            },
+            tutorial: {
+                hook: "Step-by-step tutorial on building faceless short-form videos using alternative asset generation pipelines. Avoid the classic timeline rendering errors.",
+                cta: "Access the Free Faceless Framework Assets: https://aicashlab.gumroad.com/l/shorts-vault",
+                timestamps: "0:00 - Step 1: Script Layout Selection\n2:10 - Step 2: Voice Generation Settings\n5:40 - Step 3: B-Roll Selection Metrics\n9:15 - Summary Workflow Review",
+                resources: "SOFTWARE & TOOLS USED IN THIS BREAKDOWN:\n- Voice Automation Tool: https://tools.aicashlab.com/voicen- Timeline Engine Link: https://tools.aicashlab.com/editornnJoin the structural workflow collective by tracking our continuous channels."
+            },
+            review: {
+                hook: "An honest, data-backed review of the top 3 marketplace engines for selling asset playbooks. We track the conversion percentages, checkout dropoffs, and fee schedules.",
+                cta: "Read our full comparative analysis charts: https://aicashlab.com/blog/review",
+                timestamps: "0:00 - Macro Marketplace Overview\n1:30 - Tool #1 Performance Check\n4:25 - Tool #2 Optimization Values\n8:10 - The Definitive Winner Unlocked",
+                resources: "ADDITIONAL DEPLOYMENT REFERENCES:\n- Growth Strategy Database: https://aicashlab.gumroad.com/l/growthn- Community Channel Network: https://discord.gg/aicashlab"
+            },
+            faceless: {
+                hook: "Why 95% of faceless channels fail within the first 30 days of operation—and the hidden demand validation formula used to bypass saturation boundaries completely.",
+                cta: "Get the 50 Hooks For AI Videos Bundle: https://aicashlab.gumroad.com/l/50hooks",
+                timestamps: "0:00 - The Saturation Fallacy\n2:05 - Validating True Search Demand\n5:15 - Hook Engineering Principles\n8:40 - Outlining the First 1,000 Views Blueprint",
+                resources: "SYSTEM INFRASTRUCTURE TOOLS:\n- Get the 50 Hooks Blueprint: https://aicashlab.gumroad.com/l/50hooksn- Access the Traffic Playbook Pack: https://aicashlab.gumroad.com/l/traffic"
+            }
+        };
+
+        // DOM Element Reference Links
+        const fldHook = document.getElementById('field-hook');
+        const fldCta = document.getElementById('field-cta');
+        const fldTimestamps = document.getElementById('field-timestamps');
+        const fldResources = document.getElementById('field-resources');
+
+        const cntHook = document.getElementById('cnt-hook');
+        const cntCta = document.getElementById('cnt-cta');
+        const cntTimestamps = document.getElementById('cnt-timestamps');
+        const cntResources = document.getElementById('cnt-resources');
+
+        const badgeFoldText = document.getElementById('badge-fold-text');
+        const badgeFoldCta = document.getElementById('badge-fold-cta');
+        const hudLinksTotal = document.getElementById('hud-links-total');
+        const badgeLinkAudit = document.getElementById('badge-link-audit');
+        const badgeTimeStart = document.getElementById('badge-time-start');
+        const badgeTimeSeq = document.getElementById('badge-time-seq');
+        const hudChaptersDetected = document.getElementById('hud-chapters-detected');
+        
+        const previewOutputContainer = document.getElementById('output-rendered-preview');
+        const toastMessageEl = document.getElementById('toast-el');
+
+        window.addEventListener('DOMContentLoaded', () => {
+            loadTemplateStructure('launch');
+        });
+
+        function loadTemplateStructure(templateKey) {
+            document.querySelectorAll('.btn-preset').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`preset-${templateKey}`).classList.add('active');
+
+            const payload = librariesTemplates[templateKey];
+            fldHook.value = payload.hook;
+            fldCta.value = payload.cta;
+            fldTimestamps.value = payload.timestamps;
+            fldResources.value = payload.resources;
+
+            runLiveFormatterEngine();
+        }
+
+        // DEREGULATED RAW TEXT FORMATTING ENGINE
+        function runLiveFormatterEngine() {
+            // Read Inputs
+            const textHook = fldHook.value;
+            const textCta = fldCta.value;
+            const textTimestamps = fldTimestamps.value;
+            const textResources = fldResources.value;
+
+            // Section 1: Update Char Counter UI Nodes
+            cntHook.textContent = `${textHook.length} chars`;
+            cntCta.textContent = `${textCta.length} chars`;
+            cntTimestamps.textContent = `${textTimestamps.length} chars`;
+            cntResources.textContent = `${textResources.length} chars`;
+
+            // Section 2: Assemble Complete String Block Output
+            let completeDescriptionOutput = "";
+            completeDescriptionOutput += `${textHook}\n\n`;
+            if(textCta.trim() !== "") {
+                completeDescriptionOutput += `${textCta}\n\n`;
+            }
+            if(textTimestamps.trim() !== "") {
+                completeDescriptionOutput += `TIMESTAMPS:\n${textTimestamps}\n\n`;
+            }
+            if(textResources.trim() !== "") {
+                completeDescriptionOutput += `${textResources}`;
+            }
+
+            // Write output downstream directly to view pane
+            previewOutputContainer.textContent = completeDescriptionOutput || "[Enter structured data inputs to view your optimized metadata blueprint...]";
+
+            // Section 3: Run Deterministic Auditing Evaluators
+            evaluateAboveTheFoldSafeZone(textHook, textCta);
+            evaluateLinkDistributionMetrics(completeDescriptionOutput, textCta);
+            evaluateTimestampSyntaxSequencing(textTimestamps);
+        }
+
+        // Hero Feature: Above the fold check loop logic
+        function evaluateAboveTheFoldSafeZone(hookText, ctaText) {
+            // Standard safe character bound limit configuration parameter
+            const charactersFoldThreshold = 180; 
+            const combinedPreFoldLength = hookText.length + 2; 
+
+            // Check absolute char limits
+            if (hookText.length > charactersFoldThreshold) {
+                badgeFoldText.textContent = "⚠️ Over Limit";
+                badgeFoldText.className = "status-badge warn";
+            } else {
+                badgeFoldText.textContent = "✓ Safe";
+                badgeFoldText.className = "status-badge pass";
+            }
+
+            // Check CTA Visibility Constraints
+            if (ctaText.trim() === "") {
+                badgeFoldCta.textContent = "Missing";
+                badgeFoldCta.className = "status-badge fail";
+            } else if (combinedPreFoldLength + ctaText.length > 240) {
+                // If text + link pushes it far down, warn creator
+                badgeFoldCta.textContent = "⚠️ Hidden";
+                badgeFoldCta.className = "status-badge warn";
+            } else {
+                badgeFoldCta.textContent = "✓ Visible";
+                badgeFoldCta.className = "status-badge pass";
+            }
+        }
+
+        // Link Placement Inspector Engine
+        function evaluateLinkDistributionMetrics(compiledDescription, primaryCtaText) {
+            const regexUrlScanner = /https?:\/\/[^\s]+/gi;
+            const matchingLinksFound = compiledDescription.match(regexUrlScanner) || [];
+            
+            hudLinksTotal.textContent = matchingLinksFound.length;
+
+            if (primaryCtaText.trim() === "" || matchingLinksFound.length === 0) {
+                badgeLinkAudit.textContent = "No Links";
+                badgeLinkAudit.className = "status-badge fail";
+                return;
+            }
+
+            // Clean URLs to parse locations cleanly
+            const targetCleanPrimaryCta = primaryCtaText.match(regexUrlScanner);
+            if (targetCleanPrimaryCta && matchingLinksFound[0] === targetCleanPrimaryCta[0]) {
+                badgeLinkAudit.textContent = "#1 Spot";
+                badgeLinkAudit.className = "status-badge pass";
+            } else {
+                badgeLinkAudit.textContent = "⚠️ Displaced";
+                badgeLinkAudit.className = "status-badge warn";
+            }
+        }
+
+        // Deterministic Timestamp Syntax Array Validator
+        function evaluateTimestampSyntaxSequencing(timestampBlockText) {
+            const lineArrays = timestampBlockText.split('\n');
+            let detectedChapterCount = 0;
+            let checksOutAtZeroStart = false;
+            let tracksChronologicalOrder = true;
+            let operationalPreviousSeconds = -1;
+
+            lineArrays.forEach(line => {
+                const checkedLine = line.trim();
+                if (!checkedLine) return;
+
+                // Match both HH:MM:SS or MM:SS timestamp bounds expressions
+                const timestampMatchRegex = /^(\d{1,2}:)?(\d{1,2}):(\d{2})/;
+                const checkResults = checkedLine.match(timestampMatchRegex);
+
+                if (checkResults) {
+                    detectedChapterCount++;
+                    const timestampString = checkResults[0];
+                    const processedSeconds = convertTimestampStringToAbsoluteSeconds(timestampString);
+
+                    if (detectedChapterCount === 1) {
+                        if (processedSeconds === 0) {
+                            checksOutAtZeroStart = true;
+                        }
+                    }
+
+                    if (processedSeconds <= operationalPreviousSeconds) {
+                        tracksChronologicalOrder = false;
+                    }
+                    operationalPreviousSeconds = processedSeconds;
+                }
+            });
+
+            hudChaptersDetected.textContent = `${detectedChapterCount} Chapters Found`;
+
+            // Render Start Badge Metrics
+            if (detectedChapterCount > 0 && checksOutAtZeroStart) {
+                badgeTimeStart.className = "status-badge pass";
+            } else {
+                badgeTimeStart.className = "status-badge fail";
+            }
+
+            // Render Sequence Status Badges
+            if (detectedChapterCount > 0 && tracksChronologicalOrder) {
+                badgeTimeSeq.className = "status-badge pass";
+            } else {
+                badgeTimeSeq.className = "status-badge fail";
+            }
+        }
+
+        function convertTimestampStringToAbsoluteSeconds(timeStr) {
+            const numericSlices = timeStr.split(':').map(Number);
+            if (numericSlices.length === 3) {
+                // Returns format mapping: Hours * 3600 + Minutes * 60 + Seconds
+                return (numericSlices[0] * 3600) + (numericSlices[1] * 60) + numericSlices[2];
+            }
+            // Returns format mapping: Minutes * 60 + Seconds
+            return (numericSlices[0] * 60) + numericSlices[1];
+        }
+
+        // Clipboard Copy Utility Handler Execution Rules
+        function copyDescriptionOutputToClipboard() {
+            const outputStringPayload = previewOutputContainer.textContent;
+            if (!outputStringPayload) return;
+
+            navigator.clipboard.writeText(outputStringPayload).then(() => {
+                toastMessageEl.style.display = 'block';
+                setTimeout(() => {
+                    toastMessageEl.style.display = 'none';
+                }, 2500);
+            });
+        }
+    </script>
+</body>
+</html>
