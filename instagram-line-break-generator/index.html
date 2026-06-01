@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Instagram Line Break Generator | Preserve Caption Spacing</title>
+    <style>
+        /* ==========================================
+           PREMIUM DESIGN MATRIX DESIGN THEME
+           Matches your exact brand configuration
+           ========================================== */
+        :root {
+            --bg-dark: #070a12;
+            --card-bg: #0e1320;
+            --border-color: #1c2638;
+            --text-main: #ffffff;
+            --text-muted: #64748b;
+            --neon-blue: #3b82f6;
+            --neon-green: #10b981;
+            --neon-red: #f43f5e;
+            --ig-bg: #121212;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Tool Header Modules */
+        .tool-header {
+            margin-bottom: 30px;
+        }
+        .header-meta {
+            color: #f59e0b;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+        }
+        .header-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+        }
+        .header-subtitle {
+            color: var(--text-muted);
+            font-size: 15px;
+            max-width: 700px;
+            margin: 0;
+        }
+
+        /* Unified Privacy Trust Ribbon */
+        .privacy-strip {
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px dashed rgba(59, 130, 246, 0.25);
+            border-radius: 6px;
+            padding: 12px 15px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #93c5fd;
+        }
+
+        /* Two-Column Studio Layout Wrapper */
+        .workspace-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        @media (min-width: 992px) {
+            .workspace-grid {
+                grid-template-columns: 1.2fr 0.8fr;
+            }
+        }
+
+        /* Structural Grid Card Panels */
+        .grid-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            height: fit-content;
+        }
+        .card-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        /* Local Storage Preset Dropdowns Styles */
+        .preset-select {
+            background: #070a12;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        /* Analytical Matrix Counters Display Rails */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        @media (min-width: 576px) {
+            .metrics-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        .metric-box {
+            background: #070a12;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+        }
+        .metric-box.active-alert {
+            border-color: rgba(244, 63, 94, 0.4);
+            background: rgba(244, 63, 94, 0.02);
+        }
+        .metric-box.active-alert .metric-val { color: var(--neon-red); }
+        .metric-lbl {
+            font-size: 10px;
+            color: var(--text-muted);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .metric-val {
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+        .progress-rail {
+            width: 100%;
+            height: 3px;
+            background: #1c2638;
+            border-radius: 2px;
+            margin-top: 6px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: var(--neon-blue);
+            transition: width 0.2s, background 0.2s;
+        }
+
+        /* Workspace Workspace Text Editor Contexts */
+        .textarea-container {
+            position: relative;
+        }
+        textarea {
+            width: 100%;
+            height: 340px;
+            background: #070a12;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: white;
+            padding: 18px;
+            box-sizing: border-box;
+            font-size: 15px;
+            line-height: 1.6;
+            resize: none;
+            outline: none;
+            font-family: inherit;
+        }
+        textarea:focus {
+            border-color: var(--neon-blue);
+        }
+
+        /* Action Controls Layout Ribbon Layouts */
+        .action-ribbon {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        .btn-blue { background: var(--neon-blue); color: white; }
+        .btn-blue:hover { background: #2563eb; }
+        .btn-green { background: var(--neon-green); color: #070a12; width: 100%; font-size: 14px; padding: 14px; }
+        .btn-green:hover { background: #0ca673; }
+        .btn-secondary { background: #1c2638; color: var(--text-main); }
+        .btn-secondary:hover { background: #2d394e; }
+        
+        .cta-group {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        /* Copy Dialog Banner System UI rules */
+        .success-banner {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 6px;
+            padding: 12px;
+            text-align: center;
+            font-size: 13px;
+            color: #a7f3d0;
+            font-weight: 600;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .btn-instagram {
+            background: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            display: none;
+            transition: background 0.2s;
+        }
+        .btn-instagram:hover { background: #e2e8f0; }
+
+        /* ==========================================
+           REALISTIC INSTAGRAM SIMULATOR PANEL (RIGHT)
+           ========================================== */
+        .mock-ig-container {
+            background: var(--ig-bg);
+            border: 1px solid #262626;
+            border-radius: 12px;
+            overflow: hidden;
+            max-width: 400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .ig-post-header {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            border-bottom: 1px solid #262626;
+        }
+        .ig-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #262626;
+            margin-right: 10px;
+            border: 1px solid #363636;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            color: var(--text-muted);
+        }
+        .ig-username {
+            font-size: 13px;
+            font-weight: 600;
+            color: #f5f5f5;
+        }
+        .ig-media-placeholder {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: #1c1c1c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #444;
+            font-size: 13px;
+            border-bottom: 1px solid #262626;
+        }
+        .ig-action-bar {
+            padding: 12px 12px 8px 12px;
+            display: flex;
+            gap: 14px;
+            color: #f5f5f5;
+            font-size: 18px;
+        }
+        .ig-caption-body {
+            padding: 0 12px 16px 12px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #f5f5f5;
+        }
+        
+        /* Direct Truncation Marker & Interface Visual Break Elements */
+        .truncation-fence {
+            border-top: 1px dashed var(--neon-red);
+            position: relative;
+            margin: 15px 0;
+            display: none;
+        }
+        .truncation-tag {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: var(--neon-red);
+            color: #000;
+            font-size: 9px;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .preview-text-render {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .ig-more-btn {
+            color: var(--text-muted);
+            cursor: pointer;
+            font-weight: 500;
+            display: none;
+        }
+
+        /* ==========================================
+           SEQUENTIAL WORKFLOW FOOTER (INTERNAL LINKS)
+           ========================================== */
+        .ecosystem-footer {
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 40px;
+        }
+        .footer-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+        .footer-link-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            text-decoration: none;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .footer-link-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--neon-blue);
+        }
+        .footer-link-card h4 {
+            margin: 0 0 8px 0;
+            color: white;
+            font-size: 14px;
+        }
+        .footer-link-card p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <header class="tool-header">
+            <div class="header-meta">CREATOR PRODUCTION STUDIO</div>
+            <h1 class="header-title">Instagram Line Break Generator (No Signup Required)</h1>
+            <p class="header-subtitle">Format Instagram captions with preserved spacing, paragraph breaks, and clean mobile formatting. No signup required.</p>
+            
+            <div class="privacy-strip">
+                <span>🔒 Private by default: Captions are processed locally in your browser and are never uploaded or stored.</span>
+            </div>
+        </header>
+
+        <main class="workspace-grid">
+            
+            <section class="grid-card">
+                <div class="card-title-row">
+                    <div class="card-title">Prepare Your Caption</div>
+                    
+                    <select id="preset-selector" class="preset-select">
+                        <option value="none">-- Load Built-in Template Preset --</option>
+                        <option value="preset-1">Preset 1: Standard Reel Layout</option>
+                        <option value="preset-2">Preset 2: Carousel Context</option>
+                        <option value="preset-3">Preset 3: Core Promo / Product CTA</option>
+                        <option value="preset-4">Preset 4: Story Engagement Blueprint</option>
+                        <option value="preset-5">Preset 5: Brand Sponsorship Contract</option>
+                    </select>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-box" id="box-chars">
+                        <span class="metric-lbl">Caption Chars</span>
+                        <span id="lbl-chars" class="metric-val">0 / 2200</span>
+                        <div class="progress-rail"><div id="bar-chars" class="progress-bar"></div></div>
+                    </div>
+                    <div class="metric-box" id="box-hashtags">
+                        <span class="metric-lbl">Hashtags</span>
+                        <span id="lbl-hashtags" class="metric-val">0 / 30</span>
+                        <div class="progress-rail"><div id="bar-hashtags" class="progress-bar"></div></div>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-lbl">Hashtag Segment</span>
+                        <span id="lbl-has-block" class="metric-val" style="color: var(--text-muted); font-size:14px; margin-top:8px;">None Found</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-lbl">Est. Mobile Length</span>
+                        <span id="lbl-lines" class="metric-val">~0 Lines</span>
+                    </div>
+                </div>
+
+                <div class="textarea-container">
+                    <textarea id="caption-textarea" placeholder="Type or paste your text here... Add empty line spaces normally, the system handles conversion instantly."></textarea>
+                </div>
+
+                <div class="action-ribbon">
+                    <button id="clean-ai-btn" class="btn-secondary" title="Strips raw markdown formatting blocks, trailing spaces, and system layout debris">Sanitize AI Formatting</button>
+                    <button id="save-preset-btn" class="btn-secondary">Save to Selected Preset Slot</button>
+                </div>
+
+                <div class="cta-group">
+                    <button id="copy-master-btn" class="btn-green">Copy Instagram Formatted Text</button>
+                    <div id="success-toast" class="success-banner">✓ Caption Format Converted & Copied to Clipboard!</div>
+                    <a id="open-ig-btn" href="#" target="_blank" class="btn-instagram">Open Instagram Platform</a>
+                </div>
+            </section>
+
+            <section class="grid-card">
+                <div class="card-title" style="margin-bottom: 20px;">Live Feed Optimization Preview</div>
+                
+                <div class="mock-ig-container">
+                    <div class="ig-post-header">
+                        <div class="ig-avatar">LAB</div>
+                        <div class="ig-username">aicashlab_creator</div>
+                    </div>
+                    
+                    <div class="ig-media-placeholder">
+                        <span>[ Interactive Feed Mockup Frame ]</span>
+                    </div>
+                    
+                    <div class="ig-action-bar">
+                        <span>♥</span> <span>💬</span> <span>✈</span>
+                    </div>
+
+                    <div class="ig-caption-body">
+                        <span class="ig-username" style="margin-right: 5px;">aicashlab_creator</span>
+                        
+                        <div id="preview-visible-hook" class="preview-text-render" style="display:inline;"></div>
+                        <span id="preview-more-btn" class="ig-more-btn"> ...more</span>
+                        
+                        <div id="truncation-divider" class="truncation-fence">
+                            <span class="truncation-tag">Instagram Truncation Barrier (...more)</span>
+                        </div>
+
+                        <div id="preview-hidden-remainder" class="preview-text-render"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="ecosystem-footer">
+            <div class="footer-title">Other Creator Tools</div>
+            <div class="footer-grid">
+                <a href="/short-form-hook-analyzer/" class="footer-link-card">
+                    <h4>Short-Form Hook Analyzer</h4>
+                    <p>Test hook retention score vectors before production.</p>
+                </a>
+                <a href="/caption-line-splitter/" class="footer-link-card">
+                    <h4>Caption Line Splitter</h4>
+                    <p>Format timing script alignments into clean visual rows.</p>
+                </a>
+                <a href="/instagram-reels-safe-zone/" class="footer-link-card">
+                    <h4>Instagram Reels Safe Zone</h4>
+                    <p>Verify overlay margins to avoid UI cropping artifacts.</p>
+                </a>
+                <a href="/thumbnail-text-checker/" class="footer-link-card">
+                    <h4>Thumbnail Text Checker</h4>
+                    <p>Audit title frame typographic structural legibility rules.</p>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // ==========================================
+        // COMPLETE CLIENT CONTROLLER LAUNCH CONTEXT
+        // Processing operations run 100% locally
+        // ==========================================
+
+        const textInput = document.getElementById('caption-textarea');
+        const lblChars = document.getElementById('lbl-chars');
+        const lblHashtags = document.getElementById('lbl-hashtags');
+        const lblHasBlock = document.getElementById('lbl-has-block');
+        const lblLines = document.getElementById('lbl-lines');
+        
+        const barChars = document.getElementById('bar-chars');
+        const barHashtags = document.getElementById('bar-hashtags');
+        const boxChars = document.getElementById('box-chars');
+        const boxHashtags = document.getElementById('box-hashtags');
+
+        // Preset Targets Hooks
+        const presetSelector = document.getElementById('preset-selector');
+        const savePresetBtn = document.getElementById('save-preset-btn');
+        const cleanAiBtn = document.getElementById('clean-ai-btn');
+
+        // Copy / Action Event Connectors
+        const copyBtn = document.getElementById('copy-master-btn');
+        const successToast = document.getElementById('success-toast');
+        const openIgBtn = document.getElementById('open-ig-btn');
+
+        // Simulator View Framework Triggers
+        const viewHook = document.getElementById('preview-visible-hook');
+        const viewRemainder = document.getElementById('preview-hidden-remainder');
+        const viewMoreBtn = document.getElementById('preview-more-btn');
+        const truncationDivider = document.getElementById('truncation-divider');
+
+        // Raw Structural Template Framework Arrays Definitions
+        const frameworkPresets = {
+            'preset-1': "🔥 ENTER YOUR KILLER FIRST LINE HOOK HERE\n\nAdd your supporting context body text lines here. Keep things digestible and snappy to preserve mobile attention spans.\n\n⚡ KEY VALUES OR TAKEAWAYS:\n• Takeaway point one goes here\n• Takeaway point two goes here\n\n👇 Drop your thoughts below in the comments.\n\n#creators #digitalmarketing #growth #aicashlab",
+            'preset-2': "👀 THE TRUTH ABOUT VALUABLE ASSETS\n\n[Slide 1 Content Summary Note]\n[Slide 2 Content Summary Note]\n[Slide 3 Content Summary Note]\n\nRead the full carousel framework metrics listed above.\n\n📌 Save this post for your next project session.\n\n#solopreneur #digitalproducts #marketingtips",
+            'preset-3': "🚀 THE NEW TOOL SYSTEM IS LIVE\n\nStop wasting time managing heavy servers or building massive registration walls. You can get instant access right now.\n\n🔗 Click the link in our bio to launch the free engine.\n\n#saas #nocode #indiehackers #freeutilities",
+            'preset-4': "❓ Are you still using outdated formatting workflows?\n\nHere is the exact framework stack we run to maintain 100% clean formatting across channels without adding manual support overhead profiles.\n\n💬 Comment 'TOOL' and we will DM you the system file.\n\n#automation #creatorgrowth #workflowhacks",
+            'preset-5': "📈 CASE STUDY: FROM ASSET TO CONTRACT\n\nPartnered up with a premium team to test conversion scaling factors across active client sets over a 30-day window.\n\nBrand Partner: @brandname\n\n#sponsored #branddeals #creatorbusiness"
+        };
+
+        // Initialize local custom parameters maps on page generation load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadCustomPresetsFromStorage();
+        });
+
+        // Process Interactive Content Inputs Realtime Loop updates
+        textInput.addEventListener('input', runLiveMetricsEngine);
+
+        function runLiveMetricsEngine() {
+            const rawText = textInput.value;
+            
+            // 1. Calculate General Metrics Profiles
+            const totalChars = rawText.length;
+            const words = rawText.split(/\s+/).filter(w => w.length > 0);
+            
+            // Regex parsing hashtag segments
+            const hashtagMatches = rawText.match(/#[a-zA-Z0-9_]+/g) || [];
+            const hashtagCount = hashtagMatches.length;
+
+            // Character Limits Check Framework limits
+            lblChars.textContent = `${totalChars} / 2200`;
+            const charPercentage = Math.min((totalChars / 2200) * 100, 100);
+            barChars.style.width = `${charPercentage}%`;
+            
+            if (totalChars > 2200) {
+                boxChars.classList.add('active-alert');
+                barChars.style.background = 'var(--neon-red)';
+            } else {
+                boxChars.classList.remove('active-alert');
+                barChars.style.background = 'var(--neon-blue)';
+            }
+
+            // Hashtag Limits Check Matrix
+            lblHashtags.textContent = `${hashtagCount} / 30`;
+            const tagPercentage = Math.min((hashtagCount / 30) * 100, 100);
+            barHashtags.style.width = `${tagPercentage}%`;
+
+            if (hashtagCount > 30) {
+                boxHashtags.classList.add('active-alert');
+                barHashtags.style.background = 'var(--neon-red)';
+            } else {
+                boxHashtags.classList.remove('active-alert');
+                barHashtags.style.background = 'var(--neon-blue)';
+            }
+
+            // Dedicated Block Detector Module Check logic
+            const splitLines = rawText.split('\n');
+            let baseHashtagBlockFound = false;
+            
+            for (let i = 0; i < splitLines.length; i++) {
+                const cleanRow = splitLines[i].trim();
+                if (cleanRow.startsWith('#') && cleanRow.split(/\s+/).every(token => token.startsWith('#') || token === '')) {
+                    baseHashtagBlockFound = true;
+                    break;
+                }
+            }
+            if (baseHashtagBlockFound) {
+                lblHasBlock.textContent = "Isolated Block";
+                lblHasBlock.style.color = 'var(--neon-green)';
+            } else if (hashtagCount > 0) {
+                lblHasBlock.textContent = "Inline Tags";
+                lblHasBlock.style.color = '#f59e0b';
+            } else {
+                lblHasBlock.textContent = "None Found";
+                lblHasBlock.style.color = 'var(--text-muted)';
+            }
+
+            // Mobile Line Height Space Estimation Math (~38 characters standard row depth metrics)
+            let estimatedLines = 0;
+            splitLines.forEach(line => {
+                if (line.length === 0) {
+                    estimatedLines += 1; // Count empty return layout lines
+                } else {
+                    estimatedLines += Math.ceil(line.length / 38);
+                }
+            });
+            lblLines.textContent = `~${estimatedLines} Lines`;
+
+            // 2. Render Accurate Truncation Simulator Parameters
+            // Instagram targets truncation barrier cuts roughly at the 125 character baseline margin index
+            if (totalChars <= 125) {
+                viewHook.textContent = rawText;
+                viewRemainder.textContent = "";
+                viewMoreBtn.style.display = 'none';
+                truncationDivider.style.display = 'none';
+            } else {
+                // Discover optimal clean split breaking point around index 125 marker bounds
+                let splitIdx = rawText.indexOf(' ', 115);
+                if (splitIdx === -1 || splitIdx > 135) {
+                    splitIdx = 125;
+                }
+                
+                const hookText = rawText.substring(0, splitIdx);
+                const remainderText = rawText.substring(splitIdx);
+                
+                viewHook.textContent = hookText;
+                viewRemainder.textContent = remainderText;
+                viewMoreBtn.style.display = 'inline';
+                truncationDivider.style.display = 'block';
+            }
+        }
+
+        // AI Sanitizer Engine implementation block
+        cleanAiBtn.addEventListener('click', () => {
+            let processed = textInput.value;
+            
+            // Clean markdown bold/italic tags cleanly
+            processed = processed.replace(/\*\*([^*]+)\*\*/g, '$1');
+            processed = processed.replace(/\*([^*]+)\*/g, '$1');
+            processed = processed.replace(/__([^_]+)__/g, '$1');
+            
+            // Clean double bullet artifact stacks or weird dash variants
+            processed = processed.replace(/—/g, '-');
+            
+            // Strip trailing right white space blocks line by line safely
+            let rows = processed.split('\n');
+            let cleanedRows = rows.map(r => r.trimEnd());
+            
+            textInput.value = cleanedRows.join('\n');
+            runLiveMetricsEngine();
+        });
+
+        // Presets Select Event Listeners
+        presetSelector.addEventListener('change', () => {
+            const key = presetSelector.value;
+            if (key === 'none') return;
+            
+            // Query state fallback check mapping data arrays directly
+            const savedLocalValue = localStorage.getItem(`ai-lab-${key}`);
+            if (savedLocalValue) {
+                textInput.value = savedLocalValue;
+            } else if (frameworkPresets[key]) {
+                textInput.value = frameworkPresets[key];
+            }
+            runLiveMetricsEngine();
+        });
+
+        savePresetBtn.addEventListener('click', () => {
+            const currentSlot = presetSelector.value;
+            if (currentSlot === 'none') {
+                return alert("Please select a specific target preset template slot dropdown first before saving your current layout text data.");
+            }
+            const dataToSave = textInput.value;
+            localStorage.setItem(`ai-lab-${currentSlot}`, dataToSave);
+            
+            // Visual dynamic notification switch update text values
+            const originalText = savePresetBtn.textContent;
+            savePresetBtn.textContent = "Slot Saved ✓";
+            savePresetBtn.style.color = "var(--neon-green)";
+            
+            setTimeout(() => {
+                savePresetBtn.textContent = originalText;
+                savePresetBtn.style.color = "";
+            }, 1500);
+        });
+
+        function loadCustomPresetsFromStorage() {
+            Object.keys(frameworkPresets).forEach(slotKey => {
+                const stored = localStorage.getItem(`ai-lab-${slotKey}`);
+                if (stored) {
+                    const optionEl = presetSelector.querySelector(`option[value="${slotKey}"]`);
+                    if (optionEl) optionEl.textContent += " (Custom Edited)";
+                }
+            });
+        }
+
+        // Comprehensive Line-Break Conversion & Copy Execution Process 
+        copyBtn.addEventListener('click', () => {
+            const textSource = textInput.value;
+            if (!textSource.trim()) return alert("Please enter text before copying.");
+
+            // Convert raw empty line spacing parameters to invisible unicode characters formatting block mappings
+            // Standard approach targets replacing double carriage lines with spacing code token characters
+            let formattedCaption = textSource.replace(/\n\s*\n/g, '\n\u2800\n');
+            
+            // Fallback fallback verification string rows cleanups
+            formattedCaption = formattedCaption.split('\n').map(row => {
+                return row === '' ? '\u2800' : row;
+            }).join('\n');
+
+            // Native hardware clipboard interface bindings api pipeline hooks execution layer
+            navigator.clipboard.writeText(formattedCaption).then(() => {
+                // Fire notification confirmations elements blocks
+                successToast.style.display = 'block';
+                openIgBtn.style.display = 'block';
+                
+                // Hardware app mapping checks parameters
+                const isMobileSystem = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+                if (isMobileSystem) {
+                    openIgBtn.href = "instagram://camera";
+                    openIgBtn.textContent = "Open Instagram App";
+                } else {
+                    openIgBtn.href = "https://www.instagram.com";
+                    openIgBtn.textContent = "Open Instagram Web";
+                }
+            }).catch(err => {
+                alert("Clipboard tracking allocation copy engine fault error: " + err);
+            });
+        });
+    </script>
+</body>
+</html>
