@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free NDA Generator No Signup | Simple Freelancer NDA Template | AI Cash Lab</title>
+    <style>
+        /* ==========================================
+           PREMIUM ENGINE CSS VARIABLE SYSTEM
+           ========================================== */
+        :root {
+            --bg-dark: #070a12;
+            --card-bg: #0e1320;
+            --border-color: #1c2638;
+            --text-main: #ffffff;
+            --text-muted: #64748b;
+            --neon-blue: #3b82f6;
+            --neon-green: #10b981;
+            --neon-red: #f43f5e;
+            --amber-warn: #f59e0b;
+            --paper-bg: #ffffff;
+            --paper-text: #1e293b;
+            --paper-muted: #64748b;
+            --paper-border: #e2e8f0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Standardized Studio Header */
+        .tool-header {
+            margin-bottom: 35px;
+        }
+        .header-meta {
+            color: var(--amber-warn);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+        }
+        .header-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+        }
+        .header-subtitle {
+            color: var(--text-muted);
+            font-size: 15px;
+            max-width: 700px;
+            margin: 0;
+        }
+
+        /* MANDATORY PROTECTIVE LEGAL DISCLAIMER MODULE CARD */
+        .legal-disclaimer-card {
+            background: rgba(245, 158, 11, 0.03);
+            border: 1px dashed rgba(245, 158, 11, 0.25);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        .disclaimer-icon {
+            color: var(--amber-warn);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .disclaimer-text {
+            font-size: 13px;
+            color: #cbd5e1;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* CONTROL INTERFACE RAIL */
+        .action-control-rail {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+            align-items: center;
+        }
+        @media (min-width: 768px) {
+            .action-control-rail {
+                grid-template-columns: 1fr auto;
+            }
+        }
+        .preset-select-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+        .preset-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+        }
+        .btn-preset {
+            background: #1c2638;
+            color: #94a3b8;
+            border: 1px solid var(--border-color);
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-preset:hover {
+            color: white;
+            border-color: var(--text-muted);
+        }
+        .btn-preset.active {
+            background: var(--neon-blue);
+            color: white;
+            border-color: var(--neon-blue);
+        }
+        .btn-primary-action {
+            background: var(--neon-blue);
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 12px 24px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-primary-action:hover {
+            background: #2563eb;
+        }
+
+        /* TWO-COLUMN STUDIO WORKSPACE SPLIT */
+        .workspace-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        @media (min-width: 992px) {
+            .workspace-layout {
+                grid-template-columns: 1.2fr 0.8fr;
+            }
+        }
+
+        /* INLINE WORKSPACE DOCUMENT INTERFACE */
+        .document-canvas {
+            background-color: var(--paper-bg);
+            color: var(--paper-text);
+            border-radius: 8px;
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        .doc-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #0f172a;
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 0.5px;
+        }
+        
+        [contenteditable="true"] {
+            outline: none;
+            padding: 1px 4px;
+            border-radius: 4px;
+            font-weight: 700;
+            color: #0f172a;
+            background: #f1f5f9;
+            transition: background 0.15s;
+            display: inline-block;
+        }
+        [contenteditable="true"]:hover, [contenteditable="true"]:focus {
+            background: #e2e8f0;
+        }
+        
+        /* Linked Dynamic Synced Sync Elements Styles */
+        .sync-bind-token {
+            font-weight: 700;
+            color: #1e3a8a;
+            border-bottom: 1px dashed #3b82f6;
+            padding: 1px 2px;
+        }
+
+        .doc-p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .signature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+            border-top: 1px solid var(--paper-border);
+            padding-top: 30px;
+        }
+        .sig-block {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .sig-line {
+            border-bottom: 1px solid #94a3b8;
+            height: 40px;
+            margin-bottom: 5px;
+        }
+
+        /* COMPLETION SIDEBAR HUD CONFIGURATION */
+        .sidebar-panel {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            height: fit-content;
+        }
+        .panel-title {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .readiness-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .readiness-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+        .readiness-lbl {
+            color: var(--text-muted);
+        }
+        .readiness-status {
+            font-weight: 700;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .status-pass { color: var(--neon-green); }
+        .status-fail { color: var(--neon-red); }
+
+        /* STRATEGIC CONVERSION DECK ANCHOR SYSTEM BLOCK */
+        .conversion-deck {
+            background: linear-gradient(135deg, #0e1320 0%, #070a12 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 35px;
+            margin-bottom: 60px;
+        }
+        .deck-badge {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--neon-blue);
+            font-size: 10px;
+            font-weight: 800;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .deck-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+        }
+        .deck-subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin: 0 0 25px 0;
+            max-width: 700px;
+        }
+        .value-matrix-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        @media (min-width: 600px) {
+            .value-matrix-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .value-bullet {
+            display: flex;
+            gap: 10px;
+            font-size: 13px;
+            color: #e2e8f0;
+        }
+        .value-bullet span { color: var(--neon-green); font-weight: 700; }
+        
+        .btn-master-upsell {
+            background: #ffffff;
+            color: #070a12;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 14px 28px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+        .btn-master-upsell:hover {
+            background: #e2e8f0;
+        }
+
+        /* AUTOMATED CREATOR MANUFACTURING WORKFLOW INTERNALS FOOTER */
+        .ecosystem-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 40px;
+        }
+        .footer-title {
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+        .footer-link-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            text-decoration: none;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .footer-link-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--neon-blue);
+        }
+        .footer-link-card h4 {
+            margin: 0 0 8px 0;
+            color: white;
+            font-size: 14px;
+        }
+        .footer-link-card p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        /* ==========================================
+           NATIVE PRINT OVERRIDES
+           ========================================== */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+            }
+            .container {
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .tool-header,
+            .legal-disclaimer-card,
+            .action-control-rail,
+            .sidebar-panel,
+            .conversion-deck,
+            .ecosystem-footer {
+                display: none !important;
+            }
+            .workspace-layout {
+                grid-template-columns: 1fr !important;
+                margin: 0 !important;
+            }
+            .document-canvas {
+                box-shadow: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                background: #ffffff !important;
+                color: #000000 !important;
+            }
+            [contenteditable="true"] {
+                background: none !important;
+                padding: 0 !important;
+            }
+            .sync-bind-token {
+                color: #000000 !important;
+                border-bottom: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Studio Configuration Header Module -->
+        <header class="tool-header">
+            <div class="header-meta">LEGAL PROTECTION UTILITY</div>
+            <h1 class="header-title">Free NDA Generator (No Signup Required)</h1>
+            <p class="header-subtitle">Build simple, professional non-disclosure agreements tailored for independent project discussions. Select a strategic preset, edit details inline, and print instantly.</p>
+        </header>
+
+        <!-- MANDATORY PROTECTIVE LEGAL DISCLAIMER CARD -->
+        <section class="legal-disclaimer-card">
+            <div class="disclaimer-icon">⚠️</div>
+            <p class="disclaimer-text">
+                <b>Legal Notice:</b> This document is provided as a general operational starting point and does not constitute legal advice. Requirements vary significantly by state jurisdiction, country, and specific commercial situations. Consider consulting a qualified attorney before executing or relying on any legal contract framework.
+            </p>
+        </section>
+
+        <!-- Dynamic Live Preset Adjustment Switch Toolbar Rail -->
+        <section class="action-control-rail">
+            <div class="preset-select-group">
+                <span class="preset-label">Contract Preset:</span>
+                <button id="preset-freelancer" class="btn-preset active" onclick="activateContractPresetLayout('freelancer')">Freelancer NDA</button>
+                <button id="preset-contractor" class="btn-preset" onclick="activateContractPresetLayout('contractor')">Contractor NDA</button>
+                <button id="preset-agency" class="btn-preset" onclick="activateContractPresetLayout('agency')">Agency NDA</button>
+                <button id="preset-mutual" class="btn-preset" onclick="activateContractPresetLayout('mutual')">Mutual NDA</button>
+            </div>
+            <div>
+                <button class="btn-primary-action" onclick="window.print()">Print / Save PDF</button>
+            </div>
+        </section>
+
+        <!-- Main Operation Layout Split -->
+        <div class="workspace-layout">
+            
+            <!-- COLUMN 1: INTERACTIVE DOCUMENT CANVAS -->
+            <main id="document-sheet" class="document-canvas">
+                <div id="doc-title-hud" class="doc-title">MUTUAL NON-DISCLOSURE AGREEMENT</div>
+
+                <div class="doc-p">
+                    This Non-Disclosure Agreement (the "Agreement") is entered into on this 
+                    <span contenteditable="true" id="field-date">June 1, 2026</span> (the "Effective Date"), by and between 
+                    <span contenteditable="true" id="field-party1" data-sync="party1">Your Business Name</span> ("Disclosing Party"), and 
+                    <span contenteditable="true" id="field-party2" data-sync="party2">Client Company Name</span> ("Receiving Party").
+                </div>
+
+                <div class="doc-p">
+                    <b>1. Purpose.</b> The parties wish to engage in discussions regarding potential business opportunities, product strategy, or project technical collaborations (the "Purpose"). In connection with this Purpose, the parties may disclose proprietary or confidential technical and business data.
+                </div>
+
+                <div id="dynamic-scope-clause" class="doc-p">
+                    <b>2. Confidential Information.</b> "Confidential Information" refers to any proprietary asset files, source code, strategy maps, or financial information disclosed by the Disclosing Party to the Receiving Party that is marked as confidential or should reasonably be understood to be confidential given the nature of the information.
+                </div>
+
+                <div class="doc-p">
+                    <b>3. Obligations.</b> The Receiving Party shall hold all Confidential Information in strict confidence and shall not disclose it to any third party without prior written consent. The Receiving Party shall restrict access to such information to personnel strictly requiring it to fulfill the Purpose.
+                </div>
+
+                <div class="doc-p">
+                    <b>4. Governing Law.</b> This Agreement and any disputes arising out of it shall be governed by and construed in accordance with the laws of the State of 
+                    <span contenteditable="true" id="field-jurisdiction" data-sync="jurisdiction">Delaware</span>, without regard to its conflict of law principles.
+                </div>
+
+                <!-- Dual Signatures Matrix Layout -->
+                <div class="signature-grid">
+                    <div class="sig-block">
+                        <b>Disclosing Party:</b>
+                        <span class="sync-bind-token" id="sync-sig-p1">Your Business Name</span>
+                        <div class="sig-line"></div>
+                        <span>By: Authorized Representative</span>
+                    </div>
+                    <div class="sig-block">
+                        <b>Receiving Party:</b>
+                        <span class="sync-bind-token" id="sync-sig-p2">Client Company Name</span>
+                        <div class="sig-line"></div>
+                        <span>By: Authorized Representative</span>
+                    </div>
+                </div>
+            </main>
+
+            <!-- COLUMN 2: REAL-TIME INDICATION & COMPLETION TOOLBAR PANEL -->
+            <aside class="sidebar-panel">
+                <div class="panel-title">Signature Readiness Check</div>
+                <div class="readiness-list">
+                    <div class="readiness-item">
+                        <span class="readiness-lbl">Effective Date</span>
+                        <span id="check-date" class="readiness-status status-pass">✓ Ready</span>
+                    </div>
+                    <div class="readiness-item">
+                        <span class="readiness-lbl">Disclosing Party</span>
+                        <span id="check-party1" class="readiness-status status-pass">✓ Ready</span>
+                    </div>
+                    <div class="readiness-item">
+                        <span class="readiness-lbl">Receiving Party</span>
+                        <span id="check-party2" class="readiness-status status-pass">✓ Ready</span>
+                    </div>
+                    <div class="readiness-item">
+                        <span class="readiness-lbl">State Jurisdiction</span>
+                        <span id="check-jurisdiction" class="readiness-status status-pass">✓ Ready</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- STRATEGIC VALUE TRANSITION EXPLICIT CONVERSION UPSELL BLOCK -->
+        <section class="conversion-deck">
+            <div class="deck-badge">SYSTEM EXTENSION</div>
+            <h3 class="deck-title">Protecting your delivery metrics doesn't stop at an NDA.</h3>
+            <p class="deck-subtitle">The free NDA protects an introductory conversation. The premium <b>Client Portal & Freelancer Business OS</b> helps you securely manage project scope, asset delivery sign-offs, production approvals, and ongoing client workflows after the project begins.</p>
+            
+            <div class="value-matrix-grid">
+                <div class="value-bullet"><span>✓</span> <b>Centralized Workspaces:</b> Keep conversations and technical specs aligned in one shared hub.</div>
+                <div class="value-bullet"><span>✓</span> <b>Production Milestones:</b> Freeze client review iteration loops and prevent random feedback bloat.</div>
+                <div class="value-bullet"><span>✓</span> <b>Asset Lockouts:</b> Protect source components automatically until phase milestones clear.</div>
+                <div class="value-bullet"><span>✓</span> <b>Professional Operational Separation:</b> Run deliverables systematically to maximize renewal orders.</div>
+            </div>
+
+            <a href="/client-portal-freelancer-os/" class="btn-master-upsell">View Client Portal & Freelancer Business OS →</a>
+        </section>
+
+        <!-- DYNAMIC RECURSIVE ECOSYSTEM INTERNALS FOOTER LINKS -->
+        <footer class="ecosystem-footer">
+            <div class="footer-title">Related Freelancer System Tools</div>
+            <div class="footer-grid">
+                <a href="/scope-creep-calculator/" class="footer-link-card">
+                    <h4>Scope Creep Calculator</h4>
+                    <p>Audit project updates to gauge structural contract adjustments.</p>
+                </a>
+                <a href="/free-invoice-generator/" class="footer-link-card">
+                    <h4>Free Invoice Generator</h4>
+                    <p>Build minimalist corporate invoices in under 60 seconds with no signup.</p>
+                </a>
+                <a href="/freedom-rate-calculator/" class="footer-link-card">
+                    <h4>Freedom Rate Calculator</h4>
+                    <p>Discover required baseline hourly values matching your business goals.</p>
+                </a>
+                <a href="/client-portal-freelancer-os/" class="footer-link-card">
+                    <h4>Freelancer OS Bundle</h4>
+                    <p>Acquire systemic workflow execution frameworks to scale project operations cleanly.</p>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // ==========================================
+        // DECOUPLED PERSISTENCE & VARIABLING SCRIPTS
+        // ==========================================
+
+        const dateInput = document.getElementById('field-date');
+        const p1Input = document.getElementById('field-party1');
+        const p2Input = document.getElementById('field-party2');
+        const jurInput = document.getElementById('field-jurisdiction');
+
+        const titleHud = document.getElementById('doc-title-hud');
+        const scopeClause = document.getElementById('dynamic-scope-clause');
+
+        // Preset Content Parameters Definitions Matrix
+        const contractPresets = {
+            freelancer: {
+                title: "MUTUAL NON-DISCLOSURE AGREEMENT",
+                scope: "<b>2. Confidential Information.</b> \"Confidential Information\" refers to any proprietary asset files, software code templates, strategy maps, motion graphic structures, or financial metrics disclosed by the Disclosing Party to the Receiving Party that is marked confidential or should reasonably be understood to be confidential."
+            },
+            contractor: {
+                title: "UNILATERAL NON-DISCLOSURE AGREEMENT",
+                scope: "<b>2. Confidential Information.</b> \"Confidential Information\" includes all operational parameters, marketing channel workflows, login credentials, automation structures, and internal source material delivered to the Contractor (Receiving Party) for system optimization."
+            },
+            agency: {
+                title: "AGENCY MASTER CONFIDENTIALITY CONTRACT",
+                scope: "<b>2. Confidential Information.</b> \"Confidential Information\" encompasses high-level campaign parameters, asset libraries, client roster definitions, proprietary funnel frameworks, and software metrics communicated by the Disclosing Agency to subcontractor entities."
+            },
+            mutual: {
+                title: "MUTUAL NON-DISCLOSURE AGREEMENT",
+                scope: "<b>2. Confidential Information.</b> \"Confidential Information\" refers to any proprietary information, product concepts, trade secrets, data sets, or technical strategies disclosed by either party to the other, which is designated as confidential or reasonably understood to be confidential."
+            }
+        };
+
+        // Real-Time Sync & Quality Audit Trigger Loop
+        document.addEventListener('input', (e) => {
+            const targetId = e.target.id;
+            
+            if (targetId === 'field-party1') {
+                document.getElementById('sync-sig-p1').textContent = e.target.textContent || "Disclosing Party";
+                commitSenderProfileToCache();
+            }
+            if (targetId === 'field-party2') {
+                document.getElementById('sync-sig-p2').textContent = e.target.textContent || "Receiving Party";
+            }
+            
+            runSignatureReadinessCheck();
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            retrieveSenderProfileFromCache();
+            runSignatureReadinessCheck();
+        });
+
+        function activateContractPresetLayout(presetKey) {
+            // Manage UI Button State Transitions
+            document.querySelectorAll('.btn-preset').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`preset-${presetKey}`).classList.add('active');
+
+            // Swap Structural Document Elements Safely
+            const data = contractPresets[presetKey];
+            titleHud.textContent = data.title;
+            scopeClause.innerHTML = data.scope;
+
+            runSignatureReadinessCheck();
+        }
+
+        // Checklist Integrity Validation Engine
+        function runSignatureReadinessCheck() {
+            evaluateFieldCompliance(dateInput, 'check-date', 'Date Set');
+            evaluateFieldCompliance(p1Input, 'check-party1', 'Sender Set');
+            evaluateFieldCompliance(p2Input, 'check-party2', 'Client Set');
+            evaluateFieldCompliance(jurInput, 'check-jurisdiction', 'Jurisdiction Set');
+        }
+
+        function evaluateFieldCompliance(inputElement, indicatorId, absoluteLabelText) {
+            const indicatorEl = document.getElementById(indicatorId);
+            const standardStringCleanValue = inputElement.textContent.trim();
+            const fallbackDefaultPlaceholderValue = inputElement.defaultValue || "";
+
+            if (standardStringCleanValue === "" || standardStringCleanValue === fallbackDefaultPlaceholderValue) {
+                indicatorEl.textContent = "❌ Missing";
+                indicatorEl.className = "readiness-status status-fail";
+            } else {
+                indicatorEl.textContent = `✓ ${absoluteLabelText}`;
+                indicatorEl.className = "readiness-status status-pass";
+            }
+        }
+
+        // Cache Management Sync Operations
+        function commitSenderProfileToCache() {
+            const cachePayload = {
+                name: p1Input.textContent,
+                jurisdiction: jurInput.textContent
+            };
+            localStorage.setItem('ai-lab-nda-sender-profile', JSON.stringify(cachePayload));
+        }
+
+        function retrieveSenderProfileFromCache() {
+            const cachedStringData = localStorage.getItem('ai-lab-nda-sender-profile');
+            if (!cachedStringData) return;
+
+            try {
+                const parsedPayload = JSON.parse(cachedStringData);
+                if (parsedPayload.name) {
+                    p1Input.textContent = parsedPayload.name;
+                    document.getElementById('sync-sig-p1').textContent = parsedPayload.name;
+                }
+                if (parsedPayload.jurisdiction) {
+                    jurInput.textContent = parsedPayload.jurisdiction;
+                }
+            } catch(e) {
+                console.error("Cache configuration retrieval bypassed cleanly:", e);
+            }
+        }
+    </script>
+</body>
+</html>
