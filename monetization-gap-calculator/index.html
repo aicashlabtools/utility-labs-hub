@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monetization Gap Calculator | Find Missed Creator Revenue</title>
-    <meta name="description" content="Estimate the revenue gap between your current creator monetization and what your audience could generate with stronger offers.">
+    <title>Creator Monetization Gap Analyzer | Find Missed Creator Revenue</title>
+    <meta name="description" content="Analyze why your audience is not producing enough revenue, estimate the traffic or product gap, and find the next creator monetization tools to use.">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -336,21 +336,22 @@ input, select, textarea, button {
 .acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
 .acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
-.acl-quick-start{background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;margin-top:18px;margin-bottom:24px;padding:20px 22px}
-.acl-quick-start h2{color:#fff;font-size:16px;margin:0 0 12px}
-.acl-quick-start ol{display:grid;gap:8px 18px;grid-template-columns:repeat(5,minmax(0,1fr));list-style-position:inside;margin:0;padding:0}
-.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.45}
-@media (max-width:900px){.acl-quick-start ol{grid-template-columns:1fr}}
-.acl-faq-section{box-sizing:border-box;background:#151820;border:1px solid #27272a;border-radius:14px;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(calc(100% - 32px),1120px)}
+.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
+.acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
+.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
+.acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+@media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
+.acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
-.acl-faq-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
-.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:14px}
-.acl-faq-item h3{color:#f8fafc;font-size:14px;margin:0 0 6px}
+.acl-faq-grid{align-items:stretch;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;min-width:0;padding:14px}
+.acl-faq-item h3{color:#f8fafc;font-size:14px;line-height:1.35;margin:0 0 6px}
 .acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}
-@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px;width:calc(100% - 24px)}}
+@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px!important;width:calc(100% - 24px)!important}}
 .acl-related-tools{margin-bottom:80px !important}
-</style>
-</head>
+</style></head>
 <body class="text-slate-200 min-h-screen flex flex-col justify-between antialiased">
 <header class="acl-shell-header no-print">
     <div class="acl-shell-inner">
@@ -372,18 +373,17 @@ input, select, textarea, button {
 
 <section class="acl-tool-hero no-print">
     <div class="acl-tool-kicker">Creator Monetization Tool</div>
-    <h1>Monetization Gap Calculator</h1>
-    <p>Find the gap between current creator revenue and the monetization potential of your audience.</p>
+    <h1>Creator Monetization Gap Analyzer</h1>
+    <p>Find out whether your revenue problem is traffic, subscriber value, product pricing, or missing offers.</p>
 </section>
 
 <section class="acl-quick-start no-print">
     <h2>Quick Start</h2>
     <ol>
-            <li>Enter your revenue inputs</li>
-            <li>Adjust price or traffic assumptions</li>
-            <li>Review the calculated result</li>
-            <li>Compare the gap or target</li>
-            <li>Choose the next growth lever</li>
+            <li>Input Data</li>
+            <li>Adjust Settings</li>
+            <li>Review Results</li>
+            <li>Take Action</li>
     </ol>
 </section>
 <!-- Main Content Grid -->
@@ -392,8 +392,8 @@ input, select, textarea, button {
         <!-- Left Panel: Audience & Infrastructure Inputs -->
         <section class="lg:col-span-5 bg-[#111827] p-6 rounded-xl border premium-border space-y-6">
             <div>
-                <h1 class="text-lg font-bold text-white tracking-tight">Monetization Gap Calculator</h1>
-                <p class="text-xs text-slate-400 mt-0.5">Diagnose your current monetization ceiling and identify structural infrastructure gaps holding back your business value.</p>
+                <h1 class="text-lg font-bold text-white tracking-tight">Creator Monetization Gap Analyzer</h1>
+                <p class="text-xs text-slate-400 mt-0.5">Estimate how much your current audience can earn and what to improve next.</p>
             </div>
 
             <div class="space-y-4">
@@ -405,7 +405,7 @@ input, select, textarea, button {
 
                 <!-- Annual Target Income Goal -->
                 <div>
-                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="revenueGoal">Target Annual Revenue Goal ($)</label>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="revenueGoal">Target Annual Revenue ($)</label>
                     <input type="number" id="revenueGoal" value="60000" min="1000" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
                 </div>
 
@@ -417,7 +417,7 @@ input, select, textarea, button {
                     </div>
                     <div class="relative">
                         <span class="absolute left-4 top-2.5 text-slate-500 text-sm">$</span>
-                        <input type="number" id="currentLtv" value="12" min="0" step="1" class="w-full bg-[#1f2937] border premium-border rounded-lg pl-8 pr-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                        <input type="number" id="currentLtv" value="6" min="0" step="1" class="w-full bg-[#1f2937] border premium-border rounded-lg pl-8 pr-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
                     </div>
                 </div>
 
@@ -425,36 +425,36 @@ input, select, textarea, button {
 
                 <!-- Point-Based Offer Ladder Audit Checklist -->
                 <div>
-                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5">Offer Infrastructure Checklist</label>
-                    <p class="text-[11px] text-slate-500 mb-3">Check off the functional layers currently live in your active content ecosystem:</p>
+                    <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5">Offer Checklist</label>
+                    <p class="text-[11px] text-slate-500 mb-3">Check the revenue pieces you already have live:</p>
                     
                     <div class="space-y-3" id="ladderChecklist">
                         <label class="flex items-start space-x-3 text-xs text-slate-300 cursor-pointer select-none">
                             <input type="checkbox" id="checkLead" value="20" class="ladder-checkbox mt-0.5 rounded bg-slate-950 border-slate-800 text-amber-600 focus:ring-0 w-4 h-4 shrink-0 transition-all" checked>
                             <div>
                                 <span class="font-medium block">Free Lead Magnet / Value Opt-In</span>
-                                <span class="text-[10px] text-slate-500 block mt-0.5">Captures traffic and builds your owned audience container.</span>
+                                <span class="text-[10px] text-slate-500 block mt-0.5">Turns traffic into email subscribers or owned contacts.</span>
                             </div>
                         </label>
                         <label class="flex items-start space-x-3 text-xs text-slate-300 cursor-pointer select-none">
                             <input type="checkbox" id="checkLow" value="25" class="ladder-checkbox mt-0.5 rounded bg-slate-950 border-slate-800 text-amber-600 focus:ring-0 w-4 h-4 shrink-0 transition-all">
                             <div>
                                 <span class="font-medium block">Low-Ticket Conversion Bridge ($9 - $29 Offer)</span>
-                                <span class="text-[10px] text-slate-500 block mt-0.5">Liquidates ad costs and converts passive viewers into active buyers.</span>
+                                <span class="text-[10px] text-slate-500 block mt-0.5">Turns passive viewers into first-time buyers.</span>
                             </div>
                         </label>
                         <label class="flex items-start space-x-3 text-xs text-slate-300 cursor-pointer select-none">
                             <input type="checkbox" id="checkMid" value="30" class="ladder-checkbox mt-0.5 rounded bg-slate-950 border-slate-800 text-amber-600 focus:ring-0 w-4 h-4 shrink-0 transition-all" checked>
                             <div>
                                 <span class="font-medium block">Mid-Tier Core Transformation ($49 - $99 Offer)</span>
-                                <span class="text-[10px] text-slate-500 block mt-0.5">Your core system or playbook solving an explicit premium problem.</span>
+                                <span class="text-[10px] text-slate-500 block mt-0.5">Your main paid product, system, template, or playbook.</span>
                             </div>
                         </label>
                         <label class="flex items-start space-x-3 text-xs text-slate-300 cursor-pointer select-none">
                             <input type="checkbox" id="checkHigh" value="25" class="ladder-checkbox mt-0.5 rounded bg-slate-950 border-slate-800 text-amber-600 focus:ring-0 w-4 h-4 shrink-0 transition-all">
                             <div>
                                 <span class="font-medium block">High-Ticket Premium Backend ($150+ Offer)</span>
-                                <span class="text-[10px] text-slate-500 block mt-0.5">Advanced curriculum, implementation engines, or deeper infrastructure.</span>
+                                <span class="text-[10px] text-slate-500 block mt-0.5">A higher-value offer for your most serious buyers.</span>
                             </div>
                         </label>
                     </div>
@@ -465,16 +465,16 @@ input, select, textarea, button {
         <!-- Right Panel: Dynamic Diagnostic Metrics & Workflow Engine -->
         <section class="lg:col-span-7 space-y-6">
             
-            <!-- Hero Card: The Traffic Burden Multiplier -->
+            <!-- Hero Card: subscriber requirement comparison -->
             <div class="bg-[#111827] border border-amber-900/30 p-6 rounded-xl accent-glow-amber space-y-4">
                 <div>
-                    <span class="text-[10px] font-bold text-amber-500 uppercase tracking-wider block">The Traffic Burden Multiplier</span>
+                    <span class="text-[10px] font-bold text-amber-500 uppercase tracking-wider block">How Much Traffic Do You Really Need?</span>
                     <h2 class="text-md font-bold text-white mt-0.5">How much traffic do you actually need to clear your annual goals?</h2>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
                     <div class="p-4 bg-slate-950/40 rounded-lg border premium-border">
-                        <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">At Your Current LTV Infrastructure:</span>
+                        <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">At Your Current Subscriber Value:</span>
                         <div class="flex items-baseline space-x-1.5 mt-2">
                             <span id="outBurdenCurrent" class="text-2xl font-black text-rose-400">0</span>
                             <span class="text-xs text-slate-400">total subscribers needed</span>
@@ -483,7 +483,7 @@ input, select, textarea, button {
                     </div>
 
                     <div class="p-4 bg-emerald-950/10 border border-emerald-900/30 rounded-lg accent-glow-emerald">
-                        <span class="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider block">With an Optimized Offer Ladder Layout:</span>
+                        <span class="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider block">With Stronger Products and Pricing:</span>
                         <div class="flex items-baseline space-x-1.5 mt-2">
                             <span id="outBurdenOptimized" class="text-2xl font-black text-emerald-400">0</span>
                             <span class="text-xs text-emerald-400">total subscribers needed</span>
@@ -498,21 +498,21 @@ input, select, textarea, button {
                 <!-- Financial Core Metrics Stack -->
                 <div class="md:col-span-5 space-y-4 border-b md:border-b-0 md:border-r premium-border pb-4 md:pb-0 md:pr-4">
                     <div>
-                        <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">Current Revenue Ceiling</span>
+                        <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">Estimated Revenue at Current LTV</span>
                         <span id="outRevCeiling" class="text-2xl font-black text-white mt-0.5 block">$0</span>
-                        <span class="text-[9px] text-slate-500 block mt-0.5">Max asset capability at current baseline.</span>
+                        <span class="text-[9px] text-slate-500 block mt-0.5">Audience size multiplied by current subscriber value.</span>
                     </div>
                     <div>
                         <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">Monetization Gap</span>
                         <span id="outRevGap" class="text-2xl font-black text-amber-500 mt-0.5 block">$0</span>
-                        <span class="text-[9px] text-slate-500 block mt-0.5">Shortfall from target annual roadmap.</span>
+                        <span class="text-[9px] text-slate-500 block mt-0.5">Shortfall from your annual revenue target.</span>
                     </div>
                 </div>
 
                 <!-- LTV and Revenue Per Subscriber Targets -->
                 <div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="space-y-3">
-                        <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">Subscriber LTV Target</span>
+                        <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">Industry Benchmarks</span>
                         <div class="space-y-1.5">
                             <div class="flex justify-between text-xs"><span class="text-slate-400">Current:</span> <span id="lblLtvCurrent" class="font-bold text-white">$0</span></div>
                             <div class="flex justify-between text-xs"><span class="text-slate-400">Healthy Target:</span> <span class="font-bold text-amber-400">$50</span></div>
@@ -525,7 +525,7 @@ input, select, textarea, button {
                         <div class="space-y-1.5">
                             <div class="flex justify-between text-xs"><span class="text-slate-400">Current Yield:</span> <span id="lblRpsCurrent" class="font-bold text-white">$0.00</span></div>
                             <div class="flex justify-between text-xs"><span class="text-slate-400">Target Level:</span> <span id="lblRpsTarget" class="font-bold text-amber-400">$0.00</span></div>
-                            <span class="text-[9px] text-slate-500 block leading-tight pt-1">Monthly value realization velocity metric.</span>
+                            <span class="text-[9px] text-slate-500 block leading-tight pt-1">Estimated monthly revenue per subscriber.</span>
                         </div>
                     </div>
                 </div>
@@ -535,8 +535,8 @@ input, select, textarea, button {
             <div class="bg-[#111827] border premium-border p-6 rounded-xl space-y-4">
                 <div class="flex justify-between items-center border-b premium-border pb-3">
                     <div>
-                        <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Monetization Infrastructure Score</h3>
-                        <p class="text-[11px] text-slate-500 mt-0.5">Your core structural offer capability diagnosis.</p>
+                        <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Monetization Score</h3>
+                        <p class="text-[11px] text-slate-500 mt-0.5">How complete your current offer setup is.</p>
                     </div>
                     <div class="text-right">
                         <span id="outScoreValue" class="text-lg font-black text-white block">0 / 100</span>
@@ -553,8 +553,8 @@ input, select, textarea, button {
             <!-- Block 4: Multi-Tool Strategic Loop Routing Panel -->
             <div class="bg-[#111827] border border-slate-800 p-6 rounded-xl space-y-3.5">
                 <div>
-                    <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Ecosystem Loop Navigator</h3>
-                    <p class="text-[11px] text-slate-500 mt-0.5">Your current diagnostic configuration suggests utilizing the following specialized operational resource tools next:</p>
+                    <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Recommended Next Tools</h3>
+                    <p class="text-[11px] text-slate-500 mt-0.5">Use these tools to keep moving through the traffic, subscriber, and revenue workflow:</p>
                 </div>
                 <div id="loopLinksContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <!-- Dynamic routing anchor maps populate inside this node -->
@@ -566,12 +566,12 @@ input, select, textarea, button {
     <h2>Frequently Asked Questions</h2>
     <div class="acl-faq-grid">
         <article class="acl-faq-item">
-            <h3>What is a monetization gap?</h3>
-            <p>It is the difference between what your audience currently earns and what it could earn with better offers, conversion, or pricing.</p>
+            <h3>Why am I getting traffic but not making money?</h3>
+            <p>Traffic only turns into revenue when you have a clear path from viewer to subscriber to buyer. Low LTV, weak offers, or missing products can make a large audience underperform.</p>
         </article>
         <article class="acl-faq-item">
-            <h3>What should I do with the result?</h3>
-            <p>Use it to identify whether your biggest opportunity is traffic, audience value, product pricing, or conversion rate.</p>
+            <h3>How many products should a creator sell?</h3>
+            <p>Many creators do better with a simple offer ladder: a free lead magnet, a low-ticket starter product, a core paid product, and a premium option for serious buyers.</p>
         </article>
     </div>
 </section>
@@ -579,15 +579,15 @@ input, select, textarea, button {
     <div>
         <span class="acl-related-eyebrow">Related Revenue Tools</span>
         <h2>Build the rest of the revenue model.</h2>
-        <p>Use these calculators to compare profit, pricing gaps, subscriber value, launch goals, and offer demand.</p>
+        <p>Use these calculators to connect traffic, subscribers, and product revenue into one creator monetization workflow.</p>
     </div>
     <div class="acl-related-grid">
-        <a href="/product-profit-calculator/">Product Profit Calculator</a>
+        <a href="/lead-magnet-estimator/">Lead Magnet Estimator</a>
         <a href="/subscriber-ltv-calculator/">Subscriber LTV Calculator</a>
+        <a href="/product-profit-calculator/">Product Profit Calculator</a>
         <a href="/product-launch-goal-calculator/">Product Launch Goal Calculator</a>
         <a href="/cpm-conversion-pivot/">CPM vs Product Revenue Calculator</a>
-        <a href="/lead-magnet-estimator/">Lead Magnet Estimator</a>
-        <a href="/paid-traffic-profit-calculator/">Paid Traffic Profit Calculator</a>
+        <a href="/product-idea-validator/">Product Idea Validator</a>
     </div>
 </section>
 </main>
@@ -672,8 +672,7 @@ input, select, textarea, button {
                 lblRpsCurrent.innerText = `$${currentMonthlyRps.toFixed(2)}/mo`;
                 lblRpsTarget.innerText = `$${targetMonthlyRps.toFixed(2)}/mo`;
 
-                // 3. Process The Core Traffic Burden Multiplier Features Math Metrics
-                // Establish dynamic alternate milestone optimization target bracket benchmarks based on infrastructure maturity
+                // 3. Compare subscriber needs at current and stronger LTV benchmarks.
                 let targetLtvBenchmark = 50; 
                 if (baselineUserLtv >= 50) targetLtvBenchmark = 100;
                 if (baselineUserLtv >= 100) targetLtvBenchmark = baselineUserLtv * 1.5;
@@ -687,8 +686,8 @@ input, select, textarea, button {
                 const missingSubsCurrentNet = Math.max(totalSubsNeededCurrentModel - currentSubscribers, 0);
                 const missingSubsOptimizedNet = Math.max(totalSubsNeededOptimizedModel - currentSubscribers, 0);
 
-                outBurdenNetCurrent.innerText = `Requires generating +${missingSubsCurrentNet.toLocaleString()} new community sign-ups at your current framework value.`;
-                outBurdenNetOptimized.innerText = `Requires generating only +${missingSubsOptimizedNet.toLocaleString()} new sign-ups to clear identical milestones.`;
+                outBurdenNetCurrent.innerText = `You would need +${missingSubsCurrentNet.toLocaleString()} more subscribers at your current LTV.`;
+                outBurdenNetOptimized.innerText = `With stronger offers, you would need about +${missingSubsOptimizedNet.toLocaleString()} more subscribers.`;
 
                 // 4. Render Out The Progressive Roadmap Components Engine
                 let roadmapHtml = "";
@@ -696,68 +695,68 @@ input, select, textarea, button {
                     roadmapHtml += `
                         <div class="p-3.5 bg-slate-950/40 border border-l-2 border-rose-800/40 border-l-rose-500 rounded-r-lg space-y-1">
                             <div class="flex justify-between items-center"><span class="text-xs font-bold text-white">Priority #1: Build an Owned Lead Magnet</span> <span class="text-[9px] font-bold tracking-wider text-rose-400 bg-rose-950/80 px-1.5 py-0.5 rounded uppercase">Critical Gap</span></div>
-                            <p class="text-[11px] text-slate-400 leading-relaxed">You currently have no friction-free entry infrastructure for cold top-of-funnel short-form traffic. You are leaving initial click interest uncaptured.</p>
+                            <p class="text-[11px] text-slate-400 leading-relaxed">Add a free resource so viewers can join your email list or owned audience before they forget you.</p>
                         </div>`;
                 }
                 if (!checkLow.checked) {
                     roadmapHtml += `
                         <div class="p-3.5 bg-slate-950/40 border border-l-2 border-amber-800/40 border-l-amber-500 rounded-r-lg space-y-1">
                             <div class="flex justify-between items-center"><span class="text-xs font-bold text-white">Priority #2: Deploy a Low-Ticket Bridge Offer ($9 - $29)</span> <span class="text-[9px] font-bold tracking-wider text-amber-400 bg-amber-950/80 px-1.5 py-0.5 rounded uppercase">Conversion Bridge</span></div>
-                            <p class="text-[11px] text-slate-400 leading-relaxed">Add a liquid low-ticket micro-asset to convert passive subscribers into high-intent verified transactional buyers immediately.</p>
+                            <p class="text-[11px] text-slate-400 leading-relaxed">Add an affordable first product so subscribers can become buyers without a big commitment.</p>
                         </div>`;
                 }
                 if (!checkMid.checked) {
                     roadmapHtml += `
                         <div class="p-3.5 bg-slate-950/40 border border-l-2 border-amber-800/40 border-l-amber-500 rounded-r-lg space-y-1">
-                            <div class="flex justify-between items-center"><span class="text-xs font-bold text-white">Priority #3: Architect a Core Problem Playbook ($49 - $99)</span> <span class="text-[9px] font-bold tracking-wider text-amber-400 bg-amber-950/80 px-1.5 py-0.5 rounded uppercase">Core Monetization</span></div>
-                            <p class="text-[11px] text-slate-400 leading-relaxed">Build your foundational transformation asset to structure a high-yield monetization core that solves a comprehensive professional friction point.</p>
+                            <div class="flex justify-between items-center"><span class="text-xs font-bold text-white">Priority #3: Build a Core Product ($49 - $99)</span> <span class="text-[9px] font-bold tracking-wider text-amber-400 bg-amber-950/80 px-1.5 py-0.5 rounded uppercase">Core Product</span></div>
+                            <p class="text-[11px] text-slate-400 leading-relaxed">Create the main product, template, guide, or toolkit that solves the problem your audience keeps asking about.</p>
                         </div>`;
                 }
                 if (!checkHigh.checked) {
                     roadmapHtml += `
                         <div class="p-3.5 bg-slate-950/40 border border-l-2 border-teal-800/40 border-l-teal-500 rounded-r-lg space-y-1">
-                            <div class="flex justify-between items-center"><span class="text-xs font-bold text-white">Priority #4: Introduce a Premium Backend Framework ($150+)</span> <span class="text-[9px] font-bold tracking-wider text-teal-400 bg-teal-950/80 px-1.5 py-0.5 rounded uppercase">Ceiling Expansion</span></div>
-                            <p class="text-[11px] text-slate-400 leading-relaxed">Establish a premium implementation tier, curriculum package, or deep toolkit option to unlock the maximum economic value of your top 5% superfan buyers.</p>
+                            <div class="flex justify-between items-center"><span class="text-xs font-bold text-white">Priority #4: Add a Premium Offer ($150+)</span> <span class="text-[9px] font-bold tracking-wider text-teal-400 bg-teal-950/80 px-1.5 py-0.5 rounded uppercase">Higher Value</span></div>
+                            <p class="text-[11px] text-slate-400 leading-relaxed">Give your most serious buyers a deeper option, such as an advanced toolkit, course, audit, or implementation package.</p>
                         </div>`;
                 }
 
                 if (roadmapHtml === "") {
                     roadmapHtml = `
                         <div class="p-4 bg-emerald-950/10 border border-emerald-900/30 rounded-lg text-center text-xs text-emerald-400 font-medium">
-                             Your foundational offer architecture ladder layers are entirely intact. Proceed directly to monitoring conversion volumes and scaling top-of-funnel metrics.
+                             Your offer ladder is complete. Next, track conversion rates and test which products produce the most revenue per subscriber.
                         </div>`;
                 }
                 roadmapTargetContainer.innerHTML = roadmapHtml;
 
-                // 5. Structure & Inject The Adaptive Multi-Tool Workflow Loops Mapping Connections
+                // 5. Show the most relevant next tools for the user's current gap.
                 let loopLinksArray = [];
 
                 // Audience scaling constraint condition check
                 if (missingSubsCurrentNet > currentSubscribers) {
                     loopLinksArray.push({
                         title: "Lead Magnet Estimator",
-                        desc: "Analyze top-of-funnel optimization metrics to expand your owned base container.",
+                        desc: "Estimate how many leads your content needs to create a bigger owned audience.",
                         url: "../lead-magnet-estimator/"
                     });
                 } else {
                     loopLinksArray.push({
                         title: "Subscriber LTV Calculator",
-                        desc: "Deep dive directly into your precision segment values to isolate explicit core unit metrics.",
+                        desc: "Calculate how much each subscriber is worth and where LTV can improve.",
                         url: "../subscriber-ltv-calculator/"
                     });
                 }
 
-                // Asset construction infrastructure diagnosis check
+                // Product readiness check.
                 if (!checkLow.checked || !checkMid.checked) {
                     loopLinksArray.push({
                         title: "Product Idea Validator",
-                        desc: "Score and test your new pending low-to-mid ticket offer concepts against raw market signals.",
+                        desc: "Test whether your next product idea has enough demand before building it.",
                         url: "../product-idea-validator/"
                     });
                 } else {
                     loopLinksArray.push({
                         title: "Product Launch Goal Calculator",
-                        desc: "Map campaign parameters and volume conversion math models to deploy your offer suite.",
+                        desc: "Plan the sales, traffic, and conversion numbers needed for your next launch.",
                         url: "../product-launch-goal-calculator/"
                     });
                 }
@@ -784,7 +783,7 @@ input, select, textarea, button {
         </div>
         <div class="acl-footer-links">
             <a href="/">All Tools</a>
-            <a href="/resolution-checker/">Resolution Checker</a>
+            <a href="/">Free Tools</a>
             <a href="/creator-utilities/">Creator Utilities</a>
             <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
             <a href="mailto:support@aicashlabtools.com">Contact</a>
@@ -793,4 +792,3 @@ input, select, textarea, button {
 </footer>
 </body>
 </html>
-
