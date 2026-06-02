@@ -36,7 +36,7 @@
         header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
         header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
 
-        .workspace { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
+        .workspace { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 24px; margin-bottom: 40px; }
         @media (max-width: 900px) { .workspace { grid-template-columns: 1fr; } }
 
         .input-panel, .dashboard-panel {
@@ -74,11 +74,100 @@
             line-height: 1.2; word-break: break-word;
         }
 
-        .output-list { display: flex; flex-direction: column; gap: 12px; }
+        .output-list { display: flex; flex-direction: column; gap: 10px; }
         .output-row {
             display: flex; justify-content: space-between; align-items: center;
-            background: var(--bg-input); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border-color);
+            background: var(--bg-input); padding: 11px 14px; border-radius: 8px; border: 1px solid var(--border-color);
             font-size: 0.95rem;
+        }
+        .score-card {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.18), var(--bg-input) 58%);
+            border: 1px solid rgba(245, 158, 11, 0.34);
+            border-radius: 10px;
+            padding: 16px;
+        }
+        .score-card .score-label {
+            color: var(--accent-yellow);
+            display: block;
+            font-size: 0.74rem;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+        .score-card .score-value {
+            color: #fff;
+            font-size: clamp(2.4rem, 7vw, 4rem);
+            font-weight: 900;
+            line-height: .95;
+            margin-top: 8px;
+        }
+        .score-card .score-note {
+            color: #cbd5e1;
+            font-size: .82rem;
+            margin-top: 8px;
+        }
+        .metric-grid {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .mini-metric {
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px 12px;
+        }
+        .mini-metric span:first-child,
+        .platform-range-card span:first-child {
+            color: var(--text-muted);
+            display: block;
+            font-size: .7rem;
+            font-weight: 800;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+        }
+        .mini-metric strong,
+        .platform-range-card strong {
+            color: #fff;
+            display: block;
+            font-size: 1.1rem;
+            margin-top: 3px;
+        }
+        .signal-grid,
+        .range-grid {
+            display: grid;
+            gap: 8px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .signal-pill,
+        .platform-range-card {
+            background: #111827;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-muted);
+            font-size: .75rem;
+            font-weight: 800;
+            padding: 9px 10px;
+            text-align: center;
+        }
+        .signal-pill.active {
+            border-color: rgba(34, 197, 94, .45);
+            color: var(--status-green);
+            background: rgba(34, 197, 94, .08);
+        }
+        .panel-subhead {
+            color: #d4d4d8;
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+        @media (max-width: 620px) {
+            .metric-grid,
+            .signal-grid,
+            .range-grid {
+                grid-template-columns: 1fr;
+            }
         }
         .output-row span.val { font-weight: 700; text-align: right; }
         .output-row .sub-lbl { display: block; font-size: 0.75rem; color: var(--text-muted); font-weight: normal; margin-top: 2px; }
@@ -403,26 +492,29 @@ input, select, textarea, button {
 }
 </style>
 <style id="acl-global-tool-polish">
+.acl-privacy-trust{align-items:center;background:rgba(16,185,129,.08);border:1px solid rgba(34,197,94,.48);border-radius:10px;box-sizing:border-box;color:#d1fae5;display:flex;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:12px;font-weight:650;gap:8px;line-height:1.45;margin:10px auto 20px;max-width:1120px;padding:10px 14px;width:min(calc(100% - 32px),1120px)}.acl-privacy-trust span{color:#34d399;flex:0 0 auto;font-size:13px}.acl-privacy-trust p{margin:0}@media (max-width:700px){.acl-privacy-trust{align-items:flex-start;margin-top:10px;width:calc(100% - 24px)}}
+
 .acl-tool-hero,.acl-quick-start{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-left:auto;margin-right:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
 .acl-tool-hero{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(17,24,39,.96));border:1px solid rgba(245,158,11,.22);border-radius:14px;color:#fff;margin-top:40px;padding:clamp(24px,4vw,38px)}
 .acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
 .acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
-.acl-quick-start{background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;margin-top:18px;margin-bottom:24px;padding:20px 22px}
-.acl-quick-start h2{color:#fff;font-size:16px;margin:0 0 12px}
-.acl-quick-start ol{display:grid;gap:8px 18px;grid-template-columns:repeat(5,minmax(0,1fr));list-style-position:inside;margin:0;padding:0}
-.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.45}
-@media (max-width:900px){.acl-quick-start ol{grid-template-columns:1fr}}
-.acl-faq-section{box-sizing:border-box;background:#151820;border:1px solid #27272a;border-radius:14px;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(calc(100% - 32px),1120px)}
+.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
+.acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
+.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
+.acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+@media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
+.acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
-.acl-faq-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
-.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:14px}
-.acl-faq-item h3{color:#f8fafc;font-size:14px;margin:0 0 6px}
+.acl-faq-grid{align-items:stretch;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;min-width:0;padding:14px}
+.acl-faq-item h3{color:#f8fafc;font-size:14px;line-height:1.35;margin:0 0 6px}
 .acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}
-@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px;width:calc(100% - 24px)}}
+@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px!important;width:calc(100% - 24px)!important}}
 .acl-related-tools{margin-bottom:80px !important}
-</style>
-</head>
+</style></head>
 <body>
 <header class="acl-shell-header no-print">
     <div class="acl-shell-inner">
@@ -451,13 +543,13 @@ input, select, textarea, button {
 <section class="acl-quick-start no-print">
     <h2>Quick Start</h2>
     <ol>
-            <li>Enter the creative input</li>
-            <li>Choose the closest content preset</li>
-            <li>Review the output</li>
-            <li>Adjust the recommendation</li>
-            <li>Copy or apply the next step</li>
+            <li>Input Data</li>
+            <li>Adjust Settings</li>
+            <li>Review Results</li>
+            <li>Take Action</li>
     </ol>
 </section>
+<section class="acl-privacy-trust no-print" aria-label="Privacy notice"><span aria-hidden="true">&#128274;</span><p>Private by default: Files and text are processed locally in your browser. Nothing is uploaded, stored, or sent to our servers.</p></section>
 <div class="container">
 
     <div class="workspace">
@@ -477,17 +569,34 @@ input, select, textarea, button {
             </div>
 
             <div class="form-group">
-                <label>Aspect Alignment Check Layout</label>
-                <div class="preview-box" id="preview-render">Enter Text Variable...</div>
+                <label>Live Thumbnail Preview</label>
+                <div class="preview-box" id="preview-render">Live Thumbnail Preview</div>
             </div>
         </div>
 
         <div class="dashboard-panel">
+            <div class="score-card">
+                <span class="score-label">Thumbnail Strength Score</span>
+                <div class="score-value" id="out-strength-score">0 / 100</div>
+                <p class="score-note" id="out-strength-note">Enter thumbnail text to score readability and clickability.</p>
+            </div>
+
+            <div class="metric-grid">
+                <div class="mini-metric">
+                    <span>Word Count</span>
+                    <strong id="out-word-count">0</strong>
+                </div>
+                <div class="mini-metric">
+                    <span>Character Count</span>
+                    <strong id="out-char-count">0</strong>
+                </div>
+            </div>
+
             <div class="output-list">
                 <div class="output-row">
                     <div>
                         <span>Estimated Scan Time</span>
-                        <span class="sub-lbl">Average mobile timeline comprehension run.</span>
+                        <span class="sub-lbl">Estimated time to read on a fast mobile feed.</span>
                     </div>
                     <span class="val" id="out-scan-time" style="color: var(--accent-yellow);">0.0 seconds</span>
                 </div>
@@ -495,9 +604,36 @@ input, select, textarea, button {
                 <div class="output-row">
                     <div>
                         <span>Mobile Readability Grade</span>
-                        <span class="sub-lbl">Scalability distribution profiles.</span>
+                        <span class="sub-lbl">Graded rating based on platform word-count limits.</span>
                     </div>
-                    <span class="status-badge badge-green" id="out-read-badge">Pass</span>
+                    <span class="status-badge badge-yellow" id="out-read-badge">Needs Text</span>
+                </div>
+            </div>
+
+            <div class="output-list">
+                <div class="panel-subhead">Clickability Signals</div>
+                <div class="signal-grid">
+                    <span class="signal-pill" id="signal-number">Numbers</span>
+                    <span class="signal-pill" id="signal-curiosity">Curiosity</span>
+                    <span class="signal-pill" id="signal-specificity">Specificity</span>
+                </div>
+            </div>
+
+            <div class="output-list">
+                <div class="panel-subhead">Recommended Word Ranges</div>
+                <div class="range-grid">
+                    <div class="platform-range-card">
+                        <span>YouTube</span>
+                        <strong>2-5 words</strong>
+                    </div>
+                    <div class="platform-range-card">
+                        <span>TikTok Cover</span>
+                        <strong>2-4 words</strong>
+                    </div>
+                    <div class="platform-range-card">
+                        <span>Instagram Cover</span>
+                        <strong>2-4 words</strong>
+                    </div>
                 </div>
             </div>
 
@@ -507,10 +643,10 @@ input, select, textarea, button {
             </div>
 
             <div class="output-list" style="gap:10px;">
-                <div class="sub-lbl" style="text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Mobile UI Block Indicators</div>
+                <div class="panel-subhead">Mobile UI Block Indicators</div>
                 <div class="output-row" style="padding: 10px 14px; font-size: 0.85rem;">
                     <span>Lower-Right Component Zone</span>
-                    <span id="ui-timestamp" style="font-weight: 600; color: var(--status-green);">Warning: Clear of Native Overlay Stamps</span>
+                    <span id="ui-timestamp" style="font-weight: 600; color: var(--status-green);">Clear</span>
                 </div>
             </div>
         </div>
@@ -521,11 +657,18 @@ input, select, textarea, button {
     const textString = document.getElementById('text-string');
     const platBtns = document.querySelectorAll('.plat-btn');
     const previewRender = document.getElementById('preview-render');
+    const outStrengthScore = document.getElementById('out-strength-score');
+    const outStrengthNote = document.getElementById('out-strength-note');
+    const outWordCount = document.getElementById('out-word-count');
+    const outCharCount = document.getElementById('out-char-count');
     const outScanTime = document.getElementById('out-scan-time');
     const outReadBadge = document.getElementById('out-read-badge');
     const boxSuggestion = document.getElementById('box-suggestion');
     const outSuggestion = document.getElementById('out-suggestion');
     const uiTimestamp = document.getElementById('ui-timestamp');
+    const signalNumber = document.getElementById('signal-number');
+    const signalCuriosity = document.getElementById('signal-curiosity');
+    const signalSpecificity = document.getElementById('signal-specificity');
 
     let currentLimit = 5;
 
@@ -543,13 +686,20 @@ input, select, textarea, button {
     function processImageTextMetrics() {
         const rawText = textString.value.trim();
         if (!rawText) {
-            previewRender.textContent = "Enter Text Variable...";
+            previewRender.textContent = "Live Thumbnail Preview";
+            outStrengthScore.textContent = "0 / 100";
+            outStrengthNote.textContent = "Enter thumbnail text to score readability and clickability.";
+            outWordCount.textContent = "0";
+            outCharCount.textContent = "0";
             outScanTime.textContent = "0.0 seconds";
-            outReadBadge.textContent = "Pass";
-            outReadBadge.className = "status-badge badge-green";
+            outReadBadge.textContent = "Needs Text";
+            outReadBadge.className = "status-badge badge-yellow";
             boxSuggestion.style.display = "none";
-            uiTimestamp.innerHTML = "Warning: Clear of Native Overlay Stamps";
+            uiTimestamp.innerHTML = "Clear";
             uiTimestamp.style.color = "var(--status-green)";
+            setSignal(signalNumber, false);
+            setSignal(signalCuriosity, false);
+            setSignal(signalSpecificity, false);
             return;
         }
 
@@ -558,45 +708,73 @@ input, select, textarea, button {
 
         const words = rawText.split(/\s+/);
         const wordCount = words.length;
+        const charCount = rawText.replace(/\s/g, '').length;
+        outWordCount.textContent = wordCount.toString();
+        outCharCount.textContent = charCount.toString();
 
-        // Human Reading Density Processing Metrics Formulation: Standard tracking speeds on fast feeds
+        // Estimate fast-feed reading time.
         const readingTimeSeconds = (wordCount / 240) * 60;
         outScanTime.textContent = `${readingTimeSeconds.toFixed(1)} ${readingTimeSeconds === 1 ? 'second' : 'seconds'}`;
 
-        // Evaluation Array Logic Rules Engines
+        const hasNumber = /(\d|[$%])/.test(rawText);
+        const hasCuriosity = /\b(secret|mistake|why|how|before|after|avoid|truth|hidden|nobody|watch|this|changed|fails?)\b/i.test(rawText);
+        const hasSpecificity = /\b(days?|weeks?|months?|steps?|tips?|ways?|rules?|tools?|sales?|views?|subs?|clients?|dollars?|minutes?|hours?)\b/i.test(rawText) || charCount >= 12;
+        setSignal(signalNumber, hasNumber);
+        setSignal(signalCuriosity, hasCuriosity);
+        setSignal(signalSpecificity, hasSpecificity);
+
+        let score = 52;
+        score += Math.max(0, 22 - Math.abs(wordCount - Math.min(currentLimit, 4)) * 7);
+        score += hasNumber ? 10 : 0;
+        score += hasCuriosity ? 8 : 0;
+        score += hasSpecificity ? 8 : 0;
+        score -= charCount > 44 ? Math.min(18, Math.round((charCount - 44) / 2)) : 0;
+        score = Math.max(20, Math.min(100, Math.round(score)));
+        outStrengthScore.textContent = `${score} / 100`;
+
+        let scoreNote = "Strong: short, specific, and easy to scan.";
+        if (score < 55) {
+            scoreNote = "Weak: too crowded or missing a clear click hook.";
+        } else if (score < 75) {
+            scoreNote = "Decent: readable, but one stronger clickability signal would help.";
+        }
+        outStrengthNote.textContent = scoreNote;
+
+        // Graded readability ratings by platform word count.
         if (wordCount <= currentLimit) {
-            outReadBadge.textContent = "Lean & Readable";
+            outReadBadge.textContent = "Excellent";
             outReadBadge.className = "status-badge badge-green";
             boxSuggestion.style.display = "none";
         } else if (wordCount <= currentLimit + 3) {
-            outReadBadge.textContent = "At Risk Pattern";
+            outReadBadge.textContent = "Needs Trim";
             outReadBadge.className = "status-badge badge-yellow";
             boxSuggestion.style.display = "none";
         } else {
-            outReadBadge.textContent = "Too Long / Cluttered";
+            outReadBadge.textContent = "Crowded";
             outReadBadge.className = "status-badge badge-red";
             generateAlternativeLayout(words);
         }
 
-        // Interface timestamp boundary checking logic
         if (wordCount > 6) {
-            uiTimestamp.innerHTML = "' Layout Risk: Right edge bounds compromised by interface timestamps.";
+            uiTimestamp.innerHTML = "Layout Risk";
             uiTimestamp.style.color = "var(--status-alert)";
         } else {
-            uiTimestamp.innerHTML = "Warning: Clear of Native Overlay Stamps";
+            uiTimestamp.innerHTML = "Clear";
             uiTimestamp.style.color = "var(--status-green)";
         }
     }
 
+    function setSignal(element, isActive) {
+        element.classList.toggle('active', isActive);
+    }
+
     function generateAlternativeLayout(wordArr) {
-        // High impact core terms extraction filtering arrays engines
+        // Keep the most useful words for a shorter thumbnail phrase.
         let cleanWords = wordArr.filter(w => {
             let clean = w.toLowerCase().replace(/[^a-z0-9$]/g, '');
-            // Filter out fluff filler terms to optimize readability density
             return !['how', 'i', 'made', 'in', 'selling', 'with', 'to', 'for', 'the', 'a', 'an', 'my', 'your'].includes(clean);
         });
 
-        // Numerical currency compressor layout checks 
         cleanWords = cleanWords.map(w => {
             if (w.includes('000')) {
                 return w.replace('000', 'K');
@@ -604,7 +782,6 @@ input, select, textarea, button {
             return w;
         });
 
-        // Cap array rendering to pull maximum structural utility impact words safely
         let structuredLines = [];
         if (cleanWords.length > 0) {
             if (cleanWords.length > 2) {
@@ -632,6 +809,22 @@ input, select, textarea, button {
             <h3>What makes thumbnail text readable?</h3>
             <p>Use fewer words, high contrast, large type, and enough spacing so the message is clear at small sizes.</p>
         </article>
+        <article class="acl-faq-item">
+            <h3>How many words should a YouTube thumbnail have?</h3>
+            <p>Most YouTube thumbnails work best with 2-5 strong words. Short thumbnail text is easier to read on mobile and in search results.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>How do I make thumbnail text more clickable?</h3>
+            <p>Add a clear number, a curiosity phrase, or a specific outcome. Clickable thumbnail text usually tells viewers what they will learn, avoid, or gain.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>What is a thumbnail readability checker?</h3>
+            <p>A thumbnail readability checker reviews word count, character count, mobile scan time, and clickability signals before you publish a video cover.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Does thumbnail text affect video clicks?</h3>
+            <p>Yes. Clear YouTube thumbnail text can improve first-glance understanding, which may help click-through rate when paired with a strong title and visual.</p>
+        </article>
     </div>
 </section>
 <section class="acl-related-tools no-print" aria-label="Related Creator Tools">
@@ -657,7 +850,7 @@ input, select, textarea, button {
         </div>
         <div class="acl-footer-links">
             <a href="/">All Tools</a>
-            <a href="/resolution-checker/">Resolution Checker</a>
+            <a href="/">Free Tools</a>
             <a href="/creator-utilities/">Creator Utilities</a>
             <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
             <a href="mailto:support@aicashlabtools.com">Contact</a>
@@ -666,6 +859,3 @@ input, select, textarea, button {
 </footer>
 </body>
 </html>
-
-
-
