@@ -33,6 +33,36 @@
             background: #374151;
             border-radius: 3px;
         }
+        .example-hook-btn {
+            background: rgba(30, 41, 59, 0.65);
+            border: 1px solid rgba(148, 163, 184, 0.16);
+            border-radius: 8px;
+            color: #cbd5e1;
+            display: block;
+            font-size: 12px;
+            line-height: 1.45;
+            padding: 10px 12px;
+            text-align: left;
+            width: 100%;
+        }
+        .example-hook-btn:hover {
+            border-color: rgba(59, 130, 246, 0.55);
+            color: #fff;
+        }
+        .hook-meta {
+            align-items: center;
+            color: #94a3b8;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            font-size: 10px;
+        }
+        .hook-meta span {
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(148, 163, 184, 0.16);
+            border-radius: 999px;
+            padding: 4px 7px;
+        }
     </style>
 <style id="acl-shared-tool-shell">
 html, body {
@@ -342,26 +372,29 @@ input, select, textarea, button {
 }
 </style>
 <style id="acl-global-tool-polish">
+.acl-privacy-trust{align-items:center;background:rgba(16,185,129,.08);border:1px solid rgba(34,197,94,.48);border-radius:10px;box-sizing:border-box;color:#d1fae5;display:flex;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:12px;font-weight:650;gap:8px;line-height:1.45;margin:10px auto 20px;max-width:1120px;padding:10px 14px;width:min(calc(100% - 32px),1120px)}.acl-privacy-trust span{color:#34d399;flex:0 0 auto;font-size:13px}.acl-privacy-trust p{margin:0}@media (max-width:700px){.acl-privacy-trust{align-items:flex-start;margin-top:10px;width:calc(100% - 24px)}}
+
 .acl-tool-hero,.acl-quick-start{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-left:auto;margin-right:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
 .acl-tool-hero{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(17,24,39,.96));border:1px solid rgba(245,158,11,.22);border-radius:14px;color:#fff;margin-top:40px;padding:clamp(24px,4vw,38px)}
 .acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
 .acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
-.acl-quick-start{background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;margin-top:18px;margin-bottom:24px;padding:20px 22px}
-.acl-quick-start h2{color:#fff;font-size:16px;margin:0 0 12px}
-.acl-quick-start ol{display:grid;gap:8px 18px;grid-template-columns:repeat(5,minmax(0,1fr));list-style-position:inside;margin:0;padding:0}
-.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.45}
-@media (max-width:900px){.acl-quick-start ol{grid-template-columns:1fr}}
-.acl-faq-section{box-sizing:border-box;background:#151820;border:1px solid #27272a;border-radius:14px;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(calc(100% - 32px),1120px)}
+.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
+.acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
+.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
+.acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+@media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
+.acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
-.acl-faq-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
-.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:14px}
-.acl-faq-item h3{color:#f8fafc;font-size:14px;margin:0 0 6px}
+.acl-faq-grid{align-items:stretch;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;min-width:0;padding:14px}
+.acl-faq-item h3{color:#f8fafc;font-size:14px;line-height:1.35;margin:0 0 6px}
 .acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}
-@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px;width:calc(100% - 24px)}}
+@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px!important;width:calc(100% - 24px)!important}}
 .acl-related-tools{margin-bottom:80px !important}
-</style>
-</head>
+</style></head>
 <body class="text-slate-200 min-h-screen flex flex-col justify-between antialiased">
 <header class="acl-shell-header no-print">
     <div class="acl-shell-inner">
@@ -390,13 +423,14 @@ input, select, textarea, button {
 <section class="acl-quick-start no-print">
     <h2>Quick Start</h2>
     <ol>
-            <li>Enter the creative input</li>
-            <li>Choose the closest content preset</li>
-            <li>Review the output</li>
-            <li>Adjust the recommendation</li>
-            <li>Copy or apply the next step</li>
+            <li>Input Data</li>
+            <li>Adjust Settings</li>
+            <li>Review Results</li>
+            <li>Take Action</li>
     </ol>
 </section>
+<section class="acl-privacy-trust no-print" aria-label="Privacy notice"><span aria-hidden="true">&#128274;</span><p>Private by default: Files and text are processed locally in your browser. Nothing is uploaded, stored, or sent to our servers.</p></section>
+
 <!-- Main Workspace -->
     <main class="w-full max-w-6xl mx-auto px-6 py-8 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
@@ -500,7 +534,7 @@ input, select, textarea, button {
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-[#111827] p-4 rounded-xl border premium-border">
                     <div>
                         <h2 class="text-sm font-semibold text-white">Generated Library Matrix</h2>
-                        <p class="text-[11px] text-slate-400 mt-0.5">12 programmatic variants targeted across psychology frameworks.</p>
+                        <p class="text-[11px] text-slate-400 mt-0.5">The 12 hooks test different opening angles: curiosity, contrarian, mistake, case study, pain point, and opportunity.</p>
                     </div>
                     <button id="btnCopyAll" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-slate-200 px-4 py-2 rounded-lg border premium-border text-xs font-medium transition-colors hidden">
                         Copy All 12 Hooks
@@ -509,8 +543,14 @@ input, select, textarea, button {
 
                 <!-- Library Display Grid -->
                 <div id="libraryContainer" class="grid grid-cols-1 gap-3 max-h-[600px] overflow-y-auto pr-1">
-                    <div class="bg-[#111827] border premium-border p-8 rounded-xl text-center text-slate-500 text-sm italic">
-                        Input a video concept on the left pane and select "Generate Library" to construct variations.
+                    <div class="bg-[#111827] border premium-border p-6 rounded-xl text-slate-400 text-sm">
+                        <h3 class="text-white font-semibold text-sm mb-2">Try an example concept</h3>
+                        <p class="text-xs text-slate-500 mb-4">Choose one or type your own topic on the left, then generate a 12-hook library.</p>
+                        <div class="grid gap-2">
+                            <button type="button" class="example-hook-btn" data-topic="how to stop losing viewers in the first 3 seconds">How to stop losing viewers in the first 3 seconds</button>
+                            <button type="button" class="example-hook-btn" data-topic="why your digital product is not selling">Why your digital product is not selling</button>
+                            <button type="button" class="example-hook-btn" data-topic="how freelancers can prevent scope creep">How freelancers can prevent scope creep</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -519,11 +559,11 @@ input, select, textarea, button {
             <div class="p-6 rounded-xl bg-gradient-to-r from-blue-950/40 via-[#111827] to-[#111827] border border-blue-900/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                 <div class="space-y-1.5 max-w-lg">
                     <div class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-blue-900/60 text-blue-300 uppercase border border-blue-800/50">Retention Maximization</div>
-                    <h3 class="text-md font-bold text-white tracking-tight">Hooks capture the click. Frameworks hold the retention loop.</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">The first 3 seconds stop the scroll. The remaining sequence dictating asset pacing, visual safe zones, and pattern interrupts defines your monetization channel velocity.</p>
+                    <h3 class="text-md font-bold text-white tracking-tight">After the hook, check whether viewers stay.</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Use the Retention Diagnostic Tool to see whether your opening, pacing, and ending are strong enough to hold attention after the first line.</p>
                 </div>
-                <a href="https://gumroad.com" target="_blank" class="w-full md:w-auto text-center shrink-0 bg-blue-600 hover:bg-blue-500 text-white font-medium text-xs px-5 py-3 rounded-lg transition-colors shadow-lg shadow-blue-900/20">
-                    Get Short-Form Creator Toolkit
+                <a href="/retention-diagnostic-tool/" class="w-full md:w-auto text-center shrink-0 bg-blue-600 hover:bg-blue-500 text-white font-medium text-xs px-5 py-3 rounded-lg transition-colors shadow-lg shadow-blue-900/20">
+                    Check Retention Next
                 </a>
             </div>
 
@@ -538,6 +578,14 @@ input, select, textarea, button {
         <article class="acl-faq-item">
             <h3>How should I use the rewrites?</h3>
             <p>Use the rewrites as starting points, then adapt them to your voice, audience, proof, and actual video content.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>What are viral TikTok hook examples?</h3>
+            <p>Viral TikTok hooks often use curiosity, contradiction, mistakes, proof, or a fast promise that makes the viewer want the next sentence.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>How do I write hooks for YouTube Shorts and Reels?</h3>
+            <p>Start with the outcome, problem, surprise, or conflict immediately. A strong short-form video hook should make the first three seconds feel impossible to skip.</p>
         </article>
     </div>
 </section>
@@ -590,10 +638,17 @@ input, select, textarea, button {
             
             const favoritesList = document.getElementById('favoritesList');
             const btnClearFavorites = document.getElementById('btnClearFavorites');
+            const exampleHookButtons = document.querySelectorAll('.example-hook-btn');
 
             // Tab Navigation System Implementation
             tabGenerate.addEventListener('click', () => switchTab('generate'));
             tabAnalyze.addEventListener('click', () => switchTab('analyze'));
+            exampleHookButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    topicInput.value = this.getAttribute('data-topic');
+                    btnGenerate.click();
+                });
+            });
 
             function switchTab(target) {
                 activeTab = target;
@@ -638,6 +693,35 @@ input, select, textarea, button {
                 educational: { prefix: 'Structural breakdown: ', suffix: ' Let us look at the data.' }
             };
 
+            function getFrameworkLabel(category) {
+                const labels = {
+                    Curiosity: 'Curiosity Gap',
+                    Contrarian: 'Contrarian Take',
+                    Mistake: 'Common Mistake',
+                    'Case Study': 'Proof / Case Study',
+                    'Pain Point': 'Pain Point',
+                    Opportunity: 'Opportunity Angle'
+                };
+                return labels[category] || category;
+            }
+
+            function scoreHookQuality(text) {
+                let score = 45;
+                const length = text.length;
+                if (length >= 35 && length <= 95) score += 20;
+                else if (length >= 20 && length <= 120) score += 10;
+                if (/\?|\!/.test(text)) score += 10;
+                if (/\b(how|why|stop|never|mistake|fail|wrong|hidden|fastest|weirdest|unpopular|truth|nobody)\b/i.test(text)) score += 15;
+                if (/\d|%|\$/.test(text)) score += 5;
+                return Math.min(score, 100);
+            }
+
+            function getLengthLabel(length) {
+                if (length < 35) return 'Short';
+                if (length <= 95) return 'Good length';
+                return 'Long';
+            }
+
             // Generation Engine Call
             btnGenerate.addEventListener('click', function() {
                 const topic = topicInput.value.trim() || "short form digital assets optimization";
@@ -654,6 +738,10 @@ input, select, textarea, button {
                     // Apply tone structural modifiers
                     formatted = `${mods.prefix}${formatted}${mods.suffix}`;
                     plainText = `${mods.prefix}${plainText}${mods.suffix}`;
+                    const charCount = plainText.length;
+                    const qualityScore = scoreHookQuality(plainText);
+                    const lengthLabel = getLengthLabel(charCount);
+                    const frameworkLabel = getFrameworkLabel(fw.cat);
 
                     currentLibrary.push(plainText);
 
@@ -662,8 +750,16 @@ input, select, textarea, button {
                     div.className = "bg-[#161f30] border premium-border p-4 rounded-xl flex items-start justify-between gap-4";
                     div.innerHTML = `
                         <div class="space-y-1.5">
-                            <span class="text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-400 border premium-border">${fw.cat}</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-300 border premium-border">${frameworkLabel}</span>
+                                <span class="text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded bg-blue-950/50 text-blue-300 border border-blue-900/40">Score ${qualityScore}/100</span>
+                            </div>
                             <p class="text-sm text-slate-200 leading-relaxed">${formatted}</p>
+                            <div class="hook-meta">
+                                <span>${charCount} characters</span>
+                                <span>${lengthLabel}</span>
+                                <span>${fw.cat} framework</span>
+                            </div>
                         </div>
                         <div class="flex space-x-2 shrink-0">
                             <button data-idx="${idx}" class="btn-fav text-slate-500 hover:text-yellow-400 transition-colors text-sm">*</button>
@@ -795,7 +891,7 @@ input, select, textarea, button {
         </div>
         <div class="acl-footer-links">
             <a href="/">All Tools</a>
-            <a href="/resolution-checker/">Resolution Checker</a>
+            <a href="/">Free Tools</a>
             <a href="/creator-utilities/">Creator Utilities</a>
             <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
             <a href="mailto:support@aicashlabtools.com">Contact</a>
@@ -804,5 +900,6 @@ input, select, textarea, button {
 </footer>
 </body>
 </html>
+
 
 
