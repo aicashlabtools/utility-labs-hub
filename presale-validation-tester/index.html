@@ -73,6 +73,7 @@
         }
         .ledger-box .lbl { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 4px; }
         .ledger-box .val { font-size: 1.8rem; font-weight: 900; }
+        .sub-lbl { color: var(--text-muted); display: block; font-size: 0.75rem; font-weight: 500; margin-top: 3px; }
 
         .status-badge {
             text-align: center; padding: 14px; border-radius: 8px; font-weight: 900; 
@@ -84,13 +85,15 @@
         .status-badge.green { background: rgba(34, 197, 94, 0.15); color: var(--status-green); border: 1px solid var(--status-green); }
 
         .output-list { display: flex; flex-direction: column; gap: 10px; }
+        .target-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+        @media (max-width: 640px) { .target-grid { grid-template-columns: 1fr; } }
         .output-row {
             display: flex; justify-content: space-between; align-items: center;
             background: var(--bg-input); padding: 12px 14px; border-radius: 8px; border: 1px solid var(--border-color);
             font-size: 0.9rem;
         }
         .output-row span.val { font-weight: 700; text-align: right; }
-        .output-row .sub-lbl { display: block; font-size: 0.75rem; color: var(--text-muted); font-weight: normal; margin-top: 2px; }
+        .output-row .sub-lbl { margin-top: 2px; }
 
         /* Progress Tracking Meter Bar */
         .meter-container { background: #1e222b; height: 12px; border-radius: 6px; overflow: hidden; border: 1px solid var(--border-color); }
@@ -100,6 +103,10 @@
             font-size: 0.85rem; line-height: 1.5; padding: 14px; border-radius: 8px;
             background-color: rgba(252, 213, 53, 0.01); border: 1px dashed var(--border-color);
         }
+        .advisor-box strong.action-heading { color: var(--text-main); display: block; font-size: 0.82rem; letter-spacing: .08em; margin-bottom: 8px; text-transform: uppercase; }
+        .advisor-box ul { list-style: none; margin: 0; padding: 0; }
+        .advisor-box li { color: #d4d4d8; margin-top: 5px; }
+        .advisor-box li::before { color: var(--accent-yellow); content: "✓"; font-weight: 900; margin-right: 8px; }
     </style>
 <style id="acl-shared-tool-shell">
 html, body {
@@ -409,26 +416,29 @@ input, select, textarea, button {
 }
 </style>
 <style id="acl-global-tool-polish">
+.acl-privacy-trust{align-items:center;background:rgba(16,185,129,.08);border:1px solid rgba(34,197,94,.38);border-radius:10px;box-sizing:border-box;color:#d1fae5;display:flex;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:12px;font-weight:650;gap:8px;line-height:1.45;margin:10px auto 20px;max-width:1120px;padding:10px 14px;width:min(calc(100% - 32px),1120px)}.acl-privacy-trust span{color:#22c55e;flex:0 0 auto;font-size:13px}.acl-privacy-trust p{margin:0}@media (max-width:700px){.acl-privacy-trust{align-items:flex-start;margin-top:10px;width:calc(100% - 24px)}}
+
 .acl-tool-hero,.acl-quick-start{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-left:auto;margin-right:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
 .acl-tool-hero{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(17,24,39,.96));border:1px solid rgba(245,158,11,.22);border-radius:14px;color:#fff;margin-top:40px;padding:clamp(24px,4vw,38px)}
 .acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
 .acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
-.acl-quick-start{background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;margin-top:18px;margin-bottom:24px;padding:20px 22px}
-.acl-quick-start h2{color:#fff;font-size:16px;margin:0 0 12px}
-.acl-quick-start ol{display:grid;gap:8px 18px;grid-template-columns:repeat(5,minmax(0,1fr));list-style-position:inside;margin:0;padding:0}
-.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.45}
-@media (max-width:900px){.acl-quick-start ol{grid-template-columns:1fr}}
-.acl-faq-section{box-sizing:border-box;background:#151820;border:1px solid #27272a;border-radius:14px;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(calc(100% - 32px),1120px)}
+.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
+.acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
+.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
+.acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+@media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
+.acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
-.acl-faq-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
-.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:14px}
-.acl-faq-item h3{color:#f8fafc;font-size:14px;margin:0 0 6px}
+.acl-faq-grid{align-items:stretch;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;min-width:0;padding:14px}
+.acl-faq-item h3{color:#f8fafc;font-size:14px;line-height:1.35;margin:0 0 6px}
 .acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}
-@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px;width:calc(100% - 24px)}}
+@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px!important;width:calc(100% - 24px)!important}}
 .acl-related-tools{margin-bottom:80px !important}
-</style>
-</head>
+</style></head>
 <body>
 <header class="acl-shell-header no-print">
     <div class="acl-shell-inner">
@@ -457,13 +467,13 @@ input, select, textarea, button {
 <section class="acl-quick-start no-print">
     <h2>Quick Start</h2>
     <ol>
-            <li>Enter the launch inputs</li>
-            <li>Set the target assumptions</li>
-            <li>Review demand or revenue math</li>
-            <li>Compare the weak points</li>
-            <li>Choose the next validation step</li>
+            <li>Input Data</li>
+            <li>Adjust Settings</li>
+            <li>Review Results</li>
+            <li>Take Action</li>
     </ol>
 </section>
+<section class="acl-privacy-trust no-print" aria-label="Privacy notice"><span aria-hidden="true">&#128274;</span><p>Private by default: Your inputs stay in your browser and are not saved or sent to our servers.</p></section>
 <div class="container">
 
     <div class="workspace">
@@ -479,7 +489,7 @@ input, select, textarea, button {
 
             <div class="form-group">
                 <div class="form-label-row">
-                    <label for="input-audience">Total Warm Audience Size</label>
+                    <label for="input-audience">Audience Size</label>
                     <span class="label-val" id="val-audience">2,500</span>
                 </div>
                 <input type="range" id="input-audience" min="100" max="50000" step="100" value="2500">
@@ -488,12 +498,11 @@ input, select, textarea, button {
             <div class="form-group">
                 <label for="input-engagement">Audience Engagement Profile</label>
                 <select id="input-engagement">
-                    <select id="input-engagement">
-                        <option value="0.4">Cold / Passive (Low interaction profiles)</option>
-                        <option value="1.0" selected>Standard / Warm (Average platform conversion baseline)</option>
-                        <option value="2.2">Hyper-Engaged / Superfans (High interaction trust)</option>
-                    </select>
+                    <option value="0.4">Cold Audience</option>
+                    <option value="1.0" selected>Warm Audience</option>
+                    <option value="2.2">Superfans</option>
                 </select>
+                <span class="sub-lbl">Choose how likely this audience is to respond to a paid presale offer.</span>
             </div>
 
             <div class="form-group">
@@ -521,12 +530,13 @@ input, select, textarea, button {
 
         <!-- Metric Telemetry Dashboard Panel -->
         <div class="dashboard-panel">
-            <div id="badge-status" class="status-badge red">Build Later</div>
+            <div id="badge-status" class="status-badge red">Not Yet Validated</div>
 
             <div class="split-display">
                 <div class="ledger-box">
                     <div class="lbl">Build Risk Score</div>
                     <div class="val" id="out-risk-score" style="color: var(--status-alert);">0 / 100</div>
+                    <div class="sub-lbl" id="out-risk-label">Needs Validation</div>
                 </div>
                 <div class="ledger-box">
                     <div class="lbl">Potential Time Exposure</div>
@@ -536,26 +546,28 @@ input, select, textarea, button {
 
             <div class="output-list">
                 <div style="font-size:0.75rem; text-transform:uppercase; color:var(--text-muted); font-weight:700;">Presale Validation Targets</div>
-                <div class="output-row">
-                    <div>
-                        <span>Minimum Customers Required</span>
-                        <span class="sub-lbl">Baseline conversions needed to confirm signal.</span>
+                <div class="target-grid">
+                    <div class="output-row">
+                        <div>
+                            <span>Minimum Customers Required</span>
+                            <span class="sub-lbl">Buyer signal target.</span>
+                        </div>
+                        <span class="val" id="target-units">0 buyers</span>
                     </div>
-                    <span class="val" id="target-units">0 buyers</span>
-                </div>
-                <div class="output-row">
-                    <div>
-                        <span>Minimum Funding Volume</span>
-                        <span class="sub-lbl">Total capital validation target indicator.</span>
+                    <div class="output-row">
+                        <div>
+                            <span>Minimum Funding Volume</span>
+                            <span class="sub-lbl">Revenue proof target.</span>
+                        </div>
+                        <span class="val" id="target-capital" style="color: var(--status-green);">$0</span>
                     </div>
-                    <span class="val" id="target-capital" style="color: var(--status-green);">$0</span>
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="form-label-row" style="font-size:0.8rem; text-transform:uppercase; color:var(--text-muted); font-weight:700;">
                     <span>Validation Progress Track</span>
-                    <span id="progress-percent">0%</span>
+                    <span id="progress-percent">0 / 0 customers</span>
                 </div>
                 <div class="meter-container">
                     <div class="meter-bar" id="bar-progress"></div>
@@ -574,7 +586,7 @@ input, select, textarea, button {
             </div>
 
             <div class="advisor-box" id="out-verdict">
-                Compiling structural signal indices...
+                Reviewing current buyer signals...
             </div>
         </div>
     </div>
@@ -593,6 +605,7 @@ input, select, textarea, button {
 
     const badgeStatus = document.getElementById('badge-status');
     const outRiskScore = document.getElementById('out-risk-score');
+    const outRiskLabel = document.getElementById('out-risk-label');
     const outTimeRisk = document.getElementById('out-time-risk');
     const targetUnits = document.getElementById('target-units');
     const targetCapital = document.getElementById('target-capital');
@@ -635,7 +648,7 @@ input, select, textarea, button {
         // Calculate Validation Progress Data Elements
         const progressRaw = (preorders / targetVolume) * 100;
         const finalProgress = Math.min(Math.round(progressRaw), 100);
-        progressPercent.textContent = `${finalProgress}%`;
+        progressPercent.textContent = `${Math.min(preorders, targetVolume).toLocaleString()} / ${targetVolume.toLocaleString()} validation customers`;
         barProgress.style.width = `${finalProgress}%`;
 
         // Mathematical Processing of the Build Risk Metric Strategy Array
@@ -656,50 +669,63 @@ input, select, textarea, button {
         const finalRiskScore = Math.max(0, Math.min(Math.round(baseRisk), 100));
         outRiskScore.textContent = `${finalRiskScore} / 100`;
 
+        let riskLabel = "Needs Validation";
+        if (finalRiskScore >= 70) {
+            riskLabel = "High Risk";
+        } else if (finalRiskScore >= 40) {
+            riskLabel = "Moderate Risk";
+        } else {
+            riskLabel = "Lower Risk";
+        }
+        outRiskLabel.textContent = riskLabel;
+
         // Render Actionable Target Badge Ensembles
         badgeStatus.className = "status-badge";
         if (finalProgress >= 100) {
-            badgeStatus.textContent = "Build Now";
+            badgeStatus.textContent = "Market Signal Confirmed";
             badgeStatus.classList.add("green");
             barProgress.style.backgroundColor = "var(--status-green)";
             outRiskScore.style.color = "var(--status-green)";
+            outRiskLabel.style.color = "var(--status-green)";
             outTimeRisk.textContent = "0 Days";
             outTimeRisk.style.color = "var(--status-green)";
         } else if (finalProgress >= 40 || finalRiskScore < 60) {
-            badgeStatus.textContent = "Validate Further";
+            badgeStatus.textContent = "More Market Proof Needed";
             badgeStatus.classList.add("yellow");
             barProgress.style.backgroundColor = "var(--status-warning)";
             outRiskScore.style.color = "var(--status-warning)";
+            outRiskLabel.style.color = "var(--status-warning)";
             outTimeRisk.textContent = `${Math.round(buildDays * 0.5)} Days`;
             outTimeRisk.style.color = "var(--status-warning)";
         } else {
-            badgeStatus.textContent = "Build Later";
+            badgeStatus.textContent = "Not Yet Validated";
             badgeStatus.classList.add("red");
             barProgress.style.backgroundColor = "var(--status-alert)";
             outRiskScore.style.color = "var(--status-alert)";
+            outRiskLabel.style.color = "var(--status-alert)";
             outTimeRisk.textContent = `${buildDays} Days`;
             outTimeRisk.style.color = "var(--status-alert)";
         }
 
         // Reality Check Subtitle Text Dynamic Update
         if (conversionRequired > 2.0) {
-            realityCheckSub.textContent = " Required conversion exceeds typical platform behaviors.";
+            realityCheckSub.textContent = "Required conversion is higher than most audiences can reliably deliver.";
             realityCheckSub.style.color = "var(--status-alert)";
         } else if (conversionRequired > 1.0) {
-            realityCheckSub.textContent = "Warning: High effort required to convert this audience scale.";
+            realityCheckSub.textContent = "Higher effort required, but still possible with a warm audience.";
             realityCheckSub.style.color = "var(--status-warning)";
         } else {
-            realityCheckSub.textContent = "PASS: Target sits within optimal conversion ranges.";
+            realityCheckSub.textContent = "Target is within a realistic presale conversion range.";
             realityCheckSub.style.color = "var(--status-green)";
         }
 
         // Actionable Strategic Advisory Content Assembly Block
-        if (badgeStatus.textContent === "Build Now") {
-            outVerdict.innerHTML = ` <strong>Market Signal Confirmed:</strong> Your audience has backed this product with real financial skin in the game. Your exposure risks are completely clear. Proceed directly to full deployment operations using the framework parameters inside our <strong>Launch OS</strong> to coordinate your delivery sequence without hitch.`;
-        } else if (badgeStatus.textContent === "Validate Further") {
-            outVerdict.innerHTML = `<strong>Partial Signal Acquired:</strong> Interest is present, but financial validation thresholds remain unfulfilled. Do not begin coding or writing content assets yet. Use audience formatting and engagement metrics to design a focused promotional sprint before building.`;
+        if (badgeStatus.textContent === "Market Signal Confirmed") {
+            outVerdict.innerHTML = `<strong class="action-heading">Recommended Next Action</strong><ul><li>Start building the full product</li><li>Use the secured customers as your first launch cohort</li><li>Plan delivery with the Product Launch Goal Calculator</li></ul>`;
+        } else if (badgeStatus.textContent === "More Market Proof Needed") {
+            outVerdict.innerHTML = `<strong class="action-heading">Recommended Next Action</strong><ul><li>Run a focused presale sprint</li><li>Collect ${targetVolume.toLocaleString()} validation customers</li><li>Avoid building the full product yet</li></ul>`;
         } else {
-            outVerdict.innerHTML = `<strong>High Exposure Alert:</strong> Building at this stage places <strong>${buildDays} Days of your time completely at risk</strong>. If this asset fails, that baseline runway is gone forever. Pause production and acquire initial pre-orders before creating the full asset.`;
+            outVerdict.innerHTML = `<strong class="action-heading">Recommended Next Action</strong><ul><li>Do not build the full product yet</li><li>Collect more buyer signals before spending ${buildDays} days on production</li><li>Test the idea with a landing page, waitlist, or small presale</li></ul>`;
         }
     }
 
@@ -710,12 +736,20 @@ input, select, textarea, button {
     <h2>Frequently Asked Questions</h2>
     <div class="acl-faq-grid">
         <article class="acl-faq-item">
-            <h3>What is presale validation?</h3>
-            <p>Presale validation tests whether people show real buying interest before you invest heavily in building the product.</p>
+            <h3>How many presales should I get before building?</h3>
+            <p>It depends on price and audience size, but the goal is to collect enough paid customers to prove real demand before committing full build time.</p>
         </article>
         <article class="acl-faq-item">
-            <h3>What signals should I look for?</h3>
-            <p>Look for clear pain, specific buyer intent, audience fit, price tolerance, and repeatable demand.</p>
+            <h3>What conversion rate validates a product idea?</h3>
+            <p>A small warm audience may validate with a higher conversion rate, while a larger cold audience may need more traffic. Paid buyer intent matters more than casual interest.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>How large does my audience need to be?</h3>
+            <p>You need enough reachable people to realistically collect your minimum validation customers. A smaller audience can still work if it is highly engaged.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Should I build before getting customers?</h3>
+            <p>Usually no. Start with a landing page, waitlist, preorder, or small presale so you can confirm demand before spending weeks building.</p>
         </article>
     </div>
 </section>
@@ -723,15 +757,15 @@ input, select, textarea, button {
     <div>
         <span class="acl-related-eyebrow">Related Launch Tools</span>
         <h2>Plan the next launch step.</h2>
-        <p>Use these tools to validate demand, estimate launch targets, and pressure-test the offer before building.</p>
+        <p>Move from idea validation to presale proof, launch planning, and profit checks.</p>
     </div>
     <div class="acl-related-grid">
         <a href="/product-idea-validator/">Product Idea Validator</a>
-        <a href="/product-launch-calculator/">Product Launch Calculator</a>
         <a href="/product-launch-goal-calculator/">Product Launch Goal Calculator</a>
-        <a href="/pricing-strategy-calculator/">Pricing Strategy Calculator</a>
         <a href="/gumroad-profit-calculator/">Gumroad Profit Calculator</a>
-        <a href="/paid-traffic-profit-calculator/">Paid Traffic Profit Calculator</a>
+        <a href="/product-profit-calculator/">Product Profit Calculator</a>
+        <a href="/pricing-strategy-calculator/">Pricing Strategy Calculator</a>
+        <a href="/lead-magnet-estimator/">Lead Magnet Estimator</a>
     </div>
 </section>
 <footer class="acl-shell-footer no-print">
@@ -742,7 +776,7 @@ input, select, textarea, button {
         </div>
         <div class="acl-footer-links">
             <a href="/">All Tools</a>
-            <a href="/resolution-checker/">Resolution Checker</a>
+            <a href="/">Free Tools</a>
             <a href="/creator-utilities/">Creator Utilities</a>
             <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
             <a href="mailto:support@aicashlabtools.com">Contact</a>
@@ -751,5 +785,8 @@ input, select, textarea, button {
 </footer>
 </body>
 </html>
+
+
+
 
 
