@@ -19,6 +19,30 @@
         .accent-glow {
             box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
         }
+        .ltv-hero-card {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.26), #111827 58%);
+            border-color: rgba(96, 165, 250, 0.34);
+        }
+        .ltv-hero-value {
+            font-size: clamp(3rem, 8vw, 5rem);
+            line-height: 0.95;
+        }
+        .audience-equivalents {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .audience-equivalent-card {
+            background: #0f141f;
+            border: 1px solid rgba(96, 165, 250, 0.18);
+            border-radius: 10px;
+            padding: 12px;
+        }
+        @media (max-width: 700px) {
+            .audience-equivalents {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 <style id="acl-shared-tool-shell">
 html, body {
@@ -328,26 +352,29 @@ input, select, textarea, button {
 }
 </style>
 <style id="acl-global-tool-polish">
+.acl-privacy-trust{align-items:center;background:rgba(16,185,129,.08);border:1px solid rgba(34,197,94,.48);border-radius:10px;box-sizing:border-box;color:#d1fae5;display:flex;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:12px;font-weight:650;gap:8px;line-height:1.45;margin:10px auto 20px;max-width:1120px;padding:10px 14px;width:min(calc(100% - 32px),1120px)}.acl-privacy-trust span{color:#34d399;flex:0 0 auto;font-size:13px}.acl-privacy-trust p{margin:0}@media (max-width:700px){.acl-privacy-trust{align-items:flex-start;margin-top:10px;width:calc(100% - 24px)}}
+
 .acl-tool-hero,.acl-quick-start{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-left:auto;margin-right:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
 .acl-tool-hero{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(17,24,39,.96));border:1px solid rgba(245,158,11,.22);border-radius:14px;color:#fff;margin-top:40px;padding:clamp(24px,4vw,38px)}
 .acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
 .acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
-.acl-quick-start{background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;margin-top:18px;margin-bottom:24px;padding:20px 22px}
-.acl-quick-start h2{color:#fff;font-size:16px;margin:0 0 12px}
-.acl-quick-start ol{display:grid;gap:8px 18px;grid-template-columns:repeat(5,minmax(0,1fr));list-style-position:inside;margin:0;padding:0}
-.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.45}
-@media (max-width:900px){.acl-quick-start ol{grid-template-columns:1fr}}
-.acl-faq-section{box-sizing:border-box;background:#151820;border:1px solid #27272a;border-radius:14px;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(calc(100% - 32px),1120px)}
+.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
+.acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
+.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
+.acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+@media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
+.acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
-.acl-faq-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
-.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:14px}
-.acl-faq-item h3{color:#f8fafc;font-size:14px;margin:0 0 6px}
+.acl-faq-grid{align-items:stretch;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;min-width:0;padding:14px}
+.acl-faq-item h3{color:#f8fafc;font-size:14px;line-height:1.35;margin:0 0 6px}
 .acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}
-@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px;width:calc(100% - 24px)}}
+@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px!important;width:calc(100% - 24px)!important}}
 .acl-related-tools{margin-bottom:80px !important}
-</style>
-</head>
+</style></head>
 <body class="text-slate-200 min-h-screen flex flex-col justify-between antialiased">
 <header class="acl-shell-header no-print">
     <div class="acl-shell-inner">
@@ -376,13 +403,14 @@ input, select, textarea, button {
 <section class="acl-quick-start no-print">
     <h2>Quick Start</h2>
     <ol>
-            <li>Enter your revenue inputs</li>
-            <li>Adjust price or traffic assumptions</li>
-            <li>Review the calculated result</li>
-            <li>Compare the gap or target</li>
-            <li>Choose the next growth lever</li>
+            <li>Input Data</li>
+            <li>Adjust Settings</li>
+            <li>Review Results</li>
+            <li>Take Action</li>
     </ol>
 </section>
+<section class="acl-privacy-trust no-print" aria-label="Privacy notice"><span aria-hidden="true">&#128274;</span><p>Private by default: Your inputs stay in your browser and are not saved or sent to our servers.</p></section>
+
 <!-- Main Container -->
     <main class="w-full max-w-5xl mx-auto px-6 py-12 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
@@ -390,14 +418,14 @@ input, select, textarea, button {
         <section class="lg:col-span-5 bg-[#111827] p-6 rounded-xl border premium-border space-y-6">
             <div>
                 <h1 class="text-xl font-bold text-white tracking-tight">Subscriber LTV Calculator</h1>
-                <p class="text-xs text-slate-400 mt-1">Determine the lifetime valuation of your audience and backend offer ladder.</p>
+                <p class="text-xs text-slate-400 mt-1">Estimate what each subscriber and your full list could be worth.</p>
             </div>
 
             <!-- Benchmark Toggle -->
             <div class="flex items-center justify-between p-3 bg-[#1f2937]/50 rounded-lg border premium-border">
                 <div>
                     <label for="benchmarkMode" class="text-xs font-semibold text-slate-300 block">Benchmark Mode</label>
-                    <span class="text-[11px] text-slate-400 block">Use creator industry averages for pre-revenue lists</span>
+                    <span class="text-[11px] text-slate-400 block">No revenue yet? Use a default estimate of $1.50 per subscriber per month.</span>
                 </div>
                 <input type="checkbox" id="benchmarkMode" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-blue-600 focus:ring-blue-500 focus:ring-offset-gray-900">
             </div>
@@ -415,10 +443,10 @@ input, select, textarea, button {
                     <input type="number" id="monthlyGrowth" value="150" min="0" class="w-full bg-[#1f2937] border premium-border rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500 transition-colors">
                 </div>
 
-                <!-- Input: Low-Ticket Rev -->
+                <!-- Input: Small Product Revenue -->
                 <div id="lowTicketContainer">
                     <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="lowTicketRev">
-                        Annual Low-Ticket Revenue <span class="text-[11px] text-slate-500 normal-case">($0-$49 products, ads, sponsors)</span>
+                        Annual Small Product Revenue <span class="text-[11px] text-slate-500 normal-case">(templates, ebooks, ads, sponsors)</span>
                     </label>
                     <div class="relative">
                         <span class="absolute left-4 top-2.5 text-sm text-slate-500">$</span>
@@ -426,10 +454,10 @@ input, select, textarea, button {
                     </div>
                 </div>
 
-                <!-- Input: High-Ticket Rev -->
+                <!-- Input: Premium Offer Revenue -->
                 <div id="highTicketContainer">
                     <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5" for="highTicketRev">
-                        Annual High-Ticket Revenue <span class="text-[11px] text-slate-500 normal-case">($50+ courses, coaching, memberships)</span>
+                        Annual Premium Offer Revenue <span class="text-[11px] text-slate-500 normal-case">(courses, coaching, memberships, services)</span>
                     </label>
                     <div class="relative">
                         <span class="absolute left-4 top-2.5 text-sm text-slate-500">$</span>
@@ -449,49 +477,71 @@ input, select, textarea, button {
         <section class="lg:col-span-7 space-y-6">
             
             <!-- Output Metrics Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <!-- Metric 1: Subscriber LTV -->
-                <div class="bg-[#111827] border premium-border p-5 rounded-xl accent-glow">
+                <div class="ltv-hero-card bg-[#111827] border premium-border p-6 rounded-xl accent-glow md:col-span-2">
                     <span class="text-[11px] font-semibold text-blue-400 uppercase tracking-wider block">Subscriber LTV</span>
-                    <div id="outLtv" class="text-3xl font-bold text-white mt-1.5">$0.00</div>
-                    <p class="text-[11px] text-slate-400 mt-2">The average historical lifetime gross financial value generated per individual email contact.</p>
+                    <div id="outLtv" class="ltv-hero-value font-bold text-white mt-3">$0.00</div>
+                    <p class="text-sm text-slate-300 mt-3 max-w-xl">Estimated value of one subscriber over their expected lifespan.</p>
                 </div>
 
                 <!-- Metric 2: Potential List Value -->
                 <div class="bg-[#111827] border premium-border p-5 rounded-xl">
                     <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block">Potential List Value</span>
                     <div id="outPotentialValue" class="text-3xl font-bold text-white mt-1.5">$0.00</div>
-                    <p class="text-[11px] text-slate-400 mt-2">The estimated collective asset scale of your existing database across its full predicted lifespan.</p>
+                    <p class="text-[11px] text-slate-400 mt-2">Estimated lifetime value of your current subscriber list.</p>
                 </div>
 
                 <!-- Metric 3: 12-Month Growth Value -->
                 <div class="bg-[#111827] border premium-border p-5 rounded-xl">
                     <span class="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider block">12-Mo Growth Value</span>
                     <div id="outGrowthValue" class="text-3xl font-bold text-white mt-1.5">$0.00</div>
-                    <p class="text-[11px] text-slate-400 mt-2">The potential compounding pipeline asset equity added over the next year at current growth velocities.</p>
+                    <p class="text-[11px] text-slate-400 mt-2">Estimated value added from the next year of subscriber growth.</p>
+                </div>
+            </div>
+
+            <!-- Audience Size Equivalents -->
+            <div class="bg-[#111827] border premium-border p-5 rounded-xl space-y-4">
+                <div>
+                    <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Audience Size Equivalents</h3>
+                    <p class="text-xs text-slate-400 mt-1">What the same subscriber LTV could represent at common list milestones.</p>
+                </div>
+                <div class="audience-equivalents">
+                    <div class="audience-equivalent-card">
+                        <span class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">100 Subscribers</span>
+                        <div id="outValue100" class="text-xl font-bold text-white mt-1">$0.00</div>
+                    </div>
+                    <div class="audience-equivalent-card">
+                        <span class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">1,000 Subscribers</span>
+                        <div id="outValue1000" class="text-xl font-bold text-white mt-1">$0.00</div>
+                    </div>
+                    <div class="audience-equivalent-card">
+                        <span class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">10,000 Subscribers</span>
+                        <div id="outValue10000" class="text-xl font-bold text-white mt-1">$0.00</div>
+                    </div>
                 </div>
             </div>
 
             <!-- Context / Narrative Analysis -->
             <div class="bg-[#111827] border premium-border p-6 rounded-xl space-y-3">
-                <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Strategic Breakdown</h3>
+                <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">What This Means</h3>
                 <p id="analysisText" class="text-sm text-slate-300 leading-relaxed">
                     Processing inputs...
                 </p>
                 <div class="pt-3 border-t premium-border text-[11px] text-slate-500 italic leading-relaxed">
-                    *Disclaimer: This is a planning estimate based on your revenue inputs and list parameters. Actual subscriber values fluctuate and depend heavily upon product offer quality, inbox deliverability, active consumer engagement patterns, and systemic future sales execution behaviors.
+                    Planning estimate only. Actual subscriber value depends on deliverability, offer quality, engagement, pricing, and retention.
                 </div>
             </div>
 
             <!-- Ecosystem CTA (Native Upsell) -->
             <div class="p-6 rounded-xl bg-gradient-to-r from-blue-950/40 via-[#111827] to-[#111827] border border-blue-900/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                 <div class="space-y-1.5 max-w-md">
-                    <div class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-blue-900/60 text-blue-300 uppercase border border-blue-800/50">System Optimization</div>
-                    <h3 class="text-md font-bold text-white tracking-tight">Is your audience leaving monetization capital on the table?</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">Knowing your baseline valuation thresholds is step one. Architecting automated high-converting front-end lead capture, low-ticket tripwires, and high-ticket backend pathways is how you systematically collect it.</p>
+                    <div class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-blue-900/60 text-blue-300 uppercase border border-blue-800/50">Next Step</div>
+                    <h3 class="text-md font-bold text-white tracking-tight">Turn subscriber value into a revenue plan.</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Use the Monetization Gap Calculator to see whether traffic, offers, or conversion is limiting revenue.</p>
                 </div>
-                <a href="https://gumroad.com" target="_blank" class="w-full md:w-auto text-center shrink-0 bg-blue-600 hover:bg-blue-500 text-white font-medium text-xs px-5 py-3 rounded-lg transition-colors shadow-lg shadow-blue-900/20">
-                    Deploy Creator Monetization OS
+                <a href="/monetization-gap-calculator/" class="w-full md:w-auto text-center shrink-0 bg-blue-600 hover:bg-blue-500 text-white font-medium text-xs px-5 py-3 rounded-lg transition-colors shadow-lg shadow-blue-900/20">
+                    Find Monetization Gaps
                 </a>
             </div>
 
@@ -501,11 +551,19 @@ input, select, textarea, button {
     <div class="acl-faq-grid">
         <article class="acl-faq-item">
             <h3>What is subscriber LTV?</h3>
-            <p>Subscriber lifetime value estimates the total revenue a subscriber may generate before they churn.</p>
+            <p>Subscriber LTV, or subscriber lifetime value, estimates how much revenue one subscriber may generate over the time they stay on your list.</p>
         </article>
         <article class="acl-faq-item">
-            <h3>Why does churn matter?</h3>
-            <p>Lower churn increases lifetime value because subscribers stay longer and create more recurring revenue.</p>
+            <h3>What is a good email subscriber value?</h3>
+            <p>A good email subscriber value depends on the niche, offer, and audience intent. Educational, software, finance, and business audiences often support higher subscriber value than broad entertainment lists.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>How much is an email list worth?</h3>
+            <p>Email list value is often estimated by multiplying subscriber LTV by list size. A list of 1,000 subscribers at $20 LTV could represent about $20,000 in potential lifetime value.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>How can I increase subscriber value?</h3>
+            <p>You can increase audience lifetime value by improving email engagement, adding better offers, raising conversion rates, reducing churn, and matching products to what subscribers already want.</p>
         </article>
     </div>
 </section>
@@ -543,6 +601,9 @@ input, select, textarea, button {
             const outLtv = document.getElementById('outLtv');
             const outPotentialValue = document.getElementById('outPotentialValue');
             const outGrowthValue = document.getElementById('outGrowthValue');
+            const outValue100 = document.getElementById('outValue100');
+            const outValue1000 = document.getElementById('outValue1000');
+            const outValue10000 = document.getElementById('outValue10000');
             const analysisText = document.getElementById('analysisText');
 
             // Listeners
@@ -583,8 +644,7 @@ input, select, textarea, button {
                 let isBenchmark = benchmarkModeCheck.checked;
 
                 if (isBenchmark) {
-                    // Benchmark Model: Assume conservative industry metrics
-                    // ~$1.50 monthly value per subscriber generated on a optimized automated engine stack
+                    // Benchmark Model: Use a conservative default for early lists without revenue history.
                     const benchmarkMonthlyValuePerSub = 1.50; 
                     ltv = benchmarkMonthlyValuePerSub * lifespanMonths;
                     totalAnnualRevenue = (benchmarkMonthlyValuePerSub * listSize) * 12;
@@ -604,19 +664,24 @@ input, select, textarea, button {
                 outLtv.innerText = formatCurrency(ltv);
                 outPotentialValue.innerText = formatCurrency(potentialListValue);
                 outGrowthValue.innerText = formatCurrency(growthPipelineValue);
+                outValue100.innerText = formatCurrency(ltv * 100);
+                outValue1000.innerText = formatCurrency(ltv * 1000);
+                outValue10000.innerText = formatCurrency(ltv * 10000);
 
                 // Narrative Insights Generator
                 let insight = "";
                 if (isBenchmark) {
-                    insight = `Based on established creator benchmarks, a fully optimized digital product infrastructure yields roughly $1.50/mo per list member. Under this baseline, every individual lead that subscribes represents a projected <strong>${formatCurrency(ltv)}</strong> in lifetime enterprise equity asset value.`;
+                    insight = `Using benchmark mode, each subscriber is estimated at <strong>$1.50 per month</strong>. Over ${lifespanMonths} months, that equals <strong>${formatCurrency(ltv)}</strong> per subscriber.`;
                 } else {
-                    insight = `Your engine generates an annual average run-rate of <strong>${formatCurrency(totalAnnualRevenue / listSize)}</strong> per subscriber tracking over a 12-month sequence. This marks each new target lead as worth <strong>${formatCurrency(ltv)}</strong> across their expected ${lifespanMonths}-month operational retention lifespan.`;
+                    const annualARPU = totalAnnualRevenue / listSize;
+                    const monthlyARPU = annualARPU / 12;
+                    insight = `Your list is generating about <strong>${formatCurrency(annualARPU)}</strong> per subscriber each year, or <strong>${formatCurrency(monthlyARPU)}</strong> per month. Over ${lifespanMonths} months, that puts subscriber LTV at <strong>${formatCurrency(ltv)}</strong>.`;
                 }
 
                 if (potentialListValue > totalAnnualRevenue && !isBenchmark) {
-                    insight += ` Note that your <strong>Potential List Value of ${formatCurrency(potentialListValue)}</strong> scales beyond current raw yearly payouts, reflecting the unrealized long-term recurring value trapped across your retention model. Optimize backend funnels to unlock this cash more rapidly.`;
+                    insight += ` Your current ${Math.round(listSize).toLocaleString()} subscribers represent about <strong>${formatCurrency(potentialListValue)}</strong> in estimated lifetime value, so improving retention or offer conversion can make the same list more profitable.`;
                 } else if (!isBenchmark) {
-                    insight += ` If your actual cash returns don't align with these baseline asset values, it indicates high system leaks or unoptimized offer ladder structures.`;
+                    insight += ` If this feels lower than expected, start by checking engagement, offer fit, and how often subscribers see a clear next step to buy.`;
                 }
 
                 analysisText.innerHTML = insight;
@@ -634,7 +699,7 @@ input, select, textarea, button {
         </div>
         <div class="acl-footer-links">
             <a href="/">All Tools</a>
-            <a href="/resolution-checker/">Resolution Checker</a>
+            <a href="/">Free Tools</a>
             <a href="/creator-utilities/">Creator Utilities</a>
             <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
             <a href="mailto:support@aicashlabtools.com">Contact</a>
@@ -643,5 +708,8 @@ input, select, textarea, button {
 </footer>
 </body>
 </html>
+
+
+
 
 
