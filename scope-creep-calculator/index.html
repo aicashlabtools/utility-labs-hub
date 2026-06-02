@@ -92,7 +92,7 @@
             border-radius: 10px;
             text-align: center;
         }
-        .hero-metric .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 4px; }
+        .hero-metric .label { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; color: #f8fafc; font-weight: 900; margin-bottom: 4px; }
         .hero-metric .value { font-size: 3rem; font-weight: 900; color: var(--status-alert); }
 
         .output-list { display: flex; flex-direction: column; gap: 12px; }
@@ -105,6 +105,24 @@
         .insight-box {
             font-size: 0.85rem; line-height: 1.5; padding: 14px; border-radius: 8px;
             background-color: rgba(252, 213, 53, 0.01); border: 1px dashed var(--border-color);
+        }
+        .action-box {
+            background: rgba(245, 158, 11, 0.06);
+            border: 1px solid rgba(245, 158, 11, 0.22);
+            border-radius: 10px;
+            padding: 16px;
+        }
+        .action-box h3 {
+            color: var(--text-main);
+            font-size: 0.92rem;
+            margin-bottom: 8px;
+        }
+        .action-box ul {
+            color: #cbd5e1;
+            display: grid;
+            gap: 6px;
+            font-size: 0.82rem;
+            margin-left: 18px;
         }
 
         .seo-content { border-top: 1px solid var(--border-color); margin-top: 60px; padding-top: 40px; color: var(--text-muted); }
@@ -419,26 +437,29 @@ input, select, textarea, button {
 }
 </style>
 <style id="acl-global-tool-polish">
+.acl-privacy-trust{align-items:center;background:rgba(16,185,129,.08);border:1px solid rgba(34,197,94,.48);border-radius:10px;box-sizing:border-box;color:#d1fae5;display:flex;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:12px;font-weight:650;gap:8px;line-height:1.45;margin:10px auto 20px;max-width:1120px;padding:10px 14px;width:min(calc(100% - 32px),1120px)}.acl-privacy-trust span{color:#34d399;flex:0 0 auto;font-size:13px}.acl-privacy-trust p{margin:0}@media (max-width:700px){.acl-privacy-trust{align-items:flex-start;margin-top:10px;width:calc(100% - 24px)}}
+
 .acl-tool-hero,.acl-quick-start{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-left:auto;margin-right:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
 .acl-tool-hero{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(17,24,39,.96));border:1px solid rgba(245,158,11,.22);border-radius:14px;color:#fff;margin-top:40px;padding:clamp(24px,4vw,38px)}
 .acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
 .acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
-.acl-quick-start{background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;margin-top:18px;margin-bottom:24px;padding:20px 22px}
-.acl-quick-start h2{color:#fff;font-size:16px;margin:0 0 12px}
-.acl-quick-start ol{display:grid;gap:8px 18px;grid-template-columns:repeat(5,minmax(0,1fr));list-style-position:inside;margin:0;padding:0}
-.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.45}
-@media (max-width:900px){.acl-quick-start ol{grid-template-columns:1fr}}
-.acl-faq-section{box-sizing:border-box;background:#151820;border:1px solid #27272a;border-radius:14px;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(calc(100% - 32px),1120px)}
+.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
+.acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
+.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
+.acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+@media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
+.acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
-.acl-faq-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
-.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:14px}
-.acl-faq-item h3{color:#f8fafc;font-size:14px;margin:0 0 6px}
+.acl-faq-grid{align-items:stretch;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;min-width:0;padding:14px}
+.acl-faq-item h3{color:#f8fafc;font-size:14px;line-height:1.35;margin:0 0 6px}
 .acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}
-@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px;width:calc(100% - 24px)}}
+@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px!important;width:calc(100% - 24px)!important}}
 .acl-related-tools{margin-bottom:80px !important}
-</style>
-</head>
+</style></head>
 <body>
 <header class="acl-shell-header no-print">
     <div class="acl-shell-inner">
@@ -467,13 +488,13 @@ input, select, textarea, button {
 <section class="acl-quick-start no-print">
     <h2>Quick Start</h2>
     <ol>
-            <li>Enter the client or income inputs</li>
-            <li>Adjust time and pricing assumptions</li>
-            <li>Review the calculated result</li>
-            <li>Check the risk or gap</li>
-            <li>Use the result before quoting</li>
+            <li>Input Data</li>
+            <li>Adjust Settings</li>
+            <li>Review Results</li>
+            <li>Take Action</li>
     </ol>
 </section>
+<section class="acl-privacy-trust no-print" aria-label="Privacy notice"><span aria-hidden="true">&#128274;</span><p>Private by default: Your inputs stay in your browser and are not saved or sent to our servers.</p></section>
 <div class="container">
 
     <div class="workspace">
@@ -549,15 +570,25 @@ input, select, textarea, button {
                     <span class="val" id="out-annual-loss">$0.00</span>
                 </div>
                 <div class="output-row">
+                    <span>Revenue Leak %</span>
+                    <span class="val" id="out-leak-percent">0%</span>
+                </div>
+                <div class="output-row">
                     <span>Equivalent Free Projects Delivered</span>
                     <span class="val" id="out-free-projects">0.0 projects/yr</span>
                 </div>
                 <div class="output-row">
-                    <span>Unpaid Hours Given Away</span>
+                    <span>Unpaid Hours This Month</span>
                     <span class="val" id="out-unpaid-hours">0 hours/mo</span>
                 </div>
             </div>
 
+            <div class="action-box" id="recommended-action-box">
+                <h3>Recommended Action</h3>
+                <ul id="recommended-action-list">
+                    <li>Keep current scope boundaries visible in client updates.</li>
+                </ul>
+            </div>
             <!-- Contextual Opportunity Cost Display Engine -->
             <div class="insight-box" id="insight-box-text">
                 The time lost to unpaid work could have been spent on marketing, lead generation, business development, skill building, or higher-value client projects.
@@ -587,12 +618,14 @@ input, select, textarea, button {
     const outLeakPay = document.getElementById('out-leak-pay');
     const outEffectiveRate = document.getElementById('out-effective-rate');
     const outAnnualLoss = document.getElementById('out-annual-loss');
+    const outLeakPercent = document.getElementById('out-leak-percent');
     const outFreeProjects = document.getElementById('out-free-projects');
     const outUnpaidHours = document.getElementById('out-unpaid-hours');
 
     const meterStatusLbl = document.getElementById('meter-status-lbl');
     const meterFillBar = document.getElementById('meter-fill-bar');
     const insightBoxText = document.getElementById('insight-box-text');
+    const recommendedActionList = document.getElementById('recommended-action-list');
 
     const inputs = [inputRate, inputBillable, inputRevisions, inputComm, inputOutOfScope];
     inputs.forEach(input => input.addEventListener('input', calculateCreepDamage));
@@ -617,6 +650,7 @@ input, select, textarea, button {
         const annualLostIncome = monthlyRevenueLeak * 12;
 
         const paidRevenue = rate * billableHours;
+        const revenueLeakPercent = paidRevenue > 0 ? (monthlyRevenueLeak / paidRevenue) * 100 : 0;
         const totalHoursWorked = billableHours + totalUnpaidHours;
         const realizedRate = totalHoursWorked > 0 ? (paidRevenue / totalHoursWorked) : rate;
 
@@ -629,6 +663,7 @@ input, select, textarea, button {
         outLeakPay.textContent = `$${monthlyRevenueLeak.toLocaleString()}`;
         outEffectiveRate.textContent = `$${realizedRate.toFixed(2)}/hr`;
         outAnnualLoss.textContent = `$${annualLostIncome.toLocaleString()}/yr`;
+        outLeakPercent.textContent = `${revenueLeakPercent.toFixed(1)}%`;
         outUnpaidHours.textContent = `${totalUnpaidHours} ${totalUnpaidHours === 1 ? 'hour' : 'hours'}`;
         outFreeProjects.textContent = `${equivalentFreeProjectsAnnually.toFixed(1)} ${equivalentFreeProjectsAnnually === 1 ? 'project' : 'projects'}/yr`;
 
@@ -641,17 +676,35 @@ input, select, textarea, button {
             meterStatusLbl.textContent = "Healthy Boundaries";
             meterStatusLbl.style.color = "var(--status-green)";
             meterFillBar.style.backgroundColor = "var(--status-green)";
-            insightBoxText.innerHTML = `' <strong>Boundary Profile:</strong> Your boundaries are solid. You're maintaining healthy project parameters. The time you save keeps your independent income generation efficient.`;
+            outLeakPercent.style.color = "var(--status-green)";
+            insightBoxText.innerHTML = `<strong>Boundary Profile:</strong> Your boundaries are solid. Keep documenting what is included so unpaid extras stay low.`;
+            recommendedActionList.innerHTML = `
+                <li>Keep the original scope visible in project updates.</li>
+                <li>Confirm any new request before doing the work.</li>
+                <li>Save a simple change-order template for future clients.</li>
+            `;
         } else if (totalUnpaidHours > 5 && totalUnpaidHours <= 15) {
             meterStatusLbl.textContent = "Revenue Leak Detected";
             meterStatusLbl.style.color = "var(--status-warning)";
             meterFillBar.style.backgroundColor = "var(--status-warning)";
-            insightBoxText.innerHTML = `Warning: <strong>Boundary Profile:</strong> Scope creep is actively chipping away at your margins. Clients are stretching your baseline deliverables. The time lost to unpaid work could have been spent on marketing, lead generation, business development, skill building, or higher-value client projects.`;
+            outLeakPercent.style.color = "var(--status-warning)";
+            insightBoxText.innerHTML = `<strong>Boundary Profile:</strong> Scope creep is reducing your effective hourly rate. A few small boundary changes could recover meaningful time this month.`;
+            recommendedActionList.innerHTML = `
+                <li>Send a written scope reminder before the next revision round.</li>
+                <li>Convert extra revisions into a paid add-on or hourly change request.</li>
+                <li>Add response-time limits for back-and-forth client communication.</li>
+            `;
         } else {
             meterStatusLbl.textContent = "Severe Scope Creep";
             meterStatusLbl.style.color = "var(--status-alert)";
             meterFillBar.style.backgroundColor = "var(--status-alert)";
-            insightBoxText.innerHTML = ` <strong>Boundary Profile:</strong> Critical Boundary Failure. Your unpaid work is subsidizing client growth instead of building your own business. Reclaiming these hours allows you to redirect key energy into marketing or higher-value client assets.`;
+            outLeakPercent.style.color = "var(--status-alert)";
+            insightBoxText.innerHTML = `<strong>Boundary Profile:</strong> Unpaid work is taking a major share of your working month. Reset scope before taking on more revisions or new deliverables.`;
+            recommendedActionList.innerHTML = `
+                <li>Pause new unpaid requests until the client approves a revised scope or paid change order.</li>
+                <li>Move future extras into a separate estimate with clear pricing.</li>
+                <li>Add revision caps, meeting limits, and response windows to the next contract.</li>
+            `;
         }
     }
 
@@ -681,7 +734,7 @@ input, select, textarea, button {
         <a href="/freedom-rate-calculator/">Freedom Rate Calculator</a>
         <a href="/hourly-rate-calculator/">Hourly Rate Calculator</a>
         <a href="/late-fee-calculator/">Late Fee Calculator</a>
-        <a href="/creator-runway-calculator/">Creator Runway Calculator</a>
+        <a href="/creator-runway-calculator/">Business Runway Calculator</a>
         <a href="/brand-deal-calculator/">Brand Deal Calculator</a>
         <a href="/paid-traffic-profit-calculator/">Paid Traffic Profit Calculator</a>
     </div>
@@ -694,7 +747,7 @@ input, select, textarea, button {
         </div>
         <div class="acl-footer-links">
             <a href="/">All Tools</a>
-            <a href="/resolution-checker/">Resolution Checker</a>
+            <a href="/">Free Tools</a>
             <a href="/creator-utilities/">Creator Utilities</a>
             <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
             <a href="mailto:support@aicashlabtools.com">Contact</a>
@@ -703,6 +756,4 @@ input, select, textarea, button {
 </footer>
 </body>
 </html>
-
-
 
