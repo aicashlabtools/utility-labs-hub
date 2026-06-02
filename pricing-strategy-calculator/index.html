@@ -90,24 +90,61 @@
         }
 
         .quick-start {
+            align-items: center;
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            margin-bottom: 24px;
-            padding: 20px 22px;
+            display: flex;
+            gap: 18px;
+            margin: 14px auto 10px;
+            max-width: 1120px;
+            overflow-x: auto;
+            padding: 12px 18px;
+            scrollbar-width: thin;
+            white-space: nowrap;
+            width: min(calc(100% - 32px), 1120px);
         }
         .quick-start h2 {
+            align-items: center;
             color: var(--text-main);
-            font-size: 1rem;
-            margin-bottom: 12px;
+            display: flex;
+            flex: 0 0 auto;
+            font-size: 0.82rem;
+            line-height: 1;
+            margin: 0;
+            white-space: nowrap;
+        }
+        .quick-start h2::after {
+            color: var(--accent-yellow);
+            content: "\2192";
+            font-weight: 900;
+            margin-left: 18px;
         }
         .quick-start ol {
+            align-items: center;
             color: #cbd5e1;
-            display: grid;
-            gap: 8px 18px;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-            list-style-position: inside;
-            font-size: 0.86rem;
+            display: flex;
+            flex: 0 0 auto;
+            gap: 0;
+            list-style: none;
+            margin: 0;
+            min-width: max-content;
+            padding: 0;
+            white-space: nowrap;
+        }
+        .quick-start li {
+            align-items: center;
+            display: flex;
+            flex: 0 0 auto;
+            font-size: 0.82rem;
+            line-height: 1;
+            white-space: nowrap;
+        }
+        .quick-start li:not(:last-child)::after {
+            color: var(--accent-yellow);
+            content: "\2192";
+            font-weight: 900;
+            margin: 0 18px;
         }
 
         .workspace { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
@@ -175,6 +212,31 @@
             gap: 4px;
             margin: 10px 0 0 18px;
         }
+        .status-badge {
+            border-radius: 999px;
+            display: inline-flex;
+            font-size: 0.82rem;
+            font-weight: 800;
+            justify-content: center;
+            min-width: 132px;
+            padding: 6px 10px;
+            text-align: center;
+        }
+        .status-badge.status-red {
+            background: rgba(255, 77, 77, 0.12);
+            border: 1px solid rgba(255, 77, 77, 0.38);
+            color: #ff8a8a;
+        }
+        .status-badge.status-yellow {
+            background: rgba(245, 158, 11, 0.12);
+            border: 1px solid rgba(245, 158, 11, 0.38);
+            color: #fbbf24;
+        }
+        .status-badge.status-green {
+            background: rgba(34, 197, 94, 0.12);
+            border: 1px solid rgba(34, 197, 94, 0.38);
+            color: #4ade80;
+        }
         .revenue-tips {
             background: rgba(245, 158, 11, 0.05);
             border: 1px solid rgba(245, 158, 11, 0.16);
@@ -186,14 +248,69 @@
             font-size: 1rem;
             margin-bottom: 10px;
         }
-        .revenue-tips ul {
-            color: #cbd5e1;
-            display: grid;
-            gap: 9px;
-            margin-left: 18px;
+        .scenario-line {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 8px 0;
         }
-        .revenue-tips li {
+        .scenario-line + .scenario-line {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .scenario-line span:first-child {
+            color: #a1a1aa;
             font-size: 0.86rem;
+        }
+        .scenario-line strong {
+            color: #f8fafc;
+            font-size: 0.9rem;
+            text-align: right;
+        }
+        .scenario-result {
+            background: rgba(245, 158, 11, 0.09);
+            border: 1px solid rgba(245, 158, 11, 0.18);
+            border-radius: 8px;
+            margin-top: 10px;
+            padding: 10px 12px;
+        }
+        .scenario-result strong {
+            color: var(--accent-yellow);
+            display: block;
+            font-size: 1.12rem;
+            margin-top: 2px;
+        }
+        .scenario-table {
+            background: #10141d;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .scenario-table h3 {
+            color: var(--text-main);
+            font-size: 1rem;
+            padding: 14px 16px 4px;
+        }
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.8fr 0.8fr 1fr;
+        }
+        .scenario-grid span {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            color: #cbd5e1;
+            font-size: 0.82rem;
+            padding: 10px 12px;
+        }
+        .scenario-grid .head {
+            color: #f8fafc;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .scenario-grid .money {
+            color: var(--accent-yellow);
+            font-weight: 800;
         }
 
         .seo-content { border-top: 1px solid var(--border-color); margin-top: 60px; padding-top: 40px; color: var(--text-muted); }
@@ -202,9 +319,8 @@
         .seo-content p { font-size: 0.9rem; margin-bottom: 12px; }
         @media (max-width: 900px) {
             .tool-hero ul,
-            .quick-start ol {
-                grid-template-columns: 1fr;
-            }
+            .scenario-grid { grid-template-columns: 1fr; }
+            .scenario-grid .head { display: none; }
         }
     </style>
 <style id="acl-shared-tool-shell">
@@ -515,26 +631,29 @@ input, select, textarea, button {
 }
 </style>
 <style id="acl-global-tool-polish">
+.acl-privacy-trust{align-items:center;background:rgba(16,185,129,.08);border:1px solid rgba(34,197,94,.48);border-radius:10px;box-sizing:border-box;color:#d1fae5;display:flex;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:12px;font-weight:650;gap:8px;line-height:1.45;margin:10px auto 20px;max-width:1120px;padding:10px 14px;width:min(calc(100% - 32px),1120px)}.acl-privacy-trust span{color:#34d399;flex:0 0 auto;font-size:13px}.acl-privacy-trust p{margin:0}@media (max-width:700px){.acl-privacy-trust{align-items:flex-start;margin-top:10px;width:calc(100% - 24px)}}
+
 .acl-tool-hero,.acl-quick-start{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-left:auto;margin-right:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
 .acl-tool-hero{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(17,24,39,.96));border:1px solid rgba(245,158,11,.22);border-radius:14px;color:#fff;margin-top:40px;padding:clamp(24px,4vw,38px)}
 .acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
 .acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
-.acl-quick-start{background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;margin-top:18px;margin-bottom:24px;padding:20px 22px}
-.acl-quick-start h2{color:#fff;font-size:16px;margin:0 0 12px}
-.acl-quick-start ol{display:grid;gap:8px 18px;grid-template-columns:repeat(5,minmax(0,1fr));list-style-position:inside;margin:0;padding:0}
-.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.45}
-@media (max-width:900px){.acl-quick-start ol{grid-template-columns:1fr}}
-.acl-faq-section{box-sizing:border-box;background:#151820;border:1px solid #27272a;border-radius:14px;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(calc(100% - 32px),1120px)}
+.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
+.acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
+.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
+.acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+@media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
+.acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
-.acl-faq-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
-.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:14px}
-.acl-faq-item h3{color:#f8fafc;font-size:14px;margin:0 0 6px}
+.acl-faq-grid{align-items:stretch;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;min-width:0;padding:14px}
+.acl-faq-item h3{color:#f8fafc;font-size:14px;line-height:1.35;margin:0 0 6px}
 .acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}
-@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px;width:calc(100% - 24px)}}
+@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px!important;width:calc(100% - 24px)!important}}
 .acl-related-tools{margin-bottom:80px !important}
-</style>
-</head>
+</style></head>
 <body>
 <header class="acl-shell-header no-print">
     <div class="acl-shell-inner">
@@ -571,13 +690,14 @@ input, select, textarea, button {
     <section class="quick-start">
         <h2>Quick Start</h2>
         <ol>
-            <li>Set your monthly income goal.</li>
-            <li>Enter current monthly traffic.</li>
-            <li>Adjust product price.</li>
-            <li>Test conversion assumptions.</li>
-            <li>Review the gap analysis.</li>
+            <li>Set Goal</li>
+            <li>Enter Traffic</li>
+            <li>Test Pricing</li>
+            <li>Review Gap</li>
         </ol>
     </section>
+<section class="acl-privacy-trust no-print" aria-label="Privacy notice"><span aria-hidden="true">&#128274;</span><p>Private by default: Your inputs stay in your browser and are not saved or sent to our servers.</p></section>
+
 
     <div class="workspace">
         <!-- Input Deck Column -->
@@ -615,13 +735,23 @@ input, select, textarea, button {
             </div>
 
             <section class="revenue-tips">
-                <h2>Revenue Planning Tips</h2>
-                <ul>
-                    <li>Most digital products convert between 0.5% and 3%.</li>
-                    <li>Small pricing increases often outperform traffic growth.</li>
-                    <li>Revenue goals should be tested across multiple price points.</li>
-                    <li>Use realistic traffic assumptions before scaling spend or production.</li>
-                </ul>
+                <h2>Current Scenario</h2>
+                <div class="scenario-line">
+                    <span>Product Price</span>
+                    <strong id="tip-price">$47 Product</strong>
+                </div>
+                <div class="scenario-line">
+                    <span>Conversion Rate</span>
+                    <strong id="tip-conv">0.5% Conversion</strong>
+                </div>
+                <div class="scenario-line">
+                    <span>Monthly Visitors</span>
+                    <strong id="tip-traffic">10,000 Visitors</strong>
+                </div>
+                <div class="scenario-result">
+                    <span>Result</span>
+                    <strong id="tip-result">$2,350/month</strong>
+                </div>
             </section>
         </div>
 
@@ -635,7 +765,7 @@ input, select, textarea, button {
             <div class="output-list">
                 <div class="output-row">
                     <span>Goal Gap Status</span>
-                    <span class="val" id="out-goal-gap">$0.00</span>
+                    <span class="val status-badge status-red" id="out-goal-gap">Far From Goal</span>
                 </div>
                 <div class="output-row">
                     <span>Growth Required</span>
@@ -661,15 +791,41 @@ input, select, textarea, button {
                 <h3>Review your assumptions</h3>
                 <p>Adjust the sliders to see which business model fits your current traffic, price, and conversion rate.</p>
             </div>
+
+            <section class="scenario-table" aria-label="Revenue scenario comparison">
+                <h3>Revenue Scenario Comparison</h3>
+                <div class="scenario-grid">
+                    <span class="head">Scenario</span>
+                    <span class="head">Price</span>
+                    <span class="head">Conv.</span>
+                    <span class="head">Revenue</span>
+                    <span>Current</span>
+                    <span id="scenario-current-price">$47</span>
+                    <span id="scenario-current-conv">0.5%</span>
+                    <span class="money" id="scenario-current-rev">$2,350</span>
+                    <span>Scenario A</span>
+                    <span id="scenario-a-price">$67</span>
+                    <span id="scenario-a-conv">0.5%</span>
+                    <span class="money" id="scenario-a-rev">$3,350</span>
+                    <span>Scenario B</span>
+                    <span id="scenario-b-price">$47</span>
+                    <span id="scenario-b-conv">1.0%</span>
+                    <span class="money" id="scenario-b-rev">$4,700</span>
+                    <span>Scenario C</span>
+                    <span id="scenario-c-price">$67</span>
+                    <span id="scenario-c-conv">1.0%</span>
+                    <span class="money" id="scenario-c-rev">$6,700</span>
+                </div>
+            </section>
         </div>
     </div>
 
     <section class="seo-content">
         <h2>What Is A Pricing Strategy Calculator?</h2>
-        <p>A pricing strategy calculator helps creators test whether a digital product can realistically hit a monthly revenue goal. Instead of guessing, you can compare traffic, conversion rate, and product price in one simple revenue model.</p>
+        <p>A pricing strategy calculator helps creators test whether a digital product can realistically hit a monthly revenue goal. Instead of guessing, you can compare traffic, conversion rate, and product price in one simple revenue planning model.</p>
 
         <h3>How To Estimate Digital Product Revenue</h3>
-        <p>Start with the traffic you already have, choose a product price, and set a realistic conversion rate. The calculator estimates monthly revenue, then shows the traffic or price needed to close the gap.</p>
+        <p>Start with the traffic you already have, choose a digital product pricing strategy, and set a realistic conversion rate. The calculator estimates monthly revenue, then shows the traffic or price needed to close the gap.</p>
 
         <h3>Why Conversion Rate Matters</h3>
         <p>Conversion rate changes the entire model. A product converting at 1% needs twice as much traffic as one converting at 2%, so small improvements to the offer, page, or audience fit can make the revenue target easier to reach.</p>
@@ -697,6 +853,22 @@ input, select, textarea, button {
     const outReqPrice = document.getElementById('out-req-price');
     const outDailyBenchmark = document.getElementById('out-daily-benchmark');
     const advisorBoxTier = document.getElementById('advisor-box-tier');
+    const tipPrice = document.getElementById('tip-price');
+    const tipConv = document.getElementById('tip-conv');
+    const tipTraffic = document.getElementById('tip-traffic');
+    const tipResult = document.getElementById('tip-result');
+    const scenarioCurrentPrice = document.getElementById('scenario-current-price');
+    const scenarioCurrentConv = document.getElementById('scenario-current-conv');
+    const scenarioCurrentRev = document.getElementById('scenario-current-rev');
+    const scenarioAPrice = document.getElementById('scenario-a-price');
+    const scenarioAConv = document.getElementById('scenario-a-conv');
+    const scenarioARev = document.getElementById('scenario-a-rev');
+    const scenarioBPrice = document.getElementById('scenario-b-price');
+    const scenarioBConv = document.getElementById('scenario-b-conv');
+    const scenarioBRev = document.getElementById('scenario-b-rev');
+    const scenarioCPrice = document.getElementById('scenario-c-price');
+    const scenarioCConv = document.getElementById('scenario-c-conv');
+    const scenarioCRev = document.getElementById('scenario-c-rev');
 
     const inputs = [inputGoal, inputTraffic, inputPrice, inputConv];
     inputs.forEach(i => i.addEventListener('input', calculateStrategyBlueprint));
@@ -713,32 +885,37 @@ input, select, textarea, button {
         valPrice.textContent = `$${price}`;
         valConv.textContent = `${(convPct * 100).toFixed(1)}%`;
 
-        // Mathematical Processing Core Execution Engine
         const projectedSales = traffic * convPct;
         const projectedRevenue = projectedSales * price;
         
         const goalDiff = goal - projectedRevenue;
-        const targetDailyPrice = goal / 30.4; // Calculates precise clean pricing threshold required for 1 sale per day over a monthly window
+        const targetDailyPrice = goal / 30.4;
 
         // Process Required Lever Corrections Safely
         const requiredTraffic = convPct > 0 ? Math.ceil(goal / (convPct * price)) : 0;
         const requiredPrice = projectedSales > 0 ? (goal / projectedSales) : 0;
 
-        // Populating UI Data Fields
         outProjectedRev.textContent = `$${projectedRevenue.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
         outDailyBenchmark.textContent = `$${Math.round(targetDailyPrice).toLocaleString()}`;
+        tipPrice.textContent = `$${price.toLocaleString()} Product`;
+        tipConv.textContent = `${(convPct * 100).toFixed(1)}% Conversion`;
+        tipTraffic.textContent = `${traffic.toLocaleString()} Monthly Visitors`;
+        tipResult.textContent = `$${Math.round(projectedRevenue).toLocaleString()}/month`;
         
         // Goal Gap & Growth Required Formatting Logic
         if (goalDiff > 0) {
-            outGoalGap.textContent = `-$${Math.ceil(goalDiff).toLocaleString()} away`;
-            outGoalGap.style.color = "var(--status-alert)";
+            const gapRatio = goalDiff / goal;
+            outGoalGap.classList.remove('status-red', 'status-yellow', 'status-green');
+            outGoalGap.classList.add(gapRatio > 0.2 ? 'status-red' : 'status-yellow');
+            outGoalGap.textContent = `${gapRatio > 0.2 ? 'Far From Goal' : 'Close To Goal'} - $${Math.ceil(goalDiff).toLocaleString()} away`;
             
             const multRequired = projectedRevenue > 0 ? (goal / projectedRevenue).toFixed(1) : 'infinite';
             outMultiplier.textContent = `Need to grow ${multRequired}x`;
-            outMultiplier.style.color = "var(--status-alert)";
+            outMultiplier.style.color = gapRatio > 0.2 ? "var(--status-alert)" : "var(--status-warning)";
         } else {
-            outGoalGap.textContent = `+$${Math.abs(Math.floor(goalDiff)).toLocaleString()} surplus`;
-            outGoalGap.style.color = "var(--status-green)";
+            outGoalGap.classList.remove('status-red', 'status-yellow', 'status-green');
+            outGoalGap.classList.add('status-green');
+            outGoalGap.textContent = `Goal Reached +$${Math.abs(Math.floor(goalDiff)).toLocaleString()}`;
             
             const multSurplus = goal > 0 ? (projectedRevenue / goal).toFixed(1) : '1.0';
             outMultiplier.textContent = `Operating at ${multSurplus}x target`;
@@ -749,44 +926,75 @@ input, select, textarea, button {
         outReqTraffic.textContent = `${requiredTraffic.toLocaleString()} views`;
         outReqPrice.textContent = requiredPrice <= 997 ? `$${Math.round(requiredPrice).toLocaleString()}` : 'Out of bounds ($1k+)';
 
-        // Pricing Tier Realism Operational Diagnostic Card Logic
-        if (price <= 49) {
+        const scenarioAPriceValue = Math.round(price * 1.2);
+        const scenarioBConvValue = Math.min(convPct * 2, 0.1);
+        const scenarioCPriceValue = scenarioAPriceValue;
+        const scenarioCConvValue = scenarioBConvValue;
+        const scenarioRevenue = (scenarioPrice, scenarioConv) => traffic * scenarioConv * scenarioPrice;
+
+        scenarioCurrentPrice.textContent = `$${price.toLocaleString()}`;
+        scenarioCurrentConv.textContent = `${(convPct * 100).toFixed(1)}%`;
+        scenarioCurrentRev.textContent = `$${Math.round(projectedRevenue).toLocaleString()}`;
+        scenarioAPrice.textContent = `$${scenarioAPriceValue.toLocaleString()}`;
+        scenarioAConv.textContent = `${(convPct * 100).toFixed(1)}%`;
+        scenarioARev.textContent = `$${Math.round(scenarioRevenue(scenarioAPriceValue, convPct)).toLocaleString()}`;
+        scenarioBPrice.textContent = `$${price.toLocaleString()}`;
+        scenarioBConv.textContent = `${(scenarioBConvValue * 100).toFixed(1)}%`;
+        scenarioBRev.textContent = `$${Math.round(scenarioRevenue(price, scenarioBConvValue)).toLocaleString()}`;
+        scenarioCPrice.textContent = `$${scenarioCPriceValue.toLocaleString()}`;
+        scenarioCConv.textContent = `${(scenarioCConvValue * 100).toFixed(1)}%`;
+        scenarioCRev.textContent = `$${Math.round(scenarioRevenue(scenarioCPriceValue, scenarioCConvValue)).toLocaleString()}`;
+
+        if (projectedRevenue >= goal) {
             advisorBoxTier.innerHTML = `
                 <span class="advisor-eyebrow">Strategy Recommendation</span>
-                <h3>Volume Model</h3>
-                <p>Your current assumptions suggest a volume-based business model.</p>
+                <h3>Goal Reached</h3>
+                <p>Your current pricing strategy clears the monthly goal. Protect conversion quality before raising price or adding more traffic.</p>
                 <p>Focus on:</p>
                 <ul>
-                    <li>Increasing traffic</li>
-                    <li>Improving conversion rate</li>
-                    <li>Building low-ticket offers</li>
-                    <li>Expanding audience reach</li>
+                    <li>Keeping the offer promise clear</li>
+                    <li>Watching refund and support costs</li>
+                    <li>Testing small price increases</li>
+                    <li>Tracking whether conversion stays stable</li>
                 </ul>
             `;
-        } else if (price > 49 && price <= 299) {
+        } else if (convPct < 0.01) {
             advisorBoxTier.innerHTML = `
                 <span class="advisor-eyebrow">Strategy Recommendation</span>
-                <h3>Balanced Model</h3>
-                <p>Your current assumptions suggest a mid-ticket offer that needs both audience quality and consistent conversion work.</p>
+                <h3>Conversion Problem</h3>
+                <p>The fastest pricing strategy improvement is likely better offer conversion, not more traffic. Your current rate is below 1%, so small gains can change the whole revenue model.</p>
                 <p>Focus on:</p>
                 <ul>
-                    <li>Clarifying the product outcome</li>
-                    <li>Improving landing page trust</li>
-                    <li>Building follow-up sequences</li>
-                    <li>Testing price points before adding more traffic</li>
+                    <li>Improving the product promise</li>
+                    <li>Adding proof, examples, or previews</li>
+                    <li>Tightening the landing page</li>
+                    <li>Testing a clearer call to action</li>
+                </ul>
+            `;
+        } else if (requiredPrice <= price * 1.6 && requiredPrice <= 997) {
+            advisorBoxTier.innerHTML = `
+                <span class="advisor-eyebrow">Strategy Recommendation</span>
+                <h3>Pricing Problem</h3>
+                <p>Your traffic and conversion rate are doing some work, but the current price may be too low for the revenue goal.</p>
+                <p>Focus on:</p>
+                <ul>
+                    <li>Raising average order value</li>
+                    <li>Bundling bonuses or templates</li>
+                    <li>Adding an upsell or order bump</li>
+                    <li>Testing a higher price point</li>
                 </ul>
             `;
         } else {
             advisorBoxTier.innerHTML = `
                 <span class="advisor-eyebrow">Strategy Recommendation</span>
-                <h3>Premium Model</h3>
-                <p>Your current assumptions suggest a higher-ticket offer where trust and proof matter more than raw traffic volume.</p>
+                <h3>Traffic Problem</h3>
+                <p>Your price and conversion assumptions still need more qualified visitors to reach the monthly revenue goal.</p>
                 <p>Focus on:</p>
                 <ul>
-                    <li>Strong proof of transformation</li>
-                    <li>Clear audience qualification</li>
-                    <li>Consultative sales or detailed product pages</li>
-                    <li>Reducing purchase risk with guarantees or previews</li>
+                    <li>Increasing qualified traffic</li>
+                    <li>Improving content-to-offer relevance</li>
+                    <li>Building email capture before purchase</li>
+                    <li>Testing channels with stronger purchase intent</li>
                 </ul>
             `;
         }
@@ -831,7 +1039,7 @@ input, select, textarea, button {
         </div>
         <div class="acl-footer-links">
             <a href="/">All Tools</a>
-            <a href="/resolution-checker/">Resolution Checker</a>
+            <a href="/">Free Tools</a>
             <a href="/creator-utilities/">Creator Utilities</a>
             <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
             <a href="mailto:support@aicashlabtools.com">Contact</a>
@@ -840,4 +1048,5 @@ input, select, textarea, button {
 </footer>
 </body>
 </html>
+
 
