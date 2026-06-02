@@ -94,18 +94,27 @@
             font-size: 0.85rem; line-height: 1.5; padding: 14px; border-radius: 8px;
             background-color: rgba(252, 213, 53, 0.01); border: 1px dashed var(--border-color);
         }
+        .margin-quality {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            margin-top: 4px;
+            text-transform: uppercase;
+        }
+        .v2-note {
+            background: rgba(245, 158, 11, 0.06);
+            border: 1px solid rgba(245, 158, 11, 0.18);
+            border-radius: 8px;
+            color: #cbd5e1;
+            font-size: 0.78rem;
+            line-height: 1.45;
+            padding: 12px 14px;
+        }
+        .v2-note strong {
+            color: var(--accent-yellow);
+        }
 
-        .footer-hub {
-            background-color: var(--bg-card); border: 1px solid var(--border-color);
-            border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px;
-        }
-        .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
-        .routing-link {
-            background: var(--bg-input); border: 1px solid var(--border-color); padding: 10px 14px;
-            border-radius: 6px; color: var(--text-main); font-size: 0.85rem; text-decoration: none;
-            font-weight: 600; text-align: center; transition: all 0.2s;
-        }
-        .routing-link:hover { border-color: var(--accent-yellow); color: var(--accent-yellow); }
     </style>
 <style id="acl-shared-tool-shell">
 html, body {
@@ -415,26 +424,29 @@ input, select, textarea, button {
 }
 </style>
 <style id="acl-global-tool-polish">
+.acl-privacy-trust{align-items:center;background:rgba(16,185,129,.08);border:1px solid rgba(34,197,94,.48);border-radius:10px;box-sizing:border-box;color:#d1fae5;display:flex;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:12px;font-weight:650;gap:8px;line-height:1.45;margin:10px auto 20px;max-width:1120px;padding:10px 14px;width:min(calc(100% - 32px),1120px)}.acl-privacy-trust span{color:#34d399;flex:0 0 auto;font-size:13px}.acl-privacy-trust p{margin:0}@media (max-width:700px){.acl-privacy-trust{align-items:flex-start;margin-top:10px;width:calc(100% - 24px)}}
+
 .acl-tool-hero,.acl-quick-start{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-left:auto;margin-right:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
 .acl-tool-hero{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(17,24,39,.96));border:1px solid rgba(245,158,11,.22);border-radius:14px;color:#fff;margin-top:40px;padding:clamp(24px,4vw,38px)}
 .acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
 .acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
-.acl-quick-start{background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;margin-top:18px;margin-bottom:24px;padding:20px 22px}
-.acl-quick-start h2{color:#fff;font-size:16px;margin:0 0 12px}
-.acl-quick-start ol{display:grid;gap:8px 18px;grid-template-columns:repeat(5,minmax(0,1fr));list-style-position:inside;margin:0;padding:0}
-.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.45}
-@media (max-width:900px){.acl-quick-start ol{grid-template-columns:1fr}}
-.acl-faq-section{box-sizing:border-box;background:#151820;border:1px solid #27272a;border-radius:14px;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(calc(100% - 32px),1120px)}
+.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
+.acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
+.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
+.acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+@media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
+.acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
-.acl-faq-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
-.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:14px}
-.acl-faq-item h3{color:#f8fafc;font-size:14px;margin:0 0 6px}
+.acl-faq-grid{align-items:stretch;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;min-width:0;padding:14px}
+.acl-faq-item h3{color:#f8fafc;font-size:14px;line-height:1.35;margin:0 0 6px}
 .acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}
-@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px;width:calc(100% - 24px)}}
+@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px!important;width:calc(100% - 24px)!important}}
 .acl-related-tools{margin-bottom:80px !important}
-</style>
-</head>
+</style></head>
 <body>
 <header class="acl-shell-header no-print">
     <div class="acl-shell-inner">
@@ -463,13 +475,13 @@ input, select, textarea, button {
 <section class="acl-quick-start no-print">
     <h2>Quick Start</h2>
     <ol>
-            <li>Enter your revenue inputs</li>
-            <li>Adjust price or traffic assumptions</li>
-            <li>Review the calculated result</li>
-            <li>Compare the gap or target</li>
-            <li>Choose the next growth lever</li>
+            <li>Input Data</li>
+            <li>Adjust Settings</li>
+            <li>Review Results</li>
+            <li>Take Action</li>
     </ol>
 </section>
+<section class="acl-privacy-trust no-print" aria-label="Privacy notice"><span aria-hidden="true">&#128274;</span><p>Private by default: Your inputs stay in your browser and are not saved or sent to our servers.</p></section>
 <div class="container">
 
     <div class="workspace">
@@ -578,6 +590,7 @@ input, select, textarea, button {
                 <div class="ledger-box" style="padding:10px;">
                     <div class="lbl">Profit Margin %</div>
                     <div class="val" id="out-margin-pct" style="font-size:1.2rem; color: var(--status-green);">0%</div>
+                    <span id="out-margin-quality" class="margin-quality" style="color: var(--status-green);">Excellent</span>
                 </div>
                 <div class="ledger-box" style="padding:10px;">
                     <div class="lbl">Break-Even Sales Needed</div>
@@ -616,17 +629,9 @@ input, select, textarea, button {
             <div class="advisor-box" id="out-verdict">
                 Analyzing individual offer unit matrices...
             </div>
-        </div>
-    </div>
-
-    <!-- Cross-Linking Layout Footers Frame Component -->
-    <div class="footer-hub">
-        <div style="font-size:0.8rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); font-weight:700;">Related Business Suite Utilities</div>
-        <div class="links-grid">
-            <a href="../gumroad-profit-calculator/" class="routing-link">Gumroad Profit Calc</a>
-            <a href="../paid-traffic-profit-calculator/" class="routing-link">Paid Ads Calculator</a>
-            <a href="../presale-validation-tester/" class="routing-link">Presale Risk Evaluator</a>
-            <a href="../freedom-rate-calculator/" class="routing-link">Freedom Rate Calc</a>
+            <div class="v2-note">
+                <strong>Profit Leak Detector - V2:</strong> Future version can rank the biggest margin leak automatically across refunds, platform fees, affiliate payouts, paid acquisition, and fixed overhead.
+            </div>
         </div>
     </div>
 </div>
@@ -658,6 +663,7 @@ input, select, textarea, button {
     const outTotalProfit = document.getElementById('out-total-profit');
     const outUnitProfit = document.getElementById('out-unit-profit');
     const outMarginPct = document.getElementById('out-margin-pct');
+    const outMarginQuality = document.getElementById('out-margin-quality');
     const outBreakevenUnits = document.getElementById('out-breakeven-units');
 
     const outGross = document.getElementById('out-gross');
@@ -744,23 +750,43 @@ input, select, textarea, button {
         outLeakPaid.textContent = cashFormatter.format(paidAcquisitionTotal);
         outLeakFixed.textContent = cashFormatter.format(fixedMonthlyCosts);
 
-        // Evaluate Status Badges Threshold levels
+        // Evaluate status badge and margin quality thresholds.
         badgeMargin.className = "status-badge";
-        if (profitMarginPercentage >= 80) {
-            badgeMargin.textContent = "High Leverage Margin";
-            badgeMargin.classList.add("green");
-            outMarginPct.style.color = "var(--status-green)";
-            outVerdict.innerHTML = `PASS: <strong>Flawless Unit Economics:</strong> This product operates with elite structural health. Relying heavily on clean, organic distribution pathways shields your take-home margins. Protect this structure inside your ecosystem using the baseline blueprints in <strong>Creator Monetization OS</strong> to stack multi-product variants.`;
-        } else if (profitMarginPercentage >= 50) {
-            badgeMargin.textContent = "Paid Scale Zone";
-            badgeMargin.classList.add("yellow");
-            outMarginPct.style.color = "var(--status-warning)";
-            outVerdict.innerHTML = `<strong>Balanced Traction Matrix:</strong> Paid acquisition channels or partner commissions are chewing through some capital, but the underlying cash yield remains viable. To scale your margins, improve owned-audience capture before inflating ad budgets.`;
-        } else {
-            badgeMargin.textContent = "Leaky Profit Bucket";
+        if (totalMonthlyTakeHome <= 0 || netProfitPerUnit <= 0) {
+            badgeMargin.textContent = "Not Profitable Yet";
             badgeMargin.classList.add("red");
             outMarginPct.style.color = "var(--status-alert)";
-            outVerdict.innerHTML = `<strong>High Vulnerability Threat:</strong> Over half your product's top-line revenue vanishes into third-party hands, refunds, or customer acquisition costs. If ad platforms change algorithms, your profit can collapse quickly. Build an organic traffic safeguard before scaling this offer further.`;
+            outMarginQuality.textContent = "Risky";
+            outMarginQuality.style.color = "var(--status-alert)";
+            outVerdict.innerHTML = `<strong>Risky Margin:</strong> This offer is not producing reliable profit after refunds, fees, acquisition costs, and overhead. Reduce paid acquisition costs, raise price, lower fees, or simplify the cost structure before scaling.`;
+        } else if (profitMarginPercentage >= 70) {
+            badgeMargin.textContent = "Highly Profitable";
+            badgeMargin.classList.add("green");
+            outMarginPct.style.color = "var(--status-green)";
+            outMarginQuality.textContent = "Excellent";
+            outMarginQuality.style.color = "var(--status-green)";
+            outVerdict.innerHTML = `<strong>Excellent Margin:</strong> This product keeps a strong share of revenue after costs. You have room to reinvest in content, affiliates, support, or careful paid traffic without immediately damaging take-home profit.`;
+        } else if (profitMarginPercentage >= 45) {
+            badgeMargin.textContent = "Profitable";
+            badgeMargin.classList.add("green");
+            outMarginPct.style.color = "var(--status-green)";
+            outMarginQuality.textContent = "Healthy";
+            outMarginQuality.style.color = "var(--status-green)";
+            outVerdict.innerHTML = `<strong>Healthy Margin:</strong> The product is profitable, but fees, refunds, affiliates, or acquisition costs still matter. Keep watching the largest cost line before increasing volume.`;
+        } else if (profitMarginPercentage >= 20) {
+            badgeMargin.textContent = "Profitable but Tight";
+            badgeMargin.classList.add("yellow");
+            outMarginPct.style.color = "var(--status-warning)";
+            outMarginQuality.textContent = "Tight";
+            outMarginQuality.style.color = "var(--status-warning)";
+            outVerdict.innerHTML = `<strong>Tight Margin:</strong> The product makes money, but the cushion is thin. Improve owned-audience sales, reduce acquisition costs, or test a higher price before scaling paid traffic.`;
+        } else {
+            badgeMargin.textContent = "Low Profitability";
+            badgeMargin.classList.add("red");
+            outMarginPct.style.color = "var(--status-alert)";
+            outMarginQuality.textContent = "Risky";
+            outMarginQuality.style.color = "var(--status-alert)";
+            outVerdict.innerHTML = `<strong>Risky Margin:</strong> Too much revenue is leaving through fees, refunds, commissions, acquisition costs, or overhead. Fix the largest cost pressure before pushing more sales volume.`;
         }
     }
 
@@ -803,7 +829,7 @@ input, select, textarea, button {
         </div>
         <div class="acl-footer-links">
             <a href="/">All Tools</a>
-            <a href="/resolution-checker/">Resolution Checker</a>
+            <a href="/">Free Tools</a>
             <a href="/creator-utilities/">Creator Utilities</a>
             <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
             <a href="mailto:support@aicashlabtools.com">Contact</a>
