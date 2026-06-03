@@ -110,6 +110,33 @@
             gap: 10px;
             align-items: center;
         }
+        .control-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .field-control {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #cbd5e1;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .field-control select {
+            background: #0f172a;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: #f8fafc;
+            font: inherit;
+            padding: 8px 10px;
+        }
+        .field-control input[type="checkbox"] {
+            accent-color: var(--neon-blue);
+            margin: 0;
+        }
         .preset-label {
             font-size: 11px;
             font-weight: 700;
@@ -261,6 +288,29 @@
             font-weight: 800;
             color: #0f172a;
             border-bottom: 3px double #0f172a !important;
+        }
+        .signature-lines {
+            border-top: 1px solid #e2e8f0;
+            display: grid;
+            gap: 36px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            margin-top: 42px;
+            padding-top: 30px;
+        }
+        .signature-block {
+            color: #0f172a;
+            font-size: 12px;
+        }
+        .signature-line {
+            border-bottom: 1px solid #64748b;
+            height: 38px;
+            margin-bottom: 8px;
+        }
+        .signature-label {
+            color: var(--paper-muted);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
         }
 
         /* Cross-linked Ecosystem Clause Callout */
@@ -572,7 +622,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
         <header class="tool-header">
             <div class="header-meta">Scope Operations Engine</div>
             <h1 class="header-title">Free Statement of Work (SOW) Generator</h1>
-            <p class="header-subtitle">Lock down your project goals, timelines, and deliverables. Select an operational framework preset, refine specifications inline, and export a clean contract addendum.</p>
+            <p class="header-subtitle">Create a clear statement of work with deliverables, timelines, milestones, and payment terms. Choose a project type, edit the details, and print instantly.</p>
         </header>
 <section class="acl-quick-start no-print">
     <h2>Quick Start</h2>
@@ -587,9 +637,9 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
 
         <!-- Protective Disclaimer Module Card -->
         <section class="legal-disclaimer-card">
-            <div class="disclaimer-icon">⚠️</div>
+            <div class="disclaimer-icon">!</div>
             <p class="disclaimer-text">
-                <b>Operational Notice:</b> This Statement of Work generator is a functional layout utility and does not constitute formal legal counsel. Ensure this document is attached to or references an approved Master Services Agreement (MSA) or standard independent contract framework prior to client execution.
+                <b>Important:</b> This Statement of Work template is provided as a planning and documentation tool. Review project terms, payment schedules, and legal requirements before using it with clients.
             </p>
         </section>
 
@@ -601,8 +651,22 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                 <button id="preset-retainer" class="btn-preset" onclick="applySowWorkflowPreset('retainer')">Monthly Retainer</button>
                 <button id="preset-hourly" class="btn-preset" onclick="applySowWorkflowPreset('hourly')">Hourly / Time & Materials</button>
             </div>
-            <div>
-                <button class="btn-primary-action" onclick="window.print()">Print / Save PDF</button>
+            <div class="control-actions">
+                <label class="field-control" for="currency-select">
+                    Currency
+                    <select id="currency-select" onchange="syncCurrencySetting()">
+                        <option value="USD" selected>USD</option>
+                        <option value="AUD">AUD</option>
+                        <option value="GBP">GBP</option>
+                        <option value="CAD">CAN</option>
+                        <option value="EUR">EUR</option>
+                    </select>
+                </label>
+                <label class="field-control">
+                    <input type="checkbox" id="signature-toggle" onchange="toggleSignatureLines()">
+                    Include signature lines
+                </label>
+                <button class="btn-primary-action" onclick="printSowDocument()">Print / Save PDF</button>
             </div>
         </section>
 
@@ -622,32 +686,29 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
 
                 <div class="doc-section-title">1. Project Summary & Objectives</div>
                 <div class="doc-p" contenteditable="true" id="fld-objectives">
-                    Service Provider will deliver comprehensive short-form video optimization structures, data asset scaling pipelines, and organic channel architecture adjustments designed to accelerate client system outreach goals.
+                    Service Provider will deliver short-form video planning, production assets, and publishing support designed to help the client improve content output and campaign organization.
                 </div>
 
                 <div class="doc-section-title">2. Scope of Work & Deliverables</div>
                 <div class="doc-p">
-                    The specific, measurable outcomes required under this engagement are itemized explicitly below. Any outcome asset not explicitly detailed within this list is considered completely out of scope:
+                    The specific outcomes required under this engagement are listed below. Any deliverable not included in this list is considered outside the agreed project scope:
                 </div>
 
                 <!-- Dynamic Deliverable Content Node List Wrapper -->
                 <ul class="doc-list" id="deliverables-node-list" contenteditable="true">
-                    <li>Phase 1: Deep data market validation audit tracking competitor metrics.</li>
+                    <li>Phase 1: Review current content, goals, and competitor examples.</li>
                     <li>Phase 2: 5 polished short-form video production draft assets.</li>
-                    <li>Phase 3: Final structural campaign launch blueprint configuration file.</li>
+                    <li>Phase 3: Final campaign plan and publishing checklist.</li>
                 </ul>
 
-                <!-- Embedded Section Insertion Anchor Option Point -->
-                <div class="inner-canvas-injector" id="revision-insertion-ui">
-                    <span class="injector-meta">Need to specify revision protections?</span>
-                    <button class="btn-inject" onclick="injectRevisionPolicySection()">+ Add Revision Policy Clause</button>
+                <div class="doc-section-title">3. Revision Policy</div>
+                <div class="doc-p" contenteditable="true" id="inserted-policy-clause-node">
+                    Service Provider includes up to two (2) rounds of revision requests at no extra charge. Additional revisions requested after those rounds may require a separate estimate and timeline adjustment.
                 </div>
 
-                <div id="dynamic-policy-target-wrapper"></div>
-
-                <div class="doc-section-title">3. Financial Terms & Compensation Ledger</div>
+                <div class="doc-section-title">4. Financial Terms & Compensation Ledger</div>
                 <div class="doc-p">
-                    Client agrees to compensate Service Provider according to the calculated scheduling parameters outlined within the transaction table below:
+                    Client agrees to pay Service Provider according to the project phases and payment amounts listed below:
                 </div>
 
                 <!-- AUTO-CALCULATING FINANCIAL MATRIX LEDGER -->
@@ -655,7 +716,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                     <thead>
                         <tr>
                             <th>Phase / Line Item Description</th>
-                            <th class="col-amount">Amount (USD)</th>
+                            <th class="col-amount">Amount (<span id="currency-heading">USD</span>)</th>
                         </tr>
                     </thead>
                     <tbody id="ledger-rows-body">
@@ -670,16 +731,27 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                 </table>
 
                 <!-- INTEGRATED ECOSYSTEM ALIGNED CLAUSE MODULE -->
-                <div class="doc-section-title">4. Out-of-Scope Requests</div>
+                <div class="doc-section-title">5. Out-of-Scope Requests</div>
                 <div class="ecosystem-clause-box">
                     <div class="doc-p" style="margin:0; font-style: italic;">
-                        <b>Important Change Provision:</b> Any request for modifications, additional feature layouts, asset updates, or altered deployment parameters falling outside the explicit boundaries defined in Section 2 of this document will be treated as an <b>Out-of-Scope Request</b>. Such requests will require a formal project change review and separate billable estimation adjustments prior to production execution.
+                        <b>Important Change Provision:</b> Any request for additional deliverables, expanded edits, new assets, or altered project requirements outside Section 2 will be treated as an <b>Out-of-Scope Request</b>. These requests require review, approval, and a separate estimate before work begins.
                     </div>
                 </div>
 
                 <!-- Basic Agreement Verification Anchors -->
                 <div class="doc-p" style="margin-top: 40px; font-size: 12px; color: var(--paper-muted);">
                     By signing below or issuing written confirmation to initiate development tasks, both parties formally accept the parameters, terms, and boundaries mapped out within this Statement of Work.
+                </div>
+
+                <div class="signature-lines" id="signature-lines" hidden>
+                    <div class="signature-block">
+                        <div class="signature-line"></div>
+                        <div class="signature-label">Service Provider Signature</div>
+                    </div>
+                    <div class="signature-block">
+                        <div class="signature-line"></div>
+                        <div class="signature-label">Client Signature</div>
+                    </div>
                 </div>
             </main>
 
@@ -691,9 +763,9 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                     <div class="panel-title">Scope Integrity Audit</div>
                     <div class="counter-display">
                         <div class="counter-number" id="live-deliv-count">0</div>
-                        <div class="counter-lbl">Explicit Deliverables Bound</div>
+                        <div class="counter-lbl">Deliverables Defined</div>
                     </div>
-                    <div id="diagnostic-badge" class="diagnostic-msg pass">✓ Scope definitions active.</div>
+                    <div id="diagnostic-badge" class="diagnostic-msg pass">Scope definitions active.</div>
                 </div>
 
                 <!-- Revision Selection Helper -->
@@ -719,39 +791,55 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
         <section class="conversion-deck">
             <div class="deck-badge">System Upgrade</div>
             <h3 class="deck-title">A Statement of Work only works if you enforce it.</h3>
-            <p class="deck-subtitle">The free SOW generator defines your boundaries. The premium <b>Client Portal & Freelancer Business OS</b> gives you a comprehensive operational infrastructure to track client production steps, log project communication histories, and stop scope creep automatically after the project begins.</p>
+            <p class="deck-subtitle">The free SOW generator defines your boundaries. The premium <b>Client Portal & Freelancer Business OS</b> helps you track client tasks, organize project communication, and manage scope changes after the project begins.</p>
 
             <div class="value-matrix-grid">
-                <div class="value-bullet"><span>✓</span> <b>Shared Client Portals:</b> Keep client review timelines organized in a dedicated operations dashboard.</div>
-                <div class="value-bullet"><span>✓</span> <b>Deliverable Checkpoints:</b> Secure client sign-offs at each step before moving forward.</div>
-                <div class="value-bullet"><span>✓</span> <b>Scope Creep Registers:</b> Log and track out-of-scope requests in a clean client ledger.</div>
-                <div class="value-bullet"><span>✓</span> <b>Workflow Architecture:</b> Run day-to-day services systematically to secure reliable renewal orders.</div>
+                <div class="value-bullet"><span>&#10003;</span> <b>Shared Client Portals:</b> Keep review timelines organized in one place.</div>
+                <div class="value-bullet"><span>&#10003;</span> <b>Deliverable Checkpoints:</b> Get client sign-off before moving to the next step.</div>
+                <div class="value-bullet"><span>&#10003;</span> <b>Scope Change Logs:</b> Track out-of-scope requests before they become unpaid work.</div>
+                <div class="value-bullet"><span>&#10003;</span> <b>Project Workflow:</b> Keep day-to-day client work easier to manage.</div>
             </div>
 
-            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="btn-master-upsell">View Client Portal & Freelancer Business OS →</a>
+            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="btn-master-upsell">View Client Portal & Freelancer Business OS &rarr;</a>
         </section>
 
         <!-- LOGICAL FIVE-STEP INTEGRATED ECOSYSTEM LINK WHEEL FOOTER -->
         <section class="acl-seo-intro no-print">
     <h2>Build A Statement Of Work Faster</h2>
-    <p>This statement of work generator helps freelancers and service providers outline project scope, deliverables, timelines, responsibilities, and payment terms before client work begins.</p>
+    <p>This statement of work generator helps freelancers and service providers outline project scope, deliverables, timelines, revision rules, responsibilities, and payment terms before client work begins. Use it to create a simple SOW draft, choose the closest project type, edit the document preview, and print a cleaner client-ready version.</p>
 </section>
 <section class="acl-faq-section no-print" aria-label="Frequently Asked Questions">
     <h2>Frequently Asked Questions</h2>
     <div class="acl-faq-grid">
         <article class="acl-faq-item">
+            <h3>Is this statement of work generator free?</h3>
+            <p>Yes. You can create, edit, and print a simple SOW directly in your browser.</p>
+        </article>
+        <article class="acl-faq-item">
             <h3>What should a statement of work include?</h3>
-            <p>A statement of work usually includes scope, deliverables, timelines, responsibilities, payment terms, and approval steps.</p>
+            <p>A statement of work usually includes scope, deliverables, timelines, responsibilities, payment terms, revision rules, and approval steps.</p>
         </article>
         <article class="acl-faq-item">
             <h3>Can this help prevent scope creep?</h3>
-            <p>Yes. A clearer SOW makes boundaries, deliverables, and change requests easier to discuss.</p>
+            <p>Yes. A clearer SOW makes boundaries, deliverables, revisions, and change requests easier to discuss before work begins.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Can I edit the SOW before printing?</h3>
+            <p>Yes. The document preview is editable, so you can update names, deliverables, payment terms, milestones, and revision language.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Does this replace a contract?</h3>
+            <p>No. This tool helps draft project details, but you should review important client terms and legal requirements before using it professionally.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Which project types does it support?</h3>
+            <p>The presets cover fixed-price milestone work, monthly retainers, and hourly or time-and-materials projects.</p>
         </article>
     </div>
 </section>
 
         <footer class="ecosystem-footer">
-            <div class="footer-title">The Independent Creator Project Onboarding Lifecycle</div>
+                <div class="footer-title">Recommended Freelancer Workflow</div>
             <div class="footer-grid">
                 <a href="/free-nda-generator/" class="footer-link-card">
                     <span>Step 1</span>
@@ -792,57 +880,60 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
         const diagnosticBadge = document.getElementById('diagnostic-badge');
         const rowsBody = document.getElementById('ledger-rows-body');
         const computedTotalEl = document.getElementById('ledger-computed-total');
-        const wrapperPolicyTarget = document.getElementById('dynamic-policy-target-wrapper');
-        const insertionUiRow = document.getElementById('revision-insertion-ui');
+        const currencySelect = document.getElementById('currency-select');
+        const currencyHeading = document.getElementById('currency-heading');
+        const signatureToggle = document.getElementById('signature-toggle');
+        const signatureLines = document.getElementById('signature-lines');
 
         let selectedRevisionModeKey = '2rounds';
+        let selectedCurrencyCode = 'USD';
 
         // Predefined Core Matrix Layout Data Blocks
         const sowPresets = {
             fixed: {
-                deliverables: `<li>Phase 1: Deep data market validation audit tracking competitor metrics.</li>
-                               <li>Phase 2: 5 polished short-form video production draft assets.</li>
-                               <li>Phase 3: Final structural campaign launch blueprint configuration file.</li>`,
+                deliverables: `<li>Phase 1: Review goals, current assets, and competitor examples.</li>
+                               <li>Phase 2: Produce 5 polished short-form video draft assets.</li>
+                               <li>Phase 3: Deliver final campaign plan and publishing checklist.</li>`,
                 rows: `<tr>
-                        <td contenteditable="true">Phase 1 Discovery & Market Analysis Audit</td>
+                        <td contenteditable="true">Phase 1 Discovery & Planning</td>
                         <td class="col-amount" contenteditable="true" data-type="amount">500</td>
                        </tr>
                        <tr>
-                        <td contenteditable="true">Phase 2 Asset Production & Strategy Design</td>
+                        <td contenteditable="true">Phase 2 Asset Production & Review</td>
                         <td class="col-amount" contenteditable="true" data-type="amount">1000</td>
                        </tr>
                        <tr>
-                        <td contenteditable="true">Phase 3 Final Engineering Optimization & Delivery</td>
+                        <td contenteditable="true">Phase 3 Final Delivery</td>
                         <td class="col-amount" contenteditable="true" data-type="amount">1500</td>
                        </tr>`
             },
             retainer: {
-                deliverables: `<li>Ongoing Delivery: 4 optimized social asset files deployed weekly.</li>
-                               <li>Monthly Analysis: 1 performance audit reporting metric growth paths.</li>
-                               <li>Communication: 1 bi-weekly tactical optimization sync check.</li>`,
+                deliverables: `<li>Ongoing Delivery: 4 social content assets delivered weekly.</li>
+                               <li>Monthly Reporting: 1 performance summary with recommended next steps.</li>
+                               <li>Communication: 1 bi-weekly client check-in call or async update.</li>`,
                 rows: `<tr>
-                        <td contenteditable="Monthly Retainer Management Allocation Fees">Monthly Retainer Allocation Fee (Cycle 1)</td>
+                        <td contenteditable="true">Monthly Retainer Fee</td>
                         <td class="col-amount" contenteditable="true" data-type="amount">2500</td>
                        </tr>`
             },
             hourly: {
-                deliverables: `<li>Targeted platform software adjustments and template component creation.</li>
-                               <li>Ad-hoc technical optimization troubleshooting and consulting support.</li>`,
+                deliverables: `<li>Targeted project support, troubleshooting, and template updates.</li>
+                               <li>Ad-hoc consulting or production support requested by the client.</li>`,
                 rows: `<tr>
-                        <td contenteditable="true">Estimated Development Runway (Estimated: 40 Hours @ $75/hr)</td>
+                        <td contenteditable="true">Estimated Project Time (40 Hours @ $75/hr)</td>
                         <td class="col-amount" contenteditable="true" data-type="amount">3000</td>
                        </tr>
                        <tr>
-                        <td contenteditable="true">Maximum Project Cost Cap Limit (Strict Budget Cap Allocation)</td>
+                        <td contenteditable="true">Maximum Project Budget Cap</td>
                         <td class="col-amount" contenteditable="false" style="color:var(--paper-muted)">Noted</td>
                        </tr>`
             }
         };
 
         const policyTextBlocks = {
-            '2rounds': '<b>3. Revision Parameters.</b> Service Provider builds in up to two (2) separate rounds of constructive feedback processing at no extra charge. Any subsequent modification requests submitted outside these iterations will be processed at baseline agency time-and-materials values.',
-            'strict': '<b>3. Revision Parameters.</b> Service Provider builds in one (1) single strict round of structural design adjustment review. All change requests must be consolidated into a clear engineering brief. Additional rounds require a separate out-of-scope estimate.',
-            'none': '<b>3. Revision Parameters.</b> Deliverables are evaluated and finalized matching the requirements outline directly. This project structure features zero (0) included out-of-bounds revision iteration rounds. Ongoing edits require distinct commercial project pricing.'
+            '2rounds': '<b>3. Revision Policy.</b> Service Provider includes up to two (2) rounds of revision requests at no extra charge. Additional revision requests after those rounds may require a separate estimate and timeline adjustment.',
+            'strict': '<b>3. Revision Policy.</b> Service Provider includes one (1) consolidated revision round. Client must submit all requested changes together in one clear written note. Additional rounds require a separate estimate.',
+            'none': '<b>3. Revision Policy.</b> This project does not include revisions after final delivery unless the parties agree to a separate paid change request.'
         };
 
         // Real-Time Event Monitoring Core Loops
@@ -851,6 +942,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
 
         window.addEventListener('DOMContentLoaded', () => {
             applySowWorkflowPreset('fixed');
+            syncActiveRevisionSetting('2rounds');
         });
 
         function applySowWorkflowPreset(presetKey) {
@@ -879,7 +971,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                 diagnosticBadge.className = "diagnostic-msg warn";
             } else {
                 liveCountDisplay.textContent = totalBulletNodesCount;
-                diagnosticBadge.textContent = "✓ Deliverable criteria registered cleanly.";
+                diagnosticBadge.textContent = "Scope Clearly Defined.";
                 diagnosticBadge.className = "diagnostic-msg pass";
             }
         }
@@ -900,22 +992,18 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
             // Format monetary tracking value output systematically
             computedTotalEl.textContent = new Intl.NumberFormat('en-US', {
                 style: 'currency',
-                currency: 'USD'
+                currency: selectedCurrencyCode
             }).format(computationalRunningSumTotal);
         }
 
-        // Inline Structural Revision Policy Section Injector Methods
-        function injectRevisionPolicySection() {
-            insertionUiRow.style.display = 'none';
+        function syncCurrencySetting() {
+            selectedCurrencyCode = currencySelect.value;
+            currencyHeading.textContent = selectedCurrencyCode === 'CAD' ? 'CAN' : selectedCurrencyCode;
+            calculateLedgerFinancialTotalSum();
+        }
 
-            const outerBoxNode = document.createElement('div');
-            outerBoxNode.id = 'inserted-policy-clause-node';
-            outerBoxNode.className = 'doc-p';
-            outerBoxNode.setAttribute('contenteditable', 'true');
-            outerBoxNode.style.marginTop = '20px';
-
-            wrapperPolicyTarget.appendChild(outerBoxNode);
-            syncActiveRevisionSetting(selectedRevisionModeKey);
+        function toggleSignatureLines() {
+            signatureLines.hidden = !signatureToggle.checked;
         }
 
         function syncActiveRevisionSetting(modeKey) {
@@ -925,6 +1013,93 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
             if (targetContainerNode) {
                 targetContainerNode.innerHTML = policyTextBlocks[modeKey];
             }
+        }
+
+        function getCleanSowMarkupForPrint() {
+            calculateLedgerFinancialTotalSum();
+
+            const documentSource = document.getElementById('sow-sheet');
+            const documentClone = documentSource.cloneNode(true);
+
+            documentClone.removeAttribute('id');
+            documentClone.querySelectorAll('[contenteditable]').forEach((node) => {
+                node.removeAttribute('contenteditable');
+                node.removeAttribute('style');
+            });
+
+            return documentClone.innerHTML;
+        }
+
+        function printSowDocument() {
+            const printFrame = document.createElement('iframe');
+            printFrame.setAttribute('aria-hidden', 'true');
+            printFrame.style.position = 'fixed';
+            printFrame.style.right = '0';
+            printFrame.style.bottom = '0';
+            printFrame.style.width = '0';
+            printFrame.style.height = '0';
+            printFrame.style.border = '0';
+            printFrame.style.opacity = '0';
+
+            const printDocument = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <title> </title>
+                    <style>
+                        @page { size: letter; margin: 0.55in 0.55in 0.75in; }
+                        * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+                        html, body { background: #ffffff; color: #1e293b; margin: 0; min-height: auto; overflow: visible; padding: 0; }
+                        body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 14px; line-height: 1.55; }
+                        .print-sow { background: #ffffff; color: #1e293b; padding: 0; width: 100%; }
+                        .doc-title { color: #0f172a; font-size: 24px; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 36px; text-align: center; }
+                        .doc-section-title { border-bottom: 2px solid #e2e8f0; color: #0f172a; font-size: 13px; font-weight: 800; letter-spacing: 0.5px; margin: 24px 0 10px; padding-bottom: 4px; text-transform: uppercase; }
+                        .doc-p { margin-bottom: 14px; text-align: justify; }
+                        .doc-list { margin: 0 0 18px; padding-left: 20px; }
+                        .doc-list li { margin-bottom: 7px; }
+                        .ledger-table { border-collapse: collapse; margin: 14px 0 24px; width: 100%; }
+                        .ledger-table th { background: #f8fafc; border-bottom: 2px solid #e2e8f0; color: #475569; font-size: 11px; font-weight: 800; letter-spacing: 0.5px; padding: 10px 12px; text-align: left; text-transform: uppercase; }
+                        .ledger-table td { border-bottom: 1px solid #e2e8f0; padding: 12px; vertical-align: top; }
+                        .col-amount, .ledger-table th.col-amount { text-align: right; width: 130px; }
+                        .row-total-label { color: #0f172a; font-weight: 800; text-align: right; }
+                        .row-total-value { border-bottom: 3px double #0f172a !important; color: #0f172a; font-weight: 800; text-align: right; }
+                        .ecosystem-clause-box { background: #f8fafc; border-left: 4px solid #3b82f6; border-radius: 0 6px 6px 0; margin: 18px 0; padding: 14px; }
+                        .signature-lines { border-top: 1px solid #e2e8f0; display: grid; gap: 36px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 42px; padding-top: 30px; }
+                        .signature-block { color: #0f172a; font-size: 12px; }
+                        .signature-line { border-bottom: 1px solid #64748b; height: 38px; margin-bottom: 8px; }
+                        .signature-label { color: #64748b; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; }
+                        [hidden] { display: none !important; }
+                        b, strong { color: #0f172a; font-weight: 800; }
+                        .doc-p, .doc-list, .ledger-table, tr, th, td, .ecosystem-clause-box, .signature-lines { break-inside: avoid; page-break-inside: avoid; }
+                    </style>
+                </head>
+                <body>
+                    <main class="print-sow">${getCleanSowMarkupForPrint()}</main>
+                </body>
+                </html>
+            `;
+
+            const cleanupPrintFrame = () => {
+                if (printFrame.parentNode) {
+                    printFrame.remove();
+                }
+            };
+
+            printFrame.onload = () => {
+                setTimeout(() => {
+                    printFrame.contentWindow.document.title = ' ';
+                    printFrame.contentWindow.addEventListener('afterprint', cleanupPrintFrame, { once: true });
+                    printFrame.contentWindow.focus();
+                    printFrame.contentWindow.print();
+                    setTimeout(cleanupPrintFrame, 120000);
+                }, 0);
+            };
+
+            document.body.appendChild(printFrame);
+            printFrame.contentDocument.open();
+            printFrame.contentDocument.write(printDocument);
+            printFrame.contentDocument.close();
         }
     </script>
 <footer class="acl-shell-footer no-print">
@@ -944,3 +1119,4 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
 </footer>
 </body>
 </html>
+
