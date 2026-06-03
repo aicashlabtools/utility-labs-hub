@@ -11,9 +11,9 @@
         :root {
             --bg-dark: #070a12;
             --card-bg: #0e1320;
-            --border-color: #1c2638;
+            --border-color: #24405f;
             --text-main: #ffffff;
-            --text-muted: #64748b;
+            --text-muted: #a8bdd8;
             --neon-blue: #3b82f6;
             --neon-green: #10b981;
             --amber-warn: #f59e0b;
@@ -152,9 +152,10 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(59, 130, 246, 0.55);
             padding: 15px;
             border-radius: 8px;
+            box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.08);
         }
         .meta-input-group {
             display: flex;
@@ -165,11 +166,11 @@
             font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: #bcd3f0;
         }
         .meta-input-group input {
             background: var(--input-bg);
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(59, 130, 246, 0.42);
             color: white;
             padding: 8px 12px;
             border-radius: 6px;
@@ -195,16 +196,16 @@
             font-size: 12px;
             font-weight: 700;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: #bcd3f0;
             letter-spacing: 0.5px;
         }
         .textarea-input {
             width: 100%;
             height: 420px;
             background: var(--input-bg);
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(59, 130, 246, 0.55);
             border-radius: 8px;
-            color: #cbd5e1;
+            color: #f8fafc;
             padding: 15px;
             font-family: monospace;
             font-size: 13px;
@@ -226,7 +227,7 @@
         .mode-toggle-bar {
             display: flex;
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(59, 130, 246, 0.42);
             padding: 4px;
             border-radius: 6px;
         }
@@ -320,7 +321,7 @@
         }
         .hud-metric-card {
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(59, 130, 246, 0.45);
             border-radius: 8px;
             padding: 15px 25px;
             display: flex;
@@ -334,14 +335,14 @@
         }
         .hud-metric-label {
             font-size: 12px;
-            color: var(--text-muted);
+            color: #bcd3f0;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             line-height: 1.2;
         }
         .diagnostic-msg-box {
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(59, 130, 246, 0.45);
             border-radius: 8px;
             padding: 15px;
             display: flex;
@@ -531,7 +532,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
         <header class="tool-header">
             <div class="header-meta">Operational Summary Engine</div>
             <h1 class="header-title">Free Meeting Notes Formatter for Freelancers</h1>
-            <p class="header-subtitle">Instantly clean raw scratchpad ideas into high-end executive layouts. Select a client meeting context framework, type notes using rule-based tags, and copy clean formats immediately.</p>
+            <p class="header-subtitle">Turn messy meeting notes into a clean client summary with action items, decisions, and next steps. Copy the formatted version into email, project updates, or client reports.</p>
         </header>
 <section class="acl-quick-start no-print">
     <h2>Quick Start</h2>
@@ -581,7 +582,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                 <div class="scratchpad-container">
                     <div class="scratchpad-label-row">
                         <div class="scratchpad-title">Raw Meeting Scratchpad</div>
-                        <div style="font-size: 11px; color: var(--text-muted);">Use tags: <b>TODO:</b> or <b>Action:</b> for highlights</div>
+                        <div style="font-size: 11px; color: #cbd5e1;">Use tags: <b>TODO:</b>, <b>Action:</b>, or <b>Decision:</b> for highlights</div>
                     </div>
                     <textarea id="raw-notes-input" class="textarea-input" oninput="processWorkspaceRendering()"></textarea>
                 </div>
@@ -608,24 +609,24 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                 <div class="hud-metric-label">Identified<br>Action Items</div>
             </div>
             <div class="diagnostic-msg-box" id="live-diagnostic-badge">
-                Enter tasks explicitly to verify operational speed parameters.
+                Add TODO:, Action:, or Decision: tags to organize the summary.
             </div>
         </section>
 
         <!-- STRATEGIC ECOSYSTEM UPSELL DECK -->
         <section class="conversion-deck">
-            <div class="deck-badge">System Architecture Expansion</div>
+            <div class="deck-badge">Client Workflow Upgrade</div>
             <h3 class="deck-title">The Meeting Notes Formatter organizes a single meeting.</h3>
-            <p class="deck-subtitle">The free formatter tools clear out administrative friction instantly. The premium <b>Client Portal & Freelancer Business OS</b> provides the permanent operational core to track your complete project lifecycles, store historical document briefs, and maintain professional workspace boundaries continuously across long-term enterprise clients.</p>
+            <p class="deck-subtitle">The free formatter helps you clean up one meeting. The premium <b>Client Portal & Freelancer Business OS</b> helps you keep project history, client decisions, files, and scope changes organized across ongoing work.</p>
 
             <div class="value-matrix-grid">
-                <div class="value-bullet"><span>✓</span> <b>Centralized Command Hubs:</b> Move past static emails into structured client project pipelines.</div>
-                <div class="value-bullet"><span>✓</span> <b>Asset Retention Strategy:</b> Store every client specification and kickoff brief securely in one hub.</div>
-                <div class="value-bullet"><span>✓</span> <b>Lifecycle Onboarding:</b> Run new client accounts cleanly from intake through final sign-off parameters.</div>
-                <div class="value-bullet"><span>✓</span> <b>Scope Creep Tracking:</b> Document changing requests inside a persistent operational framework.</div>
+                <div class="value-bullet"><span>&#10003;</span> <b>Store Project History:</b> Keep meeting summaries and client updates in one place.</div>
+                <div class="value-bullet"><span>&#10003;</span> <b>Keep Project Files Organized:</b> Store specs, kickoff notes, and client briefs together.</div>
+                <div class="value-bullet"><span>&#10003;</span> <b>Track Client Decisions:</b> Keep approvals and decisions easier to find later.</div>
+                <div class="value-bullet"><span>&#10003;</span> <b>Document Scope Changes:</b> Record changing requests before they become unpaid work.</div>
             </div>
 
-            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="btn-master-upsell">View Client Portal & Freelancer Business OS →</a>
+            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="btn-master-upsell">View Client Portal & Freelancer Business OS &rarr;</a>
         </section>
 
         <!-- INTEGRATED RECURSIVE FUNCTION FUNNEL LINK FOOTER SYSTEM -->
@@ -644,11 +645,27 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
             <h3>Can I use this for client calls?</h3>
             <p>Yes. It is designed for client calls, project check-ins, planning sessions, and internal notes.</p>
         </article>
+        <article class="acl-faq-item">
+            <h3>Will my meeting notes be uploaded?</h3>
+            <p>No. Your notes are processed locally in your browser and are not sent to our servers.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Which tags does the formatter recognize?</h3>
+            <p>Use TODO:, Action:, and Decision: to separate tasks and decisions from general meeting notes.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Can I copy the formatted summary?</h3>
+            <p>Yes. You can copy a clean text version or an email-ready version for client updates and reports.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Can I use it for internal team notes?</h3>
+            <p>Yes. Switch between Client Summary View and Internal Notes View depending on how you want to frame the output.</p>
+        </article>
     </div>
 </section>
 
         <footer class="ecosystem-footer">
-            <div class="footer-title">The Independent Creator Project Onboarding Lifecycle</div>
+            <div class="footer-title">Recommended Freelancer Workflow</div>
             <div class="footer-grid">
                 <a href="/free-nda-generator/" class="footer-link-card">
                     <span>Step 1</span>
@@ -680,7 +697,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
     </div>
 
     <!-- Alert System Notifications UI Frame -->
-    <div id="toast-el" class="toast-notification">Formatted Text Copied Securely!</div>
+    <div id="toast-el" class="toast-notification">Formatted summary copied.</div>
 
     <script>
         // ==========================================
@@ -693,18 +710,18 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
         const presetsData = {
             kickoff: {
                 title: "Project Kickoff Summary",
-                internal: "Client rejected version B instantly. High emotional stake in minimalist colors.\nTODO: Deliver wireframe options.\nAction: Double check timeline margins.",
-                client: "Design direction refined based on stakeholder feedback.\nTODO: Finalize core wireframe interface structural choices.\nAction: Confirm milestone delivery timeline sequence adjustments."
+                internal: "Client rejected version B instantly. High emotional stake in minimalist colors.\nDecision: Keep the next design direction minimal and high contrast.\nTODO: Deliver wireframe options.\nAction: Double check timeline margins.",
+                client: "Design direction refined based on stakeholder feedback.\nDecision: Move forward with a simpler visual direction.\nTODO: Finalize core wireframe choices.\nAction: Confirm milestone delivery timeline adjustments."
             },
             retainer: {
                 title: "Retainer Performance Check-In",
-                internal: "Video engagement metrics are trailing flat. We are behind on upload pacing metrics.\nTODO: Shift distribution times.\nAction: Audit competitor thumbnail layout changes.",
-                client: "Core traffic channels stabilizing. Engineering adjustments optimized to capture broader distribution footprints.\nTODO: Adjust delivery distribution deployment times.\nAction: Implement secondary validation metric updates."
+                internal: "Video engagement metrics are trailing flat. We are behind on upload pacing.\nDecision: Test a new posting window for the next two weeks.\nTODO: Shift distribution times.\nAction: Audit competitor thumbnail layout changes.",
+                client: "Core traffic channels are stabilizing.\nDecision: Test a revised publishing schedule before the next check-in.\nTODO: Adjust delivery distribution times.\nAction: Review secondary performance metrics."
             },
             creative: {
                 title: "Creative Asset Review Record",
-                internal: "Client thinks the video hooks sound repetitive. Wants complete rewrite.\nTODO: Draft fresh hook lists.\nAction: Scrap previous copy drafts.",
-                client: "Content strategy optimized for maximum user attention span performance metrics.\nTODO: Revise hooks file script files for asset testing loops.\nAction: Re-align text asset distribution libraries."
+                internal: "Client thinks the video hooks sound repetitive. Wants a complete rewrite.\nDecision: Replace the current hook direction.\nTODO: Draft fresh hook lists.\nAction: Archive previous copy drafts.",
+                client: "Content direction reviewed for stronger opening hooks.\nDecision: Refresh the hook direction before final asset testing.\nTODO: Revise hook script files.\nAction: Re-align caption text with the new creative direction."
             }
         };
 
@@ -760,6 +777,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
             `;
 
             let processingActionItemsArray = [];
+            let processingDecisionItemsArray = [];
             let processingDiscussionLines = [];
 
             // Process line strings completely based on deterministic tags
@@ -776,13 +794,16 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                     // Strip matching anchor triggers to keep clean output lists
                     const pureActionText = checkedTrimmedStr.replace(/^(TODO:|ACTION:|FOLLOW UP:|NEXT STEP:)/i, '').trim();
                     processingActionItemsArray.push(pureActionText);
+                } else if (checkedTrimmedStr.toUpperCase().startsWith('DECISION:')) {
+                    const pureDecisionText = checkedTrimmedStr.replace(/^DECISION:/i, '').trim();
+                    processingDecisionItemsArray.push(pureDecisionText);
                 } else {
                     processingDiscussionLines.push(checkedTrimmedStr);
                 }
             });
 
             // Section 1: Discussion Records Blocks
-            htmlDocumentAccumulator += `<div class="doc-section-title">Operational Context & Summarized Discussions</div>`;
+            htmlDocumentAccumulator += `<div class="doc-section-title">Meeting Summary</div>`;
             if (processingDiscussionLines.length === 0) {
                 htmlDocumentAccumulator += `<div class="doc-p" style="color:var(--paper-muted); font-style:italic;">No contextual notes defined yet.</div>`;
             } else {
@@ -791,14 +812,25 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                 });
             }
 
-            // Section 2: Core Action Matrices Highlights
-            htmlDocumentAccumulator += `<div class="doc-section-title">Accountability Matrix & Immediate Next Steps</div>`;
+            htmlDocumentAccumulator += `<div class="doc-section-title">Decisions</div>`;
+            if (processingDecisionItemsArray.length === 0) {
+                htmlDocumentAccumulator += `<div class="doc-p" style="color:var(--paper-muted); font-style:italic;">No decisions tagged yet.</div>`;
+            } else {
+                htmlDocumentAccumulator += `<ul class="doc-ul">`;
+                processingDecisionItemsArray.forEach(decisionText => {
+                    htmlDocumentAccumulator += `<li>${decisionText}</li>`;
+                });
+                htmlDocumentAccumulator += `</ul>`;
+            }
+
+            // Section 3: Core Action Highlights
+            htmlDocumentAccumulator += `<div class="doc-section-title">Action Items & Next Steps</div>`;
             if (processingActionItemsArray.length === 0) {
-                htmlDocumentAccumulator += `<div class="doc-p" style="color:var(--paper-muted); font-style:italic;">No targeted operational triggers found in document scope.</div>`;
+                htmlDocumentAccumulator += `<div class="doc-p" style="color:var(--paper-muted); font-style:italic;">No action items tagged yet.</div>`;
             } else {
                 htmlDocumentAccumulator += `<ul class="doc-ul">`;
                 processingActionItemsArray.forEach(actText => {
-                    htmlDocumentAccumulator += `<li class="action-highlight-item">📌 [ ] ${actText}</li>`;
+                    htmlDocumentAccumulator += `<li class="action-highlight-item">[ ] ${actText}</li>`;
                 });
                 htmlDocumentAccumulator += `</ul>`;
             }
@@ -806,7 +838,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
             // Write straight down to active preview nodes
             canvasTarget.innerHTML = htmlDocumentAccumulator;
 
-            // Trigger structural analysis counts instantly
+            // Refresh the action item count.
             updateDiagnosticMetricsRail(processingActionItemsArray.length);
         }
 
@@ -814,10 +846,10 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
             liveCountNum.textContent = actionItemsCount;
 
             if (actionItemsCount === 0) {
-                diagnosticMessage.textContent = "⚠️ Optimization Check: No explicit task items found. Use tags like TODO: or Action: to structure responsibilities.";
+                diagnosticMessage.textContent = "No action items found yet. Use TODO: or Action: to mark next steps.";
                 diagnosticMessage.style.color = "var(--amber-warn)";
             } else {
-                diagnosticMessage.textContent = `✓ Processed structural check. ${actionItemsCount} accountability tasks locked down for verification.`;
+                diagnosticMessage.textContent = `${actionItemsCount} action items identified and added to the summary.`;
                 diagnosticMessage.style.color = "var(--neon-green)";
             }
         }
@@ -832,7 +864,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
             const headingLabel = presetsData[activeFrameworkKey].title;
 
             if (exportFormatType === 'email') {
-                // Pre-pend standardized agency structural formatting models
+                // Add a simple email wrapper.
                 processedClipboardStringText += `SUBJECT: Meeting Briefing: ${headingLabel} - ${valProject}\n\n`;
                 processedClipboardStringText += `Hi Team,\n\nHere is our structured summary review from our discussion today:\n\n`;
             }
@@ -847,6 +879,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
             // Re-parse structured content arrays for clean text alignment
             const textLines = rawNotesTextarea.value.split('\n');
             let discussions = [];
+            let decisions = [];
             let tasks = [];
 
             textLines.forEach(l => {
@@ -859,16 +892,22 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                     tLine.toUpperCase().startsWith('NEXT STEP:')
                 ) {
                     tasks.push(tLine.replace(/^(TODO:|ACTION:|FOLLOW UP:|NEXT STEP:)/i, '').trim());
+                } else if (tLine.toUpperCase().startsWith('DECISION:')) {
+                    decisions.push(tLine.replace(/^DECISION:/i, '').trim());
                 } else {
                     discussions.push(tLine);
                 }
             });
 
-            processedClipboardStringText += `OPERATIONAL CONTEXT:\n`;
+            processedClipboardStringText += `MEETING SUMMARY:\n`;
             if (discussions.length === 0) processedClipboardStringText += `- No context notes entered.\n`;
             discussions.forEach(d => { processedClipboardStringText += `${d}\n`; });
 
-            processedClipboardStringText += `\nACCOUNTABILITY MATRIX & NEXT STEPS:\n`;
+            processedClipboardStringText += `\nDECISIONS:\n`;
+            if (decisions.length === 0) processedClipboardStringText += `- No decisions tagged.\n`;
+            decisions.forEach(d => { processedClipboardStringText += `- ${d}\n`; });
+
+            processedClipboardStringText += `\nACTION ITEMS & NEXT STEPS:\n`;
             if (tasks.length === 0) processedClipboardStringText += `- No explicit tracking tasks tagged.\n`;
             tasks.forEach(t => { processedClipboardStringText += `[ ] ${t}\n`; });
 
