@@ -123,6 +123,15 @@
             opacity: 0;
             cursor: pointer;
         }
+        .upload-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .upload-actions button {
+            flex: 1 1 160px;
+        }
 
         /* Canvas Inspection Stage Map layout controls */
         .canvas-wrapper {
@@ -163,6 +172,21 @@
             flex-direction: column;
             gap: 12px;
             margin-top: 20px;
+        }
+        .empty-palette-state {
+            border: 1px dashed rgba(59, 130, 246, 0.45);
+            border-radius: 6px;
+            color: #a9bdd8;
+            font-size: 13px;
+            line-height: 1.55;
+            padding: 34px 26px;
+            text-align: center;
+        }
+        .empty-palette-state strong {
+            color: #ffffff;
+            display: block;
+            font-size: 15px;
+            margin-bottom: 6px;
         }
         .swatch-row {
             display: flex;
@@ -371,33 +395,74 @@
             color: var(--text-muted);
             font-size: 12px;
         }
+    
+/* AI Cash Lab shared tool shell integration */
+html, body { min-height: 100%; overflow-y: auto; }
+body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; scrollbar-color: #f59e0b #0b1020; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0b1020; }
+::-webkit-scrollbar-thumb { background: #f59e0b; border-radius: 999px; }
+.acl-shell-header,.acl-shell-footer,.tool-header,.acl-quick-start,.acl-privacy-trust,.ecosystem-footer,.acl-faq-section,.acl-seo-intro{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.acl-shell-header{background:rgba(11,15,25,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);margin:0!important;padding:0;position:sticky;top:0;width:100%;z-index:50}.acl-shell-inner{align-items:center;display:flex;gap:20px;height:64px;justify-content:space-between;margin:0 auto;max-width:1280px;padding:0 clamp(16px,4vw,32px);width:100%}.acl-brand{align-items:center;color:#fff;display:inline-flex;gap:12px;min-width:max-content;text-decoration:none}.acl-logo-frame{align-items:center;background:#111827;border:1px solid #1f2937;border-radius:8px;display:inline-flex;height:32px;justify-content:center;overflow:hidden;width:32px}.acl-logo-frame img{display:block;height:100%;object-fit:contain;width:100%}.acl-brand strong{color:#fff;display:block;font-size:12px;font-weight:800;letter-spacing:.08em;line-height:1;text-transform:uppercase}.acl-brand small{color:#64748b;display:block;font-size:9px;font-weight:700;letter-spacing:.08em;margin-top:3px;text-transform:uppercase}.acl-shell-nav{align-items:center;display:flex;flex:1;gap:clamp(16px,2.2vw,28px);justify-content:center;min-width:0}.acl-shell-nav a,.acl-back-link,.acl-footer-links a{color:#a1a1aa;font-size:12px;font-weight:700;text-decoration:none;transition:color .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease}.acl-shell-nav a:hover,.acl-footer-links a:hover{color:#fff}.acl-shell-nav .acl-premium-link{color:#f59e0b}.acl-back-link{border:1px solid rgba(245,158,11,.45);border-radius:8px;color:#f8fafc;padding:8px 12px;white-space:nowrap}.acl-back-link:hover{background:rgba(245,158,11,.12);box-shadow:0 0 16px rgba(245,158,11,.18);color:#fff}
+.container,.teleprompter-container{box-sizing:border-box;margin:0 auto!important;max-width:1120px!important;padding:0 clamp(16px,4vw,24px) 72px!important;width:100%!important}.tool-header{background:linear-gradient(135deg,rgba(245,158,11,.13),rgba(15,23,42,.94) 50%,rgba(17,24,39,.98));border:1px solid rgba(245,158,11,.28);border-radius:14px;box-sizing:border-box;margin:32px auto 20px!important;padding:clamp(28px,5vw,48px)!important;text-align:left!important}.header-meta{color:#f59e0b!important;font-size:12px!important;font-weight:800!important;letter-spacing:.16em!important;text-transform:uppercase!important}.header-title{color:#fff!important;font-size:clamp(2.2rem,5vw,3.8rem)!important;font-weight:500!important;letter-spacing:0!important;line-height:1.05!important;margin:14px 0 14px!important}.header-subtitle{color:#e5e7eb!important;font-size:clamp(1rem,2vw,1.25rem)!important;line-height:1.45!important;max-width:850px!important}
+.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#e5e7eb;display:flex;gap:18px;margin:0 auto 10px;max-width:1120px;overflow-x:auto;padding:14px 18px;width:min(calc(100% - 32px),1120px)}.acl-quick-start h2{color:#fff;flex:0 0 auto;font-size:14px;line-height:1;margin:0;white-space:nowrap}.acl-quick-start h2::after{color:#f59e0b;content:">";font-weight:900;margin-left:18px}.acl-quick-start ol{align-items:center;display:flex;gap:0;list-style:none;margin:0;padding:0}.acl-quick-start li{align-items:center;color:#dbeafe;display:flex;flex:0 0 auto;font-size:13px;font-weight:650;line-height:1.2;white-space:nowrap}.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:">";font-weight:900;margin:0 18px}.acl-privacy-trust{align-items:center;background:rgba(16,185,129,.08);border:1px solid rgba(34,197,94,.48);border-radius:10px;box-sizing:border-box;color:#d1fae5;display:flex;font-size:12px;font-weight:650;gap:8px;line-height:1.45;margin:10px auto 28px;max-width:1120px;padding:10px 14px;width:min(calc(100% - 32px),1120px)}.acl-privacy-trust span{color:#34d399;flex:0 0 auto;font-size:13px}.acl-privacy-trust p{margin:0}.privacy-strip{display:none!important}
+.acl-seo-intro,.acl-faq-section{background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(100%,1120px)}.acl-seo-intro h2,.acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 12px}.acl-seo-intro p{color:#a1a1aa;font-size:14px;line-height:1.65;margin:0}.acl-faq-grid{align-items:stretch;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;min-width:0;padding:14px}.acl-faq-item h3{color:#f8fafc;font-size:14px;line-height:1.35;margin:0 0 6px}.acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}.ecosystem-footer{align-self:stretch!important;background:#151820!important;border:1px solid #27272a!important;border-radius:14px!important;box-sizing:border-box!important;clear:both!important;color:#d4d4d8!important;display:grid!important;gap:22px!important;grid-template-columns:minmax(0,.85fr) minmax(320px,1.4fr)!important;margin:56px auto 0!important;max-width:1120px!important;padding:22px!important;width:min(100%,1120px)!important}.footer-title{color:#f59e0b!important;display:block!important;font-size:10px!important;font-weight:800!important;letter-spacing:.16em!important;margin:0!important;text-transform:uppercase!important}.footer-grid{align-content:start;display:grid!important;gap:10px!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;min-width:0!important}.footer-link-card{background:#0f141f!important;border:1px solid rgba(245,158,11,.25)!important;border-radius:9px!important;color:#f8fafc!important;display:block!important;font-size:12px!important;font-weight:700!important;line-height:1.25!important;min-width:0!important;overflow-wrap:anywhere!important;padding:12px!important;text-align:left!important;text-decoration:none!important;white-space:normal!important}.footer-link-card:hover{background:rgba(245,158,11,.12)!important;border-color:rgba(245,158,11,.6)!important;color:#f59e0b!important}.footer-link-card h4{color:inherit!important;font-size:13px!important;line-height:1.25!important;margin:0 0 4px!important}.footer-link-card p{color:#a1a1aa!important;font-size:12px!important;line-height:1.45!important;margin:0!important}.footer-link-card span{color:#f59e0b!important;display:block!important;font-size:10px!important;font-weight:800!important;margin-bottom:4px!important;text-transform:uppercase!important}
+.acl-shell-footer{background:#111827;border-top:1px solid rgba(255,255,255,.06);color:#64748b;margin:0!important;padding:40px 0;text-align:left!important;width:100%}.acl-footer-inner{align-items:start;display:grid;gap:28px;grid-template-columns:minmax(0,1fr) auto;margin:0 auto;max-width:1280px;padding:0 clamp(16px,4vw,32px);width:100%}.acl-footer-brand{display:flex;flex-direction:column;gap:8px}.acl-footer-brand strong{color:#fff;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.acl-footer-brand span{color:#64748b;font-size:11px;max-width:360px}.acl-footer-links{display:flex;flex-wrap:wrap;gap:18px;justify-content:flex-end}img,video,canvas,svg{max-width:100%}input,select,textarea,button{max-width:100%}@media(max-width:900px){.acl-shell-inner{align-items:flex-start;flex-direction:column;height:auto;padding-bottom:14px;padding-top:14px}.acl-shell-nav{justify-content:flex-start;overflow-x:auto;padding-bottom:4px;width:100%}.ecosystem-footer{grid-template-columns:1fr!important;width:min(calc(100% - 32px),1120px)!important}.footer-grid{grid-template-columns:1fr!important}.acl-footer-inner{grid-template-columns:1fr}.acl-footer-links{justify-content:flex-start}.acl-faq-grid{grid-template-columns:1fr}.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}.acl-privacy-trust{align-items:flex-start;width:calc(100% - 24px)}}
     </style>
 </head>
 <body>
+<header class="acl-shell-header no-print">
+    <div class="acl-shell-inner">
+        <a href="/" class="acl-brand">
+            <span class="acl-logo-frame"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab Logo"></span>
+            <span><strong>AI Cash Lab</strong><small>Utility Ecosystem</small></span>
+        </a>
+        <nav class="acl-shell-nav" aria-label="Tool categories">
+            <a href="/">Home</a>
+            <a href="/#creator-production">Production</a>
+            <a href="/#creator-monetization">Monetization</a>
+            <a href="/#product-launch">Launch</a>
+            <a href="/#freelancer-business">Freelancer</a>
+            <a href="/#premium-workspaces" class="acl-premium-link">Premium</a>
+        </nav>
+        <a href="/" class="acl-back-link">Back to All Tools</a>
+    </div>
+</header>
     <div class="container">
         
         <!-- Standardized Layout Header Module Context -->
         <header class="tool-header">
             <div class="header-meta">CREATOR PRODUCTION ASSET ENGINE</div>
             <h1 class="header-title">Extract Hex Colors From Image Online</h1>
-            <p class="header-subtitle">Upload your thumbnail layouts or reference branding assets to instantly pull clean dominant swatches, query precision loupe coordinates, and audit theme compatibility rules.</p>
+            <p class="header-subtitle">Upload a logo, thumbnail, screenshot, or brand image to pull clean HEX colors and build a reusable color palette.</p>
             
-            <div class="privacy-strip">
-                <span>🔒 Private by default: Image raster analytics compile 100% locally inside browser cache memory. Zero asset elements data vectors hit servers.</span>
-            </div>
-        </header>
+            </header>
+<section class="acl-quick-start no-print">
+    <h2>Quick Start</h2>
+    <ol>
+        <li>Input Data</li>
+        <li>Adjust Settings</li>
+        <li>Review Results</li>
+        <li>Take Action</li>
+    </ol>
+</section><section class="acl-privacy-trust no-print" aria-label="Privacy notice"><span aria-hidden="true">&#128274;</span><p>Private by default: Files and text are processed locally in your browser. Nothing is uploaded, stored, or sent to our servers.</p></section>
+
 
         <!-- Studio Main Operation Split Layout Grid -->
         <main class="workspace-grid">
             
-            <!-- COLUMN 1: INTERACTIVE IMAGE COMPLIANCE & PICKER CANVAS -->
+            <!-- COLUMN 1: IMAGE UPLOAD & PICKER CANVAS -->
             <section class="grid-card">
-                <div class="card-title">Image Target Workbench</div>
+                <div class="card-title">Upload Image</div>
                 
                 <div id="drop-zone" class="upload-deck">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
-                    <p>Drag & Drop Reference Image Asset Here or <b>Browse Files</b></p>
+                    <p>Drag and drop a logo, thumbnail, screenshot, or brand image here or <b>browse files</b>.</p>
                     <input type="file" id="file-uploader" accept="image/*">
+                </div>
+                <div class="upload-actions">
+                    <button id="btn-load-sample-image" class="btn-secondary" type="button">Load Sample Image</button>
+                    <button id="btn-clear-image" class="btn-secondary" type="button">Clear Image</button>
                 </div>
 
                 <div id="stage-wrapper" class="canvas-wrapper">
@@ -405,66 +470,101 @@
                     <canvas id="source-canvas"></canvas>
                 </div>
 
-                <div id="toast-notif" class="toast-banner">✓ Hex Code Saved to Clipboard Module System Tray!</div>
+                <div id="toast-notif" class="toast-banner">HEX color copied to clipboard.</div>
             </section>
 
-            <!-- COLUMN 2: ANALYTICAL SWATCH MATRIX & DEVELOPER EXPORTS -->
+            <!-- COLUMN 2: COLOR PALETTE OUTPUT -->
             <section class="grid-card">
-                <div class="card-title">Top 5 Dominant Color Swatches</div>
+                <div class="card-title">Top 5 Colors</div>
 
-                <!-- Strategic Brand Compatibility Verification Dashboard -->
+                <!-- Color Readability Snapshot -->
                 <div class="audit-grid">
                     <div class="audit-box">
-                        <span class="audit-lbl">AI Cash Lab Integration</span>
-                        <span id="audit-lab-theme" class="audit-val status-pass">Premium Ready ✓</span>
+                        <span class="audit-lbl">Brand Style Fit</span>
+                        <span id="audit-lab-theme" class="audit-val status-pass">Awaiting Image</span>
                     </div>
                     <div class="audit-box">
                         <span class="audit-lbl">Contrast Readability</span>
-                        <span id="audit-accessibility" class="audit-val status-pass">High Contrast ✓</span>
+                        <span id="audit-accessibility" class="audit-val status-pass">Awaiting Image</span>
                     </div>
                 </div>
 
-                <!-- Dynamic Extraction Layout Output Rows Holder -->
+                <!-- Extracted Color Rows -->
                 <div id="palette-injector" class="palette-matrix">
-                    <!-- Standard Fallback Placeholder View States -->
-                    <div style="text-align: center; padding: 40px; color: var(--text-muted); font-size: 13px; border: 1px dashed var(--border-color); border-radius: 6px;">
-                        Drop or select an image asset to pull deep hex structural layers instantly.
+                    <div class="empty-palette-state">
+                        <strong>No image selected yet.</strong>
+                        Upload an image to extract the top colors. Click any color to copy its HEX code.
                     </div>
                 </div>
 
                 <div id="export-actions-block" style="display: none; margin-top: 20px;">
                     <div style="display: flex; gap: 10px;">
                         <button id="btn-copy-all-hex" class="btn-secondary" style="flex: 1;">Copy All HEX Codes</button>
-                        <button id="btn-save-vault-palette" class="btn-blue" style="flex: 1;">Save Palette to Vault</button>
+                        <button id="btn-save-vault-palette" class="btn-blue" style="flex: 1;">Save Palette</button>
                     </div>
 
                     <div style="margin-top: 20px;">
-                        <span class="audit-lbl">Compiled Token CSS Variables</span>
+                        <span class="audit-lbl">Copyable Color CSS</span>
                         <div id="css-export-panel" class="code-panel"></div>
                     </div>
                 </div>
 
-                <!-- Dynamic No-Account Infinite Browser Local Storage Saving Vault Module Block -->
+                <!-- Saved Palettes -->
                 <div class="vault-container">
-                    <span class="audit-lbl" style="font-size: 11px; color: var(--text-main);">My Saved Brand Vault Palettes</span>
+                    <span class="audit-lbl" style="font-size: 11px; color: var(--text-main);">Saved Color Palettes</span>
                     <div id="vault-list-injector" class="vault-list">
-                        <!-- Filled Programmatically -->
                     </div>
                 </div>
             </section>
         </main>
 
         <!-- AUTOMATED CREATOR MANUFACTURING STEP DISTRIBUTION INTERNALS SYSTEM FOOTER -->
+<section class="acl-seo-intro no-print">
+    <h2>Pick Colors From Images In Your Browser</h2>
+    <p>This free image color picker extracts HEX colors from logos, thumbnails, screenshots, social graphics, and brand images. Upload an image to generate a simple palette you can reuse in Canva, websites, digital products, and content templates.</p>
+    <p>Use it as an image palette extractor, HEX color picker, and brand color finder when you want to match an existing visual style. You can copy one color, copy the full palette, or save palettes locally in your browser.</p>
+    <p>Image processing happens in your browser, so your files are not uploaded to our servers. The tool is designed for creators who need fast color ideas without opening a heavy design app.</p>
+</section>
+<section class="acl-faq-section no-print" aria-label="Frequently Asked Questions">
+    <h2>Frequently Asked Questions</h2>
+    <div class="acl-faq-grid">
+        <article class="acl-faq-item">
+            <h3>Is this image color picker free?</h3>
+            <p>Yes. You can upload an image, extract HEX colors, and copy the palette without signup.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Are my images uploaded?</h3>
+            <p>No. Image analysis runs locally in your browser, and your files are not sent to our servers.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Can I extract colors from a logo?</h3>
+            <p>Yes. Upload a logo to find its main brand colors and copy the HEX codes.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Can I use this for thumbnails and screenshots?</h3>
+            <p>Yes. The color picker works well for YouTube thumbnails, social graphics, screenshots, landing pages, and reference images.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>How do I copy a HEX color?</h3>
+            <p>After uploading an image, click Copy beside any color. You can also copy the full palette at once.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Can I save color palettes?</h3>
+            <p>Yes. Saved palettes stay in your browser storage so you can come back to them on the same device.</p>
+        </article>
+    </div>
+</section>
+
         <footer class="ecosystem-footer">
             <div class="footer-title">Other Creator Tools</div>
             <div class="footer-grid">
                 <a href="/short-form-hook-analyzer/" class="footer-link-card">
                     <h4>Short-Form Hook Analyzer</h4>
-                    <p>Test hook retention score vectors before production.</p>
+                    <p>Improve hooks before recording your next short-form video.</p>
                 </a>
                 <a href="/linkedin-post-formatter/" class="footer-link-card">
                     <h4>LinkedIn Post Formatter</h4>
-                    <p>Format LinkedIn posts with proper spacing, readability checks, and mobile preview truncation barriers.</p>
+                    <p>Format LinkedIn posts with clean spacing and a mobile preview.</p>
                 </a>
                 <a href="/instagram-line-break-generator/" class="footer-link-card">
                     <h4>Instagram Line Break Generator</h4>
@@ -472,7 +572,7 @@
                 </a>
                 <a href="/thumbnail-text-checker/" class="footer-link-card">
                     <h4>Thumbnail Text Checker</h4>
-                    <p>Audit title frame typographic structural legibility rules.</p>
+                    <p>Check whether thumbnail text is readable at a glance.</p>
                 </a>
             </div>
         </footer>
@@ -499,11 +599,19 @@
 
         const btnCopyAllHex = document.getElementById('btn-copy-all-hex');
         const btnSaveVaultPalette = document.getElementById('btn-save-vault-palette');
+        const btnLoadSampleImage = document.getElementById('btn-load-sample-image');
+        const btnClearImage = document.getElementById('btn-clear-image');
 
         const auditLabTheme = document.getElementById('audit-lab-theme');
         const auditAccessibility = document.getElementById('audit-accessibility');
 
         let currentActiveExtractedPalette = [];
+        const emptyPaletteMarkup = `
+            <div class="empty-palette-state">
+                <strong>No image selected yet.</strong>
+                Upload an image to extract the top colors. Click any color to copy its HEX code.
+            </div>
+        `;
 
         // Upload Framework Drag State Bindings
         ['dragenter', 'dragover'].forEach(eventName => {
@@ -524,29 +632,47 @@
         window.addEventListener('DOMContentLoaded', updateVaultDisplayViewTray);
 
         function handleImageSourceLoading(file) {
-            if (!file.type.match('image.*')) return alert('Please drop a standardized image asset file.');
+            if (!file.type.match('image.*')) return alert('Please choose an image file.');
             
             const reader = new FileReader();
             reader.onload = (event) => {
-                const img = new Image();
-                img.onload = () => {
-                    // Normalize standard workbench canvas rendering widths cleanly
-                    const targetScaleWidth = Math.min(img.width, 600);
-                    const scaleFactor = targetScaleWidth / img.width;
-                    canvas.width = targetScaleWidth;
-                    canvas.height = img.height * scaleFactor;
-                    
-                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                    stageWrapper.style.display = 'flex';
-                    exportActionsBlock.style.display = 'block';
-
-                    // Parse matrix layers 
-                    extractDominantColorLayersMatrix();
-                    setupLoupeTrackingContext(img);
-                };
-                img.src = event.target.result;
+                loadImageFromSource(event.target.result);
             };
             reader.readAsDataURL(file);
+        }
+
+        function loadImageFromSource(src) {
+            const img = new Image();
+            img.onload = () => {
+                const targetScaleWidth = Math.min(img.width, 600);
+                const scaleFactor = targetScaleWidth / img.width;
+                canvas.width = targetScaleWidth;
+                canvas.height = img.height * scaleFactor;
+                
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                stageWrapper.style.display = 'flex';
+                exportActionsBlock.style.display = 'block';
+
+                extractDominantColorLayersMatrix();
+                setupLoupeTrackingContext(img);
+            };
+            img.onerror = () => alert('The sample image could not be loaded.');
+            img.src = src;
+        }
+
+        function resetImagePicker() {
+            currentActiveExtractedPalette = [];
+            fileUploader.value = '';
+            stageWrapper.style.display = 'none';
+            exportActionsBlock.style.display = 'none';
+            paletteInjector.innerHTML = emptyPaletteMarkup;
+            cssExportPanel.textContent = '';
+            auditLabTheme.textContent = 'Awaiting Image';
+            auditLabTheme.className = 'audit-val status-pass';
+            auditAccessibility.textContent = 'Awaiting Image';
+            auditAccessibility.className = 'audit-val status-pass';
+            toastNotif.style.display = 'none';
         }
 
         // Color Analytics Vector Engine Configuration
@@ -577,18 +703,35 @@
             currentActiveExtractedPalette = [];
             paletteInjector.innerHTML = '';
 
-            // Pull Top 5 Dominant Color Arrays Profiles safely
-            const maximumDisplayCap = Math.min(sortedPixelsDataRows.length, 5);
-            for (let idx = 0; idx < maximumDisplayCap; idx++) {
-                const rgbRawTokens = sortedPixelsDataRows[idx].split(',');
-                const generatedHexValue = transformRgbToHexStr(parseInt(rgbRawTokens[0]), parseInt(rgbRawTokens[1]), parseInt(rgbRawTokens[2]));
+            for (const colorKey of sortedPixelsDataRows) {
+                const rgbRawTokens = colorKey.split(',').map(value => parseInt(value));
+                if (!isDistinctPaletteColor(rgbRawTokens[0], rgbRawTokens[1], rgbRawTokens[2])) continue;
+
+                const generatedHexValue = transformRgbToHexStr(rgbRawTokens[0], rgbRawTokens[1], rgbRawTokens[2]);
                 currentActiveExtractedPalette.push(generatedHexValue);
 
-                renderSwatchRowItemMarkup(generatedHexValue, idx);
+                if (currentActiveExtractedPalette.length === 5) break;
             }
+
+            currentActiveExtractedPalette.forEach((hexValue, idx) => renderSwatchRowItemMarkup(hexValue, idx));
 
             generateDeveloperCssVariablesStringOutput();
             runPremiumBrandAuditorEngine();
+        }
+
+        function isDistinctPaletteColor(r, g, b) {
+            return currentActiveExtractedPalette.every(existingHex => {
+                const existingRgb = parseHexToRgbValues(existingHex);
+                if (!existingRgb) return true;
+
+                const distance = Math.sqrt(
+                    Math.pow(existingRgb.r - r, 2) +
+                    Math.pow(existingRgb.g - g, 2) +
+                    Math.pow(existingRgb.b - b, 2)
+                );
+
+                return distance > 48;
+            });
         }
 
         function renderSwatchRowItemMarkup(hex, positionIndex) {
@@ -606,7 +749,7 @@
                         <option value="none">Assign Role</option>
                         <option value="bg" ${positionIndex === 0 ? 'selected' : ''}>Background</option>
                         <option value="accent1" ${positionIndex === 1 ? 'selected' : ''}>Primary Accent</option>
-                        <option value="accent2" ${positionIndex === 2 ? 'selected' : ''}>Neon Secondary</option>
+                        <option value="accent2" ${positionIndex === 2 ? 'selected' : ''}>Secondary Accent</option>
                         <option value="text" ${positionIndex === 3 ? 'selected' : ''}>Text Contrast</option>
                         <option value="muted" ${positionIndex === 4 ? 'selected' : ''}>Muted Tone</option>
                     </select>
@@ -693,7 +836,7 @@
 
             // Match exact brand styling configurations
             if (containsVibrantNeonAccent) {
-                auditLabTheme.textContent = "Premium Ready ✓";
+                auditLabTheme.textContent = "Bright Palette";
                 auditLabTheme.className = "audit-val status-pass";
             } else {
                 auditLabTheme.textContent = "Muted Profile";
@@ -701,7 +844,7 @@
             }
 
             if (containsHighContrastWhiteText || containsVibrantNeonAccent) {
-                auditAccessibility.textContent = "High Contrast ✓";
+                auditAccessibility.textContent = "High Contrast";
                 auditAccessibility.className = "audit-val status-pass";
             } else {
                 auditAccessibility.textContent = "Low Contrast Warning";
@@ -746,16 +889,22 @@
             
             // Pulse visual button context changes
             const originalText = btnSaveVaultPalette.textContent;
-            btnSaveVaultPalette.textContent = "Vault Saved ✓";
+            btnSaveVaultPalette.textContent = "Palette Saved";
             setTimeout(() => { btnSaveVaultPalette.textContent = originalText; }, 1500);
         });
+
+        btnLoadSampleImage.addEventListener('click', () => {
+            loadImageFromSource('/assets/ai-cash-lab-logo-sample.png');
+        });
+
+        btnClearImage.addEventListener('click', resetImagePicker);
 
         function updateVaultDisplayViewTray() {
             const existingVaultCollectionArray = JSON.parse(localStorage.getItem('ai-lab-palette-vault') || '[]');
             vaultListInjector.innerHTML = '';
 
             if (existingVaultCollectionArray.length === 0) {
-                vaultListInjector.innerHTML = `<span style="font-size: 12px; color: var(--text-muted); padding: 10px;">No saved palettes found in your local vault.</span>`;
+                vaultListInjector.innerHTML = `<span style="font-size: 12px; color: var(--text-muted); padding: 10px;">No saved palettes yet.</span>`;
                 return;
             }
 
@@ -773,7 +922,7 @@
                     ${swatchesMarkupBuffer}
                     <div style="display: flex; gap: 8px;">
                         <button class="btn-secondary" style="padding: 4px 8px; font-size: 10px;" onclick="loadVaultPaletteBackToWorkspace(${savedRecordIdx})">Load</button>
-                        <button class="btn-secondary" style="padding: 4px 8px; font-size: 10px; color: var(--neon-red);" onclick="deleteVaultPaletteRecord(${savedRecordIdx})">Wipe</button>
+                        <button class="btn-secondary" style="padding: 4px 8px; font-size: 10px; color: var(--neon-red);" onclick="deleteVaultPaletteRecord(${savedRecordIdx})">Delete</button>
                     </div>
                 `;
                 vaultListInjector.appendChild(vaultRow);
@@ -805,7 +954,7 @@
                 toastNotif.style.display = 'block';
                 setTimeout(() => { toastNotif.style.display = 'none'; }, 2000);
             }).catch(err => {
-                alert('Clipboard interaction error: ' + err);
+                alert('Copy failed. Please try again or copy the HEX code manually. ' + err);
             });
         };
 
@@ -825,5 +974,21 @@
             } : null;
         }
     </script>
+<footer class="acl-shell-footer no-print">
+    <div class="acl-footer-inner">
+        <div class="acl-footer-brand">
+            <strong>AI Cash Lab Tools</strong>
+            <span>Simple business tools for freelancers, creators, and digital operators.</span>
+        </div>
+        <div class="acl-footer-links">
+            <a href="/">All Tools</a>
+            <a href="/">Free Tools</a>
+            <a href="/creator-utilities/">Creator Utilities</a>
+            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
+            <a href="mailto:support@aicashlabtools.com">Contact</a>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
+
