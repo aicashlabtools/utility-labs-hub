@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Profit Calculator | Estimate Digital Product Margin</title>
-    
+
     <meta name="description" content="Calculate digital product revenue, costs, fees, taxes, net profit, margin, and break-even sales volume.">
     <meta name="keywords" content="product profit calculator, digital product unit economics, gumroad profit margin, cpa calculator, affiliate payout estimator">
-    
+
     <style>
         :root {
             --bg-main: #0b0d11;
@@ -53,11 +53,11 @@
         .form-label-row { display: flex; justify-content: space-between; align-items: center; }
         label { font-size: 0.85rem; font-weight: 600; color: #e2e8f0; }
         .label-val { color: var(--text-main); font-weight: 700; font-size: 0.95rem; }
-        
-        input[type="range"] { 
-            width: 100%; 
-            accent-color: var(--accent-yellow); 
-            background: var(--bg-input); 
+
+        input[type="range"] {
+            width: 100%;
+            accent-color: var(--accent-yellow);
+            background: var(--bg-input);
             border: 1px solid var(--border-color);
             height: 6px;
             border-radius: 3px;
@@ -73,7 +73,7 @@
         .ledger-box .val { font-size: 1.5rem; font-weight: 900; }
 
         .status-badge {
-            text-align: center; padding: 12px; border-radius: 8px; font-weight: 900; 
+            text-align: center; padding: 12px; border-radius: 8px; font-weight: 900;
             text-transform: uppercase; letter-spacing: 2px; font-size: 1rem;
             transition: all 0.3s ease;
         }
@@ -421,10 +421,10 @@ input, select, textarea, button {
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
 .acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
 .acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
-.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start h2::after{color:#f59e0b;content:">";font-weight:900;margin-left:18px}
 .acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
 .acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
-.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:">";font-weight:900;margin:0 18px}
 @media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
 .acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
@@ -660,11 +660,11 @@ input, select, textarea, button {
     const outVerdict = document.getElementById('out-verdict');
 
     const coreEngineTriggers = [
-        inputPrice, inputVolume, inputFeePct, inputFeeFixed, 
-        inputAffShare, inputAffComm, inputPaidShare, inputCpa, 
+        inputPrice, inputVolume, inputFeePct, inputFeeFixed,
+        inputAffShare, inputAffComm, inputPaidShare, inputCpa,
         inputRefund, inputFixedCosts
     ];
-    
+
     const cashFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
     const cashCentsFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 });
 
@@ -698,24 +698,24 @@ input, select, textarea, button {
         // Advanced Economic Architecture Calculations
         const grossMonthlyRevenue = price * volume;
         const refundLoss = grossMonthlyRevenue * refundRate;
-        
+
         // Effective gross after instant refunds
         const platformFeeTotal = (grossMonthlyRevenue * platformFeePct) + (volume * platformFeeFixed);
-        
+
         const totalAffiliateSalesVolume = volume * affiliateSharePct;
         const affiliatePayoutTotal = totalAffiliateSalesVolume * (price * affiliateCommPct);
-        
+
         const totalPaidSalesVolume = volume * paidSharePct;
         const paidAcquisitionTotal = totalPaidSalesVolume * cpa;
 
         // Cumulative structural leaks pipeline
         const totalVariableExpenses = refundLoss + platformFeeTotal + affiliatePayoutTotal + paidAcquisitionTotal;
         const totalMonthlyTakeHome = grossMonthlyRevenue - totalVariableExpenses - fixedMonthlyCosts;
-        
+
         // Per unit diagnostics math
         const avgVariableCostPerUnit = volume > 0 ? (totalVariableExpenses / volume) : 0;
         const netProfitPerUnit = price - avgVariableCostPerUnit - (volume > 0 ? (fixedMonthlyCosts / volume) : 0);
-        
+
         const profitMarginPercentage = grossMonthlyRevenue > 0 ? ((totalMonthlyTakeHome / grossMonthlyRevenue) * 100) : 0;
 
         // Break Even math (Contribution Margin per individual item sold basis)
@@ -823,5 +823,3 @@ input, select, textarea, button {
 </footer>
 </body>
 </html>
-
-

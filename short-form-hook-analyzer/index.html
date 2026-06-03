@@ -381,10 +381,10 @@ input, select, textarea, button {
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
 .acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
 .acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
-.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start h2::after{color:#f59e0b;content:">";font-weight:900;margin-left:18px}
 .acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
 .acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
-.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:">";font-weight:900;margin:0 18px}
 @media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
 .acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
@@ -433,10 +433,10 @@ input, select, textarea, button {
 
 <!-- Main Workspace -->
     <main class="w-full max-w-6xl mx-auto px-6 py-8 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
+
         <!-- Left Workspace: Dual Console (Input & Controls) -->
         <div class="lg:col-span-5 space-y-6">
-            
+
             <!-- Tab Switching System -->
             <div class="bg-[#111827] p-1.5 rounded-xl border premium-border grid grid-cols-2 gap-2 text-center text-xs font-medium">
                 <button id="tabGenerate" class="bg-blue-600 text-white py-2 px-3 rounded-lg transition-all focus:outline-none">
@@ -449,7 +449,7 @@ input, select, textarea, button {
 
             <!-- Dynamic Input Card -->
             <section class="bg-[#111827] p-6 rounded-xl border premium-border space-y-5">
-                
+
                 <!-- GENERATOR CONTROLS -->
                 <div id="panelGenerate" class="space-y-4">
                     <div>
@@ -506,7 +506,7 @@ input, select, textarea, button {
 
         <!-- Right Workspace: Interactive Terminal / Output Matrix -->
         <div class="lg:col-span-7 space-y-6">
-            
+
             <!-- ANALYZER VIEW COMPONENT -->
             <div id="viewAnalyzer" class="hidden space-y-4">
                 <div class="grid grid-cols-2 gap-4">
@@ -621,7 +621,7 @@ input, select, textarea, button {
             const panelAnalyze = document.getElementById('panelAnalyze');
             const viewGenerator = document.getElementById('viewGenerator');
             const viewAnalyzer = document.getElementById('viewAnalyzer');
-            
+
             const topicInput = document.getElementById('topicInput');
             const tonePreset = document.getElementById('tonePreset');
             const btnGenerate = document.getElementById('btnGenerate');
@@ -635,7 +635,7 @@ input, select, textarea, button {
             const scoreBar = document.getElementById('scoreBar');
             const potentialTier = document.getElementById('potentialTier');
             const analyzerOutput = document.getElementById('analyzerOutput');
-            
+
             const favoritesList = document.getElementById('favoritesList');
             const btnClearFavorites = document.getElementById('btnClearFavorites');
             const exampleHookButtons = document.querySelectorAll('.example-hook-btn');
@@ -734,7 +734,7 @@ input, select, textarea, button {
                 frameworks.forEach((fw, idx) => {
                     let formatted = fw.template.replace('{X}', `<span class="text-blue-400 font-semibold">${topic}</span>`);
                     let plainText = fw.template.replace('{X}', topic);
-                    
+
                     // Apply tone structural modifiers
                     formatted = `${mods.prefix}${formatted}${mods.suffix}`;
                     plainText = `${mods.prefix}${plainText}${mods.suffix}`;
@@ -777,7 +777,7 @@ input, select, textarea, button {
             btnAnalyzeHook.addEventListener('click', function() {
                 const text = existingHookInput.value.trim();
                 if(!text) return;
-                
+
                 // Diagnostic Calculation Framework
                 let score = 35; // Baseline
                 if(text.length > 20 && text.length < 75) score += 25; // Length balance
@@ -789,7 +789,7 @@ input, select, textarea, button {
                 // Update UI Display Elements
                 scoreMetric.innerText = `${score}%`;
                 scoreBar.style.width = `${score}%`;
-                
+
                 if (score > 85) {
                     potentialTier.innerText = "High-Velocity (Tier 1)";
                     potentialTier.className = "text-xl font-bold text-emerald-400 mt-2";
@@ -900,6 +900,3 @@ input, select, textarea, button {
 </footer>
 </body>
 </html>
-
-
-

@@ -270,7 +270,7 @@
         .footer-link-card:hover { transform: translateY(-2px); border-color: var(--neon-blue); }
         .footer-link-card h4 { margin: 0 0 8px 0; color: white; font-size: 14px; }
         .footer-link-card p { margin: 0; color: var(--text-muted); font-size: 12px; }
-    
+
 /* AI Cash Lab shared tool shell integration */
 html, body { min-height: 100%; overflow-y: auto; }
 body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; scrollbar-color: #f59e0b #0b1020; }
@@ -304,13 +304,13 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
     </div>
 </header>
     <div class="teleprompter-container">
-        
+
         <!-- Premium Header Match -->
         <header class="tool-header">
             <div class="header-meta">CREATOR PRODUCTION TOOL</div>
             <h1 class="header-title">Script & Teleprompter Studio</h1>
             <p class="header-subtitle">Analyze your pacing, estimate reading time, and record smooth short-form videos with a distraction-free layout.</p>
-            
+
             <!-- Privacy Strip Entry -->
             </header>
 <section class="acl-quick-start no-print">
@@ -332,11 +332,11 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
 
         <!-- MAIN UTILITY ENGINE -->
         <main class="workspace">
-            
+
             <!-- VIEW STATE 1: SETUP PANEL -->
             <section id="setup-panel" class="grid-card">
                 <div class="card-title">Prepare Your Script</div>
-                
+
                 <!-- Live Analytical Metadata Counter Row -->
                 <div class="meta-counter-row">
                     <div class="counter-box">
@@ -354,7 +354,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                 </div>
 
                 <textarea id="script-input" placeholder="Paste your short-form video script or hook here to instantly analyze timing metrics..."></textarea>
-                
+
                 <div class="setup-controls">
                     <button id="start-button" class="btn-green">Launch Teleprompter</button>
                 </div>
@@ -362,14 +362,14 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
 
             <!-- VIEW STATE 2: ACTIVE RUNTIME DISPLAY PANEL -->
             <section id="production-panel" class="grid-card" style="display: none;">
-                
+
                 <!-- Advanced Control Dashboard -->
                 <div class="dashboard-controls">
                     <div class="control-group">
                         <label>Speed: <input type="range" id="speed-control" min="1" max="10" value="3"></label>
                         <label>Font: <input type="range" id="size-control" min="24" max="80" value="42">px</label>
                     </div>
-                    
+
                     <div class="control-group">
                         <button id="toggle-eyeline" class="btn-toggle">Show Eyeline Guide</button>
                         <button id="flip-button" class="btn-toggle">Mirror Mode</button>
@@ -386,14 +386,14 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                 <div class="viewport-box" id="viewport-box">
                     <!-- Dynamic Countdown Overlay -->
                     <div id="countdown-overlay" class="countdown-overlay" style="display: none;">3</div>
-                    
+
                     <!-- Eyeline Guide Layer Line -->
                     <div id="eyeline-guide" class="eyeline-guide-layer" style="display: none;"></div>
-                    
+
                     <!-- Scrolling Canvas Box -->
                     <div id="teleprompter-canvas" class="teleprompter-canvas"></div>
                 </div>
-                
+
                 <div class="shortcut-tip-strip">
                     Tip: Press [Spacebar] to Play/Pause - [Up / Down] arrows adjust scroll speed instantly.
                 </div>
@@ -505,7 +505,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
         scriptInput.addEventListener('input', () => {
             const textStr = scriptInput.value.trim();
             const metrics = calculateMetrics(textStr);
-            
+
             countWords.textContent = metrics.words;
             countChars.textContent = metrics.chars;
             countTime.textContent = formatReadTime(metrics.seconds);
@@ -515,10 +515,10 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
             if (!text) return { words: 0, chars: 0, seconds: 0 };
             const wordArr = text.split(/\s+/).filter(w => w.length > 0);
             const wordsCount = wordArr.length;
-            
+
             // Base creator speech velocity assumption framework index (150 words per minute average metric)
             const readingTimeSec = Math.ceil((wordsCount / 150) * 60);
-            
+
             return {
                 words: wordsCount,
                 chars: text.length,
@@ -586,7 +586,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
         // 3. Playback Runtime Loop Scroller Engines
         function scrollAnimatorLoop() {
             if (!isPlaying) return;
-            
+
             const speedRate = parseFloat(speedControl.value) * 0.35;
             currentScrollPos += speedRate;
             teleprompterCanvas.scrollTop = currentScrollPos;
@@ -658,7 +658,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
 
         editButton.addEventListener('click', () => {
             pauseScrollEngine();
-            
+
             // Return to dashboard configuration view state
             setupPanel.style.display = 'block';
             productionPanel.style.display = 'none';
@@ -704,5 +704,3 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
 </footer>
 </body>
 </html>
-
-

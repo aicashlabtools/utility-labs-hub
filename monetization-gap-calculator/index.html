@@ -331,6 +331,8 @@ input, select, textarea, button {
 }
 </style>
 <style id="acl-global-tool-polish">
+.acl-privacy-trust{align-items:center;background:rgba(16,185,129,.08);border:1px solid rgba(34,197,94,.48);border-radius:10px;box-sizing:border-box;color:#d1fae5;display:flex;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:12px;font-weight:650;gap:8px;line-height:1.45;margin:10px auto 20px;max-width:1120px;padding:10px 14px;width:min(calc(100% - 32px),1120px)}.acl-privacy-trust span{color:#34d399;flex:0 0 auto;font-size:13px}.acl-privacy-trust p{margin:0}@media (max-width:700px){.acl-privacy-trust{align-items:flex-start;margin-top:10px;width:calc(100% - 24px)}}
+
 .acl-tool-hero,.acl-quick-start{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-left:auto;margin-right:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
 .acl-tool-hero{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(17,24,39,.96));border:1px solid rgba(245,158,11,.22);border-radius:14px;color:#fff;margin-top:40px;padding:clamp(24px,4vw,38px)}
 .acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
@@ -338,10 +340,10 @@ input, select, textarea, button {
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
 .acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
 .acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
-.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start h2::after{color:#f59e0b;content:">";font-weight:900;margin-left:18px}
 .acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
 .acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
-.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:">";font-weight:900;margin:0 18px}
 @media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
 .acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
@@ -386,9 +388,11 @@ input, select, textarea, button {
             <li>Take Action</li>
     </ol>
 </section>
+<section class="acl-privacy-trust no-print" aria-label="Privacy notice"><span aria-hidden="true">&#128274;</span><p>Private by default: Your inputs stay in your browser and are not saved or sent to our servers.</p></section>
+
 <!-- Main Content Grid -->
     <main class="w-full max-w-6xl mx-auto px-6 py-10 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
+
         <!-- Left Panel: Audience & Infrastructure Inputs -->
         <section class="lg:col-span-5 bg-[#111827] p-6 rounded-xl border premium-border space-y-6">
             <div>
@@ -427,7 +431,7 @@ input, select, textarea, button {
                 <div>
                     <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1.5">Offer Checklist</label>
                     <p class="text-[11px] text-slate-500 mb-3">Check the revenue pieces you already have live:</p>
-                    
+
                     <div class="space-y-3" id="ladderChecklist">
                         <label class="flex items-start space-x-3 text-xs text-slate-300 cursor-pointer select-none">
                             <input type="checkbox" id="checkLead" value="20" class="ladder-checkbox mt-0.5 rounded bg-slate-950 border-slate-800 text-amber-600 focus:ring-0 w-4 h-4 shrink-0 transition-all" checked>
@@ -464,14 +468,14 @@ input, select, textarea, button {
 
         <!-- Right Panel: Dynamic Diagnostic Metrics & Workflow Engine -->
         <section class="lg:col-span-7 space-y-6">
-            
+
             <!-- Hero Card: subscriber requirement comparison -->
             <div class="bg-[#111827] border border-amber-900/30 p-6 rounded-xl accent-glow-amber space-y-4">
                 <div>
                     <span class="text-[10px] font-bold text-amber-500 uppercase tracking-wider block">How Much Traffic Do You Really Need?</span>
                     <h2 class="text-md font-bold text-white mt-0.5">How much traffic do you actually need to clear your annual goals?</h2>
                 </div>
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
                     <div class="p-4 bg-slate-950/40 rounded-lg border premium-border">
                         <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block">At Your Current Subscriber Value:</span>
@@ -673,7 +677,7 @@ input, select, textarea, button {
                 lblRpsTarget.innerText = `$${targetMonthlyRps.toFixed(2)}/mo`;
 
                 // 3. Compare subscriber needs at current and stronger LTV benchmarks.
-                let targetLtvBenchmark = 50; 
+                let targetLtvBenchmark = 50;
                 if (baselineUserLtv >= 50) targetLtvBenchmark = 100;
                 if (baselineUserLtv >= 100) targetLtvBenchmark = baselineUserLtv * 1.5;
 

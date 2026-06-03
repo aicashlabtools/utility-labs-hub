@@ -340,10 +340,10 @@ input, select, textarea, button {
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
 .acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
 .acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
-.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start h2::after{color:#f59e0b;content:">";font-weight:900;margin-left:18px}
 .acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
 .acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
-.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:">";font-weight:900;margin:0 18px}
 @media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
 .acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
@@ -392,7 +392,7 @@ input, select, textarea, button {
 
 <!-- Main Content Grid -->
     <main class="w-full max-w-6xl mx-auto px-6 py-10 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
+
         <!-- Left Panel: Input Architecture -->
         <section class="lg:col-span-5 bg-[#111827] p-6 rounded-xl border premium-border space-y-5">
             <div>
@@ -453,7 +453,7 @@ input, select, textarea, button {
 
         <!-- Right Panel: Diagnostics & Analytical Outputs -->
         <section class="lg:col-span-7 space-y-6">
-            
+
             <!-- Strategic Feasibility Dashboard Block -->
             <div class="bg-[#111827] border premium-border p-6 rounded-xl accent-glow-amber space-y-5">
                 <div class="flex justify-between items-center">
@@ -616,7 +616,7 @@ input, select, textarea, button {
                 // Run Segmented Daily Cadence Modifiers Split
                 const unitsPerDayVelocity = (netUnitsRequiredToClear / daysDuration).toFixed(1);
                 const trafficPerDayVelocity = Math.ceil(mathematicalTotalTrafficNeeded / daysDuration);
-                
+
                 // Content distribution push density estimations formulas parameters
                 let distributionPushAssetCountString = "Maintain warm launch reminders";
                 if (deficitRatio >= 0.5) {
@@ -629,7 +629,7 @@ input, select, textarea, button {
                 outUnitsNeeded.innerText = `${netUnitsRequiredToClear.toLocaleString()} Units`;
                 outRequiredConvRate.innerText = `Needed from current ${audienceConfig.label.toLowerCase()}: ${(impliedRequiredConvRate * 100).toFixed(1)}%`;
                 outTrafficStatusLabel.innerText = `Required ${audienceConfig.name}: ${mathematicalTotalTrafficNeeded.toLocaleString()}`;
-                
+
                 outDailySales.innerText = `${unitsPerDayVelocity} units`;
                 outDailyTraffic.innerText = `${trafficPerDayVelocity.toLocaleString()} ${audienceConfig.dailyLabel}`;
                 outDailyPush.innerText = distributionPushAssetCountString;
@@ -637,7 +637,7 @@ input, select, textarea, button {
                 // Execute Feasibility Logic Condition Boundaries Mapping Layout Matrix
                 let badgeText = "Launch Ready";
                 let badgeStyles = "bg-emerald-950/50 text-emerald-400 border-emerald-800/60";
-                
+
                 if (deficitRatio >= 0.5) {
                     badgeText = "Major Gap";
                     badgeStyles = "bg-red-950/50 text-red-400 border-red-800/60";
@@ -665,7 +665,7 @@ input, select, textarea, button {
 
             function generateChecklistOutputs(status, days, audienceConfig, gap, deficitRatio) {
                 let checkItemsHTML = [];
-                
+
                 // Add Standard Base Requirements Metrics Arrays
                 checkItemsHTML.push(`Set up the checkout page, offer promise, and fulfillment links before launch week starts.`);
                 checkItemsHTML.push(`Map the ${days}-day launch calendar around the opening push, objection handling, and closing reminders.`);
@@ -714,4 +714,3 @@ input, select, textarea, button {
 </footer>
 </body>
 </html>
-

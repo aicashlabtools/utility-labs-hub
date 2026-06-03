@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing Strategy Calculator | Compare Offer Prices and Profit</title>
-    
+
     <!-- SEO Architecture -->
     <meta name="description" content="Compare pricing options, margin, conversion assumptions, and revenue scenarios to choose a stronger product or service price.">
     <meta name="keywords" content="pricing strategy calculator, digital product revenue, gumroad pricing calculator, conversion rate calculator, traffic gap calculator">
-    
+
     <style>
         :root {
             --bg-main: #0b0d11;
@@ -116,7 +116,7 @@
         }
         .quick-start h2::after {
             color: var(--accent-yellow);
-            content: "\2192";
+            content:">";
             font-weight: 900;
             margin-left: 18px;
         }
@@ -142,7 +142,7 @@
         }
         .quick-start li:not(:last-child)::after {
             color: var(--accent-yellow);
-            content: "\2192";
+            content:">";
             font-weight: 900;
             margin: 0 18px;
         }
@@ -640,10 +640,10 @@ input, select, textarea, button {
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
 .acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
 .acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
-.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start h2::after{color:#f59e0b;content:">";font-weight:900;margin-left:18px}
 .acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
 .acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
-.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:">";font-weight:900;margin:0 18px}
 @media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
 .acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
@@ -887,7 +887,7 @@ input, select, textarea, button {
 
         const projectedSales = traffic * convPct;
         const projectedRevenue = projectedSales * price;
-        
+
         const goalDiff = goal - projectedRevenue;
         const targetDailyPrice = goal / 30.4;
 
@@ -901,14 +901,14 @@ input, select, textarea, button {
         tipConv.textContent = `${(convPct * 100).toFixed(1)}% Conversion`;
         tipTraffic.textContent = `${traffic.toLocaleString()} Monthly Visitors`;
         tipResult.textContent = `$${Math.round(projectedRevenue).toLocaleString()}/month`;
-        
+
         // Goal Gap & Growth Required Formatting Logic
         if (goalDiff > 0) {
             const gapRatio = goalDiff / goal;
             outGoalGap.classList.remove('status-red', 'status-yellow', 'status-green');
             outGoalGap.classList.add(gapRatio > 0.2 ? 'status-red' : 'status-yellow');
             outGoalGap.textContent = `${gapRatio > 0.2 ? 'Far From Goal' : 'Close To Goal'} - $${Math.ceil(goalDiff).toLocaleString()} away`;
-            
+
             const multRequired = projectedRevenue > 0 ? (goal / projectedRevenue).toFixed(1) : 'infinite';
             outMultiplier.textContent = `Need to grow ${multRequired}x`;
             outMultiplier.style.color = gapRatio > 0.2 ? "var(--status-alert)" : "var(--status-warning)";
@@ -916,7 +916,7 @@ input, select, textarea, button {
             outGoalGap.classList.remove('status-red', 'status-yellow', 'status-green');
             outGoalGap.classList.add('status-green');
             outGoalGap.textContent = `Goal Reached +$${Math.abs(Math.floor(goalDiff)).toLocaleString()}`;
-            
+
             const multSurplus = goal > 0 ? (projectedRevenue / goal).toFixed(1) : '1.0';
             outMultiplier.textContent = `Operating at ${multSurplus}x target`;
             outMultiplier.style.color = "var(--status-green)";
@@ -1048,5 +1048,3 @@ input, select, textarea, button {
 </footer>
 </body>
 </html>
-
-

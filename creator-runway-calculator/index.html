@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Business Runway Calculator | Estimate Cash Burn and Survival Time</title>
-    
+
     <!-- SEO Architecture -->
     <meta name="description" content="Calculate how many months your business can operate based on cash reserves, monthly income, expenses, and burn rate.">
     <meta name="keywords" content="business runway calculator, burn rate calculator, small business runway, freelance runway calculator, cash flow forecasting tool">
-    
+
     <style>
         :root {
             --bg-main: #0b0d11;
@@ -55,7 +55,7 @@
         .form-label-row { display: flex; justify-content: space-between; align-items: center; }
         label { font-size: 0.9rem; font-weight: 600; color: #e2e8f0; }
         .label-val { color: var(--text-main); font-weight: 700; font-size: 1rem; }
-        
+
         input[type="range"] { width: 100%; accent-color: var(--accent-yellow); cursor: pointer; }
 
         .hero-metric {
@@ -401,6 +401,8 @@ input, select, textarea, button {
 }
 </style>
 <style id="acl-global-tool-polish">
+.acl-privacy-trust{align-items:center;background:rgba(16,185,129,.08);border:1px solid rgba(34,197,94,.48);border-radius:10px;box-sizing:border-box;color:#d1fae5;display:flex;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:12px;font-weight:650;gap:8px;line-height:1.45;margin:10px auto 20px;max-width:1120px;padding:10px 14px;width:min(calc(100% - 32px),1120px)}.acl-privacy-trust span{color:#34d399;flex:0 0 auto;font-size:13px}.acl-privacy-trust p{margin:0}@media (max-width:700px){.acl-privacy-trust{align-items:flex-start;margin-top:10px;width:calc(100% - 24px)}}
+
 .acl-tool-hero,.acl-quick-start{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-left:auto;margin-right:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
 .acl-tool-hero{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(17,24,39,.96));border:1px solid rgba(245,158,11,.22);border-radius:14px;color:#fff;margin-top:40px;padding:clamp(24px,4vw,38px)}
 .acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
@@ -408,10 +410,10 @@ input, select, textarea, button {
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
 .acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
 .acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
-.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start h2::after{color:#f59e0b;content:">";font-weight:900;margin-left:18px}
 .acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
 .acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
-.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:">";font-weight:900;margin:0 18px}
 @media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
 .acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
@@ -456,7 +458,9 @@ input, select, textarea, button {
             <li>Review Results</li>
             <li>Take Action</li>
     </ol>
-</section><div class="container">
+</section>
+<section class="acl-privacy-trust no-print" aria-label="Privacy notice"><span aria-hidden="true">&#128274;</span><p>Private by default: Your inputs stay in your browser and are not saved or sent to our servers.</p></section>
+<div class="container">
 
     <div class="workspace">
         <!-- Input Levers Panel Component -->
@@ -644,7 +648,7 @@ input, select, textarea, button {
             outStatusBadge.className = "status-badge badge-green";
             outExtensionMod.textContent = "$0/month";
             heroBox.classList.remove('alert-border');
-            
+
             advisorCard.innerHTML = `<strong>Healthy Runway:</strong> Your revenue covers your baseline costs. Keep protecting reserves while you test growth opportunities and improve profit margins.`;
             return;
         }
@@ -652,7 +656,7 @@ input, select, textarea, button {
         // Standard Run Model Deficit Calculations
         outCashBurn.textContent = `${usdFormat.format(netBurn)} / mo`;
         outCashBurn.style.color = "var(--status-alert)";
-        
+
         const revGap = totalExpenses - revenue;
         outRevenueGap.textContent = `${usdFormat.format(revGap)} / mo`;
         outRevenueGap.style.color = "var(--status-warning)";
@@ -668,7 +672,7 @@ input, select, textarea, button {
             outStatusBadge.className = "status-badge badge-red";
             heroBox.classList.add('alert-border');
             outExtensionMod.textContent = `${usdFormat.format(netBurn)}/month`;
-            
+
             advisorCard.innerHTML = `<strong>Critical Runway:</strong> Your reserves are at or below your safety buffer. Focus on immediate revenue, reduce non-essential expenses, and protect cash before taking on more risk.`;
             return;
         }
@@ -681,7 +685,7 @@ input, select, textarea, button {
         const currentDate = new Date();
         const daysRemaining = Math.round(monthsRemaining * 30.437); // Average days per month mapping variables
         currentDate.setDate(currentDate.getDate() + daysRemaining);
-        
+
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         outEndDate.textContent = currentDate.toLocaleDateString('en-US', options);
         outDateDesc.textContent = "Date capital draws down to your safety floor.";
@@ -700,19 +704,19 @@ input, select, textarea, button {
             outStatusBadge.textContent = "Critical Runway";
             outStatusBadge.className = "status-badge badge-red";
             heroBox.classList.add('alert-border');
-            
+
             advisorCard.innerHTML = `<strong>Critical Runway:</strong> Capital reserves will reach your safety floor inside of 90 days. Focus on immediate revenue, reduce non-essential expenses, and protect cash before taking on more risk.`;
         } else if (monthsRemaining <= 6) {
             outStatusBadge.textContent = "Moderate Runway";
             outStatusBadge.className = "status-badge badge-yellow";
             heroBox.classList.remove('alert-border');
-            
+
             advisorCard.innerHTML = `<strong>Moderate Runway:</strong> You have enough time to improve revenue, but your current burn rate will eventually deplete reserves. Focus on closing the monthly revenue gap before expanding expenses.`;
         } else {
             outStatusBadge.textContent = "Healthy Runway";
             outStatusBadge.className = "status-badge badge-green";
             heroBox.classList.remove('alert-border');
-            
+
             advisorCard.innerHTML = `<strong>Healthy Runway:</strong> You have a stronger cash cushion before reaching your safety buffer. Keep improving revenue while protecting your highest-return expenses.`;
         }
     }
@@ -760,7 +764,7 @@ input, select, textarea, button {
         </div>
         <div class="acl-footer-links">
             <a href="/">All Tools</a>
-            <a href="/resolution-checker/">Resolution Checker</a>
+            <a href="/">Free Tools</a>
             <a href="/creator-utilities/">Creator Utilities</a>
             <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
             <a href="mailto:support@aicashlabtools.com">Contact</a>
@@ -769,4 +773,3 @@ input, select, textarea, button {
 </footer>
 </body>
 </html>
-

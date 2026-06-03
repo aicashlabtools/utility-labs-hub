@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Late Fee Calculator | Estimate Past-Due Invoice Charges</title>
     <meta name="description" content="Calculate estimated late fees and interest for past-due invoices using invoice amount, due date, grace period, and fee rules.">
-    
+
     <!-- SEO Keyword Alignment -->
     <meta name="keywords" content="late payment interest calculator, freelance late fee calculator, past due invoice interest generator, how to calculate late fees on invoice, statutory interest calculator business">
-    
+
     <!-- Tailwind CSS Engine -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -414,6 +414,8 @@ input, select, textarea, button {
 }
 </style>
 <style id="acl-global-tool-polish">
+.acl-privacy-trust{align-items:center;background:rgba(16,185,129,.08);border:1px solid rgba(34,197,94,.48);border-radius:10px;box-sizing:border-box;color:#d1fae5;display:flex;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:12px;font-weight:650;gap:8px;line-height:1.45;margin:10px auto 20px;max-width:1120px;padding:10px 14px;width:min(calc(100% - 32px),1120px)}.acl-privacy-trust span{color:#34d399;flex:0 0 auto;font-size:13px}.acl-privacy-trust p{margin:0}@media (max-width:700px){.acl-privacy-trust{align-items:flex-start;margin-top:10px;width:calc(100% - 24px)}}
+
 .acl-tool-hero,.acl-quick-start{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-left:auto;margin-right:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
 .acl-tool-hero{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(17,24,39,.96));border:1px solid rgba(245,158,11,.22);border-radius:14px;color:#fff;margin-top:40px;padding:clamp(24px,4vw,38px)}
 .acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
@@ -421,10 +423,10 @@ input, select, textarea, button {
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
 .acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
 .acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
-.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start h2::after{color:#f59e0b;content:">";font-weight:900;margin-left:18px}
 .acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
 .acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
-.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:">";font-weight:900;margin:0 18px}
 @media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
 .acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
@@ -480,15 +482,17 @@ input, select, textarea, button {
             <li>Review Results</li>
             <li>Take Action</li>
     </ol>
-</section><!-- MAIN CALCULATOR WORKSPACE -->
+</section>
+<section class="acl-privacy-trust no-print" aria-label="Privacy notice"><span aria-hidden="true">&#128274;</span><p>Private by default: Your inputs stay in your browser and are not saved or sent to our servers.</p></section>
+<!-- MAIN CALCULATOR WORKSPACE -->
     <main class="flex-grow max-w-6xl w-full mx-auto p-4 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
-        
+
         <!-- LEFT COLUMN: CONTROL INTERFACE (Hidden on Print) -->
         <section class="no-print lg:col-span-5 space-y-6">
             <div class="bg-panelbg border border-bordergray rounded-xl p-6">
                 <h1 class="text-xl font-bold text-slate-900 mb-1">Invoice Late Fee Engine</h1>
                 <p class="text-xs text-slate-600 mb-6">Quantify past-due invoice penalty metrics instantly.</p>
-                
+
                 <div class="space-y-4">
                     <!-- Input 1: Principal Amount -->
                     <div>
@@ -564,7 +568,7 @@ input, select, textarea, button {
         <!-- RIGHT COLUMN: EDITABLE & PRINTABLE PAYMENT FOLLOW-UP PREVIEW -->
         <section class="lg:col-span-7 print-container">
             <div class="bg-panelbg border border-bordergray rounded-xl p-6 sm:p-8 bg-white text-gray-900 shadow-xl h-full flex flex-col justify-between print-output-card">
-                
+
                 <div>
                     <!-- Print Control Interface (Hidden on Print) -->
                     <div class="no-print flex flex-col sm:flex-row justify-between items-start sm:items-center pb-4 mb-6 border-b border-gray-200 gap-4">
@@ -618,7 +622,7 @@ input, select, textarea, button {
 
     <!-- SEO CONTENT LAYER: PAGE 1 - STATUTORY INTEREST GUIDE -->
     <section class="max-w-4xl mx-auto px-6 py-8 mt-4 border-t border-slate-800 text-left no-print">
-        
+
         <!-- Keyword Grouping Header -->
         <div class="mb-8">
             <span class="text-[10px] font-bold uppercase tracking-widest text-accentgold bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
@@ -634,14 +638,14 @@ input, select, textarea, button {
 
         <!-- Article Content Body -->
         <div class="space-y-6 text-sm text-slate-300 leading-relaxed font-sans">
-            
+
             <p>
                 For independent operators, freelancers, and digital agencies, maintaining a predictable cash flow is critical to sustaining operational milestones. When clients miss payment deadlines, navigating how to protect your revenue can be challenging. A frequent question arises: <strong class="text-white">how much interest can i charge on a late invoice</strong> without damaging the client relationship?
             </p>
 
             <h3 class="text-base font-semibold text-white pt-2">Understanding the Statutory Interest Rate on Late Payments</h3>
             <p>
-                When a formal, written agreement does not explicitly dictate a custom delinquency policy, businesses frequently fall back on the standardized <strong class="text-white">statutory interest rate late payments</strong> rely upon. In many jurisdictions, statutory interest acts as a default framework designed to compensate businesses for the time value of uncollected capital. 
+                When a formal, written agreement does not explicitly dictate a custom delinquency policy, businesses frequently fall back on the standardized <strong class="text-white">statutory interest rate late payments</strong> rely upon. In many jurisdictions, statutory interest acts as a default framework designed to compensate businesses for the time value of uncollected capital.
             </p>
             <p>
                 For global B2B transactions, utilizing the established <strong class="text-white">us uk statutory common default interest</strong> parameters provides a common baseline. For instance, under UK late payment legislation, businesses may be permitted to charge a statutory interest rate of 8% plus the Bank of England base rate for business-to-business transactions, alongside fixed debt recovery costs.
@@ -655,7 +659,7 @@ input, select, textarea, button {
             <p>
                 If you are actively structuring your contract terms or updating an outstanding ledger, applying a <strong class="text-white">legal late fee percentage for business invoices</strong> requires clear communication. Transparency prevents billing friction and establishes an immediate incentive for client compliance.
             </p>
-            
+
             <p>
                 To avoid manual computation errors, commercial operators routinely transition away from legacy spreadsheets in favor of automated tracking. Utilizing specialized <strong class="text-white">charging interest on past due invoices</strong> toolsets keeps your records cleaner, easier to review, and easier to explain.
             </p>
@@ -667,7 +671,7 @@ input, select, textarea, button {
                     <p class="text-xs text-slate-400">Scroll back to our interactive engine at the top of this workspace to generate your printable ledger breakdown.</p>
                 </div>
                 <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="whitespace-nowrap px-4 py-2 bg-accentgold text-slate-950 font-bold text-xs rounded hover:bg-amber-500 transition-colors uppercase tracking-wider">
-                    Run Calculation Now 
+                    Run Calculation Now
                 </button>
             </div>
 
@@ -676,7 +680,7 @@ input, select, textarea, button {
 
     <!-- SEO CONTENT LAYER: PAGE 2 - RECONCILIATION LETTER TEMPLATE -->
     <section class="max-w-4xl mx-auto px-6 py-14 border-t border-slate-800 text-left no-print">
-        
+
         <!-- Keyword Grouping Header -->
         <div class="mb-8">
             <span class="text-[10px] font-bold uppercase tracking-widest text-accentgold bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
@@ -692,7 +696,7 @@ input, select, textarea, button {
 
         <!-- Article Content Body -->
         <div class="space-y-6 text-sm text-slate-300 leading-relaxed font-sans">
-            
+
             <p>
                 When a client slips past a payment milestone, sending an aggressive demand letter right out of the gate can break trust and stall future project iterations. Successful agencies rely on an organized, systematic approach using a formal <strong class="text-white">notice of past due account reconciliation template</strong>. This framework maintains professional boundaries while ensuring your payment follow-up details remain clear and easy to review.
             </p>
@@ -717,7 +721,7 @@ input, select, textarea, button {
 
             <h3 class="text-base font-semibold text-white pt-2">Breaking Down Your Invoice Outstanding Ledger Line Breakdown</h3>
             <p>
-                To prevent back-and-forth communication delays with a client's accounts payable department, your written notice must explicitly outline an <strong class="text-white">invoice outstanding ledger line breakdown</strong>. Separating the original contract value from estimated interest or late fees removes ambiguity. 
+                To prevent back-and-forth communication delays with a client's accounts payable department, your written notice must explicitly outline an <strong class="text-white">invoice outstanding ledger line breakdown</strong>. Separating the original contract value from estimated interest or late fees removes ambiguity.
             </p>
             <p>
                 If a text-based reminder is not enough, transitioning to a <strong class="text-white">professional late payment reminder text</strong> or sending a structured PDF statement can speed up internal processing. It gives decision-makers the clean payment context they need to resolve the account.
@@ -730,7 +734,7 @@ input, select, textarea, button {
                     <p class="text-xs text-slate-400">Scroll back to the top to input your data and watch our interactive document canvas format this notice for you in real time.</p>
                 </div>
                 <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="whitespace-nowrap px-4 py-2 bg-accentgold text-slate-950 font-bold text-xs rounded hover:bg-amber-500 transition-colors uppercase tracking-wider">
-                    Generate My Document 
+                    Generate My Document
                 </button>
             </div>
 
@@ -739,7 +743,7 @@ input, select, textarea, button {
 
     <!-- SEO CONTENT LAYER: PAGE 3 - COMPOUNDING PENALTY BLUEPRINT -->
     <section class="max-w-4xl mx-auto px-6 py-14 border-t border-slate-800 text-left no-print">
-        
+
         <!-- Keyword Grouping Header -->
         <div class="mb-8">
             <span class="text-[10px] font-bold uppercase tracking-widest text-accentgold bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
@@ -755,7 +759,7 @@ input, select, textarea, button {
 
         <!-- Article Content Body -->
         <div class="space-y-6 text-sm text-slate-300 leading-relaxed font-sans">
-            
+
             <p>
                 When implementing financial follow-ups for payment delinquency, precision matters. Manual spreadsheet tracking often introduces rounding errors and discrepancies that make a balance harder to explain. Transitioning your workflow toward an automated, engine-backed architecture helps you calculate interest estimates systematically and transparently.
             </p>
@@ -791,7 +795,7 @@ input, select, textarea, button {
                     <p class="text-xs text-slate-400">Our local calculation architecture handles the selected annual rate and elapsed-day formula for you automatically.</p>
                 </div>
                 <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="whitespace-nowrap px-4 py-2 bg-accentgold text-slate-950 font-bold text-xs rounded hover:bg-amber-500 transition-colors uppercase tracking-wider">
-                    Calculate Accrued Interest 
+                    Calculate Accrued Interest
                 </button>
             </div>
 
@@ -800,7 +804,7 @@ input, select, textarea, button {
 
     <!-- SEO CONTENT LAYER: PAGE 4 - PROTECTING PROJECT PAYMENTS -->
     <section class="max-w-4xl mx-auto px-6 py-14 border-t border-slate-800 text-left no-print">
-        
+
         <!-- Keyword Grouping Header -->
         <div class="mb-8">
             <span class="text-[10px] font-bold uppercase tracking-widest text-accentgold bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
@@ -816,7 +820,7 @@ input, select, textarea, button {
 
         <!-- Article Content Body -->
         <div class="space-y-6 text-sm text-slate-300 leading-relaxed font-sans">
-            
+
             <p>
                 Building a healthy freelance or service business is not only about finding more clients. It also depends on clear payment checkpoints before the work begins. Business leaders must learn <strong class="text-white">how to secure business payment milestones</strong> effectively so projects do not turn into unpaid follow-up loops.
             </p>
@@ -848,7 +852,7 @@ input, select, textarea, button {
 
             <h3 class="text-base font-semibold text-white pt-2">Using Copy-Ready Payment Workflows</h3>
             <p>
-                The difference between stressful billing and steady billing often comes down to having the right message ready before you need it. Using pre-formatted, <strong class="text-white">premium copy ready operational sequences</strong> across your email and messaging touchpoints helps late payment notices stay fast, clear, and professional. 
+                The difference between stressful billing and steady billing often comes down to having the right message ready before you need it. Using pre-formatted, <strong class="text-white">premium copy ready operational sequences</strong> across your email and messaging touchpoints helps late payment notices stay fast, clear, and professional.
             </p>
             <p>
                 Combining a simple communication plan with our local calculator gives you a cleaner way to handle overdue balances. You can run immediate calculations, generate an organized outstanding breakdown, and <strong class="text-white">stop chasing client payments manually</strong> starting today.
@@ -861,7 +865,7 @@ input, select, textarea, button {
                     <p class="text-xs text-slate-400">Scroll back to the top of this workspace to generate your custom past-due reconciliation document instantly.</p>
                 </div>
                 <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="whitespace-nowrap px-4 py-2 bg-accentgold text-slate-950 font-bold text-xs rounded hover:bg-amber-500 transition-colors uppercase tracking-wider">
-                    Open Payment Tool 
+                    Open Payment Tool
                 </button>
             </div>
 
@@ -1050,12 +1054,12 @@ input, select, textarea, button {
             // Grab Core Inputs
             const principal = parseFloat(document.getElementById('invoiceAmount').value) || 0;
             const dueDateValue = document.getElementById('dueDate').value;
-            
+
             if(!dueDateValue) return;
 
             const dueDate = new Date(dueDateValue);
             const currentDate = new Date();
-            
+
             // Calculate Day Differential
             const timeDiff = currentDate.getTime() - dueDate.getTime();
             let daysOverdue = Math.floor(timeDiff / (1000 * 3600 * 24));
@@ -1081,19 +1085,19 @@ input, select, textarea, button {
 
         function updateLetterTemplate(principal, days, interest, total, rate) {
             const canvas = document.getElementById('demandLetterCanvas');
-            
+
             // Format dates dynamically
             const todayFormatted = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-            
+
             canvas.innerHTML = `
                 <p class="mb-4"><strong>DATE:</strong> ${todayFormatted}</p>
                 <p class="mb-4"><strong>TO:</strong> [Client Name or Company Name]<br>[Client Billing Address Row 1]<br>[Client City, State, Zip]</p>
                 <p class="mb-6"><strong>FROM:</strong> [Your Name / Agency Branding]<br>[Your Return Contact Email/Phone]</p>
-                
+
                 <p class="mb-4 font-bold text-base border-b pb-2 text-black">PAST-DUE PAYMENT FOLLOW-UP NOTICE</p>
-                
+
                 <p class="mb-4">This note is a professional follow-up regarding an outstanding invoice balance connected to your account. According to the agreed payment terms, the referenced payment milestone appears to remain unpaid.</p>
-                
+
                 <table class="w-full text-left my-6 border-collapse text-xs">
                     <thead>
                         <tr class="border-b-2 border-black">
@@ -1118,11 +1122,11 @@ input, select, textarea, button {
                 </table>
 
                 <p class="mb-4">Interest estimate shown uses the selected annual rate.</p>
-                
+
                 <p class="mb-6">To bring this account current, please arrange payment of the adjusted balance of <strong>$${total.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</strong> through the agreed payment method within 48 business hours, or reply with any questions about the balance.</p>
-                
+
                 <p class="mb-12">Thank you for your prompt attention to this payment follow-up.</p>
-                
+
                 <p class="mb-0">Sincerely,</p>
                 <p class="font-bold">[Your Signed Corporate Identity Signature Block]</p>
             `;
@@ -1145,4 +1149,3 @@ input, select, textarea, button {
 </footer>
 </body>
 </html>
-

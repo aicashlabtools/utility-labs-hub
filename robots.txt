@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aicashlabtools.com/sitemap.xml
+Sitemap: https://aicashlabtools.com/sitemap.txt

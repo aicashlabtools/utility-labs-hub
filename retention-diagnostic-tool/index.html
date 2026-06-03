@@ -384,10 +384,10 @@ input, select, textarea, button {
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
 .acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
 .acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
-.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start h2::after{color:#f59e0b;content:">";font-weight:900;margin-left:18px}
 .acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
 .acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
-.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:">";font-weight:900;margin:0 18px}
 @media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
 .acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
@@ -436,7 +436,7 @@ input, select, textarea, button {
 
 <!-- Main Content Grid -->
     <main class="w-full max-w-6xl mx-auto px-6 py-10 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
+
         <!-- Left Panel: Analytics Log Dashboard Inputs -->
         <section class="lg:col-span-5 bg-[#111827] p-6 rounded-xl border premium-border space-y-6">
             <div>
@@ -508,7 +508,7 @@ input, select, textarea, button {
 
         <!-- Right Panel: Strategic Leak Maps & Corrective Playbooks -->
         <section class="lg:col-span-7 space-y-6">
-            
+
             <!-- Hero Card: Core Efficiency Score & Visual Audience Leak Map -->
             <div class="bg-[#111827] border premium-border p-6 rounded-xl accent-glow-rose space-y-5">
                 <div class="flex justify-between items-start border-b premium-border pb-4">
@@ -525,7 +525,7 @@ input, select, textarea, button {
                 <!-- Hard-Hitting Visual Audience Leak Map Component -->
                 <div class="bg-slate-950/50 p-4 rounded-lg border premium-border space-y-3.5">
                     <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">Audience Leak Map</span>
-                    
+
                     <!-- Hook Row -->
                     <div class="space-y-1">
                         <div class="flex justify-between text-xs font-mono"><span class="text-slate-400 font-sans font-semibold">HOOK (3s)</span> <span id="barHookLabel" class="text-white font-bold">0%</span></div>
@@ -622,7 +622,7 @@ input, select, textarea, button {
         document.addEventListener('DOMContentLoaded', function() {
             // Document DOM Node Query Pointer Map Address Maps
             let currentFormatType = 'short'; // Default starting track pointer
-            
+
             const btnShortForm = document.getElementById('btnShortForm');
             const btnLongForm = document.getElementById('btnLongForm');
             const lblMetricBody = document.getElementById('lblMetricBody');
@@ -669,7 +669,7 @@ input, select, textarea, button {
                     btnLongForm.className = "py-2.5 px-4 rounded-lg text-xs font-medium border transition-colors border-slate-800 bg-[#1f2937]/40 text-slate-400 hover:text-white hover:border-slate-700";
                     lblMetricBody.innerText = "The Body Retention (30-Second Mark)";
                     barBodyName.innerText = "BODY (30s)";
-                    
+
                     benchHookText.innerText = "Excellent 90%+";
                     benchBodyText.innerText = "Excellent 70%+";
                     benchEndText.innerText = "Excellent 50%+";
@@ -681,7 +681,7 @@ input, select, textarea, button {
                     btnShortForm.className = "py-2.5 px-4 rounded-lg text-xs font-medium border transition-colors border-slate-800 bg-[#1f2937]/40 text-slate-400 hover:text-white hover:border-slate-700";
                     lblMetricBody.innerText = "The Body Retention (Midpoint/50% Mark)";
                     barBodyName.innerText = "BODY (Mid)";
-                    
+
                     benchHookText.innerText = "Excellent 70%+";
                     benchBodyText.innerText = "Excellent 45%+";
                     benchEndText.innerText = "Excellent 30%+";
@@ -794,7 +794,7 @@ input, select, textarea, button {
 
                 // 5. Build Script Framework Corrections Output Blocks Nodes
                 let fixContainerHtml = "";
-                
+
                 // Always display corrective scripts based directly on deficits found relative to tracking parameters
                 if (hookDeficit > 0) {
                     fixContainerHtml += `
@@ -914,5 +914,3 @@ input, select, textarea, button {
 </footer>
 </body>
 </html>
-
-

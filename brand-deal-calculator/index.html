@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brand Deal Rate Calculator  -  AI Cash Lab</title>
-    <meta name="description" content="Calculate professional brand deal rates across TikTok, Instagram, and YouTube based on deliverable types, median views, engagement metrics, and usage rights.">
+    <title>Brand Deal Calculator | Estimate Sponsored Post Rates</title>
+    <meta name="description" content="Estimate brand deal rates from views, platform, engagement, niche, usage rights, exclusivity, and revisions with this free creator pricing calculator.">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -355,20 +355,29 @@ input, select, textarea, button {
 }
 </style>
 <style id="acl-global-tool-polish">
+.acl-privacy-trust{align-items:center;background:rgba(16,185,129,.08);border:1px solid rgba(34,197,94,.48);border-radius:10px;box-sizing:border-box;color:#d1fae5;display:flex;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:12px;font-weight:650;gap:8px;line-height:1.45;margin:10px auto 20px;max-width:1120px;padding:10px 14px;width:min(calc(100% - 32px),1120px)}.acl-privacy-trust span{color:#34d399;flex:0 0 auto;font-size:13px}.acl-privacy-trust p{margin:0}@media (max-width:700px){.acl-privacy-trust{align-items:flex-start;margin-top:10px;width:calc(100% - 24px)}}
+
 .acl-tool-hero,.acl-quick-start{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-left:auto;margin-right:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
 .acl-tool-hero{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(17,24,39,.96));border:1px solid rgba(245,158,11,.22);border-radius:14px;color:#fff;margin-top:40px;padding:clamp(24px,4vw,38px)}
 .acl-tool-kicker{color:#f59e0b;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
 .acl-tool-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
-.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:grid;gap:14px;grid-template-columns:auto minmax(0,1fr);margin-top:14px;margin-bottom:20px;padding:12px 18px}
-.acl-quick-start h2{color:#fff;font-size:13px;margin:0;white-space:nowrap}
-.acl-quick-start ol{align-items:center;display:grid;gap:8px 18px;grid-template-columns:repeat(4,minmax(0,1fr));list-style-position:inside;margin:0;padding:0}
-.acl-quick-start li{color:#cbd5e1;font-size:13px;line-height:1.45}
-.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" ->";font-weight:800;margin-left:8px}
-@media (max-width:900px){.acl-quick-start{align-items:start;grid-template-columns:1fr}.acl-quick-start ol{grid-template-columns:1fr}}
-@media (max-width:900px){.acl-quick-start li:not(:last-child)::after{content:""}}
-</style>
-</head>
+.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
+.acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
+.acl-quick-start h2::after{color:#f59e0b;content:">";font-weight:900;margin-left:18px}
+.acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
+.acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:">";font-weight:900;margin:0 18px}
+@media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
+.acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
+.acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
+.acl-faq-grid{align-items:stretch;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;min-width:0;padding:14px}
+.acl-faq-item h3{color:#f8fafc;font-size:14px;line-height:1.35;margin:0 0 6px}
+.acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}
+@media (max-width:700px){.acl-faq-grid{grid-template-columns:1fr}.acl-faq-section{margin-top:36px!important;width:calc(100% - 24px)!important}}
+.acl-related-tools{margin-bottom:80px !important}
+</style></head>
 <body class="text-slate-200 min-h-screen flex flex-col justify-between antialiased">
 <header class="acl-shell-header no-print">
     <div class="acl-shell-inner">
@@ -391,21 +400,23 @@ input, select, textarea, button {
 <section class="acl-tool-hero no-print">
     <div class="acl-tool-kicker">Creator Monetization Tool</div>
     <h1>Brand Deal Calculator</h1>
-    <p>Estimate sponsored content pricing from audience size, deliverables, usage, and campaign complexity.</p>
+    <p>Estimate sponsored content pricing from audience size, deliverables, usage rights, and campaign complexity.</p>
 </section>
 
 <section class="acl-quick-start no-print">
     <h2>Quick Start</h2>
     <ol>
-            <li>Configure Deal</li>
-            <li>Review Pricing</li>
-            <li>Compare Monetization</li>
-            <li>Explore Next Tool</li>
+            <li>Input Data</li>
+            <li>Adjust Settings</li>
+            <li>Review Results</li>
+            <li>Take Action</li>
     </ol>
 </section>
+<section class="acl-privacy-trust no-print" aria-label="Privacy notice"><span aria-hidden="true">&#128274;</span><p>Private by default: Your inputs stay in your browser and are not saved or sent to our servers.</p></section>
+
 <!-- Main Content Grid -->
     <main class="w-full max-w-6xl mx-auto px-6 py-10 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
+
         <!-- Left Panel: Input Architecture -->
         <section class="lg:col-span-5 bg-[#111827] p-6 rounded-xl border premium-border space-y-5">
             <div>
@@ -473,7 +484,7 @@ input, select, textarea, button {
                 <!-- Licensing Constraints & Campaign Add-ons -->
                 <div class="space-y-2.5">
                     <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider">Campaign Multipliers & Licensing</label>
-                    
+
                     <label class="flex items-center gap-3 text-xs text-slate-300 cursor-pointer">
                         <input type="checkbox" id="addPaidUsage" class="rounded bg-slate-800 border-slate-700 text-emerald-600 focus:ring-0 w-4 h-4">
                         <span class="flex flex-1 items-center justify-between gap-3">
@@ -503,7 +514,7 @@ input, select, textarea, button {
 
         <!-- Right Panel: Output Valuation Metrics & Strategy Blocks -->
         <section class="lg:col-span-7 space-y-6">
-            
+
             <!-- Tiered Rate Ranges Component Dashboard Panel -->
             <div class="bg-[#111827] border premium-border p-6 rounded-xl accent-glow-emerald space-y-5">
                 <div class="flex justify-between items-center">
@@ -538,7 +549,7 @@ input, select, textarea, button {
             <!-- Calculated Line Item Values Structural Breakout Block -->
             <div class="bg-[#111827] border premium-border p-5 rounded-xl space-y-3.5">
                 <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Calculated Value Breakdowns</h3>
-                
+
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div class="p-3 bg-[#1f2937]/20 rounded-lg border premium-border">
                         <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Base Organic Fee</span>
@@ -569,9 +580,9 @@ input, select, textarea, button {
                     <h3 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Copy-Paste Pitch Framework</h3>
                     <span class="text-[10px] text-slate-500">Click content box below to copy asset parameters</span>
                 </div>
-                
+
                 <div id="pitchTextarea" class="relative bg-[#1f2937]/40 border premium-border p-4 rounded-lg text-xs font-mono text-slate-300 whitespace-pre-wrap leading-relaxed select-all cursor-pointer" title="Click to select all pitch content">
-"Based on our rolling 30-day channel parameters, our performance matrix maps to a median view index of <span id="scriptViews" class="text-emerald-400 font-bold">0</span> impressions per asset. 
+"Based on our rolling 30-day channel parameters, our performance matrix maps to a median view index of <span id="scriptViews" class="text-emerald-400 font-bold">0</span> impressions per asset.
 
 My standard rate range for this specific deliverable is <span id="scriptRange" class="text-emerald-300 font-extrabold bg-emerald-500/10 px-1 rounded">$0-$0</span>. This includes one organic post and one standard revision format. Extended paid ad usage rights, revision cycles, or category exclusivity locks can be easily scaled separately depending on your timeline scope parameters. Let me know if this structural framework aligns with your allocation goals!"</div>
             </div>
@@ -589,7 +600,20 @@ My standard rate range for this specific deliverable is <span id="scriptRange" c
             </div>
 
         </section>
-    <section class="acl-related-tools no-print" aria-label="Related Revenue Tools">
+<section class="acl-faq-section no-print" aria-label="Frequently Asked Questions">
+    <h2>Frequently Asked Questions</h2>
+    <div class="acl-faq-grid">
+        <article class="acl-faq-item">
+            <h3>How does the brand deal calculator estimate rates?</h3>
+            <p>It uses your median views, platform CPM assumptions, deliverable type, engagement range, niche, and campaign add-ons to estimate a pricing range.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Should I use the recommended ask as my final price?</h3>
+            <p>Use it as a negotiation anchor. Final pricing can change based on brand budget, timeline, usage rights, exclusivity, and production complexity.</p>
+        </article>
+    </div>
+</section>
+<section class="acl-related-tools no-print" aria-label="Related Revenue Tools">
     <div>
         <span class="acl-related-eyebrow">Next Steps</span>
         <h2>Keep pricing from becoming a guess.</h2>
@@ -627,7 +651,7 @@ My standard rate range for this specific deliverable is <span id="scriptRange" c
             const outEffectiveCPM = document.getElementById('outEffectiveCPM');
             const realityCheckText = document.getElementById('realityCheckText');
             const rateConfidenceBadge = document.getElementById('rateConfidenceBadge');
-            
+
             const scriptViews = document.getElementById('scriptViews');
             const scriptRange = document.getElementById('scriptRange');
             const pitchTextarea = document.getElementById('pitchTextarea');
@@ -681,7 +705,7 @@ My standard rate range for this specific deliverable is <span id="scriptRange" c
                 outRateStarter.innerText = `$${starterFloorPrice.toLocaleString()}`;
                 outRateRecommended.innerText = `$${recommendedAskPrice.toLocaleString()}`;
                 outRatePremium.innerText = `$${premiumCeilingPrice.toLocaleString()}`;
-                
+
                 outBaseFee.innerText = `$${Math.round(baseOrganicRateCalculated).toLocaleString()}`;
                 outAddonFee.innerText = `$${Math.round(licensingAddonFeesTotal).toLocaleString()}`;
                 outEffectiveCPM.innerText = `$${finalEffectiveCpmRate}`;
@@ -737,7 +761,7 @@ My standard rate range for this specific deliverable is <span id="scriptRange" c
         </div>
         <div class="acl-footer-links">
             <a href="/">All Tools</a>
-            <a href="/resolution-checker/">Resolution Checker</a>
+            <a href="/">Free Tools</a>
             <a href="/creator-utilities/">Creator Utilities</a>
             <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
             <a href="mailto:support@aicashlabtools.com">Contact</a>
@@ -746,6 +770,3 @@ My standard rate range for this specific deliverable is <span id="scriptRange" c
 </footer>
 </body>
 </html>
-
-
-

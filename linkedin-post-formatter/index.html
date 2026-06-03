@@ -211,7 +211,7 @@
         .btn-green:hover { background: #0ca673; }
         .btn-secondary { background: #1c2638; color: var(--text-main); }
         .btn-secondary:hover { background: #2d394e; }
-        
+
         .cta-group {
             width: 100%;
             display: flex;
@@ -310,7 +310,7 @@
             word-wrap: break-word;
             font-size: 15px;
         }
-        
+
         /* Truncation Divider Fence */
         .truncation-fence {
             border-top: 1px dashed var(--neon-red);
@@ -410,7 +410,7 @@
             color: var(--text-muted);
             font-size: 12px;
         }
-    
+
 /* AI Cash Lab shared tool shell integration */
 html, body { min-height: 100%; overflow-y: auto; }
 body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; scrollbar-color: #f59e0b #0b1020; }
@@ -446,13 +446,13 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
     </div>
 </header>
     <div class="container">
-        
+
         <!-- Standardized Layout Header Module -->
         <header class="tool-header linkedin-formatter-hero">
             <div class="header-meta">CREATOR PRODUCTION STUDIO</div>
             <h1 class="header-title">Free LinkedIn Post Formatter & Readability Checker</h1>
             <p class="header-subtitle">Format LinkedIn posts with proper spacing, readability checks, and preview truncation indicators before publishing.</p>
-            
+
             </header>
 <section class="acl-quick-start no-print">
     <h2>Quick Start</h2>
@@ -467,12 +467,12 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
 
         <!-- Main Studio Split Grid -->
         <main class="workspace-grid">
-            
+
             <!-- COLUMN 1: ANALYTICS CONTROLLER & INPUT PANEL -->
             <section class="grid-card">
                 <div class="card-title-row">
                     <div class="card-title">Draft Your Post</div>
-                    
+
                     <!-- Local Storage Presets Dropdown Module Layer -->
                     <select id="preset-selector" class="preset-select">
                         <option value="none">-- Load Example Post --</option>
@@ -541,7 +541,7 @@ What part of your next LinkedIn post do you usually rewrite the most?</textarea>
             <!-- COLUMN 2: REALISTIC LINKEDIN FEED SIMULATOR DISPLAY FRAME -->
             <section class="grid-card">
                 <div class="card-title" style="margin-bottom: 20px;">Live Feed Optimization Preview</div>
-                
+
                 <div class="mock-ln-container">
                     <div class="ln-post-header">
                         <div class="ln-avatar">LAB</div>
@@ -556,7 +556,7 @@ What part of your next LinkedIn post do you usually rewrite the most?</textarea>
                         <!-- Dynamic First-Line Truncation Fence Indicator Overlay Layer -->
                         <div id="preview-visible-hook" class="preview-text-render" style="display:inline;"></div>
                         <span id="preview-see-more-btn" class="ln-see-more"> ...see more</span>
-                        
+
                         <div id="truncation-divider" class="truncation-fence">
                             <span class="truncation-tag">LinkedIn Mobile Truncation Barrier (...see more)</span>
                         </div>
@@ -639,7 +639,7 @@ What part of your next LinkedIn post do you usually rewrite the most?</textarea>
         // ==========================================
 
         const textInput = document.getElementById('post-textarea');
-        
+
         // Analytical Feedback Metric Displays
         const lblReadability = document.getElementById('lbl-readability');
         const subReadability = document.getElementById('sub-readability');
@@ -774,11 +774,11 @@ What part of your next LinkedIn post do you usually rewrite the most?</textarea>
             // 4. Hook Score Box Monitor Engine & Truncation Simulation
             // LinkedIn truncates feeds on mobile roughly around the 140 character mark
             lblHook.textContent = `${Math.min(charCount, 140)} / 140 chars`;
-            
+
             if (charCount <= 140) {
                 lblHook.className = "metric-val status-good";
                 subHook.textContent = "No See More cutoff expected";
-                
+
                 viewHook.textContent = textRaw;
                 viewRemainder.textContent = "";
                 viewSeeMoreBtn.style.display = 'none';
@@ -817,18 +817,18 @@ What part of your next LinkedIn post do you usually rewrite the most?</textarea>
         // AI Markdown Clean Sanitization Trigger
         cleanMarkdownBtn.addEventListener('click', () => {
             let txt = textInput.value;
-            
+
             // Wipe standard markdown artifacts cleanly
             txt = txt.replace(/\*\*([^*]+)\*\*/g, '$1');
             txt = txt.replace(/\*([^*]+)\*/g, '$1');
             txt = txt.replace(/__([^_]+)__/g, '$1');
             txt = txt.replace(/`([^`]+)`/g, '$1');
             txt = txt.replace(/###?\s+/g, ''); // Clear header symbols
-            
+
             // Clean space trails across row splits safely
             let rows = txt.split('\n');
             let cleanedRows = rows.map(r => r.trimEnd());
-            
+
             textInput.value = cleanedRows.join('\n');
             runPostAnalysisEngine();
         });
@@ -837,7 +837,7 @@ What part of your next LinkedIn post do you usually rewrite the most?</textarea>
         presetSelector.addEventListener('change', () => {
             const currentKey = presetSelector.value;
             if (currentKey === 'none') return;
-            
+
             const localCustomData = localStorage.getItem(`ln-lab-${currentKey}`);
             if (localCustomData) {
                 textInput.value = localCustomData;
@@ -853,11 +853,11 @@ What part of your next LinkedIn post do you usually rewrite the most?</textarea>
                 return alert("Choose an example from the menu before saving this draft.");
             }
             localStorage.setItem(`ln-lab-${targetSlot}`, textInput.value);
-            
+
             const baseTxt = savePresetBtn.textContent;
             savePresetBtn.textContent = "Preset Saved";
             savePresetBtn.style.color = "var(--neon-green)";
-            
+
             setTimeout(() => {
                 savePresetBtn.textContent = baseTxt;
                 savePresetBtn.style.color = "";
@@ -880,7 +880,7 @@ What part of your next LinkedIn post do you usually rewrite the most?</textarea>
 
             // Standard approach targets replacing double carriage lines with spacing code token characters
             let compiledPost = currentRawText.replace(/\n\s*\n/g, '\n\u2800\n');
-            
+
             compiledPost = compiledPost.split('\n').map(r => {
                 return r === '' ? '\u2800' : r;
             }).join('\n');
@@ -913,5 +913,3 @@ What part of your next LinkedIn post do you usually rewrite the most?</textarea>
 </footer>
 </body>
 </html>
-
-

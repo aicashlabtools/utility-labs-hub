@@ -348,10 +348,10 @@ input, select, textarea, button {
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
 .acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
 .acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
-.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start h2::after{color:#f59e0b;content:">";font-weight:900;margin-left:18px}
 .acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
 .acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
-.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:">";font-weight:900;margin:0 18px}
 @media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
 .acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
@@ -400,7 +400,7 @@ input, select, textarea, button {
 
 <!-- Main Content Grid -->
     <main class="w-full max-w-6xl mx-auto px-6 py-10 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
+
         <!-- Left Panel: Context Architecture Inputs -->
         <section class="lg:col-span-5 bg-[#111827] p-6 rounded-xl border premium-border space-y-5">
             <div>
@@ -436,7 +436,7 @@ input, select, textarea, button {
                 <!-- Targeted Velocity Output Distribution Matrix Toggles -->
                 <div class="space-y-2.5">
                     <label class="block text-xs font-medium text-slate-400 uppercase tracking-wider">Target Channels to Attack</label>
-                    
+
                     <label class="flex items-center space-x-3 text-xs text-slate-300 cursor-pointer">
                         <input type="checkbox" id="chShorts" checked class="rounded bg-slate-800 border-slate-700 text-blue-600 focus:ring-0 w-4 h-4">
                         <span>TikTok & YouTube Shorts (Vertical Reach)</span>
@@ -462,7 +462,7 @@ input, select, textarea, button {
 
         <!-- Right Panel: Dynamic Production Action Steps Dashboard -->
         <section class="lg:col-span-7 space-y-6">
-            
+
             <!-- Gamified Leverage Metrics Engine Block -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="bg-[#111827] border premium-border p-4 rounded-xl accent-glow-blue">
@@ -558,7 +558,7 @@ input, select, textarea, button {
             const controlInputs = [coreAsset, timeAvailable, chShorts, chLinkedin, chX, chNewsletter];
             controlInputs.forEach(input => input.addEventListener('input', updateRepurposingMatrixEngine));
 
-            // Core Mapping Data Strategy Blueprint Database Values Matrix 
+            // Core Mapping Data Strategy Blueprint Database Values Matrix
             const blueprints = {
                 longform: {
                     name: "Long-Form Video / Podcast",
@@ -699,7 +699,7 @@ input, select, textarea, button {
                         // Build Step Checklist Content Output Card
                         const card = document.createElement('div');
                         card.className = "p-4 rounded-lg bg-[#1f2937]/30 border premium-border space-y-3 hover:bg-[#1f2937]/50 transition-colors";
-                        
+
                         // Assemble Header Component
                         let headerHTML = `
                             <div class="flex justify-between items-start border-b premium-border pb-2">
@@ -755,4 +755,3 @@ input, select, textarea, button {
 </footer>
 </body>
 </html>
-

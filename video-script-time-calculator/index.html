@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Script Time Calculator | Words to Minutes Estimator</title>
-    
+
     <!-- SEO Architecture -->
     <meta name="description" content="Estimate video length from script word count, speaking speed, pacing, and platform format for TikTok, Reels, Shorts, and YouTube.">
     <meta name="keywords" content="script to time calculator, words to time converter, short-form script editor, tiktok script timer, words per minute calculator">
-    
+
     <style>
         :root {
             --bg-main: #0b0d11;
@@ -54,7 +54,7 @@
         .form-label-row { display: flex; justify-content: space-between; align-items: center; }
         label { font-size: 0.9rem; font-weight: 600; }
         .label-val { color: var(--accent-yellow); font-weight: 700; font-size: 1rem; }
-        
+
         textarea {
             width: 100%; height: 260px; background-color: var(--bg-input); border: 1px solid var(--border-color);
             border-radius: 8px; color: var(--text-main); padding: 16px; font-size: 1rem; line-height: 1.6;
@@ -471,10 +471,10 @@ input, select, textarea, button {
 .acl-tool-hero p{color:#cbd5e1;font-size:16px;line-height:1.65;margin:0;max-width:760px}
 .acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#cbd5e1;display:flex;gap:18px;margin-top:14px;margin-bottom:20px;overflow-x:auto;padding:12px 18px;scrollbar-width:thin;white-space:nowrap}
 .acl-quick-start h2{align-items:center;color:#fff;display:flex;flex:0 0 auto;font-size:13px;font-weight:800;line-height:1;margin:0;white-space:nowrap}
-.acl-quick-start h2::after{color:#f59e0b;content:" \2192";font-weight:900;margin-left:18px}
+.acl-quick-start h2::after{color:#f59e0b;content:">";font-weight:900;margin-left:18px}
 .acl-quick-start ol{align-items:center;display:flex;flex:0 0 auto;gap:0;list-style:none;margin:0;min-width:max-content;padding:0;white-space:nowrap}
 .acl-quick-start li{align-items:center;color:#cbd5e1;display:flex;flex:0 0 auto;font-size:13px;line-height:1;min-width:0;white-space:nowrap}
-.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:" \2192";font-weight:900;margin:0 18px}
+.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:">";font-weight:900;margin:0 18px}
 @media (max-width:700px){.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}}
 .acl-faq-section{align-self:stretch!important;background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;clear:both;color:#d4d4d8;display:block!important;grid-column:1 / -1!important;justify-self:stretch!important;margin:56px auto 0!important;max-width:1120px;padding:24px;width:min(100%,1120px)!important}
 .acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 16px}
@@ -575,7 +575,7 @@ input, select, textarea, button {
                     </div>
                     <span class="val" id="out-hook-time" style="color: var(--accent-yellow);">0.0s</span>
                 </div>
-                
+
                 <div class="output-row">
                     <div>
                         <span>Script Density Profile</span>
@@ -680,7 +680,7 @@ input, select, textarea, button {
         const text = scriptInput.value.trim();
         const wpm = parseInt(inputWpm.value);
 
-        // Core Word Aggregation Calculations 
+        // Core Word Aggregation Calculations
         const wordsArray = text ? text.split(/\s+/) : [];
         const totalWords = wordsArray.length;
 
@@ -749,7 +749,7 @@ input, select, textarea, button {
             outMatrix.innerHTML = `${platformFitLine('TikTok', '--', 'badge-yellow')}${platformFitLine('Shorts', '--', 'badge-yellow')}`;
         } else {
             let ttStatus, ytStatus;
-            
+
             // TikTok Evaluation
             if (totalSeconds <= 45) ttStatus = platformFitLine('TikTok', 'Ideal', 'badge-green');
             else if (totalSeconds <= 60) ttStatus = platformFitLine('TikTok', 'Warning', 'badge-yellow');
@@ -863,4 +863,3 @@ input, select, textarea, button {
 </footer>
 </body>
 </html>
-
