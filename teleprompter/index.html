@@ -82,7 +82,7 @@
             padding: 14px;
             font-size: 13px;
             font-weight: 600;
-            color: var(--text-muted);
+            color: var(--text-main);
         }
         .step-item.active {
             color: var(--text-main);
@@ -143,6 +143,16 @@
         textarea:focus { border-color: var(--neon-blue); }
 
         .setup-controls { margin-top: 25px; display: flex; justify-content: flex-end; }
+        #start-button {
+            border: 1px solid rgba(16, 185, 129, 0.58);
+            box-shadow: 0 16px 30px rgba(16, 185, 129, 0.22);
+            font-size: 15px;
+            padding: 14px 24px;
+        }
+        #start-button::after {
+            content: " >";
+            font-weight: 900;
+        }
 
         /* Dashboard Toolbar Panels */
         .dashboard-controls {
@@ -221,6 +231,37 @@
 
         .shortcut-tip-strip { margin-top: 15px; text-align: center; font-size: 12px; color: var(--text-muted); }
 
+        @media (max-width: 760px) {
+            .grid-card {
+                padding: 20px;
+            }
+            .meta-counter-row {
+                grid-template-columns: 1fr;
+            }
+            .setup-controls {
+                justify-content: stretch;
+            }
+            #start-button {
+                width: 100%;
+            }
+            .dashboard-controls,
+            .control-group {
+                align-items: stretch;
+                flex-direction: column;
+            }
+            .control-group label {
+                display: grid;
+                gap: 6px;
+            }
+            .viewport-box {
+                height: min(72vh, 620px);
+            }
+            .teleprompter-canvas {
+                padding-left: 7%;
+                padding-right: 7%;
+            }
+        }
+
         /* Footer Link Collections Grid rules structural framework layout match */
         .ecosystem-footer { margin-top: 60px; border-top: 1px solid var(--border-color); padding-top: 40px; }
         .footer-title { font-size: 16px; font-weight: 700; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
@@ -229,9 +270,39 @@
         .footer-link-card:hover { transform: translateY(-2px); border-color: var(--neon-blue); }
         .footer-link-card h4 { margin: 0 0 8px 0; color: white; font-size: 14px; }
         .footer-link-card p { margin: 0; color: var(--text-muted); font-size: 12px; }
+    
+/* AI Cash Lab shared tool shell integration */
+html, body { min-height: 100%; overflow-y: auto; }
+body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; scrollbar-color: #f59e0b #0b1020; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0b1020; }
+::-webkit-scrollbar-thumb { background: #f59e0b; border-radius: 999px; }
+.acl-shell-header,.acl-shell-footer,.tool-header,.acl-quick-start,.acl-privacy-trust,.ecosystem-footer,.acl-faq-section,.acl-seo-intro{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.acl-shell-header{background:rgba(11,15,25,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);margin:0!important;padding:0;position:sticky;top:0;width:100%;z-index:50}.acl-shell-inner{align-items:center;display:flex;gap:20px;height:64px;justify-content:space-between;margin:0 auto;max-width:1280px;padding:0 clamp(16px,4vw,32px);width:100%}.acl-brand{align-items:center;color:#fff;display:inline-flex;gap:12px;min-width:max-content;text-decoration:none}.acl-logo-frame{align-items:center;background:#111827;border:1px solid #1f2937;border-radius:8px;display:inline-flex;height:32px;justify-content:center;overflow:hidden;width:32px}.acl-logo-frame img{display:block;height:100%;object-fit:contain;width:100%}.acl-brand strong{color:#fff;display:block;font-size:12px;font-weight:800;letter-spacing:.08em;line-height:1;text-transform:uppercase}.acl-brand small{color:#64748b;display:block;font-size:9px;font-weight:700;letter-spacing:.08em;margin-top:3px;text-transform:uppercase}.acl-shell-nav{align-items:center;display:flex;flex:1;gap:clamp(16px,2.2vw,28px);justify-content:center;min-width:0}.acl-shell-nav a,.acl-back-link,.acl-footer-links a{color:#a1a1aa;font-size:12px;font-weight:700;text-decoration:none;transition:color .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease}.acl-shell-nav a:hover,.acl-footer-links a:hover{color:#fff}.acl-shell-nav .acl-premium-link{color:#f59e0b}.acl-back-link{border:1px solid rgba(245,158,11,.45);border-radius:8px;color:#f8fafc;padding:8px 12px;white-space:nowrap}.acl-back-link:hover{background:rgba(245,158,11,.12);box-shadow:0 0 16px rgba(245,158,11,.18);color:#fff}
+.container,.teleprompter-container{box-sizing:border-box;margin:0 auto!important;max-width:1120px!important;padding:0 clamp(16px,4vw,24px) 72px!important;width:100%!important}.tool-header{background:linear-gradient(135deg,rgba(245,158,11,.13),rgba(15,23,42,.94) 50%,rgba(17,24,39,.98));border:1px solid rgba(245,158,11,.28);border-radius:14px;box-sizing:border-box;margin:32px auto 20px!important;padding:clamp(28px,5vw,48px)!important;text-align:left!important}.header-meta{color:#f59e0b!important;font-size:12px!important;font-weight:800!important;letter-spacing:.16em!important;text-transform:uppercase!important}.header-title{color:#fff!important;font-size:clamp(2.2rem,5vw,3.8rem)!important;font-weight:500!important;letter-spacing:0!important;line-height:1.05!important;margin:14px 0 14px!important}.header-subtitle{color:#e5e7eb!important;font-size:clamp(1rem,2vw,1.25rem)!important;line-height:1.45!important;max-width:850px!important}
+.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#e5e7eb;display:flex;gap:18px;margin:0 auto 10px;max-width:1120px;overflow-x:auto;padding:14px 18px;width:min(calc(100% - 32px),1120px)}.acl-quick-start h2{color:#fff;flex:0 0 auto;font-size:14px;line-height:1;margin:0;white-space:nowrap}.acl-quick-start h2::after{color:#f59e0b;content:">";font-weight:900;margin-left:18px}.acl-quick-start ol{align-items:center;display:flex;gap:0;list-style:none;margin:0;padding:0}.acl-quick-start li{align-items:center;color:#dbeafe;display:flex;flex:0 0 auto;font-size:13px;font-weight:650;line-height:1.2;white-space:nowrap}.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:">";font-weight:900;margin:0 18px}.acl-privacy-trust{align-items:center;background:rgba(16,185,129,.08);border:1px solid rgba(34,197,94,.48);border-radius:10px;box-sizing:border-box;color:#d1fae5;display:flex;font-size:12px;font-weight:650;gap:8px;line-height:1.45;margin:10px auto 28px;max-width:1120px;padding:10px 14px;width:min(calc(100% - 32px),1120px)}.acl-privacy-trust span{color:#34d399;flex:0 0 auto;font-size:13px}.acl-privacy-trust p{margin:0}.privacy-strip{display:none!important}
+.acl-seo-intro,.acl-faq-section{background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(100%,1120px)}.acl-seo-intro h2,.acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 12px}.acl-seo-intro p{color:#a1a1aa;font-size:14px;line-height:1.65;margin:0}.acl-faq-grid{align-items:stretch;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;min-width:0;padding:14px}.acl-faq-item h3{color:#f8fafc;font-size:14px;line-height:1.35;margin:0 0 6px}.acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}.ecosystem-footer{align-self:stretch!important;background:#151820!important;border:1px solid #27272a!important;border-radius:14px!important;box-sizing:border-box!important;clear:both!important;color:#d4d4d8!important;display:grid!important;gap:22px!important;grid-template-columns:minmax(0,.85fr) minmax(320px,1.4fr)!important;margin:56px auto 0!important;max-width:1120px!important;padding:22px!important;width:min(100%,1120px)!important}.footer-title{color:#f59e0b!important;display:block!important;font-size:10px!important;font-weight:800!important;letter-spacing:.16em!important;margin:0!important;text-transform:uppercase!important}.footer-grid{align-content:start;display:grid!important;gap:10px!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;min-width:0!important}.footer-link-card{background:#0f141f!important;border:1px solid rgba(245,158,11,.25)!important;border-radius:9px!important;color:#f8fafc!important;display:block!important;font-size:12px!important;font-weight:700!important;line-height:1.25!important;min-width:0!important;overflow-wrap:anywhere!important;padding:12px!important;text-align:left!important;text-decoration:none!important;white-space:normal!important}.footer-link-card:hover{background:rgba(245,158,11,.12)!important;border-color:rgba(245,158,11,.6)!important;color:#f59e0b!important}.footer-link-card h4{color:inherit!important;font-size:13px!important;line-height:1.25!important;margin:0 0 4px!important}.footer-link-card p{color:#a1a1aa!important;font-size:12px!important;line-height:1.45!important;margin:0!important}.footer-link-card span{color:#f59e0b!important;display:block!important;font-size:10px!important;font-weight:800!important;margin-bottom:4px!important;text-transform:uppercase!important}
+.acl-shell-footer{background:#111827;border-top:1px solid rgba(255,255,255,.06);color:#64748b;margin:0!important;padding:40px 0;text-align:left!important;width:100%}.acl-footer-inner{align-items:start;display:grid;gap:28px;grid-template-columns:minmax(0,1fr) auto;margin:0 auto;max-width:1280px;padding:0 clamp(16px,4vw,32px);width:100%}.acl-footer-brand{display:flex;flex-direction:column;gap:8px}.acl-footer-brand strong{color:#fff;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.acl-footer-brand span{color:#64748b;font-size:11px;max-width:360px}.acl-footer-links{display:flex;flex-wrap:wrap;gap:18px;justify-content:flex-end}img,video,canvas,svg{max-width:100%}input,select,textarea,button{max-width:100%}@media(max-width:900px){.acl-shell-inner{align-items:flex-start;flex-direction:column;height:auto;padding-bottom:14px;padding-top:14px}.acl-shell-nav{justify-content:flex-start;overflow-x:auto;padding-bottom:4px;width:100%}.ecosystem-footer{grid-template-columns:1fr!important;width:min(calc(100% - 32px),1120px)!important}.footer-grid{grid-template-columns:1fr!important}.acl-footer-inner{grid-template-columns:1fr}.acl-footer-links{justify-content:flex-start}.acl-faq-grid{grid-template-columns:1fr}.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}.acl-privacy-trust{align-items:flex-start;width:calc(100% - 24px)}}
     </style>
 </head>
 <body>
+<header class="acl-shell-header no-print">
+    <div class="acl-shell-inner">
+        <a href="/" class="acl-brand">
+            <span class="acl-logo-frame"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab Logo"></span>
+            <span><strong>AI Cash Lab</strong><small>Utility Ecosystem</small></span>
+        </a>
+        <nav class="acl-shell-nav" aria-label="Tool categories">
+            <a href="/">Home</a>
+            <a href="/#creator-production">Production</a>
+            <a href="/#creator-monetization">Monetization</a>
+            <a href="/#product-launch">Launch</a>
+            <a href="/#freelancer-business">Freelancer</a>
+            <a href="/#premium-workspaces" class="acl-premium-link">Premium</a>
+        </nav>
+        <a href="/" class="acl-back-link">Back to All Tools</a>
+    </div>
+</header>
     <div class="teleprompter-container">
         
         <!-- Premium Header Match -->
@@ -241,10 +312,17 @@
             <p class="header-subtitle">Analyze your pacing, estimate reading time, and record smooth short-form videos with a distraction-free layout.</p>
             
             <!-- Privacy Strip Entry -->
-            <div class="privacy-strip">
-                <span>🔒 Private by default: Scripts are processed locally in your browser. Nothing is uploaded or stored.</span>
-            </div>
-        </header>
+            </header>
+<section class="acl-quick-start no-print">
+    <h2>Quick Start</h2>
+    <ol>
+        <li>Input Data</li>
+        <li>Adjust Settings</li>
+        <li>Review Results</li>
+        <li>Take Action</li>
+    </ol>
+</section><section class="acl-privacy-trust no-print" aria-label="Privacy notice"><span aria-hidden="true">&#128274;</span><p>Private by default: Files and text are processed locally in your browser. Nothing is uploaded, stored, or sent to our servers.</p></section>
+
 
         <!-- Live Step Bar Navigation Indicator Look -->
         <div class="step-navbar">
@@ -271,7 +349,7 @@
                     </div>
                     <div class="counter-box highlighted">
                         <span class="counter-label">Est. Read Time</span>
-                        <span id="count-time" class="counter-value">0s</span>
+                        <span id="count-time" class="counter-value">0 sec</span>
                     </div>
                 </div>
 
@@ -293,7 +371,7 @@
                     </div>
                     
                     <div class="control-group">
-                        <button id="toggle-eyeline" class="btn-toggle">Eyeline Guide: OFF</button>
+                        <button id="toggle-eyeline" class="btn-toggle">Show Eyeline Guide</button>
                         <button id="flip-button" class="btn-toggle">Mirror Mode</button>
                         <button id="fullscreen-button" class="btn-toggle">Fullscreen</button>
                     </div>
@@ -317,12 +395,48 @@
                 </div>
                 
                 <div class="shortcut-tip-strip">
-                    Tip: Press [Spacebar] to Play/Pause • [↑ / ↓] Arrows to alter scroll speed instantly.
+                    Tip: Press [Spacebar] to Play/Pause - [Up / Down] arrows adjust scroll speed instantly.
                 </div>
             </section>
         </main>
 
         <!-- FOOTER ECOSYSTEM MATCH -->
+        <section class="acl-seo-intro no-print">
+    <h2>Free Online Teleprompter</h2>
+    <p>Use this free online teleprompter to paste a script, control reading speed, adjust font size, and record smoother videos without installing software. It is built for creators, YouTubers, educators, coaches, and freelancers who need a simple browser teleprompter for tutorials, presentations, courses, and short-form videos.</p>
+    <p>The script teleprompter keeps your text local in your browser, so you can rehearse or record without uploading private notes. Use fullscreen mode for a cleaner recording setup, mirror mode for teleprompter glass, and speed controls to match your natural speaking pace.</p>
+    <p>Long scripts are supported too. Paste your full draft, review the word count and estimated read time, then launch the teleprompter when you are ready to record.</p>
+</section>
+<section class="acl-faq-section no-print" aria-label="Frequently Asked Questions">
+    <h2>Frequently Asked Questions</h2>
+    <div class="acl-faq-grid">
+        <article class="acl-faq-item">
+            <h3>Is this teleprompter free?</h3>
+            <p>Yes. The teleprompter runs in your browser and does not require signup.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Can I paste a video script?</h3>
+            <p>Yes. Paste your script, adjust the speed, and use it while recording videos or tutorials.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Can I use this for YouTube videos?</h3>
+            <p>Yes. It works well for YouTube videos, tutorials, online courses, product demos, Reels, Shorts, and talking-head recordings.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Does the teleprompter work in fullscreen?</h3>
+            <p>Yes. Use the fullscreen control inside the production preview. Your browser may ask for permission before entering fullscreen mode.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Can I change the scrolling speed?</h3>
+            <p>Yes. Use the speed slider before or during recording. You can also use the Up and Down arrow keys while the teleprompter is running.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Are my scripts uploaded?</h3>
+            <p>No. Your script stays in your local browser session and is not uploaded, saved, or sent to our servers.</p>
+        </article>
+    </div>
+</section>
+
         <footer class="ecosystem-footer">
             <div class="footer-title">Other Creator Tools</div>
             <div class="footer-grid">
@@ -394,7 +508,7 @@
             
             countWords.textContent = metrics.words;
             countChars.textContent = metrics.chars;
-            countTime.textContent = `${metrics.seconds}s`;
+            countTime.textContent = formatReadTime(metrics.seconds);
         });
 
         function calculateMetrics(text) {
@@ -412,6 +526,17 @@
             };
         }
 
+        function formatReadTime(totalSeconds) {
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+
+            if (minutes === 0) {
+                return `${seconds} sec`;
+            }
+
+            return `${minutes} min ${seconds} sec`;
+        }
+
         // 2. Control Layout Modifier Configuration bindings
         sizeControl.addEventListener('input', () => {
             teleprompterCanvas.style.fontSize = `${sizeControl.value}px`;
@@ -425,21 +550,26 @@
         toggleEyeline.addEventListener('click', () => {
             if (eyelineGuide.style.display === 'none') {
                 eyelineGuide.style.display = 'block';
-                toggleEyeline.textContent = 'Eyeline Guide: ON';
+                toggleEyeline.textContent = 'Hide Eyeline Guide';
                 toggleEyeline.classList.add('active');
             } else {
                 eyelineGuide.style.display = 'none';
-                toggleEyeline.textContent = 'Eyeline Guide: OFF';
+                toggleEyeline.textContent = 'Show Eyeline Guide';
                 toggleEyeline.classList.remove('active');
             }
         });
 
         fullscreenButton.addEventListener('click', () => {
             if (!document.fullscreenElement) {
-                viewportBox.requestFullscreen().catch(err => {
-                    alert(`Fullscreen failed: ${err.message}`);
-                });
-                fullscreenButton.classList.add('active');
+                const requestFullscreen = viewportBox.requestFullscreen || viewportBox.webkitRequestFullscreen;
+                if (requestFullscreen) {
+                    requestFullscreen.call(viewportBox).catch(err => {
+                        alert(`Fullscreen failed: ${err.message}`);
+                    });
+                    fullscreenButton.classList.add('active');
+                } else {
+                    alert('Fullscreen is not available in this browser.');
+                }
             } else {
                 document.exitFullscreen();
                 fullscreenButton.classList.remove('active');
@@ -557,5 +687,22 @@
             }
         });
     </script>
+<footer class="acl-shell-footer no-print">
+    <div class="acl-footer-inner">
+        <div class="acl-footer-brand">
+            <strong>AI Cash Lab Tools</strong>
+            <span>Simple business tools for freelancers, creators, and digital operators.</span>
+        </div>
+        <div class="acl-footer-links">
+            <a href="/">All Tools</a>
+            <a href="/">Free Tools</a>
+            <a href="/creator-utilities/">Creator Utilities</a>
+            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
+            <a href="mailto:support@aicashlabtools.com">Contact</a>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
+
+
