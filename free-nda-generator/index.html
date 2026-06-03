@@ -186,17 +186,39 @@
 
         [contenteditable="true"] {
             outline: none;
-            padding: 1px 4px;
+            padding: 1px 5px;
             border-radius: 4px;
             font-weight: 700;
             color: #0f172a;
-            background: #f1f5f9;
-            transition: background 0.15s;
+            background: #fef3c7;
+            border: 1px solid rgba(245, 158, 11, 0.45);
+            transition: background 0.15s, border-color 0.15s;
             display: inline-block;
         }
         [contenteditable="true"]:hover, [contenteditable="true"]:focus {
-            background: #e2e8f0;
+            background: #fde68a;
+            border-color: rgba(245, 158, 11, 0.85);
         }
+        .edit-tip-card {
+            align-items: center;
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            border-radius: 10px;
+            color: #fde68a;
+            display: flex;
+            font-size: 13px;
+            font-weight: 650;
+            gap: 10px;
+            line-height: 1.45;
+            margin: 0 0 14px;
+            padding: 12px 14px;
+        }
+        .edit-tip-card span {
+            color: #f59e0b;
+            flex: 0 0 auto;
+            font-weight: 900;
+        }
+        .edit-tip-card p { margin: 0; }
 
         /* Linked Dynamic Synced Sync Elements Styles */
         .sync-bind-token {
@@ -394,6 +416,7 @@
             .tool-header,
             .legal-disclaimer-card,
             .action-control-rail,
+            .edit-tip-card,
             .sidebar-panel,
             .conversion-deck,
             .ecosystem-footer {
@@ -412,6 +435,7 @@
             }
             [contenteditable="true"] {
                 background: none !important;
+                border: none !important;
                 padding: 0 !important;
             }
             .sync-bind-token {
@@ -432,6 +456,67 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
 .acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#e5e7eb;display:flex;gap:18px;margin:0 auto 10px;max-width:1120px;overflow-x:auto;padding:14px 18px;width:min(calc(100% - 32px),1120px)}.acl-quick-start h2{color:#fff;flex:0 0 auto;font-size:14px;line-height:1;margin:0;white-space:nowrap}.acl-quick-start h2::after{color:#f59e0b;content:">";font-weight:900;margin-left:18px}.acl-quick-start ol{align-items:center;display:flex;gap:0;list-style:none;margin:0;padding:0}.acl-quick-start li{align-items:center;color:#dbeafe;display:flex;flex:0 0 auto;font-size:13px;font-weight:650;line-height:1.2;white-space:nowrap}.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:">";font-weight:900;margin:0 18px}.acl-privacy-trust{align-items:center;background:rgba(16,185,129,.08);border:1px solid rgba(34,197,94,.48);border-radius:10px;box-sizing:border-box;color:#d1fae5;display:flex;font-size:12px;font-weight:650;gap:8px;line-height:1.45;margin:10px auto 28px;max-width:1120px;padding:10px 14px;width:min(calc(100% - 32px),1120px)}.acl-privacy-trust span{color:#34d399;flex:0 0 auto;font-size:13px}.acl-privacy-trust p{margin:0}.privacy-strip{display:none!important}
 .acl-seo-intro,.acl-faq-section{background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(100%,1120px)}.acl-seo-intro h2,.acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 12px}.acl-seo-intro p{color:#a1a1aa;font-size:14px;line-height:1.65;margin:0}.acl-faq-grid{align-items:stretch;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;min-width:0;padding:14px}.acl-faq-item h3{color:#f8fafc;font-size:14px;line-height:1.35;margin:0 0 6px}.acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}.ecosystem-footer{align-self:stretch!important;background:#151820!important;border:1px solid #27272a!important;border-radius:14px!important;box-sizing:border-box!important;clear:both!important;color:#d4d4d8!important;display:grid!important;gap:22px!important;grid-template-columns:minmax(0,.85fr) minmax(320px,1.4fr)!important;margin:56px auto 0!important;max-width:1120px!important;padding:22px!important;width:min(100%,1120px)!important}.footer-title{color:#f59e0b!important;display:block!important;font-size:10px!important;font-weight:800!important;letter-spacing:.16em!important;margin:0!important;text-transform:uppercase!important}.footer-grid{align-content:start;display:grid!important;gap:10px!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;min-width:0!important}.footer-link-card{background:#0f141f!important;border:1px solid rgba(245,158,11,.25)!important;border-radius:9px!important;color:#f8fafc!important;display:block!important;font-size:12px!important;font-weight:700!important;line-height:1.25!important;min-width:0!important;overflow-wrap:anywhere!important;padding:12px!important;text-align:left!important;text-decoration:none!important;white-space:normal!important}.footer-link-card:hover{background:rgba(245,158,11,.12)!important;border-color:rgba(245,158,11,.6)!important;color:#f59e0b!important}.footer-link-card h4{color:inherit!important;font-size:13px!important;line-height:1.25!important;margin:0 0 4px!important}.footer-link-card p{color:#a1a1aa!important;font-size:12px!important;line-height:1.45!important;margin:0!important}.footer-link-card span{color:#f59e0b!important;display:block!important;font-size:10px!important;font-weight:800!important;margin-bottom:4px!important;text-transform:uppercase!important}
 .acl-shell-footer{background:#111827;border-top:1px solid rgba(255,255,255,.06);color:#64748b;margin:0!important;padding:40px 0;text-align:left!important;width:100%}.acl-footer-inner{align-items:start;display:grid;gap:28px;grid-template-columns:minmax(0,1fr) auto;margin:0 auto;max-width:1280px;padding:0 clamp(16px,4vw,32px);width:100%}.acl-footer-brand{display:flex;flex-direction:column;gap:8px}.acl-footer-brand strong{color:#fff;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.acl-footer-brand span{color:#64748b;font-size:11px;max-width:360px}.acl-footer-links{display:flex;flex-wrap:wrap;gap:18px;justify-content:flex-end}img,video,canvas,svg{max-width:100%}input,select,textarea,button{max-width:100%}@media(max-width:900px){.acl-shell-inner{align-items:flex-start;flex-direction:column;height:auto;padding-bottom:14px;padding-top:14px}.acl-shell-nav{justify-content:flex-start;overflow-x:auto;padding-bottom:4px;width:100%}.ecosystem-footer{grid-template-columns:1fr!important;width:min(calc(100% - 32px),1120px)!important}.footer-grid{grid-template-columns:1fr!important}.acl-footer-inner{grid-template-columns:1fr}.acl-footer-links{justify-content:flex-start}.acl-faq-grid{grid-template-columns:1fr}.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}.acl-privacy-trust{align-items:flex-start;width:calc(100% - 24px)}}
+@media print {
+    @page { size: letter; margin: 0; }
+    html,
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        min-height: auto !important;
+        overflow: visible !important;
+        padding: 0 !important;
+    }
+    body * { visibility: hidden !important; }
+    .container {
+        margin: 0 !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+    .acl-shell-header,
+    .acl-shell-footer,
+    .tool-header,
+    .acl-quick-start,
+    .acl-privacy-trust,
+    .legal-disclaimer-card,
+    .action-control-rail,
+    .edit-tip-card,
+    .sidebar-panel,
+    .conversion-deck,
+    .acl-seo-intro,
+    .acl-faq-section,
+    .ecosystem-footer,
+    .no-print {
+        display: none !important;
+    }
+    .workspace-layout {
+        display: block !important;
+        margin: 0 !important;
+    }
+    .document-canvas,
+    .document-canvas * {
+        visibility: visible !important;
+    }
+    .document-canvas {
+        background: #ffffff !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0.55in 0.55in 0.75in !important;
+        width: 100% !important;
+    }
+    .document-canvas [contenteditable="true"],
+    .document-canvas [contenteditable="true"]:hover,
+    .document-canvas [contenteditable="true"]:focus {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+}
     </style>
 </head>
 <body>
@@ -457,8 +542,8 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
         <!-- Studio Configuration Header Module -->
         <header class="tool-header">
             <div class="header-meta">LEGAL PROTECTION UTILITY</div>
-            <h1 class="header-title">Free NDA Generator (No Signup Required)</h1>
-            <p class="header-subtitle">Build simple, professional non-disclosure agreements tailored for independent project discussions. Select a strategic preset, edit details inline, and print instantly.</p>
+            <h1 class="header-title">Free NDA Generator</h1>
+            <p class="header-subtitle">No signup required. Create a simple NDA agreement in minutes. Choose a preset, fill in the highlighted fields, and print instantly.</p>
         </header>
 <section class="acl-quick-start no-print">
     <h2>Quick Start</h2>
@@ -473,9 +558,9 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
 
         <!-- MANDATORY PROTECTIVE LEGAL DISCLAIMER CARD -->
         <section class="legal-disclaimer-card">
-            <div class="disclaimer-icon">⚠️</div>
+            <div class="disclaimer-icon">!</div>
             <p class="disclaimer-text">
-                <b>Legal Notice:</b> This document is provided as a general operational starting point and does not constitute legal advice. Requirements vary significantly by state jurisdiction, country, and specific commercial situations. Consider consulting a qualified attorney before executing or relying on any legal contract framework.
+                <b>Legal Notice:</b> This document is a general starting point and is not legal advice. Requirements vary by state, country, and business situation. Consider asking a qualified attorney to review important agreements before signing.
             </p>
         </section>
 
@@ -489,8 +574,13 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                 <button id="preset-mutual" class="btn-preset" onclick="activateContractPresetLayout('mutual')">Mutual NDA</button>
             </div>
             <div>
-                <button class="btn-primary-action" onclick="window.print()">Print / Save PDF</button>
+                <button class="btn-primary-action" onclick="printNdaDocument()">Print / Save PDF</button>
             </div>
+        </section>
+
+        <section class="edit-tip-card no-print" aria-label="NDA editing tip">
+            <span aria-hidden="true">Tip</span>
+            <p>Put your information in the yellow highlighted areas before printing or saving the NDA.</p>
         </section>
 
         <!-- Main Operation Layout Split -->
@@ -507,16 +597,16 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                     <span contenteditable="true" id="field-party2" data-sync="party2">Client Company Name</span> ("Receiving Party").
                 </div>
 
-                <div class="doc-p">
-                    <b>1. Purpose.</b> The parties wish to engage in discussions regarding potential business opportunities, product strategy, or project technical collaborations (the "Purpose"). In connection with this Purpose, the parties may disclose proprietary or confidential technical and business data.
+                <div id="dynamic-purpose-clause" class="doc-p">
+                    <b>1. Purpose.</b> The parties wish to discuss a potential freelance project, including services, creative direction, pricing, timelines, and project requirements. During those discussions, either party may share business, creative, technical, or financial information that should remain confidential.
                 </div>
 
                 <div id="dynamic-scope-clause" class="doc-p">
-                    <b>2. Confidential Information.</b> "Confidential Information" refers to any proprietary asset files, source code, strategy maps, or financial information disclosed by the Disclosing Party to the Receiving Party that is marked as confidential or should reasonably be understood to be confidential given the nature of the information.
+                    <b>2. Confidential Information.</b> "Confidential Information" includes proposals, project briefs, creative files, strategy notes, pricing, client information, business plans, source files, and any other information shared for the potential freelance project that is marked confidential or should reasonably be treated as confidential.
                 </div>
 
-                <div class="doc-p">
-                    <b>3. Obligations.</b> The Receiving Party shall hold all Confidential Information in strict confidence and shall not disclose it to any third party without prior written consent. The Receiving Party shall restrict access to such information to personnel strictly requiring it to fulfill the Purpose.
+                <div id="dynamic-obligations-clause" class="doc-p">
+                    <b>3. Obligations.</b> Each receiving party shall keep Confidential Information private, use it only for evaluating or completing the project, and avoid sharing it with anyone who does not need access for the agreed purpose.
                 </div>
 
                 <div class="doc-p">
@@ -547,19 +637,19 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                 <div class="readiness-list">
                     <div class="readiness-item">
                         <span class="readiness-lbl">Effective Date</span>
-                        <span id="check-date" class="readiness-status status-pass">✓ Ready</span>
+                        <span id="check-date" class="readiness-status status-pass">Ready</span>
                     </div>
                     <div class="readiness-item">
                         <span class="readiness-lbl">Disclosing Party</span>
-                        <span id="check-party1" class="readiness-status status-pass">✓ Ready</span>
+                        <span id="check-party1" class="readiness-status status-pass">Ready</span>
                     </div>
                     <div class="readiness-item">
                         <span class="readiness-lbl">Receiving Party</span>
-                        <span id="check-party2" class="readiness-status status-pass">✓ Ready</span>
+                        <span id="check-party2" class="readiness-status status-pass">Ready</span>
                     </div>
                     <div class="readiness-item">
                         <span class="readiness-lbl">State Jurisdiction</span>
-                        <span id="check-jurisdiction" class="readiness-status status-pass">✓ Ready</span>
+                        <span id="check-jurisdiction" class="readiness-status status-pass">Ready</span>
                     </div>
                 </div>
             </aside>
@@ -567,18 +657,18 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
 
         <!-- STRATEGIC VALUE TRANSITION EXPLICIT CONVERSION UPSELL BLOCK -->
         <section class="conversion-deck">
-            <div class="deck-badge">SYSTEM EXTENSION</div>
-            <h3 class="deck-title">Protecting your delivery metrics doesn't stop at an NDA.</h3>
-            <p class="deck-subtitle">The free NDA protects an introductory conversation. The premium <b>Client Portal & Freelancer Business OS</b> helps you securely manage project scope, asset delivery sign-offs, production approvals, and ongoing client workflows after the project begins.</p>
+            <div class="deck-badge">NEXT STEP</div>
+            <h3 class="deck-title">Keep client projects organized after the NDA is signed.</h3>
+            <p class="deck-subtitle">An NDA helps with the first confidential conversation. The premium <b>Client Portal & Freelancer Business OS</b> helps you manage project scope, files, approvals, deadlines, and client communication once the work begins.</p>
 
             <div class="value-matrix-grid">
-                <div class="value-bullet"><span>✓</span> <b>Centralized Workspaces:</b> Keep conversations and technical specs aligned in one shared hub.</div>
-                <div class="value-bullet"><span>✓</span> <b>Production Milestones:</b> Freeze client review iteration loops and prevent random feedback bloat.</div>
-                <div class="value-bullet"><span>✓</span> <b>Asset Lockouts:</b> Protect source components automatically until phase milestones clear.</div>
-                <div class="value-bullet"><span>✓</span> <b>Professional Operational Separation:</b> Run deliverables systematically to maximize renewal orders.</div>
+                <div class="value-bullet"><span>&check;</span> <b>Shared Project Space:</b> Keep client files, notes, and decisions in one place.</div>
+                <div class="value-bullet"><span>&check;</span> <b>Clear Milestones:</b> Set review points so feedback and revisions stay organized.</div>
+                <div class="value-bullet"><span>&check;</span> <b>File Delivery Tracking:</b> Know what has been sent, approved, or still needs work.</div>
+                <div class="value-bullet"><span>&check;</span> <b>Client Follow-Up:</b> Use a cleaner workflow for approvals, handoff, and next steps.</div>
             </div>
 
-            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="btn-master-upsell">View Client Portal & Freelancer Business OS →</a>
+            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="btn-master-upsell">View Client Portal & Freelancer Business OS &gt;</a>
         </section>
 
         <!-- DYNAMIC RECURSIVE ECOSYSTEM INTERNALS FOOTER LINKS -->
@@ -597,27 +687,43 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
             <h3>Is this legal advice?</h3>
             <p>No. This tool provides a general template only. Review important agreements with a qualified professional.</p>
         </article>
+        <article class="acl-faq-item">
+            <h3>Is this NDA generator free?</h3>
+            <p>Yes. You can draft, edit, print, and save the NDA from your browser without creating an account.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>What should I edit before signing?</h3>
+            <p>Update the yellow highlighted fields, including the date, party names, state jurisdiction, and any clause language that needs to match your situation.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Which NDA preset should I use?</h3>
+            <p>Use Freelancer for client conversations, Contractor for one-way disclosure to a worker, Agency for subcontractor projects, and Mutual when both parties share confidential information.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Can I save the NDA as a PDF?</h3>
+            <p>Yes. Use the print button and choose Save as PDF in your browser's print window.</p>
+        </article>
     </div>
 </section>
 
         <footer class="ecosystem-footer">
-            <div class="footer-title">Related Freelancer System Tools</div>
+            <div class="footer-title">Related Freelancer Tools</div>
             <div class="footer-grid">
                 <a href="/scope-creep-calculator/" class="footer-link-card">
                     <h4>Scope Creep Calculator</h4>
-                    <p>Audit project updates to gauge structural contract adjustments.</p>
+                    <p>Estimate unpaid extra work and missed billable hours.</p>
                 </a>
                 <a href="/free-invoice-generator/" class="footer-link-card">
                     <h4>Free Invoice Generator</h4>
-                    <p>Build minimalist corporate invoices in under 60 seconds with no signup.</p>
+                    <p>Create a simple client invoice with editable line items and totals.</p>
                 </a>
                 <a href="/freedom-rate-calculator/" class="footer-link-card">
                     <h4>Freedom Rate Calculator</h4>
-                    <p>Discover required baseline hourly values matching your business goals.</p>
+                    <p>Check the hourly rate needed to support your income goal.</p>
                 </a>
                 <a href="/statement-of-work-generator/" class="footer-link-card">
-                    <h4>Freelancer OS Bundle</h4>
-                    <p>Acquire systemic workflow execution frameworks to scale project operations cleanly.</p>
+                    <h4>Statement of Work Generator</h4>
+                    <p>Outline project scope, deliverables, timelines, and client responsibilities.</p>
                 </a>
             </div>
         </footer>
@@ -634,25 +740,35 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
         const jurInput = document.getElementById('field-jurisdiction');
 
         const titleHud = document.getElementById('doc-title-hud');
+        const purposeClause = document.getElementById('dynamic-purpose-clause');
         const scopeClause = document.getElementById('dynamic-scope-clause');
+        const obligationsClause = document.getElementById('dynamic-obligations-clause');
 
-        // Preset Content Parameters Definitions Matrix
+        // Preset clause text for common NDA use cases.
         const contractPresets = {
             freelancer: {
                 title: "MUTUAL NON-DISCLOSURE AGREEMENT",
-                scope: "<b>2. Confidential Information.</b> \"Confidential Information\" refers to any proprietary asset files, software code templates, strategy maps, motion graphic structures, or financial metrics disclosed by the Disclosing Party to the Receiving Party that is marked confidential or should reasonably be understood to be confidential."
+                purpose: "<b>1. Purpose.</b> The parties wish to discuss a potential freelance project, including services, creative direction, pricing, timelines, and project requirements. During those discussions, either party may share business, creative, technical, or financial information that should remain confidential.",
+                scope: "<b>2. Confidential Information.</b> \"Confidential Information\" includes proposals, project briefs, creative files, strategy notes, pricing, client information, business plans, source files, and any other information shared for the potential freelance project that is marked confidential or should reasonably be treated as confidential.",
+                obligations: "<b>3. Obligations.</b> Each receiving party shall keep Confidential Information private, use it only for evaluating or completing the project, and avoid sharing it with anyone who does not need access for the agreed purpose."
             },
             contractor: {
                 title: "UNILATERAL NON-DISCLOSURE AGREEMENT",
-                scope: "<b>2. Confidential Information.</b> \"Confidential Information\" includes all operational parameters, marketing channel workflows, login credentials, automation structures, and internal source material delivered to the Contractor (Receiving Party) for system optimization."
+                purpose: "<b>1. Purpose.</b> The Disclosing Party may provide the Contractor with confidential information so the Contractor can evaluate or perform assigned work. This agreement is intended for one-way disclosure from the business or client to the contractor.",
+                scope: "<b>2. Confidential Information.</b> \"Confidential Information\" includes client materials, logins, internal instructions, business processes, product information, files, documents, and other non-public information shared with the Contractor for the assigned work.",
+                obligations: "<b>3. Obligations.</b> The Contractor shall protect the Confidential Information, use it only for the assigned work, and return or delete confidential materials when the project ends or when requested by the Disclosing Party."
             },
             agency: {
-                title: "AGENCY MASTER CONFIDENTIALITY CONTRACT",
-                scope: "<b>2. Confidential Information.</b> \"Confidential Information\" encompasses high-level campaign parameters, asset libraries, client roster definitions, proprietary funnel frameworks, and software metrics communicated by the Disclosing Agency to subcontractor entities."
+                title: "AGENCY CONFIDENTIALITY AGREEMENT",
+                purpose: "<b>1. Purpose.</b> The agency may share confidential client, campaign, brand, or project information with a subcontractor or collaborator for limited project work. The information may not be used outside that agency relationship.",
+                scope: "<b>2. Confidential Information.</b> \"Confidential Information\" includes client names, campaign plans, brand assets, creative files, analytics, budgets, vendor details, strategy documents, and other non-public materials shared by the agency.",
+                obligations: "<b>3. Obligations.</b> The receiving party shall keep agency and client information confidential, avoid contacting agency clients directly unless authorized, and use shared materials only for the approved project work."
             },
             mutual: {
                 title: "MUTUAL NON-DISCLOSURE AGREEMENT",
-                scope: "<b>2. Confidential Information.</b> \"Confidential Information\" refers to any proprietary information, product concepts, trade secrets, data sets, or technical strategies disclosed by either party to the other, which is designated as confidential or reasonably understood to be confidential."
+                purpose: "<b>1. Purpose.</b> Both parties may share confidential information while exploring a possible partnership, collaboration, sale, investment, product launch, or other business opportunity.",
+                scope: "<b>2. Confidential Information.</b> \"Confidential Information\" refers to non-public business information, product concepts, customer data, financial details, trade secrets, technical plans, documents, files, or strategies disclosed by either party to the other.",
+                obligations: "<b>3. Obligations.</b> Both parties shall protect the other party's Confidential Information, use it only for the stated Purpose, and not disclose it to outside parties without written permission."
             }
         };
 
@@ -684,7 +800,9 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
             // Swap Structural Document Elements Safely
             const data = contractPresets[presetKey];
             titleHud.textContent = data.title;
+            purposeClause.innerHTML = data.purpose;
             scopeClause.innerHTML = data.scope;
+            obligationsClause.innerHTML = data.obligations;
 
             runSignatureReadinessCheck();
         }
@@ -703,12 +821,85 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
             const fallbackDefaultPlaceholderValue = inputElement.defaultValue || "";
 
             if (standardStringCleanValue === "" || standardStringCleanValue === fallbackDefaultPlaceholderValue) {
-                indicatorEl.textContent = "❌ Missing";
+                indicatorEl.textContent = "Missing";
                 indicatorEl.className = "readiness-status status-fail";
             } else {
-                indicatorEl.textContent = `✓ ${absoluteLabelText}`;
+                indicatorEl.textContent = absoluteLabelText;
                 indicatorEl.className = "readiness-status status-pass";
             }
+        }
+
+        function getCleanNdaMarkupForPrint() {
+            const documentSource = document.getElementById('document-sheet');
+            const documentClone = documentSource.cloneNode(true);
+
+            documentClone.removeAttribute('id');
+            documentClone.querySelectorAll('[contenteditable]').forEach((node) => {
+                node.removeAttribute('contenteditable');
+            });
+
+            return documentClone.innerHTML;
+        }
+
+        function printNdaDocument() {
+            const printFrame = document.createElement('iframe');
+            printFrame.setAttribute('aria-hidden', 'true');
+            printFrame.style.position = 'fixed';
+            printFrame.style.right = '0';
+            printFrame.style.bottom = '0';
+            printFrame.style.width = '0';
+            printFrame.style.height = '0';
+            printFrame.style.border = '0';
+            printFrame.style.opacity = '0';
+
+            const printDocument = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <title> </title>
+                    <style>
+                        @page { size: letter; margin: 0; }
+                        * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+                        html, body { background: #ffffff; color: #1e293b; margin: 0; min-height: auto; overflow: visible; padding: 0; }
+                        body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 14px; line-height: 1.6; }
+                        .print-document { background: #ffffff; color: #1e293b; padding: 0.55in 0.55in 0.75in; width: 100%; }
+                        .doc-title { color: #0f172a; font-size: 24px; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 40px; text-align: center; }
+                        .doc-p { margin-bottom: 20px; text-align: justify; }
+                        .signature-grid { border-top: 1px solid #e2e8f0; display: grid; gap: 40px; grid-template-columns: repeat(2, 1fr); margin-top: 50px; padding-top: 30px; }
+                        .sig-block { display: flex; flex-direction: column; gap: 15px; }
+                        .sig-line { border-bottom: 1px solid #94a3b8; height: 40px; margin-bottom: 5px; }
+                        .sync-bind-token { color: #000000; font-weight: 700; }
+                        strong, b { color: #0f172a; font-weight: 700; }
+                        .doc-p, .signature-grid, .sig-block { break-inside: avoid; page-break-inside: avoid; }
+                    </style>
+                </head>
+                <body>
+                    <main class="print-document">${getCleanNdaMarkupForPrint()}</main>
+                </body>
+                </html>
+            `;
+
+            const cleanupPrintFrame = () => {
+                if (printFrame.parentNode) {
+                    printFrame.remove();
+                }
+            };
+
+            printFrame.onload = () => {
+                setTimeout(() => {
+                    printFrame.contentWindow.document.title = ' ';
+                    printFrame.contentWindow.addEventListener('afterprint', cleanupPrintFrame, { once: true });
+                    printFrame.contentWindow.focus();
+                    printFrame.contentWindow.print();
+                    setTimeout(cleanupPrintFrame, 120000);
+                }, 0);
+            };
+
+            document.body.appendChild(printFrame);
+            printFrame.contentDocument.open();
+            printFrame.contentDocument.write(printDocument);
+            printFrame.contentDocument.close();
         }
 
         // Cache Management Sync Operations
