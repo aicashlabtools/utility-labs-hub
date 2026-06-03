@@ -80,7 +80,7 @@
 
         @media (min-width: 992px) {
             .workspace-grid {
-                grid-template-columns: 1.2fr 0.8fr;
+                grid-template-columns: minmax(0, 1fr) minmax(360px, 0.95fr);
             }
         }
 
@@ -129,16 +129,17 @@
         }
         .metric-box {
             background: #070a12;
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(59, 130, 246, 0.5);
             border-radius: 6px;
             padding: 14px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.08);
         }
         .metric-lbl {
             font-size: 10px;
-            color: var(--text-muted);
+            color: #93b4e8;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -150,7 +151,7 @@
         }
         .metric-subtext {
             font-size: 11px;
-            color: var(--text-muted);
+            color: #a9bdd8;
             margin-top: 4px;
         }
 
@@ -164,7 +165,7 @@
             width: 100%;
             height: 360px;
             background: #070a12;
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(59, 130, 246, 0.58);
             border-radius: 6px;
             color: white;
             padding: 18px;
@@ -174,9 +175,15 @@
             resize: none;
             outline: none;
             font-family: inherit;
+            box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.1), 0 14px 30px rgba(15, 23, 42, 0.24);
         }
         textarea:focus {
             border-color: var(--neon-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.22), 0 14px 30px rgba(15, 23, 42, 0.24);
+        }
+        textarea::placeholder {
+            color: #a9bdd8;
+            opacity: 1;
         }
 
         /* Action Controls Layout Ribbon Layouts */
@@ -250,10 +257,11 @@
             border: 1px solid #e0e0e0;
             border-radius: 10px;
             overflow: hidden;
-            max-width: 420px;
+            max-width: 560px;
             margin: 0 auto;
             width: 100%;
-            font-size: 14px;
+            font-size: 15px;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
         }
         .ln-post-header {
             display: flex;
@@ -296,10 +304,11 @@
             gap: 4px;
         }
         .ln-caption-body {
-            padding: 0 16px 16px 16px;
-            line-height: 1.5;
+            padding: 0 20px 18px 20px;
+            line-height: 1.56;
             color: #191919;
             word-wrap: break-word;
+            font-size: 15px;
         }
         
         /* Truncation Divider Fence */
@@ -325,11 +334,27 @@
         .preview-text-render {
             white-space: pre-wrap;
         }
+        .preview-empty-state {
+            color: #777777;
+            font-style: italic;
+        }
         .ln-see-more {
             color: #0a66c2;
             cursor: pointer;
             font-weight: 600;
             display: none;
+        }
+        .cutoff-note {
+            background: #f3f6f8;
+            border: 1px solid #d6e3ec;
+            border-radius: 8px;
+            color: #334155;
+            display: none;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.35;
+            margin: 12px 20px 16px;
+            padding: 10px 12px;
         }
         .ln-action-footer {
             border-top: 1px solid #f3f2ef;
@@ -385,21 +410,60 @@
             color: var(--text-muted);
             font-size: 12px;
         }
+    
+/* AI Cash Lab shared tool shell integration */
+html, body { min-height: 100%; overflow-y: auto; }
+body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; scrollbar-color: #f59e0b #0b1020; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0b1020; }
+::-webkit-scrollbar-thumb { background: #f59e0b; border-radius: 999px; }
+.acl-shell-header,.acl-shell-footer,.tool-header,.acl-quick-start,.acl-privacy-trust,.ecosystem-footer,.acl-faq-section,.acl-seo-intro{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.acl-shell-header{background:rgba(11,15,25,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);margin:0!important;padding:0;position:sticky;top:0;width:100%;z-index:50}.acl-shell-inner{align-items:center;display:flex;gap:20px;height:64px;justify-content:space-between;margin:0 auto;max-width:1280px;padding:0 clamp(16px,4vw,32px);width:100%}.acl-brand{align-items:center;color:#fff;display:inline-flex;gap:12px;min-width:max-content;text-decoration:none}.acl-logo-frame{align-items:center;background:#111827;border:1px solid #1f2937;border-radius:8px;display:inline-flex;height:32px;justify-content:center;overflow:hidden;width:32px}.acl-logo-frame img{display:block;height:100%;object-fit:contain;width:100%}.acl-brand strong{color:#fff;display:block;font-size:12px;font-weight:800;letter-spacing:.08em;line-height:1;text-transform:uppercase}.acl-brand small{color:#64748b;display:block;font-size:9px;font-weight:700;letter-spacing:.08em;margin-top:3px;text-transform:uppercase}.acl-shell-nav{align-items:center;display:flex;flex:1;gap:clamp(16px,2.2vw,28px);justify-content:center;min-width:0}.acl-shell-nav a,.acl-back-link,.acl-footer-links a{color:#a1a1aa;font-size:12px;font-weight:700;text-decoration:none;transition:color .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease}.acl-shell-nav a:hover,.acl-footer-links a:hover{color:#fff}.acl-shell-nav .acl-premium-link{color:#f59e0b}.acl-back-link{border:1px solid rgba(245,158,11,.45);border-radius:8px;color:#f8fafc;padding:8px 12px;white-space:nowrap}.acl-back-link:hover{background:rgba(245,158,11,.12);box-shadow:0 0 16px rgba(245,158,11,.18);color:#fff}
+.container,.teleprompter-container{box-sizing:border-box;margin:0 auto!important;max-width:1120px!important;padding:0 clamp(16px,4vw,24px) 72px!important;width:100%!important}.tool-header{background:linear-gradient(135deg,rgba(245,158,11,.13),rgba(15,23,42,.94) 50%,rgba(17,24,39,.98));border:1px solid rgba(245,158,11,.28);border-radius:14px;box-sizing:border-box;margin:32px auto 20px!important;padding:clamp(28px,5vw,48px)!important;text-align:left!important}.header-meta{color:#f59e0b!important;font-size:12px!important;font-weight:800!important;letter-spacing:.16em!important;text-transform:uppercase!important}.header-title{color:#fff!important;font-size:clamp(2.2rem,5vw,3.8rem)!important;font-weight:500!important;letter-spacing:0!important;line-height:1.05!important;margin:14px 0 14px!important}.header-subtitle{color:#e5e7eb!important;font-size:clamp(1rem,2vw,1.25rem)!important;line-height:1.45!important;max-width:850px!important}
+.acl-quick-start{align-items:center;background:#151820;border:1px solid #27272a;border-radius:12px;color:#e5e7eb;display:flex;gap:18px;margin:0 auto 10px;max-width:1120px;overflow-x:auto;padding:14px 18px;width:min(calc(100% - 32px),1120px)}.acl-quick-start h2{color:#fff;flex:0 0 auto;font-size:14px;line-height:1;margin:0;white-space:nowrap}.acl-quick-start h2::after{color:#f59e0b;content:">";font-weight:900;margin-left:18px}.acl-quick-start ol{align-items:center;display:flex;gap:0;list-style:none;margin:0;padding:0}.acl-quick-start li{align-items:center;color:#dbeafe;display:flex;flex:0 0 auto;font-size:13px;font-weight:650;line-height:1.2;white-space:nowrap}.acl-quick-start li:not(:last-child)::after{color:#f59e0b;content:">";font-weight:900;margin:0 18px}.acl-privacy-trust{align-items:center;background:rgba(16,185,129,.08);border:1px solid rgba(34,197,94,.48);border-radius:10px;box-sizing:border-box;color:#d1fae5;display:flex;font-size:12px;font-weight:650;gap:8px;line-height:1.45;margin:10px auto 28px;max-width:1120px;padding:10px 14px;width:min(calc(100% - 32px),1120px)}.acl-privacy-trust span{color:#34d399;flex:0 0 auto;font-size:13px}.acl-privacy-trust p{margin:0}.privacy-strip{display:none!important}
+.acl-seo-intro,.acl-faq-section{background:#151820;border:1px solid #27272a;border-radius:14px;box-sizing:border-box;color:#d4d4d8;margin:56px auto 0;max-width:1120px;padding:24px;width:min(100%,1120px)}.acl-seo-intro h2,.acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 12px}.acl-seo-intro p{color:#a1a1aa;font-size:14px;line-height:1.65;margin:0}.acl-faq-grid{align-items:stretch;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}.acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;min-width:0;padding:14px}.acl-faq-item h3{color:#f8fafc;font-size:14px;line-height:1.35;margin:0 0 6px}.acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}.ecosystem-footer{align-self:stretch!important;background:#151820!important;border:1px solid #27272a!important;border-radius:14px!important;box-sizing:border-box!important;clear:both!important;color:#d4d4d8!important;display:grid!important;gap:22px!important;grid-template-columns:minmax(0,.85fr) minmax(320px,1.4fr)!important;margin:56px auto 0!important;max-width:1120px!important;padding:22px!important;width:min(100%,1120px)!important}.footer-title{color:#f59e0b!important;display:block!important;font-size:10px!important;font-weight:800!important;letter-spacing:.16em!important;margin:0!important;text-transform:uppercase!important}.footer-grid{align-content:start;display:grid!important;gap:10px!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;min-width:0!important}.footer-link-card{background:#0f141f!important;border:1px solid rgba(245,158,11,.25)!important;border-radius:9px!important;color:#f8fafc!important;display:block!important;font-size:12px!important;font-weight:700!important;line-height:1.25!important;min-width:0!important;overflow-wrap:anywhere!important;padding:12px!important;text-align:left!important;text-decoration:none!important;white-space:normal!important}.footer-link-card:hover{background:rgba(245,158,11,.12)!important;border-color:rgba(245,158,11,.6)!important;color:#f59e0b!important}.footer-link-card h4{color:inherit!important;font-size:13px!important;line-height:1.25!important;margin:0 0 4px!important}.footer-link-card p{color:#a1a1aa!important;font-size:12px!important;line-height:1.45!important;margin:0!important}.footer-link-card span{color:#f59e0b!important;display:block!important;font-size:10px!important;font-weight:800!important;margin-bottom:4px!important;text-transform:uppercase!important}
+.acl-shell-footer{background:#111827;border-top:1px solid rgba(255,255,255,.06);color:#64748b;margin:0!important;padding:40px 0;text-align:left!important;width:100%}.acl-footer-inner{align-items:start;display:grid;gap:28px;grid-template-columns:minmax(0,1fr) auto;margin:0 auto;max-width:1280px;padding:0 clamp(16px,4vw,32px);width:100%}.acl-footer-brand{display:flex;flex-direction:column;gap:8px}.acl-footer-brand strong{color:#fff;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.acl-footer-brand span{color:#64748b;font-size:11px;max-width:360px}.acl-footer-links{display:flex;flex-wrap:wrap;gap:18px;justify-content:flex-end}img,video,canvas,svg{max-width:100%}input,select,textarea,button{max-width:100%}@media(max-width:900px){.acl-shell-inner{align-items:flex-start;flex-direction:column;height:auto;padding-bottom:14px;padding-top:14px}.acl-shell-nav{justify-content:flex-start;overflow-x:auto;padding-bottom:4px;width:100%}.ecosystem-footer{grid-template-columns:1fr!important;width:min(calc(100% - 32px),1120px)!important}.footer-grid{grid-template-columns:1fr!important}.acl-footer-inner{grid-template-columns:1fr}.acl-footer-links{justify-content:flex-start}.acl-faq-grid{grid-template-columns:1fr}.acl-quick-start{width:calc(100% - 24px);padding:12px 14px}.acl-quick-start h2::after{margin-left:14px}.acl-quick-start li:not(:last-child)::after{margin:0 14px}.acl-privacy-trust{align-items:flex-start;width:calc(100% - 24px)}}
+.linkedin-formatter-hero .header-title{font-size:clamp(2rem,4.25vw,3.35rem)!important;max-width:1040px!important}
+@media(max-width:700px){.linkedin-formatter-hero .header-title{font-size:clamp(1.9rem,9vw,2.75rem)!important}}
     </style>
 </head>
 <body>
+<header class="acl-shell-header no-print">
+    <div class="acl-shell-inner">
+        <a href="/" class="acl-brand">
+            <span class="acl-logo-frame"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab Logo"></span>
+            <span><strong>AI Cash Lab</strong><small>Utility Ecosystem</small></span>
+        </a>
+        <nav class="acl-shell-nav" aria-label="Tool categories">
+            <a href="/">Home</a>
+            <a href="/#creator-production">Production</a>
+            <a href="/#creator-monetization">Monetization</a>
+            <a href="/#product-launch">Launch</a>
+            <a href="/#freelancer-business">Freelancer</a>
+            <a href="/#premium-workspaces" class="acl-premium-link">Premium</a>
+        </nav>
+        <a href="/" class="acl-back-link">Back to All Tools</a>
+    </div>
+</header>
     <div class="container">
         
         <!-- Standardized Layout Header Module -->
-        <header class="tool-header">
+        <header class="tool-header linkedin-formatter-hero">
             <div class="header-meta">CREATOR PRODUCTION STUDIO</div>
             <h1 class="header-title">Free LinkedIn Post Formatter & Readability Checker</h1>
             <p class="header-subtitle">Format LinkedIn posts with proper spacing, readability checks, and preview truncation indicators before publishing.</p>
             
-            <div class="privacy-strip">
-                <span>🔒 Private by default: Captions are processed locally in your browser and are never uploaded or stored.</span>
-            </div>
-        </header>
+            </header>
+<section class="acl-quick-start no-print">
+    <h2>Quick Start</h2>
+    <ol>
+        <li>Input Data</li>
+        <li>Adjust Settings</li>
+        <li>Review Results</li>
+        <li>Take Action</li>
+    </ol>
+</section><section class="acl-privacy-trust no-print" aria-label="Privacy notice"><span aria-hidden="true">&#128274;</span><p>Private by default: Files and text are processed locally in your browser. Nothing is uploaded, stored, or sent to our servers.</p></section>
+
 
         <!-- Main Studio Split Grid -->
         <main class="workspace-grid">
@@ -411,7 +475,7 @@
                     
                     <!-- Local Storage Presets Dropdown Module Layer -->
                     <select id="preset-selector" class="preset-select">
-                        <option value="none">-- Load Built-in Framework Preset --</option>
+                        <option value="none">-- Load Example Post --</option>
                         <option value="preset-1">Preset 1: Step-by-Step Tutorial</option>
                         <option value="preset-2">Preset 2: The Contrarian Take</option>
                         <option value="preset-3">Preset 3: The Metrics Case Study</option>
@@ -424,38 +488,52 @@
                 <div class="metrics-grid">
                     <div class="metric-box">
                         <span class="metric-lbl">Mobile Readability Score</span>
-                        <span id="lbl-readability" class="metric-val status-good">Excellent</span>
-                        <span id="sub-readability" class="metric-subtext">Clean formatting</span>
+                        <span id="lbl-readability" class="metric-val">Awaiting Input</span>
+                        <span id="sub-readability" class="metric-subtext">Paste a post to analyze</span>
                     </div>
                     <div class="metric-box">
                         <span class="metric-lbl">Hook Monitor</span>
-                        <span id="lbl-hook" class="metric-val status-good">0 Chars</span>
-                        <span id="sub-hook" class="metric-subtext">Safe from truncation</span>
+                        <span id="lbl-hook" class="metric-val">0 chars</span>
+                        <span id="sub-hook" class="metric-subtext">Paste a hook to check cutoff</span>
                     </div>
                     <div class="metric-box">
                         <span class="metric-lbl">Engagement Prompt</span>
-                        <span id="lbl-engagement" class="metric-val status-alert">Missing</span>
-                        <span id="sub-engagement" class="metric-subtext">End with a question</span>
+                        <span id="lbl-engagement" class="metric-val">Awaiting Input</span>
+                        <span id="sub-engagement" class="metric-subtext">No CTA detected yet</span>
                     </div>
                     <div class="metric-box">
                         <span class="metric-lbl">Post Length Meter</span>
-                        <span id="lbl-length" class="metric-val">Short Post</span>
-                        <span id="sub-length" class="metric-subtext">0 characters total</span>
+                        <span id="lbl-length" class="metric-val">0 chars</span>
+                        <span id="sub-length" class="metric-subtext">Paste a post to measure length</span>
                     </div>
                 </div>
 
                 <div class="textarea-container">
-                    <textarea id="post-textarea" placeholder="Write or paste your LinkedIn post text framework here... Use line returns normally; the compiler handles format structure injection locally."></textarea>
+                    <textarea id="post-textarea" placeholder="Write or paste your LinkedIn post here. Use normal line breaks and the formatter will keep the post easy to read.">Most LinkedIn posts are harder to read than they need to be.
+
+The problem usually is not the idea.
+
+It is the formatting.
+
+Shorter paragraphs make the hook easier to scan, help the main point land faster, and make the post feel less like a wall of text.
+
+Before publishing, I like to check three things:
+
+- Is the first line strong enough?
+- Does the See More cutoff hide anything important?
+- Is there a clear reason to comment or respond?
+
+What part of your next LinkedIn post do you usually rewrite the most?</textarea>
                 </div>
 
                 <div class="action-ribbon">
-                    <button id="clean-markdown-btn" class="btn-secondary" title="Cleans system markdown artifacts and system space bloat anomalies instantly">Sanitize AI Markdown</button>
-                    <button id="save-preset-btn" class="btn-secondary">Save to Current Dropdown Slot</button>
+                    <button id="clean-markdown-btn" class="btn-secondary" title="Removes markdown symbols and extra trailing spaces.">Clean Up Formatting</button>
+                    <button id="save-preset-btn" class="btn-secondary">Save This Draft</button>
                 </div>
 
                 <div class="cta-group">
                     <button id="copy-master-btn" class="btn-green">Copy LinkedIn Formatted Post</button>
-                    <div id="success-toast" class="success-banner">✓ Post Structure Converted & Copied to Clipboard!</div>
+                    <div id="success-toast" class="success-banner">Post formatted and copied to clipboard.</div>
                     <a id="open-ln-btn" href="https://www.linkedin.com" target="_blank" class="btn-linkedin">Open LinkedIn Workspace</a>
                 </div>
             </section>
@@ -469,8 +547,8 @@
                         <div class="ln-avatar">LAB</div>
                         <div class="ln-meta-text">
                             <span class="ln-name">aicashlab_creator</span>
-                            <span class="ln-headline">Founder @ AI Cash Lab Studio • Digital Assets</span>
-                            <span class="ln-time">1h • 🌐</span>
+                            <span class="ln-headline">Founder @ AI Cash Lab Studio &bull; Digital Assets</span>
+                            <span class="ln-time">1h &bull;</span>
                         </div>
                     </div>
 
@@ -485,15 +563,52 @@
 
                         <div id="preview-hidden-remainder" class="preview-text-render"></div>
                     </div>
+                    <div id="cutoff-note" class="cutoff-note">Paste a post to preview the LinkedIn See More cutoff.</div>
 
                     <div class="ln-action-footer">
-                        <span>👍 Like</span> <span>💬 Comment</span> <span>🔁 Repost</span>
+                        <span>Like</span> <span>Comment</span> <span>Repost</span>
                     </div>
                 </div>
             </section>
         </main>
 
         <!-- STANDARDIZED SEQUENTIAL CREATOR WORKFLOW LINKS -->
+<section class="acl-seo-intro no-print">
+    <h2>Format LinkedIn Posts For Better Readability</h2>
+    <p>This free LinkedIn post formatter helps clean up spacing, paragraph breaks, hooks, and calls to action before you publish. Paste a draft to see how your post reads in a LinkedIn-style preview.</p>
+    <p>Use it as a LinkedIn line break tool, LinkedIn readability checker, and LinkedIn hook checker when you want a cleaner mobile post structure. The preview shows where the LinkedIn See More cutoff is likely to appear so your opening lines can carry the main idea.</p>
+    <p>The formatter works for short updates, launch posts, carousels captions, newsletters, and long-form LinkedIn posts. Your text stays in your browser while you format, preview, and copy the finished post.</p>
+</section>
+<section class="acl-faq-section no-print" aria-label="Frequently Asked Questions">
+    <h2>Frequently Asked Questions</h2>
+    <div class="acl-faq-grid">
+        <article class="acl-faq-item">
+            <h3>Is this LinkedIn formatter free?</h3>
+            <p>Yes. You can paste, format, preview, and copy LinkedIn posts without signup.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Will my post be uploaded anywhere?</h3>
+            <p>No. Your text is processed locally in your browser and is not uploaded or stored on our servers.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Can I use this for LinkedIn hooks?</h3>
+            <p>Yes. Use it to test opening lines, spacing, and post structure before publishing.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Does this show the LinkedIn See More cutoff?</h3>
+            <p>Yes. The preview marks the likely cutoff point so you can see what readers may notice before expanding the post.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Can I copy the formatted post?</h3>
+            <p>Yes. The copy button adds clean spacing and copies the formatted post to your clipboard.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Does this work for long-form LinkedIn posts?</h3>
+            <p>Yes. It checks longer posts for length, readability, paragraph density, calls to action, and preview truncation.</p>
+        </article>
+    </div>
+</section>
+
         <footer class="ecosystem-footer">
             <div class="footer-title">Other Creator Tools</div>
             <div class="footer-grid">
@@ -509,7 +624,7 @@
                     <h4>Caption Line Splitter</h4>
                     <p>Format timing script alignments into clean visual rows.</p>
                 </a>
-                <a href="/teleprompter/index.html" class="footer-link-card">
+                <a href="/teleprompter/" class="footer-link-card">
                     <h4>Script Timing Teleprompter</h4>
                     <p>Launch an advanced screen pacing reader tool with automated scrolling.</p>
                 </a>
@@ -548,14 +663,15 @@
         const viewRemainder = document.getElementById('preview-hidden-remainder');
         const viewSeeMoreBtn = document.getElementById('preview-see-more-btn');
         const truncationDivider = document.getElementById('truncation-divider');
+        const cutoffNote = document.getElementById('cutoff-note');
 
         // Data Profile Presets Definition Core Matrix Map
         const frameworkPresets = {
-            'preset-1': "🔥 THE THREE-STEP SYSTEM TO SCALABLE DIGITAL INCOME\n\nMost creators waste months building assets before proving market demand exists. Run this structural loop instead:\n\n1. Discover Current Search Demand Vectors\nFind exactly what users are asking via search data profiles.\n\n2. Outline a Minimal Asset Framework\nBuild the minimal structural roadmap value layer inside a basic doc sheet.\n\n3. Leverage Static Platforms for Distribution\nLaunch instantly using scalable storefront vectors like Gumroad.\n\nWhat is your current main friction point holding you back from shipping? Drop a comment below.\n\n#digitalproducts #creatorgrowth #solopreneur",
-            'preset-2': "💡 Unpopular opinion: Finding more 'traffic' will not fix a broken product cover.\n\nCreators constantly spend hours optimizing video hooks while ignoring the asset structural value offering itself.\n\nIf the core value promise is muddy, scaling visibility metrics just burns your audience distribution faster.\n\nFix your baseline design assets first, then scale the traffic funnel engine system lines.\n\nDo you agree or disagree with this strategy shift? Let me know below.\n\n#marketingstrategy #creators #businessmodels",
-            'preset-3': "📈 CASE STUDY: From zero visibility to active monthly distribution footprints.\n\nHere is the exact growth data breakdown across our new digital playbook testing channels over a 30-day window:\n\n• Baseline Impressions: 1,420 total scope\n• Asset Conversion Ratio: +8.4% click-through parameter\n• Total Cleared Asset Volume: $2,450 scalable layout value\n\nThe entire process was executed utilizing free, browser-native client tools without manual advertising budgets.\n\nWant the structural layout blueprint? Let me know in the comments below.\n\n#analytics #growthmarketing #casestudy",
+            'preset-1': "THE THREE-STEP SYSTEM TO SCALABLE DIGITAL INCOME\n\nMost creators waste months building assets before proving market demand exists. Run this structural loop instead:\n\n1. Discover Current Search Demand Vectors\nFind exactly what users are asking via search data profiles.\n\n2. Outline a Minimal Asset Framework\nBuild the minimal structural roadmap value layer inside a basic doc sheet.\n\n3. Leverage Static Platforms for Distribution\nLaunch instantly using scalable storefront vectors like Gumroad.\n\nWhat is your current main friction point holding you back from shipping? Drop a comment below.\n\n#digitalproducts #creatorgrowth #solopreneur",
+            'preset-2': "Unpopular opinion: Finding more 'traffic' will not fix a broken product cover.\n\nCreators constantly spend hours optimizing video hooks while ignoring the asset structural value offering itself.\n\nIf the core value promise is muddy, scaling visibility metrics just burns your audience distribution faster.\n\nFix your baseline design assets first, then scale the traffic funnel engine system lines.\n\nDo you agree or disagree with this strategy shift? Let me know below.\n\n#marketingstrategy #creators #businessmodels",
+            'preset-3': "CASE STUDY: From zero visibility to active monthly distribution footprints.\n\nHere is the exact growth data breakdown across our new digital playbook testing channels over a 30-day window:\n\n- Baseline Impressions: 1,420 total scope\n- Asset Conversion Ratio: +8.4% click-through parameter\n- Total Cleared Asset Volume: $2,450 scalable layout value\n\nThe entire process was executed utilizing free, browser-native client tools without manual advertising budgets.\n\nWant the structural layout blueprint? Let me know in the comments below.\n\n#analytics #growthmarketing #casestudy",
             'preset-4': "Every time I tried to manually optimize asset deployment systems across isolated distribution channels, things fell apart.\n\nI used to spend hours copy-pasting code fragments between styling templates while breaking formatting rules along the way.\n\nThe turning point was simple: shifting tasks into browser-native, sandboxed client scripts that execute instantly without cloud overhead processing lag.\n\nBuild systems that save your creative layout focus instead of adding heavy pipeline management fatigue cycles.\n\nWhat automated creation systems have you deployed this quarter?\n\n#productivity #systems #creators",
-            'preset-5': "🎁 THE COMPLETE SHORT-FORM TOOLSTACK MANUAL IS COMPLED.\n\nNo signups. No registration walls. No hidden transaction tracking scripts.\n\nInside this open release package layout asset:\n• 50 high-conversion hooks matrix frameworks\n• Dynamic subtitle layout parsing rulesets\n• Feed truncation layout barrier templates\n\n👇 The link is attached inside the first comment row down below.\n\n#freeresources #contentcreation #distribution"
+            'preset-5': "THE COMPLETE SHORT-FORM TOOLSTACK MANUAL IS COMPILED.\n\nNo signups. No registration walls. No hidden tracking scripts.\n\nInside this free resource:\n- 50 high-conversion hook examples\n- Caption formatting guidelines\n- Feed preview and truncation templates\n\nThe link is attached inside the first comment below.\n\n#freeresources #contentcreation #distribution"
         };
 
         // Initialize Workspace Bindings
@@ -569,12 +685,39 @@
             const textRaw = textInput.value;
             const charCount = textRaw.length;
 
+            if (charCount === 0) {
+                lblLength.textContent = "0 chars";
+                lblLength.className = "metric-val";
+                lblLength.style.color = "var(--text-muted)";
+                subLength.textContent = "Paste a post to measure length";
+
+                lblEngagement.textContent = "Awaiting Input";
+                lblEngagement.className = "metric-val";
+                subEngagement.textContent = "No CTA detected yet";
+
+                lblReadability.textContent = "Awaiting Input";
+                lblReadability.className = "metric-val";
+                subReadability.textContent = "Paste a post to analyze";
+
+                lblHook.textContent = "0 chars";
+                lblHook.className = "metric-val";
+                subHook.textContent = "Paste a hook to check cutoff";
+
+                viewHook.textContent = "Paste a LinkedIn post to preview your formatting here.";
+                viewHook.classList.add('preview-empty-state');
+                viewRemainder.textContent = "";
+                viewSeeMoreBtn.style.display = 'none';
+                truncationDivider.style.display = 'none';
+                cutoffNote.textContent = "Paste a post to preview the LinkedIn See More cutoff.";
+                cutoffNote.style.display = 'block';
+                return;
+            }
+
+            viewHook.classList.remove('preview-empty-state');
+
             // 1. Post Length Meter Logic
             subLength.textContent = `${charCount} characters total`;
-            if (charCount === 0) {
-                lblLength.textContent = "Empty Post";
-                lblLength.style.color = "var(--text-muted)";
-            } else if (charCount < 400) {
+            if (charCount < 400) {
                 lblLength.textContent = "Short Post";
                 lblLength.style.color = "var(--neon-blue)";
             } else if (charCount <= 1500) {
@@ -588,7 +731,7 @@
             // 2. Engagement Question Detector Engine
             const cleanTrim = textRaw.trim();
             if (cleanTrim.endsWith('?') || textRaw.match(/\?\s*\n*$/)) {
-                lblEngagement.textContent = "Detected ✓";
+                lblEngagement.textContent = "Detected";
                 lblEngagement.className = "metric-val status-good";
                 subEngagement.textContent = "Engaging end-prompt verified";
             } else {
@@ -614,11 +757,7 @@
                 }
             });
 
-            if (charCount === 0) {
-                lblReadability.textContent = "Excellent";
-                lblReadability.className = "metric-val status-good";
-                subReadability.textContent = "Clean formatting";
-            } else if (maxConsecutiveDenseLines <= 2) {
+            if (maxConsecutiveDenseLines <= 2) {
                 lblReadability.textContent = "Excellent";
                 lblReadability.className = "metric-val status-good";
                 subReadability.textContent = "High mobile skimmability";
@@ -634,16 +773,18 @@
 
             // 4. Hook Score Box Monitor Engine & Truncation Simulation
             // LinkedIn truncates feeds on mobile roughly around the 140 character mark
-            lblHook.textContent = `${Math.min(charCount, 140)} / 140 Chars`;
+            lblHook.textContent = `${Math.min(charCount, 140)} / 140 chars`;
             
             if (charCount <= 140) {
                 lblHook.className = "metric-val status-good";
-                subHook.textContent = "Safe from truncation";
+                subHook.textContent = "No See More cutoff expected";
                 
                 viewHook.textContent = textRaw;
                 viewRemainder.textContent = "";
                 viewSeeMoreBtn.style.display = 'none';
                 truncationDivider.style.display = 'none';
+                cutoffNote.textContent = "No See More cutoff expected for this draft.";
+                cutoffNote.style.display = 'block';
             } else {
                 // Find a clean splitting space boundary to balance simulation look
                 let splitIdx = textRaw.indexOf(' ', 130);
@@ -666,6 +807,10 @@
                 viewRemainder.textContent = remainderText;
                 viewSeeMoreBtn.style.display = 'inline';
                 truncationDivider.style.display = 'block';
+
+                const lineNumber = textRaw.substring(0, splitIdx).split('\n').length;
+                cutoffNote.textContent = `Likely See More cutoff after line ${lineNumber} / character ${splitIdx}.`;
+                cutoffNote.style.display = 'block';
             }
         }
 
@@ -705,12 +850,12 @@
         savePresetBtn.addEventListener('click', () => {
             const targetSlot = presetSelector.value;
             if (targetSlot === 'none') {
-                return alert("Please select a target preset dropdown framework slot to save your text into.");
+                return alert("Choose an example from the menu before saving this draft.");
             }
             localStorage.setItem(`ln-lab-${targetSlot}`, textInput.value);
             
             const baseTxt = savePresetBtn.textContent;
-            savePresetBtn.textContent = "Preset Saved ✓";
+            savePresetBtn.textContent = "Preset Saved";
             savePresetBtn.style.color = "var(--neon-green)";
             
             setTimeout(() => {
@@ -744,9 +889,29 @@
                 successToast.style.display = 'block';
                 openLnBtn.style.display = 'block';
             }).catch(err => {
-                alert("Clipboard transaction allocation copy fault error: " + err);
+                alert("Copy failed. Please try again or copy the text manually. " + err);
             });
         });
+
+        loadCustomPresetsFromStorage();
+        runPostAnalysisEngine();
     </script>
+<footer class="acl-shell-footer no-print">
+    <div class="acl-footer-inner">
+        <div class="acl-footer-brand">
+            <strong>AI Cash Lab Tools</strong>
+            <span>Simple business tools for freelancers, creators, and digital operators.</span>
+        </div>
+        <div class="acl-footer-links">
+            <a href="/">All Tools</a>
+            <a href="/">Free Tools</a>
+            <a href="/creator-utilities/">Creator Utilities</a>
+            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
+            <a href="mailto:support@aicashlabtools.com">Contact</a>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
+
+
