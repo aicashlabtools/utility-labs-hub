@@ -139,6 +139,11 @@
             background: rgba(244, 63, 94, 0.02);
         }
         .metric-box.active-alert .metric-val { color: var(--neon-red); }
+        .metric-box.active-warning {
+            border-color: rgba(245, 158, 11, 0.45);
+            background: rgba(245, 158, 11, 0.04);
+        }
+        .metric-box.active-warning .metric-val { color: #f59e0b; }
         .metric-lbl {
             font-size: 10px;
             color: var(--text-muted);
@@ -424,8 +429,8 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
 
         <header class="tool-header">
             <div class="header-meta">CREATOR PRODUCTION STUDIO</div>
-            <h1 class="header-title">Instagram Line Break Generator (No Signup Required)</h1>
-            <p class="header-subtitle">Format Instagram captions with preserved spacing, paragraph breaks, and clean mobile formatting. No signup required.</p>
+            <h1 class="header-title">Instagram Line Break Generator</h1>
+            <p class="header-subtitle">No signup required. Format Instagram captions with preserved spacing, paragraph breaks, and clean mobile formatting.</p>
 
             </header>
 <section class="acl-quick-start no-print">
@@ -446,7 +451,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                     <div class="card-title">Prepare Your Caption</div>
 
                     <select id="preset-selector" class="preset-select">
-                        <option value="none">-- Load Built-in Template Preset --</option>
+                        <option value="none">Choose Caption Template</option>
                         <option value="preset-1">Preset 1: Standard Reel Layout</option>
                         <option value="preset-2">Preset 2: Carousel Context</option>
                         <option value="preset-3">Preset 3: Core Promo / Product CTA</option>
@@ -457,7 +462,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
 
                 <div class="metrics-grid">
                     <div class="metric-box" id="box-chars">
-                        <span class="metric-lbl">Caption Chars</span>
+                        <span class="metric-lbl">Character Warning</span>
                         <span id="lbl-chars" class="metric-val">0 / 2200</span>
                         <div class="progress-rail"><div id="bar-chars" class="progress-bar"></div></div>
                     </div>
@@ -471,8 +476,8 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                         <span id="lbl-has-block" class="metric-val" style="color: var(--text-muted); font-size:14px; margin-top:8px;">None Found</span>
                     </div>
                     <div class="metric-box">
-                        <span class="metric-lbl">Est. Mobile Length</span>
-                        <span id="lbl-lines" class="metric-val">~0 Lines</span>
+                        <span class="metric-lbl">Mobile Preview Length</span>
+                        <span id="lbl-lines" class="metric-val">0 lines</span>
                     </div>
                 </div>
 
@@ -481,13 +486,13 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                 </div>
 
                 <div class="action-ribbon">
-                    <button id="clean-ai-btn" class="btn-secondary" title="Strips raw markdown formatting blocks, trailing spaces, and system layout debris">Sanitize AI Formatting</button>
-                    <button id="save-preset-btn" class="btn-secondary">Save to Selected Preset Slot</button>
+                    <button id="clean-ai-btn" class="btn-secondary" title="Removes markdown marks, extra spaces, and messy pasted formatting">Clean Formatting</button>
+                    <button id="save-preset-btn" class="btn-secondary">Save Caption Template</button>
                 </div>
 
                 <div class="cta-group">
                     <button id="copy-master-btn" class="btn-green">Copy Instagram Formatted Text</button>
-                    <div id="success-toast" class="success-banner">✓ Caption Format Converted & Copied to Clipboard!</div>
+                    <div id="success-toast" class="success-banner">Caption formatting copied to clipboard.</div>
                     <a id="open-ig-btn" href="#" target="_blank" class="btn-instagram">Open Instagram Platform</a>
                 </div>
             </section>
@@ -502,7 +507,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                     </div>
 
                     <div class="ig-media-placeholder">
-                        <span>[ Interactive Feed Mockup Frame ]</span>
+                        <span>Instagram Caption Preview</span>
                     </div>
 
                     <div class="ig-action-bar">
@@ -526,7 +531,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
         </main>
 
         <section class="acl-seo-intro no-print">
-    <h2>Create Clean Instagram Line Breaks</h2>
+    <h2>Format Instagram Captions With Clean Line Breaks</h2>
     <p>This Instagram line break generator helps format captions with cleaner spacing and paragraph breaks before posting. Use it for Instagram posts, Reels captions, launches, and creator announcements.</p>
 </section>
 <section class="acl-faq-section no-print" aria-label="Frequently Asked Questions">
@@ -599,18 +604,22 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
         const viewMoreBtn = document.getElementById('preview-more-btn');
         const truncationDivider = document.getElementById('truncation-divider');
 
-        // Raw Structural Template Framework Arrays Definitions
+        const defaultCaptionSample = "\uD83D\uDE80 Launch day is here.\n\nAfter months of testing, the new toolkit is finally live.\n\nWhat feature would you want to see next?\n\n#creator #freelancer #digitalproducts";
+
+        // Caption examples creators can load or customize.
         const frameworkPresets = {
-            'preset-1': "🔥 ENTER YOUR KILLER FIRST LINE HOOK HERE\n\nAdd your supporting context body text lines here. Keep things digestible and snappy to preserve mobile attention spans.\n\n⚡ KEY VALUES OR TAKEAWAYS:\n• Takeaway point one goes here\n• Takeaway point two goes here\n\n👇 Drop your thoughts below in the comments.\n\n#creators #digitalmarketing #growth #aicashlab",
-            'preset-2': "👀 THE TRUTH ABOUT VALUABLE ASSETS\n\n[Slide 1 Content Summary Note]\n[Slide 2 Content Summary Note]\n[Slide 3 Content Summary Note]\n\nRead the full carousel framework metrics listed above.\n\n📌 Save this post for your next project session.\n\n#solopreneur #digitalproducts #marketingtips",
-            'preset-3': "🚀 THE NEW TOOL SYSTEM IS LIVE\n\nStop wasting time managing heavy servers or building massive registration walls. You can get instant access right now.\n\n🔗 Click the link in our bio to launch the free engine.\n\n#saas #nocode #indiehackers #freeutilities",
-            'preset-4': "❓ Are you still using outdated formatting workflows?\n\nHere is the exact framework stack we run to maintain 100% clean formatting across channels without adding manual support overhead profiles.\n\n💬 Comment 'TOOL' and we will DM you the system file.\n\n#automation #creatorgrowth #workflowhacks",
-            'preset-5': "📈 CASE STUDY: FROM ASSET TO CONTRACT\n\nPartnered up with a premium team to test conversion scaling factors across active client sets over a 30-day window.\n\nBrand Partner: @brandname\n\n#sponsored #branddeals #creatorbusiness"
+            'preset-1': "Big update for creators.\n\nI rebuilt my posting workflow so captions, hooks, and publishing notes stay easier to manage.\n\nSave this if you are cleaning up your own content process.\n\n#creators #contentcreation #digitalmarketing",
+            'preset-2': "Carousel idea:\n\nSlide 1: The problem\nSlide 2: The mistake most people make\nSlide 3: The simple fix\nSlide 4: The result\n\nWhich slide would you want expanded into a full post?\n\n#solopreneur #digitalproducts #marketingtips",
+            'preset-3': "The new tool is live.\n\nIt helps creators format captions before posting, so the final caption is easier to read on mobile.\n\nTry it from the link in bio.\n\n#creatorbusiness #nocode #freeutilities",
+            'preset-4': "Question for creators:\n\nWhat is the most annoying part of getting content ready to publish?\n\nCaptions, thumbnails, scripts, descriptions, or scheduling?\n\nDrop your answer below.\n\n#creatorgrowth #workflow #socialmedia",
+            'preset-5': "Brand project recap:\n\nWe partnered on a short-form content campaign and focused on clear hooks, clean captions, and simple calls to action.\n\nBrand Partner: @brandname\n\n#sponsored #branddeals #creatorbusiness"
         };
 
         // Initialize local custom parameters maps on page generation load
         window.addEventListener('DOMContentLoaded', () => {
             loadCustomPresetsFromStorage();
+            textInput.value = defaultCaptionSample;
+            runLiveMetricsEngine();
         });
 
         // Process Interactive Content Inputs Realtime Loop updates
@@ -627,16 +636,21 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
             const hashtagMatches = rawText.match(/#[a-zA-Z0-9_]+/g) || [];
             const hashtagCount = hashtagMatches.length;
 
-            // Character Limits Check Framework limits
-            lblChars.textContent = `${totalChars} / 2200`;
+            // Character warning states: first-line visibility and full caption limit.
             const charPercentage = Math.min((totalChars / 2200) * 100, 100);
             barChars.style.width = `${charPercentage}%`;
+            boxChars.classList.remove('active-alert', 'active-warning');
 
             if (totalChars > 2200) {
                 boxChars.classList.add('active-alert');
+                lblChars.textContent = `Above 2200 characters`;
                 barChars.style.background = 'var(--neon-red)';
+            } else if (totalChars > 125) {
+                boxChars.classList.add('active-warning');
+                lblChars.textContent = `Above 125 characters`;
+                barChars.style.background = '#f59e0b';
             } else {
-                boxChars.classList.remove('active-alert');
+                lblChars.textContent = `Under 125 characters`;
                 barChars.style.background = 'var(--neon-blue)';
             }
 
@@ -684,7 +698,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                     estimatedLines += Math.ceil(line.length / 38);
                 }
             });
-            lblLines.textContent = `~${estimatedLines} Lines`;
+            lblLines.textContent = `${estimatedLines} lines`;
 
             // 2. Render Accurate Truncation Simulator Parameters
             // Instagram targets truncation barrier cuts roughly at the 125 character baseline margin index
@@ -748,14 +762,14 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
         savePresetBtn.addEventListener('click', () => {
             const currentSlot = presetSelector.value;
             if (currentSlot === 'none') {
-                return alert("Please select a specific target preset template slot dropdown first before saving your current layout text data.");
+                return alert("Choose a caption template before saving your version.");
             }
             const dataToSave = textInput.value;
             localStorage.setItem(`ai-lab-${currentSlot}`, dataToSave);
 
             // Visual dynamic notification switch update text values
             const originalText = savePresetBtn.textContent;
-            savePresetBtn.textContent = "Slot Saved ✓";
+            savePresetBtn.textContent = "Template Saved";
             savePresetBtn.style.color = "var(--neon-green)";
 
             setTimeout(() => {
@@ -801,10 +815,10 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                     openIgBtn.textContent = "Open Instagram App";
                 } else {
                     openIgBtn.href = "https://www.instagram.com";
-                    openIgBtn.textContent = "Open Instagram Web";
+                    openIgBtn.textContent = "Open Instagram in Browser";
                 }
             }).catch(err => {
-                alert("Clipboard tracking allocation copy engine fault error: " + err);
+                alert("Could not copy the caption. Please try again.");
             });
         });
     </script>
@@ -825,3 +839,5 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
 </footer>
 </body>
 </html>
+
+
