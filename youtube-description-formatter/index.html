@@ -92,12 +92,12 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            color: var(--text-muted);
+            color: #ffffff;
         }
         .btn-preset {
             background: #1c2638;
-            color: #94a3b8;
-            border: 1px solid var(--border-color);
+            color: #ffffff;
+            border: 1px solid rgba(59, 130, 246, 0.42);
             padding: 8px 14px;
             border-radius: 6px;
             font-size: 12px;
@@ -150,12 +150,13 @@
         }
         .input-block {
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(59, 130, 246, 0.5);
             padding: 20px;
             border-radius: 8px;
             display: flex;
             flex-direction: column;
             gap: 10px;
+            box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.08);
         }
         .block-header {
             display: flex;
@@ -177,7 +178,7 @@
         .block-field {
             width: 100%;
             background: var(--input-bg);
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(59, 130, 246, 0.42);
             border-radius: 6px;
             color: #ffffff;
             padding: 12px;
@@ -192,10 +193,16 @@
         }
         textarea.block-field {
             resize: vertical;
-            min-height: 70px;
+            min-height: 120px;
+        }
+        textarea#field-hook {
+            min-height: 120px;
+        }
+        textarea#field-cta {
+            min-height: 76px;
         }
         textarea#field-timestamps, textarea#field-resources {
-            min-height: 100px;
+            min-height: 170px;
         }
 
         /* RIGHT SIDE: LIVE OUTPUT VIEW */
@@ -215,9 +222,10 @@
         }
         .hud-card {
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(59, 130, 246, 0.5);
             border-radius: 8px;
             padding: 15px;
+            box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.08);
         }
         .hud-title {
             font-size: 11px;
@@ -251,7 +259,7 @@
         /* Clean Studio Copy Canvas */
         .studio-canvas {
             background: #111827;
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(59, 130, 246, 0.5);
             border-radius: 8px;
             padding: 25px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
@@ -262,6 +270,7 @@
             white-space: pre-wrap;
             min-height: 480px;
             box-sizing: border-box;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(59, 130, 246, 0.08);
         }
 
         /* STRATEGIC CONVERSION BLOCK */
@@ -432,9 +441,9 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
 
         <!-- Creator Studio Tool Header -->
         <header class="tool-header">
-            <div class="header-meta">Publishing Deployment Engine</div>
+            <div class="header-meta">Creator Publishing Tool</div>
             <h1 class="header-title">Free YouTube Description Formatter</h1>
-            <p class="header-subtitle">Structure video copy to protect primary layout conversions. Load templates instantly, audit link positions, and test metadata visibility limits above the fold.</p>
+            <p class="header-subtitle">Format YouTube descriptions with hooks, links, timestamps, resources, and calls to action. Organize your description before publishing and copy the finished version instantly.</p>
         </header>
 <section class="acl-quick-start no-print">
     <h2>Quick Start</h2>
@@ -447,7 +456,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
 </section><section class="acl-privacy-trust no-print" aria-label="Privacy notice"><span aria-hidden="true">&#128274;</span><p>Private by default: Files and text are processed locally in your browser. Nothing is uploaded, stored, or sent to our servers.</p></section>
 
 
-        <!-- Template Selection Bar Matrix -->
+        <!-- Template Selection Bar -->
         <section class="action-control-rail">
             <div class="preset-select-group">
                 <span class="preset-label">Description Template:</span>
@@ -457,7 +466,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                 <button id="preset-faceless" class="btn-preset" onclick="loadTemplateStructure('faceless')">Faceless Channel</button>
             </div>
             <div>
-                <button class="btn-primary-action" onclick="copyDescriptionOutputToClipboard()">Copy Output Layout</button>
+                <button class="btn-primary-action" onclick="copyDescriptionOutputToClipboard()">Copy Description</button>
             </div>
         </section>
 
@@ -473,16 +482,16 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                         <label class="block-title" for="field-hook">1. Hook Summary (First 3 Lines)</label>
                         <span class="block-counter" id="cnt-hook">0 chars</span>
                     </div>
-                    <textarea id="field-hook" class="block-field" oninput="runLiveFormatterEngine()" placeholder="Write the immediate summary hook. Keep it punchy for search indexes."></textarea>
+                    <textarea id="field-hook" class="block-field" oninput="runLiveFormatterEngine()" placeholder="Write the short summary viewers see first."></textarea>
                 </div>
 
-                <!-- Block 2: Primary Strategic CTA -->
+                <!-- Block 2: Primary CTA -->
                 <div class="input-block">
                     <div class="block-header">
                         <label class="block-title" for="field-cta">2. Primary Strategic Call-To-Action</label>
                         <span class="block-counter" id="cnt-cta">0 chars</span>
                     </div>
-                    <input type="text" id="field-cta" class="block-field" oninput="runLiveFormatterEngine()" placeholder="e.g., Download the playbook: https://aicashlab.gumroad.com/l/traffic">
+                    <textarea id="field-cta" class="block-field" oninput="runLiveFormatterEngine()" placeholder="e.g., Download the free checklist: https://example.com"></textarea>
                 </div>
 
                 <!-- Block 3: Timestamps / Chapters -->
@@ -491,7 +500,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                         <label class="block-title" for="field-timestamps">3. Video Chapters / Timestamps</label>
                         <span class="block-counter" id="cnt-timestamps">0 chars</span>
                     </div>
-                    <textarea id="field-timestamps" class="block-field" oninput="runLiveFormatterEngine()" placeholder="0:00 - Introduction&#10;1:45 - Core Strategy Breakdown"></textarea>
+                    <textarea id="field-timestamps" class="block-field" oninput="runLiveFormatterEngine()" placeholder="0:00 - Introduction&#10;1:45 - Main tutorial"></textarea>
                 </div>
 
                 <!-- Block 4: Resources & Secondary Links -->
@@ -500,15 +509,15 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                         <label class="block-title" for="field-resources">4. Resource Roundup & Social Grid</label>
                         <span class="block-counter" id="cnt-resources">0 chars</span>
                     </div>
-                    <textarea id="field-resources" class="block-field" oninput="runLiveFormatterEngine()" placeholder="List secondary references, equipment setups, and permanent network channels."></textarea>
+                    <textarea id="field-resources" class="block-field" oninput="runLiveFormatterEngine()" placeholder="List links, tools, resources, credits, and social channels."></textarea>
                 </div>
 
             </main>
 
-            <!-- COLUMN 2: ANALYTICS HUD & CANVAS EYE -->
+            <!-- COLUMN 2: LIVE PREVIEW -->
             <aside class="output-panel">
 
-                <!-- Live Operational Quality Indicator Block Grid -->
+                <!-- Live Quality Checks -->
                 <div class="hud-grid">
 
                     <!-- Safe Zone Evaluation Display -->
@@ -516,11 +525,11 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                         <div class="hud-title">Above-The-Fold Safe Zone</div>
                         <div class="hud-status-row">
                             <span>Text Character Limit</span>
-                            <span id="badge-fold-text" class="status-badge pass">✓ Safe</span>
+                            <span id="badge-fold-text" class="status-badge pass">Safe</span>
                         </div>
                         <div class="hud-status-row">
                             <span>CTA Visibility Status</span>
-                            <span id="badge-fold-cta" class="status-badge pass">✓ Visible</span>
+                            <span id="badge-fold-cta" class="status-badge pass">Visible</span>
                         </div>
                     </div>
 
@@ -549,29 +558,29 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
 
                 </div>
 
-                <!-- Live Structural Text Code Copy Target View Frame -->
+                <!-- Live Description Preview -->
                 <div id="output-rendered-preview" class="studio-canvas"></div>
 
             </aside>
         </div>
 
-        <!-- STRATEGIC CONVERSION DECK LINKING TO CORE VALUE ASSET -->
+        <!-- CREATOR WORKFLOW UPGRADE -->
         <section class="conversion-deck">
-            <div class="deck-badge">Organic Growth Asset</div>
-            <h3 class="deck-title">A clean description won't save a video with a weak script.</h3>
-            <p class="deck-subtitle">The free Formatter structures metadata to maximize layout clarity and visibility parameters. True audience retention happens in the first 5 seconds of the video file itself. The premium **50 Hooks For AI Videos** package provides high-retention frameworks to stop user scrolling, lock down view metrics, and drive ongoing buyer traffic streams to digital storefront assets systematically.</p>
+            <div class="deck-badge">Creator Production Toolkit</div>
+            <h3 class="deck-title">Better descriptions won't fix weak content.</h3>
+            <p class="deck-subtitle">The YouTube Description Formatter helps organize your description before publishing. Use the rest of the Creator Production Toolkit to improve hooks, scripts, captions, and publishing workflows.</p>
 
             <div class="value-matrix-grid">
-                <div class="value-bullet"><span>✓</span> <b>50 Retentive Hook Blueprints:</b> Copy-and-paste psychological triggers built exactly for digital creators.</div>
-                <div class="value-bullet"><span>✓</span> <b>Attention Structural Guides:</b> Learn precisely when to bridge video hooks into premium call-to-actions.</div>
-                <div class="value-bullet"><span>✓</span> <b>Distribution Scaling Maps:</b> Run predictable system models to ramp up views on organic accounts.</div>
-                <div class="value-bullet"><span>✓</span> <b>Faceless Automation Formats:</b> Content openers engineered to optimize workflow production speed.</div>
+                <div class="value-bullet"><span>&#10003;</span> <b>Improve video hooks before recording</b></div>
+                <div class="value-bullet"><span>&#10003;</span> <b>Structure scripts for cleaner delivery</b></div>
+                <div class="value-bullet"><span>&#10003;</span> <b>Format descriptions and timestamps</b></div>
+                <div class="value-bullet"><span>&#10003;</span> <b>Prepare captions and social posts faster</b></div>
             </div>
 
-            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="btn-master-upsell">Get 50 Hooks For AI Videos Playbook →</a>
+            <a href="/creator-utilities/" class="btn-master-upsell">Explore Creator Production Tools &rarr;</a>
         </section>
 
-        <!-- DISCRETE FIVE-STEP CREATOR WORKFLOW ENGINE FOOTER ROUTE -->
+        <!-- CREATOR WORKFLOW FOOTER -->
         <section class="acl-seo-intro no-print">
     <h2>Format YouTube Descriptions Before Publishing</h2>
     <p>This YouTube description formatter helps creators organize video descriptions, timestamps, links, resources, and calls to action before uploading or scheduling a video.</p>
@@ -587,77 +596,93 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
             <h3>Can this format YouTube timestamps?</h3>
             <p>Yes. Use it to organize chapter-style timestamps and supporting description sections.</p>
         </article>
+        <article class="acl-faq-item">
+            <h3>What is the YouTube description above-the-fold area?</h3>
+            <p>It is the part viewers can see before expanding the full description. Put your hook and most important link near the top.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Can I add links and resources?</h3>
+            <p>Yes. Add your main call to action, resource links, social links, credits, and any tools mentioned in the video.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Does this upload my description anywhere?</h3>
+            <p>No. The formatter runs in your browser and does not upload, save, or send your text to our servers.</p>
+        </article>
+        <article class="acl-faq-item">
+            <h3>Can I copy the finished YouTube description?</h3>
+            <p>Yes. Use the copy button to copy the formatted description and paste it into YouTube Studio.</p>
+        </article>
     </div>
 </section>
 
         <footer class="ecosystem-footer">
-            <div class="footer-title">The Creator Content Publishing & Optimization Flow</div>
+            <div class="footer-title">Recommended Creator Workflow</div>
             <div class="footer-grid">
                 <a href="/short-form-hook-analyzer/" class="footer-link-card">
                     <span>Tool 1</span>
                     <h4>Hook Analyzer</h4>
-                    <p>Score the immediate opening statements of viral video draft scripts.</p>
+                    <p>Improve the opening lines before you record or publish.</p>
                 </a>
                 <a href="/teleprompter/" class="footer-link-card">
                     <span>Tool 2</span>
                     <h4>Creator Teleprompter</h4>
-                    <p>Run frictionless browser-based script scrolling assets smoothly.</p>
+                    <p>Read scripts on-screen while recording videos.</p>
                 </a>
                 <a href="/youtube-description-formatter/" class="footer-link-card" style="border-color: var(--neon-blue);">
                     <span>Tool 3</span>
                     <h4>YouTube Formatter</h4>
-                    <p>Lock down safe visible bounds and audit timestamp sequences cleanly.</p>
+                    <p>Organize hooks, links, chapters, resources, and CTAs.</p>
                 </a>
                 <a href="/instagram-line-break-generator/" class="footer-link-card">
                     <span>Tool 4</span>
                     <h4>Instagram Line Breaker</h4>
-                    <p>Format short description copy lines cleanly with zero spacing errors.</p>
+                    <p>Clean up captions before posting on Instagram.</p>
                 </a>
                 <a href="/linkedin-post-formatter/" class="footer-link-card">
                     <span>Tool 5</span>
                     <h4>LinkedIn Post Formatter</h4>
-                    <p>Transform video structures into deep authority hooks for corporate feeds.</p>
+                    <p>Turn video ideas into readable LinkedIn posts.</p>
                 </a>
             </div>
         </footer>
     </div>
 
-    <!-- Alert System Notifications Base Frame -->
+    <!-- Copy Notification -->
     <div id="toast-el" class="toast-notification">Description Copied Cleanly!</div>
 
     <script>
         // ==========================================
-        // SINGLE-FILE DETERMINISTIC OPERATION LOGIC
+        // Single-file formatting logic.
         // ==========================================
 
         const librariesTemplates = {
             launch: {
-                hook: "Want to launch digital products cleanly but don't know where to host your core assets? In this breakdown, we map out the exact platform selections to scale structural earnings lines.",
-                cta: "Download the complete Platform Field Guide: https://aicashlab.gumroad.com/l/guide",
-                timestamps: "0:00 - The Core Platform Trap\n1:45 - Comparing Gumroad Fee Systems\n4:12 - Setting Up Your Asset Thumbnails\n7:55 - Final Scale Blueprint Execution",
-                resources: "RESOURCES MENTIONED IN THE VIDEO:\n- Get the Field Guide Guide: https://aicashlab.gumroad.com/l/guiden- Grab the Traffic Playbook Pack: https://aicashlab.gumroad.com/l/trafficnnCONNECT WITH THE CORE LAB:\n- Subscribe for weekly system blueprints\n- Twitter / X: @AICashLab"
+                hook: "Want to launch a digital product but not sure where to host it? In this video, we compare simple platform options and show what to consider before you publish.",
+                cta: "Explore more free creator tools: https://aicashlabtools.com/creator-utilities/",
+                timestamps: "0:00 - Introduction\n1:45 - Comparing platform options\n4:12 - Setting up your product page\n7:55 - Final publishing checklist",
+                resources: "RESOURCES MENTIONED:\n- Creator Utilities Hub: https://aicashlabtools.com/creator-utilities/\n- Product Launch Goal Calculator: https://aicashlabtools.com/product-launch-goal-calculator/\n\nEmail: support@aicashlabtools.com"
             },
             tutorial: {
-                hook: "Step-by-step tutorial on building faceless short-form videos using alternative asset generation pipelines. Avoid the classic timeline rendering errors.",
-                cta: "Access the Free Faceless Framework Assets: https://aicashlab.gumroad.com/l/shorts-vault",
-                timestamps: "0:00 - Step 1: Script Layout Selection\n2:10 - Step 2: Voice Generation Settings\n5:40 - Step 3: B-Roll Selection Metrics\n9:15 - Summary Workflow Review",
-                resources: "SOFTWARE & TOOLS USED IN THIS BREAKDOWN:\n- Voice Automation Tool: https://tools.aicashlab.com/voicen- Timeline Engine Link: https://tools.aicashlab.com/editornnJoin the structural workflow collective by tracking our continuous channels."
+                hook: "Step-by-step tutorial for creating faceless short-form videos without overcomplicating the process.",
+                cta: "Try the free Creator Teleprompter: https://aicashlabtools.com/teleprompter/",
+                timestamps: "0:00 - Step 1: Choose a script format\n2:10 - Step 2: Record or generate voiceover\n5:40 - Step 3: Add visuals and captions\n9:15 - Final checklist",
+                resources: "TOOLS USED:\n- Creator Teleprompter: https://aicashlabtools.com/teleprompter/\n- Video Script Time Calculator: https://aicashlabtools.com/video-script-time-calculator/\n\nSubscribe for more creator workflows."
             },
             review: {
-                hook: "An honest, data-backed review of the top 3 marketplace engines for selling asset playbooks. We track the conversion percentages, checkout dropoffs, and fee schedules.",
-                cta: "Read our full comparative analysis charts: https://aicashlab.com/blog/review",
-                timestamps: "0:00 - Macro Marketplace Overview\n1:30 - Tool #1 Performance Check\n4:25 - Tool #2 Optimization Values\n8:10 - The Definitive Winner Unlocked",
-                resources: "ADDITIONAL DEPLOYMENT REFERENCES:\n- Growth Strategy Database: https://aicashlab.gumroad.com/l/growthn- Community Channel Network: https://discord.gg/aicashlab"
+                hook: "An honest review of three marketplaces for selling digital products, including fees, checkout experience, and creator fit.",
+                cta: "Check your final description with this formatter: https://aicashlabtools.com/youtube-description-formatter/",
+                timestamps: "0:00 - Marketplace overview\n1:30 - Tool #1 review\n4:25 - Tool #2 review\n8:10 - Final recommendation",
+                resources: "ADDITIONAL LINKS:\n- YouTube Description Formatter: https://aicashlabtools.com/youtube-description-formatter/\n- Thumbnail Text Checker: https://aicashlabtools.com/thumbnail-text-checker/"
             },
             faceless: {
-                hook: "Why 95% of faceless channels fail within the first 30 days of operation—and the hidden demand validation formula used to bypass saturation boundaries completely.",
-                cta: "Get the 50 Hooks For AI Videos Bundle: https://aicashlab.gumroad.com/l/50hooks",
-                timestamps: "0:00 - The Saturation Fallacy\n2:05 - Validating True Search Demand\n5:15 - Hook Engineering Principles\n8:40 - Outlining the First 1,000 Views Blueprint",
-                resources: "SYSTEM INFRASTRUCTURE TOOLS:\n- Get the 50 Hooks Blueprint: https://aicashlab.gumroad.com/l/50hooksn- Access the Traffic Playbook Pack: https://aicashlab.gumroad.com/l/traffic"
+                hook: "Why many faceless channels struggle early, and how to choose video topics with clearer demand before you start posting.",
+                cta: "Analyze your hook before recording: https://aicashlabtools.com/short-form-hook-analyzer/",
+                timestamps: "0:00 - Why channels fail early\n2:05 - Checking topic demand\n5:15 - Writing better hooks\n8:40 - Planning your first 1,000 views",
+                resources: "CREATOR RESOURCES:\n- Short Form Hook Analyzer: https://aicashlabtools.com/short-form-hook-analyzer/\n- Video Script Time Calculator: https://aicashlabtools.com/video-script-time-calculator/\n- Caption Line Splitter: https://aicashlabtools.com/caption-line-splitter/"
             }
         };
 
-        // DOM Element Reference Links
+        // DOM element references.
         const fldHook = document.getElementById('field-hook');
         const fldCta = document.getElementById('field-cta');
         const fldTimestamps = document.getElementById('field-timestamps');
@@ -696,21 +721,21 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
             runLiveFormatterEngine();
         }
 
-        // DEREGULATED RAW TEXT FORMATTING ENGINE
+        // Build the formatted description preview.
         function runLiveFormatterEngine() {
-            // Read Inputs
+            // Read inputs.
             const textHook = fldHook.value;
             const textCta = fldCta.value;
             const textTimestamps = fldTimestamps.value;
             const textResources = fldResources.value;
 
-            // Section 1: Update Char Counter UI Nodes
+            // Update character counters.
             cntHook.textContent = `${textHook.length} chars`;
             cntCta.textContent = `${textCta.length} chars`;
             cntTimestamps.textContent = `${textTimestamps.length} chars`;
             cntResources.textContent = `${textResources.length} chars`;
 
-            // Section 2: Assemble Complete String Block Output
+            // Assemble the description.
             let completeDescriptionOutput = "";
             completeDescriptionOutput += `${textHook}\n\n`;
             if(textCta.trim() !== "") {
@@ -723,45 +748,45 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                 completeDescriptionOutput += `${textResources}`;
             }
 
-            // Write output downstream directly to view pane
-            previewOutputContainer.textContent = completeDescriptionOutput || "[Enter structured data inputs to view your optimized metadata blueprint...]";
+            // Write output directly to the preview pane.
+            previewOutputContainer.textContent = completeDescriptionOutput || "[Enter description sections to preview your formatted YouTube description.]";
 
-            // Section 3: Run Deterministic Auditing Evaluators
+            // Refresh helper checks.
             evaluateAboveTheFoldSafeZone(textHook, textCta);
             evaluateLinkDistributionMetrics(completeDescriptionOutput, textCta);
             evaluateTimestampSyntaxSequencing(textTimestamps);
         }
 
-        // Hero Feature: Above the fold check loop logic
+        // Check whether the most important content stays near the top.
         function evaluateAboveTheFoldSafeZone(hookText, ctaText) {
-            // Standard safe character bound limit configuration parameter
+            
             const charactersFoldThreshold = 180;
             const combinedPreFoldLength = hookText.length + 2;
 
-            // Check absolute char limits
+            
             if (hookText.length > charactersFoldThreshold) {
-                badgeFoldText.textContent = "⚠️ Over Limit";
+                badgeFoldText.textContent = "Over Character Limit";
                 badgeFoldText.className = "status-badge warn";
             } else {
-                badgeFoldText.textContent = "✓ Safe";
+                badgeFoldText.textContent = "Safe";
                 badgeFoldText.className = "status-badge pass";
             }
 
-            // Check CTA Visibility Constraints
+            
             if (ctaText.trim() === "") {
                 badgeFoldCta.textContent = "Missing";
                 badgeFoldCta.className = "status-badge fail";
             } else if (combinedPreFoldLength + ctaText.length > 240) {
-                // If text + link pushes it far down, warn creator
-                badgeFoldCta.textContent = "⚠️ Hidden";
+                // If text + link pushes the CTA too far down, warn the creator.
+                badgeFoldCta.textContent = "CTA Hidden Below Fold";
                 badgeFoldCta.className = "status-badge warn";
             } else {
-                badgeFoldCta.textContent = "✓ Visible";
+                badgeFoldCta.textContent = "Visible";
                 badgeFoldCta.className = "status-badge pass";
             }
         }
 
-        // Link Placement Inspector Engine
+        // Check whether the main link appears first.
         function evaluateLinkDistributionMetrics(compiledDescription, primaryCtaText) {
             const regexUrlScanner = /https?:\/\/[^\s]+/gi;
             const matchingLinksFound = compiledDescription.match(regexUrlScanner) || [];
@@ -774,30 +799,30 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                 return;
             }
 
-            // Clean URLs to parse locations cleanly
+            
             const targetCleanPrimaryCta = primaryCtaText.match(regexUrlScanner);
             if (targetCleanPrimaryCta && matchingLinksFound[0] === targetCleanPrimaryCta[0]) {
                 badgeLinkAudit.textContent = "#1 Spot";
                 badgeLinkAudit.className = "status-badge pass";
             } else {
-                badgeLinkAudit.textContent = "⚠️ Displaced";
+                badgeLinkAudit.textContent = "Moved Down";
                 badgeLinkAudit.className = "status-badge warn";
             }
         }
 
-        // Deterministic Timestamp Syntax Array Validator
+        // Check timestamp format and order.
         function evaluateTimestampSyntaxSequencing(timestampBlockText) {
             const lineArrays = timestampBlockText.split('\n');
             let detectedChapterCount = 0;
             let checksOutAtZeroStart = false;
             let tracksChronologicalOrder = true;
-            let operationalPreviousSeconds = -1;
+            let previousTimestampSeconds = -1;
 
             lineArrays.forEach(line => {
                 const checkedLine = line.trim();
                 if (!checkedLine) return;
 
-                // Match both HH:MM:SS or MM:SS timestamp bounds expressions
+                // Match both HH:MM:SS and MM:SS timestamps.
                 const timestampMatchRegex = /^(\d{1,2}:)?(\d{1,2}):(\d{2})/;
                 const checkResults = checkedLine.match(timestampMatchRegex);
 
@@ -812,23 +837,23 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                         }
                     }
 
-                    if (processedSeconds <= operationalPreviousSeconds) {
+                    if (processedSeconds <= previousTimestampSeconds) {
                         tracksChronologicalOrder = false;
                     }
-                    operationalPreviousSeconds = processedSeconds;
+                    previousTimestampSeconds = processedSeconds;
                 }
             });
 
             hudChaptersDetected.textContent = `${detectedChapterCount} Chapters Found`;
 
-            // Render Start Badge Metrics
+            
             if (detectedChapterCount > 0 && checksOutAtZeroStart) {
                 badgeTimeStart.className = "status-badge pass";
             } else {
                 badgeTimeStart.className = "status-badge fail";
             }
 
-            // Render Sequence Status Badges
+            
             if (detectedChapterCount > 0 && tracksChronologicalOrder) {
                 badgeTimeSeq.className = "status-badge pass";
             } else {
@@ -839,14 +864,14 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
         function convertTimestampStringToAbsoluteSeconds(timeStr) {
             const numericSlices = timeStr.split(':').map(Number);
             if (numericSlices.length === 3) {
-                // Returns format mapping: Hours * 3600 + Minutes * 60 + Seconds
+                // Hours * 3600 + minutes * 60 + seconds.
                 return (numericSlices[0] * 3600) + (numericSlices[1] * 60) + numericSlices[2];
             }
-            // Returns format mapping: Minutes * 60 + Seconds
+            // Minutes * 60 + seconds.
             return (numericSlices[0] * 60) + numericSlices[1];
         }
 
-        // Clipboard Copy Utility Handler Execution Rules
+        // Copy the finished description.
         function copyDescriptionOutputToClipboard() {
             const outputStringPayload = previewOutputContainer.textContent;
             if (!outputStringPayload) return;
