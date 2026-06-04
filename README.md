@@ -1,15 +1,228 @@
-# creator-utilities
+# AI Cash Lab Tools
 
-Premium, zero-friction local workflow infrastructure designed for modern digital product sellers and short-form video optimization.
+Free browser-based business, creator, and freelancer tools.
 
-The Creator Safe Zone Previewer is a client-side layout engine that allows content creators to verify graphic clearance against native application UI overlays instantly.
+AI Cash Lab Tools is a static web toolkit with 38 practical calculators, generators, formatters, checkers, and preview tools for freelancers, creators, consultants, and digital product businesses.
 
-## Key Highlights
+The project is built around a simple idea: open a tool, use it immediately, and get back to work without signup, downloads, or heavy software.
 
-- **Zero Friction:** No user registration, onboarding flow, or server-side data extraction.
-- **100% Local Processing:** Image rendering occurs strictly within the client browser canvas to prioritize speed and absolute privacy.
-- **Algorithmic Presets:** Built-in retention zoning overlays engineered specifically for faceless content production strategies.
+## Repository Description
 
-## Infrastructure Strategy
+Suggested GitHub repository description:
 
-This utility serves as the core foundational traffic hub for the Creator Utilities ecosystem, functioning as an evergreen SEO entry point that funnels seamlessly into high-utility premium automated correction workflows.
+> Free browser-based business, creator, and freelancer tools. No signup required.
+
+Suggested topics:
+
+`creator-tools`, `freelance-tools`, `business-tools`, `calculators`, `no-signup`, `browser-tools`, `digital-products`, `static-site`, `productivity`, `creator-economy`
+
+## Live Website
+
+- Website: [https://aicashlabtools.com](https://aicashlabtools.com)
+- Creator Utilities: [https://aicashlabtools.com/creator-utilities/](https://aicashlabtools.com/creator-utilities/)
+- Sitemap: [https://aicashlabtools.com/sitemap.xml](https://aicashlabtools.com/sitemap.xml)
+
+## What Is Included
+
+AI Cash Lab Tools includes free utilities for:
+
+- Freelance pricing and client operations
+- Creator publishing workflows
+- Digital product revenue planning
+- Video production checks
+- Social post formatting
+- Browser-based document generation
+- Launch planning and validation
+
+## Tool Categories
+
+### Creator Production Tools
+
+- Teleprompter
+- Short-Form Hook Analyzer
+- Video Script Time Calculator
+- Caption Line Splitter
+- Thumbnail Text Checker
+- Image Color Picker
+- Video Resolution Checker
+- TikTok Safe Zone Checker
+- Instagram Reels Safe Zone Checker
+- YouTube Shorts Safe Zone Checker
+
+### Publishing and Formatting Tools
+
+- LinkedIn Post Formatter
+- Instagram Line Break Generator
+- YouTube Description Formatter
+- Instagram & TikTok Caption Formatter
+- Meeting Notes Formatter
+
+### Freelancer Business Tools
+
+- Free Invoice Generator
+- Free NDA Generator
+- Statement of Work Generator
+- Freedom Rate Calculator
+- Hourly Rate Calculator
+- Scope Creep Calculator
+- Late Fee Calculator
+- Business Runway Calculator
+
+### Creator Monetization Tools
+
+- Brand Deal Calculator
+- Creator RPM Calculator
+- CPM vs Product Revenue Calculator
+- Subscriber LTV Calculator
+- Lead Magnet Estimator
+- Monetization Gap Calculator
+
+### Digital Product and Launch Tools
+
+- Gumroad Profit Calculator
+- Product Profit Calculator
+- Pricing Strategy Calculator
+- Product Idea Validator
+- Presale Validation Tester
+- Product Launch Calculator
+- Product Launch Goal Calculator
+- Paid Traffic Profit Calculator
+- Retention Diagnostic Tool
+- Repurposing Matrix
+
+## Key Features
+
+- Free to use
+- No signup required
+- Browser-based
+- Fast static pages
+- Privacy-friendly workflows
+- Mobile-responsive layouts
+- Internal linking between related tools
+- SEO-ready metadata, sitemap, FAQ sections, and structured data
+
+## Screenshots
+
+Recommended screenshot set for GitHub and release pages:
+
+1. Homepage ecosystem overview
+2. Creator Utilities directory
+3. Freelancer tools workflow
+4. No-signup / privacy strip close-up
+5. LinkedIn Post Formatter or Instagram Line Break Generator
+6. Free Invoice Generator
+7. Safe Zone / Resolution Checker tools
+8. Product Profit or Gumroad Profit Calculator
+
+Suggested folder if screenshots are added later:
+
+```text
+assets/screenshots/
+```
+
+Suggested filenames:
+
+```text
+homepage-overview.png
+creator-utilities.png
+freelancer-tools.png
+privacy-strip.png
+linkedin-post-formatter.png
+invoice-generator.png
+safe-zone-checker.png
+product-profit-calculator.png
+```
+
+## Installation and Use
+
+This is a static HTML/CSS/JavaScript site. No build step is required for basic use.
+
+### Use Online
+
+Open the live site:
+
+[https://aicashlabtools.com](https://aicashlabtools.com)
+
+### Run Locally
+
+Clone the repository:
+
+```bash
+git clone https://github.com/aicashlabtools/utility-labs-hub.git
+cd utility-labs-hub
+```
+
+Start a simple local server:
+
+```bash
+python -m http.server 8000
+```
+
+Then open:
+
+```text
+http://127.0.0.1:8000
+```
+
+You can also open most individual `index.html` files directly in a browser, though a local server is better for testing links and assets.
+
+## Project Structure
+
+Each tool lives in its own folder:
+
+```text
+tool-name/
+  index.html
+```
+
+Shared site assets live in:
+
+```text
+assets/
+```
+
+SEO and launch planning assets include:
+
+```text
+sitemap.xml
+robots.txt
+seo-audit-report.md
+seo-keywords-master.csv
+seo-faq-expansion-plan.md
+product-hunt-launch-assets.md
+distribution-asset-inventory.md
+```
+
+## Privacy Positioning
+
+AI Cash Lab Tools is designed around lightweight browser workflows. Many tools process inputs locally in the browser and avoid unnecessary account creation.
+
+The user experience is intentionally simple:
+
+```text
+Open tool -> Enter inputs -> Review result -> Copy, print, export, or apply
+```
+
+## GitHub Release Assets
+
+Prepared release notes are available in:
+
+[github-release-v1.0.md](github-release-v1.0.md)
+
+## License Recommendation
+
+Recommended license: MIT License.
+
+Why MIT:
+
+- Simple and widely understood
+- Good fit for static browser tools
+- Allows reuse, learning, remixing, and contribution
+- Helps establish credibility for an open utility repository
+
+Before adding a license, confirm whether all code, images, icons, and third-party snippets in the repository are safe to release under MIT.
+
+## Status
+
+Launch preparation assets are being assembled, but no GitHub release has been published yet.
+
