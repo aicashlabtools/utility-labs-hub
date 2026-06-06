@@ -2,7 +2,7 @@
 
 Free browser-based business, creator, and freelancer tools.
 
-AI Cash Lab Tools is a static web toolkit with 38 practical calculators, generators, formatters, checkers, and preview tools for freelancers, creators, consultants, and digital product businesses.
+AI Cash Lab Tools v1.0 is the first public release of 38 free browser-based tools for creators, freelancers, consultants, and digital product businesses.
 
 The project is built around a simple idea: open a tool, use it immediately, and get back to work without signup, downloads, or heavy software.
 
@@ -109,28 +109,28 @@ Recommended screenshot set for GitHub and release pages:
 2. Creator Utilities directory
 3. Freelancer tools workflow
 4. No-signup / privacy strip close-up
-5. LinkedIn Post Formatter or Instagram Line Break Generator
+5. TikTok Safe Zone Checker
 6. Free Invoice Generator
-7. Safe Zone / Resolution Checker tools
-8. Product Profit or Gumroad Profit Calculator
+7. Product Profit Calculator
+8. Video Resolution and Aspect Ratio Checker
 
-Suggested folder if screenshots are added later:
+Screenshots are stored in:
 
 ```text
 assets/screenshots/
 ```
 
-Suggested filenames:
+Release screenshot filenames:
 
 ```text
-homepage-overview.png
-creator-utilities.png
-freelancer-tools.png
-privacy-strip.png
-linkedin-post-formatter.png
-invoice-generator.png
-safe-zone-checker.png
-product-profit-calculator.png
+01-homepage-overview.png
+02-creator-utilities.png
+03-freelancer-tools.png
+04-privacy-strip.png
+05-tiktok-safe-zone-checker.png
+06-free-invoice-generator.png
+07-product-profit-calculator.png
+08-resolution-checker.png
 ```
 
 ## Installation and Use
@@ -198,18 +198,11 @@ The user experience is intentionally simple:
 Open tool -> Enter inputs -> Review result -> Copy, print, export, or apply
 ```
 
-## License Recommendation
+## License
 
-Recommended license: MIT License.
+No license file has been added yet.
 
-Why MIT:
-
-- Simple and widely understood
-- Good fit for static browser tools
-- Allows reuse, learning, remixing, and contribution
-- Helps establish credibility for an open utility repository
-
-Before adding a license, confirm whether all code, images, icons, and third-party snippets in the repository are safe to release under MIT.
+Before adding a license, confirm whether all code, images, icons, and third-party snippets in the repository are safe to release under that license. If everything is cleared, MIT would be a reasonable option for a static browser-tool repository.
 
 ## Status
 
