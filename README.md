@@ -198,12 +198,6 @@ The user experience is intentionally simple:
 Open tool -> Enter inputs -> Review result -> Copy, print, export, or apply
 ```
 
-## License
-
-No license file has been added yet.
-
-Before adding a license, confirm whether all code, images, icons, and third-party snippets in the repository are safe to release under that license. If everything is cleared, MIT would be a reasonable option for a static browser-tool repository.
-
 ## Status
 
-Release preparation is in progress, but no GitHub release has been published yet.
+AI Cash Lab Tools v1.0 is ready for GitHub release publication.
