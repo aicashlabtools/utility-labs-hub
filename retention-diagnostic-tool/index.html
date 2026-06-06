@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -485,6 +485,74 @@ input, select, textarea, button {
   ]
 }
     </script>
+<style id="acl-seo-card-fix">
+.acl-seo-intro,
+.seo-content {
+    background: #151820 !important;
+    border: 1px solid #27272a !important;
+    border-radius: 14px !important;
+    box-sizing: border-box !important;
+    color: #d4d4d8 !important;
+    display: block !important;
+    margin: 56px auto 0 !important;
+    max-width: 1120px !important;
+    padding: 24px !important;
+    width: min(calc(100% - 32px), 1120px) !important;
+}
+.acl-seo-intro h2,
+.seo-content h2 {
+    color: #ffffff !important;
+    font-size: 20px !important;
+    line-height: 1.2 !important;
+    margin: 0 0 12px !important;
+}
+.acl-seo-intro h3,
+.seo-content h3 {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    line-height: 1.35 !important;
+    margin: 22px 0 8px !important;
+}
+.acl-seo-intro p,
+.seo-content p,
+.acl-seo-intro li,
+.seo-content li {
+    color: #a1a1aa !important;
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+}
+.acl-seo-intro p,
+.seo-content p {
+    margin: 0 0 12px !important;
+}
+.acl-seo-intro p:last-child,
+.seo-content p:last-child {
+    margin-bottom: 0 !important;
+}
+.acl-seo-intro ul,
+.seo-content ul {
+    margin: 12px 0 0 18px !important;
+    padding: 0 !important;
+}
+.acl-seo-intro a,
+.seo-content a {
+    color: #93c5fd !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+}
+.acl-seo-intro a:hover,
+.seo-content a:hover {
+    color: #ffffff !important;
+}
+@media (max-width: 700px) {
+    .acl-seo-intro,
+    .seo-content {
+        margin-top: 36px !important;
+        padding: 18px !important;
+        width: calc(100% - 24px) !important;
+    }
+}
+</style>
 </head>
 <body class="text-slate-200 min-h-screen flex flex-col justify-between antialiased">
 <header class="acl-shell-header no-print">
@@ -587,9 +655,9 @@ input, select, textarea, button {
                     </div>
                 </div>
                 <div class="benchmark-guide" aria-label="Retention benchmark guide">
-                    <div class="benchmark-guide-row"><span>Excellent</span><span id="guideExcellent">Hook 90%+ · Body 70%+ · End 50%+</span></div>
-                    <div class="benchmark-guide-row"><span>Good</span><span id="guideGood">Hook 75-89% · Body 55-69% · End 35-49%</span></div>
-                    <div class="benchmark-guide-row"><span>Average</span><span id="guideAverage">Hook 60-74% · Body 40-54% · End 20-34%</span></div>
+                    <div class="benchmark-guide-row"><span>Excellent</span><span id="guideExcellent">Hook 90%+ Â· Body 70%+ Â· End 50%+</span></div>
+                    <div class="benchmark-guide-row"><span>Good</span><span id="guideGood">Hook 75-89% Â· Body 55-69% Â· End 35-49%</span></div>
+                    <div class="benchmark-guide-row"><span>Average</span><span id="guideAverage">Hook 60-74% Â· Body 40-54% Â· End 20-34%</span></div>
                 </div>
             </div>
         </section>
@@ -784,9 +852,9 @@ input, select, textarea, button {
                     benchHookText.innerText = "Excellent 90%+";
                     benchBodyText.innerText = "Excellent 70%+";
                     benchEndText.innerText = "Excellent 50%+";
-                    guideExcellent.innerText = "Hook 90%+ · Body 70%+ · End 50%+";
-                    guideGood.innerText = "Hook 75-89% · Body 55-69% · End 35-49%";
-                    guideAverage.innerText = "Hook 60-74% · Body 40-54% · End 20-34%";
+                    guideExcellent.innerText = "Hook 90%+ Â· Body 70%+ Â· End 50%+";
+                    guideGood.innerText = "Hook 75-89% Â· Body 55-69% Â· End 35-49%";
+                    guideAverage.innerText = "Hook 60-74% Â· Body 40-54% Â· End 20-34%";
                 } else {
                     btnLongForm.className = "py-2.5 px-4 rounded-lg text-xs font-bold border transition-colors border-amber-500 bg-amber-600/10 text-amber-400";
                     btnShortForm.className = "py-2.5 px-4 rounded-lg text-xs font-medium border transition-colors border-slate-800 bg-[#1f2937]/40 text-slate-400 hover:text-white hover:border-slate-700";
@@ -796,9 +864,9 @@ input, select, textarea, button {
                     benchHookText.innerText = "Excellent 70%+";
                     benchBodyText.innerText = "Excellent 45%+";
                     benchEndText.innerText = "Excellent 30%+";
-                    guideExcellent.innerText = "Hook 70%+ · Midpoint 45%+ · End 30%+";
-                    guideGood.innerText = "Hook 55-69% · Midpoint 35-44% · End 20-29%";
-                    guideAverage.innerText = "Hook 40-54% · Midpoint 25-34% · End 12-19%";
+                    guideExcellent.innerText = "Hook 70%+ Â· Midpoint 45%+ Â· End 30%+";
+                    guideGood.innerText = "Hook 55-69% Â· Midpoint 35-44% Â· End 20-29%";
+                    guideAverage.innerText = "Hook 40-54% Â· Midpoint 25-34% Â· End 12-19%";
                 }
                 runRetentionDiagnosticsCorePipeline();
             }
@@ -1025,3 +1093,4 @@ input, select, textarea, button {
 </footer>
 </body>
 </html>
+
