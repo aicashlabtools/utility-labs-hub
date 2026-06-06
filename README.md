@@ -181,16 +181,11 @@ Shared site assets live in:
 assets/
 ```
 
-SEO and launch planning assets include:
+Public SEO/deployment files include:
 
 ```text
 sitemap.xml
 robots.txt
-seo-audit-report.md
-seo-keywords-master.csv
-seo-faq-expansion-plan.md
-product-hunt-launch-assets.md
-distribution-asset-inventory.md
 ```
 
 ## Privacy Positioning
@@ -202,12 +197,6 @@ The user experience is intentionally simple:
 ```text
 Open tool -> Enter inputs -> Review result -> Copy, print, export, or apply
 ```
-
-## GitHub Release Assets
-
-Prepared release notes are available in:
-
-[github-release-v1.0.md](github-release-v1.0.md)
 
 ## License Recommendation
 
@@ -224,5 +213,4 @@ Before adding a license, confirm whether all code, images, icons, and third-part
 
 ## Status
 
-Launch preparation assets are being assembled, but no GitHub release has been published yet.
-
+Release preparation is in progress, but no GitHub release has been published yet.

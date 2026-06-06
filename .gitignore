@@ -4,3 +4,9 @@
 !.dev.vars.example
 .env*
 !.env.example
+
+# local-only planning and working notes
+AI Cash Lab Website Notes/
+Homepage index.txt
+index.htm
+resolution-checker/notes.txt
