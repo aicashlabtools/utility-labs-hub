@@ -655,7 +655,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                 <div class="cta-group">
                     <button id="copy-master-btn" class="btn-green">Copy Instagram Formatted Text</button>
                     <div id="success-toast" class="success-banner">Caption formatting copied to clipboard.</div>
-                    <a id="open-ig-btn" href="#" target="_blank" class="btn-instagram">Open Instagram Platform</a>
+                    <a id="open-ig-btn" href="#" target="_blank" class="btn-instagram">Open Instagram in Browser</a>
                 </div>
             </section>
 
@@ -673,7 +673,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                     </div>
 
                     <div class="ig-action-bar">
-                        <span>â™¥</span> <span>ðŸ’¬</span> <span>âœˆ</span>
+                        <span aria-label="Like">&#9825;</span> <span aria-label="Comment">&#128172;</span> <span aria-label="Share">&#9992;</span>
                     </div>
 
                     <div class="ig-caption-body">
@@ -914,8 +914,9 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
             processed = processed.replace(/\*([^*]+)\*/g, '$1');
             processed = processed.replace(/__([^_]+)__/g, '$1');
 
-            // Clean double bullet artifact stacks or weird dash variants
-            processed = processed.replace(/â€”/g, '-');
+            // Clean common pasted dash variants.
+            processed = processed.replace(/\u00e2\u20ac\u201d/g, '-');
+            processed = processed.replace(/[\u2013\u2014]/g, '-');
 
             // Strip trailing right white space blocks line by line safely
             let rows = processed.split('\n');
