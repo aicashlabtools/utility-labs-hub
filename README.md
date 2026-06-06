@@ -2,7 +2,7 @@
 
 Free browser-based business, creator, and freelancer tools.
 
-AI Cash Lab Tools v1.0 is the first public release of 38 free browser-based tools for creators, freelancers, consultants, and digital product businesses.
+AI Cash Lab Tools v1.0 is the first public release of 37 free browser-based tools for creators, freelancers, consultants, and digital product businesses.
 
 The project is built around a simple idea: open a tool, use it immediately, and get back to work without signup, downloads, or heavy software.
 
@@ -10,11 +10,11 @@ The project is built around a simple idea: open a tool, use it immediately, and 
 
 Suggested GitHub repository description:
 
-> Free browser-based business, creator, and freelancer tools. No signup required.
+> 37 free browser-based tools for creators, freelancers, consultants, and digital product businesses.
 
 Suggested topics:
 
-`creator-tools`, `freelance-tools`, `business-tools`, `calculators`, `no-signup`, `browser-tools`, `digital-products`, `static-site`, `productivity`, `creator-economy`
+`creator-tools`, `freelancer-tools`, `business-tools`, `calculators`, `generators`, `formatters`, `no-signup`, `browser-tools`, `digital-products`, `static-site`, `productivity`, `creator-economy`, `freelance-business`, `gumroad`, `content-creation`
 
 ## Live Website
 
