@@ -103,6 +103,55 @@
             margin-top: 4px;
             text-transform: uppercase;
         }
+        .scenario-panel {
+            border-top: 1px solid var(--border-color);
+            margin-top: 4px;
+            padding-top: 18px;
+        }
+        .scenario-panel h2 {
+            color: var(--accent-yellow);
+            font-size: 0.76rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+        .scenario-panel p {
+            color: var(--text-muted);
+            font-size: 0.78rem;
+            margin-bottom: 12px;
+        }
+        .scenario-grid {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .scenario-card {
+            background: #1e222b;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+        }
+        .scenario-card strong {
+            color: #e5e7eb;
+            display: block;
+            font-size: 0.82rem;
+            margin-bottom: 6px;
+        }
+        .scenario-card span {
+            color: var(--text-muted);
+            display: block;
+            font-size: 0.72rem;
+        }
+        .scenario-card b {
+            color: var(--accent-yellow);
+            display: block;
+            font-size: 1.05rem;
+            margin-top: 2px;
+        }
+        @media (max-width: 540px) {
+            .scenario-grid { grid-template-columns: 1fr; }
+        }
 
     </style>
 <style id="acl-shared-tool-shell">
@@ -603,6 +652,16 @@ input, select, textarea, button {
     }
 }
 </style>
+<style id="acl-launch-os-cta-style">
+.acl-launch-os-cta{align-self:stretch!important;box-sizing:border-box;clear:both;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;grid-column:1 / -1!important;justify-self:stretch!important;margin:18px auto 80px;max-width:1120px;width:min(100%,1120px)!important}
+.acl-launch-os-card{background:#111827;border:1px solid rgba(245,158,11,.28);border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.24);box-sizing:border-box;padding:clamp(22px,4vw,32px)}
+.acl-launch-os-eyebrow{color:#f59e0b;display:block;font-size:10px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
+.acl-launch-os-card h2{color:#fff;font-size:22px;line-height:1.15;margin:0 0 10px}
+.acl-launch-os-card p{color:#a1a1aa;font-size:13px;line-height:1.65;margin:0;max-width:780px}
+.acl-launch-os-card a{background:#f59e0b;border-radius:10px;color:#020617;display:inline-block;font-size:12px;font-weight:800;margin-top:18px;padding:12px 18px;text-align:center;text-decoration:none;transition:background-color .2s ease,transform .2s ease}
+.acl-launch-os-card a:hover{background:#fbbf24;transform:translateY(-1px)}
+@media (max-width:640px){.acl-launch-os-cta{width:calc(100% - 24px)!important}.acl-launch-os-card a{display:block;width:100%}}
+</style>
 </head>
 <body>
 <header class="acl-shell-header no-print">
@@ -726,6 +785,33 @@ input, select, textarea, button {
                 </div>
                 <input type="range" id="input-fixed-costs" min="0" max="5000" step="25" value="150">
             </div>
+
+            <div class="scenario-panel" aria-label="Profit scenarios">
+                <h2>Profit Scenarios</h2>
+                <p>See what the same offer economics could produce at different monthly sales volumes.</p>
+                <div class="scenario-grid">
+                    <div class="scenario-card">
+                        <strong>Conservative</strong>
+                        <span>25 sales/month</span>
+                        <b id="scenario-conservative">$0 profit</b>
+                    </div>
+                    <div class="scenario-card">
+                        <strong>Expected</strong>
+                        <span>100 sales/month</span>
+                        <b id="scenario-expected">$0 profit</b>
+                    </div>
+                    <div class="scenario-card">
+                        <strong>Optimistic</strong>
+                        <span>250 sales/month</span>
+                        <b id="scenario-optimistic">$0 profit</b>
+                    </div>
+                    <div class="scenario-card">
+                        <strong>Stretch</strong>
+                        <span>500 sales/month</span>
+                        <b id="scenario-stretch">$0 profit</b>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Income Reality Dashboard Panel -->
@@ -827,6 +913,10 @@ input, select, textarea, button {
     const outLeakPaid = document.getElementById('out-leak-paid');
     const outLeakFixed = document.getElementById('out-leak-fixed');
     const outVerdict = document.getElementById('out-verdict');
+    const scenarioConservative = document.getElementById('scenario-conservative');
+    const scenarioExpected = document.getElementById('scenario-expected');
+    const scenarioOptimistic = document.getElementById('scenario-optimistic');
+    const scenarioStretch = document.getElementById('scenario-stretch');
 
     const coreEngineTriggers = [
         inputPrice, inputVolume, inputFeePct, inputFeeFixed,
@@ -890,6 +980,7 @@ input, select, textarea, button {
         // Break Even math (Contribution Margin per individual item sold basis)
         const unitContributionMargin = price - (refundRate * price) - (price * platformFeePct + platformFeeFixed) - (affiliateSharePct * price * affiliateCommPct) - (paidSharePct * cpa);
         const breakEvenUnitsNeeded = unitContributionMargin > 0 ? Math.ceil(fixedMonthlyCosts / unitContributionMargin) : "Infinite";
+        const profitAtVolume = scenarioVolume => (unitContributionMargin * scenarioVolume) - fixedMonthlyCosts;
 
         // Push calculations cleanly to display cards
         outTotalProfit.textContent = cashFormatter.format(totalMonthlyTakeHome);
@@ -903,6 +994,10 @@ input, select, textarea, button {
         outLeakAffiliate.textContent = cashFormatter.format(affiliatePayoutTotal);
         outLeakPaid.textContent = cashFormatter.format(paidAcquisitionTotal);
         outLeakFixed.textContent = cashFormatter.format(fixedMonthlyCosts);
+        scenarioConservative.textContent = `${cashFormatter.format(profitAtVolume(25))} profit`;
+        scenarioExpected.textContent = `${cashFormatter.format(profitAtVolume(100))} profit`;
+        scenarioOptimistic.textContent = `${cashFormatter.format(profitAtVolume(250))} profit`;
+        scenarioStretch.textContent = `${cashFormatter.format(profitAtVolume(500))} profit`;
 
         // Evaluate status badge and margin quality thresholds.
         badgeMargin.className = "status-badge";
@@ -998,12 +1093,12 @@ input, select, textarea, button {
         <a href="/paid-traffic-profit-calculator/">Paid Traffic Profit Calculator</a>
     </div>
 </section>
-<section class="acl-premium-creator-cta no-print" aria-label="Premium Creator Workspace">
-    <div class="acl-premium-creator-card">
-        <span class="acl-premium-creator-eyebrow">PREMIUM CREATOR WORKSPACE</span>
-        <h2>Build the Full Revenue Plan</h2>
-        <p>Free calculators help answer one question at a time. Creator Monetization OS connects your audience numbers, revenue streams, monetization gaps, income goals, and next actions into one browser-based planning system.</p>
-        <a href="https://aicashlabofficial.gumroad.com/l/xnlfai?layout=profile" target="_blank" rel="noopener noreferrer">View Creator Monetization OS &rarr;</a>
+<section class="acl-launch-os-cta no-print" aria-label="Creator Launch OS">
+    <div class="acl-launch-os-card">
+        <span class="acl-launch-os-eyebrow">CREATOR LAUNCH OS</span>
+        <h2>Ready to launch the product?</h2>
+        <p>This calculator helps with one part of the launch. Creator Launch OS helps you validate demand, build your offer, plan traffic, track promotion assets, set revenue goals, and generate a complete launch action plan.</p>
+        <a href="https://aicashlabofficial.gumroad.com/l/nemfmj?layout=profile" target="_blank" rel="noopener noreferrer">View Creator Launch OS &rarr;</a>
     </div>
 </section>
 <footer class="acl-shell-footer no-print">
