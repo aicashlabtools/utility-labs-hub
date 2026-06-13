@@ -151,6 +151,111 @@
             font-size: 0.85rem; line-height: 1.5; padding: 16px; border-radius: 8px;
             background-color: rgba(252, 213, 53, 0.01); border: 1px dashed var(--border-color);
         }
+        .funnel-panel, .sensitivity-panel {
+            border-top: 1px solid var(--border-color);
+            padding-top: 18px;
+        }
+        .funnel-panel h2, .sensitivity-panel h2 {
+            color: var(--accent-yellow);
+            font-size: 0.76rem;
+            font-weight: 900;
+            letter-spacing: .12em;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+        .funnel-panel p, .sensitivity-panel p {
+            color: var(--text-muted);
+            font-size: 0.78rem;
+            margin-bottom: 14px;
+        }
+        .funnel-stack {
+            display: grid;
+            gap: 10px;
+        }
+        .funnel-stage {
+            background: #1e222b;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .funnel-stage-inner {
+            background: linear-gradient(90deg, rgba(245,158,11,.24), rgba(34,197,94,.18));
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+            min-width: 34%;
+            padding: 12px 14px;
+        }
+        .funnel-stage span {
+            color: var(--text-muted);
+            display: block;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+        .funnel-stage strong {
+            color: #fff;
+            display: block;
+            font-size: 1rem;
+            margin-top: 2px;
+            white-space: nowrap;
+        }
+        .funnel-note {
+            background: rgba(245,158,11,.07);
+            border: 1px solid rgba(245,158,11,.2);
+            border-radius: 9px;
+            color: #cbd5e1;
+            font-size: 0.78rem;
+            line-height: 1.45;
+            padding: 12px;
+        }
+        .sensitivity-table {
+            display: grid;
+            gap: 8px;
+        }
+        .sensitivity-row {
+            align-items: center;
+            background: #1e222b;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            display: grid;
+            gap: 10px;
+            grid-template-columns: .7fr 1fr 1fr;
+            padding: 10px 12px;
+        }
+        .sensitivity-row.header {
+            background: transparent;
+            border-color: transparent;
+            color: var(--text-muted);
+            font-size: 0.68rem;
+            font-weight: 900;
+            letter-spacing: .1em;
+            padding-bottom: 0;
+            text-transform: uppercase;
+        }
+        .sensitivity-row:not(.header) span {
+            color: #e5e7eb;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+        .sensitivity-row:not(.header) strong {
+            color: var(--status-green);
+            font-size: 0.86rem;
+            text-align: right;
+        }
+        .sensitivity-row:not(.header) em {
+            color: var(--accent-yellow);
+            font-size: 0.78rem;
+            font-style: normal;
+            font-weight: 800;
+            text-align: right;
+        }
+        @media (max-width: 520px) {
+            .funnel-stage-inner, .sensitivity-row { grid-template-columns: 1fr; }
+            .funnel-stage-inner { flex-direction: column; }
+            .sensitivity-row:not(.header) strong, .sensitivity-row:not(.header) em { text-align: left; }
+        }
     </style>
 <style id="acl-shared-tool-shell">
 html, body {
@@ -650,15 +755,15 @@ input, select, textarea, button {
     }
 }
 </style>
-<style id="acl-launch-os-cta-style">
-.acl-launch-os-cta{align-self:stretch!important;box-sizing:border-box;clear:both;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;grid-column:1 / -1!important;justify-self:stretch!important;margin:18px auto 80px;max-width:1120px;width:min(100%,1120px)!important}
-.acl-launch-os-card{background:#111827;border:1px solid rgba(245,158,11,.28);border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.24);box-sizing:border-box;padding:clamp(22px,4vw,32px)}
-.acl-launch-os-eyebrow{color:#f59e0b;display:block;font-size:10px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
-.acl-launch-os-card h2{color:#fff;font-size:22px;line-height:1.15;margin:0 0 10px}
-.acl-launch-os-card p{color:#a1a1aa;font-size:13px;line-height:1.65;margin:0;max-width:780px}
-.acl-launch-os-card a{background:#f59e0b;border-radius:10px;color:#020617;display:inline-block;font-size:12px;font-weight:800;margin-top:18px;padding:12px 18px;text-align:center;text-decoration:none;transition:background-color .2s ease,transform .2s ease}
-.acl-launch-os-card a:hover{background:#fbbf24;transform:translateY(-1px)}
-@media (max-width:640px){.acl-launch-os-cta{width:calc(100% - 24px)!important}.acl-launch-os-card a{display:block;width:100%}}
+<style id="acl-analytics-os-cta-style">
+.acl-analytics-os-cta{align-self:stretch!important;box-sizing:border-box;clear:both;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;grid-column:1 / -1!important;justify-self:stretch!important;margin:18px auto 80px;max-width:1120px;width:min(100%,1120px)!important}
+.acl-analytics-os-card{background:#111827;border:1px solid rgba(245,158,11,.28);border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.24);box-sizing:border-box;padding:clamp(22px,4vw,32px)}
+.acl-analytics-os-eyebrow{color:#f59e0b;display:block;font-size:10px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
+.acl-analytics-os-card h2{color:#fff;font-size:22px;line-height:1.15;margin:0 0 10px}
+.acl-analytics-os-card p{color:#a1a1aa;font-size:13px;line-height:1.65;margin:0;max-width:780px}
+.acl-analytics-os-card a{background:#f59e0b;border-radius:10px;color:#020617;display:inline-block;font-size:12px;font-weight:800;margin-top:18px;padding:12px 18px;text-align:center;text-decoration:none;transition:background-color .2s ease,transform .2s ease}
+.acl-analytics-os-card a:hover{background:#fbbf24;transform:translateY(-1px)}
+@media (max-width:640px){.acl-analytics-os-cta{width:calc(100% - 24px)!important}.acl-analytics-os-card a{display:block;width:100%}}
 </style>
 </head>
 <body>
@@ -731,6 +836,77 @@ input, select, textarea, button {
                     <span class="label-val" id="val-cr">0.30%</span>
                 </div>
                 <input type="range" id="input-cr" min="0.05" max="2.00" step="0.05" value="0.30">
+            </div>
+
+            <div class="funnel-panel" aria-label="Visual funnel diagram">
+                <h2>Visual Funnel Diagram</h2>
+                <p>See how a small slice of viewers becomes buyers, then compare that buyer value against platform ad pay.</p>
+                <div class="funnel-stack">
+                    <div class="funnel-stage">
+                        <div class="funnel-stage-inner" id="funnel-views-bar">
+                            <div>
+                                <span>Monthly Views</span>
+                                <strong id="funnel-views">500,000</strong>
+                            </div>
+                            <div>
+                                <span>Ad Pay</span>
+                                <strong id="funnel-ad-pay">$150</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="funnel-stage">
+                        <div class="funnel-stage-inner" id="funnel-buyers-bar">
+                            <div>
+                                <span>Estimated Buyers</span>
+                                <strong id="funnel-buyers">1,500</strong>
+                            </div>
+                            <div>
+                                <span>Conversion</span>
+                                <strong id="funnel-conversion">0.30%</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="funnel-stage">
+                        <div class="funnel-stage-inner" id="funnel-revenue-bar">
+                            <div>
+                                <span>Owned Product Revenue</span>
+                                <strong id="funnel-product-revenue">$43,500</strong>
+                            </div>
+                            <div>
+                                <span>Product Price</span>
+                                <strong id="funnel-price">$29</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="funnel-note" id="funnel-note">Owned products win when a tiny buyer segment is worth more than the whole ad payout.</div>
+            </div>
+
+            <div class="sensitivity-panel" aria-label="Conversion sensitivity table">
+                <h2>Conversion Sensitivity Table</h2>
+                <p>Use the same traffic and price to see how much revenue changes when conversion improves.</p>
+                <div class="sensitivity-table">
+                    <div class="sensitivity-row header">
+                        <span>Rate</span>
+                        <span>Buyers</span>
+                        <span>Revenue</span>
+                    </div>
+                    <div class="sensitivity-row">
+                        <span>0.10%</span>
+                        <em id="sens-buyers-low">500 buyers</em>
+                        <strong id="sens-revenue-low">$14,500</strong>
+                    </div>
+                    <div class="sensitivity-row">
+                        <span id="sens-current-rate">0.30%</span>
+                        <em id="sens-buyers-current">1,500 buyers</em>
+                        <strong id="sens-revenue-current">$43,500</strong>
+                    </div>
+                    <div class="sensitivity-row">
+                        <span>1.00%</span>
+                        <em id="sens-buyers-high">5,000 buyers</em>
+                        <strong id="sens-revenue-high">$145,000</strong>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -833,6 +1009,23 @@ input, select, textarea, button {
     const barFund = document.getElementById('bar-fund');
     const barProduct = document.getElementById('bar-product');
     const advisorVerdict = document.getElementById('advisor-verdict');
+    const funnelViews = document.getElementById('funnel-views');
+    const funnelAdPay = document.getElementById('funnel-ad-pay');
+    const funnelBuyers = document.getElementById('funnel-buyers');
+    const funnelConversion = document.getElementById('funnel-conversion');
+    const funnelProductRevenue = document.getElementById('funnel-product-revenue');
+    const funnelPrice = document.getElementById('funnel-price');
+    const funnelViewsBar = document.getElementById('funnel-views-bar');
+    const funnelBuyersBar = document.getElementById('funnel-buyers-bar');
+    const funnelRevenueBar = document.getElementById('funnel-revenue-bar');
+    const funnelNote = document.getElementById('funnel-note');
+    const sensCurrentRate = document.getElementById('sens-current-rate');
+    const sensBuyersLow = document.getElementById('sens-buyers-low');
+    const sensBuyersCurrent = document.getElementById('sens-buyers-current');
+    const sensBuyersHigh = document.getElementById('sens-buyers-high');
+    const sensRevenueLow = document.getElementById('sens-revenue-low');
+    const sensRevenueCurrent = document.getElementById('sens-revenue-current');
+    const sensRevenueHigh = document.getElementById('sens-revenue-high');
 
     const inputs = [inputViews, inputRpm, inputPrice, inputCr];
     const usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
@@ -871,14 +1064,37 @@ input, select, textarea, button {
         realityCheck.textContent = `${(conversionRate * 100).toFixed(2)}% conversion means: 1,000 viewers -> ${buyersPerThousand.toLocaleString()} buyers. This is why even small conversion rates can outperform ad revenue.`;
         barLabelAds.textContent = usd.format(fundRevenue);
         barLabelProducts.textContent = usd.format(productRevenue);
+        funnelViews.textContent = views.toLocaleString();
+        funnelAdPay.textContent = usd.format(fundRevenue);
+        funnelBuyers.textContent = totalUnitsSold.toLocaleString();
+        funnelConversion.textContent = `${(conversionRate * 100).toFixed(2)}%`;
+        funnelProductRevenue.textContent = usd.format(productRevenue);
+        funnelPrice.textContent = usd.format(price);
+        funnelNote.textContent = `${totalUnitsSold.toLocaleString()} buyers at ${usd.format(price)} creates ${usd.format(productRevenue)} before product costs. Platform ads would pay ${usd.format(fundRevenue)} at the current RPM.`;
+
+        const lowBuyers = Math.round(views * 0.001);
+        const currentBuyers = totalUnitsSold;
+        const highBuyers = Math.round(views * 0.01);
+        sensCurrentRate.textContent = `${(conversionRate * 100).toFixed(2)}%`;
+        sensBuyersLow.textContent = `${lowBuyers.toLocaleString()} buyers`;
+        sensBuyersCurrent.textContent = `${currentBuyers.toLocaleString()} buyers`;
+        sensBuyersHigh.textContent = `${highBuyers.toLocaleString()} buyers`;
+        sensRevenueLow.textContent = usd.format(lowBuyers * price);
+        sensRevenueCurrent.textContent = usd.format(currentBuyers * price);
+        sensRevenueHigh.textContent = usd.format(highBuyers * price);
 
         // Render Proportionality Chart Graphics Bars
         const maxPayout = Math.max(fundRevenue, productRevenue, 1);
         const fundWidth = (fundRevenue / maxPayout) * 100;
         const productWidth = (productRevenue / maxPayout) * 100;
+        const buyerFunnelWidth = Math.max(34, Math.min(100, (conversionRate * 100 / 2) * 100));
+        const revenueFunnelWidth = Math.max(42, Math.min(100, productWidth));
 
         barFund.style.width = `${fundWidth}%`;
         barProduct.style.width = `${productWidth}%`;
+        funnelViewsBar.style.width = '100%';
+        funnelBuyersBar.style.width = `${buyerFunnelWidth}%`;
+        funnelRevenueBar.style.width = `${revenueFunnelWidth}%`;
 
         // Strategy Diagnostics Engine
         if (revenueGap > 0) {
@@ -942,12 +1158,12 @@ input, select, textarea, button {
         <a href="/paid-traffic-profit-calculator/">Paid Traffic Profit Calculator</a>
     </div>
 </section>
-<section class="acl-launch-os-cta no-print" aria-label="Creator Launch OS">
-    <div class="acl-launch-os-card">
-        <span class="acl-launch-os-eyebrow">CREATOR LAUNCH OS</span>
-        <h2>Ready to launch the product?</h2>
-        <p>This calculator helps with one part of the launch. Creator Launch OS helps you validate demand, build your offer, plan traffic, track promotion assets, set revenue goals, and generate a complete launch action plan.</p>
-        <a href="https://aicashlabofficial.gumroad.com/l/nemfmj?layout=profile" target="_blank" rel="noopener noreferrer">View Creator Launch OS &rarr;</a>
+<section class="acl-analytics-os-cta no-print" aria-label="Creator Analytics OS">
+    <div class="acl-analytics-os-card">
+        <span class="acl-analytics-os-eyebrow">CREATOR ANALYTICS OS</span>
+        <h2>Turn creator metrics into decisions.</h2>
+        <p>This tool helps interpret one performance signal. Creator Analytics OS connects RPM, retention, subscriber value, sponsor rates, paid traffic ROI, and revenue patterns into one workspace so you can see what is working, what is leaking, and what to optimize next.</p>
+        <a href="https://aicashlabofficial.gumroad.com/l/zagils?layout=profile" target="_blank" rel="noopener noreferrer">View Creator Analytics OS &rarr;</a>
     </div>
 </section>
 <footer class="acl-shell-footer no-print">
