@@ -15,7 +15,57 @@
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "x6q6t5vv3a");
-</script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Creator and Freelancer SEO Guides | AI Cash Lab Tools</title><meta name="description" content="Helpful guides that support AI Cash Lab free tools for creators, freelancers, and digital product sellers."><link rel="canonical" href="https://aicashlabtools.com/articles/"><style>
+</script>
+<!-- CTA click tracking -->
+<script>
+  (function () {
+    var CTA_PRODUCTS = {
+      xnlfai: { name: "Creator Monetization OS", eventName: "creator_monetization_os_click" },
+      yckpyo: { name: "Creator Content OS", eventName: "creator_content_os_click" },
+      nemfmj: { name: "Creator Launch OS", eventName: "creator_launch_os_click" },
+      zagils: { name: "Creator Analytics OS", eventName: "creator_analytics_os_click" }
+    };
+
+    function getGumroadProductId(url) {
+      var match = url.match(/gumroad\.com\/l\/([^/?#]+)/i);
+      return match ? match[1] : "";
+    }
+
+    function sendClickEvent(eventName, params) {
+      if (typeof window.gtag === "function") {
+        window.gtag("event", eventName, params);
+      }
+      if (typeof window.clarity === "function") {
+        window.clarity("event", eventName);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var link = event.target.closest && event.target.closest("a[href]");
+      if (!link) return;
+
+      var href = link.href || "";
+      if (!/gumroad\.com/i.test(href)) return;
+
+      var productId = getGumroadProductId(href);
+      var product = CTA_PRODUCTS[productId];
+      var ctaName = product ? product.name : "Gumroad Store";
+      var eventName = product ? product.eventName : "gumroad_store_click";
+      var linkText = (link.textContent || "").replace(/\s+/g, " ").trim();
+
+      sendClickEvent(eventName, {
+        event_category: "cta",
+        cta_name: ctaName,
+        gumroad_product_id: productId || "storefront",
+        link_url: href,
+        link_text: linkText,
+        page_path: window.location.pathname,
+        page_title: document.title
+      });
+    });
+  })();
+</script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Creator and Freelancer SEO Guides | AI Cash Lab Tools</title><meta name="description" content="Helpful guides that support AI Cash Lab free tools for creators, freelancers, and digital product sellers."><link rel="canonical" href="https://aicashlabtools.com/articles/"><style>
 *{box-sizing:border-box}body{margin:0;background:#0d0f13;color:#d4d4d8;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}.shell{max-width:980px;margin:0 auto;padding:32px 20px 72px}.top{border-bottom:1px solid #27272a;background:#0b0f19}.top-inner{max-width:1180px;margin:0 auto;padding:18px 20px;display:flex;justify-content:space-between;gap:16px;align-items:center}.brand{color:#fff;text-decoration:none;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:12px}.nav a{color:#a1a1aa;text-decoration:none;font-size:12px;font-weight:700;margin-left:18px}.hero{background:linear-gradient(135deg,rgba(245,158,11,.13),rgba(15,23,42,.94) 52%,rgba(17,24,39,.98));border:1px solid rgba(245,158,11,.28);border-radius:14px;padding:clamp(28px,5vw,48px);margin:32px 0}.kicker{color:#f59e0b;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.hero h1{color:#fff;font-size:clamp(2.1rem,5vw,3.5rem);line-height:1.05;margin:14px 0}.hero p{color:#e5e7eb;font-size:1.1rem;max-width:760px}.article{background:#151820;border:1px solid #27272a;border-radius:14px;padding:28px;margin-top:24px}.article h2{color:#fff;font-size:1.5rem;line-height:1.25;margin:28px 0 10px}.article h3{color:#f8fafc;font-size:1.1rem;margin:22px 0 8px}.article p,.article li{color:#b7c0ce}.article a{color:#93c5fd;font-weight:700;text-decoration:none}.cta{border:1px solid rgba(245,158,11,.35);background:#0f141f;border-radius:12px;padding:18px;margin:28px 0}.cta a{display:inline-block;margin-top:8px;background:#f59e0b;color:#111827;border-radius:8px;padding:10px 14px;font-weight:800}.footer{border-top:1px solid #27272a;margin-top:40px;padding-top:22px;color:#64748b;font-size:12px}@media(max-width:700px){.top-inner{align-items:flex-start;flex-direction:column}.nav a{margin:0 14px 0 0}.article{padding:20px}}
 </style><style>.grid{display:grid;gap:14px}.card{display:block;background:#151820;border:1px solid #27272a;border-radius:12px;padding:18px;text-decoration:none}.card h2{color:#fff;margin:0 0 8px;font-size:1.15rem}.card p{color:#a1a1aa;margin:0}</style></head><body><header class="top"><div class="top-inner"><a class="brand" href="/">AI Cash Lab Tools</a><nav class="nav"><a href="/">All Tools</a><a href="/creator-utilities/">Creator Utilities</a></nav></div></header><main class="shell"><section class="hero"><div class="kicker">SEO Guides</div><h1>Creator and Freelancer Guides</h1><p>Short practical guides connected to free AI Cash Lab tools.</p></section><section class="grid"><a class="card" href="/articles/how-to-add-line-breaks-on-instagram/"><h2>How To Add Line Breaks On Instagram In 2026</h2><p>Learn how to add clean Instagram line breaks, paragraph spacing, hashtag blocks, and readable captions before posting.</p></a>
 <a class="card" href="/articles/how-much-should-freelancers-charge-per-hour/"><h2>How Much Should Freelancers Charge Per Hour?</h2><p>A practical guide to setting freelance hourly rates based on income goals, taxes, expenses, time off, and billable hours.</p></a>

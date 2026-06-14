@@ -17,7 +17,57 @@
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "x6q6t5vv3a");
-</script>    <meta charset="UTF-8">
+</script>
+<!-- CTA click tracking -->
+<script>
+  (function () {
+    var CTA_PRODUCTS = {
+      xnlfai: { name: "Creator Monetization OS", eventName: "creator_monetization_os_click" },
+      yckpyo: { name: "Creator Content OS", eventName: "creator_content_os_click" },
+      nemfmj: { name: "Creator Launch OS", eventName: "creator_launch_os_click" },
+      zagils: { name: "Creator Analytics OS", eventName: "creator_analytics_os_click" }
+    };
+
+    function getGumroadProductId(url) {
+      var match = url.match(/gumroad\.com\/l\/([^/?#]+)/i);
+      return match ? match[1] : "";
+    }
+
+    function sendClickEvent(eventName, params) {
+      if (typeof window.gtag === "function") {
+        window.gtag("event", eventName, params);
+      }
+      if (typeof window.clarity === "function") {
+        window.clarity("event", eventName);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var link = event.target.closest && event.target.closest("a[href]");
+      if (!link) return;
+
+      var href = link.href || "";
+      if (!/gumroad\.com/i.test(href)) return;
+
+      var productId = getGumroadProductId(href);
+      var product = CTA_PRODUCTS[productId];
+      var ctaName = product ? product.name : "Gumroad Store";
+      var eventName = product ? product.eventName : "gumroad_store_click";
+      var linkText = (link.textContent || "").replace(/\s+/g, " ").trim();
+
+      sendClickEvent(eventName, {
+        event_category: "cta",
+        cta_name: ctaName,
+        gumroad_product_id: productId || "storefront",
+        link_url: href,
+        link_text: linkText,
+        page_path: window.location.pathname,
+        page_title: document.title
+      });
+    });
+  })();
+</script>
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free Statement of Work Generator | Simple SOW Template Online</title>
     <meta name="description" content="Create a clear statement of work with deliverables, milestones, timelines, revisions, payment terms, and print-ready formatting.">
