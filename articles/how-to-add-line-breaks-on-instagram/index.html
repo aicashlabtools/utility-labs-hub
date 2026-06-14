@@ -22,6 +22,15 @@
 <script>
   (function () {
     var CTA_PRODUCTS = {
+      dszjez: { name: "Freelancer Business OS", eventName: "freelancer_business_os_click" },
+      iwyunk: { name: "Simple Lead CRM", eventName: "simple_lead_crm_click" },
+      sjdzd: { name: "Freelancer Proposal Generator", eventName: "freelancer_proposal_generator_click" },
+      fexjpq: { name: "Freelancer Contract and Policy Toolkit", eventName: "freelancer_contract_policy_toolkit_click" },
+      bfsqt: { name: "Client Onboarding Toolkit", eventName: "client_onboarding_toolkit_click" },
+      ltrbh: { name: "Client Portal and Project Dashboard Toolkit", eventName: "client_portal_project_dashboard_click" },
+      hdfde: { name: "Freelancer Invoice and Payment Reminder Toolkit", eventName: "freelancer_invoice_payment_toolkit_click" },
+      nqqtyr: { name: "Freelancer Pricing and Profit Calculator", eventName: "freelancer_pricing_profit_click" },
+      qshwvb: { name: "Freelancer Scope Creep Calculator", eventName: "freelancer_scope_creep_calculator_click" },
       xnlfai: { name: "Creator Monetization OS", eventName: "creator_monetization_os_click" },
       yckpyo: { name: "Creator Content OS", eventName: "creator_content_os_click" },
       nemfmj: { name: "Creator Launch OS", eventName: "creator_launch_os_click" },
@@ -31,6 +40,13 @@
     function getGumroadProductId(url) {
       var match = url.match(/gumroad\.com\/l\/([^/?#]+)/i);
       return match ? match[1] : "";
+    }
+
+    function resolveProduct(productId, linkText) {
+      if (productId === "nqqtyr" && /boundary|communication/i.test(linkText)) {
+        return { name: "Freelancer Boundary and Client Communication Toolkit", eventName: "freelancer_boundary_communication_click" };
+      }
+      return CTA_PRODUCTS[productId];
     }
 
     function sendClickEvent(eventName, params) {
@@ -50,10 +66,10 @@
       if (!/gumroad\.com/i.test(href)) return;
 
       var productId = getGumroadProductId(href);
-      var product = CTA_PRODUCTS[productId];
+      var linkText = (link.textContent || "").replace(/\s+/g, " ").trim();
+      var product = resolveProduct(productId, linkText);
       var ctaName = product ? product.name : "Gumroad Store";
       var eventName = product ? product.eventName : "gumroad_store_click";
-      var linkText = (link.textContent || "").replace(/\s+/g, " ").trim();
 
       sendClickEvent(eventName, {
         event_category: "cta",
