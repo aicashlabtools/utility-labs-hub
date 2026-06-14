@@ -1,6 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T7X8JFME64"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T7X8JFME64');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free Instagram and TikTok Caption Formatter | Line Break Tool</title>
@@ -636,22 +645,22 @@
                     
                     <div class="check-item">
                         <span>Above-The-Fold Hook Check (<span id="hud-label-fold-limit">125</span> Chars)</span>
-                        <span id="check-hook-fold" class="badge-status pass">âœ“ Optimized</span>
+                        <span id="check-hook-fold" class="badge-status pass">✓ Optimized</span>
                     </div>
                     
                     <div class="check-item">
                         <span>Platform Payload Ceiling Limits</span>
-                        <span id="check-payload-limit" class="badge-status pass">âœ“ Safe</span>
+                        <span id="check-payload-limit" class="badge-status pass">✓ Safe</span>
                     </div>
 
                     <div class="check-item">
                         <span>Call-To-Action Link / Command Verification</span>
-                        <span id="check-cta-presence" class="badge-status pass">âœ“ Detected</span>
+                        <span id="check-cta-presence" class="badge-status pass">✓ Detected</span>
                     </div>
 
                     <div class="check-item">
                         <span>Deduplicated Hashtag Index Format</span>
-                        <span id="check-tag-sanitization" class="badge-status pass">âœ“ Cleaned</span>
+                        <span id="check-tag-sanitization" class="badge-status pass">✓ Cleaned</span>
                     </div>
                 </div>
 
@@ -782,7 +791,7 @@
         let activePlatformFocus = 'instagram';
         
         // Pure Invisible Braille Block Spacing Character (U+2800)
-        const INVISIBLE_UNICODE_SEPARATOR = "â €"; 
+        const INVISIBLE_UNICODE_SEPARATOR = "⠀"; 
 
         const constraintsGrid = {
             instagram: { limit: 2200, fold: 125 },
@@ -903,19 +912,19 @@
             // 1. Evaluate Above-The-Fold Limits
             const firstLineParagraph = rawBodyText.split('\n')[0] || "";
             if (firstLineParagraph.length > currentPlatformLimits.fold) {
-                chkHookFold.textContent = "âš ï¸ Text Truncated";
+                chkHookFold.textContent = "⚠️ Text Truncated";
                 chkHookFold.className = "badge-status warn";
             } else {
-                chkHookFold.textContent = "âœ“ Optimized";
+                chkHookFold.textContent = "✓ Optimized";
                 chkHookFold.className = "badge-status pass";
             }
 
             // 2. Evaluate Total Payload Size Restrictions
             if (currentTotalLength > currentPlatformLimits.limit) {
-                chkPayloadLimit.textContent = "âŒ Over Limit";
+                chkPayloadLimit.textContent = "❌ Over Limit";
                 chkPayloadLimit.className = "badge-status fail";
             } else {
-                chkPayloadLimit.textContent = "âœ“ Safe Bounds";
+                chkPayloadLimit.textContent = "✓ Safe Bounds";
                 chkPayloadLimit.className = "badge-status pass";
             }
 
@@ -924,22 +933,22 @@
             const hasCtaTextIndicator = /(link|bio|download|get|grab|check|click)/i.test(rawBodyText);
             
             if (hasCtaLinkIndicator || hasCtaTextIndicator) {
-                chkCtaPresence.textContent = "âœ“ Detected";
+                chkCtaPresence.textContent = "✓ Detected";
                 chkCtaPresence.className = "badge-status pass";
             } else {
-                chkCtaPresence.textContent = "âš ï¸ Missing CTA";
+                chkCtaPresence.textContent = "⚠️ Missing CTA";
                 chkCtaPresence.className = "badge-status warn";
             }
 
             // 4. Evaluate Tag Quality Metrics
             if (duplicatesCount > 0 || missingHashCount > 0) {
-                chkTagSanitization.textContent = "âœ“ Auto-Fixed";
+                chkTagSanitization.textContent = "✓ Auto-Fixed";
                 chkTagSanitization.className = "badge-status pass";
             } else if (inputTagsField.value.trim() === "") {
                 chkTagSanitization.textContent = "No Tags";
                 chkTagSanitization.className = "badge-status warn";
             } else {
-                chkTagSanitization.textContent = "âœ“ 100% Clean";
+                chkTagSanitization.textContent = "✓ 100% Clean";
                 chkTagSanitization.className = "badge-status pass";
             }
         }
