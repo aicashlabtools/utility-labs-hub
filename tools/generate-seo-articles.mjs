@@ -73,32 +73,50 @@ function esc(value) {
   return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
-function parseCsvLine(line) {
-  const out = [];
-  let cur = "";
-  let quoted = false;
-  for (let i = 0; i < line.length; i += 1) {
-    const ch = line[i];
-    if (ch === '"') {
-      if (quoted && line[i + 1] === '"') {
-        cur += '"';
-        i += 1;
-      } else {
-        quoted = !quoted;
-      }
-    } else if (ch === "," && !quoted) {
-      out.push(cur);
-      cur = "";
-    } else {
-      cur += ch;
-    }
-  }
-  out.push(cur);
-  return out;
-}
-
 function titleFromSlug(slug) {
-  return slug.split("-").map((word) => word ? word[0].toUpperCase() + word.slice(1) : word).join(" ");
+  const labels = {
+    "brand-deal-calculator": "Brand Deal Calculator",
+    "caption-formatter": "Caption Formatter",
+    "caption-line-splitter": "Caption Line Splitter",
+    "cpm-conversion-pivot": "CPM Conversion Pivot",
+    "creator-rpm-calculator": "Creator RPM Calculator",
+    "creator-runway-calculator": "Creator Runway Calculator",
+    "creator-utilities": "Creator Utilities",
+    "free-invoice-generator": "Free Invoice Generator",
+    "free-nda-generator": "Free NDA Generator",
+    "freedom-rate-calculator": "Freedom Rate Calculator",
+    "gumroad-profit-calculator": "Gumroad Profit Calculator",
+    "hourly-rate-calculator": "Hourly Rate Calculator",
+    "image-color-picker": "Image Color Picker",
+    "instagram-line-break-generator": "Instagram Line Break Generator",
+    "instagram-reels-safe-zone": "Instagram Reels Safe Zone Checker",
+    "late-fee-calculator": "Late Fee Calculator",
+    "lead-magnet-estimator": "Lead Magnet Estimator",
+    "linkedin-post-formatter": "LinkedIn Post Formatter",
+    "meeting-notes-formatter": "Meeting Notes Formatter",
+    "monetization-gap-calculator": "Monetization Gap Calculator",
+    "paid-traffic-profit-calculator": "Paid Traffic Profit Calculator",
+    "presale-validation-tester": "Presale Validation Tester",
+    "pricing-strategy-calculator": "Pricing Strategy Calculator",
+    "product-idea-validator": "Product Idea Validator",
+    "product-launch-calculator": "Product Launch Calculator",
+    "product-launch-goal-calculator": "Product Launch Goal Calculator",
+    "product-profit-calculator": "Product Profit Calculator",
+    "repurposing-matrix": "Repurposing Matrix",
+    "resolution-checker": "Resolution Checker",
+    "retention-diagnostic-tool": "Retention Diagnostic Tool",
+    "scope-creep-calculator": "Scope Creep Calculator",
+    "short-form-hook-analyzer": "Short-Form Hook Analyzer",
+    "statement-of-work-generator": "Statement Of Work Generator",
+    "subscriber-ltv-calculator": "Subscriber LTV Calculator",
+    "teleprompter": "Teleprompter",
+    "thumbnail-text-checker": "Thumbnail Text Checker",
+    "tiktok-safe-zone": "TikTok Safe Zone Checker",
+    "video-script-time-calculator": "Video Script Time Calculator",
+    "youtube-description-formatter": "YouTube Description Formatter",
+    "youtube-shorts-safe-zone": "YouTube Shorts Safe Zone Checker"
+  };
+  return labels[slug] || slug.split("-").map((word) => word ? word[0].toUpperCase() + word.slice(1) : word).join(" ");
 }
 
 function toolIcon() {
@@ -117,44 +135,6 @@ async function loadAudit() {
   return map;
 }
 
-async function loadKeywords() {
-  const csvPath = path.join(root, "AI Cash Lab Website Notes", "Local repository cleanup archive", "seo-keywords-master.csv");
-  const csv = await fs.readFile(csvPath, "utf8");
-  const map = new Map();
-  for (const line of csv.split(/\r?\n/).slice(1)) {
-    if (!line.trim()) continue;
-    const [keyword, intent, mapped, difficulty, priority] = parseCsvLine(line);
-    if (!keyword || !mapped || mapped === "Unmapped / Research" || mapped.startsWith("Future idea:")) continue;
-    const arr = map.get(mapped) || [];
-    arr.push({ keyword: keyword.trim(), intent, priority });
-    map.set(mapped, arr);
-  }
-  return map;
-}
-
-function getKeywords(tool, audit, keywordMap) {
-  const auditRow = audit.get(tool.tool) || {};
-  const candidates = [];
-  if (auditRow.primary) candidates.push(auditRow.primary);
-  const mapped = (keywordMap.get(tool.tool) || [])
-    .sort((a, b) => ({ High: 0, Medium: 1, Low: 2 }[a.priority] ?? 3) - ({ High: 0, Medium: 1, Low: 2 }[b.priority] ?? 3))
-    .map((row) => row.keyword)
-    .slice(0, 2);
-  candidates.push(...mapped);
-  const base = titleFromSlug(tool.tool).toLowerCase();
-  candidates.push(`free ${base}`, `${base} online`, `${base} no signup`, `how to use a ${base}`, `${base} for creators`, `${base} for freelancers`, `${base} guide`);
-  const seen = new Set();
-  return candidates
-    .map((keyword) => keyword.replace(/\s+/g, " ").trim())
-    .filter((keyword) => {
-      const key = keyword.toLowerCase();
-      if (!keyword || seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    })
-    .slice(0, 5);
-}
-
 function header() {
   return `<header class="site-header"><div class="header-inner"><a class="brand" href="/" aria-label="AI Cash Lab Tools homepage"><span class="logo-frame"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab logo"></span><span class="brand-copy"><strong>AI Cash Lab</strong><small>Utility Ecosystem</small></span></a><nav class="nav" aria-label="Site navigation"><a href="/">All Tools</a><a href="/creator-utilities/">Creator Utilities</a><a href="/articles/">Articles</a><a class="store" href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener">Storefront &rarr;</a></nav></div></header>`;
 }
@@ -167,9 +147,8 @@ function schemaJson(value) {
   return JSON.stringify(value).replace(/</g, "\\u003c");
 }
 
-function articleHtml(tool, audit, keywordMap) {
+function articleHtml(tool, audit) {
   const toolName = titleFromSlug(tool.tool);
-  const keywords = getKeywords(tool, audit, keywordMap);
   const auditRow = audit.get(tool.tool) || {};
   const url = `${site}/articles/${tool.slug}/`;
   const meta = tool.desc.length > 155 ? `${tool.desc.slice(0, 152)}...` : tool.desc;
@@ -198,7 +177,6 @@ ${tracking}
 <title>${esc(tool.title)} | AI Cash Lab Tools</title>
 <meta name="description" content="${esc(meta)}">
 <link rel="canonical" href="${url}">
-<meta name="keywords" content="${esc(keywords.join(", "))}">
 <script type="application/ld+json">${schemaJson(schema)}</script>
 <style>${css}${metaCss}</style>
 </head>
@@ -206,25 +184,24 @@ ${tracking}
 ${header()}
 <main class="shell">
   <div class="breadcrumb"><a href="/articles/">Articles</a> / ${esc(toolName)}</div>
-  <section class="hero"><div class="kicker">SEO Guide</div><h1>${esc(tool.title)}</h1><p>${esc(tool.desc)}</p></section>
+  <section class="hero"><div class="kicker">Guide</div><h1>${esc(tool.title)}</h1><p>${esc(tool.desc)}</p></section>
   <div class="article-meta"><span>5 min read</span><span class="meta-dot" aria-hidden="true"></span><a href="/${tool.tool}/">${toolIcon()}Uses: ${esc(toolName)}</a></div>
   <article class="article">
-    <p>If you are searching for <strong>${esc(keywords[0])}</strong>, the real goal is usually not just finding another generic explainer. You need a fast way to make a decision, format something correctly, or calculate a number before it slows down your work. This guide explains the workflow behind ${esc(toolName)} and links directly to the free browser tool so you can apply it immediately.</p>
-    <div class="keyword-box"><strong>Target search keywords for this guide:</strong><ul class="keyword-list">${keywords.map((keyword) => `<li>${esc(keyword)}</li>`).join("")}</ul></div>
+    <p>${esc(tool.desc)} This guide shows when to use ${esc(toolName)}, how to run a quick check, and how to turn the result into a practical next step.</p>
     <h2>What this workflow helps you do</h2>
     <p>${esc(auditRow.meta || tool.desc)} A dedicated ${esc(toolName)} is useful because it turns a fuzzy task into a repeatable check. Instead of guessing, you can enter the relevant inputs, review the output, and make the next decision with less friction.</p>
     <p>For creators, freelancers, and digital product sellers, small operational tasks add up quickly. A caption that is hard to read, a rate that misses taxes, a product price that ignores fees, or a video layout that hides text can all cost attention or money. The point of this workflow is to catch those issues before they become expensive.</p>
     <h2>How to use the free tool</h2>
     <ol><li>Open the related free tool: <a href="/${tool.tool}/">${esc(toolName)}</a>.</li><li>Gather the inputs you already know, such as text, dimensions, revenue targets, rates, costs, or campaign assumptions.</li><li>Enter realistic numbers or paste the content you want to check. Avoid perfect-case assumptions unless you are intentionally modeling a best-case scenario.</li><li>Review the output and look for the constraint that matters most: readability, profitability, timing, platform fit, or client clarity.</li><li>Adjust the inputs once or twice so you can see the range, not just one answer.</li></ol>
-    <h2>Why this matters for searchers</h2>
-    <p>Most people landing on this page are trying to solve one of three problems: they need a free online tool, they need a quick explanation of the method, or they need a sanity check before publishing, pricing, sending, or recording something. That is why this page targets phrases like ${keywords.slice(1, 3).map((keyword) => `<strong>${esc(keyword)}</strong>`).join(", ")} while keeping the related tool one click away.</p>
-    <p>The strongest SEO pages are not just keyword containers. They answer the intent behind the query, make the next step obvious, and connect to a useful resource. Here, the resource is the free ${esc(toolName)} page, which gives Google and users a clear internal path from guide to action.</p>
+    <h2>Why this workflow matters</h2>
+    <p>A quick check is valuable when it prevents a preventable mistake. Before you publish, price, invoice, launch, or record, the right tool can reveal whether something is too long, too vague, underpriced, poorly formatted, or based on assumptions that need another pass.</p>
+    <p>The goal is not to make the process more complicated. The goal is to get one clear signal, decide what needs to change, and move forward without opening a heavy spreadsheet or rebuilding the same checklist every time.</p>
     <h2>Common mistakes to avoid</h2>
     <ul><li><strong>Using vague inputs.</strong> The output is only useful if the numbers, text, or assumptions match the real project.</li><li><strong>Skipping platform context.</strong> A format that works for one social platform, client workflow, or product funnel may not work for another.</li><li><strong>Ignoring the next action.</strong> Use the result to change a caption, rate, script, price, layout, invoice, or launch plan.</li><li><strong>Only checking once.</strong> Run a second pass with conservative assumptions so you understand the downside case.</li></ul>
     <h2>Best next step</h2>
     <p>Use the tool before you publish, send, price, or record. It is faster to fix a problem at the planning stage than after the post is live, the invoice is overdue, the client asks for extra work, or the launch target has already been missed.</p>
     <div class="cta"><strong>Use the related free tool:</strong><p>${esc(toolName)} helps you apply this guide directly in your browser.</p><a href="/${tool.tool}/">Open ${esc(toolName)} &rarr;</a></div>
-    <section class="faq"><h2>FAQ</h2><h3>Is ${esc(toolName)} free?</h3><p>Yes. The related AI Cash Lab tool is free to open in your browser.</p><h3>Who is this guide for?</h3><p>It is built for freelancers, creators, digital product sellers, and solo operators who want a quick, practical workflow instead of a bloated spreadsheet or app.</p><h3>Should I bookmark the tool page or the article?</h3><p>Bookmark the tool page if you use it repeatedly. Keep the article when you want the explanation, keyword context, and step-by-step workflow.</p></section>
+    <section class="faq"><h2>FAQ</h2><h3>Is ${esc(toolName)} free?</h3><p>Yes. The related AI Cash Lab tool is free to open in your browser.</p><h3>Who is this guide for?</h3><p>It is built for freelancers, creators, digital product sellers, and solo operators who want a quick, practical workflow instead of a bloated spreadsheet or app.</p><h3>Should I bookmark the tool page or the article?</h3><p>Bookmark the tool page if you use it repeatedly. Keep the article when you want the explanation and step-by-step workflow.</p></section>
   </article>
 </main>
 ${footer()}
@@ -242,17 +219,17 @@ function indexHtml() {
   ];
   const byTool = new Map(tools.map((tool) => [tool.tool, tool]));
   const card = (tool) => `<a class="card" href="/articles/${tool.slug}/"><div><span class="card-kicker">${esc(titleFromSlug(tool.tool))}</span><h2>${esc(tool.title)}</h2><p>${esc(tool.desc)}</p></div><div><span class="card-meta">5 min read</span><span class="card-meta">${toolIcon()}Uses: ${esc(titleFromSlug(tool.tool))}</span><strong>Read guide &rarr;</strong></div></a>`;
-  const sections = groups.map(([name, ids]) => `<section class="article-group"><div class="group-heading"><h2>${esc(name)}</h2><p>${ids.length} SEO guides linked to free AI Cash Lab tools.</p></div><div class="grid">${ids.map((id) => card(byTool.get(id))).join("")}</div></section>`).join("");
+  const sections = groups.map(([name, ids]) => `<section class="article-group"><div class="group-heading"><h2>${esc(name)}</h2><p>${ids.length} practical guides linked to free AI Cash Lab tools.</p></div><div class="grid">${ids.map((id) => card(byTool.get(id))).join("")}</div></section>`).join("");
   const indexCss = `${css}${metaCss}.article-group{margin-top:34px}.group-heading{border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:12px;margin-bottom:16px}.group-heading h2{color:#60a5fa;font-size:1rem;text-transform:uppercase;letter-spacing:.12em;margin:0}.group-heading p{color:#64748b;font-size:13px;margin:4px 0 0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card{display:flex;min-height:255px;flex-direction:column;justify-content:space-between;background:#111827;border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:20px;text-decoration:none;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}.card:hover{transform:translateY(-2px);border-color:rgba(245,158,11,.35);box-shadow:0 18px 40px rgba(0,0,0,.24)}.card-kicker{display:block;color:#f59e0b;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}.card h2{color:#fff;margin:0 0 10px;font-size:1.05rem;line-height:1.28}.card p{color:#a1a1aa;margin:0;font-size:.93rem}.card strong{display:block;margin-top:14px;color:#f59e0b;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.card-meta{display:flex;align-items:center;gap:6px;color:#64748b;font-size:11px;font-weight:800;margin-top:10px}.card-meta .tool-icon{color:#f59e0b}@media(max-width:980px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:640px){.grid{grid-template-columns:1fr}.card{min-height:0}}`;
-  const schema = { "@context": "https://schema.org", "@type": "CollectionPage", name: "Creator and Freelancer Guides", description: "SEO guides connected to free AI Cash Lab tools.", url: `${site}/articles/`, hasPart: tools.map((tool) => ({ "@type": "Article", headline: tool.title, url: `${site}/articles/${tool.slug}/` })) };
+  const schema = { "@context": "https://schema.org", "@type": "CollectionPage", name: "Creator and Freelancer Guides", description: "Practical guides connected to free AI Cash Lab tools.", url: `${site}/articles/`, hasPart: tools.map((tool) => ({ "@type": "Article", headline: tool.title, url: `${site}/articles/${tool.slug}/` })) };
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
 ${tracking}
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Creator and Freelancer SEO Guides | AI Cash Lab Tools</title>
-<meta name="description" content="Practical SEO guides for AI Cash Lab free tools, including calculators, formatters, safe-zone checkers, and creator workflow utilities.">
+<title>Creator and Freelancer Guides | AI Cash Lab Tools</title>
+<meta name="description" content="Practical guides for AI Cash Lab free tools, including calculators, formatters, safe-zone checkers, and creator workflow utilities.">
 <link rel="canonical" href="${site}/articles/">
 <script type="application/ld+json">${schemaJson(schema)}</script>
 <style>${indexCss}</style>
@@ -260,7 +237,7 @@ ${tracking}
 <body>
 ${header()}
 <main class="shell">
-  <section class="hero"><div class="kicker">SEO Guides</div><h1>Creator And Freelancer Guides</h1><p>Practical search-focused guides for every free AI Cash Lab tool. Each article targets five relevant search phrases and links back to the tool it supports.</p></section>
+  <section class="hero"><div class="kicker">Guides</div><h1>Creator And Freelancer Guides</h1><p>Practical guides for every free AI Cash Lab tool, built to help you make faster decisions, clean up workflows, and apply each tool with more confidence.</p></section>
   ${sections}
 </main>
 ${footer()}
@@ -277,16 +254,15 @@ async function writeSitemap() {
 }
 
 const audit = await loadAudit();
-const keywordMap = await loadKeywords();
 await fs.mkdir(path.join(root, "articles"), { recursive: true });
 
 for (const tool of tools) {
   const dir = path.join(root, "articles", tool.slug);
   await fs.mkdir(dir, { recursive: true });
-  await fs.writeFile(path.join(dir, "index.html"), articleHtml(tool, audit, keywordMap), "utf8");
+  await fs.writeFile(path.join(dir, "index.html"), articleHtml(tool, audit), "utf8");
 }
 
 await fs.writeFile(path.join(root, "articles", "index.html"), indexHtml(), "utf8");
 await writeSitemap();
 
-console.log(`Generated ${tools.length} SEO articles, updated articles/index.html, and updated sitemap.xml.`);
+console.log(`Generated ${tools.length} article pages, updated articles/index.html, and updated sitemap.xml.`);
