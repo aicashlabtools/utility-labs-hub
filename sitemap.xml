@@ -33,15 +33,15 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aicashlabtools.com/freedom-rate-calculator/</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aicashlabtools.com/free-invoice-generator/</loc>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aicashlabtools.com/free-nda-generator/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/freedom-rate-calculator/</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -166,10 +166,50 @@
   </url>
   <url>
     <loc>https://aicashlabtools.com/articles/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-calculate-brand-deal-rates/</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://aicashlabtools.com/articles/how-to-add-line-breaks-on-instagram/</loc>
+    <loc>https://aicashlabtools.com/articles/how-to-format-instagram-and-tiktok-captions/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-split-caption-lines-for-short-form-video/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/cpm-vs-product-revenue-calculator-guide/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-calculate-creator-rpm/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-calculate-business-runway/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/best-free-creator-tools-online/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-create-an-invoice-online-free/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-create-a-simple-nda-online/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-calculate-your-freedom-rate/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-calculate-gumroad-profit/</loc>
     <priority>0.6</priority>
   </url>
   <url>
@@ -177,7 +217,115 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://aicashlabtools.com/articles/how-to-pick-colors-from-an-image/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-add-line-breaks-on-instagram/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/instagram-reels-safe-zone-guide/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-calculate-late-fees-on-invoices/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-estimate-lead-magnet-conversions/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-format-linkedin-posts/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-format-meeting-notes/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-find-your-creator-monetization-gap/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-calculate-paid-traffic-profit/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-validate-a-presale-product-idea/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-choose-digital-product-pricing/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-validate-a-product-idea/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-calculate-product-launch-sales/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-set-product-launch-goals/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-calculate-digital-product-profit/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-repurpose-content/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-check-video-resolution-and-aspect-ratio/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-diagnose-content-retention/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://aicashlabtools.com/articles/how-to-stop-working-for-free-as-a-freelancer/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-write-better-short-form-video-hooks/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-write-a-statement-of-work/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-calculate-subscriber-ltv/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-use-an-online-teleprompter/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-check-thumbnail-text-readability/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/tiktok-safe-zone-guide/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-calculate-video-script-time/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-format-youtube-descriptions/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/youtube-shorts-safe-zone-guide/</loc>
     <priority>0.6</priority>
   </url>
 </urlset>
