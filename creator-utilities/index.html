@@ -162,7 +162,7 @@
             overflow: hidden;
             width: 32px;
         }
-        .acl-brand img {
+        .acl-logo-frame img {
             display: block;
             height: 100%;
             object-fit: contain;
@@ -274,16 +274,18 @@
             padding-bottom: 12px;
         }
         .tool-section h2 {
-            color: #fff;
-            font-size: 21px;
+            color: #60a5fa;
+            font-size: 1rem;
+            letter-spacing: .12em;
             line-height: 1.2;
             margin: 0;
+            text-transform: uppercase;
         }
         .tool-section p {
-            color: #a1a1aa;
+            color: #64748b;
             font-size: 13px;
             line-height: 1.55;
-            margin: 0;
+            margin: 4px 0 0;
         }
         .tool-grid {
             display: grid;
@@ -428,7 +430,15 @@
             padding: 24px;
             width: min(calc(100% - 32px), 1180px);
         }
-        .acl-seo-intro h2,
+        .acl-faq-section {
+            margin-bottom: 56px;
+        }
+        .acl-seo-intro h2 {
+            color: #fff;
+            font-size: 20px;
+            line-height: 1.2;
+            margin: 0 0 12px;
+        }
         .acl-faq-section h2 {
             color: #fff;
             font-size: 20px;
@@ -491,6 +501,11 @@
             flex-direction: column;
             gap: 8px;
         }
+        .acl-footer-brand-main {
+            align-items: center;
+            display: flex;
+            gap: 11px;
+        }
         .acl-footer-brand strong {
             color: #fff;
             font-size: 12px;
@@ -498,7 +513,7 @@
             letter-spacing: .08em;
             text-transform: uppercase;
         }
-        .acl-footer-brand span {
+        .acl-footer-copy {
             color: #64748b;
             font-size: 11px;
             max-width: 360px;
@@ -939,8 +954,11 @@
 <footer class="acl-shell-footer">
     <div class="acl-footer-inner">
         <div class="acl-footer-brand">
-            <strong>AI Cash Lab Tools</strong>
-            <span>Simple business tools for freelancers, creators, and digital operators.</span>
+            <div class="acl-footer-brand-main">
+                <span class="acl-logo-frame"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab footer logo"></span>
+                <strong>AI Cash Lab Tools</strong>
+            </div>
+            <span class="acl-footer-copy">Simple business tools for freelancers, creators, and digital operators.</span>
         </div>
         <div class="acl-footer-links">
             <a href="/">All Tools</a>
