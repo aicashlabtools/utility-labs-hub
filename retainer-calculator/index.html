@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Monthly Retainer Pricing Calculator | AI Cash Lab</title>
+    <!-- Tailwind CSS Engine -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0B0F17',
+                        brandCard: '#131926',
+                        brandGold: '#E5A93C',
+                        brandGoldHover: '#CCA130',
+                        brandBlue: '#3B82F6',
+                        brandBlueHover: '#2563EB',
+                        brandGreen: '#10B981',
+                        brandRed: '#EF4444',
+                        brandTextMuted: '#9CA3AF'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brandDark text-gray-100 font-sans min-h-screen selection:bg-brandGold selection:text-brandDark">
+
+    <!-- Header Navigation -->
+    <header class="border-b border-gray-800 bg-brandDark/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-6 h-6 bg-brandGold rounded flex items-center justify-center text-brandDark font-bold text-xs">AI</div>
+                <span class="font-bold tracking-wider text-sm">AI CASH LAB</span>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-xs text-brandTextMuted uppercase tracking-widest">
+                <a href="#" class="hover:text-brandGold transition">All Tools</a>
+                <a href="#" class="hover:text-brandGold transition">Free Tools</a>
+                <a href="#" class="hover:text-brandGold transition">Creator Utilities</a>
+                <a href="#" class="hover:text-brandGold transition">Gumroad Hub</a>
+                <a href="#" class="hover:text-brandGold transition">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="max-w-4xl mx-auto px-4 pt-12 pb-6 text-center">
+        <span class="text-xs font-semibold tracking-widest text-brandBlue uppercase border border-brandBlue/30 px-3 py-1 rounded-full bg-brandBlue/5">FREELANCER RECURRING REVENUE TOOL</span>
+        <h1 class="text-3xl md:text-4xl font-extrabold mt-4 tracking-tight">Freelancer Monthly Retainer Pricing Calculator</h1>
+        <p class="text-brandTextMuted mt-3 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+            Calculate a profitable monthly retainer based on your income goals, available capacity, service level, and client expectations.
+        </p>
+    </section>
+
+    <!-- Quick Start Navigation Bar -->
+    <section class="max-w-5xl mx-auto px-4 mb-3">
+        <div class="bg-brandCard/60 border border-gray-800 rounded-lg p-3 flex flex-wrap gap-2 md:gap-4 items-center justify-center text-xs text-brandTextMuted tracking-wide uppercase">
+            <span class="text-brandGold font-semibold">⚡ QUICK START</span>
+            <span class="hidden sm:inline">➔</span><span>1. Set Income Goal</span>
+            <span class="hidden sm:inline">➔</span><span>2. Define Service Package</span>
+            <span class="hidden sm:inline">➔</span><span>3. Estimate Capacity</span>
+            <span class="hidden sm:inline">➔</span><span>4. Review Pricing</span>
+            <span class="hidden sm:inline">➔</span><span>5. Build Growth Plan</span>
+        </div>
+    </section>
+
+    <!-- Privacy Strip -->
+    <section class="max-w-5xl mx-auto px-4 mb-8">
+        <div class="bg-brandGreen/10 border border-brandGreen/30 rounded-lg px-4 py-2.5 flex items-center space-x-2 text-xs text-brandGreen">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            <span class="font-medium">🔒 Privacy Notice:</span>
+            <span class="text-gray-300">100% local browser calculation. No data uploads. No sign-up required.</span>
+        </div>
+    </section>
+
+    <!-- Workspace Dashboard Grid -->
+    <main class="max-w-5xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+        
+        <!-- Left Column — Retainer Inputs Card -->
+        <div class="lg:col-span-5 bg-brandCard border border-gray-800 rounded-xl p-6 flex flex-col justify-between">
+            <div class="space-y-5">
+                <div class="flex justify-between items-center border-b border-gray-800 pb-3">
+                    <h2 class="font-bold tracking-wide text-sm uppercase text-gray-300">Retainer Inputs</h2>
+                    <button onclick="resetInputs()" class="text-[11px] text-gray-400 hover:text-white transition">Reset</button>
+                </div>
+
+                <!-- Input 1: Desired Monthly Income -->
+                <div>
+                    <label class="text-xs font-semibold text-gray-300 uppercase tracking-wider block mb-2">Desired Monthly Income</label>
+                    <div class="grid grid-cols-2 gap-2 mb-2">
+                        <button type="button" onclick="setIncomePreset(2000)" id="btnInc2000" class="bg-gray-800 border border-gray-700 text-xs py-2 rounded text-gray-300 hover:border-brandBlue transition">$2,000/mo</button>
+                        <button type="button" onclick="setIncomePreset(5000)" id="btnInc5000" class="bg-brandBlue/20 border border-brandBlue text-xs py-2 rounded text-white font-medium transition">$5,000/mo</button>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button type="button" onclick="setIncomePreset(10000)" id="btnInc10000" class="bg-gray-800 border border-gray-700 text-xs py-2 rounded text-gray-300 hover:border-brandBlue transition">$10,000+/mo</button>
+                        <div class="relative">
+                            <span class="absolute left-2.5 top-2 text-xs text-brandTextMuted">$</span>
+                            <input type="number" id="customIncome" oninput="selectCustomIncome()" value="5000" class="w-full bg-gray-800 border border-gray-700 rounded p-1.5 pl-6 text-xs text-gray-200 focus:outline-none focus:border-brandBlue" placeholder="Custom">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input 2: Current Hourly Rate -->
+                <div>
+                    <div class="flex justify-between text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
+                        <span>Current Hourly Rate</span>
+                        <span id="lblHourlyRate" class="text-brandBlue font-mono font-bold">$75/hr</span>
+                    </div>
+                    <input type="range" id="inputHourlyRate" min="25" max="300" step="5" value="75" oninput="updateCalculations()" class="w-full accent-brandBlue bg-gray-800 h-1.5 rounded-lg appearance-none cursor-pointer">
+                </div>
+
+                <!-- Input 3: Available Client Hours Per Month -->
+                <div>
+                    <div class="flex justify-between text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
+                        <span>Available Client Hours / Month</span>
+                        <span id="lblAvailableHours" class="text-brandBlue font-mono font-bold">80 hrs</span>
+                    </div>
+                    <input type="range" id="inputAvailableHours" min="10" max="160" step="5" value="80" oninput="updateCalculations()" class="w-full accent-brandBlue bg-gray-800 h-1.5 rounded-lg appearance-none cursor-pointer">
+                </div>
+
+                <!-- Input 4: Retainer Service Level -->
+                <div>
+                    <label class="text-xs font-semibold text-gray-300 uppercase tracking-wider block mb-2">Retainer Service Level</label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button type="button" onclick="setServiceLevel('basic')" id="btnSvc_basic" class="bg-gray-800 border border-gray-700 text-[11px] py-2 rounded text-gray-300 hover:border-brandBlue transition">Basic Support</button>
+                        <button type="button" onclick="setServiceLevel('growth')" id="btnSvc_growth" class="bg-brandBlue/20 border border-brandBlue text-[11px] py-2 rounded text-white font-medium transition">Growth Partner</button>
+                        <button type="button" onclick="setServiceLevel('strategic')" id="btnSvc_strategic" class="bg-gray-800 border border-gray-700 text-[11px] py-2 rounded text-gray-300 hover:border-brandBlue transition">Strategic Advisor</button>
+                        <button type="button" onclick="setServiceLevel('full')" id="btnSvc_full" class="bg-gray-800 border border-gray-700 text-[11px] py-2 rounded text-gray-300 hover:border-brandBlue transition">Full-Service</button>
+                    </div>
+                </div>
+
+                <!-- Input 5: Monthly Scope Included -->
+                <div class="bg-gray-800/40 border border-gray-800 p-3 rounded space-y-3">
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="text-gray-400">Client Hours per Retainer:</span>
+                        <div class="flex items-center space-x-2">
+                            <button onclick="adjustScope('hours', -5)" class="bg-gray-800 border border-gray-700 px-2 py-0.5 rounded text-gray-300 hover:text-white">-</button>
+                            <span id="lblScopeHours" class="font-mono font-bold text-gray-200">20</span>
+                            <button onclick="adjustScope('hours', 5)" class="bg-gray-800 border border-gray-700 px-2 py-0.5 rounded text-gray-300 hover:text-white">+</button>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="text-gray-400">Strategy Calls / Meetings:</span>
+                        <div class="flex items-center space-x-2">
+                            <button onclick="adjustScope('calls', -1)" class="bg-gray-800 border border-gray-700 px-2 py-0.5 rounded text-gray-300 hover:text-white">-</button>
+                            <span id="lblScopeCalls" class="font-mono font-bold text-gray-200">2</span>
+                            <button onclick="adjustScope('calls', 1)" class="bg-gray-800 border border-gray-700 px-2 py-0.5 rounded text-gray-300 hover:text-white">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input 6: Response Speed / SLA -->
+                <div>
+                    <label class="text-xs font-semibold text-gray-300 uppercase tracking-wider block mb-2">Response Speed / SLA</label>
+                    <select id="inputSLA" onchange="updateCalculations()" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-xs text-gray-200 focus:outline-none focus:border-brandBlue">
+                        <option value="48">48 Hours (Standard)</option>
+                        <option value="24" selected>24 Hours (Fast)</option>
+                        <option value="same_day">Same Day (Urgent)</option>
+                        <option value="priority">Priority Support (Immediate)</option>
+                    </select>
+                </div>
+
+                <!-- Input 7: Client Type -->
+                <div>
+                    <label class="text-xs font-semibold text-gray-300 uppercase tracking-wider block mb-2">Client Type</label>
+                    <select id="inputClientType" onchange="updateCalculations()" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-xs text-gray-200 focus:outline-none focus:border-brandBlue">
+                        <option value="startup">Startup</option>
+                        <option value="smb" selected>Small Business</option>
+                        <option value="established">Established Business</option>
+                        <option value="enterprise">Enterprise</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mt-6">
+                <button onclick="updateCalculations()" class="w-full bg-brandGold hover:bg-brandGoldHover text-brandDark text-xs font-bold uppercase tracking-wider py-3 px-4 rounded transition shadow-lg shadow-brandGold/10">Calculate Retainer Pricing</button>
+            </div>
+        </div>
+
+        <!-- Right Column — Retainer Pricing Blueprint -->
+        <div class="lg:col-span-7 space-y-6">
+            
+            <!-- Recommended Monthly Retainer & Sustainability Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-brandCard border border-gray-800 rounded-xl p-5 text-center flex flex-col justify-center items-center">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-1">Recommended Retainer</h3>
+                    <div id="displayRetainer" class="text-3xl font-extrabold text-gray-100 font-mono mt-1">$2,500/mo</div>
+                    <span class="text-[11px] text-brandTextMuted mt-1">Per individual partner contract</span>
+                </div>
+                <div class="bg-brandCard border border-gray-800 rounded-xl p-5 text-center flex flex-col justify-center items-center">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brandBlue mb-1">Sustainability Score</h3>
+                    <div id="displaySustainability" class="text-3xl font-extrabold font-mono mt-1">88/100</div>
+                    <span id="lblSustainabilityStatus" class="text-[11px] font-medium text-brandGreen mt-1">Healthy Retainer Model</span>
+                </div>
+            </div>
+
+            <!-- Client Capacity & Revenue Projection -->
+            <div class="bg-brandCard border border-gray-800 rounded-xl p-5">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-4">Capacity & Revenue Projection</h3>
+                <div class="grid grid-cols-3 gap-2 text-center">
+                    <div class="bg-gray-900/60 border border-gray-800 p-3 rounded">
+                        <span class="text-[10px] text-brandTextMuted uppercase tracking-wider block">Target Clients</span>
+                        <span id="projClients" class="text-lg font-bold font-mono text-gray-200 block mt-1">4</span>
+                    </div>
+                    <div class="bg-gray-900/60 border border-gray-800 p-3 rounded">
+                        <span class="text-[10px] text-brandTextMuted uppercase tracking-wider block">Est. MRR</span>
+                        <span id="projMRR" class="text-lg font-bold font-mono text-brandBlue block mt-1">$10,000</span>
+                    </div>
+                    <div class="bg-gray-900/60 border border-gray-800 p-3 rounded">
+                        <span class="text-[10px] text-brandTextMuted uppercase tracking-wider block">Annualized Run</span>
+                        <span id="projARR" class="text-lg font-bold font-mono text-brandGreen block mt-1">$120,000</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package Comparison Cards Matrix -->
+            <div class="space-y-3">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold">Generated Retainer Packages</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <!-- Starter Package -->
+                    <div class="bg-brandCard border border-gray-800 rounded-xl p-4 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Starter Retainer</span>
+                            <div id="pkgPrice_starter" class="text-lg font-extrabold font-mono text-gray-200 mt-1">$1,250/mo</div>
+                            <ul class="text-[11px] text-brandTextMuted mt-3 space-y-1.5 border-t border-gray-800/60 pt-3">
+                                <li>• Lower floor baseline hours</li>
+                                <li>• Standard SLA response</li>
+                                <li>• Maintenance & basic support</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Growth Partner (Highlighted) -->
+                    <div class="bg-brandCard border-2 border-brandBlue rounded-xl p-4 flex flex-col justify-between relative shadow-lg shadow-brandBlue/5">
+                        <span class="absolute -top-2.5 right-3 bg-brandBlue text-brandDark text-[9px] font-bold uppercase px-2 py-0.5 rounded-full tracking-wider">RECOMMENDED</span>
+                        <div>
+                            <span class="text-[10px] font-bold text-brandBlue uppercase tracking-wider">Growth Partner</span>
+                            <div id="pkgPrice_growth" class="text-xl font-extrabold font-mono text-white mt-1">$2,500/mo</div>
+                            <ul class="text-[11px] text-gray-300 mt-3 space-y-1.5 border-t border-brandBlue/30 pt-3">
+                                <li>• Dedicated scope allocations</li>
+                                <li>• Regular strategic milestones</li>
+                                <li>• Accelerated communication</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Premium Advisory -->
+                    <div class="bg-brandCard border border-gray-800 rounded-xl p-4 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-brandGold uppercase tracking-wider">Premium Advisory</span>
+                            <div id="pkgPrice_premium" class="text-lg font-extrabold font-mono text-gray-200 mt-1">$4,000/mo</div>
+                            <ul class="text-[11px] text-brandTextMuted mt-3 space-y-1.5 border-t border-gray-800/60 pt-3">
+                                <li>• Highest priority operational access</li>
+                                <li>• Zero-friction priority response</li>
+                                <li>• Advanced management consulting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Strategic Optimization Recommendations -->
+            <div class="bg-brandCard border border-gray-800 rounded-xl p-5">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-brandBlue mb-3">Strategic Optimization Recommendations</h3>
+                <ul id="recommendationsList" class="space-y-2.5 text-xs text-brandTextMuted">
+                    <!-- Loaded Dynamically -->
+                </ul>
+            </div>
+
+            <!-- 90-Day Retainer Growth Roadmap Component -->
+            <div class="bg-brandCard border border-gray-800 rounded-xl overflow-hidden">
+                <div class="bg-gray-900/80 border-b border-gray-800 flex text-xs">
+                    <button onclick="switchTab('m1')" id="tab_m1" class="flex-1 py-3 px-4 font-semibold border-b-2 border-brandBlue text-white bg-brandCard/40 focus:outline-none">Month 1 — Foundation</button>
+                    <button onclick="switchTab('m2')" id="tab_m2" class="flex-1 py-3 px-4 font-semibold border-b-2 border-transparent text-brandTextMuted hover:text-white focus:outline-none">Month 2 — Optimization</button>
+                    <button onclick="switchTab('m3')" id="tab_m3" class="flex-1 py-3 px-4 font-semibold border-b-2 border-transparent text-brandTextMuted hover:text-white focus:outline-none">Month 3 — Growth</button>
+                </div>
+                <div class="p-5">
+                    <!-- Tab Content 1 -->
+                    <div id="content_m1" class="space-y-2 text-xs">
+                        <div class="flex items-start space-x-2"><span class="text-brandBlue">➔</span><p class="text-gray-300"><strong class="text-white">Define your retainer offer:</strong> Clarify exactly what deliverables or metrics are covered in your standard recurring cycle to block delivery confusion early.</p></div>
+                        <div class="flex items-start space-x-2"><span class="text-brandBlue">➔</span><p class="text-gray-300"><strong class="text-white">Create service boundaries:</strong> Hardcode an exact calculation sheet detailing standard operating boundaries to manage extra client requests cleanly.</p></div>
+                        <div class="flex items-start space-x-2"><span class="text-brandBlue">➔</span><p class="text-gray-300"><strong class="text-white">Prepare contracts and invoicing:</strong> Establish auto-billing schedules so you collect funds seamlessly before the production work begins each month.</p></div>
+                    </div>
+                    <!-- Tab Content 2 (Hidden Initially) -->
+                    <div id="content_m2" class="hidden space-y-2 text-xs">
+                        <div class="flex items-start space-x-2"><span class="text-brandBlue">➔</span><p class="text-gray-300"><strong class="text-white">Improve onboarding:</strong> Build a repeatable configuration workflow for incoming clients to clear pipeline friction and save administrative hours.</p></div>
+                        <div class="flex items-start space-x-2"><span class="text-brandBlue">➔</span><p class="text-gray-300"><strong class="text-white">Streamline recurring tasks:</strong> Template your common project checklists and run-books to cut internal execution overhead in half.</p></div>
+                        <div class="flex items-start space-x-2"><span class="text-brandBlue">➔</span><p class="text-gray-300"><strong class="text-white">Reduce unnecessary meetings:</strong> Shift standard recurring reports to concise asynchronous updates to protect active building capacity.</p></div>
+                    </div>
+                    <!-- Tab Content 3 (Hidden Initially) -->
+                    <div id="content_m3" class="hidden space-y-2 text-xs">
+                        <div class="flex items-start space-x-2"><span class="text-brandBlue">➔</span><p class="text-gray-300"><strong class="text-white">Raise prices for new clients:</strong> Use your existing successful relationships as leverage to anchor higher package prices for new client conversations.</p></div>
+                        <div class="flex items-start space-x-2"><span class="text-brandBlue">➔</span><p class="text-gray-300"><strong class="text-white">Improve client reporting:</strong> Deliver simple, data-rich monthly summaries to highlight absolute business value and lock in long-term safety retention.</p></div>
+                        <div class="flex items-start space-x-2"><span class="text-brandBlue">➔</span><p class="text-gray-300"><strong class="text-white">Build a referral system:</strong> Incentivize current retainer clients to introduce warm business leads into your structural acquisition funnel.</p></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Contextual Informational Element -->
+    <section class="max-w-4xl mx-auto px-4 mb-16 border-t border-gray-800 pt-12">
+        <h2 class="text-xl font-bold text-gray-200 tracking-tight mb-4">How Retainer Matrix Models Scale Freelance Pipelines</h2>
+        <p class="text-brandTextMuted text-sm leading-relaxed">
+            Transitioning out of hourly project queues into predictable flat-rate retainers removes income instability. By locking in a structured advisory architecture, you provide consistent, friction-free service value while stabilizing cash flow foundations month-over-month.
+        </p>
+    </section>
+
+    <!-- FAQ Section Accordion Layout -->
+    <section class="max-w-4xl mx-auto px-4 mb-16">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-6 text-center">Frequently Asked Questions</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-gray-200 mb-1.5">How much should freelancers charge for monthly retainers?</h4>
+                <p class="text-xs text-brandTextMuted leading-relaxed">Pricing should reflect value delivery and execution overhead, matching your underlying hourly floor plus a premium for guaranteed calendar accessibility and priority fulfillment speeds.</p>
+            </div>
+            <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-gray-200 mb-1.5">How do I price a retainer package?</h4>
+                <p class="text-xs text-brandTextMuted leading-relaxed">Anchor the structure on access tier parameters (Basic, Growth, Advisor). Calculate the explicit asset quantities or sprint hours required, then adjust margins against client sizing constraints.</p>
+            </div>
+            <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-gray-200 mb-1.5">How many retainer clients should I have?</h4>
+                <p class="text-xs text-brandTextMuted leading-relaxed">Most independent premium operators focus on 3 to 6 concurrent retainer partnerships to maximize contract value outputs without triggering cognitive burnout patterns.</p>
+            </div>
+            <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-gray-200 mb-1.5">Should I charge upfront for retainers?</h4>
+                <p class="text-xs text-brandTextMuted leading-relaxed">Yes. Recurring retainer accounts must always be paid upfront on the 1st of each service period before any task assignments, sprint tasks, or consulting schedules begin.</p>
+            </div>
+            <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-gray-200 mb-1.5">How do I avoid scope creep in a retainer agreement?</h4>
+                <p class="text-xs text-brandTextMuted leading-relaxed">Explicitly track work logs and define out-of-scope tasks line-by-line. Include contract clauses converting surplus work items automatically into standard hourly billing additions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Freelancer Tools Links -->
+    <section class="max-w-5xl mx-auto px-4 mb-16 border-t border-gray-800 pt-12">
+        <div class="bg-brandCard/20 border border-gray-800 rounded-xl p-6">
+            <span class="text-[10px] uppercase font-bold tracking-widest text-brandGold block mb-4">Related Freelancer Tools</span>
+            <div class="flex flex-wrap gap-2">
+                <a href="#" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Freelancer Hourly Rate Calculator</a>
+                <a href="#" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Scope Creep Calculator</a>
+                <a href="#" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Proposal Win Probability Calculator</a>
+                <a href="#" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Referral Reward Calculator</a>
+                <a href="#" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Freelancer Pricing Calculator</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upgraded Premium Store Cross-Sell Call-To-Action Framework -->
+    <section class="max-w-5xl mx-auto px-4 mb-16">
+        <div class="bg-gradient-to-r from-brandCard via-brandCard to-brandDark border border-brandGold/30 rounded-xl p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div class="max-w-2xl">
+                <span class="text-[10px] tracking-widest text-brandGold font-bold uppercase block mb-1">RECOMMENDED OPERATING UPGRADE</span>
+                <h3 class="text-xl font-bold text-gray-100 tracking-tight">Turn one-off projects into predictable monthly income</h3>
+                <p class="text-brandTextMuted text-xs md:text-sm mt-2 leading-relaxed">
+                    Use the Freelancer Business OS to manage proposals, client systems, pricing, policies, and recurring revenue workflows.
+                </p>
+            </div>
+            <div class="shrink-0">
+                <a href="#" class="bg-brandGold hover:bg-brandGoldHover text-brandDark font-bold text-xs uppercase tracking-wider py-3 px-6 rounded block text-center transition">
+                    Explore Freelancer Business OS ➔
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Standard Core Footer Signature Layer -->
+    <footer class="border-t border-gray-900 bg-brandDark/40 py-8 text-center text-[11px] text-brandTextMuted">
+        <p>© 2026 AI CASH LAB. Designed tools for freelancers, creators, and digital operators.</p>
+    </footer>
+
+    <!-- Client-Side Evaluation Logic Script Bundle -->
+    <script>
+        let currentIncomeGoal = 5000;
+        let currentServiceLevel = 'growth';
+        let internalScopeHours = 20;
+        let internalScopeCalls = 2;
+
+        function setIncomePreset(val) {
+            currentIncomeGoal = val;
+            document.getElementById('customIncome').value = val;
+            
+            // Manage UI states
+            document.getElementById('btnInc2000').className = val === 2000 ? "bg-brandBlue/20 border border-brandBlue text-xs py-2 rounded text-white font-medium transition" : "bg-gray-800 border border-gray-700 text-xs py-2 rounded text-gray-300 hover:border-brandBlue transition";
+            document.getElementById('btnInc5000').className = val === 5000 ? "bg-brandBlue/20 border border-brandBlue text-xs py-2 rounded text-white font-medium transition" : "bg-gray-800 border border-gray-700 text-xs py-2 rounded text-gray-300 hover:border-brandBlue transition";
+            document.getElementById('btnInc10000').className = val === 10000 ? "bg-brandBlue/20 border border-brandBlue text-xs py-2 rounded text-white font-medium transition" : "bg-gray-800 border border-gray-700 text-xs py-2 rounded text-gray-300 hover:border-brandBlue transition";
+            
+            updateCalculations();
+        }
+
+        function selectCustomIncome() {
+            const val = parseInt(document.getElementById('customIncome').value) || 0;
+            currentIncomeGoal = val;
+            
+            // Remove preset highlighted frames
+            document.getElementById('btnInc2000').className = "bg-gray-800 border border-gray-700 text-xs py-2 rounded text-gray-300 hover:border-brandBlue transition";
+            document.getElementById('btnInc5000').className = "bg-gray-800 border border-gray-700 text-xs py-2 rounded text-gray-300 hover:border-brandBlue transition";
+            document.getElementById('btnInc10000').className = "bg-gray-800 border border-gray-700 text-xs py-2 rounded text-gray-300 hover:border-brandBlue transition";
+            
+            updateCalculations();
+        }
+
+        function setServiceLevel(lvl) {
+            currentServiceLevel = lvl;
+            
+            // Reset standard dynamic ranges matching layout presets automatically
+            if(lvl === 'basic') { internalScopeHours = 10; internalScopeCalls = 1; }
+            if(lvl === 'growth') { internalScopeHours = 20; internalScopeCalls = 2; }
+            if(lvl === 'strategic') { internalScopeHours = 15; internalScopeCalls = 4; }
+            if(lvl === 'full') { internalScopeHours = 40; internalScopeCalls = 4; }
+
+            document.getElementById('lblScopeHours').innerText = internalScopeHours;
+            document.getElementById('lblScopeCalls').innerText = internalScopeCalls;
+
+            const levels = ['basic', 'growth', 'strategic', 'full'];
+            levels.forEach(item => {
+                const el = document.getElementById('btnSvc_' + item);
+                if(item === lvl) {
+                    el.className = "bg-brandBlue/20 border border-brandBlue text-[11px] py-2 rounded text-white font-medium transition";
+                } else {
+                    el.className = "bg-gray-800 border border-gray-700 text-[11px] py-2 rounded text-gray-300 hover:border-brandBlue transition";
+                }
+            });
+
+            updateCalculations();
+        }
+
+        function adjustScope(type, delta) {
+            if(type === 'hours') {
+                internalScopeHours = Math.max(5, Math.min(120, internalScopeHours + delta));
+                document.getElementById('lblScopeHours').innerText = internalScopeHours;
+            } else {
+                internalScopeCalls = Math.max(0, Math.min(12, internalScopeCalls + delta));
+                document.getElementById('lblScopeCalls').innerText = internalScopeCalls;
+            }
+            updateCalculations();
+        }
+
+        function updateCalculations() {
+            const hourlyRate = parseInt(document.getElementById('inputHourlyRate').value);
+            const totalAvailableHours = parseInt(document.getElementById('inputAvailableHours').value);
+            const sla = document.getElementById('inputSLA').value;
+            const clientType = document.getElementById('inputClientType').value;
+
+            document.getElementById('lblHourlyRate').innerText = `$${hourlyRate}/hr`;
+            document.getElementById('lblAvailableHours').innerText = `${totalAvailableHours} hrs`;
+
+            // 1. Calculate Recommended Base Retainer Package Value
+            let baseCalculatedRetainer = internalScopeHours * hourlyRate;
+            baseCalculatedRetainer += (internalScopeCalls * hourlyRate * 1.5); // Weight strategy calls higher
+
+            // SLA Multiplier Modifications
+            if (sla === '24') baseCalculatedRetainer *= 1.1;
+            if (sla === 'same_day') baseCalculatedRetainer *= 1.25;
+            if (sla === 'priority') baseCalculatedRetainer *= 1.4;
+
+            // Client Sizing Weight Modifications
+            if (clientType === 'smb') baseCalculatedRetainer *= 1.15;
+            if (clientType === 'established') baseCalculatedRetainer *= 1.35;
+            if (clientType === 'enterprise') baseCalculatedRetainer *= 1.65;
+
+            const finalRecommendedRetainer = Math.round(baseCalculatedRetainer / 50) * 50;
+            document.getElementById('displayRetainer').innerText = `$${finalRecommendedRetainer.toLocaleString()}/mo`;
+
+            // 2. Package Comparison Generation Blocks
+            const starterPrice = Math.round((finalRecommendedRetainer * 0.55) / 50) * 50;
+            const premiumPrice = Math.round((finalRecommendedRetainer * 1.65) / 50) * 50;
+
+            document.getElementById('pkgPrice_starter').innerText = `$${starterPrice.toLocaleString()}/mo`;
+            document.getElementById('pkgPrice_growth').innerText = `$${finalRecommendedRetainer.toLocaleString()}/mo`;
+            document.getElementById('pkgPrice_premium').innerText = `$${premiumPrice.toLocaleString()}/mo`;
+
+            // 3. Projections & Capacity Math Structures
+            let targetClientsNeeded = Math.ceil(currentIncomeGoal / finalRecommendedRetainer);
+            if(targetClientsNeeded <= 0) targetClientsNeeded = 1;
+
+            const simulatedMRR = targetClientsNeeded * finalRecommendedRetainer;
+            const simulatedARR = simulatedMRR * 12;
+
+            document.getElementById('projClients').innerText = targetClientsNeeded;
+            document.getElementById('projMRR').innerText = `$${simulatedMRR.toLocaleString()}`;
+            document.getElementById('projARR').innerText = `$${simulatedARR.toLocaleString()}`;
+
+            // 4. Calculate Sustainability Score
+            const realWorkloadRequired = targetClientsNeeded * internalScopeHours;
+            let score = 100;
+
+            // Penalize score if it exceeds available client constraints
+            if (realWorkloadRequired > totalAvailableHours) {
+                const deficit = realWorkloadRequired - totalAvailableHours;
+                score -= Math.min(45, Math.round((deficit / totalAvailableHours) * 70));
+            }
+            // Penalize score if hourly value breaks down below minimal target levels
+            if (finalRecommendedRetainer / internalScopeHours < hourlyRate) {
+                score -= 20;
+            }
+
+            score = Math.max(15, Math.min(100, score));
+            const scoreDisplay = document.getElementById('displaySustainability');
+            const scoreStatus = document.getElementById('lblSustainabilityStatus');
+            scoreDisplay.innerText = `${score}/100`;
+
+            if(score >= 80) {
+                scoreDisplay.className = "text-3xl font-extrabold font-mono mt-1 text-brandGreen";
+                scoreStatus.innerText = "Healthy Retainer Model";
+                scoreStatus.className = "text-[11px] font-medium text-brandGreen mt-1";
+            } else if(score >= 55) {
+                scoreDisplay.className = "text-3xl font-extrabold font-mono mt-1 text-brandGold";
+                scoreStatus.innerText = "High Burnout Risk Alert";
+                scoreStatus.className = "text-[11px] font-medium text-brandGold mt-1";
+            } else {
+                scoreDisplay.className = "text-3xl font-extrabold font-mono mt-1 text-brandRed";
+                scoreStatus.innerText = "Unsustainable Architecture";
+                scoreStatus.className = "text-[11px] font-medium text-brandRed mt-1";
+            }
+
+            // 5. Build Contextual Advisory Content Output Arrays
+            let advice = [];
+            if (realWorkloadRequired > totalAvailableHours) {
+                advice.push("Move status meetings to asynchronous updates to actively recover client fulfillment hours.");
+                advice.push("Reduce total required client load targets by increasing individual package value configurations.");
+            } else {
+                advice.push("Maintain strict out-of-scope parameters to keep your healthy capacity buffers completely safe.");
+            }
+
+            if (sla === 'priority' || sla === 'same_day') {
+                advice.push("Ensure your master premium contracts contain explicit daily boundary cutoffs for emergency calls.");
+            } else {
+                advice.push("Increase response speed options only when high premium tier structures support the operational availability.");
+            }
+            advice.push("Require automated upfront monthly payments on the 1st of each period to maximize business cash flow safety.");
+
+            const recList = document.getElementById('recommendationsList');
+            recList.innerHTML = advice.map(str => `<li class="flex items-start space-x-2"><span>⚡</span><span>${str}</span></li>`).join('');
+        }
+
+        function switchTab(target) {
+            const tabs = ['m1', 'm2', 'm3'];
+            tabs.forEach(t => {
+                const btn = document.getElementById('tab_' + t);
+                const content = document.getElementById('content_' + t);
+                if(t === target) {
+                    btn.className = "flex-1 py-3 px-4 font-semibold border-b-2 border-brandBlue text-white bg-brandCard/40 focus:outline-none";
+                    content.classList.remove('hidden');
+                } else {
+                    btn.className = "flex-1 py-3 px-4 font-semibold border-b-2 border-transparent text-brandTextMuted hover:text-white focus:outline-none";
+                    content.classList.add('hidden');
+                }
+            });
+        }
+
+        function resetInputs() {
+            document.getElementById('inputHourlyRate').value = 75;
+            document.getElementById('inputAvailableHours').value = 80;
+            document.getElementById('inputSLA').value = "24";
+            document.getElementById('inputClientType').value = "smb";
+            setIncomePreset(5000);
+            setServiceLevel('growth');
+        }
+
+        // Initialize calculator parameters on initial application display allocation
+        window.onload = function() {
+            updateCalculations();
+        };
+    </script>
+</body>
+</html>
