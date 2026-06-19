@@ -31,19 +31,30 @@
 <body class="bg-brandDark text-gray-100 font-sans min-h-screen selection:bg-brandGold selection:text-brandDark">
 
     <!-- Header Navigation -->
-    <header class="border-b border-gray-800 bg-brandDark/80 backdrop-blur-md z-50">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="/" class="flex items-center space-x-2">
-                <div class="w-6 h-6 bg-brandGold rounded flex items-center justify-center text-brandDark font-bold text-xs">AI</div>
-                <span class="font-bold tracking-wider text-sm">AI CASH LAB</span>
+    <header class="sticky top-0 z-50 w-full border-b border-gray-800 bg-brandDark/90 backdrop-blur-md transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="/" class="flex items-center space-x-3 shrink-0 group" aria-label="AI Cash Lab Tools homepage">
+                <div class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center overflow-hidden shrink-0">
+                    <img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab Logo" class="w-full h-full object-contain transform group-hover:scale-105 transition-transform">
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xs font-bold text-white tracking-wider uppercase">AI Cash Lab</span>
+                    <span class="text-[9px] text-slate-500 font-medium tracking-tight -mt-0.5">Utility Ecosystem</span>
+                </div>
             </a>
-            <nav class="hidden md:flex space-x-6 text-xs text-brandTextMuted uppercase tracking-widest">
-                <a href="/" class="hover:text-brandGold transition">All Tools</a>
-                <a href="/" class="hover:text-brandGold transition">Free Tools</a>
-                <a href="/creator-utilities/" class="hover:text-brandGold transition">Creator Utilities</a>
-                <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="hover:text-brandGold transition">Gumroad Hub</a>
-                <a href="mailto:support@aicashlabtools.com" class="hover:text-brandGold transition">Contact</a>
+            <nav class="hidden lg:flex items-center space-x-6 text-xs font-medium text-brandTextMuted">
+                <a href="/" class="hover:text-white transition-colors">Home</a>
+                <a href="/#creator-production" class="hover:text-white transition-colors">Production</a>
+                <a href="/#creator-monetization" class="hover:text-white transition-colors">Monetization</a>
+                <a href="/#product-launch" class="hover:text-white transition-colors">Launch</a>
+                <a href="/freelancer-utilities/" class="hover:text-white transition-colors">Freelancer Utilities</a>
+                <a href="/#premium-workspaces" class="text-amber-500 hover:text-amber-400 transition-colors">Premium</a>
             </nav>
+            <div class="flex items-center space-x-3">
+                <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="text-[11px] font-bold tracking-wide uppercase px-3.5 py-1.5 rounded bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 transition-all">
+                    Storefront -&gt;
+                </a>
+            </div>
         </div>
     </header>
 
@@ -371,8 +382,43 @@
     </section>
 
     <!-- Standard Core Footer Signature Layer -->
-    <footer class="border-t border-gray-900 bg-brandDark/40 py-8 text-[11px] text-brandTextMuted">
-        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
+    <footer class="w-full bg-[#111827] border-t border-gray-800 py-10 mt-12 text-[11px] text-brandTextMuted [&>div>p]:hidden [&>div>div.flex]:hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+            <div class="md:col-span-4 space-y-3">
+                <div class="flex items-center space-x-3">
+                    <div class="w-6 h-6 rounded bg-slate-950 border border-slate-800 flex items-center justify-center overflow-hidden shrink-0">
+                        <img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab Footer Logo" class="w-full h-full object-contain">
+                    </div>
+                    <span class="text-xs font-bold text-white uppercase tracking-wider">AI Cash Lab Tools</span>
+                </div>
+                <p class="text-[11px] text-slate-500 max-w-sm leading-relaxed">
+                    Simple business tools for freelancers, creators, and digital service providers. Client-side execution layer engine ensuring personal metrics data remains local and secure.
+                </p>
+            </div>
+            <div class="md:col-span-3 space-y-2.5 text-[11px]">
+                <span class="font-bold text-amber-500 uppercase tracking-wider block">Newest Tools</span>
+                <ul class="space-y-1.5 text-slate-500 font-medium">
+                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-amber-500"></span><a href="/retainer-calculator/" class="hover:text-slate-300 transition-colors">Retainer Calculator</a></li>
+                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-amber-500"></span><a href="/referral-calculator/" class="hover:text-slate-300 transition-colors">Referral Calculator</a></li>
+                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-amber-500"></span><a href="/proposal-calculator/" class="hover:text-slate-300 transition-colors">Proposal Calculator</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-5 grid grid-cols-2 gap-6 text-[11px]">
+                <div class="space-y-2.5">
+                    <span class="font-bold text-slate-100 uppercase tracking-wider block">Production Hub</span>
+                    <div class="flex flex-col space-y-1.5 text-slate-500">
+                        <a href="/creator-utilities/" class="hover:text-slate-300 transition-colors">Creator Utilities</a>
+                        <a href="/freelancer-utilities/" class="hover:text-slate-300 transition-colors">Freelancer Utilities</a>
+                    </div>
+                </div>
+                <div class="space-y-2.5">
+                    <span class="font-bold text-slate-100 uppercase tracking-wider block">Commercial Engine</span>
+                    <div class="flex flex-col space-y-1.5">
+                        <a href="/#premium-workspaces" class="text-amber-400 hover:text-amber-300 transition-colors">Premium Workspaces</a>
+                        <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 transition-colors">Storefront Hub -&gt;</a>
+                    </div>
+                </div>
+            </div>
             <p>© 2026 AI CASH LAB. Designed tools for freelancers, creators, and digital operators.</p>
             <div class="flex flex-wrap gap-4">
                 <a href="/" class="hover:text-brandGold transition">All Tools</a>
