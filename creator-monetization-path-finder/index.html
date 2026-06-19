@@ -1,0 +1,1363 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creator Monetization Path Finder | Free Creator Income Strategy Tool</title>
+    <meta name="description" content="Find the best monetization path for your creator business based on your platform, audience size, niche, skills, and income goal. Free browser-based tool, no signup required." />
+    <link rel="canonical" href="https://aicashlabtools.com/creator-monetization-path-finder/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Creator Monetization Path Finder | Free Creator Income Strategy Tool" />
+    <meta property="og:description" content="Find the best monetization path for your creator business based on platform, audience size, niche, skills, and income goal." />
+    <meta property="og:url" content="https://aicashlabtools.com/creator-monetization-path-finder/" />
+    <meta property="og:image" content="https://aicashlabtools.com/assets/social/creator-utilities-og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Creator Monetization Path Finder | Free Creator Income Strategy Tool" />
+    <meta name="twitter:description" content="Find the best monetization path for your creator business based on platform, audience size, niche, skills, and income goal." />
+    <meta name="twitter:image" content="https://aicashlabtools.com/assets/social/creator-utilities-og.png" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind v3 CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+            },
+            colors: {
+              zinc: {
+                850: '#1b1b1f',
+                950: '#070709',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    
+    <style>
+      .acl-shell-header,.acl-shell-footer,.acl-related-tools{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+      .acl-shell-header{background:rgba(11,15,25,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);margin:0;padding:0;position:static;width:100%;z-index:50}
+      .acl-shell-inner{align-items:center;display:flex;gap:20px;height:64px;justify-content:space-between;margin:0 auto;max-width:1280px;padding:0 clamp(16px,4vw,32px);width:100%}
+      .acl-brand{align-items:center;color:#fff;display:inline-flex;gap:12px;min-width:max-content;text-decoration:none}
+      .acl-logo-frame{align-items:center;background:#111827;border:1px solid #1f2937;border-radius:8px;display:inline-flex;height:32px;justify-content:center;overflow:hidden;width:32px}
+      .acl-logo-frame img{display:block;height:100%;object-fit:contain;width:100%}
+      .acl-brand strong{color:#fff;display:block;font-size:12px;font-weight:800;letter-spacing:.08em;line-height:1;text-transform:uppercase}
+      .acl-brand small{color:#64748b;display:block;font-size:9px;font-weight:700;letter-spacing:.08em;margin-top:3px;text-transform:uppercase}
+      .acl-shell-nav{align-items:center;display:flex;flex:1;gap:clamp(16px,2.2vw,28px);justify-content:center;min-width:0}
+      .acl-shell-nav a,.acl-back-link,.acl-footer-links a{color:#a1a1aa;font-size:12px;font-weight:700;text-decoration:none;transition:color .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease}
+      .acl-shell-nav a:hover,.acl-footer-links a:hover{color:#fff}
+      .acl-shell-nav .acl-premium-link{color:#f59e0b}
+      .acl-back-link{border:1px solid rgba(245,158,11,.45);border-radius:8px;color:#f8fafc;padding:8px 12px;white-space:nowrap}
+      .acl-back-link:hover{background:rgba(245,158,11,.12);box-shadow:0 0 16px rgba(245,158,11,.18);color:#fff}
+      .acl-privacy-trust{align-items:center;background:rgba(16,185,129,.10);border:1px solid rgba(16,185,129,.72);border-radius:10px;box-sizing:border-box;color:#d1fae5;display:flex;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:13px;font-weight:700;gap:10px;line-height:1.45;margin:16px auto 0;max-width:1120px;padding:14px 18px;width:min(calc(100% - 32px),1120px)}
+      .acl-privacy-trust span{color:#34d399;flex:0 0 auto;font-size:15px;line-height:1}
+      .acl-privacy-trust p{margin:0}.acl-privacy-trust strong{color:#34d399;font-weight:800}
+      .acl-seo-intro,.acl-faq-section,.acl-related-tools{clear:both;margin:56px auto 0;max-width:1120px;width:min(calc(100% - 32px),1120px)}
+      .acl-seo-intro,.acl-faq-section{background:#151820;border:1px solid #27272a;border-radius:14px;color:#d4d4d8;padding:24px}
+      .acl-seo-intro h2,.acl-faq-section h2{color:#fff;font-size:20px;line-height:1.2;margin:0 0 12px}
+      .acl-seo-intro p,.acl-faq-item p{color:#a1a1aa;font-size:13px;line-height:1.65;margin:0 0 12px}
+      .acl-seo-intro p:last-child,.acl-faq-item p:last-child{margin-bottom:0}
+      .acl-seo-intro a{color:#93c5fd;font-weight:700;text-decoration:none}.acl-seo-intro a:hover{color:#fff}
+      .acl-faq-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+      .acl-faq-item{background:#0f141f;border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:14px}
+      .acl-faq-item h3{color:#f8fafc;font-size:14px;line-height:1.35;margin:0 0 6px}
+      .acl-related-tools{background:#151820;border:1px solid #27272a;border-radius:14px;color:#d4d4d8;display:grid;gap:22px;grid-template-columns:minmax(0,.85fr) minmax(320px,1.4fr);padding:22px}
+      .acl-related-eyebrow{color:#f59e0b;display:block;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+      .acl-related-tools h2{color:#fff;font-size:20px;line-height:1.2;margin:4px 0 6px}
+      .acl-related-tools p{color:#a1a1aa;font-size:13px;line-height:1.55;margin:0}
+      .acl-related-grid{display:grid;gap:10px;grid-template-columns:repeat(3,minmax(0,1fr))}
+      .acl-related-grid a{background:#0f141f;border:1px solid rgba(245,158,11,.25);border-radius:9px;color:#f8fafc;display:block;font-size:12px;font-weight:700;line-height:1.25;overflow-wrap:anywhere;padding:10px 12px;text-align:center;text-decoration:none}
+      .acl-related-grid a:hover{background:rgba(245,158,11,.12);border-color:rgba(245,158,11,.6);color:#f59e0b}
+      .acl-content-os-cta{box-sizing:border-box;margin:18px auto 80px;max-width:1120px;width:min(calc(100% - 32px),1120px)}
+      .acl-content-os-card{background:#111827;border:1px solid rgba(20,184,166,.28);border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.24);padding:clamp(22px,4vw,32px)}
+      .acl-content-os-eyebrow{color:#2dd4bf;display:block;font-size:10px;font-weight:800;letter-spacing:.16em;margin-bottom:10px;text-transform:uppercase}
+      .acl-content-os-card h2{color:#fff;font-size:22px;line-height:1.15;margin:0 0 10px}
+      .acl-content-os-card p{color:#a1a1aa;font-size:13px;line-height:1.65;margin:0;max-width:780px}
+      .acl-content-os-card a{background:#f59e0b;border-radius:10px;color:#020617;display:inline-block;font-size:12px;font-weight:800;margin-top:18px;padding:12px 18px;text-align:center;text-decoration:none;transition:background-color .2s ease,transform .2s ease}
+      .acl-content-os-card a:hover{background:#fbbf24;transform:translateY(-1px)}
+      .acl-shell-footer{background:#111827;border-top:1px solid rgba(255,255,255,.06);color:#64748b;margin:0;padding:40px 0;text-align:left;width:100%}
+      .acl-footer-inner{align-items:start;display:grid;gap:28px;grid-template-columns:minmax(0,1fr) auto;margin:0 auto;max-width:1280px;padding:0 clamp(16px,4vw,32px);width:100%}
+      .acl-footer-brand{display:flex;flex-direction:column;gap:8px}.acl-footer-brand-main{align-items:center;display:flex;gap:11px}
+      .acl-footer-brand strong{color:#fff;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+      .acl-footer-copy{color:#64748b;font-size:11px;max-width:360px}.acl-footer-links{display:flex;flex-wrap:wrap;gap:18px;justify-content:flex-end}
+      html.is-printing,
+      html.is-printing body,
+      body.is-printing{background:#fff!important;min-height:100%!important}
+      @media screen {
+        html.is-printing::before{background:#fff;content:"";inset:0;pointer-events:none;position:fixed;z-index:2147483647}
+      }
+      body.is-printing main{background:#fff!important;padding-bottom:0!important;position:relative;z-index:1}
+      body.is-printing .no-print,
+      body.is-printing .no-print *,
+      body.is-printing main > section:not(.cmpf-workspace),
+      body.is-printing main > section:not(.cmpf-workspace) *,
+      body.is-printing .cmpf-grid > *:not(#blueprint-panel),
+      body.is-printing .cmpf-grid > *:not(#blueprint-panel) *{display:none!important}
+      /* Print Styling */
+      @media print {
+        @page { margin: 0.6in; }
+        .no-print,
+        .no-print *,
+        .acl-shell-header,
+        .acl-shell-header *,
+        .acl-shell-footer,
+        .acl-shell-footer *,
+        main > section:not(.cmpf-workspace),
+        main > section:not(.cmpf-workspace) *,
+        .cmpf-grid > *:not(#blueprint-panel) {
+          display: none !important;
+        }
+        .cmpf-grid > *:not(#blueprint-panel) * {
+          display: none !important;
+        }
+        html, body {
+          background: #fff !important;
+          overflow: visible !important;
+        }
+        body {
+          background: #fff !important;
+          color: #111827 !important;
+          display: block !important;
+          font-family: Inter, Arial, sans-serif !important;
+          min-height: auto !important;
+        }
+        main { padding: 0 !important; }
+        main,
+        .cmpf-workspace,
+        .cmpf-grid,
+        #blueprint-panel {
+          float: none !important;
+          overflow: visible !important;
+        }
+        .cmpf-workspace {
+          margin: 0 !important;
+          max-width: none !important;
+          width: 100% !important;
+        }
+        .cmpf-grid { display: block !important; }
+        #blueprint-panel {
+          background: white !important;
+          border: 0 !important;
+          border-radius: 0 !important;
+          box-shadow: none !important;
+          color-scheme: light !important;
+          color: #111827 !important;
+          display: block !important;
+          font-size: 11.5px !important;
+          line-height: 1.35 !important;
+          padding: 0 !important;
+          width: 100% !important;
+        }
+        #blueprint-panel * {
+          print-color-adjust: exact;
+          -webkit-print-color-adjust: exact;
+        }
+        #blueprint-panel [class*="bg-"] {
+          background: #f8fafc !important;
+        }
+        #blueprint-panel [class*="border-"] {
+          border-color: #e5e7eb !important;
+        }
+        #blueprint-panel svg {
+          color: #475569 !important;
+          stroke: currentColor !important;
+        }
+        #blueprint-panel .cmpf-panel-header {
+          align-items: flex-start !important;
+          border-bottom: 1px solid #d1d5db !important;
+          display: flex !important;
+          margin: 0 0 14px !important;
+          padding: 0 0 10px !important;
+          page-break-after: avoid;
+        }
+        #blueprint-panel .cmpf-kicker {
+          color: #111827 !important;
+          font-size: 18px !important;
+          letter-spacing: .02em !important;
+          text-transform: none !important;
+        }
+        #results-content {
+          gap: 10px !important;
+          margin-top: 0 !important;
+        }
+        #blueprint-panel .cmpf-rule-section,
+        #blueprint-panel .border-t {
+          border-top-color: #e5e7eb !important;
+          break-inside: auto !important;
+          page-break-inside: auto !important;
+          padding-top: 10px !important;
+        }
+        #blueprint-panel .cmpf-section-title,
+        #blueprint-panel [class*="uppercase"] {
+          color: #64748b !important;
+        }
+        #blueprint-panel .rounded-2xl,
+        #blueprint-panel .rounded-xl {
+          background: #f8fafc !important;
+          border: 1px solid #e5e7eb !important;
+          border-radius: 10px !important;
+          box-shadow: none !important;
+          break-inside: auto !important;
+          page-break-inside: auto !important;
+          padding: 12px !important;
+        }
+        #blueprint-panel #first-offer-price {
+          background: #f1f5f9 !important;
+          border: 1px solid #dbeafe !important;
+          color: #111827 !important;
+          padding: 4px 8px !important;
+        }
+        #blueprint-panel p,
+        #blueprint-panel li,
+        #blueprint-panel span,
+        #blueprint-panel button {
+          color: #334155 !important;
+        }
+        #blueprint-panel .plan-tab-btn {
+          background: #f8fafc !important;
+          border: 1px solid #e5e7eb !important;
+          color: #334155 !important;
+          padding: 6px 8px !important;
+        }
+        #blueprint-panel h3,
+        #blueprint-panel h4,
+        #blueprint-panel h5,
+        #blueprint-panel strong,
+        #score-text,
+        #readiness-title,
+        #rec-path-title,
+        #first-offer-title {
+          color: #111827 !important;
+        }
+        #blueprint-panel #score-ring {
+          stroke: #0f766e !important;
+        }
+        #blueprint-panel circle:first-child {
+          stroke: #e5e7eb !important;
+        }
+        #blueprint-panel .line-through {
+          text-decoration: none !important;
+        }
+        #blueprint-panel .shadow-sm,
+        #blueprint-panel .shadow-lg,
+        #blueprint-panel .shadow-xl {
+          box-shadow: none !important;
+        }
+        #blueprint-panel .gap-6 { gap: 12px !important; }
+        #blueprint-panel .gap-4 { gap: 8px !important; }
+        #blueprint-panel .mt-8 { margin-top: 14px !important; }
+        #blueprint-panel .mt-6 { margin-top: 10px !important; }
+        #blueprint-panel .mb-6 { margin-bottom: 10px !important; }
+        #blueprint-panel .text-center { text-align: left !important; }
+        .print-card {
+          border: 1px solid #e2e8f0 !important;
+          background-color: white !important;
+          color: black !important;
+          box-shadow: none !important;
+        }
+      }
+      /* Custom selection style */
+      ::selection {
+        background-color: rgba(245, 158, 11, 0.2);
+        color: #f59e0b;
+      }
+      @media (max-width:900px){.acl-shell-inner{align-items:flex-start;flex-direction:column;height:auto;padding-bottom:14px;padding-top:14px}.acl-shell-nav{justify-content:flex-start;overflow-x:auto;padding-bottom:4px;width:100%}.acl-related-tools{grid-template-columns:1fr}.acl-related-grid,.acl-faq-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.acl-footer-inner{grid-template-columns:1fr}.acl-footer-links{justify-content:flex-start}}
+      @media (max-width:640px){.acl-shell-inner{padding-left:16px;padding-right:16px}.acl-shell-nav a,.acl-back-link,.acl-footer-links a{font-size:11px}.acl-privacy-trust,.acl-seo-intro,.acl-faq-section,.acl-related-tools,.acl-content-os-cta{width:calc(100% - 24px)}.acl-privacy-trust{align-items:flex-start}.acl-related-grid,.acl-faq-grid{grid-template-columns:1fr}.acl-content-os-card a{display:block;width:100%}.acl-shell-footer{padding:28px 0}}
+      .cmpf-workspace{box-sizing:border-box;margin-inline:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
+      .cmpf-grid{align-items:stretch;display:grid;gap:clamp(24px,2.4vw,34px);grid-template-columns:minmax(0,1fr)}
+      .cmpf-panel{background:#08080a;border:1px solid #242428;border-radius:24px;box-shadow:0 26px 72px rgba(0,0,0,.42);display:flex;flex-direction:column;padding:clamp(26px,2.7vw,34px)}
+      .cmpf-panel-header{align-items:center;border-bottom:1px solid rgba(255,255,255,.09);display:flex;gap:18px;justify-content:space-between;margin-bottom:28px;padding-bottom:20px}
+      .cmpf-kicker{color:#fff;font-family:Space Grotesk,Inter,sans-serif;font-size:18px;font-weight:900;letter-spacing:-.02em;text-transform:uppercase}
+      .cmpf-form{display:flex;flex-direction:column;gap:30px}
+      .cmpf-label{color:#d4d4d8;display:block;font-family:Space Grotesk,Inter,sans-serif;font-size:16px;font-weight:900;letter-spacing:.12em;line-height:1.1;text-transform:uppercase}
+      .cmpf-form-note{border-bottom:1px solid rgba(255,255,255,.08);color:#71717a;font-size:14px;font-weight:800;margin:-10px 0 28px;padding-bottom:18px;text-align:left}
+      .cmpf-results{display:flex;flex:1;flex-direction:column;gap:28px;margin-top:0}
+      .cmpf-rule-section{border-top:1px solid rgba(255,255,255,.55);padding-top:28px}
+      .cmpf-section-title{color:#8b8b95;display:block;font-family:Space Grotesk,Inter,sans-serif;font-size:14px;font-weight:900;letter-spacing:.14em;margin-bottom:14px;text-transform:uppercase}
+      @media (min-width:1180px){.cmpf-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+      @media (max-width:900px){.cmpf-workspace{width:calc(100% - 24px)}.cmpf-panel{padding:22px}.cmpf-kicker{font-size:15px}.cmpf-label{font-size:13px}.cmpf-form-note{margin-top:24px}}
+    </style>
+    <script type="application/ld+json" data-acl-seo-schema>
+    {"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://aicashlabtools.com/creator-monetization-path-finder/#webpage","url":"https://aicashlabtools.com/creator-monetization-path-finder/","name":"Creator Monetization Path Finder | Free Creator Income Strategy Tool","description":"Find the best monetization path for your creator business based on platform, audience size, niche, skills, and income goal.","isPartOf":{"@type":"WebSite","name":"AI Cash Lab Tools","url":"https://aicashlabtools.com/"}},{"@type":"SoftwareApplication","@id":"https://aicashlabtools.com/creator-monetization-path-finder/#software","name":"Creator Monetization Path Finder","applicationCategory":"WebApplication","operatingSystem":"Web Browser","url":"https://aicashlabtools.com/creator-monetization-path-finder/","description":"Find a creator monetization path based on platform, audience size, niche, skills, time, and income goal.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","@id":"https://aicashlabtools.com/creator-monetization-path-finder/#faq","mainEntity":[{"@type":"Question","name":"Is the Creator Monetization Path Finder free?","acceptedAnswer":{"@type":"Answer","text":"Yes. This tool is free to use in your browser."}},{"@type":"Question","name":"Do I need to sign up?","acceptedAnswer":{"@type":"Answer","text":"No signup is required. Open the tool, choose your details, and copy the plan."}},{"@type":"Question","name":"Are my inputs uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. Your inputs stay in your browser and are never uploaded or stored."}}]}]}
+    </script>
+  </head>
+  <body class="bg-[#050510] text-[#e2e8f0] scroll-smooth antialiased font-sans flex flex-col min-h-screen">
+
+    <header class="acl-shell-header no-print">
+      <div class="acl-shell-inner">
+        <a href="/" class="acl-brand" aria-label="AI Cash Lab Tools homepage">
+          <span class="acl-logo-frame"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab logo"></span>
+          <span><strong>AI Cash Lab</strong><small>Utility Ecosystem</small></span>
+        </a>
+        <nav class="acl-shell-nav" aria-label="Main navigation">
+          <a href="/">All Tools</a>
+          <a href="/creator-utilities/">Creator Utilities</a>
+          <a href="/#premium-workspaces" class="acl-premium-link">Premium Workspaces</a>
+          <a href="/articles/">Articles</a>
+        </nav>
+        <a href="/" class="acl-back-link">Back to Tools</a>
+      </div>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="flex-grow pb-16">
+      
+      <!-- Hero Section -->
+      <section class="no-print mx-auto mt-8 sm:mt-12 px-4 w-full max-w-6xl">
+        <div class="bg-gradient-to-br from-amber-500/10 to-[#0a0a0a] border border-zinc-800 rounded-2xl p-6 sm:p-10 shadow-lg relative overflow-hidden">
+          <div class="relative z-10">
+            <span class="inline-block text-amber-500 text-[10px] sm:text-xs font-extrabold tracking-widest uppercase mb-2">
+              Free Monetization Strategy Tool
+            </span>
+            <h1 class="text-white text-4xl sm:text-5xl font-display font-medium leading-[1.1] tracking-tight mb-4">
+              Creator Monetization Path Finder
+            </h1>
+            <p class="text-zinc-400 text-xs sm:text-sm max-w-2xl leading-relaxed font-sans">
+              Choose your platform, audience size, niche, skills, weekly time, and income goal to map a practical monetization path for your creator business.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Start Rail Indicator -->
+      <section class="no-print mx-auto mt-4 px-4 w-full max-w-6xl">
+        <div class="bg-[#0a0a0a] border border-zinc-800 rounded-xl px-5 py-3.5 flex flex-wrap gap-x-6 gap-y-2 items-center overflow-x-auto select-none">
+          <h2 class="text-white text-xs font-black tracking-wider uppercase flex items-center gap-1.5 shrink-0">
+            <svg class="w-3.5 h-3.5 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 21l8.982-11.795H14L15.111 3 6 14.805h4.813z"></path>
+            </svg>
+            Quick Start
+          </h2>
+          <div class="hidden sm:block text-zinc-650 text-zinc-600 font-black text-xs shrink-0 font-mono">&gt;</div>
+          <ol class="flex flex-wrap items-center gap-x-6 gap-y-1 text-zinc-300 text-xs font-medium">
+            <li class="flex items-center gap-1.5">
+              <span class="w-4 h-4 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-bold flex items-center justify-center">1</span>
+              <span>Set platform & scale</span>
+            </li>
+            <li class="text-zinc-700 font-mono">&gt;</li>
+            <li class="flex items-center gap-1.5">
+              <span class="w-4 h-4 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-bold flex items-center justify-center">2</span>
+              <span>Choose niche & skill assets</span>
+            </li>
+            <li class="text-zinc-700 font-mono">&gt;</li>
+            <li class="flex items-center gap-1.5">
+              <span class="w-4 h-4 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-bold flex items-center justify-center">3</span>
+              <span>Define goal & weekly hours</span>
+            </li>
+            <li class="text-zinc-700 font-mono">&gt;</li>
+            <li class="flex items-center gap-1.5">
+              <span class="w-4 h-4 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-bold flex items-center justify-center">4</span>
+              <span>Deploy Action Blueprint</span>
+            </li>
+          </ol>
+        </div>
+      </section>
+      <section class="acl-privacy-trust no-print" aria-label="Privacy notice"><span aria-hidden="true">&#128274;</span><p><strong>Private by default:</strong> Your inputs stay in your browser and are never uploaded or stored.</p></section>
+
+      <!-- Desktop/Two Column Split Input / Output -->
+      <section class="cmpf-workspace mt-8">
+        <div class="cmpf-grid">
+          
+          <!-- Column left: Creator Inputs Form -->
+          <div class="cmpf-panel no-print">
+            <div class="cmpf-panel-header">
+              <span class="cmpf-kicker flex items-center gap-2">
+                <svg class="w-4 h-4 text-zinc-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                Finder Parameters
+              </span>
+              <div class="flex items-center gap-2">
+                <button
+                  type="button"
+                  id="btn-load-sample"
+                  class="text-xs bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-amber-500 font-bold px-3 py-1.5 rounded-lg transition-colors"
+                  onclick="loadSampleData()"
+                >
+                  Load Sample
+                </button>
+                <button
+                  type="button"
+                  id="btn-reset"
+                  class="text-xs bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-400 hover:text-white font-bold px-3 py-1.5 rounded-lg transition-colors"
+                  onclick="resetData()"
+                >
+                  Reset
+                </button>
+              </div>
+            </div>
+            <p class="cmpf-form-note">The blueprint is recalculating automatically as you adjust options.</p>
+
+            <!-- Custom Form Structure -->
+            <form onsubmit="return false;" class="cmpf-form">
+              
+              <!-- 1. Primary Platform -->
+              <div class="flex flex-col gap-1.5">
+                <label class="cmpf-label">
+                  1. Primary Creator Platform
+                </label>
+                <div id="platform-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-1">
+                  <!-- Generated Dynamically -->
+                </div>
+              </div>
+
+              <!-- 2. Audience size -->
+              <div class="flex flex-col gap-1.5">
+                <label class="cmpf-label">
+                  2. Total Audience Size
+                </label>
+                <div id="audience-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-1">
+                  <!-- Generated Dynamically -->
+                </div>
+              </div>
+
+              <!-- 3. Primary Niche focus -->
+              <div class="flex flex-col gap-1.5">
+                <label class="cmpf-label">
+                  3. Niche Category
+                </label>
+                <div id="niche-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-1">
+                  <!-- Generated Dynamically -->
+                </div>
+              </div>
+
+              <!-- 4. Top Skill Assets -->
+              <div class="flex flex-col gap-1.5">
+                <label class="cmpf-label">
+                  4. Strongest Monetization Skill
+                </label>
+                <div id="skill-grid" class="grid grid-cols-1 gap-2 mt-1">
+                  <!-- Generated Dynamically -->
+                </div>
+              </div>
+
+              <!-- 5. Time Available -->
+              <div class="flex flex-col gap-1.5">
+                <label class="cmpf-label">
+                  5. Average Time Dedicated Per Week
+                </label>
+                <div id="time-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-1">
+                  <!-- Generated Dynamically -->
+                </div>
+              </div>
+
+              <!-- 6. Target Goal -->
+              <div class="flex flex-col gap-1.5">
+                <label class="cmpf-label">
+                  6. Near-Term Income Goal
+                </label>
+                <div id="goal-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-1">
+                  <!-- Generated Dynamically -->
+                </div>
+              </div>
+
+            </form>
+          </div>
+
+          <!-- Column right: Outcome Blueprint Result dashboard -->
+          <div class="cmpf-panel relative" id="blueprint-panel">
+            
+            <!-- Header Blueprint Content controls -->
+            <div class="cmpf-panel-header">
+              <span class="cmpf-kicker flex items-center gap-2">
+                <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                </svg>
+                Strategic Outcome Blueprint
+              </span>
+              <div class="flex items-center gap-2 no-print">
+                <button
+                  type="button"
+                  id="btn-copy"
+                  class="bg-zinc-900 border border-zinc-800 hover:border-zinc-700 hover:bg-zinc-850 px-3 py-1.5 rounded-lg text-xs font-bold text-white flex items-center gap-1.5 transition-all"
+                  onclick="copyBlueprintToClipboard()"
+                >
+                  <svg class="w-3.5 h-3.5 text-zinc-400" id="copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                  </svg>
+                  <span id="copy-btn-text">Copy</span>
+                </button>
+                <button
+                  type="button"
+                  class="bg-zinc-900 border border-zinc-800 hover:border-zinc-700 hover:bg-zinc-850 px-3 py-1.5 rounded-lg text-xs font-bold text-white flex items-center gap-1.5 transition-all"
+                  onclick="printBlueprint()"
+                >
+                  <svg class="w-3.5 h-3.5 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
+                  </svg>
+                  Print Blueprint
+                </button>
+              </div>
+            </div>
+
+            <!-- Results View Area -->
+            <div id="results-content" class="cmpf-results">
+              
+              <!-- Core Health Metric Circle Row -->
+              <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center bg-[#0a0a0c]/70 border border-zinc-800 p-5 sm:p-6 rounded-2xl">
+                
+                <!-- Circular chart SVG container -->
+                <div class="col-span-1 md:col-span-4 flex justify-center items-center relative">
+                  <svg class="w-32 h-32 transform -rotate-90">
+                    <circle cx="64" cy="64" r="50" class="stroke-zinc-800" stroke-width="8" fill="transparent" />
+                    <circle id="score-ring" cx="64" cy="64" r="50" stroke-width="8" fill="transparent" stroke-dasharray="314.16" stroke-dashoffset="125.66" stroke-linecap="round" class="transition-all duration-700 ease-out fill-transparent" />
+                  </svg>
+                  <div class="absolute flex flex-col items-center">
+                    <span id="score-text" class="text-3xl font-display font-black text-white tracking-tight leading-none">0</span>
+                    <span class="text-[10px] text-white font-black uppercase tracking-wider mt-1">Out of 100</span>
+                  </div>
+                </div>
+
+                <!-- Strategic Readiness Assessment Label -->
+                <div class="col-span-1 md:col-span-8 flex flex-col gap-1.5 text-center md:text-left">
+                  <div class="flex flex-col sm:flex-row items-center gap-2">
+                    <span class="text-xs text-zinc-500 font-bold uppercase tracking-widest font-display">
+                      Platform Readiness Rating
+                    </span>
+                    <span id="readiness-badge" class="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider select-none font-display">
+                      Emerging
+                    </span>
+                  </div>
+                  <h3 id="readiness-title" class="text-white text-xl font-black tracking-tight mt-1">
+                    Building Stage
+                  </h3>
+                  <p id="readiness-paragraph" class="text-zinc-300 text-sm leading-relaxed max-w-md font-sans font-semibold">
+                    Your platform variables show sound alignment. We advise concentrating on micro-level buyer validations before expanding massive production tiers.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Recommendation Row: Custom path & Deliverables -->
+              <div class="cmpf-rule-section">
+                
+                <!-- Recommended scale path -->
+                <span class="cmpf-section-title">
+                  Recommended Monetization Path
+                </span>
+                <div class="bg-[#0f0f11]/80 border border-zinc-500 rounded-2xl p-5 flex flex-col justify-between group hover:border-zinc-400 transition-colors relative overflow-hidden">
+                  <div class="relative z-10 flex flex-col gap-2">
+                    <div class="flex items-start gap-3.5 mt-1">
+                      <div class="p-2 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-500 mt-0.5 shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 id="rec-path-title" class="text-white text-lg sm:text-xl font-black tracking-tight font-display">
+                          Scale Path
+                        </h4>
+                        <p id="rec-path-desc" class="text-zinc-300 text-sm leading-relaxed mt-1 font-sans font-semibold">
+                          A direct blueprint path tailored to map your assets.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+                <!-- Niche product asset recommendation -->
+              <div class="cmpf-rule-section">
+                <span class="cmpf-section-title">
+                  Best First Offer Blueprint
+                </span>
+                <div class="bg-[#0f0f11]/70 border border-zinc-800 rounded-2xl p-5 flex flex-col justify-between group hover:border-[#222] transition-colors relative overflow-hidden">
+                  <div class="relative z-10 flex flex-col gap-2">
+                    <div id="first-offer-box" class="flex flex-col gap-1 mt-1">
+                      <div class="flex items-start justify-between gap-2.5">
+                        <strong id="first-offer-title" class="text-white text-lg sm:text-xl font-black tracking-tight leading-snug font-display">
+                          Offer Blueprint Title
+                        </strong>
+                        <span id="first-offer-price" class="inline-block bg-amber-500 text-[#050505] text-xs font-black px-3 py-1 rounded-lg shadow-sm shrink-0 font-mono">
+                          $100 - $350
+                        </span>
+                      </div>
+                      <p id="first-offer-desc" class="text-zinc-400 text-xs uppercase tracking-widest mt-1 font-bold font-display">
+                        Dynamic description based on niche properties selected.
+                      </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-[#1a1a1e] grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <span class="block text-[10px] text-zinc-500 uppercase tracking-wider font-display font-bold">Delivery Method & Format</span>
+                        <span id="first-offer-format" class="text-zinc-300 text-sm font-bold block leading-normal mt-1">Interactive Call</span>
+                      </div>
+                      <div>
+                        <span class="block text-[10px] text-zinc-500 uppercase tracking-wider font-display font-bold">Ideal Target Buyer</span>
+                        <span id="first-offer-buyer" class="text-zinc-300 text-sm font-bold block leading-normal mt-1">Busy operators</span>
+                      </div>
+                    </div>
+                    <div class="mt-4 rounded-xl border border-zinc-600 bg-black/20 p-4">
+                      <span class="block text-[10px] text-zinc-500 uppercase tracking-widest font-display font-bold">Operational Concept</span>
+                      <p id="first-offer-concept" class="text-zinc-300 text-sm font-semibold leading-relaxed mt-2">A practical service or product concept tailored to the selected creator variables.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Risk warning panel: what to avoid -->
+              <div class="cmpf-rule-section">
+                <span class="cmpf-section-title">
+                  What To Avoid Right Now (Guarded Risks)
+                </span>
+                <div class="bg-amber-500/5 border border-amber-500/15 rounded-2xl p-4 sm:p-5">
+                  <ul class="flex flex-col gap-4" id="avoid-list">
+                    <!-- Injected dynamically -->
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Interactive 30-Day Calendar Checklist -->
+              <div class="cmpf-rule-section">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-zinc-800 pb-3 mb-4">
+                  <div>
+                    <span class="cmpf-section-title mb-0">
+                      Interactive 30-Day Strategy Playbook
+                    </span>
+                  </div>
+                  <span class="text-[10px] font-black uppercase tracking-wider text-zinc-300">Click days to expand</span>
+                  <!-- Mini Tabs Navigation -->
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+                  <button type="button" class="plan-tab-btn text-xs font-extrabold uppercase py-3 px-3 rounded-lg text-[#050505] bg-amber-500 tracking-wider hover:text-white transition-all font-display" onclick="switchPlanWeek('week1')" id="tab-week1">W1: Setup</button>
+                  <button type="button" class="plan-tab-btn text-xs font-extrabold uppercase py-3 px-3 rounded-lg bg-zinc-900 text-zinc-500 tracking-wider hover:text-white transition-all font-display" onclick="switchPlanWeek('week2')" id="tab-week2">W2: Offer</button>
+                  <button type="button" class="plan-tab-btn text-xs font-extrabold uppercase py-3 px-3 rounded-lg bg-zinc-900 text-zinc-500 tracking-wider hover:text-white transition-all font-display" onclick="switchPlanWeek('week3')" id="tab-week3">W3: Pitch</button>
+                  <button type="button" class="plan-tab-btn text-xs font-extrabold uppercase py-3 px-3 rounded-lg bg-zinc-900 text-zinc-500 tracking-wider hover:text-white transition-all font-display" onclick="switchPlanWeek('week4')" id="tab-week4">W4: Run</button>
+                </div>
+
+                <!-- Tasks list box -->
+                <div class="bg-[#050508] border border-zinc-500 rounded-2xl p-4 sm:p-5">
+                  <h5 id="plan-week-title" class="text-white text-xs sm:text-sm font-black tracking-tight mb-3 flex items-center gap-1.5 border-b border-zinc-900 pb-2 font-display">
+                    <svg class="w-3.5 h-3.5 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    Week 1 Title
+                  </h5>
+                  
+                  <div class="flex flex-col gap-3" id="plan-tasks-list">
+                    <!-- Tasks injected dynamic -->
+                  </div>
+                </div>
+              </div>
+
+              <div class="border-t border-zinc-800 pt-6 text-center">
+                <span class="block text-zinc-500 text-[10px] font-extrabold uppercase tracking-widest font-display">Launch Pad Next Step</span>
+                <p id="next-step-text" class="mx-auto mt-3 max-w-xl text-zinc-400 text-sm font-semibold leading-relaxed">
+                  Use this custom blueprint as your launchpad, then integrate Creator Monetization OS to map and track your offers, conversion targets, and next actions in one central visual canvas.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="acl-seo-intro no-print">
+        <h2>Free Creator Monetization Path Finder</h2>
+        <p>Use this free creator monetization path finder to choose a practical revenue direction based on your platform, audience size, niche, skills, time, and income goal.</p>
+        <p>The tool runs in your browser, does not require a login, and keeps your inputs local. It is useful for creators, consultants, coaches, digital product sellers, and small online business owners who want a clearer first offer or next monetization move.</p>
+        <p>Related tools: <a href="/monetization-gap-calculator/">Monetization Gap Calculator</a>, <a href="/subscriber-ltv-calculator/">Subscriber LTV Calculator</a>, <a href="/lead-magnet-estimator/">Lead Magnet Estimator</a>, and <a href="/brand-deal-calculator/">Brand Deal Calculator</a>.</p>
+      </section>
+
+      <section class="acl-faq-section no-print" aria-label="Frequently Asked Questions">
+        <h2>Frequently Asked Questions</h2>
+        <div class="acl-faq-grid">
+          <article class="acl-faq-item"><h3>Is the Creator Monetization Path Finder free?</h3><p>Yes. This tool is free to use in your browser.</p></article>
+          <article class="acl-faq-item"><h3>Do I need to sign up?</h3><p>No signup is required. Choose your inputs and the monetization path updates right away.</p></article>
+          <article class="acl-faq-item"><h3>Are my inputs uploaded?</h3><p>No. Your inputs stay in your browser and are never uploaded or stored.</p></article>
+          <article class="acl-faq-item"><h3>Who is this tool for?</h3><p>It is designed for creators, freelancers, coaches, consultants, digital product sellers, and small online business owners.</p></article>
+          <article class="acl-faq-item"><h3>What does the tool recommend?</h3><p>It suggests a monetization path, first offer idea, risks to avoid, and a 30-day action plan based on the choices you make.</p></article>
+          <article class="acl-faq-item"><h3>Can I copy or print the plan?</h3><p>Yes. Use the copy and print controls in the results panel to save the generated blueprint.</p></article>
+        </div>
+      </section>
+
+      <section class="acl-related-tools no-print" aria-label="Related Creator Monetization Tools">
+        <div><span class="acl-related-eyebrow">Related Tools</span><h2>Build the rest of the revenue workflow.</h2><p>Use these calculators to check audience value, revenue gaps, offers, lead magnets, and launch goals.</p></div>
+        <div class="acl-related-grid">
+          <a href="/monetization-gap-calculator/">Monetization Gap Calculator</a>
+          <a href="/subscriber-ltv-calculator/">Subscriber LTV Calculator</a>
+          <a href="/lead-magnet-estimator/">Lead Magnet Estimator</a>
+          <a href="/brand-deal-calculator/">Brand Deal Calculator</a>
+          <a href="/creator-rpm-calculator/">Creator RPM Calculator</a>
+          <a href="/creator-utilities/">Creator Utilities</a>
+        </div>
+      </section>
+
+      <section class="acl-content-os-cta no-print" aria-label="Creator Monetization OS">
+        <div class="acl-content-os-card">
+          <span class="acl-content-os-eyebrow">CREATOR MONETIZATION OS</span>
+          <h2>You found one monetization path. Build the full revenue plan.</h2>
+          <p>Creator Monetization OS connects audience numbers, revenue streams, monetization gaps, income goals, and next actions into one browser-based planning system.</p>
+          <a href="https://aicashlabofficial.gumroad.com/l/xnlfai?layout=profile" target="_blank" rel="noopener noreferrer">View Creator Monetization OS</a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="acl-shell-footer no-print">
+      <div class="acl-footer-inner">
+        <div class="acl-footer-brand">
+          <div class="acl-footer-brand-main">
+            <span class="acl-logo-frame"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab footer logo"></span>
+            <strong>AI Cash Lab Tools</strong>
+          </div>
+          <span class="acl-footer-copy">Simple business tools for freelancers, creators, and digital operators.</span>
+        </div>
+        <div class="acl-footer-links">
+          <a href="/">All Tools</a>
+          <a href="/">Free Tools</a>
+          <a href="/creator-utilities/">Creator Utilities</a>
+          <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
+          <a href="mailto:support@aicashlabtools.com">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Interactive JS Application and Generator State Engine -->
+    <script>
+      // 1. Storage of current selected values
+      let currentInputs = {
+        platform: 'TikTok',
+        audienceSize: '500–2,000',
+        niche: 'AI/tools',
+        skill: 'Video creation',
+        timeAvailable: '4–7 hours',
+        goal: 'First $1,000'
+      };
+
+      let activePlanWeek = 'week1';
+      let completedTasks = {};
+
+      // Data Arrays Matching
+      const platforms = [
+        { value: 'TikTok', label: 'TikTok', icon: 'smartphone' },
+        { value: 'YouTube', label: 'YouTube', icon: 'youtube' },
+        { value: 'Instagram', label: 'Instagram', icon: 'instagram' },
+        { value: 'LinkedIn', label: 'LinkedIn', icon: 'linkedin' },
+        { value: 'Newsletter', label: 'Newsletter', icon: 'mail' },
+        { value: 'Blog/SEO', label: 'Blog/SEO', icon: 'globe' },
+        { value: 'Mixed', label: 'Mixed / Omni', icon: 'layers' }
+      ];
+
+      const audienceSizes = [
+        { value: '0–500', label: '0–500', description: 'Starter' },
+        { value: '500–2,000', label: '500–2K', description: 'Niche Circle' },
+        { value: '2,000–10,000', label: '2K–10K', description: 'Growing' },
+        { value: '10,000–50,000', label: '10K–50K', description: 'Authority' },
+        { value: '50,000+', label: '50K+', description: 'Scale' }
+      ];
+
+      const niches = [
+        { value: 'AI/tools', label: 'AI & SaaS tools', description: 'AI trends, productivity, frameworks' },
+        { value: 'Business', label: 'Business & Ops', description: 'Solo operations, marketing, strategy' },
+        { value: 'Finance', label: 'Finance & Systems', description: 'Investing, cash flow, spreadsheets' },
+        { value: 'Education', label: 'Education / Careers', description: 'Job bootcamps, structured courses' },
+        { value: 'Lifestyle', label: 'Lifestyle & Routines', description: 'Aesthetic planners, morning schedules' },
+        { value: 'Fitness/wellness', label: 'Fitness & Health', description: 'Personal workouts, nutrition trackers' },
+        { value: 'Creative/design', label: 'Creative & Design', description: 'UI/UX kits, portfolio audits, branding' },
+        { value: 'Other', label: 'Other Niches', description: 'Niche passions, bespoke systems' }
+      ];
+
+      const skills = [
+        { value: 'Video creation', label: 'Video Production', description: 'Sleek formats, vertical hooks, edits', icon: 'video' },
+        { value: 'Teaching', label: 'Teaching / Training', description: 'Explaining concepts, creating syllabus', icon: 'graduation' },
+        { value: 'Writing', label: 'Copywriting / Newsletters', description: 'Dossiers, deep newsletters, hooks', icon: 'book' },
+        { value: 'Coaching/consulting', label: '1-on-1 Consultation', description: 'Diagnostic audits, calls, coaching', icon: 'users' },
+        { value: 'Design/templates', label: 'Design & Templates', description: 'Notion boards, Canva kits, Figma assets', icon: 'compass' },
+        { value: 'Community building', label: 'Community Hosting', description: 'Engagement circles, group accountability', icon: 'layers' },
+        { value: 'Product building', label: 'Automation & Tools', description: 'Custom spreadsheets, scripts, automations', icon: 'settings' }
+      ];
+
+      const times = [
+        { value: '1–3 hours', label: '1–3 Hours', description: 'Bespoke Side-hustle' },
+        { value: '4–7 hours', label: '4–7 Hours', description: 'Structured Focus' },
+        { value: '8–15 hours', label: '8–15 Hours', description: 'High Availability' },
+        { value: '15+ hours', label: '15+ Hours', description: 'Full-time Creator speed' }
+      ];
+
+      const goals = [
+        { value: 'First $100', label: 'First $100', description: 'Validate buyer friction', badge: 'Fast Proof' },
+        { value: 'First $1,000', label: 'First $1,000', description: 'Secure core client bases', badge: 'First Mile' },
+        { value: 'Consistent monthly income', label: 'Consistent monthly income', description: 'Monthly base offers', badge: 'Sustainability' },
+        { value: 'Full creator business', label: 'Full creator business', description: 'Leverage scaled systems', badge: 'Exit Strategy' }
+      ];
+
+      function iconSvg(name) {
+        const attrs = 'class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"';
+        const icons = {
+          smartphone: `<svg ${attrs}><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M11 18h2"></path></svg>`,
+          youtube: `<svg ${attrs}><rect x="3" y="6" width="18" height="12" rx="3"></rect><path d="M10 9.5v5l5-2.5-5-2.5z"></path></svg>`,
+          instagram: `<svg ${attrs}><rect x="4" y="4" width="16" height="16" rx="4"></rect><circle cx="12" cy="12" r="3"></circle><path d="M16.5 7.5h.01"></path></svg>`,
+          linkedin: `<svg ${attrs}><path d="M8 11v7"></path><path d="M8 8v.01"></path><path d="M12 18v-7"></path><path d="M16 18v-4a3 3 0 0 0-6 0"></path><rect x="3" y="3" width="18" height="18" rx="3"></rect></svg>`,
+          mail: `<svg ${attrs}><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>`,
+          globe: `<svg ${attrs}><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18"></path><path d="M12 3a14 14 0 0 0 0 18"></path></svg>`,
+          layers: `<svg ${attrs}><path d="m12 3 9 5-9 5-9-5 9-5z"></path><path d="m3 12 9 5 9-5"></path><path d="m3 16 9 5 9-5"></path></svg>`,
+          video: `<svg ${attrs}><rect x="3" y="6" width="13" height="12" rx="2"></rect><path d="m16 10 5-3v10l-5-3z"></path></svg>`,
+          graduation: `<svg ${attrs}><path d="m22 10-10-5-10 5 10 5 10-5z"></path><path d="M6 12v5c2 2 10 2 12 0v-5"></path></svg>`,
+          book: `<svg ${attrs}><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"></path></svg>`,
+          users: `<svg ${attrs}><path d="M16 21v-2a4 4 0 0 0-8 0v2"></path><circle cx="12" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
+          compass: `<svg ${attrs}><circle cx="12" cy="12" r="9"></circle><path d="m15 9-2 6-4 2 2-6 4-2z"></path></svg>`,
+          settings: `<svg ${attrs}><path d="M12 15.5A3.5 3.5 0 1 0 12 8a3.5 3.5 0 0 0 0 7.5z"></path><path d="M19.4 15a1.8 1.8 0 0 0 .36 1.98l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.8 1.8 0 0 0 15 19.4a1.8 1.8 0 0 0-1 .6 1.8 1.8 0 0 0-.5 1.4V21a2 2 0 1 1-4 0v-.09A1.8 1.8 0 0 0 8 19.4a1.8 1.8 0 0 0-1.98.36l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.8 1.8 0 0 0 4.6 15a1.8 1.8 0 0 0-.6-1 1.8 1.8 0 0 0-1.4-.5H2.5a2 2 0 1 1 0-4h.09A1.8 1.8 0 0 0 4.6 8a1.8 1.8 0 0 0-.36-1.98l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.8 1.8 0 0 0 9 4.6a1.8 1.8 0 0 0 1-.6 1.8 1.8 0 0 0 .5-1.4V2.5a2 2 0 1 1 4 0v.09A1.8 1.8 0 0 0 15 4.6a1.8 1.8 0 0 0 1.98-.36l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.8 1.8 0 0 0 19.4 9c.34.2.6.46.6.9a1.8 1.8 0 0 0 1.4.6h.1a2 2 0 1 1 0 4h-.09A1.8 1.8 0 0 0 19.4 15z"></path></svg>`
+        };
+        return icons[name] || '';
+      }
+
+      // Re-architected direct generation algorithm
+      function selectStrategyAndPlan(inputs) {
+        const { platform, audienceSize, niche, skill, timeAvailable, goal } = inputs;
+        
+        let score = 0;
+        
+        // Audience size influence
+        if (audienceSize === '0–500') score += 20;
+        else if (audienceSize === '500–2,000') score += 45;
+        else if (audienceSize === '2,000–10,000') score += 70;
+        else if (audienceSize === '10,000–50,000') score += 88;
+        else if (audienceSize === '50,000+') score += 98;
+
+        // Availability influence
+        if (timeAvailable === '1–3 hours') score += 5;
+        else if (timeAvailable === '4–7 hours') score += 10;
+        else if (timeAvailable === '8–15 hours') score += 15;
+        else if (timeAvailable === '15+ hours') score += 20;
+
+        // Niche boost
+        if (['AI/tools', 'Business', 'Finance', 'Education'].includes(niche)) {
+          score += 10;
+        } else {
+          score += 5;
+        }
+
+        score = Math.min(100, Math.max(10, score));
+
+        let readinessLabel = 'Emerging';
+        let readinessColor = 'stroke-amber-500';
+        let description = '';
+
+        if (score < 40) {
+          readinessLabel = 'Beginner';
+          readinessColor = 'stroke-zinc-600';
+          description = 'Your monetization systems are in the initial alignment stage. Focus on identifying single pain points and offering manual high-touch validation audits before launching complex automated systems.';
+        } else if (score < 65) {
+          readinessLabel = 'Building';
+          readinessColor = 'stroke-amber-500';
+          description = 'You have active audience signals and standard weekly hours. Leverage highly targeted digital templates or direct coaching audits to prove real buyer intent without friction.';
+        } else if (score < 85) {
+          readinessLabel = 'Ready to Monetize';
+          readinessColor = 'stroke-emerald-500';
+          description = 'Outstanding threshold. You have consistent follower interactions. It is time to roll out highly optimized digital assets.';
+        } else {
+          readinessLabel = 'Scaling';
+          readinessColor = 'stroke-sky-500';
+          description = 'High authority scale signals. You have ample traffic and assets to deploy modular automated value ladders, cohort courses, and integrated tools packages.';
+        }
+
+        // Recommend Best First Offer Price & Title
+        let bestFirstOfferIdea = {
+          title: 'Premium Implementation Strategy Call',
+          pricePoint: '$150 - $400',
+          desc: 'Deliver an immersive manual diagnostic audit covering systems, routines, or setup designs tailored to the selected category.',
+          format: '1-on-1 Zoom Session',
+          buyer: 'Highly committed fast operators',
+          concept: 'Run a tactical evaluation of the buyer workflow, identify the largest conversion or operations bottleneck, and deliver a concise action report they can execute within seven days.'
+        };
+
+        if (skill === 'Design/templates') {
+          bestFirstOfferIdea = {
+            title: 'Complete Workflow & Asset Tracker Hub',
+            pricePoint: '$29 - $79',
+            desc: 'A ready-made premium digital hub structure (using Notion, Figma, or spreadsheet templates) to solve the core administrative friction of buyers in your category.',
+            format: 'Downloadable File System',
+            buyer: 'Organized self-starters',
+            concept: 'Package the exact board, template, or asset set your audience needs to skip setup friction and start from a proven operating structure.'
+          };
+        } else if (skill === 'Writing') {
+          bestFirstOfferIdea = {
+            title: 'Deep-Dive Research Dossier or Sponsor Packet',
+            pricePoint: '$49 - $125',
+            desc: 'A comprehensive curated reference booklet, analytical handbook, or industry sponsor directory resolving complex research queries.',
+            format: 'Digital Interactive PDF',
+            buyer: 'Busy business operators',
+            concept: 'Curate the research, scripts, examples, and decision filters your audience would otherwise spend hours gathering on their own.'
+          };
+        } else if (skill === 'Teaching') {
+          bestFirstOfferIdea = {
+            title: 'Laser Execution Cohort or Workshop',
+            pricePoint: '$99 - $250',
+            desc: 'A specialized 90-minute live demonstration resolving the absolute hardest operational bottleneck your audience experiences.',
+            format: 'Live Video Session & Chat',
+            buyer: 'Ambitious skill seekers',
+            concept: 'Teach one narrow result live, provide the checklist or workbook, and collect questions that can become your next paid asset.'
+          };
+        } else if (skill === 'Video creation') {
+          bestFirstOfferIdea = {
+            title: 'Viral Hooks & Social Video Editing Service',
+            pricePoint: '$250 - $500',
+            desc: 'Niche custom tailored recommendation',
+            format: '5 Edited Vertical Video Files + Posting Guide',
+            buyer: 'SaaS founders and educators wanting to publish short content',
+            concept: 'Repurpose existing landscape footage into 5 sleek vertical reels with dynamic subtitles, sound design, and custom hook structures.'
+          };
+        } else if (skill === 'Product building') {
+          bestFirstOfferIdea = {
+            title: 'Automated Custom Integration Tool/Script',
+            pricePoint: '$199 - $500',
+            desc: 'A configured script, lightweight customized dashboard tool, or automation flow directly integrating into the buyer\'s workspace.',
+            format: 'Configured Code/Sheet Hub',
+            buyer: 'Active business operators',
+            concept: 'Build one lightweight automation or dashboard that removes a repeated manual step and proves value before expanding into a larger software product.'
+          };
+        }
+
+        // Determine recommended path
+        let pathTitle = 'High-Ticket Audit Consulting';
+        let pathDesc = 'Prioritize manual high-intent client diagnostics to validate exactly what your core platform buyers will pay premium dollars to resolve.';
+
+        if (['0–500', '500–2,000'].includes(audienceSize)) {
+          if (skill === 'Video creation') {
+            pathTitle = 'Video Editing / Content Repurposing Services';
+            pathDesc = 'Leverage your direct production talent as a service for other busier creators or local brands. This produces reliable cash flow while building your brand.';
+          } else if (skill === 'Teaching') {
+            pathTitle = 'Curated Micro-Guides & Digital Cheatsheets';
+            pathDesc = 'Condense your knowledge into an ultra-focused PDF guide or checklist. Keep the barrier to entry low and focus on solve-one-problem resources.';
+          } else if (skill === 'Design/templates') {
+            pathTitle = 'Premium Notion/Figma Template Bundles';
+            pathDesc = 'Assemble resources, kits, or setups you already use internally. Package them neatly so people can buy a shortcut instead of starting from scratch.';
+          } else if (skill === 'Community building') {
+            pathTitle = 'Exclusive Mastermind Slack / Circle';
+            pathDesc = 'Gather a small group of highly devoted followers into an intimate community with direct access, accountability, and live feedback.';
+          } else if (skill === 'Product building') {
+            pathTitle = 'Solve-One-Problem Micro-Tools & Scripts';
+            pathDesc = 'Offer lightweight templates, databases, formulas, or basic automated scripts that remove manual friction for your niche.';
+          }
+        } else if (['10,000–50,000', '50,000+'].includes(audienceSize)) {
+          pathTitle = 'Scalable Digital Resource Ecosystem';
+          pathDesc = 'With your elevated follower footprint, launch template bundles, automated guides, and structured low-ticket vaults to safely maximize conversions.';
+        } else if (['2,000–10,000'].includes(audienceSize)) {
+          pathTitle = 'Cohort Training & Masterminds';
+          pathDesc = 'Leverage medium audience trust by gathering 10-15 subscribers into paid live workshops, sprint boots, and private circles.';
+        }
+
+        // Avoid list
+        let whatToAvoid = [
+          'Avoid trading unlimited individual clock-hours for low consultancy fees. Transition to structured, outcome-driven packages.',
+          'Avoid ignoring community feedback. Never build what you "think" they need-use your ' + audienceSize + ' followers to conduct surveys.',
+          'Avoid complex self-coded checkout solutions. Protect your attention by utilizing Gumroad, Stripe Payment Links, or Lemon Squeezy.',
+          'Avoid letting your main ' + platform + ' organic publishing consistency drop. Monetization takes time, do not starve the funnel.'
+        ];
+
+        if (readinessLabel === 'Beginner') {
+          whatToAvoid = [
+            'Avoid sponsorship hunting before you have consistent views. Sponsors pay by CPM, making them weak for small creators.',
+            'Avoid building a massive, multi-module course before validating a small, low-ticket paid offer first.',
+            'Avoid paid advertisement campaigns. Use organic content on ' + platform + ' to test interest and build your basic trust circle.',
+            'Avoid expensive premium web software bundles. Keep overhead minimal by hosting on Gumroad, Notion, Carrd, or Stripe Links.'
+          ];
+        }
+
+        // Generate customized weekly action task list
+        const week1Title = 'Week 1: Foundations & Validation';
+        const week1Tasks = [
+          { text: `Select your specific target sub-niche inside ${niche}. Define exactly one burning problem they are facing.`, isChecked: false },
+          { text: 'Create a free lead-magnet (e.g., a simple 2-page cheatsheet or Notion checklist) to capture emails.', isChecked: false },
+          { text: `Publish 3 targeted posts on ${platform} directing users to your free lead magnet and measure interest.`, isChecked: false }
+        ];
+
+        const week2Title = 'Week 2: Minimum Viable Offer Setup';
+        const week2Tasks = [
+          { text: `Draft the basic outline of "${bestFirstOfferIdea.title}" with objectives, deliverables, and price tier.`, isChecked: false },
+          { text: 'Set up a simple checkout page on Gumroad, Lemon Squeezy, or Stripe Links.', isChecked: false },
+          { text: 'Record a short 3-minute video guide outlining how your offer helps solve their exact problem.', isChecked: false }
+        ];
+
+        const week3Title = 'Week 3: Seed Pitching & Intent Validation';
+        const week3Tasks = [
+          { text: 'Directly contact 5 past high-engagement followers with a personalized invitation to try this offer.', isChecked: false },
+          { text: 'Accept 2-3 founding members at a limited-time 30% discount to secure initial cash flow and proof.', isChecked: false },
+          { text: 'Refine and clean up the offer structure based on immediate client feedback.', isChecked: false }
+        ];
+
+        const week4Title = 'Week 4: Execution & Feedback Loops';
+        const week4Tasks = [
+          { text: 'Deliver the initial live audit sessions or template packages to your founding buyers.', isChecked: false },
+          { text: 'Secure written, high-impact social proof/testimonials validating the exact outcome.', isChecked: false },
+          { text: 'Republish success stories to validate and attract future clients at full pricing.', isChecked: false }
+        ];
+
+        return {
+          score,
+          readinessLabel,
+          readinessColor,
+          readinessDesc: description,
+          bestFirstOfferIdea,
+          pathTitle,
+          pathDesc,
+          whatToAvoid,
+          actionPlan: {
+            week1: { title: week1Title, tasks: week1Tasks },
+            week2: { title: week2Title, tasks: week2Tasks },
+            week3: { title: week3Title, tasks: week3Tasks },
+            week4: { title: week4Title, tasks: week4Tasks }
+          },
+          nextStepsText: 'Use this custom blueprint as your launchpad, then integrate Creator Monetization OS to map and track your offers, conversion targets, and next actions in one central visual canvas.'
+        };
+      }
+
+      // Render controls to DOM
+      function renderFormGrids() {
+        // Platform grid
+        const platformContainer = document.getElementById('platform-grid');
+        platformContainer.innerHTML = platforms.map(p => `
+          <button type="button" onclick="selectInput('platform', '${p.value}')" class="min-h-[78px] flex flex-col items-center justify-center p-3 rounded-xl border transition-all ${
+            currentInputs.platform === p.value 
+              ? 'bg-amber-500/10 border-amber-500 text-amber-500 shadow-md shadow-amber-500/10' 
+              : 'bg-zinc-950 border-zinc-850 text-zinc-400 hover:text-white hover:border-zinc-700'
+          }">
+            <span class="mb-2">${iconSvg(p.icon)}</span>
+            <span class="text-[10px] font-bold w-full text-center leading-tight whitespace-normal">${p.label}</span>
+          </button>
+        `).join('');
+
+        // Audience grid
+        const audienceContainer = document.getElementById('audience-grid');
+        audienceContainer.innerHTML = audienceSizes.map(a => `
+          <button type="button" onclick="selectInput('audienceSize', '${a.value}')" class="min-h-[74px] flex flex-col items-center justify-center p-3 rounded-xl border transition-all ${
+            currentInputs.audienceSize === a.value 
+              ? 'bg-amber-500/10 border-amber-500 text-amber-500 shadow-md shadow-amber-500/10' 
+              : 'bg-zinc-950 border-zinc-850 text-zinc-400 hover:text-white hover:border-zinc-700'
+          }">
+            <span class="text-sm sm:text-base font-black w-full text-center leading-tight whitespace-normal">${a.label}</span>
+            <span class="text-[10px] sm:text-[11px] opacity-80 mt-1 w-full text-center leading-tight whitespace-normal">${a.description}</span>
+          </button>
+        `).join('');
+
+        // Niche grid
+        const nicheContainer = document.getElementById('niche-grid');
+        nicheContainer.innerHTML = niches.map(n => `
+          <button type="button" onclick="selectInput('niche', '${n.value}')" class="min-h-[66px] flex flex-col items-start p-3.5 rounded-xl border transition-all ${
+            currentInputs.niche === n.value 
+              ? 'bg-amber-500/10 border-amber-500 text-amber-500 shadow-md shadow-amber-500/10' 
+              : 'bg-zinc-950 border-zinc-850 text-zinc-400 hover:text-white hover:border-zinc-700'
+          }">
+            <span class="text-sm font-black">${n.label}</span>
+            <span class="text-[10px] opacity-70 mt-0.5 leading-tight">${n.description}</span>
+          </button>
+        `).join('');
+
+        // Skill grid
+        const skillContainer = document.getElementById('skill-grid');
+        skillContainer.innerHTML = skills.map(s => `
+          <button type="button" onclick="selectInput('skill', '${s.value}')" class="min-h-[62px] flex items-center gap-4 p-3 rounded-xl border transition-all text-left ${
+            currentInputs.skill === s.value 
+              ? 'bg-amber-500/10 border-amber-500 text-amber-500 shadow-md shadow-amber-500/10' 
+              : 'bg-zinc-950 border-zinc-850 text-zinc-400 hover:text-white hover:border-zinc-700'
+          }">
+            <span class="grid h-9 w-9 place-items-center rounded-lg bg-zinc-900 border border-zinc-800">${iconSvg(s.icon)}</span>
+            <div class="min-w-0">
+              <span class="text-sm font-black block leading-none text-white">${s.label}</span>
+              <span class="text-[10px] text-zinc-500 font-medium tracking-tight truncate block mt-1">${s.description}</span>
+            </div>
+          </button>
+        `).join('');
+
+        // Time grid
+        const timeContainer = document.getElementById('time-grid');
+        timeContainer.innerHTML = times.map(t => `
+          <button type="button" onclick="selectInput('timeAvailable', '${t.value}')" class="min-h-[66px] flex flex-col items-start justify-center p-3 rounded-xl border transition-all ${
+            currentInputs.timeAvailable === t.value 
+              ? 'bg-amber-500/10 border-amber-500 text-amber-500 shadow-md shadow-amber-500/10' 
+              : 'bg-zinc-950 border-zinc-850 text-zinc-400 hover:text-white hover:border-zinc-700'
+          }">
+            <span class="text-sm font-black truncate w-full">${t.label}</span>
+            <span class="text-[10px] opacity-80 mt-0.5 truncate w-full">${t.description}</span>
+          </button>
+        `).join('');
+
+        // Goal grid
+        const goalContainer = document.getElementById('goal-grid');
+        goalContainer.innerHTML = goals.map(g => `
+          <button type="button" onclick="selectInput('goal', '${g.value}')" class="min-h-[86px] flex flex-col items-start justify-center p-3 rounded-xl border transition-all ${
+            currentInputs.goal === g.value 
+              ? 'bg-amber-500/10 border-amber-500 text-amber-500 shadow-md shadow-amber-500/10' 
+              : 'bg-zinc-950 border-zinc-850 text-zinc-400 hover:text-white hover:border-zinc-700'
+          }">
+            <div class="flex items-start justify-between gap-2 w-full">
+              <span class="text-sm font-black leading-tight min-w-0">${g.label}</span>
+              ${g.badge ? `<span class="shrink-0 rounded bg-zinc-800 px-1.5 py-0.5 text-[8px] uppercase tracking-wider text-zinc-400 font-black">${g.badge}</span>` : ''}
+            </div>
+            <span class="text-[10px] opacity-70 mt-1 leading-tight">${g.description}</span>
+          </button>
+        `).join('');
+      }
+
+      function selectInput(type, value) {
+        currentInputs[type] = value;
+        renderFormGrids();
+        updateResults();
+      }
+
+      function loadSampleData() {
+        currentInputs = {
+          platform: 'LinkedIn',
+          audienceSize: '2,000–10,000',
+          niche: 'Business',
+          skill: 'Coaching/consulting',
+          timeAvailable: '8–15 hours',
+          goal: 'Consistent monthly income'
+        };
+        renderFormGrids();
+        updateResults();
+      }
+
+      function resetData() {
+        currentInputs = {
+          platform: 'TikTok',
+          audienceSize: '500–2,000',
+          niche: 'AI/tools',
+          skill: 'Video creation',
+          timeAvailable: '4–7 hours',
+          goal: 'First $1,000'
+        };
+        activePlanWeek = 'week1';
+        completedTasks = {};
+        renderFormGrids();
+        updateResults();
+      }
+
+      function updateResults() {
+        const results = selectStrategyAndPlan(currentInputs);
+        
+        // 1. Strategic Readiness Ring
+        const ring = document.getElementById('score-ring');
+        const scoreVal = parseInt(results.score);
+        const circumference = 2 * Math.PI * 50; // 314.16
+        const strokeOffset = circumference - (scoreVal / 100) * circumference;
+        ring.setAttribute('stroke-dashoffset', strokeOffset);
+        
+        // Coloring ring
+        if (results.readinessLabel === 'Beginner') {
+          ring.className.baseVal = "transition-all duration-700 ease-out fill-transparent stroke-zinc-650 stroke-zinc-600";
+        } else if (results.readinessLabel === 'Building') {
+          ring.className.baseVal = "transition-all duration-700 ease-out fill-transparent stroke-amber-500";
+        } else if (results.readinessLabel === 'Ready to Monetize') {
+          ring.className.baseVal = "transition-all duration-700 ease-out fill-transparent stroke-emerald-500";
+        } else {
+          ring.className.baseVal = "transition-all duration-700 ease-out fill-transparent stroke-sky-500";
+        }
+
+        // Texts
+        document.getElementById('score-text').innerText = scoreVal;
+        document.getElementById('readiness-badge').innerText = results.readinessLabel;
+        
+        // Badge color class
+        const badge = document.getElementById('readiness-badge');
+        if (results.readinessLabel === 'Beginner') {
+          badge.className = "px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider select-none font-display bg-zinc-800 text-zinc-400";
+        } else if (results.readinessLabel === 'Building') {
+          badge.className = "px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider select-none font-display bg-amber-500/10 border border-amber-500/20 text-amber-400";
+        } else if (results.readinessLabel === 'Ready to Monetize') {
+          badge.className = "px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider select-none font-display bg-emerald-500/10 border border-emerald-500/20 text-emerald-400";
+        } else {
+          badge.className = "px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider select-none font-display bg-sky-500/10 border border-sky-500/20 text-sky-400";
+        }
+
+        document.getElementById('readiness-title').innerText = `${results.readinessLabel} Stage`;
+        document.getElementById('readiness-paragraph').innerText = results.readinessDesc;
+
+        // Path recommendation
+        document.getElementById('rec-path-title').innerText = results.pathTitle;
+        document.getElementById('rec-path-desc').innerText = results.pathDesc;
+
+        // Best first offer
+        document.getElementById('first-offer-title').innerText = results.bestFirstOfferIdea.title;
+        document.getElementById('first-offer-price').innerText = results.bestFirstOfferIdea.pricePoint;
+        document.getElementById('first-offer-desc').innerText = results.bestFirstOfferIdea.desc;
+        document.getElementById('first-offer-format').innerText = results.bestFirstOfferIdea.format;
+        document.getElementById('first-offer-buyer').innerText = results.bestFirstOfferIdea.buyer;
+        document.getElementById('first-offer-concept').innerText = results.bestFirstOfferIdea.concept || results.bestFirstOfferIdea.desc;
+        document.getElementById('next-step-text').innerText = results.nextStepsText;
+
+        // Avoid list
+        const avoidList = document.getElementById('avoid-list');
+        avoidList.innerHTML = results.whatToAvoid.map(item => `
+          <li class="flex gap-3 items-start text-sm font-sans">
+            <svg class="w-4 h-4 text-amber-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <span class="text-zinc-300 leading-relaxed font-semibold">${item}</span>
+          </li>
+        `).join('');
+
+        // Action steps rendering
+        renderWeeklyActionPlan(results.actionPlan);
+      }
+
+      function switchPlanWeek(weekKey) {
+        activePlanWeek = weekKey;
+        // style buttons
+        const wKeys = ['week1', 'week2', 'week3', 'week4'];
+        wKeys.forEach(k => {
+          const btn = document.getElementById(`tab-${k}`);
+          if (k === weekKey) {
+            btn.className = "plan-tab-btn text-xs font-extrabold uppercase py-3 px-3 rounded-lg text-[#050505] bg-amber-500 tracking-wider hover:text-white transition-all font-display";
+          } else {
+            btn.className = "plan-tab-btn text-xs font-extrabold uppercase py-3 px-3 rounded-lg bg-zinc-900 text-zinc-500 tracking-wider hover:text-white transition-all font-display";
+          }
+        });
+
+        const results = selectStrategyAndPlan(currentInputs);
+        renderWeeklyActionPlan(results.actionPlan);
+      }
+
+      function renderWeeklyActionPlan(plan) {
+        const activeGroup = plan[activePlanWeek];
+        document.getElementById('plan-week-title').innerHTML = `
+          <svg class="w-4 h-4 text-amber-500 block" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+          <span class="ml-1">${activeGroup.title}</span>
+        `;
+
+        const taskListContainer = document.getElementById('plan-tasks-list');
+        taskListContainer.innerHTML = activeGroup.tasks.map((task, idx) => {
+          const taskId = `${activePlanWeek}_task_${idx}`;
+          const isChecked = completedTasks[taskId] || false;
+          return `
+            <div onclick="toggleTask('${taskId}')" class="flex gap-3 items-start p-3 rounded-xl bg-zinc-950/40 border border-zinc-900 hover:border-zinc-800 transition-all cursor-pointer group select-none">
+              <div class="mt-0.5 shrink-0 w-4 h-4 rounded border flex items-center justify-center transition-all ${
+                isChecked
+                  ? 'bg-amber-500 border-amber-500 text-[#050505]'
+                  : 'border-zinc-850 bg-[#050505] text-transparent group-hover:border-zinc-700'
+              }">
+                <svg class="w-3 h-3 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span class="text-xs sm:text-xs leading-relaxed transition-colors ${
+                isChecked ? 'text-zinc-500 line-through' : 'text-zinc-300'
+              }">${task.text}</span>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function toggleTask(taskId) {
+        completedTasks[taskId] = !completedTasks[taskId];
+        const results = selectStrategyAndPlan(currentInputs);
+        renderWeeklyActionPlan(results.actionPlan);
+      }
+
+      function copyBlueprintToClipboard() {
+        const results = selectStrategyAndPlan(currentInputs);
+        const textToCopy = `
+=== CREATOR MONETIZATION BLUEPRINT ===
+Primary Core Platform: ${currentInputs.platform}
+Estimated Audience Scale: ${currentInputs.audienceSize}
+Niche Category: ${currentInputs.niche}
+Monetization Readiness Score: ${results.score}% (${results.readinessLabel})
+
+CORE RECOMMENDATIONS:
+- Recommended Scale Path: ${results.pathTitle}
+${results.pathDesc}
+
+- Best First Offer Idea: ${results.bestFirstOfferIdea.title}
+  Price Point: ${results.bestFirstOfferIdea.pricePoint}
+  Delivery Format: ${results.bestFirstOfferIdea.format}
+  Ideal Client Target: ${results.bestFirstOfferIdea.buyer}
+  Offer Summary: ${results.bestFirstOfferIdea.desc}
+
+AVOID DIRECT RISKS:
+${results.whatToAvoid.map(item => `- ${item}`).join('\n')}
+
+WEEK 1 ACTION TASKS:
+${results.actionPlan.week1.tasks.map(t => `[ ] ${t.text}`).join('\n')}
+
+For full-suite planning tools, visit: AI Cash Lab Ecosystem
+        `;
+
+        const btnText = document.getElementById('copy-btn-text');
+        const icon = document.getElementById('copy-icon');
+        btnText.innerText = 'Copied!';
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>';
+
+        copyTextToClipboard(textToCopy.trim()).catch(() => {});
+        setTimeout(() => {
+          btnText.innerText = 'Copy';
+          icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>';
+        }, 2000);
+      }
+
+      function copyTextToClipboard(text) {
+        function fallbackCopy() {
+          return new Promise((resolve, reject) => {
+            const area = document.createElement('textarea');
+            area.value = text;
+            area.setAttribute('readonly', '');
+            area.style.position = 'fixed';
+            area.style.left = '-9999px';
+            document.body.appendChild(area);
+            area.select();
+            const copied = document.execCommand('copy');
+            document.body.removeChild(area);
+            copied ? resolve() : reject(new Error('Copy command failed'));
+          });
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          return navigator.clipboard.writeText(text).catch(fallbackCopy);
+        }
+        return fallbackCopy();
+      }
+
+      function scrollToCalculators() {
+        document.getElementById('calculators').scrollIntoView({ behavior: 'smooth' });
+      }
+
+      // Initialize Application
+      window.onload = function() {
+        renderFormGrids();
+        updateResults();
+        switchPlanWeek('week1');
+      }
+      function setPrintShell(active) {
+        document.documentElement.classList.toggle('is-printing', active);
+        document.body.classList.toggle('is-printing', active);
+      }
+
+      function printBlueprint() {
+        setPrintShell(true);
+        window.setTimeout(() => window.print(), 50);
+      }
+
+      window.addEventListener('beforeprint', () => {
+        setPrintShell(true);
+      });
+      window.addEventListener('afterprint', () => {
+        setPrintShell(true);
+      });
+      window.addEventListener('focus', () => {
+        window.setTimeout(() => setPrintShell(false), 500);
+      });
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) {
+          window.setTimeout(() => setPrintShell(false), 500);
+        }
+      });
+      if (window.matchMedia) {
+        window.matchMedia('print').addEventListener('change', event => {
+          if (event.matches) {
+            setPrintShell(true);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
