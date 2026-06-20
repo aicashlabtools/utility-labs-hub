@@ -103,7 +103,7 @@
     <main class="max-w-5xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
         
         <!-- Left Column - Interactive Control Input Panel -->
-        <div class="lg:col-span-5 bg-brandCard border border-gray-800 rounded-xl p-6 flex flex-col justify-between">
+        <div class="lg:col-span-5 bg-brandCard border border-gray-800 rounded-xl p-6 flex flex-col">
             <div class="space-y-5">
                 <div class="flex justify-between items-center border-b border-gray-800 pb-3">
                     <h2 class="font-bold tracking-wide text-sm uppercase text-gray-300">Financial & Pipeline Inputs</h2>
@@ -167,8 +167,39 @@
                 </div>
             </div>
 
-            <div class="mt-6 pt-4 border-t border-gray-800/60">
+            <div class="mt-5 pt-4 border-t border-gray-800/60">
                 <button onclick="runCalculations()" class="w-full bg-brandGold hover:bg-brandGoldHover text-brandDark text-xs font-bold uppercase tracking-wider py-3 rounded transition shadow-lg shadow-brandGold/10">Update Blueprint Calculations</button>
+            </div>
+
+            <div class="mt-5 bg-gray-950/40 border border-gray-800 rounded-xl p-4">
+                <div class="flex items-center justify-between gap-3 mb-3">
+                    <h3 class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Referral Readiness Score</h3>
+                    <span class="text-[9px] uppercase tracking-widest text-brandBlue bg-brandBlue/10 border border-brandBlue/20 rounded-full px-2 py-0.5">Live</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-end justify-between gap-3">
+                        <div>
+                            <span id="readinessStatus" class="text-xs font-bold text-brandGreen uppercase tracking-wider block">Good Foundation</span>
+                            <span class="text-[10px] uppercase tracking-wider text-brandTextMuted">Referral system readiness</span>
+                        </div>
+                        <div class="text-right">
+                            <span id="readinessScore" class="text-3xl font-black text-white font-mono tracking-tight">72</span>
+                            <span class="text-sm font-bold text-brandTextMuted">/ 100</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 gap-1.5 text-[12px] text-brandTextMuted">
+                        <div id="readinessRepeat" class="flex items-start gap-2"><span class="text-brandGreen font-bold">OK</span><span>Repeat client relationship selected</span></div>
+                        <div id="readinessRetention" class="flex items-start gap-2"><span class="text-brandGreen font-bold">OK</span><span>3-year relationship horizon</span></div>
+                        <div id="readinessReferrals" class="flex items-start gap-2"><span class="text-brandGold font-bold">!</span><span>Only 3 introductions per year</span></div>
+                        <div id="readinessConversion" class="flex items-start gap-2"><span class="text-brandGold font-bold">!</span><span>Improve referral conversion process</span></div>
+                    </div>
+                    <div class="bg-brandBlue/5 border border-brandBlue/20 rounded-lg p-3">
+                        <span class="text-[10px] uppercase tracking-widest text-brandBlue font-bold block mb-1">Biggest Growth Lever</span>
+                        <p id="nextLeverText" class="text-sm text-gray-100 font-bold">Increase introductions from 3 to 5/year</p>
+                        <p class="text-[12px] text-brandTextMuted mt-1">Potential upside: <span id="upsideValue" class="text-brandGold font-bold font-mono">+$57,500</span> over 5 years</p>
+                        <p id="leverWhy" class="text-[11px] text-brandTextMuted mt-2 leading-relaxed">Your retention is strong. More qualified introductions will produce the largest return.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -179,7 +210,7 @@
             <div class="bg-brandCard border border-gray-800 rounded-xl p-6 relative overflow-hidden">
                 <span class="absolute top-3 right-4 text-[9px] font-bold text-gray-500 uppercase tracking-widest">Calculated Output Profile</span>
                 <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-1">Client Lifetime Referral Value</h3>
-                <div id="displayTotalLTV" class="text-4xl font-black text-white font-mono my-2 tracking-tight">$38,812</div>
+                <div id="displayTotalLTV" class="text-5xl md:text-6xl font-black text-white font-mono my-3 tracking-tight">$38,812</div>
                 
                 <p class="text-[11px] text-brandTextMuted leading-relaxed max-w-xl mb-4">
                     This models the secondary revenue unlocked strictly through warm referrals introduced by your primary client relationship framework.
@@ -252,7 +283,7 @@
                 <!-- 3. Client Referral Potential Tracker Grid Box -->
                 <div class="bg-brandCard border border-gray-800 rounded-xl p-5 flex flex-col justify-between">
                     <div>
-                        <h3 class="text-xs font-bold uppercase tracking-widest text-brandBlue mb-3">Client Referral Potential</h3>
+                        <h3 class="text-xs font-bold uppercase tracking-widest text-brandBlue mb-3">Client Referral Score</h3>
                         <p class="text-[11px] text-brandTextMuted leading-relaxed mb-3">
                             The relationship capacity score evaluated relative to network scale multipliers:
                         </p>
@@ -272,14 +303,14 @@
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                             </svg>
-                            <span>Estimated Revenue Opportunity Missed</span>
+                            <span>Referral Growth Opportunity</span>
                         </div>
                         <p class="text-[11px] text-brandTextMuted leading-relaxed">
-                            Without a systematized referral execution workflow, typical independent operators lose access to verified incoming warm intros.
+                            A more consistent referral workflow can turn happy clients into warmer introductions and a stronger long-term pipeline.
                         </p>
                     </div>
                     <div class="mt-4 bg-brandRed/5 border border-brandRed/20 rounded p-3 text-center">
-                        <span class="text-[10px] uppercase text-brandTextMuted tracking-wider block">Estimated Invisible Leakage</span>
+                        <span class="text-[10px] uppercase text-brandTextMuted tracking-wider block">Estimated Upside Opportunity</span>
                         <span id="displayLeakage" class="text-xl font-bold font-mono text-brandRed mt-0.5 block">$17,789</span>
                     </div>
                 </div>
@@ -299,45 +330,45 @@
                     <button onclick="switchPlanTab('wk4')" id="tab_wk4" class="flex-1 py-2.5 text-center border-b-2 border-transparent text-brandTextMuted hover:text-white focus:outline-none">Wk 4 - Scale</button>
                 </div>
                 
-                <div class="p-5 min-h-[190px]">
+                <div class="p-5 md:p-6 min-h-[210px]">
                     <!-- Week 1 Content Block -->
-                    <div id="content_wk1" class="space-y-3 text-xs">
-                        <p class="text-gray-300 font-medium text-xs border-l-2 border-brandBlue pl-2">Identify high-satisfaction tier targets from your existing active client roster.</p>
-                        <div class="space-y-1.5 font-mono text-[11px] text-brandTextMuted">
-                            <div class="flex items-start space-x-1.5"><span class="text-brandGold">1.</span><p>Filter current client lists for clients showing an internal NPS indicator profile of 9 or 10.</p></div>
-                            <div class="flex items-start space-x-1.5"><span class="text-brandGold">2.</span><p>Document 2 specific visual/business wins achieved for their brand ecosystem this month.</p></div>
-                            <div class="flex items-start space-x-1.5"><span class="text-brandGold">3.</span><p>Review their social channels to target 2 secondary network operators they interact with regularly.</p></div>
+                    <div id="content_wk1" class="space-y-4 text-sm">
+                        <p class="text-gray-200 font-semibold border-l-2 border-brandBlue pl-3">Identify the clients who are most likely to introduce you.</p>
+                        <div class="space-y-2 text-[13px] text-brandTextMuted leading-relaxed">
+                            <div class="flex items-start space-x-2"><span class="text-brandGold font-bold">1.</span><p>List clients who recently praised your work, renewed a project, or got a clear win from the engagement.</p></div>
+                            <div class="flex items-start space-x-2"><span class="text-brandGold font-bold">2.</span><p>Write down two specific outcomes you helped create so the referral ask feels concrete.</p></div>
+                            <div class="flex items-start space-x-2"><span class="text-brandGold font-bold">3.</span><p>Look for one or two people in their network who resemble your best clients.</p></div>
                         </div>
-                        <div class="bg-gray-900/60 rounded p-2.5 border border-gray-800 text-[11px] text-gray-400 italic">
-                            <strong class="text-gray-200 font-sans block not-italic font-semibold text-xs mb-1">Pro Tip Strategy:</strong> Focus outreach exclusively on clients who have expressed spontaneous text praise via messaging files or emails.
+                        <div class="bg-gray-900/60 rounded p-3 border border-gray-800 text-[13px] text-gray-400">
+                            <strong class="text-gray-200 block font-semibold mb-1">Best starting point:</strong> Ask clients who have already sent positive feedback in writing.
                         </div>
                     </div>
 
                     <!-- Week 2 Content Block -->
-                    <div id="content_wk2" class="hidden space-y-3 text-xs">
-                        <p class="text-gray-300 font-medium text-xs border-l-2 border-brandBlue pl-2">Deploy clear, casual, and friction-free referral requests without sounding desperate.</p>
+                    <div id="content_wk2" class="hidden space-y-4 text-sm">
+                        <p class="text-gray-200 font-semibold border-l-2 border-brandBlue pl-3">Make a simple, specific referral ask.</p>
                         <div class="space-y-2">
                             <span class="text-[10px] text-brandGold font-bold uppercase block tracking-wider">Email Script Template:</span>
-                            <div class="bg-gray-900 text-gray-300 font-mono p-3 rounded border border-gray-800 text-[11px] leading-relaxed select-all">
-                                "Hey [Name], loved crushing the recent project goals together! I'm opening up 2 pipeline slots next month for growth-focused operators. Do you have 1 founder or product head in your network who needs help fixing their [specific bottleneck]?"
+                            <div class="bg-gray-900 text-gray-300 p-4 rounded border border-gray-800 text-[13px] leading-relaxed select-all">
+                                "Hey [Name], I loved working together on [project/result]. I have room for one or two similar clients next month. Do you know anyone who needs help with [specific problem]?"
                             </div>
                         </div>
                     </div>
 
                     <!-- Week 3 Content Block -->
-                    <div id="content_wk3" class="hidden space-y-3 text-xs">
-                        <p class="text-gray-300 font-medium text-xs border-l-2 border-brandBlue pl-2">Build simple asset links and referral pathways that make it effortless for partners to introduce you.</p>
-                        <div class="space-y-1.5 font-mono text-[11px] text-brandTextMuted">
-                            <div class="flex items-start space-x-1.5"><span class="text-brandBlue">-&gt;</span><p><strong class="text-gray-200">One-Pager Wins:</strong> Turn your biggest project outcome into a clean, 1-page PDF case study layout showing clear ROI statistics.</p></div>
-                            <div class="flex items-start space-x-1.5"><span class="text-brandBlue">-&gt;</span><p><strong class="text-gray-200">Blurb Snippet:</strong> Provide your advocates with a pre-written 3-sentence introduction blurb they can quickly copy-paste into an email intro or DM.</p></div>
+                    <div id="content_wk3" class="hidden space-y-4 text-sm">
+                        <p class="text-gray-200 font-semibold border-l-2 border-brandBlue pl-3">Give people an easy way to introduce you.</p>
+                        <div class="space-y-2 text-[13px] text-brandTextMuted leading-relaxed">
+                            <div class="flex items-start space-x-2"><span class="text-brandBlue font-bold">-&gt;</span><p><strong class="text-gray-200">One-page proof:</strong> Summarize the project, result, and type of client you help best.</p></div>
+                            <div class="flex items-start space-x-2"><span class="text-brandBlue font-bold">-&gt;</span><p><strong class="text-gray-200">Intro blurb:</strong> Write a short paragraph your client can paste into an email or DM.</p></div>
                         </div>
                     </div>
 
                     <!-- Week 4 Content Block -->
-                    <div id="content_wk4" class="hidden space-y-3 text-xs">
-                        <p class="text-gray-300 font-medium text-xs border-l-2 border-brandBlue pl-2">Establish a permanent referral sequence into your off-boarding and milestone delivery playbooks.</p>
-                        <div class="space-y-2 text-brandTextMuted leading-relaxed">
-                            <p>Transform referral acquisition from a periodic scramble into an automated habit system. Make it standard practice to ask for introductions exactly at the point of maximum relationship capital: <span class="text-brandGold font-medium">immediately following a successful major project milestone delivery.</span></p>
+                    <div id="content_wk4" class="hidden space-y-4 text-sm">
+                        <p class="text-gray-200 font-semibold border-l-2 border-brandBlue pl-3">Turn referrals into a repeatable habit.</p>
+                        <div class="space-y-2 text-[13px] text-brandTextMuted leading-relaxed">
+                            <p>Add a referral ask to your project wrap-up, milestone check-in, or monthly reporting process. The best time to ask is right after a clear win, when the client can easily remember the value you created.</p>
                         </div>
                     </div>
                 </div>
@@ -356,13 +387,19 @@
 
     <!-- Contextual Related Tools Matrix Hub links -->
     <section class="max-w-5xl mx-auto px-4 mb-16">
-        <div class="bg-brandCard/30 border border-gray-800 rounded-xl p-5">
-            <span class="text-[10px] uppercase font-bold tracking-widest text-brandGold block mb-3">Related Freelancer Utilities</span>
-            <div class="flex flex-wrap gap-2">
-                <a href="/retainer-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Freelancer Monthly Retainer Pricing Calculator</a>
-                <a href="/scope-creep-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Scope Creep Calculator</a>
-                <a href="/proposal-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Proposal Win Probability Calculator</a>
-                <a href="/referral-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Referral Reward Calculator</a>
+        <div class="bg-brandCard border border-gray-800 rounded-xl p-6 md:p-7">
+            <div class="grid grid-cols-1 lg:grid-cols-[0.9fr_1.4fr] gap-5 lg:items-center">
+                <div>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-brandGold block mb-2">Related Freelancer Tools</span>
+                    <h2 class="text-xl font-bold text-gray-100 tracking-tight mb-2">Build the rest of the client revenue workflow.</h2>
+                    <p class="text-sm text-brandTextMuted leading-relaxed">Use these tools to price retainers, protect scope, improve proposals, and decide how to reward referrals.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <a href="/retainer-calculator/" class="bg-brandDark hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Retainer Pricing Calculator</a>
+                    <a href="/scope-creep-calculator/" class="bg-brandDark hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Scope Creep Calculator</a>
+                    <a href="/proposal-calculator/" class="bg-brandDark hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Proposal Win Calculator</a>
+                    <a href="/referral-calculator/" class="bg-brandDark hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Referral Reward Calculator</a>
+                </div>
             </div>
         </div>
     </section>
@@ -372,9 +409,9 @@
         <div class="bg-gradient-to-r from-brandCard via-brandCard to-brandDark border border-brandGold/30 rounded-xl p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div class="max-w-2xl">
                 <span class="text-[10px] tracking-widest text-brandGold font-bold uppercase block mb-1">SYSTEM OPERATIONAL UPGRADE</span>
-                <h3 class="text-xl font-bold text-gray-100 tracking-tight">Turn casual client pitches into predictable business income</h3>
+                <h3 class="text-xl font-bold text-gray-100 tracking-tight">Turn one strong client into years of repeat revenue.</h3>
                 <p class="text-brandTextMuted text-xs md:text-sm mt-2 leading-relaxed">
-                    Use the Freelancer Business OS to manage advanced proposals, secure client management infrastructure, contract policy libraries, and scalable client systems.
+                    Use the Freelancer Business OS to manage proposals, client follow-ups, referral asks, retention systems, and repeat revenue workflows in one operating system.
                 </p>
             </div>
             <div class="shrink-0">
@@ -470,6 +507,38 @@
             document.getElementById('sub_directRev').innerText = `$${directContractRevenue.toLocaleString()}`;
             document.getElementById('sub_referralRev').innerText = `$${totalReferralRevenueGenerated.toLocaleString()}`;
             document.getElementById('sub_totalValue').innerText = `$${totalRelationshipValueCombined.toLocaleString()}`;
+
+            const readinessScore = Math.min(100, Math.round(
+                (selectedRepeatLevel === 'repeat' ? 24 : 10) +
+                Math.min(selectedDurationYears * 6, 24) +
+                Math.min(referralsPerYear * 4, 24) +
+                (conversionRate * 30)
+            ));
+            const readinessStatus = readinessScore >= 85 ? 'Excellent System' : readinessScore >= 70 ? 'Good Foundation' : readinessScore >= 50 ? 'Needs Structure' : 'Early Stage';
+            document.getElementById('readinessScore').innerText = readinessScore;
+            document.getElementById('readinessStatus').innerText = readinessStatus;
+            document.getElementById('readinessRepeat').innerHTML = selectedRepeatLevel === 'repeat'
+                ? '<span class="text-brandGreen font-bold">OK</span><span>Repeat client relationship selected</span>'
+                : '<span class="text-brandGold font-bold">!</span><span>Single-project clients limit referral compounding</span>';
+            document.getElementById('readinessRetention').innerHTML = selectedDurationYears >= 3
+                ? `<span class="text-brandGreen font-bold">OK</span><span>${selectedDurationYears}-year relationship horizon</span>`
+                : `<span class="text-brandGold font-bold">!</span><span>${selectedDurationYears}-year horizon leaves less time for referrals</span>`;
+            document.getElementById('readinessReferrals').innerHTML = referralsPerYear >= 5
+                ? `<span class="text-brandGreen font-bold">OK</span><span>${referralsPerYear} introductions/year creates strong pipeline flow</span>`
+                : `<span class="text-brandGold font-bold">!</span><span>Only ${referralsPerYear} introduction${referralsPerYear === 1 ? '' : 's'}/year</span>`;
+            document.getElementById('readinessConversion').innerHTML = conversionRate >= 0.7
+                ? `<span class="text-brandGreen font-bold">OK</span><span>${Math.round(conversionRate * 100)}% referral conversion process</span>`
+                : '<span class="text-brandGold font-bold">!</span><span>Improve referral conversion process</span>';
+
+            const targetReferralCount = Math.min(10, Math.max(referralsPerYear + 2, 5));
+            const currentFiveYearReferralRevenue = Math.round((referralsPerYear * 5) * conversionRate) * referredDealValuePremium;
+            const improvedFiveYearReferralRevenue = Math.round((targetReferralCount * 5) * conversionRate) * referredDealValuePremium;
+            const upsideValue = Math.max(0, improvedFiveYearReferralRevenue - currentFiveYearReferralRevenue);
+            document.getElementById('nextLeverText').innerText = `Increase introductions from ${referralsPerYear} to ${targetReferralCount}/year`;
+            document.getElementById('upsideValue').innerText = `+$${Math.round(upsideValue).toLocaleString()}`;
+            document.getElementById('leverWhy').innerText = selectedRepeatLevel === 'repeat' && selectedDurationYears >= 3
+                ? 'Your existing client retention is strong. More qualified introductions will produce the largest return.'
+                : 'Stronger repeat relationships will make each referral ask more credible and valuable.';
 
             // Build Growth Timeline Data (Y1, Y3, Y5 Projections)
             const timelineBenchmarks = [1, 3, 5];
