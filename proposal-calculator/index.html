@@ -29,7 +29,7 @@
 <body class="bg-brandDark text-gray-100 font-sans min-h-screen selection:bg-brandGold selection:text-brandDark">
 
     <!-- Header Navigation -->
-    <header class="sticky top-0 z-50 w-full border-b border-gray-800 bg-brandDark/90 backdrop-blur-md transition-all">
+    <header class="w-full border-b border-gray-800 bg-brandDark/90 backdrop-blur-md transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <a href="/" class="flex items-center space-x-3 shrink-0 group" aria-label="AI Cash Lab Tools homepage">
                 <div class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center overflow-hidden shrink-0">
@@ -96,9 +96,9 @@
             <div class="space-y-5">
                 <div class="flex justify-between items-center border-b border-gray-800 pb-3">
                     <h2 class="font-bold tracking-wide text-sm uppercase text-gray-300">Proposal Inputs</h2>
-                    <div class="space-x-2">
-                        <button onclick="loadSampleProposal()" class="text-[11px] text-brandGold bg-brandGold/10 hover:bg-brandGold/20 px-2.5 py-1 rounded transition">Load Sample</button>
-                        <button onclick="resetProposalCalc()" class="text-[11px] text-gray-400 hover:text-white transition">Reset</button>
+                    <div class="flex items-center gap-3">
+                        <button onclick="loadSampleProposal()" class="text-[11px] text-brandGold bg-brandGold/10 hover:bg-brandGold/20 px-3 py-1.5 rounded transition">Load Sample</button>
+                        <button onclick="resetProposalCalc()" class="text-[11px] text-gray-400 hover:text-white px-2 py-1 transition">Reset</button>
                     </div>
                 </div>
 
@@ -183,10 +183,10 @@
                         </label>
                     </div>
                 </div>
-            </div>
 
-            <div class="mt-6">
-                <button onclick="calculateProbability()" class="w-full bg-brandGold hover:bg-brandGoldHover text-brandDark text-xs font-bold uppercase tracking-wider py-3 px-4 rounded transition shadow-lg shadow-brandGold/10">Calculate Win Probability</button>
+                <div class="pt-1">
+                    <button onclick="calculateProbability()" class="w-full bg-brandGold hover:bg-brandGoldHover text-brandDark text-xs font-bold uppercase tracking-wider py-4 px-4 rounded transition shadow-lg shadow-brandGold/10">Calculate Win Probability</button>
+                </div>
             </div>
         </div>
 
@@ -283,18 +283,18 @@
                 <div class="relative border-l border-gray-800 ml-2 space-y-6">
                     <div class="relative pl-6">
                         <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 bg-brandGold rounded-full"></div>
-                        <span class="font-bold text-xs text-gray-200 block">Day 1: Initial Dispatch</span>
-                        <p class="text-[11px] text-brandTextMuted mt-0.5">Send your optimized proposal file. Include a short, Loom summary video link to keep them engaged.</p>
+                        <span class="font-bold text-sm text-gray-200 block">Day 1: Initial Dispatch</span>
+                        <p class="text-xs text-brandTextMuted mt-1 leading-relaxed">Send your optimized proposal file. Include a short, Loom summary video link to keep them engaged.</p>
                     </div>
                     <div class="relative pl-6">
                         <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 bg-gray-700 rounded-full" id="dotDay3"></div>
-                        <span class="font-bold text-xs text-gray-200 block">Day 3: Strategic Value Check</span>
-                        <p class="text-[11px] text-brandTextMuted mt-0.5">Follow up with a highly specific asset, insight, or competitive clarification to illustrate proactive workflow momentum.</p>
+                        <span class="font-bold text-sm text-gray-200 block">Day 3: Strategic Value Check</span>
+                        <p class="text-xs text-brandTextMuted mt-1 leading-relaxed">Follow up with a specific asset, insight, or clarification that helps the client make a confident decision.</p>
                     </div>
                     <div class="relative pl-6">
                         <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 bg-gray-700 rounded-full" id="dotDay7"></div>
-                        <span class="font-bold text-xs text-gray-200 block">Day 7: Final Boundaries Protocol</span>
-                        <p class="text-[11px] text-brandTextMuted mt-0.5">Send a clean, professional closing check-in. Politely inform them that your current production queue slots will be re-allocated.</p>
+                        <span class="font-bold text-sm text-gray-200 block">Day 7: Final Check-In</span>
+                        <p class="text-xs text-brandTextMuted mt-1 leading-relaxed">Send a clear closing note. Let them know when your current availability may move to another client.</p>
                     </div>
                 </div>
             </div>
@@ -306,7 +306,7 @@
     <section class="max-w-4xl mx-auto px-4 mb-16 border-t border-gray-800 pt-12">
         <h2 class="text-xl font-bold text-gray-200 tracking-tight mb-4">Free Freelancer Proposal Win Probability Calculator</h2>
         <p class="text-brandTextMuted text-sm leading-relaxed">
-            Use this free proposal win probability calculator to analyze your conversion efficiency metrics. It provides freelancers with immediate clarity on deal risk factors, alignment benchmarks, and structural copy weaknesses before pitching high-value opportunities.
+            Use this free proposal win probability calculator to spot what could make a client say yes, pause, or pass. It helps freelancers review trust signals, pricing fit, urgency, response speed, and proposal quality before sending or following up.
         </p>
     </section>
 
@@ -316,38 +316,42 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-4">
                 <h4 class="text-sm font-semibold text-gray-200 mb-1.5">1. How accurate is the Win Probability score?</h4>
-                <p class="text-xs text-brandTextMuted leading-relaxed">The algorithm weights pricing, authority anchoring, response urgency, and formatting gaps against standard high-ticket freelance conversion histories to output realistic data models.</p>
+                <p class="text-xs text-brandTextMuted leading-relaxed">It is an estimate, not a guarantee. The score weighs trust, urgency, positioning, response speed, and proposal quality so you can spot the biggest weak points before you follow up.</p>
             </div>
             <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-4">
                 <h4 class="text-sm font-semibold text-gray-200 mb-1.5">2. Does a low score mean my proposal will be rejected?</h4>
-                <p class="text-xs text-brandTextMuted leading-relaxed">No. A lower score simply highlights underlying project variables or structure issues that create friction points for your client during the evaluation process.</p>
+                <p class="text-xs text-brandTextMuted leading-relaxed">No. It means the proposal may need stronger proof, clearer scope, faster follow-up, or better positioning before the client decides.</p>
             </div>
             <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-4">
                 <h4 class="text-sm font-semibold text-gray-200 mb-1.5">3. Why does Response Speed have such a heavy weight?</h4>
-                <p class="text-xs text-brandTextMuted leading-relaxed">Data indicates that responding within the first 1 to 4 hours of active interest cycles increases project capture chances significantly compared to late responses.</p>
+                <p class="text-xs text-brandTextMuted leading-relaxed">Fast replies help while the project is still urgent in the client's mind. A thoughtful response within a few hours can keep momentum from cooling off.</p>
             </div>
             <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-4">
                 <h4 class="text-sm font-semibold text-gray-200 mb-1.5">4. Should I always lower my price to increase win probability?</h4>
-                <p class="text-xs text-brandTextMuted leading-relaxed">Absolutely not. Competing solely on lowest pricing signals commoditization. Positioning yourself as a premium specialist anchors higher trust bounds.</p>
+                <p class="text-xs text-brandTextMuted leading-relaxed">No. Lowering price can hurt trust if it makes your work feel generic. Clear outcomes, proof, and scope often improve win probability more than a discount.</p>
             </div>
             <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-4">
                 <h4 class="text-sm font-semibold text-gray-200 mb-1.5">5. Are my proposal checklist details stored?</h4>
-                <p class="text-xs text-brandTextMuted leading-relaxed">No. The script functions entirely within your local browser's runtime environment. No remote data pipelines or cookies collect your client details.</p>
+                <p class="text-xs text-brandTextMuted leading-relaxed">No. The calculator runs in your browser, and your checklist choices are not uploaded or stored.</p>
             </div>
         </div>
     </section>
 
     <!-- Related Free Tools Quick Links Footer Section Component -->
     <section class="max-w-5xl mx-auto px-4 mb-16 border-t border-gray-800 pt-12">
-        <div class="bg-brandCard/20 border border-gray-800 rounded-xl p-6">
-            <span class="text-[10px] uppercase font-bold tracking-widest text-brandGold block mb-4">Related Freelancer Tools</span>
-            <div class="flex flex-wrap gap-2">
-                <a href="/referral-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Freelancer Referral Reward Calculator</a>
-                <a href="/hourly-rate-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Freelancer Hourly Rate Calculator</a>
-                <a href="/scope-creep-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Scope Creep Calculator</a>
-                <a href="/retainer-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Retainer Pricing Calculator</a>
-                <a href="https://aicashlabofficial.gumroad.com/l/iwyunk?layout=profile" target="_blank" rel="noopener noreferrer" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Simple Lead CRM</a>
-                <a href="https://aicashlabofficial.gumroad.com/l/sjdzd?layout=profile" target="_blank" rel="noopener noreferrer" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Proposal Generator</a>
+        <div class="bg-brandCard/20 border border-gray-800 rounded-xl p-6 grid grid-cols-1 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] gap-6 items-start">
+            <div>
+                <span class="text-[10px] uppercase font-bold tracking-widest text-brandGold block mb-2">Related Freelancer Tools</span>
+                <h2 class="text-xl font-bold text-gray-100 tracking-tight mb-2">Improve the rest of the client workflow.</h2>
+                <p class="text-sm text-brandTextMuted leading-relaxed">Use these tools to price the project, protect scope, plan retainers, and manage the next client step after the proposal.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                <a href="/referral-calculator/" class="bg-brandCard hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Referral Reward Calculator</a>
+                <a href="/hourly-rate-calculator/" class="bg-brandCard hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Hourly Rate Calculator</a>
+                <a href="/scope-creep-calculator/" class="bg-brandCard hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Scope Creep Calculator</a>
+                <a href="/retainer-calculator/" class="bg-brandCard hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Retainer Pricing Calculator</a>
+                <a href="https://aicashlabofficial.gumroad.com/l/iwyunk?layout=profile" target="_blank" rel="noopener noreferrer" class="bg-brandCard hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Simple Lead CRM</a>
+                <a href="https://aicashlabofficial.gumroad.com/l/sjdzd?layout=profile" target="_blank" rel="noopener noreferrer" class="bg-brandCard hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Proposal Generator</a>
             </div>
         </div>
     </section>
@@ -492,20 +496,26 @@
             scoreDisplay.innerText = finalScore;
 
             const labelEl = document.getElementById('scoreLabel');
-            if (finalScore >= 80) {
-                labelEl.innerText = "High Probability 🎉";
+            if (finalScore >= 90) {
+                labelEl.innerText = "Excellent";
+                labelEl.className = "text-sm font-semibold text-brandGreen";
+                scoreDisplay.className = "inline-flex items-center justify-center bg-brandDark/60 border border-brandGreen/40 w-24 h-24 rounded-full font-mono text-3xl font-extrabold text-brandGreen shadow-inner";
+                document.getElementById('dotDay3').className = "absolute -left-[5px] top-1.5 w-2.5 h-2.5 bg-brandGreen rounded-full";
+                document.getElementById('dotDay7').className = "absolute -left-[5px] top-1.5 w-2.5 h-2.5 bg-brandGreen rounded-full";
+            } else if (finalScore >= 75) {
+                labelEl.innerText = "Strong";
                 labelEl.className = "text-sm font-semibold text-brandGreen";
                 scoreDisplay.className = "inline-flex items-center justify-center bg-brandDark/60 border border-brandGreen/40 w-24 h-24 rounded-full font-mono text-3xl font-extrabold text-brandGreen shadow-inner";
                 document.getElementById('dotDay3').className = "absolute -left-[5px] top-1.5 w-2.5 h-2.5 bg-brandGreen rounded-full";
                 document.getElementById('dotDay7').className = "absolute -left-[5px] top-1.5 w-2.5 h-2.5 bg-brandGreen rounded-full";
             } else if (finalScore >= 60) {
-                labelEl.innerText = "Moderate Probability ⚡";
+                labelEl.innerText = "Moderate";
                 labelEl.className = "text-sm font-semibold text-brandGold";
                 scoreDisplay.className = "inline-flex items-center justify-center bg-brandDark/60 border border-gray-800 w-24 h-24 rounded-full font-mono text-3xl font-extrabold text-brandGold shadow-inner";
                 document.getElementById('dotDay3').className = "absolute -left-[5px] top-1.5 w-2.5 h-2.5 bg-brandGold rounded-full";
                 document.getElementById('dotDay7').className = "absolute -left-[5px] top-1.5 w-2.5 h-2.5 bg-gray-700 rounded-full";
             } else {
-                labelEl.innerText = "Needs Improvement ⚠️";
+                labelEl.innerText = "Needs Improvement";
                 labelEl.className = "text-sm font-semibold text-brandRed";
                 scoreDisplay.className = "inline-flex items-center justify-center bg-brandDark/60 border border-brandRed/40 w-24 h-24 rounded-full font-mono text-3xl font-extrabold text-brandRed shadow-inner";
                 document.getElementById('dotDay3').className = "absolute -left-[5px] top-1.5 w-2.5 h-2.5 bg-gray-700 rounded-full";
