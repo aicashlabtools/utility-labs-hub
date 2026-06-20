@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freelancer Monthly Retainer Pricing Calculator | AI Cash Lab</title>
-    <meta name="description" content="Calculate monthly freelancer retainer pricing from income goals, hourly rate, client capacity, service level, and response expectations. Free browser-based tool.">
+    <title>Freelance Retainer Pricing Calculator | Monthly Retainer Package Estimator</title>
+    <meta name="description" content="Use this freelance retainer pricing calculator to estimate monthly retainer packages, recurring revenue, client capacity, and sustainable pricing.">
     <link rel="canonical" href="https://aicashlabtools.com/retainer-calculator/">
     <!-- Tailwind CSS Engine -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -31,7 +31,7 @@
 <body class="bg-brandDark text-gray-100 font-sans min-h-screen selection:bg-brandGold selection:text-brandDark">
 
     <!-- Header Navigation -->
-    <header class="sticky top-0 z-50 w-full border-b border-gray-800 bg-brandDark/90 backdrop-blur-md transition-all">
+    <header class="w-full border-b border-gray-800 bg-brandDark/90 backdrop-blur-md transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <a href="/" class="flex items-center space-x-3 shrink-0 group" aria-label="AI Cash Lab Tools homepage">
                 <div class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center overflow-hidden shrink-0">
@@ -60,7 +60,7 @@
 
     <!-- Hero Section -->
     <section class="max-w-4xl mx-auto px-4 pt-12 pb-6 text-center">
-        <span class="text-xs font-semibold tracking-widest text-brandBlue uppercase border border-brandBlue/30 px-3 py-1 rounded-full bg-brandBlue/5">FREELANCER RECURRING REVENUE TOOL</span>
+        <span class="text-xs font-semibold tracking-widest text-brandGold uppercase border border-brandGold/30 px-3 py-1 rounded-full bg-brandGold/5">FREELANCER RECURRING REVENUE TOOL</span>
         <h1 class="text-3xl md:text-4xl font-extrabold mt-4 tracking-tight">Freelancer Monthly Retainer Pricing Calculator</h1>
         <p class="text-brandTextMuted mt-3 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
             Calculate a profitable monthly retainer based on your income goals, available capacity, service level, and client expectations.
@@ -187,10 +187,10 @@
                         <option value="enterprise">Enterprise</option>
                     </select>
                 </div>
-            </div>
 
-            <div class="mt-6">
-                <button onclick="updateCalculations()" class="w-full bg-brandGold hover:bg-brandGoldHover text-brandDark text-xs font-bold uppercase tracking-wider py-3 px-4 rounded transition shadow-lg shadow-brandGold/10">Calculate Retainer Pricing</button>
+                <div class="pt-1">
+                    <button onclick="updateCalculations()" class="w-full bg-brandGold hover:bg-brandGoldHover text-brandDark text-xs font-bold uppercase tracking-wider py-4 px-4 rounded transition shadow-lg shadow-brandGold/10">Calculate Retainer Pricing</button>
+                </div>
             </div>
         </div>
 
@@ -208,6 +208,7 @@
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brandBlue mb-1">Sustainability Score</h3>
                     <div id="displaySustainability" class="text-3xl font-extrabold font-mono mt-1">88/100</div>
                     <span id="lblSustainabilityStatus" class="text-[11px] font-medium text-brandGreen mt-1">Healthy Retainer Model</span>
+                    <p class="text-[11px] text-brandTextMuted leading-relaxed mt-2 max-w-[220px]">Balanced workload, sustainable pricing, and strong profit margin.</p>
                 </div>
             </div>
 
@@ -235,39 +236,44 @@
                 <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold">Generated Retainer Packages</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
                     <!-- Starter Package -->
-                    <div class="bg-brandCard border border-gray-800 rounded-xl p-4 flex flex-col justify-between">
+                    <div class="bg-brandCard border border-gray-800 rounded-xl p-5 flex flex-col justify-between shadow-lg shadow-black/10">
                         <div>
-                            <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Starter Retainer</span>
-                            <div id="pkgPrice_starter" class="text-lg font-extrabold font-mono text-gray-200 mt-1">$1,250/mo</div>
-                            <ul class="text-[11px] text-brandTextMuted mt-3 space-y-1.5 border-t border-gray-800/60 pt-3">
-                                <li>• Lower floor baseline hours</li>
-                                <li>• Standard SLA response</li>
-                                <li>• Maintenance & basic support</li>
+                            <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Starter</span>
+                            <div id="pkgPrice_starter" class="text-xl font-extrabold font-mono text-gray-100 mt-1">$1,250/mo</div>
+                            <p class="text-[11px] text-brandTextMuted mt-1">For small recurring support</p>
+                            <ul class="text-[11px] text-brandTextMuted mt-4 space-y-2 border-t border-gray-800/60 pt-3">
+                                <li class="flex gap-2"><span class="text-brandGreen">&check;</span><span>5-10 monthly hours</span></li>
+                                <li class="flex gap-2"><span class="text-brandGreen">&check;</span><span>48-hour response</span></li>
+                                <li class="flex gap-2"><span class="text-brandGreen">&check;</span><span>Maintenance & updates</span></li>
                             </ul>
                         </div>
                     </div>
                     <!-- Growth Partner (Highlighted) -->
-                    <div class="bg-brandCard border-2 border-brandBlue rounded-xl p-4 flex flex-col justify-between relative shadow-lg shadow-brandBlue/5">
+                    <div class="bg-brandCard border-2 border-brandBlue rounded-xl p-5 flex flex-col justify-between relative shadow-xl shadow-brandBlue/10">
                         <span class="absolute -top-2.5 right-3 bg-brandBlue text-brandDark text-[9px] font-bold uppercase px-2 py-0.5 rounded-full tracking-wider">RECOMMENDED</span>
                         <div>
                             <span class="text-[10px] font-bold text-brandBlue uppercase tracking-wider">Growth Partner</span>
-                            <div id="pkgPrice_growth" class="text-xl font-extrabold font-mono text-white mt-1">$2,500/mo</div>
-                            <ul class="text-[11px] text-gray-300 mt-3 space-y-1.5 border-t border-brandBlue/30 pt-3">
-                                <li>• Dedicated scope allocations</li>
-                                <li>• Regular strategic milestones</li>
-                                <li>• Accelerated communication</li>
+                            <div id="pkgPrice_growth" class="text-2xl font-extrabold font-mono text-white mt-1">$2,500/mo</div>
+                            <p class="text-[11px] text-gray-300 mt-1">For ongoing growth work</p>
+                            <ul class="text-[11px] text-gray-300 mt-4 space-y-2 border-t border-brandBlue/30 pt-3">
+                                <li class="flex gap-2"><span class="text-brandGreen">&check;</span><span>Strategy calls</span></li>
+                                <li class="flex gap-2"><span class="text-brandGreen">&check;</span><span>Monthly reporting</span></li>
+                                <li class="flex gap-2"><span class="text-brandGreen">&check;</span><span>Priority communication</span></li>
+                                <li class="flex gap-2"><span class="text-brandGreen">&check;</span><span>Clear deliverables</span></li>
                             </ul>
                         </div>
                     </div>
                     <!-- Premium Advisory -->
-                    <div class="bg-brandCard border border-gray-800 rounded-xl p-4 flex flex-col justify-between">
+                    <div class="bg-brandCard border border-gray-800 rounded-xl p-5 flex flex-col justify-between shadow-lg shadow-black/10">
                         <div>
                             <span class="text-[10px] font-bold text-brandGold uppercase tracking-wider">Premium Advisory</span>
-                            <div id="pkgPrice_premium" class="text-lg font-extrabold font-mono text-gray-200 mt-1">$4,000/mo</div>
-                            <ul class="text-[11px] text-brandTextMuted mt-3 space-y-1.5 border-t border-gray-800/60 pt-3">
-                                <li>• Highest priority operational access</li>
-                                <li>• Zero-friction priority response</li>
-                                <li>• Advanced management consulting</li>
+                            <div id="pkgPrice_premium" class="text-xl font-extrabold font-mono text-gray-100 mt-1">$4,000/mo</div>
+                            <p class="text-[11px] text-brandTextMuted mt-1">For high-touch advisory support</p>
+                            <ul class="text-[11px] text-brandTextMuted mt-4 space-y-2 border-t border-gray-800/60 pt-3">
+                                <li class="flex gap-2"><span class="text-brandGreen">&check;</span><span>Executive access</span></li>
+                                <li class="flex gap-2"><span class="text-brandGreen">&check;</span><span>Faster response SLA</span></li>
+                                <li class="flex gap-2"><span class="text-brandGreen">&check;</span><span>Deep consulting</span></li>
+                                <li class="flex gap-2"><span class="text-brandGreen">&check;</span><span>Highest priority</span></li>
                             </ul>
                         </div>
                     </div>
@@ -316,9 +322,9 @@
 
     <!-- Contextual Informational Element -->
     <section class="max-w-4xl mx-auto px-4 mb-16 border-t border-gray-800 pt-12">
-        <h2 class="text-xl font-bold text-gray-200 tracking-tight mb-4">How Retainer Matrix Models Scale Freelance Pipelines</h2>
+        <h2 class="text-xl font-bold text-gray-200 tracking-tight mb-4">How Monthly Retainers Create Predictable Freelance Income</h2>
         <p class="text-brandTextMuted text-sm leading-relaxed">
-            Transitioning out of hourly project queues into predictable flat-rate retainers removes income instability. By locking in a structured advisory architecture, you provide consistent, friction-free service value while stabilizing cash flow foundations month-over-month.
+            Monthly retainers help freelancers turn scattered one-off projects into steadier recurring revenue. Use this freelance retainer pricing calculator as a retainer package price estimator and capacity planning tool so clients see a clear level of support while you protect your calendar, pricing, and profit margin.
         </p>
     </section>
 
@@ -351,14 +357,19 @@
 
     <!-- Related Freelancer Tools Links -->
     <section class="max-w-5xl mx-auto px-4 mb-16 border-t border-gray-800 pt-12">
-        <div class="bg-brandCard/20 border border-gray-800 rounded-xl p-6">
-            <span class="text-[10px] uppercase font-bold tracking-widest text-brandGold block mb-4">Related Freelancer Tools</span>
-            <div class="flex flex-wrap gap-2">
-                <a href="/hourly-rate-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Freelancer Hourly Rate Calculator</a>
-                <a href="/scope-creep-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Scope Creep Calculator</a>
-                <a href="/proposal-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Proposal Win Probability Calculator</a>
-                <a href="/referral-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Referral Reward Calculator</a>
-                <a href="/pricing-strategy-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Freelancer Pricing Calculator</a>
+        <div class="bg-brandCard/20 border border-gray-800 rounded-xl p-6 grid grid-cols-1 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] gap-6 items-start">
+            <div>
+                <span class="text-[10px] uppercase font-bold tracking-widest text-brandGold block mb-2">Related Freelancer Tools</span>
+                <h2 class="text-xl font-bold text-gray-100 tracking-tight mb-2">Build the rest of the revenue workflow.</h2>
+                <p class="text-sm text-brandTextMuted leading-relaxed">Use these tools to set rates, protect scope, improve proposals, and plan referral rewards around your retainer offer.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                <a href="/hourly-rate-calculator/" class="bg-brandCard hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Hourly Rate Calculator</a>
+                <a href="/scope-creep-calculator/" class="bg-brandCard hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Scope Creep Calculator</a>
+                <a href="/proposal-calculator/" class="bg-brandCard hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Proposal Win Calculator</a>
+                <a href="/referral-calculator/" class="bg-brandCard hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Referral Reward Calculator</a>
+                <a href="/pricing-strategy-calculator/" class="bg-brandCard hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Pricing Strategy Calculator</a>
+                <a href="/freelancer-utilities/" class="bg-brandCard hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Freelancer Utilities</a>
             </div>
         </div>
     </section>
