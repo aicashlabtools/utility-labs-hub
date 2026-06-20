@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Scam Detector | AI Cash Lab</title>
+    <!-- Tailwind CSS Engine -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0B0F17',
+                        brandCard: '#131926',
+                        brandGold: '#E5A93C',
+                        brandGoldHover: '#CCA130',
+                        brandBlue: '#3B82F6',
+                        brandGreen: '#10B981',
+                        brandRed: '#EF4444',
+                        brandTextMuted: '#9CA3AF'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom progress circle clip paths */
+        .circle-bg { fill: none; stroke: #1f2937; }
+        .circle-prime { fill: none; stroke-linecap: round; transition: stroke-dasharray 0.4s ease; }
+    </style>
+</head>
+<body class="bg-brandDark text-gray-100 font-sans min-h-screen selection:bg-brandGold selection:text-brandDark">
+
+    <!-- Header Navigation -->
+    <header class="border-b border-gray-800 bg-brandDark/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-6 h-6 bg-brandGold rounded flex items-center justify-center text-brandDark font-bold text-xs">AI</div>
+                <span class="font-bold tracking-wider text-sm">AI CASH LAB</span>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-xs text-brandTextMuted uppercase tracking-widest">
+                <a href="#" class="hover:text-brandGold transition">All Tools</a>
+                <a href="#" class="hover:text-brandGold transition">Free Tools</a>
+                <a href="#" class="hover:text-brandGold transition">Safety Suite</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Title Header Area -->
+    <section class="max-w-5xl mx-auto px-4 pt-12 pb-6">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+                <span class="text-xs font-semibold tracking-widest text-brandGold uppercase border border-brandGold/30 px-3 py-1 rounded-full bg-brandGold/5">
+                    Freelance Client Safety Tool
+                </span>
+                <h1 class="text-3xl md:text-4xl font-extrabold mt-3 tracking-tight">CLIENT SCAM DETECTOR</h1>
+                <p class="text-brandTextMuted mt-2 max-w-3xl text-sm md:text-base leading-relaxed">
+                    Analyze payment terms, communication patterns, project scope, and client behavior before accepting freelance work.
+                </p>
+            </div>
+            <div class="shrink-0 self-start md:self-center">
+                <span class="text-[11px] font-mono text-brandGreen bg-brandGreen/10 border border-brandGreen/30 px-3 py-1.5 rounded-md uppercase tracking-wider">
+                    Client Safety Dashboard ●
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step Breadcrumb Tracker Layer -->
+    <section class="max-w-5xl mx-auto px-4 mb-4">
+        <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-3.5 grid grid-cols-2 md:grid-cols-4 gap-2 text-[11px] uppercase tracking-wider text-center">
+            <div class="text-brandGold font-semibold"><span class="font-mono">1.</span> Payment Terms</div>
+            <div class="text-brandGold font-semibold"><span class="font-mono">2.</span> Communication Quality</div>
+            <div class="text-brandGold font-semibold"><span class="font-mono">3.</span> Project Scope</div>
+            <div class="text-brandGold font-semibold"><span class="font-mono">4.</span> Safety Matrix Live</div>
+        </div>
+    </section>
+
+    <!-- Local Sandbox Strip -->
+    <section class="max-w-5xl mx-auto px-4 mb-8">
+        <div class="bg-brandGreen/5 border border-brandGreen/20 rounded-lg p-3 flex justify-between items-center text-xs">
+            <div class="flex items-center space-x-2 text-brandGreen">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                <span>100% local browser security verification. Your inputs remain offline and are never uploaded.</span>
+            </div>
+            <span class="text-[10px] font-mono text-gray-500 uppercase tracking-widest hidden sm:inline">Private Browser Analysis</span>
+        </div>
+    </section>
+
+    <!-- Main Risk Intelligence Dashboard Area Layout -->
+    <main class="max-w-5xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+        
+        <!-- Left Side: Control Interactive Matrix Form Blocks -->
+        <div class="lg:col-span-7 space-y-6">
+            <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+                <div class="flex justify-between items-center border-b border-gray-800 pb-3 mb-6">
+                    <h2 class="font-bold text-sm uppercase tracking-wider text-gray-200">Client Evaluation Checklist</h2>
+                    <span class="text-[10px] font-mono text-brandTextMuted uppercase">Client Review</span>
+                </div>
+
+                <!-- Category 1: Payment Terms -->
+                <div class="mb-6">
+                    <h3 class="text-xs font-bold text-brandGold uppercase tracking-wider mb-3">1. Payment Terms</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <label class="relative bg-gray-900 border border-gray-800 rounded-lg p-3 cursor-pointer hover:border-gray-700 transition block">
+                            <input type="radio" name="payment_terms" value="upfront" class="absolute top-4 right-4 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-gray-200 pr-6">Full payment upfront</span>
+                            <span class="text-[10px] text-brandTextMuted block mt-1">Pre-clearance booking fee arrangement.</span>
+                        </label>
+                        <label class="relative bg-gray-900 border-2 border-brandGold rounded-lg p-3 cursor-pointer transition block" id="wrapper_pay_deposit">
+                            <input type="radio" name="payment_terms" value="deposit" checked class="absolute top-4 right-4 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-white pr-6">50% deposit before work</span>
+                            <span class="text-[10px] text-gray-300 block mt-1">Standard industry security contract layout.</span>
+                        </label>
+                        <label class="relative bg-gray-900 border border-gray-800 rounded-lg p-3 cursor-pointer hover:border-gray-700 transition block">
+                            <input type="radio" name="payment_terms" value="milestones" class="absolute top-4 right-4 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-gray-200 pr-6">Payment after milestones</span>
+                            <span class="text-[10px] text-brandTextMuted block mt-1">Staged escrow deliverable releases.</span>
+                        </label>
+                        <label class="relative bg-gray-900 border border-gray-800 rounded-lg p-3 cursor-pointer hover:border-brandRed transition block">
+                            <input type="radio" name="payment_terms" value="completion" class="absolute top-4 right-4 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-gray-200 pr-6">Payment after full completion</span>
+                            <span class="text-[10px] text-brandRed font-medium block mt-1">High liability payment default risk profile.</span>
+                        </label>
+                        <label class="relative bg-gray-900 border border-gray-800 rounded-lg p-3 cursor-pointer hover:border-brandRed transition block sm:col-span-2">
+                            <input type="radio" name="payment_terms" value="avoids_pay" class="absolute top-4 right-4 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-gray-200 pr-6">Client avoids discussing payment parameters</span>
+                            <span class="text-[10px] text-brandRed font-bold uppercase tracking-wide block mt-1">⚠️ Critical capital protection warning.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Category 2: Client Communication Quality -->
+                <div class="mb-6">
+                    <h3 class="text-xs font-bold text-brandGold uppercase tracking-wider mb-3">2. Client Communication Quality</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <label class="relative bg-gray-900 border border-gray-800 rounded-lg p-3 cursor-pointer hover:border-gray-700 transition block">
+                            <input type="radio" name="comm_quality" value="clear" class="absolute top-4 right-4 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-gray-200 pr-6">Professional and clear</span>
+                            <span class="text-[10px] text-brandTextMuted block mt-1">Direct scopes and healthy work boundaries.</span>
+                        </label>
+                        <label class="relative bg-gray-900 border-2 border-brandGold rounded-lg p-3 cursor-pointer transition block" id="wrapper_comm_vague">
+                            <input type="radio" name="comm_quality" value="vague" checked class="absolute top-4 right-4 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-white pr-6">Some vague answers</span>
+                            <span class="text-[10px] text-gray-300 block mt-1">Indecisive or slow on design specifics.</span>
+                        </label>
+                        <label class="relative bg-gray-900 border border-gray-800 rounded-lg p-3 cursor-pointer hover:border-brandRed transition block">
+                            <input type="radio" name="comm_quality" value="avoids_q" class="absolute top-4 right-4 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-gray-200 pr-6">Avoids important questions</span>
+                            <span class="text-[10px] text-brandRed block mt-1">Refuses to answer simple pricing rules.</span>
+                        </label>
+                        <label class="relative bg-gray-900 border border-gray-800 rounded-lg p-3 cursor-pointer hover:border-brandRed transition block">
+                            <input type="radio" name="comm_quality" value="pressure" class="absolute top-4 right-4 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-gray-200 pr-6">Pressures for immediate start</span>
+                            <span class="text-[10px] text-brandRed block mt-1">Skips protective onboarding steps.</span>
+                        </label>
+                        <label class="relative bg-gray-900 border border-gray-800 rounded-lg p-3 cursor-pointer hover:border-brandRed transition block sm:col-span-2">
+                            <input type="radio" name="comm_quality" value="aggressive" class="absolute top-4 right-4 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-gray-200 pr-6">Uses aggressive or manipulative language</span>
+                            <span class="text-[10px] text-brandRed block mt-1">Reduces project leverage via pushy negotiation.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Category 3: Project Scope Clarity -->
+                <div class="mb-6">
+                    <h3 class="text-xs font-bold text-brandGold uppercase tracking-wider mb-3">3. Project Scope Clarity</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <label class="relative bg-gray-900 border border-gray-800 rounded-lg p-3 cursor-pointer hover:border-gray-700 transition block">
+                            <input type="radio" name="scope_clarity" value="detailed" class="absolute top-4 right-4 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-gray-200 pr-6">Detailed requirements</span>
+                            <span class="text-[10px] text-brandTextMuted block mt-1">Locked briefs and documentation layout.</span>
+                        </label>
+                        <label class="relative bg-gray-900 border-2 border-brandGold rounded-lg p-3 cursor-pointer transition block" id="wrapper_scope_mostly">
+                            <input type="radio" name="scope_clarity" value="mostly" checked class="absolute top-4 right-4 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-white pr-6">Mostly clear</span>
+                            <span class="text-[10px] text-gray-300 block mt-1">General overview layout matches expectations.</span>
+                        </label>
+                        <label class="relative bg-gray-900 border border-gray-800 rounded-lg p-3 cursor-pointer hover:border-brandRed transition block">
+                            <input type="radio" name="scope_clarity" value="broad" class="absolute top-4 right-4 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-gray-200 pr-6">Very broad idea</span>
+                            <span class="text-[10px] text-brandRed block mt-1">Highly prone to sudden revision creep cascades.</span>
+                        </label>
+                        <label class="relative bg-gray-900 border border-gray-800 rounded-lg p-3 cursor-pointer hover:border-brandRed transition block">
+                            <input type="radio" name="scope_clarity" value="later" class="absolute top-4 right-4 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-gray-200 pr-6">"We'll figure it out later"</span>
+                            <span class="text-[10px] text-brandRed font-bold block mt-1">Severe structural agreement loophole.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Category 4: Client Identity Verification -->
+                <div class="mb-6">
+                    <h3 class="text-xs font-bold text-brandGold uppercase tracking-wider mb-3">4. Client Identity Verification</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <label class="relative bg-gray-900 border border-gray-800 rounded-lg p-3 cursor-pointer hover:border-gray-700 transition block">
+                            <input type="radio" name="identity_v" value="verified" class="absolute top-4 right-4 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-gray-200 pr-6">Real company / profile verified</span>
+                            <span class="text-[10px] text-brandTextMuted block mt-1">Legitimate verifiable email registry matches.</span>
+                        </label>
+                        <label class="relative bg-gray-900 border-2 border-brandGold rounded-lg p-3 cursor-pointer transition block" id="wrapper_ident_some">
+                            <input type="radio" name="identity_v" value="some" checked class="absolute top-4 right-4 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-white pr-6">Some online presence</span>
+                            <span class="text-[10px] text-gray-300 block mt-1">Basic personal handles exist across networks.</span>
+                        </label>
+                        <label class="relative bg-gray-900 border border-gray-800 rounded-lg p-3 cursor-pointer hover:border-brandRed transition block">
+                            <input type="radio" name="identity_v" value="anonymous" class="absolute top-4 right-4 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-gray-200 pr-6">New account / zero history</span>
+                            <span class="text-[10px] text-brandRed block mt-1">No digital footprint trace whatsoever.</span>
+                        </label>
+                        <label class="relative bg-gray-900 border border-gray-800 rounded-lg p-3 cursor-pointer hover:border-brandRed transition block">
+                            <input type="radio" name="identity_v" value="refuses" class="absolute top-4 right-4 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-gray-200 pr-6">Refuses to share information</span>
+                            <span class="text-[10px] text-brandRed block mt-1">Total anonymity increases billing default risk.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Category 5: Requests Free Work -->
+                <div class="mb-6">
+                    <h3 class="text-xs font-bold text-brandGold uppercase tracking-wider mb-3">5. Requests Free Work?</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <label class="relative bg-gray-900 border-2 border-brandGold rounded-lg p-3 cursor-pointer transition block" id="wrapper_free_no">
+                            <input type="radio" name="free_work" value="no" checked class="absolute top-4 right-4 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-white pr-6">No</span>
+                            <span class="text-[10px] text-gray-300 block mt-1">Client pays for trial milestones cleanly.</span>
+                        </label>
+                        <label class="relative bg-gray-900 border border-gray-800 rounded-lg p-3 cursor-pointer hover:border-brandRed transition block">
+                            <input type="radio" name="free_work" value="yes" class="absolute top-4 right-4 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-gray-200 pr-6">Wants unpaid sample / test asset</span>
+                            <span class="text-[10px] text-brandRed block mt-1">Speculative work request layout.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Category 6: Contract Agreement -->
+                <div>
+                    <h3 class="text-xs font-bold text-brandGold uppercase tracking-wider mb-3">6. Contract Agreement</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <label class="relative bg-gray-900 border border-gray-800 rounded-lg p-3 cursor-pointer hover:border-gray-700 transition block">
+                            <input type="radio" name="contract_status" value="signed" class="absolute top-4 right-3 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-gray-200 pr-4">Signed agreement</span>
+                            <span class="text-[10px] text-brandTextMuted block mt-1">Full protection lock.</span>
+                        </label>
+                        <label class="relative bg-gray-900 border-2 border-brandGold rounded-lg p-3 cursor-pointer transition block" id="wrapper_contract_will">
+                            <input type="radio" name="contract_status" value="will_sign" checked class="absolute top-4 right-3 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-white pr-4">Will sign before start</span>
+                            <span class="text-[10px] text-gray-300 block mt-1">Awaiting digital verification.</span>
+                        </label>
+                        <label class="relative bg-gray-900 border border-gray-800 rounded-lg p-3 cursor-pointer hover:border-brandRed transition block">
+                            <input type="radio" name="contract_status" value="avoiding" class="absolute top-4 right-3 accent-brandGold" onchange="evaluateRiskScore()">
+                            <span class="text-xs font-bold block text-gray-200 pr-4">Avoiding contracts entirely</span>
+                            <span class="text-[10px] text-brandRed font-medium block mt-1">Zero legal recourse protection.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-4 border-t border-gray-800">
+                    <button type="button" onclick="evaluateRiskScore()" class="w-full bg-brandGold hover:bg-brandGoldHover text-brandDark text-xs font-bold uppercase tracking-widest py-3.5 rounded-lg transition-all shadow-md flex items-center justify-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                        <span>Analyze Client Risk Profile</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Sticky Risk Analysis Dashboard Monitor Panel Widgets -->
+        <div class="lg:col-span-5 space-y-6">
+            
+            <!-- Circular Trust Score Widget Card Box -->
+            <div class="bg-brandCard border border-gray-800 rounded-xl p-6 flex flex-col items-center justify-center relative">
+                <div class="w-full flex justify-between items-center text-[10px] font-mono text-brandTextMuted uppercase mb-2">
+                    <span>Risk Analysis Dashboard</span>
+                    <span id="txt_threat_status" class="text-brandGold">Client Risk Level: Warning</span>
+                </div>
+                
+                <!-- Circular Indicator Gauge -->
+                <div class="relative w-40 h-40 flex items-center justify-center my-4">
+                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                        <circle class="circle-bg" cx="50" cy="50" r="40" stroke-width="8" />
+                        <circle id="circle_trust" class="circle-prime stroke-brandGold" cx="50" cy="50" r="40" stroke-width="8" stroke-dasharray="251.2" stroke-dashoffset="62.8" />
+                    </svg>
+                    <div class="absolute text-center">
+                        <span id="score_number" class="text-3xl font-black font-mono tracking-tighter text-white">75</span>
+                        <span class="text-gray-400 font-mono text-xs block">/100</span>
+                        <span class="text-[9px] uppercase tracking-widest text-brandTextMuted block mt-0.5 font-semibold">Trust Index</span>
+                    </div>
+                </div>
+
+                <!-- Dynamic Assessment Banner Row -->
+                <div id="banner_status" class="w-full bg-brandGold/10 border border-brandGold/30 text-brandGold font-bold text-center py-2.5 rounded-lg text-xs tracking-wider uppercase">
+                    Proceed Carefully
+                </div>
+            </div>
+
+            <!-- Policy Suggestion Strip Box -->
+            <div class="bg-brandCard border border-gray-800 rounded-xl p-4 border-l-4 border-l-brandGold" id="card_policy">
+                <span class="text-[9px] font-bold text-brandGold uppercase tracking-widest block mb-1">Recommended Action Policy</span>
+                <p id="txt_policy_desc" class="text-xs text-gray-200 leading-relaxed font-medium">
+                    Request a clear deposit structure, clarify total delivery scope limits, and omit unpaid tests.
+                </p>
+            </div>
+
+            <!-- Risk Assessment Breakdown Categories Slices -->
+            <div class="bg-brandCard border border-gray-800 rounded-xl p-5">
+                <span class="text-[10px] font-mono uppercase tracking-widest text-brandTextMuted block mb-4">Risk Assessment Slices</span>
+                <div class="grid grid-cols-2 gap-3 font-mono text-[11px]">
+                    <div class="bg-gray-900/60 border border-gray-800 p-2.5 rounded flex items-center justify-between">
+                        <span class="text-gray-400">Payment Risk</span>
+                        <span id="dot_payment" class="w-2 h-2 rounded-full bg-brandGreen"></span>
+                    </div>
+                    <div class="bg-gray-900/60 border border-gray-800 p-2.5 rounded flex items-center justify-between">
+                        <span class="text-gray-400">Scope Abuse</span>
+                        <span id="dot_scope" class="w-2 h-2 rounded-full bg-brandGreen"></span>
+                    </div>
+                    <div class="bg-gray-900/60 border border-gray-800 p-2.5 rounded flex items-center justify-between">
+                        <span class="text-gray-400">Communication</span>
+                        <span id="dot_comm" class="w-2 h-2 rounded-full bg-brandGold"></span>
+                    </div>
+                    <div class="bg-gray-900/60 border border-gray-800 p-2.5 rounded flex items-center justify-between">
+                        <span class="text-gray-400">Identity Risk</span>
+                        <span id="dot_identity" class="w-2 h-2 rounded-full bg-brandGold"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Client Warning Signs Section -->
+            <div class="bg-brandCard border border-gray-800 rounded-xl p-5" id="card_warning_signs">
+                <div class="flex items-center space-x-1.5 text-brandRed font-bold text-xs uppercase tracking-wider mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    <span>Client Warning Signs (<span id="lbl_flag_count">1</span>)</span>
+                </div>
+                <div id="box_flags_list" class="space-y-2.5 text-xs text-brandTextMuted">
+                    <!-- Dynamic updates inject message structures cleanly inside -->
+                    <div class="bg-brandRed/5 border border-brandRed/20 p-2.5 rounded text-gray-300 leading-relaxed flex items-start space-x-2">
+                        <span class="text-brandRed">✦</span>
+                        <span>Communication parameters are vague, creating structural risks on scope bounds.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Protection Checklist Interactive Card -->
+            <div class="bg-brandCard border border-gray-800 rounded-xl p-5">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-bold uppercase tracking-wider text-gray-200">Client Protection Protocol</span>
+                    <span id="lbl_shield_ratio" class="text-[10px] bg-brandBlue/10 border border-brandBlue/30 text-brandBlue font-mono font-bold px-2 py-0.5 rounded uppercase">
+                        Protection Checklist
+                    </span>
+                </div>
+                <p class="text-[11px] text-brandTextMuted leading-relaxed mb-4">
+                    Activate these safety checklist shields to defend your project work pipeline from potential payment default loops.
+                </p>
+                <div class="space-y-2.5 text-xs">
+                    <label class="flex items-start space-x-3 bg-gray-900/50 border border-gray-800 p-2.5 rounded cursor-pointer hover:border-gray-700 transition">
+                        <input type="checkbox" class="chk-shield accent-brandBlue mt-0.5" onchange="updateShieldsEnforced()">
+                        <div>
+                            <strong class="text-gray-200 block">Collect an upfront project deposit</strong>
+                            <span class="text-[10px] text-brandTextMuted block mt-0.5">Secure 25%-50% clear funding before starting work.</span>
+                        </div>
+                    </label>
+                    <label class="flex items-start space-x-3 bg-gray-900/50 border border-gray-800 p-2.5 rounded cursor-pointer hover:border-gray-700 transition">
+                        <input type="checkbox" class="chk-shield accent-brandBlue mt-0.5" onchange="updateShieldsEnforced()">
+                        <div>
+                            <strong class="text-gray-200 block">Verify company registration / identity profile</strong>
+                            <span class="text-[10px] text-brandTextMuted block mt-0.5">Verify corporate registry domains or professional portfolio networks.</span>
+                        </div>
+                    </label>
+                    <label class="flex items-start space-x-3 bg-gray-900/50 border border-gray-800 p-2.5 rounded cursor-pointer hover:border-gray-700 transition">
+                        <input type="checkbox" class="chk-shield accent-brandBlue mt-0.5" onchange="updateShieldsEnforced()">
+                        <div>
+                            <strong class="text-gray-200 block">Define project scope bounds in writing</strong>
+                            <span class="text-[10px] text-brandTextMuted block mt-0.5">Lock explicit tech milestones to eliminate invisible task crawl loops.</span>
+                        </div>
+                    </label>
+                    <label class="flex items-start space-x-3 bg-gray-900/50 border border-gray-800 p-2.5 rounded cursor-pointer hover:border-gray-700 transition">
+                        <input type="checkbox" class="chk-shield accent-brandBlue mt-0.5" onchange="updateShieldsEnforced()">
+                        <div>
+                            <strong class="text-gray-200 block">Set strict revision limits</strong>
+                            <span class="text-[10px] text-brandTextMuted block mt-0.5">Cap loops to 2 or 3 rounds, then transition to billable hourly rates.</span>
+                        </div>
+                    </label>
+                    <label class="flex items-start space-x-3 bg-gray-900/50 border border-gray-800 p-2.5 rounded cursor-pointer hover:border-gray-700 transition">
+                        <input type="checkbox" class="chk-shield accent-brandBlue mt-0.5" onchange="updateShieldsEnforced()">
+                        <div>
+                            <strong class="text-gray-200 block">Execute a signed service agreement</strong>
+                            <span class="text-[10px] text-brandTextMuted block mt-0.5">An executed digital document confirms ownership rights upon completed invoicing.</span>
+                        </div>
+                    </label>
+                </div>
+                <div class="mt-4 pt-3 border-t border-gray-800 flex justify-between items-center text-[10px] font-mono text-brandTextMuted">
+                    <span>SAFETY_CHECKLIST_COVERAGE:</span>
+                    <span id="lbl_shield_pct" class="font-bold text-gray-300">0% ENFORCED</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Matrix Navigation Link Connections Segment -->
+    <section class="max-w-5xl mx-auto px-4 mb-12">
+        <div class="bg-brandCard/30 border border-gray-800 rounded-xl p-6">
+            <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-4">Related Freelance Financial Tools</h3>
+            <p class="text-brandTextMuted text-xs mb-4">Analyze secondary parameters of contracts, pricing floors, and cash protections instantly.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-brandCard border border-gray-800 p-4 rounded-lg flex flex-col justify-between">
+                    <div>
+                        <span class="w-6 h-6 bg-brandGold/10 rounded flex items-center justify-center mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-brandGold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </span>
+                        <h4 class="text-xs font-bold text-gray-200">Referral Reward Calculator</h4>
+                        <p class="text-[11px] text-brandTextMuted mt-1 leading-relaxed">Calculate residual commission parameters on client handoffs.</p>
+                    </div>
+                    <a href="#" class="text-[11px] text-brandGold font-bold uppercase mt-3 inline-block hover:underline">Run Calculator ➔</a>
+                </div>
+                <div class="bg-brandCard border border-gray-800 p-4 rounded-lg flex flex-col justify-between">
+                    <div>
+                        <span class="w-6 h-6 bg-brandGold/10 rounded flex items-center justify-center mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-brandGold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                        </span>
+                        <h4 class="text-xs font-bold text-gray-200">Client Referral Value Calculator</h4>
+                        <p class="text-[11px] text-brandTextMuted mt-1 leading-relaxed">Quantify long-term relationship values from compound networks.</p>
+                    </div>
+                    <a href="#" class="text-[11px] text-brandGold font-bold uppercase mt-3 inline-block hover:underline">Run Calculator ➔</a>
+                </div>
+                <div class="bg-brandCard border border-gray-800 p-4 rounded-lg flex flex-col justify-between">
+                    <div>
+                        <span class="w-6 h-6 bg-brandGold/10 rounded flex items-center justify-center mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-brandGold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </span>
+                        <h4 class="text-xs font-bold text-gray-200">Scope Creep Loss Calculator</h4>
+                        <p class="text-[11px] text-brandTextMuted mt-1 leading-relaxed">Unveil uncompensated hours leaked during delivery cycles.</p>
+                    </div>
+                    <a href="#" class="text-[11px] text-brandGold font-bold uppercase mt-3 inline-block hover:underline">Run Calculator ➔</a>
+                </div>
+                <div class="bg-brandCard border border-gray-800 p-4 rounded-lg flex flex-col justify-between">
+                    <div>
+                        <span class="w-6 h-6 bg-brandGold/10 rounded flex items-center justify-center mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-brandGold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                        </span>
+                        <h4 class="text-xs font-bold text-gray-200">Freelancer Pricing Calculator</h4>
+                        <p class="text-[11px] text-brandTextMuted mt-1 leading-relaxed">Target clean pricing models relative to real business overhead lines.</p>
+                    </div>
+                    <a href="#" class="text-[11px] text-brandGold font-bold uppercase mt-3 inline-block hover:underline">Run Calculator ➔</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Layout Dropdowns -->
+    <section class="max-w-5xl mx-auto px-4 mb-16">
+        <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <div class="flex items-center space-x-2 text-brandGold font-bold text-xs uppercase tracking-wider mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>Safety Review FAQ</span>
+            </div>
+            <div class="space-y-3">
+                <div class="border border-gray-800 rounded-lg overflow-hidden bg-gray-900/30">
+                    <button class="w-full text-left p-4 text-xs font-semibold flex justify-between items-center hover:bg-gray-800/40 transition" onclick="toggleFaq(this)">
+                        <span>Is this client safety tool completely free?</span>
+                        <span class="text-brandGold font-mono text-sm">+</span>
+                    </button>
+                    <div class="hidden p-4 pt-0 text-xs text-brandTextMuted leading-relaxed border-t border-gray-800/40 bg-brandCard/10">
+                        Yes. Every standalone analyzer built inside the AI Cash Lab operational workspace catalog is a completely client-side browser logic utility provided to independent web builders without tracking walls.
+                    </div>
+                </div>
+                <div class="border border-gray-800 rounded-lg overflow-hidden bg-gray-900/30">
+                    <button class="w-full text-left p-4 text-xs font-semibold flex justify-between items-center hover:bg-gray-800/40 transition" onclick="toggleFaq(this)">
+                        <span>Can a perfectly legitimate client still showcase warning flags?</span>
+                        <span class="text-brandGold font-mono text-sm">+</span>
+                    </button>
+                    <div class="hidden p-4 pt-0 text-xs text-brandTextMuted leading-relaxed border-t border-gray-800/40 bg-brandCard/10">
+                        Absolutely. Some well-meaning founders possess poor communication systems or lack explicit scope experience. Use this interface profile to spot areas where you must guide them to protect both operators' timelines.
+                    </div>
+                </div>
+                <div class="border border-gray-800 rounded-lg overflow-hidden bg-gray-900/30">
+                    <button class="w-full text-left p-4 text-xs font-semibold flex justify-between items-center hover:bg-gray-800/40 transition" onclick="toggleFaq(this)">
+                        <span>Should freelance operators always require upfront commitment deposits?</span>
+                        <span class="text-brandGold font-mono text-sm">+</span>
+                    </button>
+                    <div class="hidden p-4 pt-0 text-xs text-brandTextMuted leading-relaxed border-t border-gray-800/40 bg-brandCard/10">
+                        Requiring a 25%-50% financial deposit before initiating local assets is the ultimate standard for professional modern independent builders. It validates active funding capacity and builds baseline professional mutual commitment.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Freelancer Business OS Footer Conversion CTA Box Section -->
+    <section class="max-w-5xl mx-auto px-4 mb-16">
+        <div class="bg-gradient-to-r from-brandCard via-brandCard to-brandDark border border-brandGold/30 rounded-xl p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div class="max-w-2xl">
+                <span class="text-[10px] tracking-widest text-brandGold font-bold uppercase block mb-1">Recommended Security Protocol</span>
+                <h3 class="text-xl font-bold text-gray-100 tracking-tight">Protect your freelance business with professional systems.</h3>
+                <p class="text-brandTextMuted text-xs md:text-sm mt-2 leading-relaxed">
+                    Deploy secure onboarding channels, iron-clad client service contracts, professional scope boundaries, and optimized invoice workflows seamlessly.
+                </p>
+            </div>
+            <div class="shrink-0">
+                <a href="#" class="bg-brandGold hover:bg-brandGoldHover text-brandDark font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-lg block text-center transition-all">
+                    Explore Freelancer Business OS ➔
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Layer Standard -->
+    <footer class="border-t border-gray-900 bg-brandDark/40 py-8 text-center text-[11px] text-brandTextMuted">
+        <p>© 2026 AI CASH LAB. Tactical utilities for independent creators, developers, and builders.</p>
+    </footer>
+
+    <!-- Interactive Client Risk Engine Code Logic Bundle -->
+    <script>
+        function evaluateRiskScore() {
+            // Fetch current selected inputs parameters
+            const payTerm = document.querySelector('input[name="payment_terms"]:checked')?.value || 'deposit';
+            const commQuality = document.querySelector('input[name="comm_quality"]:checked')?.value || 'vague';
+            const scopeClarity = document.querySelector('input[name="scope_clarity"]:checked')?.value || 'mostly';
+            const identityV = document.querySelector('input[name="identity_v"]:checked')?.value || 'some';
+            const freeWork = document.querySelector('input[name="free_work"]:checked')?.value || 'no';
+            const contractStatus = document.querySelector('input[name="contract_status"]:checked')?.value || 'will_sign';
+
+            // Clean active wrapper highlights dynamically before assigning updates
+            const parentGroups = ['payment_terms', 'comm_quality', 'scope_clarity', 'identity_v', 'free_work', 'contract_status'];
+            parentGroups.forEach(gName => {
+                document.querySelectorAll(`input[name="${gName}"]`).forEach(inp => {
+                    const wrap = inp.closest('label');
+                    if (wrap) {
+                        wrap.className = "relative bg-gray-900 border border-gray-800 rounded-lg p-3 cursor-pointer hover:border-gray-700 transition block";
+                        const textMain = wrap.querySelector('span:first-of-type');
+                        const textSub = wrap.querySelector('span:last-of-type');
+                        if (textMain) textMain.className = "text-xs font-bold block text-gray-200 pr-6";
+                        if (textSub && !textSub.innerText.includes('⚠️') && !textSub.classList.contains('text-brandRed')) {
+                            textSub.className = "text-[10px] text-brandTextMuted block mt-1";
+                        }
+                    }
+                });
+            });
+
+            // Highlight chosen item wrappers natively
+            parentGroups.forEach(gName => {
+                const checkedInp = document.querySelector(`input[name="${gName}"]:checked`);
+                if (checkedInp) {
+                    const wrap = checkedInp.closest('label');
+                    if (wrap) {
+                        wrap.className = "relative bg-gray-900 border-2 border-brandGold rounded-lg p-3 cursor-pointer transition block";
+                        const textMain = wrap.querySelector('span:first-of-type');
+                        const textSub = wrap.querySelector('span:last-of-type');
+                        if (textMain) textMain.className = "text-xs font-bold block text-white pr-6";
+                        if (textSub && !textSub.innerText.includes('⚠️') && !textSub.classList.contains('text-brandRed')) {
+                            textSub.className = "text-[10px] text-gray-300 block mt-1";
+                        }
+                    }
+                }
+            });
+
+            // Establish Scoring Variable Slices foundations
+            let baseTrustScore = 100;
+            let paymentRisk = 'green';
+            let scopeRisk = 'green';
+            let commRisk = 'green';
+            let identityRisk = 'green';
+            let flagsList = [];
+
+            // 1. Payment Terms Deductions Math
+            if (payTerm === 'upfront') baseTrustScore += 0; 
+            else if (payTerm === 'deposit') baseTrustScore -= 5;
+            else if (payTerm === 'milestones') { baseTrustScore -= 15; paymentRisk = 'gold'; }
+            else if (payTerm === 'completion') { 
+                baseTrustScore -= 40; 
+                paymentRisk = 'red';
+                flagsList.push("Payment is delayed until full completion, maximizing leverage gaps.");
+            }
+            else if (payTerm === 'avoids_pay') { 
+                baseTrustScore -= 55; 
+                paymentRisk = 'red';
+                flagsList.push("Client explicitly avoids defining payment milestones or billing structures.");
+            }
+
+            // 2. Communication Quality Deductions Math
+            if (commQuality === 'clear') baseTrustScore += 0;
+            else if (commQuality === 'vague') { baseTrustScore -= 10; commRisk = 'gold'; flagsList.push("Communication parameters are vague, creating structural risks on scope bounds."); }
+            else if (commQuality === 'avoids_q') { baseTrustScore -= 25; commRisk = 'red'; flagsList.push("Client systematically avoids answering specific structural project scope questions."); }
+            else if (commQuality === 'pressure') { baseTrustScore -= 20; commRisk = 'gold'; flagsList.push("Client creates artificial urgency loops, forcing delivery starts before alignment."); }
+            else if (commQuality === 'aggressive') { baseTrustScore -= 35; commRisk = 'red'; flagsList.push("Client leverages high-pressure negotiation language or passive hostility traits."); }
+
+            // 3. Project Scope Clarity Deductions Math
+            if (scopeClarity === 'detailed') baseTrustScore += 0;
+            else if (scopeClarity === 'mostly') baseTrustScore -= 5;
+            else if (scopeClarity === 'broad') { baseTrustScore -= 20; scopeRisk = 'gold'; flagsList.push("Extremely broad scope definition leaves project vulnerable to unbilled changes."); }
+            else if (scopeClarity === 'later') { baseTrustScore -= 35; scopeRisk = 'red'; flagsList.push("Refusal to finalize specific task components opens high risk of structural scope creep."); }
+
+            // 4. Client Identity Validation Deductions Math
+            if (identityV === 'verified') baseTrustScore += 0;
+            else if (identityV === 'some') baseTrustScore -= 5;
+            else if (identityV === 'anonymous') { baseTrustScore -= 20; identityRisk = 'gold'; flagsList.push("Client account presents zero historical track records or digital company footprint."); }
+            else if (identityV === 'refuses') { baseTrustScore -= 35; identityRisk = 'red'; flagsList.push("Client directly refuses to share basic verifiable identity properties."); }
+
+            // 5. Requests Free Work Deductions Math
+            if (freeWork === 'yes') { 
+                baseTrustScore -= 30; 
+                paymentRisk = 'red'; 
+                flagsList.push("Client explicitly expects custom asset samples produced free of charge."); 
+            }
+
+            // 6. Contract Agreement Deductions Math
+            if (contractStatus === 'signed') baseTrustScore += 0;
+            else if (contractStatus === 'will_sign') baseTrustScore -= 5;
+            else if (contractStatus === 'avoiding') { 
+                baseTrustScore -= 45; 
+                scopeRisk = 'red'; 
+                flagsList.push("Client is actively avoiding signing an onboarding service framework agreement."); 
+            }
+
+            // Normalize absolute constraints bounds
+            baseTrustScore = Math.max(5, Math.min(100, baseTrustScore));
+
+            // Trigger Circle SVG Dash Offset Rendering Calculations
+            const circleTarget = document.getElementById('circle_trust');
+            const circumference = 2 * Math.PI * 40; // ~251.2
+            const offsetValue = circumference - (baseTrustScore / 100) * circumference;
+            circleTarget.style.strokeDashoffset = offsetValue;
+
+            // Update UI Interface Numerical Content Elements
+            document.getElementById('score_number').innerText = baseTrustScore;
+
+            // Establish Safety Level Categorization Bounds Text Output Rules
+            const statusLabel = document.getElementById('banner_status');
+            const statusThreatText = document.getElementById('txt_threat_status');
+            const policyText = document.getElementById('txt_policy_desc');
+            const policyCard = document.getElementById('card_policy');
+
+            // Reset dynamic class styles safely
+            statusLabel.className = "w-full text-center py-2.5 rounded-lg text-xs tracking-wider uppercase font-bold ";
+            circleTarget.className.baseVal = "circle-prime ";
+            policyCard.className = "bg-brandCard border border-gray-800 rounded-xl p-4 border-l-4 ";
+
+            if (baseTrustScore >= 85) {
+                statusLabel.innerText = "Secure Engagement Match";
+                statusLabel.classList.add("bg-brandGreen/10", "border", "border-brandGreen/30", "text-brandGreen");
+                statusThreatText.innerText = "Client Risk Level: Minimal Risk";
+                statusThreatText.className = "text-brandGreen";
+                circleTarget.classList.add("stroke-brandGreen");
+                policyText.innerText = "Standard process workflow approved. Maintain basic milestone signatures during asset deliveries.";
+                policyCard.classList.add("border-l-brandGreen");
+            } else if (baseTrustScore >= 55) {
+                statusLabel.innerText = "Proceed Carefully";
+                statusLabel.classList.add("bg-brandGold/10", "border", "border-brandGold/30", "text-brandGold");
+                statusThreatText.innerText = "Client Risk Level: Caution Advisable";
+                statusThreatText.className = "text-brandGold";
+                circleTarget.classList.add("stroke-brandGold");
+                policyText.innerText = "Request a clear deposit structure, clarify total delivery scope limits, and omit unpaid tests.";
+                policyCard.classList.add("border-l-brandGold");
+            } else {
+                statusLabel.innerText = "High Risk Match Detected";
+                statusLabel.classList.add("bg-brandRed/10", "border", "border-brandRed/30", "text-brandRed");
+                statusThreatText.innerText = "Client Risk Level: High Risk Profile";
+                statusThreatText.className = "text-brandRed animate-pulse";
+                circleTarget.classList.add("stroke-brandRed");
+                policyText.innerText = "Critical risk mismatch. Do not perform spec labor tasks without upfront contract validation lines secured.";
+                policyCard.classList.add("border-l-brandRed");
+            }
+
+            // Sync Dot Matrix Colors
+            syncSliceDot('dot_payment', paymentRisk);
+            syncSliceDot('dot_scope', scopeRisk);
+            syncSliceDot('dot_comm', commRisk);
+            syncSliceDot('dot_identity', identityRisk);
+
+            // Rebuild Flag UI Item Modules
+            const flagsCardBlock = document.getElementById('card_warning_signs');
+            const flagsListContainer = document.getElementById('box_flags_list');
+            document.getElementById('lbl_flag_count').innerText = flagsList.length;
+
+            if (flagsList.length === 0) {
+                flagsCardBlock.classList.add('hidden');
+            } else {
+                flagsCardBlock.classList.remove('hidden');
+                flagsListContainer.innerHTML = flagsList.map(msgStr => `
+                    <div class="bg-brandRed/5 border border-brandRed/20 p-2.5 rounded text-gray-300 leading-relaxed flex items-start space-x-2">
+                        <span class="text-brandRed mt-0.5">✦</span>
+                        <span>${msgStr}</span>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function syncSliceDot(elementId, levelColor) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            el.className = "w-2 h-2 rounded-full ";
+            if (levelColor === 'green') el.classList.add('bg-brandGreen');
+            else if (levelColor === 'gold') el.classList.add('bg-brandGold');
+            else el.classList.add('bg-brandRed');
+        }
+
+        function updateShieldsEnforced() {
+            const checkBoxes = document.querySelectorAll('.chk-shield');
+            let checkedCount = 0;
+            checkBoxes.forEach(c => { if (c.checked) checkedCount++; });
+
+            const pctVal = Math.round((checkedCount / checkBoxes.length) * 100);
+            document.getElementById('lbl_shield_pct').innerText = `${pctVal}% ENFORCED`;
+            
+            if (checkedCount === checkBoxes.length) {
+                document.getElementById('lbl_shield_ratio').className = "text-[10px] bg-brandGreen/10 border border-brandGreen/30 text-brandGreen font-mono font-bold px-2 py-0.5 rounded uppercase";
+            } else {
+                document.getElementById('lbl_shield_ratio').className = "text-[10px] bg-brandBlue/10 border border-brandBlue/30 text-brandBlue font-mono font-bold px-2 py-0.5 rounded uppercase";
+            }
+        }
+
+        function toggleFaq(buttonEl) {
+            const bodyPanel = buttonEl.nextElementSibling;
+            const marker = buttonEl.querySelector('span:last-of-type');
+            if (bodyPanel.classList.contains('hidden')) {
+                bodyPanel.classList.remove('hidden');
+                marker.innerText = "−";
+            } else {
+                bodyPanel.classList.add('hidden');
+                marker.innerText = "+";
+            }
+        }
+
+        // Trigger layout calculation routines instantly inside default page startup cycles
+        window.onload = function() {
+            evaluateRiskScore();
+        };
+    </script>
+</body>
+</html>
