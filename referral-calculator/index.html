@@ -42,6 +42,153 @@
             background: #E5A93C;
             cursor: pointer;
         }
+        .print-only {
+            display: none;
+        }
+        html.is-printing,
+        html.is-printing body,
+        body.is-printing {
+            background: #ffffff !important;
+            min-height: 100% !important;
+            overflow: hidden !important;
+        }
+        @media screen {
+            html.is-printing::before {
+                background: #ffffff;
+                content: "";
+                inset: 0;
+                pointer-events: none;
+                position: fixed;
+                z-index: 2147483647;
+            }
+        }
+        body.is-printing main {
+            background: #ffffff !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            position: relative;
+            z-index: 1;
+        }
+        body.is-printing main > div:not(#printReportPlain),
+        body.is-printing > header,
+        body.is-printing > section,
+        body.is-printing > footer {
+            display: none !important;
+        }
+        body.is-printing #printReportPlain {
+            background: #ffffff !important;
+            display: block !important;
+            margin: 0 !important;
+            max-width: none !important;
+            padding: 0 !important;
+            visibility: visible !important;
+            width: 100% !important;
+        }
+        body.is-printing #printReportPlain,
+        body.is-printing #printReportPlain * {
+            color-scheme: light !important;
+            visibility: visible !important;
+        }
+        @media print {
+            @page {
+                size: auto;
+                margin: 0.55in;
+            }
+            html,
+            body {
+                background: #ffffff !important;
+                color: #111827 !important;
+                height: auto !important;
+                min-height: 0 !important;
+                overflow: visible !important;
+            }
+            body * {
+                visibility: hidden !important;
+            }
+            body > header,
+            body > section,
+            body > footer,
+            body > script,
+            main > div:not(#printReportPlain) {
+                display: none !important;
+            }
+            main {
+                display: block !important;
+                max-width: none !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            #printReportPlain,
+            #printReportPlain * {
+                visibility: visible !important;
+            }
+            #printReportPlain {
+                position: static !important;
+                width: 100% !important;
+                max-width: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                display: block !important;
+                background: #ffffff !important;
+                color: #111827 !important;
+            }
+            #printReportPlain section {
+                background: #ffffff !important;
+                border: 1px solid #d8dee8 !important;
+                border-radius: 12px !important;
+                padding: 18px !important;
+                margin: 0 0 14px !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            #printReportPlain h1 {
+                margin: 0 0 4px !important;
+                color: #111827 !important;
+                font-size: 26px !important;
+                line-height: 1.1 !important;
+            }
+            #printReportPlain h2 {
+                margin: 0 0 12px !important;
+                color: #92400e !important;
+                font-size: 13px !important;
+                letter-spacing: .08em !important;
+                text-transform: uppercase !important;
+            }
+            #printReportPlain p,
+            #printReportPlain div,
+            #printReportPlain span,
+            #printReportPlain li {
+                color: #111827 !important;
+                background: transparent !important;
+                background-image: none !important;
+                text-shadow: none !important;
+            }
+            #printReportPlain .print-muted {
+                color: #4b5563 !important;
+            }
+            #printReportPlain .print-metric-grid,
+            #printReportPlain .print-week-grid {
+                display: grid !important;
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                gap: 12px !important;
+            }
+            #printReportPlain .print-metric-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            }
+            #printReportPlain .print-box,
+            #printReportPlain .print-week-card {
+                display: block !important;
+                visibility: visible !important;
+                background: #ffffff !important;
+                border: 1px solid #d8dee8 !important;
+                border-radius: 10px !important;
+                padding: 12px !important;
+                color: #111827 !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
     </style>
 </head>
 <body class="bg-brandDark text-gray-100 font-sans min-h-screen selection:bg-brandGold selection:text-brandDark">
@@ -79,7 +226,7 @@
         <span class="text-xs font-semibold tracking-widest text-brandGold uppercase border border-brandGold/30 px-3 py-1 rounded-full bg-brandGold/5">FREELANCER GROWTH TOOL</span>
         <h1 class="text-3xl md:text-4xl font-extrabold mt-4 tracking-tight">Freelancer Referral Reward Calculator</h1>
         <p class="text-brandTextMuted mt-3 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-            Calculate a fair cash reward, commission, or client credit based on project value, profit margin, referral close rate, and relationship type.
+            Calculate a fair referral bonus, commission, or client credit without sacrificing your profit margin.
         </p>
     </section>
 
@@ -110,7 +257,7 @@
     <main class="max-w-5xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
         
         <!-- Controls Column (Left Side) -->
-        <div class="lg:col-span-5 bg-brandCard border border-gray-800 rounded-xl p-6 flex flex-col justify-between">
+        <div class="lg:col-span-5 bg-brandCard border border-gray-800 rounded-xl p-6 flex flex-col self-start">
             <div class="space-y-6">
                 <div class="flex justify-between items-center border-b border-gray-800 pb-3">
                     <h2 class="font-bold tracking-wide text-sm uppercase text-gray-300">Adjust Parameters</h2>
@@ -176,13 +323,52 @@
                 </div>
             </div>
 
-            <div class="mt-8">
+            <div class="mt-6">
                 <button onclick="calculateAll()" class="w-full bg-brandGold hover:bg-brandGoldHover text-brandDark text-xs font-bold uppercase tracking-wider py-3 px-4 rounded font-semibold transition shadow-lg shadow-brandGold/10">Calculate Reward</button>
+            </div>
+
+            <div class="mt-6 bg-brandDark/35 border border-gray-800 rounded-xl p-5">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-4">Common Freelancer Referral Models</h3>
+                <div class="space-y-3 text-xs">
+                    <div class="bg-brandCard/60 border border-gray-800 rounded-lg p-3">
+                        <div class="flex items-center justify-between gap-3">
+                            <span class="font-semibold text-gray-200">Small Projects ($500-$2k)</span>
+                            <span class="font-mono text-brandGold tracking-widest">■■■□□□□</span>
+                        </div>
+                        <p class="text-brandTextMuted mt-1">5-8% when the project is small and the referral is strong.</p>
+                    </div>
+                    <div class="bg-brandCard/60 border border-gray-800 rounded-lg p-3">
+                        <div class="flex items-center justify-between gap-3">
+                            <span class="font-semibold text-gray-200">Medium Projects ($2k-$10k)</span>
+                            <span class="font-mono text-brandGold tracking-widest">■■■■□</span>
+                        </div>
+                        <p class="text-brandTextMuted mt-1">3-5% for standard client work with healthy margins.</p>
+                    </div>
+                    <div class="bg-brandCard/60 border border-gray-800 rounded-lg p-3">
+                        <div class="flex items-center justify-between gap-3">
+                            <span class="font-semibold text-gray-200">High-Ticket Projects ($10k+)</span>
+                            <span class="font-mono text-brandGold tracking-widest">■■□□□</span>
+                        </div>
+                        <p class="text-brandTextMuted mt-1">1-3% when the deal size is large or delivery risk is higher.</p>
+                    </div>
+                    <div class="bg-brandGold/10 border border-brandGold/25 rounded-lg p-3">
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-gray-400">Best Practice</span>
+                        <p class="text-gray-200 font-semibold mt-1">Reward referrals from profit, not total revenue.</p>
+                    </div>
+                    <div class="border-t border-gray-800 pt-3 space-y-2">
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-gray-400">Before You Offer It</span>
+                        <p class="text-brandTextMuted">Write the payout rule clearly, pay only after the client payment clears, and track who referred each lead.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Output Metric Panels (Right Side) -->
-        <div class="lg:col-span-7 space-y-6">
+        <div id="printRewardPlan" class="lg:col-span-7 flex flex-col gap-6 self-start">
+            <div class="print-only mb-5 border-b border-gray-300 pb-4">
+                <h2 class="text-2xl font-extrabold tracking-tight">Freelancer Referral Reward Plan</h2>
+                <p class="text-sm mt-1">Generated from the referral reward calculator inputs.</p>
+            </div>
             
             <!-- Output Blueprint Box -->
             <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
@@ -225,7 +411,7 @@
                 <div class="space-y-3 text-sm text-gray-300">
                     <p id="strategyMain" class="font-medium text-gray-100">For Business Partner connections, we recommend an balanced structure of $120 or an 4.8% commission payouts to incentivize long-term deal flow cleanly.</p>
                     <div class="p-3 bg-brandDark/40 rounded border border-gray-800 text-xs space-y-2 text-brandTextMuted">
-                        <div>💡 <span class="font-semibold text-gray-300">Why this reward is safe:</span> This layout reserves exactly 88% of your calculated net margin parameters, ensuring your active project operations remain consistently profitable.</div>
+                        <div>💡 <span class="font-semibold text-gray-300">Why this reward is safe:</span> This keeps most of your estimated profit in the project while still giving the referrer a clear reason to send qualified leads.</div>
                         <div>📅 <span class="font-semibold text-gray-300">When to pay the reward:</span> Disburse the reward value exclusively within 14 days following the incoming client invoice settlement clearing your account.</div>
                     </div>
                 </div>
@@ -258,15 +444,15 @@
             <div id="actionPlanCard" class="bg-brandCard border border-gray-800 rounded-xl p-6">
                 <div class="flex justify-between items-center mb-4">
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold">30-Day Referral Implementation Action Plan</h3>
-                    <div class="space-x-2">
+                    <div class="space-x-2 print-actions">
                         <button onclick="copyActionPlan()" class="text-[10px] text-gray-400 hover:text-brandGold border border-gray-700 rounded px-2 py-0.5 transition">Copy Plan</button>
-                        <button onclick="window.print()" class="text-[10px] text-gray-400 hover:text-brandGold border border-gray-700 rounded px-2 py-0.5 transition">Print Plan</button>
+                        <button onclick="printReferralPlan()" class="text-[10px] text-gray-400 hover:text-brandGold border border-gray-700 rounded px-2 py-0.5 transition">Print Plan</button>
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                     <div class="p-3 bg-brandDark/30 rounded border border-gray-800">
                         <span class="font-bold text-brandGold block mb-1">Week 1: Foundations</span>
-                        <p class="text-brandTextMuted">Define referral rules and payout terms based on your calculator metrics. Draft alignment rules parameters.</p>
+                        <p class="text-brandTextMuted">Define referral rules and payout terms based on your calculator results. Write down when and how rewards get paid.</p>
                     </div>
                     <div class="p-3 bg-brandDark/30 rounded border border-gray-800">
                         <span class="font-bold text-brandGold block mb-1">Week 2: Direct Outreach</span>
@@ -283,6 +469,81 @@
                 </div>
             </div>
 
+            <div id="printActionPlanPlain" class="print-only">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-3">30-Day Referral Implementation Action Plan</h3>
+                <div class="print-week-grid">
+                    <div class="print-week-card">
+                        <span class="font-bold block mb-1">Week 1: Foundations</span>
+                        <p>Define referral rules and payout terms based on your calculator results. Write down when and how rewards get paid.</p>
+                    </div>
+                    <div class="print-week-card">
+                        <span class="font-bold block mb-1">Week 2: Direct Outreach</span>
+                        <p>Ask 3 happy clients for introductions. Share your clear referral incentive in simple language.</p>
+                    </div>
+                    <div class="print-week-card">
+                        <span class="font-bold block mb-1">Week 3: Distribution</span>
+                        <p>Create a short referral message template to share with personal and professional contacts.</p>
+                    </div>
+                    <div class="print-week-card">
+                        <span class="font-bold block mb-1">Week 4: Optimization</span>
+                        <p>Track results and improve the reward offer as new referral conversations come in.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="printReportPlain" class="print-only">
+            <section>
+                <h1>Freelancer Referral Reward Plan</h1>
+                <p class="print-muted">Generated from the referral reward calculator inputs.</p>
+            </section>
+            <section>
+                <h2>Your Referral Reward Plan</h2>
+                <div class="print-metric-grid">
+                    <div class="print-box"><span class="print-muted">Project Revenue</span><strong id="printRevenue">$2,500</strong></div>
+                    <div class="print-box"><span class="print-muted">Estimated Profit</span><strong id="printProfit">$1,000</strong></div>
+                    <div class="print-box"><span class="print-muted">Safe Referral Budget</span><strong id="printBudget">$120</strong></div>
+                    <div class="print-box"><span class="print-muted">Recommended Reward</span><strong id="printRecommended">$120</strong></div>
+                    <div class="print-box"><span class="print-muted">Suggested Percentage</span><strong id="printPercentage">4.8%</strong></div>
+                    <div class="print-box"><span class="print-muted">Suggested Client Credit</span><strong id="printCredit">$150</strong></div>
+                </div>
+            </section>
+            <section>
+                <h2>Recommended Reward Strategy</h2>
+                <p id="printStrategy">For Business Partner connections, we recommend a flat cash bonus of $120 so referrals feel worthwhile without putting too much pressure on your project profit.</p>
+                <p class="print-muted" id="printRewardSafety">This keeps most of your estimated profit in the project while still giving the referrer a clear reason to send qualified leads.</p>
+                <p class="print-muted">Pay the reward after the incoming client invoice settlement clears your account.</p>
+            </section>
+            <section>
+                <h2>Alternative Reward Models</h2>
+                <ul id="printAltModels">
+                    <li>Flat cash reward: $120 flat payout structure upon conversion.</li>
+                    <li>Percentage commission: 4.8% gross tracking option.</li>
+                    <li>Client credit: $150 service credit option.</li>
+                    <li>Tiered referral bonus: Step commission up after repeat referrals.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>30-Day Referral Implementation Action Plan</h2>
+                <div class="print-week-grid">
+                    <div class="print-week-card">
+                        <strong>Week 1: Foundations</strong>
+                        <p>Define referral rules and payout terms based on your calculator results. Write down when and how rewards get paid.</p>
+                    </div>
+                    <div class="print-week-card">
+                        <strong>Week 2: Direct Outreach</strong>
+                        <p>Ask 3 happy clients for introductions. Share your clear referral incentive in simple language.</p>
+                    </div>
+                    <div class="print-week-card">
+                        <strong>Week 3: Distribution</strong>
+                        <p>Create a short referral message template to share with personal and professional contacts.</p>
+                    </div>
+                    <div class="print-week-card">
+                        <strong>Week 4: Optimization</strong>
+                        <p>Track results and improve the reward offer as new referral conversations come in.</p>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
 
@@ -293,7 +554,7 @@
             Use this free referral reward calculator to estimate a safe referral bonus, commission, or client credit for freelance projects. It helps freelancers protect profit margins while rewarding people who send qualified client leads. 
         </p>
         <p class="text-brandTextMuted text-sm leading-relaxed mt-3">
-            By analyzing key structural thresholds including relationship trust values, close-rate variances, and operational overhead allocations, you can deploy programmatic incentive alignment options without compromising your base project take-home economics.
+            This calculator helps you choose a referral reward that motivates partners while protecting your profit margin.
         </p>
     </section>
 
@@ -303,27 +564,27 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-4">
                 <h4 class="text-sm font-semibold text-gray-200 mb-1.5">1. Is the Freelancer Referral Reward Calculator free?</h4>
-                <p class="text-xs text-brandTextMuted leading-relaxed">Yes. This utility runs entirely in client-side client browser instances with no gated subscription tiers or payment paywall steps required.</p>
+                <p class="text-xs text-brandTextMuted leading-relaxed">Yes. It is free to use in your browser. No login or paid account is required.</p>
             </div>
             <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-4">
                 <h4 class="text-sm font-semibold text-gray-200 mb-1.5">2. What is a normal referral fee for freelancers?</h4>
-                <p class="text-xs text-brandTextMuted leading-relaxed">A standard referral allocation balances between 8% to 12% of calculated net profit distributions depending extensively on active relational types and baseline volumes.</p>
+                <p class="text-xs text-brandTextMuted leading-relaxed">Many freelancers use a flat bonus or roughly 5% to 10% of project profit, depending on the project size and relationship.</p>
             </div>
             <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-4">
                 <h4 class="text-sm font-semibold text-gray-200 mb-1.5">3. Should I pay a flat reward or percentage commission?</h4>
-                <p class="text-xs text-brandTextMuted leading-relaxed">Flat rewards work beautifully for predictable, bounded scope sizes. Percentage models adjust more efficiently across dynamic or variable-length enterprise agreements.</p>
+                <p class="text-xs text-brandTextMuted leading-relaxed">Use a flat reward for simple projects with clear pricing. Use a percentage when project values vary a lot.</p>
             </div>
             <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-4">
                 <h4 class="text-sm font-semibold text-gray-200 mb-1.5">4. When should I pay a referral reward?</h4>
-                <p class="text-xs text-brandTextMuted leading-relaxed">Never issue outbound funds until incoming cash assets settle. Disburse allocations safely within a 14-day window after verified payment clearing.</p>
+                <p class="text-xs text-brandTextMuted leading-relaxed">Pay after the client has paid you and the payment has cleared. Put the timing in writing before referrals start.</p>
             </div>
             <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-4">
                 <h4 class="text-sm font-semibold text-gray-200 mb-1.5">5. Are my inputs uploaded?</h4>
-                <p class="text-xs text-brandTextMuted leading-relaxed">No. All parameters evaluate instantly on local client memory loops. No tracking script or remote platform synchronization pipelines exist here.</p>
+                <p class="text-xs text-brandTextMuted leading-relaxed">No. Your numbers stay in your browser and are not uploaded or stored.</p>
             </div>
             <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-4">
                 <h4 class="text-sm font-semibold text-gray-200 mb-1.5">6. Does this replace legal or financial advice?</h4>
-                <p class="text-xs text-brandTextMuted leading-relaxed">No. These formulas render estimates based on standard creative workflows. Consult qualified corporate legal counsel to construct definitive agreement parameters.</p>
+                <p class="text-xs text-brandTextMuted leading-relaxed">No. Use it as a planning tool, then confirm payment terms, taxes, and contracts with the right professional if needed.</p>
             </div>
         </div>
     </section>
@@ -332,14 +593,14 @@
     <section class="max-w-5xl mx-auto px-4 mb-16 border-t border-gray-800 pt-12">
         <div class="bg-brandCard/20 border border-gray-800 rounded-xl p-6">
             <span class="text-[10px] uppercase font-bold tracking-widest text-brandGold block mb-4">Related Freelancer Tools</span>
-            <div class="flex flex-wrap gap-2">
-                <a href="/hourly-rate-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Freelancer Hourly Rate Calculator</a>
-                <a href="/scope-creep-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Scope Creep Calculator</a>
-                <a href="/late-fee-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Late Fee Calculator</a>
-                <a href="/proposal-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Proposal Win Probability Calculator</a>
-                <a href="/retainer-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Retainer Pricing Calculator</a>
-                <a href="https://aicashlabofficial.gumroad.com/l/iwyunk?layout=profile" target="_blank" rel="noopener noreferrer" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Simple Lead CRM</a>
-                <a href="https://aicashlabofficial.gumroad.com/l/sjdzd?layout=profile" target="_blank" rel="noopener noreferrer" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-xs text-gray-300 px-3 py-1.5 rounded transition">Proposal Generator</a>
+            <div class="flex flex-wrap gap-3">
+                <a href="/hourly-rate-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-sm font-semibold text-gray-200 px-4 py-2.5 rounded-lg transition shadow-sm">Freelancer Hourly Rate Calculator</a>
+                <a href="/scope-creep-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-sm font-semibold text-gray-200 px-4 py-2.5 rounded-lg transition shadow-sm">Scope Creep Calculator</a>
+                <a href="/late-fee-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-sm font-semibold text-gray-200 px-4 py-2.5 rounded-lg transition shadow-sm">Late Fee Calculator</a>
+                <a href="/proposal-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-sm font-semibold text-gray-200 px-4 py-2.5 rounded-lg transition shadow-sm">Proposal Win Probability Calculator</a>
+                <a href="/retainer-calculator/" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-sm font-semibold text-gray-200 px-4 py-2.5 rounded-lg transition shadow-sm">Retainer Pricing Calculator</a>
+                <a href="https://aicashlabofficial.gumroad.com/l/iwyunk?layout=profile" target="_blank" rel="noopener noreferrer" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-sm font-semibold text-gray-200 px-4 py-2.5 rounded-lg transition shadow-sm">Simple Lead CRM</a>
+                <a href="https://aicashlabofficial.gumroad.com/l/sjdzd?layout=profile" target="_blank" rel="noopener noreferrer" class="bg-brandCard hover:bg-gray-800 border border-gray-700 text-sm font-semibold text-gray-200 px-4 py-2.5 rounded-lg transition shadow-sm">Proposal Generator</a>
             </div>
         </div>
     </section>
@@ -460,6 +721,12 @@
             document.getElementById('outRecommended').innerText = '$' + recommendedReward.toLocaleString();
             document.getElementById('outPercentage').innerText = percentageCommission + '%';
             document.getElementById('outCredit').innerText = '$' + clientCredit.toLocaleString();
+            document.getElementById('printRevenue').innerText = '$' + projectValue.toLocaleString();
+            document.getElementById('printProfit').innerText = '$' + Math.round(estimatedProfit).toLocaleString();
+            document.getElementById('printBudget').innerText = '$' + recommendedReward.toLocaleString();
+            document.getElementById('printRecommended').innerText = '$' + recommendedReward.toLocaleString();
+            document.getElementById('printPercentage').innerText = percentageCommission + '%';
+            document.getElementById('printCredit').innerText = '$' + clientCredit.toLocaleString();
 
             // Strategy Generation text block composition
             let targetModelCopy = "";
@@ -471,7 +738,9 @@
                 targetModelCopy = `a custom invoice credit allocation worth $${clientCredit.toLocaleString()}`;
             }
 
-            document.getElementById('strategyMain').innerText = `For ${relationship} connections, we recommend executing ${targetModelCopy} to incentivize ongoing structural deal flow cleanly without creating cash bottlenecks.`;
+            const strategyText = `For ${relationship} connections, we recommend ${targetModelCopy} so referrals feel worthwhile without putting too much pressure on your project profit.`;
+            document.getElementById('strategyMain').innerText = strategyText;
+            document.getElementById('printStrategy').innerText = strategyText;
 
             // Rewrite Alternative Layout arrays dynamically based on context inputs
             document.getElementById('altModelsList').innerHTML = `
@@ -479,6 +748,12 @@
                 <li>• <span class="text-gray-300">Percentage commission:</span> ${percentageCommission}% gross tracking option distributed dynamically.</li>
                 <li>• <span class="text-gray-300">Client credit:</span> $${clientCredit.toLocaleString()} high-incentive service value exchange tier.</li>
                 <li>• <span class="text-gray-300">Tiered referral bonus:</span> Step commission up +2% on partner's 3rd absolute deal close.</li>
+            `;
+            document.getElementById('printAltModels').innerHTML = `
+                <li>Flat cash reward: $${recommendedReward.toLocaleString()} flat payout after conversion.</li>
+                <li>Percentage commission: ${percentageCommission}% tracking option.</li>
+                <li>Client credit: $${clientCredit.toLocaleString()} service credit option.</li>
+                <li>Tiered referral bonus: Step commission up after repeat referrals.</li>
             `;
         }
 
@@ -515,10 +790,70 @@
             });
         }
 
+        let referralPrintCleanupTimer;
+
+        function enableReferralPrintPreviewShell() {
+            clearTimeout(referralPrintCleanupTimer);
+            document.documentElement.classList.add('is-printing');
+            document.body.classList.add('is-printing');
+        }
+
+        function clearReferralPrintPreviewShell() {
+            document.documentElement.classList.remove('is-printing');
+            document.body.classList.remove('is-printing');
+        }
+
+        function scheduleReferralPrintPreviewCleanup(delay = 600) {
+            clearTimeout(referralPrintCleanupTimer);
+            referralPrintCleanupTimer = setTimeout(clearReferralPrintPreviewShell, delay);
+        }
+
+        function printReferralPlan() {
+            calculateAll();
+            enableReferralPrintPreviewShell();
+            window.setTimeout(() => window.print(), 50);
+            referralPrintCleanupTimer = setTimeout(clearReferralPrintPreviewShell, 600000);
+        }
+
         // Run initial configuration cycle immediately on frame assembly load
         window.onload = function() {
             calculateAll();
         };
+
+        window.addEventListener('beforeprint', () => {
+            enableReferralPrintPreviewShell();
+        });
+
+        window.addEventListener('focus', () => {
+            if (document.body.classList.contains('is-printing')) {
+                scheduleReferralPrintPreviewCleanup();
+            }
+        });
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible' && document.body.classList.contains('is-printing')) {
+                scheduleReferralPrintPreviewCleanup();
+            }
+        });
+
+        window.addEventListener('afterprint', () => {
+            enableReferralPrintPreviewShell();
+        });
+
+        if (window.matchMedia) {
+            const printMedia = window.matchMedia('print');
+            const handlePrintMediaChange = (event) => {
+                if (event.matches) {
+                    enableReferralPrintPreviewShell();
+                }
+            };
+
+            if (printMedia.addEventListener) {
+                printMedia.addEventListener('change', handlePrintMediaChange);
+            } else if (printMedia.addListener) {
+                printMedia.addListener(handlePrintMediaChange);
+            }
+        }
     </script>
 </body>
 </html>
