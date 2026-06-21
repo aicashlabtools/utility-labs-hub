@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T7X8JFME64"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T7X8JFME64');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x6q6t5vv3a");
+</script>
+<!-- CTA click tracking -->
+<script>
+  (function () {
+    var CTA_PRODUCTS = {
+      dszjez: { name: "Freelancer Business OS", eventName: "freelancer_business_os_click" },
+      iwyunk: { name: "Simple Lead CRM", eventName: "simple_lead_crm_click" },
+      sjdzd: { name: "Freelancer Proposal Generator", eventName: "freelancer_proposal_generator_click" },
+      fexjpq: { name: "Freelancer Contract and Policy Toolkit", eventName: "freelancer_contract_policy_toolkit_click" },
+      bfsqt: { name: "Client Onboarding Toolkit", eventName: "client_onboarding_toolkit_click" },
+      ltrbh: { name: "Client Portal and Project Dashboard Toolkit", eventName: "client_portal_project_dashboard_click" },
+      hdfde: { name: "Freelancer Invoice and Payment Reminder Toolkit", eventName: "freelancer_invoice_payment_toolkit_click" },
+      nqqtyr: { name: "Freelancer Pricing and Profit Calculator", eventName: "freelancer_pricing_profit_click" },
+      qshwvb: { name: "Freelancer Scope Creep Calculator", eventName: "freelancer_scope_creep_calculator_click" },
+      xnlfai: { name: "Creator Monetization OS", eventName: "creator_monetization_os_click" },
+      yckpyo: { name: "Creator Content OS", eventName: "creator_content_os_click" },
+      nemfmj: { name: "Creator Launch OS", eventName: "creator_launch_os_click" },
+      zagils: { name: "Creator Analytics OS", eventName: "creator_analytics_os_click" }
+    };
+
+    function getGumroadProductId(url) {
+      var match = url.match(/gumroad\.com\/l\/([^/?#]+)/i);
+      return match ? match[1] : "";
+    }
+
+    function resolveProduct(productId, linkText) {
+      if (productId === "nqqtyr" && /boundary|communication/i.test(linkText)) {
+        return { name: "Freelancer Boundary and Client Communication Toolkit", eventName: "freelancer_boundary_communication_click" };
+      }
+      return CTA_PRODUCTS[productId];
+    }
+
+    function sendClickEvent(eventName, params) {
+      if (typeof window.gtag === "function") window.gtag("event", eventName, params);
+      if (typeof window.clarity === "function") window.clarity("event", eventName);
+    }
+
+    document.addEventListener("click", function (event) {
+      var link = event.target.closest && event.target.closest("a[href]");
+      if (!link) return;
+      var href = link.href || "";
+      if (!/gumroad\.com/i.test(href)) return;
+      var productId = getGumroadProductId(href);
+      var linkText = (link.textContent || "").replace(/\s+/g, " ").trim();
+      var product = resolveProduct(productId, linkText);
+      sendClickEvent(product ? product.eventName : "gumroad_store_click", {
+        event_category: "cta",
+        cta_name: product ? product.name : "Gumroad Store",
+        gumroad_product_id: productId || "storefront",
+        link_url: href,
+        link_text: linkText,
+        page_path: window.location.pathname,
+        page_title: document.title
+      });
+    });
+  })();
+</script>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonial Request Generator | Free Client Review Ask Tool</title>
+    <meta name="description" content="Generate client testimonial request emails, review prompts, follow-up copy, and timing recommendations for freelancers and service providers.">
+    <link rel="canonical" href="https://aicashlabtools.com/testimonial-request-generator/">
+    <meta property="og:title" content="Testimonial Request Generator">
+    <meta property="og:description" content="Create testimonial request emails and review prompts that reduce client friction and turn completed projects into social proof.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aicashlabtools.com/testimonial-request-generator/">
+    <meta property="og:image" content="https://aicashlabtools.com/assets/ai-cash-lab-logo-600.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Testimonial Request Generator">
+    <meta name="twitter:description" content="Generate client review request copy, timing advice, and social proof follow-up prompts.">
+    <meta name="twitter:image" content="https://aicashlabtools.com/assets/ai-cash-lab-logo-600.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Testimonial Request Generator","url":"https://aicashlabtools.com/testimonial-request-generator/","description":"Generate client testimonial request emails, review prompts, follow-up copy, and timing recommendations for freelancers and service providers."},{"@type":"SoftwareApplication","name":"Testimonial Request Generator","applicationCategory":"BusinessApplication","operatingSystem":"Web Browser","url":"https://aicashlabtools.com/testimonial-request-generator/","description":"A free browser-based generator for creating client testimonial request messages and review prompts.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}]}</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0B0F17',
+                        brandCard: '#131926',
+                        brandGold: '#E5A93C',
+                        brandGoldHover: '#CCA130',
+                        brandBlue: '#3B82F6',
+                        brandGreen: '#10B981',
+                        brandTextMuted: '#9CA3AF'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        textarea { resize: vertical; }
+        .choice.is-active { border-color: #3B82F6; background: rgba(59,130,246,.12); color: #fff; }
+        .choice { min-height: 76px; }
+        .output-copy { white-space: pre-wrap; }
+    </style>
+</head>
+<body class="bg-brandDark text-gray-100 font-sans min-h-screen selection:bg-brandGold selection:text-brandDark">
+
+    <header class="w-full border-b border-gray-800 bg-brandDark/90 backdrop-blur-md transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="/" class="flex items-center space-x-3 shrink-0 group" aria-label="AI Cash Lab Tools homepage">
+                <div class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center overflow-hidden shrink-0">
+                    <img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab Logo" class="w-full h-full object-contain transform group-hover:scale-105 transition-transform">
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xs font-bold text-white tracking-wider uppercase">AI Cash Lab</span>
+                    <span class="text-[9px] text-slate-400 font-medium tracking-tight -mt-0.5">Utility Ecosystem</span>
+                </div>
+            </a>
+            <nav class="hidden lg:flex items-center space-x-6 text-xs font-medium text-brandTextMuted">
+                <a href="/" class="hover:text-white transition-colors">Home</a>
+                <a href="/#creator-production" class="hover:text-white transition-colors">Production</a>
+                <a href="/#creator-monetization" class="hover:text-white transition-colors">Monetization</a>
+                <a href="/#product-launch" class="hover:text-white transition-colors">Launch</a>
+                <a href="/freelancer-utilities/" class="hover:text-white transition-colors">Freelancer Utilities</a>
+                <a href="/#premium-workspaces" class="text-amber-500 hover:text-amber-400 transition-colors">Premium</a>
+            </nav>
+            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="text-[11px] font-bold tracking-wide uppercase px-3.5 py-1.5 rounded bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 transition-all">Storefront -&gt;</a>
+        </div>
+    </header>
+
+    <section class="max-w-4xl mx-auto px-4 pt-12 pb-6 text-center">
+        <span class="text-xs font-semibold tracking-widest text-brandGold uppercase border border-brandGold/30 px-3 py-1 rounded-full bg-brandGold/5">CLIENT REVIEW TOOL</span>
+        <h1 class="text-3xl md:text-4xl font-extrabold mt-4 tracking-tight">Testimonial Request Generator</h1>
+        <p class="text-brandTextMuted mt-3 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">Turn completed projects into review requests, LinkedIn recommendation asks, website testimonial prompts, video testimonial requests, and follow-up copy that feels easy for clients to answer.</p>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 mb-3">
+        <div class="bg-brandCard/60 border border-gray-800 rounded-lg p-3 flex flex-wrap gap-2 md:gap-4 items-center justify-center text-xs text-brandTextMuted tracking-wide uppercase">
+            <span class="text-brandGold font-semibold">QUICK START</span>
+            <span class="hidden sm:inline">-&gt;</span><span>1. Add Project Details</span>
+            <span class="hidden sm:inline">-&gt;</span><span>2. Pick Client Context</span>
+            <span class="hidden sm:inline">-&gt;</span><span>3. Choose Review Destination</span>
+            <span class="hidden sm:inline">-&gt;</span><span>4. Copy Request</span>
+        </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 mb-8">
+        <div class="bg-brandGreen/10 border border-brandGreen/30 rounded-lg px-4 py-2.5 flex items-center space-x-2 text-xs text-brandGreen">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            <span class="font-medium">Private by default:</span>
+            <span class="text-gray-300">Your client names, project details, and generated messages stay in your browser.</span>
+        </div>
+    </section>
+
+    <main class="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+        <section class="lg:col-span-5 bg-brandCard border border-gray-800 rounded-xl p-6">
+            <div class="flex items-center justify-between border-b border-gray-800 pb-3 mb-5">
+                <h2 class="font-bold tracking-wide text-sm uppercase text-gray-300">Request Inputs</h2>
+                <button type="button" id="resetBtn" class="text-[11px] font-bold uppercase tracking-wide text-red-300 hover:text-white bg-red-500/10 hover:bg-red-500/20 border border-red-500/45 hover:border-red-400 rounded px-3 py-1.5 transition">Reset Fields</button>
+            </div>
+
+            <div class="flex flex-wrap gap-2 mb-5">
+                <button type="button" data-preset="service" class="preset-btn text-[11px] font-bold uppercase tracking-wide px-3 py-2 rounded bg-slate-900 border border-slate-700 text-slate-300 hover:border-brandGold">Service Project</button>
+                <button type="button" data-preset="creative" class="preset-btn text-[11px] font-bold uppercase tracking-wide px-3 py-2 rounded bg-slate-900 border border-slate-700 text-slate-300 hover:border-brandGold">Creative</button>
+                <button type="button" data-preset="quick" class="preset-btn text-[11px] font-bold uppercase tracking-wide px-3 py-2 rounded bg-slate-900 border border-slate-700 text-slate-300 hover:border-brandGold">Quick Ask</button>
+            </div>
+
+            <div class="space-y-4">
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Client Name</span><input id="clientName" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none" value="Marcus"></label>
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Your Name</span><input id="freelancerName" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none" value="Lucas Sterling"></label>
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Project Type</span><input id="projectType" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none" value="website refresh"></label>
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Key Result</span><input id="keyResult" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none" value="a smoother launch"></label>
+            </div>
+
+            <div class="mt-6 space-y-5">
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-2">Relationship Stage</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" data-choice-group="stage">
+                        <button type="button" data-value="project_completed" class="choice text-left border border-gray-800 rounded-lg p-3 bg-slate-950 text-gray-300"><span class="text-xs font-bold block">Project Completed</span><span class="text-[11px] text-brandTextMuted">Best for fresh delivery wins.</span></button>
+                        <button type="button" data-value="long_term" class="choice text-left border border-gray-800 rounded-lg p-3 bg-slate-950 text-gray-300"><span class="text-xs font-bold block">Long-Term Client</span><span class="text-[11px] text-brandTextMuted">Useful for retained accounts.</span></button>
+                        <button type="button" data-value="repeat_client" class="choice text-left border border-gray-800 rounded-lg p-3 bg-slate-950 text-gray-300"><span class="text-xs font-bold block">Repeat Client</span><span class="text-[11px] text-brandTextMuted">Great when trust is proven.</span></button>
+                        <button type="button" data-value="big_result" class="choice text-left border border-gray-800 rounded-lg p-3 bg-slate-950 text-gray-300"><span class="text-xs font-bold block">Big Result</span><span class="text-[11px] text-brandTextMuted">Use when ROI is visible.</span></button>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-2">Message Style</h3>
+                    <div class="grid grid-cols-2 gap-2" data-choice-group="style">
+                        <button type="button" data-value="friendly" class="choice text-left border border-gray-800 rounded-lg p-3 bg-slate-950 text-gray-300"><span class="text-xs font-bold block">Friendly</span><span class="text-[11px] text-brandTextMuted">Warm and casual.</span></button>
+                        <button type="button" data-value="professional" class="choice text-left border border-gray-800 rounded-lg p-3 bg-slate-950 text-gray-300"><span class="text-xs font-bold block">Professional</span><span class="text-[11px] text-brandTextMuted">Clear and polished.</span></button>
+                        <button type="button" data-value="premium" class="choice text-left border border-gray-800 rounded-lg p-3 bg-slate-950 text-gray-300"><span class="text-xs font-bold block">Polished</span><span class="text-[11px] text-brandTextMuted">Warm, careful tone.</span></button>
+                        <button type="button" data-value="short_direct" class="choice text-left border border-gray-800 rounded-lg p-3 bg-slate-950 text-gray-300"><span class="text-xs font-bold block">Short Direct</span><span class="text-[11px] text-brandTextMuted">Fast follow-up.</span></button>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-2">Review Destination</h3>
+                    <select id="destination" class="w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none">
+                        <option value="google">Google Review</option>
+                        <option value="linkedin">LinkedIn Recommendation</option>
+                        <option value="website">Website Testimonial</option>
+                        <option value="email">Email Reply</option>
+                        <option value="video">Video Testimonial</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Client Enthusiasm</span><select id="enthusiasm" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none"><option value="happy">Happy</option><option value="very_happy">Very Happy</option><option value="raving_fan">Raving Fan</option></select></label>
+                    <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Extra Objective</span><select id="objective" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none"><option value="testimonial_only">Testimonial Only</option><option value="ask_referral">Ask Referral</option><option value="case_study">Case Study</option><option value="logo_permission">Logo Permission</option></select></label>
+                </div>
+
+                <button type="button" id="generateBtn" class="w-full bg-brandGold hover:bg-brandGoldHover text-brandDark text-xs font-black uppercase tracking-wider py-3 rounded-lg transition shadow-lg shadow-brandGold/10">Generate Testimonial Request</button>
+            </div>
+        </section>
+
+        <section class="lg:col-span-7 space-y-6">
+            <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                    <div>
+                        <h2 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-1">Review Success Score</h2>
+                        <div><span id="score" class="text-5xl font-black text-white font-mono">87</span><span class="text-sm text-brandTextMuted font-bold"> / 100</span></div>
+                        <p id="scoreStatus" class="text-sm font-bold text-brandGreen mt-1">Very High</p>
+                    </div>
+                    <div class="bg-slate-950 border border-gray-800 rounded-lg p-4 sm:w-64">
+                        <span class="text-[10px] uppercase tracking-widest text-brandBlue font-bold">Best Timing</span>
+                        <p id="timing" class="text-xs text-gray-300 leading-relaxed mt-2"></p>
+                    </div>
+                </div>
+                <div id="factors" class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-5 text-[12px] text-brandTextMuted"></div>
+            </div>
+
+            <div id="primary-campaign-container" class="bg-white text-slate-900 rounded-xl border border-gray-200 shadow-2xl overflow-hidden">
+                <div class="bg-slate-100 border-b border-slate-200 px-5 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-slate-500">Primary Template</span>
+                        <h3 id="subjectLine" class="text-lg font-black text-slate-950 leading-tight"></h3>
+                    </div>
+                    <button type="button" data-copy="primaryMessage" class="copy-btn bg-brandGold hover:bg-brandGoldHover text-brandDark text-xs font-bold uppercase tracking-wider px-4 py-2 rounded">Copy Email</button>
+                </div>
+                <div id="primaryMessage" class="output-copy p-5 text-sm leading-relaxed"></div>
+            </div>
+
+            <div class="bg-brandCard border border-gray-800 rounded-xl p-5">
+                <div class="flex items-center justify-between gap-3 mb-4">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold">Faster Alternatives</h3>
+                    <div class="flex gap-2">
+                        <button type="button" data-alt="0" class="alt-tab text-[11px] font-bold px-3 py-1.5 rounded border border-brandBlue bg-brandBlue/10 text-white">Chat</button>
+                        <button type="button" data-alt="1" class="alt-tab text-[11px] font-bold px-3 py-1.5 rounded border border-gray-700 bg-slate-950 text-brandTextMuted">One Question</button>
+                    </div>
+                </div>
+                <div class="bg-slate-950 border border-gray-800 rounded-lg p-4">
+                    <div class="flex items-start justify-between gap-3 mb-3">
+                        <h4 id="altTitle" class="text-sm font-bold text-white"></h4>
+                        <button type="button" data-copy="altMessage" class="copy-btn shrink-0 text-[11px] font-bold uppercase tracking-wide px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-white">Copy</button>
+                    </div>
+                    <div id="altMessage" class="output-copy text-xs leading-relaxed text-gray-300"></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-brandCard border border-gray-800 rounded-xl p-5">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-3">Campaign Checklist</h3>
+                    <ul id="checklist" class="space-y-2 text-xs text-gray-300 leading-relaxed"></ul>
+                </div>
+                <div class="bg-brandCard border border-gray-800 rounded-xl p-5">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-3">Response Rate Tips</h3>
+                    <ul id="tips" class="space-y-2 text-xs text-gray-300 leading-relaxed"></ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="max-w-5xl mx-auto px-4 mb-10">
+        <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <h2 class="text-xl font-bold text-gray-200 tracking-tight mb-4">Free Testimonial Request Generator</h2>
+            <p class="text-brandTextMuted text-sm leading-relaxed">Use this free testimonial request generator to create client review asks after successful freelance projects, consulting engagements, creative work, retainers, launches, and delivery milestones. The tool builds a subject line, primary email, quick chat alternative, one-question request, timing recommendation, and checklist so the client has less blank-page friction.</p>
+            <a href="/articles/how-to-ask-clients-for-testimonials/" class="inline-flex mt-4 text-sm font-bold text-brandGold hover:text-amber-300 transition">Read the testimonial request guide -&gt;</a>
+        </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 mb-16" aria-labelledby="testimonial-roadmap">
+        <div class="bg-brandCard border border-gray-800 rounded-xl p-6 md:p-7">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+                <div>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-brandGold block mb-2">30-Day Testimonial Roadmap</span>
+                    <h2 id="testimonial-roadmap" class="text-xl font-bold text-gray-100 tracking-tight">Build a simple monthly habit around client proof.</h2>
+                    <p class="text-sm text-brandTextMuted leading-relaxed mt-2 max-w-2xl">Use the generator for the message, then follow this lightweight roadmap to collect, publish, and reuse testimonials without making the client do extra work.</p>
+                </div>
+                <span class="text-[11px] uppercase tracking-widest text-brandGreen bg-brandGreen/10 border border-brandGreen/25 rounded-full px-3 py-1">No signup needed</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+                <article class="bg-brandDark border border-gray-800 rounded-lg p-4">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-brandBlue">Week 1</span>
+                    <h3 class="text-sm font-bold text-white mt-2">Pick the right clients</h3>
+                    <p class="text-xs text-brandTextMuted leading-relaxed mt-2">List recent clients who gave positive feedback, renewed, approved work quickly, or got a clear win from the project.</p>
+                </article>
+                <article class="bg-brandDark border border-gray-800 rounded-lg p-4">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-brandBlue">Week 2</span>
+                    <h3 class="text-sm font-bold text-white mt-2">Send three asks</h3>
+                    <p class="text-xs text-brandTextMuted leading-relaxed mt-2">Use the email or chat channel, include the exact review link, and give them a short draft they can edit.</p>
+                </article>
+                <article class="bg-brandDark border border-gray-800 rounded-lg p-4">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-brandBlue">Week 3</span>
+                    <h3 class="text-sm font-bold text-white mt-2">Publish with permission</h3>
+                    <p class="text-xs text-brandTextMuted leading-relaxed mt-2">Confirm name, company, logo, and wording before adding the testimonial to your site, proposal, or profile.</p>
+                </article>
+                <article class="bg-brandDark border border-gray-800 rounded-lg p-4">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-brandBlue">Week 4</span>
+                    <h3 class="text-sm font-bold text-white mt-2">Reuse the proof</h3>
+                    <p class="text-xs text-brandTextMuted leading-relaxed mt-2">Add the best lines to proposals, service pages, follow-up emails, and referral conversations where they support trust.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 mb-16">
+        <div class="bg-brandCard border border-gray-800 rounded-xl p-6 md:p-7">
+            <div class="grid grid-cols-1 lg:grid-cols-[0.9fr_1.4fr] gap-5 lg:items-center">
+                <div>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-brandGold block mb-2">Related Freelancer Tools</span>
+                    <h2 class="text-xl font-bold text-gray-100 tracking-tight mb-2">Build the rest of the client proof workflow.</h2>
+                    <p class="text-sm text-brandTextMuted leading-relaxed">Use these tools to improve proposals, track referral upside, protect scope, and turn client relationships into repeat revenue.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <a href="/proposal-calculator/" class="bg-brandDark hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Proposal Win Calculator</a>
+                    <a href="/client-referral-value-calculator/" class="bg-brandDark hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Client Referral Value Calculator</a>
+                    <a href="/referral-calculator/" class="bg-brandDark hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Referral Reward Calculator</a>
+                    <a href="/statement-of-work-generator/" class="bg-brandDark hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Statement of Work Generator</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 mb-16" aria-label="Frequently Asked Questions">
+        <h2 class="text-2xl font-black text-white tracking-tight mb-5">Frequently Asked Questions</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <article class="bg-brandCard border border-gray-800 rounded-xl p-5"><h3 class="text-sm font-bold text-gray-100 mb-2">When should I ask for a testimonial?</h3><p class="text-sm text-brandTextMuted leading-relaxed">Ask within 24 to 48 hours of a positive delivery moment, approval message, measurable win, or repeat booking. The result is still fresh and easier for the client to describe.</p></article>
+            <article class="bg-brandCard border border-gray-800 rounded-xl p-5"><h3 class="text-sm font-bold text-gray-100 mb-2">Should I provide a draft?</h3><p class="text-sm text-brandTextMuted leading-relaxed">Yes. A short editable draft reduces writer's block. Make sure the client can change it freely so the final testimonial still sounds like them.</p></article>
+            <article class="bg-brandCard border border-gray-800 rounded-xl p-5"><h3 class="text-sm font-bold text-gray-100 mb-2">Can I ask for a referral too?</h3><p class="text-sm text-brandTextMuted leading-relaxed">You can, but a single ask usually converts better. Use the referral objective only when the client is enthusiastic or already mentions people who need similar help.</p></article>
+            <article class="bg-brandCard border border-gray-800 rounded-xl p-5"><h3 class="text-sm font-bold text-gray-100 mb-2">Can I use their logo with the testimonial?</h3><p class="text-sm text-brandTextMuted leading-relaxed">Get explicit written permission before publishing a client logo, name, headshot, or company details on your website or portfolio.</p></article>
+        </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 mb-16">
+        <div class="bg-gradient-to-r from-brandCard via-brandCard to-brandDark border border-brandGold/30 rounded-xl p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div class="max-w-2xl">
+                <span class="text-[10px] tracking-widest text-brandGold font-bold uppercase block mb-1">SYSTEM OPERATIONAL UPGRADE</span>
+                <h3 class="text-xl font-bold text-gray-100 tracking-tight">Turn client wins into a repeatable proof engine.</h3>
+                <p class="text-brandTextMuted text-xs md:text-sm mt-2 leading-relaxed">Use Freelancer Business OS to manage proposals, client follow-ups, testimonial asks, referral workflows, invoices, and repeat revenue systems in one workspace.</p>
+            </div>
+            <a href="https://aicashlabofficial.gumroad.com/l/dszjez?layout=profile" target="_blank" rel="noopener noreferrer" class="bg-brandGold hover:bg-brandGoldHover text-brandDark font-bold text-xs uppercase tracking-wider py-3 px-6 rounded block text-center transition">Explore Freelancer Business OS -&gt;</a>
+        </div>
+    </section>
+
+    <footer class="w-full bg-[#111827] border-t border-gray-800 py-10 mt-12 text-[11px] text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+            <div class="md:col-span-4 space-y-3">
+                <div class="flex items-center space-x-3"><div class="w-6 h-6 rounded bg-slate-950 border border-slate-800 flex items-center justify-center overflow-hidden shrink-0"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab Footer Logo" class="w-full h-full object-contain"></div><span class="text-xs font-bold text-white uppercase tracking-wider">AI Cash Lab Tools</span></div>
+                <p class="text-[11px] text-slate-400 max-w-sm leading-relaxed">Simple business tools for freelancers, creators, and digital service providers.</p>
+            </div>
+            <div class="md:col-span-3 space-y-2.5 text-[11px]">
+                <span class="font-bold text-amber-500 uppercase tracking-wider block">Newest Tools</span>
+                <ul class="space-y-1.5 text-slate-400 font-medium">
+                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-amber-500"></span><a href="/testimonial-request-generator/" class="hover:text-slate-300 transition-colors">Testimonial Request Generator</a></li>
+                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-amber-500"></span><a href="/client-referral-value-calculator/" class="hover:text-slate-300 transition-colors">Client Referral Value Calculator</a></li>
+                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-amber-500"></span><a href="/teleprompter/" class="hover:text-slate-300 transition-colors">Teleprompter</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-5 grid grid-cols-2 gap-6 text-[11px]">
+                <div class="space-y-2.5"><span class="font-bold text-slate-100 uppercase tracking-wider block">Production Hub</span><div class="flex flex-col space-y-1.5 text-slate-400"><a href="/creator-utilities/" class="hover:text-slate-300 transition-colors">Creator Utilities</a><a href="/freelancer-utilities/" class="hover:text-slate-300 transition-colors">Freelancer Utilities</a></div></div>
+                <div class="space-y-2.5"><span class="font-bold text-slate-100 uppercase tracking-wider block">Premium Tools</span><div class="flex flex-col space-y-1.5"><a href="/#premium-workspaces" class="text-amber-400 hover:text-amber-300 transition-colors">Premium Workspaces</a><a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 transition-colors">Storefront Hub -&gt;</a></div></div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 mt-8 border-t border-slate-900/80 text-center text-[10px] text-slate-500">&copy; 2026 AI Cash Lab. All Rights Reserved.</div>
+    </footer>
+
+    <script>
+        const state = {
+            clientName: 'Marcus',
+            freelancerName: 'Lucas Sterling',
+            projectType: 'website refresh',
+            keyResult: 'a smoother launch',
+            stage: 'project_completed',
+            style: 'professional',
+            destination: 'google',
+            enthusiasm: 'very_happy',
+            objective: 'testimonial_only'
+        };
+        let activeAlt = 0;
+
+        const presets = {
+            service: { clientName: 'Maya Chen', freelancerName: 'Sarah Jenkins', projectType: 'client onboarding page', keyResult: 'a clearer first impression for new leads', stage: 'long_term', style: 'premium', destination: 'linkedin', enthusiasm: 'raving_fan', objective: 'case_study' },
+            creative: { clientName: 'Julian Blackwood', freelancerName: 'Studio Volt', projectType: 'campaign creative package', keyResult: 'a launch the team felt confident sharing', stage: 'repeat_client', style: 'friendly', destination: 'google', enthusiasm: 'raving_fan', objective: 'ask_referral' },
+            quick: { clientName: 'Dave Miller', freelancerName: 'Ken Cooper', projectType: 'workflow automation setup', keyResult: 'less manual admin each week', stage: 'project_completed', style: 'short_direct', destination: 'email', enthusiasm: 'happy', objective: 'testimonial_only' }
+        };
+
+        function value(id) { return document.getElementById(id).value.trim(); }
+        function safe(text, fallback) { return text && text.length ? text : fallback; }
+
+        function getDestinationData(destination) {
+            const map = {
+                google: ['using our Google Business profile. It takes less than 30 seconds', '[Insert Google review link here]'],
+                linkedin: ['via LinkedIn recommendations. I can send a direct invite', '[Insert LinkedIn recommendation link here]'],
+                website: ['to display on my portfolio page alongside your logo', '[Insert feedback form or email reply path]'],
+                email: ['by replying to this email with two sentences', '[No link needed - client can reply directly]'],
+                video: ['using a quick 60-second video. I set up a simple Loom or Senja link', '[Insert Loom or Senja testimonial link here]']
+            };
+            return map[destination] || map.email;
+        }
+
+        function generateOutput() {
+            const client = safe(state.clientName, 'Client');
+            const freelancer = safe(state.freelancerName, 'Your Name');
+            const project = safe(state.projectType, 'the recent project');
+            const result = safe(state.keyResult, 'the successful launch');
+            let score = 65;
+            const factors = [];
+
+            const stageScores = {
+                project_completed: [12, 'Fresh delivery makes the request easier to answer.'],
+                long_term: [18, 'Long-term collaboration creates stronger advocacy.'],
+                repeat_client: [15, 'Repeat clients already have a proven trust record.'],
+                big_result: [20, 'Visible results give the client a specific story to tell.'],
+                past_client: [5, 'Past clients may need light re-engagement first.']
+            };
+            score += stageScores[state.stage][0];
+            factors.push(stageScores[state.stage][1]);
+
+            if (state.enthusiasm === 'raving_fan') { score += 15; factors.push('Client enthusiasm is high enough for a confident ask.'); }
+            else if (state.enthusiasm === 'very_happy') { score += 10; factors.push('Client satisfaction is strong and recent.'); }
+            else { score += 2; factors.push('Positive relationship is present, but keep the ask simple.'); }
+
+            if (state.destination === 'video') { score -= 15; factors.push('Video testimonials have higher effort, so offer a short script.'); }
+            else if (state.destination === 'google' || state.destination === 'linkedin') { score -= 5; factors.push('External platforms add sign-in friction.'); }
+            else { score += 5; factors.push('Direct email or website copy keeps effort low.'); }
+
+            if (state.objective === 'ask_referral') { score -= 8; factors.push('Combining a referral ask with a testimonial can dilute focus.'); }
+            else if (state.objective === 'case_study') { score -= 3; factors.push('Case study permission adds a little approval friction.'); }
+            score = Math.max(30, Math.min(98, score));
+
+            let status = 'High';
+            if (score >= 90) status = 'Excellent';
+            else if (score >= 80) status = 'Very High';
+            else if (score < 65) status = 'Moderate';
+
+            const timing = {
+                project_completed: `Send within 24 to 48 hours after handing over ${project}, while the win is fresh.`,
+                long_term: 'Send during a stable weekly rhythm, ideally Tuesday or Thursday morning.',
+                repeat_client: 'Send right after they renew, approve another project, or share positive feedback.',
+                big_result: `Send when you share the project recap showing ${result}.`,
+                past_client: `Warm them back up first with a short check-in about how ${project} is performing.`
+            }[state.stage];
+
+            const [destInstruction, destLink] = getDestinationData(state.destination);
+            const objective = {
+                ask_referral: "Also, if you know another founder or team who could benefit from this kind of work, I would be grateful for a warm introduction.",
+                case_study: `If you are open to it, I would also love to write a brief case study highlighting the ${result} we achieved together.`,
+                logo_permission: "Would it also be okay if I included your company logo alongside the testimonial on my website?",
+                testimonial_only: "No pressure at all, but this helps an independent service business like mine immensely."
+            }[state.objective];
+
+            const subject = {
+                friendly: `Quick favor after ${project}`,
+                professional: `Feedback request to support ${freelancer} / ${project}`,
+                premium: `Could I ask for a short review?`,
+                short_direct: `Review: ${project}`
+            }[state.style];
+
+            let primary = '';
+            if (state.style === 'friendly') {
+                primary = `Hey ${client},
+
+I hope your week is going well.
+
+I have been reflecting on how much I enjoyed working on ${project} with you. Seeing us achieve ${result} was a real highlight.
+
+Would you be open to writing a quick, honest testimonial about your experience?
+
+You can share it ${destInstruction}:
+${destLink}
+
+To make it easy, here is a draft you can adapt:
+"I worked with ${freelancer} on ${project}. They helped us achieve ${result} with clear communication, strong execution, and a smooth process. Highly recommended."
+
+${objective}
+
+Thank you again for trusting me with the work.
+
+Best,
+${freelancer}`;
+            } else if (state.style === 'premium') {
+                primary = `Hello ${client},
+
+Thanks again for the care you brought to the project.
+
+Our recent work on ${project} led to ${result}. I am proud of what we were able to create together.
+
+I am collecting a few client notes for my site and profile. Would you be open to sharing a brief review of your experience?
+
+Could you leave your perspective ${destInstruction}?
+${destLink}
+
+Here is a starting point you can edit:
+"${freelancer} brought care, clarity, and follow-through to ${project}. Their work helped us reach ${result}, and the collaboration was smooth from start to finish."
+
+${objective}
+
+Warmest regards,
+${freelancer}`;
+            } else if (state.style === 'short_direct') {
+                primary = `Hi ${client},
+
+Thanks again for your partnership on ${project}. We got a strong result with ${result}.
+
+Would you mind spending 30 seconds to leave a quick testimonial?
+
+You can post it ${destInstruction} here:
+${destLink}
+
+Example text to copy and edit:
+"${freelancer} delivered exactly what we needed for ${project}, leading directly to ${result}. Prompt, professional, and easy to work with."
+
+${objective}
+
+Appreciate your support.
+
+Best,
+${freelancer}`;
+            } else {
+                primary = `Dear ${client},
+
+I hope you are doing well.
+
+Now that we have successfully delivered ${project}, I wanted to say how much I appreciated the collaboration.
+
+In particular, seeing ${result} was a meaningful moment, and I am proud of what we accomplished together.
+
+To help future clients understand the value of this work, would you mind leaving a brief testimonial ${destInstruction}?
+
+You can use this direct link:
+${destLink}
+
+If you are short on time, here is a draft you are welcome to modify:
+"Working with ${freelancer} on ${project} was an excellent experience. They delivered high-quality work that contributed directly to ${result}. Their communication and expertise are highly recommended."
+
+${objective}
+
+Thank you for your time and support.
+
+Sincerely,
+${freelancer}`;
+            }
+
+            const alternatives = [
+                {
+                    title: 'Chat Message Style',
+                    message: `Hi ${client}, thanks again for the ${project} sign-off. We got a great result with ${result}. When you have 30 seconds, could you leave a quick testimonial here? ${destLink} It helps me a ton. Thank you - ${freelancer}`
+                },
+                {
+                    title: 'One-Question Request',
+                    message: `Subject: Quick 1-question favor for ${client}
+
+Hi ${client},
+
+Could you reply with a one-sentence answer to this?
+
+"What was the single best thing about working with ${freelancer} on ${project}?"
+
+I can format it as a testimonial with your permission, or you can post it directly here: ${destLink}
+
+Thank you,
+${freelancer}`
+                }
+            ];
+
+            return {
+                score,
+                status,
+                timing,
+                subject,
+                primary,
+                alternatives,
+                factors,
+                checklist: [
+                    'Send on a day when they are less likely to be buried in meetings.',
+                    'Include a short editable draft so the client is not starting from a blank page.',
+                    'Mention the specific result: ' + result + '.',
+                    'Provide the exact destination link.',
+                    'Follow up once after 5 to 7 days if they agreed but did not complete it.'
+                ],
+                tips: [
+                    'Keep the first message focused on one action.',
+                    'If they praise you live, ask permission to turn that sentence into a testimonial.',
+                    'For video requests, ask for 45 to 60 seconds maximum.',
+                    'Place strong testimonials near proposal CTAs, pricing blocks, and service pages.'
+                ]
+            };
+        }
+
+        function syncStateFromInputs() {
+            ['clientName', 'freelancerName', 'projectType', 'keyResult', 'destination', 'enthusiasm', 'objective'].forEach(id => state[id] = value(id));
+        }
+
+        function setChoice(group, selected) {
+            state[group] = selected;
+            document.querySelectorAll(`[data-choice-group="${group}"] .choice`).forEach(btn => {
+                btn.classList.toggle('is-active', btn.dataset.value === selected);
+            });
+            render();
+        }
+
+        function render() {
+            syncStateFromInputs();
+            const output = generateOutput();
+            document.getElementById('score').textContent = output.score;
+            document.getElementById('scoreStatus').textContent = output.status + ' request fit';
+            document.getElementById('timing').textContent = output.timing;
+            document.getElementById('subjectLine').textContent = output.subject;
+            document.getElementById('primaryMessage').textContent = output.primary;
+            document.getElementById('altTitle').textContent = output.alternatives[activeAlt].title;
+            document.getElementById('altMessage').textContent = output.alternatives[activeAlt].message;
+            document.getElementById('factors').innerHTML = output.factors.map(f => `<div class="bg-slate-950 border border-gray-800 rounded-lg p-3"><span class="text-brandGold font-bold">OK</span> ${f}</div>`).join('');
+            document.getElementById('checklist').innerHTML = output.checklist.map(item => `<li class="flex gap-2"><span class="text-brandGreen font-bold">OK</span><span>${item}</span></li>`).join('');
+            document.getElementById('tips').innerHTML = output.tips.map(item => `<li class="flex gap-2"><span class="text-brandBlue font-bold">-</span><span>${item}</span></li>`).join('');
+        }
+
+        function applyPreset(name) {
+            Object.assign(state, presets[name]);
+            ['clientName', 'freelancerName', 'projectType', 'keyResult', 'destination', 'enthusiasm', 'objective'].forEach(id => document.getElementById(id).value = state[id]);
+            setChoice('stage', state.stage);
+            setChoice('style', state.style);
+        }
+
+        document.querySelectorAll('input, select').forEach(el => el.addEventListener('input', render));
+        document.querySelectorAll('[data-choice-group] .choice').forEach(btn => btn.addEventListener('click', () => setChoice(btn.closest('[data-choice-group]').dataset.choiceGroup, btn.dataset.value)));
+        document.querySelectorAll('.preset-btn').forEach(btn => btn.addEventListener('click', () => applyPreset(btn.dataset.preset)));
+        document.querySelectorAll('.alt-tab').forEach(btn => btn.addEventListener('click', () => {
+            activeAlt = Number(btn.dataset.alt);
+            document.querySelectorAll('.alt-tab').forEach(tab => {
+                const isActive = Number(tab.dataset.alt) === activeAlt;
+                tab.className = isActive ? 'alt-tab text-[11px] font-bold px-3 py-1.5 rounded border border-brandBlue bg-brandBlue/10 text-white' : 'alt-tab text-[11px] font-bold px-3 py-1.5 rounded border border-gray-700 bg-slate-950 text-brandTextMuted';
+            });
+            render();
+        }));
+        async function copyText(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                try {
+                    await navigator.clipboard.writeText(text);
+                    return true;
+                } catch (error) {
+                    // Fall through to the hidden textarea method for stricter browser contexts.
+                }
+            }
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.setAttribute('readonly', '');
+            textarea.style.position = 'fixed';
+            textarea.style.left = '-9999px';
+            document.body.appendChild(textarea);
+            textarea.select();
+            const copied = document.execCommand('copy');
+            document.body.removeChild(textarea);
+            return copied;
+        }
+
+        document.querySelectorAll('.copy-btn').forEach(btn => btn.addEventListener('click', async () => {
+            const target = document.getElementById(btn.dataset.copy);
+            await copyText(target.textContent);
+            const original = btn.textContent;
+            btn.textContent = 'Copied';
+            setTimeout(() => btn.textContent = original, 1400);
+        }));
+        document.getElementById('generateBtn').addEventListener('click', () => {
+            render();
+            document.getElementById('primary-campaign-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        document.getElementById('resetBtn').addEventListener('click', () => applyPreset('quick'));
+
+        setChoice('stage', state.stage);
+        setChoice('style', state.style);
+        render();
+    </script>
+</body>
+</html>
