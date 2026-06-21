@@ -326,15 +326,15 @@ body > .max-w-7xl:last-of-type {
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   color: #64748b;
   margin: 0 !important;
-  padding: 40px 0;
+  padding: 40px 0 22px;
   text-align: left !important;
   width: 100%;
 }
 .acl-footer-inner {
   align-items: start;
   display: grid;
-  gap: 28px;
-  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 32px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   margin: 0 auto;
   max-width: 1280px;
   padding: 0 clamp(16px, 4vw, 32px);
@@ -343,25 +343,96 @@ body > .max-w-7xl:last-of-type {
 .acl-footer-brand {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 14px;
+  grid-column: span 4;
 }
-.acl-footer-brand strong {
-  color: #fff;
+.acl-footer-brand-main {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+.acl-footer-logo {
+  align-items: center;
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  display: inline-flex;
+  height: 26px;
+  justify-content: center;
+  overflow: hidden;
+  width: 26px;
+}
+.acl-footer-logo img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+.acl-footer-brand strong,
+.acl-footer-heading {
+  color: #f8fafc;
+  display: block;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .08em;
+  line-height: 1.2;
   text-transform: uppercase;
 }
-.acl-footer-brand span {
+.acl-footer-brand span:not(.acl-footer-logo) {
   color: #64748b;
   font-size: 11px;
-  max-width: 360px;
+  line-height: 1.7;
+  max-width: 420px;
 }
-.acl-footer-links {
+.acl-footer-column {
   display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  justify-content: flex-end;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+.acl-footer-newest { grid-column: span 3; }
+.acl-footer-production { grid-column: span 2; }
+.acl-footer-commercial { grid-column: span 3; }
+.acl-footer-heading-gold { color: #f59e0b; }
+.acl-footer-column ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.acl-footer-column li {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+.acl-footer-column li::before {
+  background: #f59e0b;
+  border-radius: 999px;
+  content: "";
+  display: inline-block;
+  height: 4px;
+  width: 4px;
+}
+.acl-footer-column a {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.acl-footer-column a:hover { color: #d4d4d8; }
+.acl-footer-column .acl-footer-gold { color: #f59e0b; }
+.acl-footer-column .acl-footer-gold:hover { color: #fbbf24; }
+.acl-footer-bottom {
+  border-top: 1px solid rgba(15, 23, 42, .9);
+  color: #475569;
+  font-size: 11px;
+  margin: 34px auto 0;
+  max-width: 1280px;
+  padding: 20px clamp(16px, 4vw, 32px) 0;
+  text-align: center;
 }
 img, video, canvas, svg {
   max-width: 100%;
@@ -370,6 +441,9 @@ input, select, textarea, button {
   max-width: 100%;
 }
 @media (max-width: 900px) {
+  .acl-footer-inner { grid-template-columns: 1fr; }
+  .acl-footer-brand, .acl-footer-newest, .acl-footer-production, .acl-footer-commercial { grid-column: 1 / -1; }
+  .acl-footer-bottom { text-align: left; }
   .acl-shell-inner {
     align-items: flex-start;
     flex-direction: column;
@@ -389,12 +463,6 @@ input, select, textarea, button {
   }
   .acl-related-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .acl-footer-inner {
-    grid-template-columns: 1fr;
-  }
-  .acl-footer-links {
-    justify-content: flex-start;
   }
 }
 @media (max-width: 640px) {
@@ -972,19 +1040,34 @@ input, select, textarea, button {
         });
     </script>
 <footer class="acl-shell-footer no-print">
-    <div class="acl-footer-inner">
-        <div class="acl-footer-brand">
-            <strong>AI Cash Lab Tools</strong>
-            <span>Simple business tools for freelancers, creators, and digital operators.</span>
-        </div>
-        <div class="acl-footer-links">
-            <a href="/">All Tools</a>
-            <a href="/">Free Tools</a>
-            <a href="/creator-utilities/">Creator Utilities</a>
-            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Gumroad Hub</a>
-            <a href="mailto:support@aicashlabtools.com">Contact</a>
-        </div>
+  <div class="acl-footer-inner">
+    <div class="acl-footer-brand">
+      <div class="acl-footer-brand-main">
+        <span class="acl-footer-logo"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab logo"></span>
+        <strong>AI Cash Lab Tools</strong>
+      </div>
+      <span>Simple business tools for freelancers, creators, and digital service providers. Client-side execution layer engine ensuring personal metrics data remains local and secure.</span>
     </div>
+    <div class="acl-footer-column acl-footer-newest">
+      <span class="acl-footer-heading acl-footer-heading-gold">Newest Tools</span>
+      <ul>
+        <li><a href="/teleprompter/">Teleprompter</a></li>
+        <li><a href="/free-invoice-generator/">Free Invoice Generator</a></li>
+        <li><a href="/linkedin-post-formatter/">LinkedIn Post Formatter</a></li>
+      </ul>
+    </div>
+    <div class="acl-footer-column acl-footer-production">
+      <span class="acl-footer-heading">Production Hub</span>
+      <a href="/creator-utilities/">Creator Utilities</a>
+      <a href="/freelancer-utilities/">Freelancer Utilities</a>
+    </div>
+    <div class="acl-footer-column acl-footer-commercial">
+      <span class="acl-footer-heading">Commercial Engine</span>
+      <a class="acl-footer-gold" href="/#premium-workspaces">Premium Workspaces</a>
+      <a class="acl-footer-gold" href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Storefront Hub -&gt;</a>
+    </div>
+  </div>
+  <div class="acl-footer-bottom">&copy; 2026 AI Cash Lab. All Rights Reserved. Client-side compilation node framework structure.</div>
 </footer>
 </body>
 </html>
