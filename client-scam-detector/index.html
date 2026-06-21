@@ -3,7 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client Scam Detector | AI Cash Lab</title>
+    <title>Client Scam Detector | Free Freelance Client Red Flag Checker</title>
+    <meta name="description" content="Use this free client scam detector to check payment terms, communication patterns, project scope, identity signals, and client red flags before accepting freelance work.">
+    <link rel="canonical" href="https://aicashlabtools.com/client-scam-detector/">
+    <meta property="og:title" content="Client Scam Detector">
+    <meta property="og:description" content="Check freelance client red flags, payment risk, scope abuse signals, and protection steps before taking on a project.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aicashlabtools.com/client-scam-detector/">
+    <meta property="og:image" content="https://aicashlabtools.com/assets/ai-cash-lab-logo-600.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Client Scam Detector">
+    <meta name="twitter:description" content="Check freelance client red flags and payment risk before taking on a project.">
+    <meta name="twitter:image" content="https://aicashlabtools.com/assets/ai-cash-lab-logo-600.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Client Scam Detector","url":"https://aicashlabtools.com/client-scam-detector/","description":"Check freelance client payment terms, communication patterns, project scope, identity signals, and warning signs before accepting work."},{"@type":"SoftwareApplication","name":"Client Scam Detector","applicationCategory":"BusinessApplication","operatingSystem":"Web Browser","url":"https://aicashlabtools.com/client-scam-detector/","description":"A free browser-based freelance client red flag checker for reviewing client risk before starting a project.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}]}</script>
     <!-- Tailwind CSS Engine -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -16,6 +28,7 @@
                         brandGold: '#E5A93C',
                         brandGoldHover: '#CCA130',
                         brandBlue: '#3B82F6',
+                        brandBlueHover: '#2563EB',
                         brandGreen: '#10B981',
                         brandRed: '#EF4444',
                         brandTextMuted: '#9CA3AF'
@@ -28,38 +41,96 @@
         /* Custom progress circle clip paths */
         .circle-bg { fill: none; stroke: #1f2937; }
         .circle-prime { fill: none; stroke-linecap: round; transition: stroke-dasharray 0.4s ease; }
+        .client-matrix label:has(input[type="radio"]) {
+            background: rgba(2, 6, 23, .38) !important;
+            border: 1px solid rgba(30, 41, 59, .95) !important;
+            border-radius: .6rem;
+            cursor: pointer;
+            min-height: 68px;
+            padding: .9rem 1rem !important;
+            transition: border-color .2s ease, background .2s ease, box-shadow .2s ease, transform .2s ease;
+        }
+        .client-matrix label:has(input[type="radio"]:hover),
+        .client-matrix label:has(input[type="radio"]):hover {
+            border-color: rgba(148, 163, 184, .5) !important;
+            transform: translateY(-1px);
+        }
+        .client-matrix label:has(input[type="radio"]:checked) {
+            background: rgba(120, 53, 15, .16) !important;
+            border-color: #e5a93c !important;
+            box-shadow: 0 0 18px rgba(229, 169, 60, .08);
+        }
+        .client-matrix input[type="radio"] {
+            clip: rect(0 0 0 0);
+            height: 1px;
+            overflow: hidden;
+            position: absolute;
+            white-space: nowrap;
+            width: 1px;
+        }
+        .client-matrix label:has(input[type="radio"]) span:first-of-type {
+            color: #e5e7eb !important;
+            font-size: .84rem !important;
+            line-height: 1.15 !important;
+            padding-right: 0 !important;
+        }
+        .client-matrix label:has(input[type="radio"]:checked) span:first-of-type {
+            color: #f8fafc !important;
+        }
+        .client-matrix label:has(input[type="radio"]) span:last-of-type {
+            color: #64748b !important;
+            font-size: .72rem !important;
+            line-height: 1.25 !important;
+        }
+        .client-panel {
+            background: rgba(15, 23, 42, .36);
+            border-color: rgba(30, 41, 59, .9);
+        }
     </style>
 </head>
 <body class="bg-brandDark text-gray-100 font-sans min-h-screen selection:bg-brandGold selection:text-brandDark">
 
     <!-- Header Navigation -->
-    <header class="border-b border-gray-800 bg-brandDark/80 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <div class="w-6 h-6 bg-brandGold rounded flex items-center justify-center text-brandDark font-bold text-xs">AI</div>
-                <span class="font-bold tracking-wider text-sm">AI CASH LAB</span>
-            </div>
-            <nav class="hidden md:flex space-x-6 text-xs text-brandTextMuted uppercase tracking-widest">
-                <a href="#" class="hover:text-brandGold transition">All Tools</a>
-                <a href="#" class="hover:text-brandGold transition">Free Tools</a>
-                <a href="#" class="hover:text-brandGold transition">Safety Suite</a>
+    <header class="w-full border-b border-gray-800 bg-brandDark/90 backdrop-blur-md transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="/" class="flex items-center space-x-3 shrink-0 group" aria-label="AI Cash Lab Tools homepage">
+                <div class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center overflow-hidden shrink-0">
+                    <img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab Logo" class="w-full h-full object-contain transform group-hover:scale-105 transition-transform">
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xs font-bold text-white tracking-wider uppercase">AI Cash Lab</span>
+                    <span class="text-[9px] text-slate-500 font-medium tracking-tight -mt-0.5">Utility Ecosystem</span>
+                </div>
+            </a>
+            <nav class="hidden lg:flex items-center space-x-6 text-xs font-medium text-brandTextMuted">
+                <a href="/" class="hover:text-white transition-colors">Home</a>
+                <a href="/#creator-production" class="hover:text-white transition-colors">Production</a>
+                <a href="/#creator-monetization" class="hover:text-white transition-colors">Monetization</a>
+                <a href="/#product-launch" class="hover:text-white transition-colors">Launch</a>
+                <a href="/freelancer-utilities/" class="hover:text-white transition-colors">Freelancer Utilities</a>
+                <a href="/#premium-workspaces" class="text-amber-500 hover:text-amber-400 transition-colors">Premium</a>
             </nav>
+            <div class="flex items-center space-x-3">
+                <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="text-[11px] font-bold tracking-wide uppercase px-3.5 py-1.5 rounded bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 transition-all">
+                    Storefront -&gt;
+                </a>
+            </div>
         </div>
     </header>
 
     <!-- Hero Title Header Area -->
-    <section class="max-w-5xl mx-auto px-4 pt-12 pb-6">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <section class="max-w-4xl mx-auto px-4 pt-12 pb-6 text-center">
+        <div class="block">
             <div>
                 <span class="text-xs font-semibold tracking-widest text-brandGold uppercase border border-brandGold/30 px-3 py-1 rounded-full bg-brandGold/5">
                     Freelance Client Safety Tool
                 </span>
-                <h1 class="text-3xl md:text-4xl font-extrabold mt-3 tracking-tight">CLIENT SCAM DETECTOR</h1>
-                <p class="text-brandTextMuted mt-2 max-w-3xl text-sm md:text-base leading-relaxed">
-                    Analyze payment terms, communication patterns, project scope, and client behavior before accepting freelance work.
+                <h1 class="text-3xl md:text-4xl font-extrabold mt-4 tracking-tight">Client Scam Detector</h1>
+                <p class="text-brandTextMuted mt-3 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+                    Check payment terms, communication patterns, project scope, identity signals, and client red flags before accepting freelance work.
                 </p>
             </div>
-            <div class="shrink-0 self-start md:self-center">
+            <div class="hidden">
                 <span class="text-[11px] font-mono text-brandGreen bg-brandGreen/10 border border-brandGreen/30 px-3 py-1.5 rounded-md uppercase tracking-wider">
                     Client Safety Dashboard ●
                 </span>
@@ -68,37 +139,36 @@
     </section>
 
     <!-- Step Breadcrumb Tracker Layer -->
-    <section class="max-w-5xl mx-auto px-4 mb-4">
-        <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-3.5 grid grid-cols-2 md:grid-cols-4 gap-2 text-[11px] uppercase tracking-wider text-center">
-            <div class="text-brandGold font-semibold"><span class="font-mono">1.</span> Payment Terms</div>
-            <div class="text-brandGold font-semibold"><span class="font-mono">2.</span> Communication Quality</div>
-            <div class="text-brandGold font-semibold"><span class="font-mono">3.</span> Project Scope</div>
-            <div class="text-brandGold font-semibold"><span class="font-mono">4.</span> Safety Matrix Live</div>
+    <section class="max-w-5xl mx-auto px-4 mb-3">
+        <div class="bg-brandCard/60 border border-gray-800 rounded-lg p-3 flex flex-wrap gap-2 md:gap-4 items-center justify-center text-xs text-brandTextMuted tracking-wide uppercase">
+            <span class="text-brandGold font-semibold">QUICK START</span>
+            <span class="hidden sm:inline">-&gt;</span><span>1. Review Payment Terms</span>
+            <span class="hidden sm:inline">-&gt;</span><span>2. Check Communication</span>
+            <span class="hidden sm:inline">-&gt;</span><span>3. Spot Scope Risk</span>
+            <span class="hidden sm:inline">-&gt;</span><span>4. Review Safety Plan</span>
         </div>
     </section>
 
     <!-- Local Sandbox Strip -->
     <section class="max-w-5xl mx-auto px-4 mb-8">
-        <div class="bg-brandGreen/5 border border-brandGreen/20 rounded-lg p-3 flex justify-between items-center text-xs">
-            <div class="flex items-center space-x-2 text-brandGreen">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-                <span>100% local browser security verification. Your inputs remain offline and are never uploaded.</span>
-            </div>
-            <span class="text-[10px] font-mono text-gray-500 uppercase tracking-widest hidden sm:inline">Private Browser Analysis</span>
+        <div class="bg-brandGreen/10 border border-brandGreen/30 rounded-lg px-4 py-2.5 flex items-center space-x-2 text-xs text-brandGreen">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            <span class="font-medium">Private by default:</span>
+            <span class="text-gray-300">Your inputs stay in your browser and are never uploaded or stored.</span>
         </div>
     </section>
 
     <!-- Main Risk Intelligence Dashboard Area Layout -->
-    <main class="max-w-5xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+    <main class="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-start">
         
         <!-- Left Side: Control Interactive Matrix Form Blocks -->
         <div class="lg:col-span-7 space-y-6">
-            <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <div class="client-matrix client-panel bg-brandCard border border-gray-800 rounded-xl p-5 lg:p-6">
                 <div class="flex justify-between items-center border-b border-gray-800 pb-3 mb-6">
-                    <h2 class="font-bold text-sm uppercase tracking-wider text-gray-200">Client Evaluation Checklist</h2>
-                    <span class="text-[10px] font-mono text-brandTextMuted uppercase">Client Review</span>
+                    <h2 class="font-black text-sm uppercase tracking-wider text-gray-200"><span class="text-brandGold mr-2">|||</span>Client Evaluation Matrix</h2>
+                    <span class="text-[10px] font-mono text-brandTextMuted uppercase">Properties_Audit</span>
                 </div>
 
                 <!-- Category 1: Payment Terms -->
@@ -273,33 +343,37 @@
         <div class="lg:col-span-5 space-y-6">
             
             <!-- Circular Trust Score Widget Card Box -->
-            <div class="bg-brandCard border border-gray-800 rounded-xl p-6 flex flex-col items-center justify-center relative">
+            <div class="client-panel bg-brandCard border border-gray-800 rounded-xl p-6 flex flex-col items-center justify-center relative">
                 <div class="w-full flex justify-between items-center text-[10px] font-mono text-brandTextMuted uppercase mb-2">
-                    <span>Risk Analysis Dashboard</span>
-                    <span id="txt_threat_status" class="text-brandGold">Client Risk Level: Warning</span>
+                    <span>System_Scanner_v1.07</span>
+                    <span id="txt_threat_status" class="text-brandGold">Threat_Level: Warning_Active</span>
                 </div>
                 
                 <!-- Circular Indicator Gauge -->
-                <div class="relative w-40 h-40 flex items-center justify-center my-4">
+                <div class="relative w-56 h-56 flex items-center justify-center my-3">
+                    <div class="absolute inset-0 rounded-full border border-dashed border-slate-800/40"></div>
+                    <div class="absolute inset-4 rounded-full border border-slate-700/20"></div>
                     <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                        <circle class="circle-bg" cx="50" cy="50" r="40" stroke-width="8" />
-                        <circle id="circle_trust" class="circle-prime stroke-brandGold" cx="50" cy="50" r="40" stroke-width="8" stroke-dasharray="251.2" stroke-dashoffset="62.8" />
+                        <circle class="circle-bg" cx="50" cy="50" r="36" stroke-width="6" />
+                        <circle id="circle_trust" class="circle-prime stroke-brandGold" cx="50" cy="50" r="36" stroke-width="6" stroke-dasharray="226.2" stroke-dashoffset="67.9" />
                     </svg>
                     <div class="absolute text-center">
-                        <span id="score_number" class="text-3xl font-black font-mono tracking-tighter text-white">75</span>
-                        <span class="text-gray-400 font-mono text-xs block">/100</span>
+                        <span class="text-brandGold text-4xl block mb-1">◇</span>
+                        <span id="score_number" class="text-5xl font-black tracking-tighter text-white">75</span>
+                        <span class="text-gray-500 text-sm">/100</span>
                         <span class="text-[9px] uppercase tracking-widest text-brandTextMuted block mt-0.5 font-semibold">Trust Index</span>
                     </div>
                 </div>
 
                 <!-- Dynamic Assessment Banner Row -->
-                <div id="banner_status" class="w-full bg-brandGold/10 border border-brandGold/30 text-brandGold font-bold text-center py-2.5 rounded-lg text-xs tracking-wider uppercase">
-                    Proceed Carefully
+                <div id="banner_status" class="w-full bg-brandGold/10 border border-brandGold/30 text-brandGold font-bold py-3 rounded-lg text-xs tracking-wider uppercase flex items-center justify-between px-4">
+                    <span>Client Report</span>
+                    <strong class="text-sm normal-case">Proceed Carefully</strong>
                 </div>
             </div>
 
             <!-- Policy Suggestion Strip Box -->
-            <div class="bg-brandCard border border-gray-800 rounded-xl p-4 border-l-4 border-l-brandGold" id="card_policy">
+            <div class="client-panel bg-brandCard border border-gray-800 rounded-xl p-4 border-l-4 border-l-brandGold" id="card_policy">
                 <span class="text-[9px] font-bold text-brandGold uppercase tracking-widest block mb-1">Recommended Action Policy</span>
                 <p id="txt_policy_desc" class="text-xs text-gray-200 leading-relaxed font-medium">
                     Request a clear deposit structure, clarify total delivery scope limits, and omit unpaid tests.
@@ -307,30 +381,33 @@
             </div>
 
             <!-- Risk Assessment Breakdown Categories Slices -->
-            <div class="bg-brandCard border border-gray-800 rounded-xl p-5">
-                <span class="text-[10px] font-mono uppercase tracking-widest text-brandTextMuted block mb-4">Risk Assessment Slices</span>
+            <div class="client-panel bg-brandCard border border-gray-800 rounded-xl p-5">
+                <div class="flex items-center justify-between mb-4 pb-2 border-b border-slate-800/60">
+                    <span class="text-sm font-black uppercase tracking-wide text-gray-100">Risk Assessment Slices</span>
+                    <span class="font-mono text-[9px] text-slate-500 uppercase">Dynamic_Resolver</span>
+                </div>
                 <div class="grid grid-cols-2 gap-3 font-mono text-[11px]">
-                    <div class="bg-gray-900/60 border border-gray-800 p-2.5 rounded flex items-center justify-between">
-                        <span class="text-gray-400">Payment Risk</span>
-                        <span id="dot_payment" class="w-2 h-2 rounded-full bg-brandGreen"></span>
+                    <div class="bg-slate-950/40 border border-slate-800/80 p-3 rounded-lg">
+                        <span class="text-gray-400 uppercase">Payment Risk</span>
+                        <div class="flex items-center justify-between mt-1"><span id="risk_payment_label" class="font-bold text-brandGreen">Low Risk</span><span id="dot_payment" class="w-2 h-2 rounded-full bg-brandGreen"></span></div>
                     </div>
-                    <div class="bg-gray-900/60 border border-gray-800 p-2.5 rounded flex items-center justify-between">
-                        <span class="text-gray-400">Scope Abuse</span>
-                        <span id="dot_scope" class="w-2 h-2 rounded-full bg-brandGreen"></span>
+                    <div class="bg-slate-950/40 border border-slate-800/80 p-3 rounded-lg">
+                        <span class="text-gray-400 uppercase">Scope Abuse</span>
+                        <div class="flex items-center justify-between mt-1"><span id="risk_scope_label" class="font-bold text-brandGreen">Low Risk</span><span id="dot_scope" class="w-2 h-2 rounded-full bg-brandGreen"></span></div>
                     </div>
-                    <div class="bg-gray-900/60 border border-gray-800 p-2.5 rounded flex items-center justify-between">
-                        <span class="text-gray-400">Communication</span>
-                        <span id="dot_comm" class="w-2 h-2 rounded-full bg-brandGold"></span>
+                    <div class="bg-slate-950/40 border border-slate-800/80 p-3 rounded-lg">
+                        <span class="text-gray-400 uppercase">Communication</span>
+                        <div class="flex items-center justify-between mt-1"><span id="risk_comm_label" class="font-bold text-brandGold">Medium Risk</span><span id="dot_comm" class="w-2 h-2 rounded-full bg-brandGold"></span></div>
                     </div>
-                    <div class="bg-gray-900/60 border border-gray-800 p-2.5 rounded flex items-center justify-between">
-                        <span class="text-gray-400">Identity Risk</span>
-                        <span id="dot_identity" class="w-2 h-2 rounded-full bg-brandGold"></span>
+                    <div class="bg-slate-950/40 border border-slate-800/80 p-3 rounded-lg">
+                        <span class="text-gray-400 uppercase">Identity Risk</span>
+                        <div class="flex items-center justify-between mt-1"><span id="risk_identity_label" class="font-bold text-brandGold">Medium Risk</span><span id="dot_identity" class="w-2 h-2 rounded-full bg-brandGold"></span></div>
                     </div>
                 </div>
             </div>
 
             <!-- Client Warning Signs Section -->
-            <div class="bg-brandCard border border-gray-800 rounded-xl p-5" id="card_warning_signs">
+            <div class="client-panel bg-brandCard border border-gray-800 rounded-xl p-5" id="card_warning_signs">
                 <div class="flex items-center space-x-1.5 text-brandRed font-bold text-xs uppercase tracking-wider mb-3">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -347,7 +424,7 @@
             </div>
 
             <!-- Protection Checklist Interactive Card -->
-            <div class="bg-brandCard border border-gray-800 rounded-xl p-5">
+            <div class="client-panel bg-brandCard border border-gray-800 rounded-xl p-5">
                 <div class="flex justify-between items-center mb-4">
                     <span class="text-xs font-bold uppercase tracking-wider text-gray-200">Client Protection Protocol</span>
                     <span id="lbl_shield_ratio" class="text-[10px] bg-brandBlue/10 border border-brandBlue/30 text-brandBlue font-mono font-bold px-2 py-0.5 rounded uppercase">
@@ -403,91 +480,44 @@
         </div>
     </main>
 
-    <!-- Matrix Navigation Link Connections Segment -->
-    <section class="max-w-5xl mx-auto px-4 mb-12">
-        <div class="bg-brandCard/30 border border-gray-800 rounded-xl p-6">
-            <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-4">Related Freelance Financial Tools</h3>
-            <p class="text-brandTextMuted text-xs mb-4">Analyze secondary parameters of contracts, pricing floors, and cash protections instantly.</p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="bg-brandCard border border-gray-800 p-4 rounded-lg flex flex-col justify-between">
-                    <div>
-                        <span class="w-6 h-6 bg-brandGold/10 rounded flex items-center justify-center mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-brandGold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        </span>
-                        <h4 class="text-xs font-bold text-gray-200">Referral Reward Calculator</h4>
-                        <p class="text-[11px] text-brandTextMuted mt-1 leading-relaxed">Calculate residual commission parameters on client handoffs.</p>
-                    </div>
-                    <a href="#" class="text-[11px] text-brandGold font-bold uppercase mt-3 inline-block hover:underline">Run Calculator ➔</a>
-                </div>
-                <div class="bg-brandCard border border-gray-800 p-4 rounded-lg flex flex-col justify-between">
-                    <div>
-                        <span class="w-6 h-6 bg-brandGold/10 rounded flex items-center justify-center mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-brandGold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-                        </span>
-                        <h4 class="text-xs font-bold text-gray-200">Client Referral Value Calculator</h4>
-                        <p class="text-[11px] text-brandTextMuted mt-1 leading-relaxed">Quantify long-term relationship values from compound networks.</p>
-                    </div>
-                    <a href="#" class="text-[11px] text-brandGold font-bold uppercase mt-3 inline-block hover:underline">Run Calculator ➔</a>
-                </div>
-                <div class="bg-brandCard border border-gray-800 p-4 rounded-lg flex flex-col justify-between">
-                    <div>
-                        <span class="w-6 h-6 bg-brandGold/10 rounded flex items-center justify-center mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-brandGold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        </span>
-                        <h4 class="text-xs font-bold text-gray-200">Scope Creep Loss Calculator</h4>
-                        <p class="text-[11px] text-brandTextMuted mt-1 leading-relaxed">Unveil uncompensated hours leaked during delivery cycles.</p>
-                    </div>
-                    <a href="#" class="text-[11px] text-brandGold font-bold uppercase mt-3 inline-block hover:underline">Run Calculator ➔</a>
-                </div>
-                <div class="bg-brandCard border border-gray-800 p-4 rounded-lg flex flex-col justify-between">
-                    <div>
-                        <span class="w-6 h-6 bg-brandGold/10 rounded flex items-center justify-center mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-brandGold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
-                        </span>
-                        <h4 class="text-xs font-bold text-gray-200">Freelancer Pricing Calculator</h4>
-                        <p class="text-[11px] text-brandTextMuted mt-1 leading-relaxed">Target clean pricing models relative to real business overhead lines.</p>
-                    </div>
-                    <a href="#" class="text-[11px] text-brandGold font-bold uppercase mt-3 inline-block hover:underline">Run Calculator ➔</a>
-                </div>
+    <!-- Related Free Tools Quick Links Footer Section Component -->
+    <section class="max-w-5xl mx-auto px-4 mb-16 border-t border-gray-800 pt-12">
+        <div class="bg-brandCard/20 border border-gray-800 rounded-xl p-6 grid grid-cols-1 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] gap-6 items-start">
+            <div>
+                <span class="text-[10px] uppercase font-bold tracking-widest text-brandGold block mb-2">Related Freelancer Tools</span>
+                <h2 class="text-xl font-bold text-gray-100 tracking-tight mb-2">Protect the rest of the client workflow.</h2>
+                <p class="text-sm text-brandTextMuted leading-relaxed">Use these tools to price the project, protect scope, evaluate proposals, and plan referral upside after you screen the client.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                <a href="/proposal-calculator/" class="bg-brandCard hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Proposal Win Calculator</a>
+                <a href="/referral-calculator/" class="bg-brandCard hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Referral Reward Calculator</a>
+                <a href="/client-referral-value-calculator/" class="bg-brandCard hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Client Referral Value Calculator</a>
+                <a href="/scope-creep-calculator/" class="bg-brandCard hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Scope Creep Calculator</a>
+                <a href="/free-nda-generator/" class="bg-brandCard hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Free NDA Generator</a>
+                <a href="/freelancer-utilities/" class="bg-brandCard hover:bg-brandGold/10 border border-brandGold/25 hover:border-brandGold/60 text-sm font-bold text-gray-100 hover:text-brandGold px-4 py-3 rounded-lg transition">Freelancer Utilities</a>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Accordion Layout Dropdowns -->
-    <section class="max-w-5xl mx-auto px-4 mb-16">
-        <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
-            <div class="flex items-center space-x-2 text-brandGold font-bold text-xs uppercase tracking-wider mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                <span>Safety Review FAQ</span>
+    <!-- Standardized Grid Layout FAQ Array Component -->
+    <section class="max-w-4xl mx-auto px-4 mb-16">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-6 text-center">Frequently Asked Questions</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-gray-200 mb-1.5">1. Is the Client Scam Detector free?</h4>
+                <p class="text-xs text-brandTextMuted leading-relaxed">Yes. It is free to use in your browser. No login, subscription, or account is required.</p>
             </div>
-            <div class="space-y-3">
-                <div class="border border-gray-800 rounded-lg overflow-hidden bg-gray-900/30">
-                    <button class="w-full text-left p-4 text-xs font-semibold flex justify-between items-center hover:bg-gray-800/40 transition" onclick="toggleFaq(this)">
-                        <span>Is this client safety tool completely free?</span>
-                        <span class="text-brandGold font-mono text-sm">+</span>
-                    </button>
-                    <div class="hidden p-4 pt-0 text-xs text-brandTextMuted leading-relaxed border-t border-gray-800/40 bg-brandCard/10">
-                        Yes. Every standalone analyzer built inside the AI Cash Lab operational workspace catalog is a completely client-side browser logic utility provided to independent web builders without tracking walls.
-                    </div>
-                </div>
-                <div class="border border-gray-800 rounded-lg overflow-hidden bg-gray-900/30">
-                    <button class="w-full text-left p-4 text-xs font-semibold flex justify-between items-center hover:bg-gray-800/40 transition" onclick="toggleFaq(this)">
-                        <span>Can a perfectly legitimate client still showcase warning flags?</span>
-                        <span class="text-brandGold font-mono text-sm">+</span>
-                    </button>
-                    <div class="hidden p-4 pt-0 text-xs text-brandTextMuted leading-relaxed border-t border-gray-800/40 bg-brandCard/10">
-                        Absolutely. Some well-meaning founders possess poor communication systems or lack explicit scope experience. Use this interface profile to spot areas where you must guide them to protect both operators' timelines.
-                    </div>
-                </div>
-                <div class="border border-gray-800 rounded-lg overflow-hidden bg-gray-900/30">
-                    <button class="w-full text-left p-4 text-xs font-semibold flex justify-between items-center hover:bg-gray-800/40 transition" onclick="toggleFaq(this)">
-                        <span>Should freelance operators always require upfront commitment deposits?</span>
-                        <span class="text-brandGold font-mono text-sm">+</span>
-                    </button>
-                    <div class="hidden p-4 pt-0 text-xs text-brandTextMuted leading-relaxed border-t border-gray-800/40 bg-brandCard/10">
-                        Requiring a 25%-50% financial deposit before initiating local assets is the ultimate standard for professional modern independent builders. It validates active funding capacity and builds baseline professional mutual commitment.
-                    </div>
-                </div>
+            <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-gray-200 mb-1.5">2. Are my client details uploaded?</h4>
+                <p class="text-xs text-brandTextMuted leading-relaxed">No. The tool runs locally in your browser and does not upload, save, or store your selections.</p>
+            </div>
+            <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-gray-200 mb-1.5">3. Can a real client still show warning signs?</h4>
+                <p class="text-xs text-brandTextMuted leading-relaxed">Yes. A legitimate client can still have unclear payment terms, vague scope, or messy communication. Use the result to decide what to clarify before you start.</p>
+            </div>
+            <div class="bg-brandCard/40 border border-gray-800 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-gray-200 mb-1.5">4. Should freelancers require an upfront deposit?</h4>
+                <p class="text-xs text-brandTextMuted leading-relaxed">For most freelance projects, a 25%-50% deposit is a smart safety baseline. It helps confirm the client is serious before you invest time in delivery.</p>
             </div>
         </div>
     </section>
@@ -497,22 +527,40 @@
         <div class="bg-gradient-to-r from-brandCard via-brandCard to-brandDark border border-brandGold/30 rounded-xl p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div class="max-w-2xl">
                 <span class="text-[10px] tracking-widest text-brandGold font-bold uppercase block mb-1">Recommended Security Protocol</span>
-                <h3 class="text-xl font-bold text-gray-100 tracking-tight">Protect your freelance business with professional systems.</h3>
+                <h3 class="text-xl font-bold text-gray-100 tracking-tight">Turn client safety checks into a repeatable client system.</h3>
                 <p class="text-brandTextMuted text-xs md:text-sm mt-2 leading-relaxed">
-                    Deploy secure onboarding channels, iron-clad client service contracts, professional scope boundaries, and optimized invoice workflows seamlessly.
+                    Use Freelancer Business OS to organize proposals, client policies, follow-ups, scope boundaries, and payment workflows in one place.
                 </p>
             </div>
             <div class="shrink-0">
-                <a href="#" class="bg-brandGold hover:bg-brandGoldHover text-brandDark font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-lg block text-center transition-all">
-                    Explore Freelancer Business OS ➔
+                <a href="https://aicashlabofficial.gumroad.com/l/dszjez?layout=profile" target="_blank" rel="noopener noreferrer" class="bg-brandGold hover:bg-brandGoldHover text-brandDark font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-lg block text-center transition-all">
+                    Explore Freelancer Business OS -&gt;
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Footer Layer Standard -->
-    <footer class="border-t border-gray-900 bg-brandDark/40 py-8 text-center text-[11px] text-brandTextMuted">
-        <p>© 2026 AI CASH LAB. Tactical utilities for independent creators, developers, and builders.</p>
+    <footer class="border-t border-gray-900 bg-brandDark/40 py-10 text-[11px] text-brandTextMuted">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <a href="/" class="flex items-center space-x-3" aria-label="AI Cash Lab Tools homepage">
+                <div class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center overflow-hidden">
+                    <img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab Logo" class="w-full h-full object-contain">
+                </div>
+                <div class="text-left">
+                    <span class="block text-xs font-bold text-white uppercase tracking-wider">AI Cash Lab Tools</span>
+                    <span class="block text-[10px] text-slate-500">Simple business tools for freelancers, creators, and digital operators.</span>
+                </div>
+            </a>
+            <div class="flex flex-wrap items-center justify-center gap-4 text-[11px] font-semibold">
+                <a href="/" class="hover:text-white transition-colors">Home</a>
+                <a href="/#creator-production" class="hover:text-white transition-colors">Production</a>
+                <a href="/#creator-monetization" class="hover:text-white transition-colors">Monetization</a>
+                <a href="/#product-launch" class="hover:text-white transition-colors">Launch</a>
+                <a href="/freelancer-utilities/" class="hover:text-white transition-colors">Freelancer Utilities</a>
+                <a href="/#premium-workspaces" class="text-amber-500 hover:text-amber-400 transition-colors">Premium</a>
+            </div>
+        </div>
     </footer>
 
     <!-- Interactive Client Risk Engine Code Logic Bundle -->
@@ -623,7 +671,7 @@
 
             // Trigger Circle SVG Dash Offset Rendering Calculations
             const circleTarget = document.getElementById('circle_trust');
-            const circumference = 2 * Math.PI * 40; // ~251.2
+            const circumference = 2 * Math.PI * 36;
             const offsetValue = circumference - (baseTrustScore / 100) * circumference;
             circleTarget.style.strokeDashoffset = offsetValue;
 
@@ -637,30 +685,30 @@
             const policyCard = document.getElementById('card_policy');
 
             // Reset dynamic class styles safely
-            statusLabel.className = "w-full text-center py-2.5 rounded-lg text-xs tracking-wider uppercase font-bold ";
+            statusLabel.className = "mt-4 w-full flex items-center justify-between gap-4 px-4 py-3 rounded-lg text-xs tracking-wider uppercase font-bold ";
             circleTarget.className.baseVal = "circle-prime ";
-            policyCard.className = "bg-brandCard border border-gray-800 rounded-xl p-4 border-l-4 ";
+            policyCard.className = "client-panel bg-brandCard border border-gray-800 rounded-xl p-4 border-l-4 ";
 
             if (baseTrustScore >= 85) {
-                statusLabel.innerText = "Secure Engagement Match";
+                statusLabel.innerHTML = '<span>Client Report</span><strong class="text-sm normal-case">Secure Engagement Match</strong>';
                 statusLabel.classList.add("bg-brandGreen/10", "border", "border-brandGreen/30", "text-brandGreen");
-                statusThreatText.innerText = "Client Risk Level: Minimal Risk";
+                statusThreatText.innerText = "Threat_Level: All_Clear";
                 statusThreatText.className = "text-brandGreen";
                 circleTarget.classList.add("stroke-brandGreen");
                 policyText.innerText = "Standard process workflow approved. Maintain basic milestone signatures during asset deliveries.";
                 policyCard.classList.add("border-l-brandGreen");
             } else if (baseTrustScore >= 55) {
-                statusLabel.innerText = "Proceed Carefully";
+                statusLabel.innerHTML = '<span>Client Report</span><strong class="text-sm normal-case">Proceed Carefully</strong>';
                 statusLabel.classList.add("bg-brandGold/10", "border", "border-brandGold/30", "text-brandGold");
-                statusThreatText.innerText = "Client Risk Level: Caution Advisable";
+                statusThreatText.innerText = "Threat_Level: Warning_Active";
                 statusThreatText.className = "text-brandGold";
                 circleTarget.classList.add("stroke-brandGold");
                 policyText.innerText = "Request a clear deposit structure, clarify total delivery scope limits, and omit unpaid tests.";
                 policyCard.classList.add("border-l-brandGold");
             } else {
-                statusLabel.innerText = "High Risk Match Detected";
+                statusLabel.innerHTML = '<span>Client Report</span><strong class="text-sm normal-case">High Risk Match Detected</strong>';
                 statusLabel.classList.add("bg-brandRed/10", "border", "border-brandRed/30", "text-brandRed");
-                statusThreatText.innerText = "Client Risk Level: High Risk Profile";
+                statusThreatText.innerText = "Threat_Level: Critical_Abuse_Risk";
                 statusThreatText.className = "text-brandRed animate-pulse";
                 circleTarget.classList.add("stroke-brandRed");
                 policyText.innerText = "Critical risk mismatch. Do not perform spec labor tasks without upfront contract validation lines secured.";
@@ -672,6 +720,10 @@
             syncSliceDot('dot_scope', scopeRisk);
             syncSliceDot('dot_comm', commRisk);
             syncSliceDot('dot_identity', identityRisk);
+            syncRiskLabel('risk_payment_label', paymentRisk);
+            syncRiskLabel('risk_scope_label', scopeRisk);
+            syncRiskLabel('risk_comm_label', commRisk);
+            syncRiskLabel('risk_identity_label', identityRisk);
 
             // Rebuild Flag UI Item Modules
             const flagsCardBlock = document.getElementById('card_warning_signs');
@@ -700,6 +752,17 @@
             else el.classList.add('bg-brandRed');
         }
 
+        function syncRiskLabel(elementId, levelColor) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            const label = levelColor === 'green' ? 'Low Risk' : levelColor === 'gold' ? 'Medium Risk' : 'High Risk';
+            el.innerText = label;
+            el.className = "font-bold ";
+            if (levelColor === 'green') el.classList.add('text-brandGreen');
+            else if (levelColor === 'gold') el.classList.add('text-brandGold');
+            else el.classList.add('text-brandRed');
+        }
+
         function updateShieldsEnforced() {
             const checkBoxes = document.querySelectorAll('.chk-shield');
             let checkedCount = 0;
@@ -707,11 +770,13 @@
 
             const pctVal = Math.round((checkedCount / checkBoxes.length) * 100);
             document.getElementById('lbl_shield_pct').innerText = `${pctVal}% ENFORCED`;
+            const shieldRatio = document.getElementById('lbl_shield_ratio');
+            shieldRatio.innerText = `${checkedCount}/${checkBoxes.length} SHIELDS`;
             
             if (checkedCount === checkBoxes.length) {
-                document.getElementById('lbl_shield_ratio').className = "text-[10px] bg-brandGreen/10 border border-brandGreen/30 text-brandGreen font-mono font-bold px-2 py-0.5 rounded uppercase";
+                shieldRatio.className = "text-[10px] bg-brandGreen/10 border border-brandGreen/30 text-brandGreen font-mono font-bold px-2.5 py-1 rounded uppercase";
             } else {
-                document.getElementById('lbl_shield_ratio').className = "text-[10px] bg-brandBlue/10 border border-brandBlue/30 text-brandBlue font-mono font-bold px-2 py-0.5 rounded uppercase";
+                shieldRatio.className = "text-[10px] bg-slate-950 border border-slate-800 text-brandGold font-mono font-bold px-2.5 py-1 rounded uppercase";
             }
         }
 
