@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T7X8JFME64"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T7X8JFME64');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x6q6t5vv3a");
+</script>
+<!-- CTA click tracking -->
+<script>
+  (function () {
+    var CTA_PRODUCTS = {
+      dszjez: { name: "Freelancer Business OS", eventName: "freelancer_business_os_click" },
+      sjdzd: { name: "Freelancer Proposal Generator", eventName: "freelancer_proposal_generator_click" },
+      nqqtyr: { name: "Freelancer Pricing and Profit Calculator", eventName: "freelancer_pricing_profit_click" }
+    };
+    function getGumroadProductId(url) {
+      var match = url.match(/gumroad\.com\/l\/([^/?#]+)/i);
+      return match ? match[1] : "";
+    }
+    function sendClickEvent(eventName, params) {
+      if (typeof window.gtag === "function") window.gtag("event", eventName, params);
+      if (typeof window.clarity === "function") window.clarity("event", eventName);
+    }
+    document.addEventListener("click", function (event) {
+      var link = event.target.closest && event.target.closest("a[href]");
+      if (!link || !/gumroad\.com/i.test(link.href || "")) return;
+      var productId = getGumroadProductId(link.href);
+      var product = CTA_PRODUCTS[productId];
+      sendClickEvent(product ? product.eventName : "gumroad_store_click", {
+        event_category: "cta",
+        cta_name: product ? product.name : "Gumroad Store",
+        gumroad_product_id: productId || "storefront",
+        link_url: link.href,
+        link_text: (link.textContent || "").replace(/\s+/g, " ").trim(),
+        page_path: window.location.pathname,
+        page_title: document.title
+      });
+    });
+  })();
+</script>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Profile Optimizer | Free Upwork, Fiverr & LinkedIn Bio Tool</title>
+    <meta name="description" content="Optimize freelancer profiles for Upwork, Fiverr, LinkedIn, Contra and portfolio websites with stronger headlines, bios, pitches, skills, proof points and CTAs.">
+    <link rel="canonical" href="https://aicashlabtools.com/freelancer-profile-optimizer/">
+    <meta property="og:title" content="Freelancer Profile Optimizer">
+    <meta property="og:description" content="Generate stronger freelancer profile headlines, bios, elevator pitches, skills, value propositions and CTAs for Upwork, Fiverr, LinkedIn and portfolio websites.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aicashlabtools.com/freelancer-profile-optimizer/">
+    <meta property="og:image" content="https://aicashlabtools.com/assets/ai-cash-lab-logo-600.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Freelancer Profile Optimizer">
+    <meta name="twitter:description" content="Optimize Upwork, Fiverr, LinkedIn and portfolio bios with client-focused positioning and proof-driven profile copy.">
+    <meta name="twitter:image" content="https://aicashlabtools.com/assets/ai-cash-lab-logo-600.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Freelancer Profile Optimizer","url":"https://aicashlabtools.com/freelancer-profile-optimizer/","description":"Optimize freelancer profiles for Upwork, Fiverr, LinkedIn, Contra and portfolio websites with stronger headlines, bios, pitches, skills, proof points and CTAs."},{"@type":"SoftwareApplication","name":"Freelancer Profile Optimizer","applicationCategory":"BusinessApplication","operatingSystem":"Web Browser","url":"https://aicashlabtools.com/freelancer-profile-optimizer/","description":"A free browser-based freelancer profile optimizer for marketplace bios, headlines, elevator pitches, skills, client value propositions and calls to action.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}]}</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0B0F17',
+                        brandCard: '#131926',
+                        brandGold: '#E5A93C',
+                        brandGoldHover: '#CCA130',
+                        brandBlue: '#3B82F6',
+                        brandGreen: '#10B981',
+                        brandTextMuted: '#9CA3AF'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        textarea { resize: vertical; }
+        .choice.is-active, .tab.is-active, .pill.is-active { border-color: rgba(229,169,60,.8); background: rgba(229,169,60,.16); color: #fff; box-shadow: 0 0 0 1px rgba(229,169,60,.24); }
+        .output-copy { white-space: pre-wrap; }
+        .score-ring { background: conic-gradient(#E5A93C var(--score-angle), #1f2937 0); }
+        .audit-row.is-done .audit-dot { background: #10B981; border-color: #10B981; }
+        .audit-row.is-done .audit-title { color: #f8fafc; }
+    </style>
+</head>
+<body class="bg-brandDark text-gray-100 font-sans min-h-screen selection:bg-brandGold selection:text-brandDark">
+
+    <header class="w-full border-b border-gray-800 bg-brandDark/90 backdrop-blur-md transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="/" class="flex items-center space-x-3 shrink-0 group" aria-label="AI Cash Lab Tools homepage">
+                <div class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center overflow-hidden shrink-0">
+                    <img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab Logo" class="w-full h-full object-contain transform group-hover:scale-105 transition-transform">
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xs font-bold text-white tracking-wider uppercase">AI Cash Lab</span>
+                    <span class="text-[9px] text-slate-400 font-medium tracking-tight -mt-0.5">Utility Ecosystem</span>
+                </div>
+            </a>
+            <nav class="hidden lg:flex items-center space-x-6 text-xs font-medium text-brandTextMuted">
+                <a href="/" class="hover:text-white transition-colors">Home</a>
+                <a href="/freelancer-utilities/" class="hover:text-white transition-colors">Freelancer Utilities</a>
+                <a href="/#freelancer-business" class="hover:text-white transition-colors">Freelancer</a>
+                <a href="/articles/" class="hover:text-white transition-colors">Articles</a>
+                <a href="/#premium-workspaces" class="text-amber-500 hover:text-amber-400 transition-colors">Premium</a>
+            </nav>
+            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="text-[11px] font-bold tracking-wide uppercase px-3.5 py-1.5 rounded bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 transition-all">Storefront -&gt;</a>
+        </div>
+    </header>
+
+    <section class="max-w-4xl mx-auto px-4 pt-12 pb-6 text-center">
+        <span class="text-xs font-semibold tracking-widest text-brandGold uppercase border border-brandGold/30 px-3 py-1 rounded-full bg-brandGold/5">FREELANCER POSITIONING TOOL</span>
+        <h1 class="text-3xl md:text-4xl font-extrabold mt-4 tracking-tight">Freelancer Profile Optimizer</h1>
+        <p class="text-brandTextMuted mt-3 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">Optimize your Upwork, Fiverr, LinkedIn, Contra, and portfolio profiles with stronger headlines, client-focused bios, proof points, skills, elevator pitches, and CTAs.</p>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 mb-3">
+        <div class="bg-brandCard/60 border border-gray-800 rounded-lg p-3 flex flex-wrap gap-2 md:gap-4 items-center justify-center text-xs text-brandTextMuted tracking-wide uppercase">
+            <span class="text-brandGold font-semibold">QUICK START</span>
+            <span class="hidden sm:inline">-&gt;</span><span>1. Choose Platform</span>
+            <span class="hidden sm:inline">-&gt;</span><span>2. Define Niche</span>
+            <span class="hidden sm:inline">-&gt;</span><span>3. Add Proof</span>
+            <span class="hidden sm:inline">-&gt;</span><span>4. Copy Profile</span>
+        </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 mb-8">
+        <div class="bg-brandGreen/10 border border-brandGreen/30 rounded-lg px-4 py-2.5 flex items-center space-x-2 text-xs text-brandGreen">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            <span class="font-medium">Private by default:</span>
+            <span class="text-gray-300">Your service details, profile inputs, and generated copy stay in your browser.</span>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+        <section class="lg:col-span-5 bg-brandCard border border-gray-800 rounded-xl p-6">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-gray-800 pb-3 mb-5">
+                <div>
+                    <h2 class="font-bold tracking-wide text-sm uppercase text-gray-300">Profile Inputs</h2>
+                    <p class="text-xs text-brandTextMuted mt-1">Describe the client, offer, proof, and voice you want to use.</p>
+                </div>
+                <button type="button" id="sampleBtn" class="self-start sm:self-center text-[11px] font-bold uppercase tracking-wide text-brandGold hover:text-white bg-brandGold/10 hover:bg-brandGold/20 border border-brandGold/40 rounded px-3 py-1.5 transition">Load SaaS Sample</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Primary Platform</span><select id="platform" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none"><option>Upwork</option><option>Fiverr</option><option>LinkedIn</option><option>Contra</option><option>Personal Website</option><option>General Freelancer</option></select></label>
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Experience Level</span><select id="experienceLevel" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none"><option>Beginner</option><option>1-2</option><option selected>3-5</option><option>5+</option></select></label>
+            </div>
+
+            <div class="mt-4 space-y-4">
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Primary Service Offer</span><input id="primaryService" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none" value="Web Design & Webflow Development"></label>
+                <div class="flex flex-wrap gap-2" data-preset-target="primaryService">
+                    <button type="button" class="preset pill border border-gray-800 rounded-full bg-slate-950 px-3 py-1.5 text-xs text-slate-300" data-value="Web Design">Web Design</button>
+                    <button type="button" class="preset pill border border-gray-800 rounded-full bg-slate-950 px-3 py-1.5 text-xs text-slate-300" data-value="Copywriting">Copywriting</button>
+                    <button type="button" class="preset pill border border-gray-800 rounded-full bg-slate-950 px-3 py-1.5 text-xs text-slate-300" data-value="AI Consulting & LLM Integration">AI Consulting</button>
+                    <button type="button" class="preset pill border border-gray-800 rounded-full bg-slate-950 px-3 py-1.5 text-xs text-slate-300" data-value="Full Stack Development">Development</button>
+                </div>
+
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Target Client / Niche</span><input id="targetClient" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none" value="SaaS Startups"></label>
+                <div class="flex flex-wrap gap-2" data-preset-target="targetClient">
+                    <button type="button" class="preset pill border border-gray-800 rounded-full bg-slate-950 px-3 py-1.5 text-xs text-slate-300" data-value="SaaS Startups">SaaS Startups</button>
+                    <button type="button" class="preset pill border border-gray-800 rounded-full bg-slate-950 px-3 py-1.5 text-xs text-slate-300" data-value="Local Small Businesses">Local Business</button>
+                    <button type="button" class="preset pill border border-gray-800 rounded-full bg-slate-950 px-3 py-1.5 text-xs text-slate-300" data-value="Coaches & Consultants">Coaches</button>
+                    <button type="button" class="preset pill border border-gray-800 rounded-full bg-slate-950 px-3 py-1.5 text-xs text-slate-300" data-value="E-commerce Brands">E-commerce</button>
+                </div>
+
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Unique Strength / Value Accent</span><input id="biggestStrength" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none" value="High-conversion rate focus"></label>
+                <div class="flex flex-wrap gap-2" data-preset-target="biggestStrength">
+                    <button type="button" class="preset pill border border-gray-800 rounded-full bg-slate-950 px-3 py-1.5 text-xs text-slate-300" data-value="Fast delivery within 24-48h">Fast delivery</button>
+                    <button type="button" class="preset pill border border-gray-800 rounded-full bg-slate-950 px-3 py-1.5 text-xs text-slate-300" data-value="Flawless communication & updates">Communication</button>
+                    <button type="button" class="preset pill border border-gray-800 rounded-full bg-slate-950 px-3 py-1.5 text-xs text-slate-300" data-value="Premium, high-end bespoke quality">Premium quality</button>
+                </div>
+
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Measurable Results & Metrics</span><textarea id="resultsMetrics" rows="3" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none">Generated $250k revenue for clients, designed 40+ responsive apps.</textarea></label>
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Certifications & Credentials</span><input id="certifications" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none" value="Certified Webflow Expert, Google UX Certification"></label>
+            </div>
+
+            <div class="mt-5">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-2">Profile Tone</h3>
+                <div class="grid grid-cols-2 gap-2" data-choice-group="tone">
+                    <button type="button" data-value="Professional" class="choice text-left border border-gray-800 rounded-lg p-3 bg-slate-950 text-gray-300"><span class="text-xs font-bold block">Professional</span><span class="text-[11px] text-brandTextMuted">Strategic and direct.</span></button>
+                    <button type="button" data-value="Friendly" class="choice text-left border border-gray-800 rounded-lg p-3 bg-slate-950 text-gray-300"><span class="text-xs font-bold block">Friendly</span><span class="text-[11px] text-brandTextMuted">Warm and collaborative.</span></button>
+                    <button type="button" data-value="Premium" class="choice text-left border border-gray-800 rounded-lg p-3 bg-slate-950 text-gray-300"><span class="text-xs font-bold block">Premium</span><span class="text-[11px] text-brandTextMuted">High-end and selective.</span></button>
+                    <button type="button" data-value="Technical" class="choice text-left border border-gray-800 rounded-lg p-3 bg-slate-950 text-gray-300"><span class="text-xs font-bold block">Technical</span><span class="text-[11px] text-brandTextMuted">Data-driven precision.</span></button>
+                </div>
+            </div>
+
+            <div class="mt-6 border-t border-gray-800 pt-5">
+                <button type="button" id="optimizeBtn" class="w-full rounded-xl bg-brandGold px-5 py-4 text-sm font-extrabold uppercase tracking-wide text-slate-950 shadow-lg shadow-brandGold/20 hover:bg-brandGoldHover transition">Optimize Freelancer Profile</button>
+            </div>
+        </section>
+
+        <section class="lg:col-span-7 space-y-6">
+            <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+                <div class="flex items-center gap-5">
+                    <div class="score-ring w-24 h-24 rounded-full p-2 shrink-0" style="--score-angle:0deg">
+                        <div class="w-full h-full rounded-full bg-brandCard flex flex-col items-center justify-center border border-gray-800">
+                            <span id="scoreValue" class="text-2xl font-extrabold text-white">0</span>
+                            <span class="text-[9px] uppercase tracking-wider text-brandTextMuted">Score</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Live Positioning Audit</span>
+                        <h2 id="scoreLabel" class="text-xl font-extrabold text-white mt-1">Profile Ready</h2>
+                        <p id="scoreNote" class="text-xs text-brandTextMuted leading-relaxed mt-2">Add a niche, proof metric, and clear value accent to improve profile strength.</p>
+                    </div>
+                </div>
+                <div id="auditRows" class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+            </div>
+
+            <div id="generated-output" class="bg-brandCard border border-gray-800 rounded-xl p-6 scroll-mt-24">
+                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 border-b border-gray-800 pb-4 mb-5">
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Generated Deliverables</span>
+                        <h2 class="mt-1 text-2xl md:text-3xl font-extrabold tracking-tight text-white">Optimized Profile Output</h2>
+                        <p class="text-sm text-brandTextMuted mt-2">Switch platforms to copy the best-fit headline, bio, pitch, skills, value proposition, and CTA.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <button type="button" id="copyAllBtn" class="text-xs font-bold border border-gray-800 bg-slate-950 rounded-lg px-3 py-2 text-slate-300 hover:border-brandGold">Copy All</button>
+                        <button type="button" id="downloadBtn" class="text-xs font-bold border border-gray-800 bg-slate-950 rounded-lg px-3 py-2 text-slate-300 hover:border-brandGold">Save TXT</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-5" data-tab-group>
+                    <button type="button" data-tab="Upwork" class="tab is-active rounded-lg border border-gray-800 bg-slate-950 p-3 text-xs font-bold text-slate-300">Upwork<span class="block text-[9px] font-medium text-brandTextMuted mt-0.5">Contract Hub</span></button>
+                    <button type="button" data-tab="Fiverr" class="tab rounded-lg border border-gray-800 bg-slate-950 p-3 text-xs font-bold text-slate-300">Fiverr<span class="block text-[9px] font-medium text-brandTextMuted mt-0.5">Gig Direct</span></button>
+                    <button type="button" data-tab="LinkedIn" class="tab rounded-lg border border-gray-800 bg-slate-950 p-3 text-xs font-bold text-slate-300">LinkedIn<span class="block text-[9px] font-medium text-brandTextMuted mt-0.5">B2B Network</span></button>
+                    <button type="button" data-tab="Website" class="tab rounded-lg border border-gray-800 bg-slate-950 p-3 text-xs font-bold text-slate-300">Website<span class="block text-[9px] font-medium text-brandTextMuted mt-0.5">Portfolio Sales</span></button>
+                </div>
+
+                <div class="grid grid-cols-1 xl:grid-cols-12 gap-5">
+                    <div class="xl:col-span-7 space-y-4">
+                        <div class="rounded-xl border border-brandGold/45 bg-gradient-to-br from-brandGold/15 via-slate-950 to-slate-950 p-5">
+                            <div class="flex items-center justify-between gap-3"><span class="text-[10px] text-brandGold uppercase tracking-widest font-bold">Professional Headline</span><button type="button" data-copy="headline" class="copy-btn text-[11px] text-slate-400 hover:text-brandGold font-bold">Copy</button></div>
+                            <h3 id="headlineOut" class="mt-3 text-xl font-extrabold text-white leading-snug"></h3>
+                        </div>
+                        <div class="rounded-xl border border-gray-800 bg-slate-950 p-5">
+                            <div class="flex items-center justify-between gap-3"><span class="text-[10px] text-brandGold uppercase tracking-widest font-bold">Optimized Bio</span><button type="button" data-copy="bio" class="copy-btn text-[11px] text-slate-400 hover:text-brandGold font-bold">Copy Bio</button></div>
+                            <div id="bioOut" class="output-copy mt-3 space-y-3 text-sm leading-7 text-slate-300"></div>
+                        </div>
+                    </div>
+                    <div class="xl:col-span-5 space-y-4">
+                        <div class="rounded-xl border border-gray-800 bg-slate-950 p-4">
+                            <div class="flex items-center justify-between gap-3"><span class="text-[10px] text-brandGold uppercase tracking-widest font-bold">Elevator Pitch</span><button type="button" data-copy="pitch" class="copy-btn text-[11px] text-slate-400 hover:text-brandGold font-bold">Copy</button></div>
+                            <p id="pitchOut" class="mt-2 text-sm leading-7 text-white font-semibold italic"></p>
+                        </div>
+                        <div class="rounded-xl border border-gray-800 bg-slate-950 p-4">
+                            <div class="flex items-center justify-between gap-3"><span class="text-[10px] text-brandGold uppercase tracking-widest font-bold">Skills Summary</span><button type="button" data-copy="skills" class="copy-btn text-[11px] text-slate-400 hover:text-brandGold font-bold">Copy</button></div>
+                            <div id="skillsOut" class="mt-3 flex flex-wrap gap-2"></div>
+                        </div>
+                        <div class="rounded-xl border border-gray-800 bg-slate-950 p-4">
+                            <div class="flex items-center justify-between gap-3"><span class="text-[10px] text-brandGold uppercase tracking-widest font-bold">Client Value Proposition</span><button type="button" data-copy="valueProp" class="copy-btn text-[11px] text-slate-400 hover:text-brandGold font-bold">Copy</button></div>
+                            <p id="valueOut" class="mt-2 text-sm leading-7 text-slate-300"></p>
+                        </div>
+                        <div class="rounded-xl border border-brandGold/35 bg-brandGold/10 p-4">
+                            <div class="flex items-center justify-between gap-3"><span class="text-[10px] text-brandGold uppercase tracking-widest font-bold">Active CTA</span><button type="button" data-copy="cta" class="copy-btn text-[11px] text-slate-300 hover:text-white font-bold">Copy</button></div>
+                            <p id="ctaOut" class="mt-2 text-sm font-bold leading-7 text-white"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="max-w-7xl mx-auto px-4 mb-16 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <h2 class="text-sm font-bold uppercase tracking-widest text-brandGold mb-3">Profile Checklist</h2>
+            <ul class="space-y-2 text-xs text-slate-300 leading-relaxed">
+                <li>Lead with the client outcome, not only your job title.</li>
+                <li>Name a specific service and target client niche.</li>
+                <li>Include metrics, volume, revenue, time saved, or proof of delivery.</li>
+                <li>End with a clear next step for the buyer.</li>
+            </ul>
+        </div>
+        <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <h2 class="text-sm font-bold uppercase tracking-widest text-brandGold mb-3">Related Tools</h2>
+            <div class="space-y-3 text-xs">
+                <a href="/proposal-calculator/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Proposal Win Probability Calculator</a>
+                <a href="/testimonial-request-generator/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Testimonial Request Generator</a>
+                <a href="/case-study-outline-generator/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Case Study Outline Generator</a>
+                <a href="/client-scam-detector/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Client Scam Detector</a>
+                <a href="/freelancer-utilities/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Freelancer Utilities Hub</a>
+            </div>
+        </div>
+        <div class="bg-brandGold/10 border border-brandGold/35 rounded-xl p-6">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Premium Freelancer Workflow</span>
+            <h2 class="text-xl font-extrabold text-white mt-2">Turn stronger positioning into a full client system.</h2>
+            <p class="text-sm text-slate-300 leading-relaxed mt-3">Use the free profile optimizer to sharpen your public offer, then manage proposals, invoices, onboarding, client policies, and follow-ups inside Freelancer Business OS.</p>
+            <a href="https://aicashlabofficial.gumroad.com/l/dszjez?layout=profile" target="_blank" rel="noopener noreferrer" class="inline-block mt-5 rounded-lg bg-brandGold px-5 py-3 text-xs font-extrabold uppercase tracking-wide text-slate-950 hover:bg-brandGoldHover transition">View Freelancer Business OS -&gt;</a>
+        </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 mb-10">
+        <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Profile SEO Guide</span>
+            <h2 class="mt-2 text-2xl font-extrabold text-white">Where should freelancers use optimized profile copy?</h2>
+            <div class="mt-5 grid grid-cols-1 md:grid-cols-5 gap-3 text-xs text-slate-300 leading-relaxed">
+                <div class="rounded-lg border border-gray-800 bg-slate-950 p-4"><strong class="block text-white mb-1">Upwork</strong>Use the headline, opening paragraph, skills, and proof points to improve proposal-to-profile trust.</div>
+                <div class="rounded-lg border border-gray-800 bg-slate-950 p-4"><strong class="block text-white mb-1">Fiverr</strong>Turn the profile output into gig positioning, service bullets, and message-ready delivery proof.</div>
+                <div class="rounded-lg border border-gray-800 bg-slate-950 p-4"><strong class="block text-white mb-1">LinkedIn</strong>Use the headline, About section, and pitch to make referral traffic understand your offer quickly.</div>
+                <div class="rounded-lg border border-gray-800 bg-slate-950 p-4"><strong class="block text-white mb-1">Contra</strong>Frame your indie expert positioning around target clients, outcomes, and proof rather than task lists.</div>
+                <div class="rounded-lg border border-gray-800 bg-slate-950 p-4"><strong class="block text-white mb-1">Website</strong>Use the value proposition and CTA as portfolio homepage copy or a services page section.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto px-4 mb-20">
+        <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <h2 class="text-sm font-bold uppercase tracking-widest text-brandGold mb-4">Frequently Asked Questions</h2>
+            <div class="space-y-5 text-sm text-slate-300 leading-relaxed">
+                <div><h3 class="font-bold text-white">How long should my freelancer profile bio be?</h3><p class="text-xs text-brandTextMuted mt-1">Most profiles should be long enough to prove credibility but easy to skim. Aim for a strong headline, a clear opening promise, two to four proof-driven paragraphs, and one CTA.</p></div>
+                <div><h3 class="font-bold text-white">Should freelancers specialize?</h3><p class="text-xs text-brandTextMuted mt-1">Usually yes. A specific service for a specific target client makes it easier for buyers to trust your expertise and understand why your rate is higher than a generalist profile.</p></div>
+                <div><h3 class="font-bold text-white">Can beginners use this profile optimizer?</h3><p class="text-xs text-brandTextMuted mt-1">Yes. Beginners can use project examples, portfolio builds, certifications, volunteer work, and process clarity when they do not have a deep client history yet.</p></div>
+                <div><h3 class="font-bold text-white">Can I edit the generated profile copy?</h3><p class="text-xs text-brandTextMuted mt-1">Yes. Treat the output as a polished starting point, then adjust claims, tone, results, and credentials so everything is accurate and platform appropriate.</p></div>
+                <div><h3 class="font-bold text-white">Is this an AI tool?</h3><p class="text-xs text-brandTextMuted mt-1">It is a browser-based copy generator with built-in positioning rules. Your inputs are processed locally in the page.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="w-full bg-[#111827] border-t border-gray-800 py-10 mt-12 text-[11px] text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+            <div class="md:col-span-4 space-y-3">
+                <div class="flex items-center space-x-3"><div class="w-6 h-6 rounded bg-slate-950 border border-slate-800 flex items-center justify-center overflow-hidden shrink-0"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab Footer Logo" class="w-full h-full object-contain"></div><span class="text-xs font-bold text-white uppercase tracking-wider">AI Cash Lab Tools</span></div>
+                <p class="text-[11px] text-slate-400 max-w-sm leading-relaxed">Simple business tools for freelancers, creators, and digital service providers.</p>
+            </div>
+            <div class="md:col-span-3 space-y-2.5 text-[11px]">
+                <span class="font-bold text-amber-500 uppercase tracking-wider block">Newest Tools</span>
+                <ul class="space-y-1.5 text-slate-400 font-medium">
+                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-amber-500"></span><a href="/freelancer-profile-optimizer/" class="hover:text-slate-300 transition-colors">Freelancer Profile Optimizer</a></li>
+                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-amber-500"></span><a href="/creator-ftc-disclosure-generator/" class="hover:text-slate-300 transition-colors">Creator FTC Disclosure Generator</a></li>
+                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-amber-500"></span><a href="/case-study-outline-generator/" class="hover:text-slate-300 transition-colors">Case Study Outline Generator</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-5 grid grid-cols-2 gap-6 text-[11px]">
+                <div class="space-y-2.5"><span class="font-bold text-slate-100 uppercase tracking-wider block">Production Hub</span><div class="flex flex-col space-y-1.5 text-slate-400"><a href="/creator-utilities/" class="hover:text-slate-300 transition-colors">Creator Utilities</a><a href="/freelancer-utilities/" class="hover:text-slate-300 transition-colors">Freelancer Utilities</a><a href="/articles/" class="hover:text-slate-300 transition-colors">Articles</a></div></div>
+                <div class="space-y-2.5"><span class="font-bold text-slate-100 uppercase tracking-wider block">Commercial Engine</span><div class="flex flex-col space-y-1.5 text-slate-400"><a href="/#premium-workspaces" class="text-amber-500 hover:text-amber-400 transition-colors">Premium Workspaces</a><a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-400 transition-colors">Storefront Hub -&gt;</a></div></div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 mt-8 border-t border-slate-900/80 text-center text-[10px] text-slate-500">&copy; 2026 AI Cash Lab. All Rights Reserved.</div>
+    </footer>
+
+    <script>
+        const toneDetails = {
+            Professional: { adjectives: ['strategic', 'results-oriented', 'dependable', 'analytical'], verb: 'maximize operational efficiency and revenue', intro: 'I partner with brands to build scalable solutions that align with core business objectives.' },
+            Friendly: { adjectives: ['enthusiastic', 'collaborative', 'easygoing', 'warm'], verb: 'bring your creative vision to life and scale your business together', intro: 'Hi! I help ambitious business owners take the pressure of execution off their shoulders.' },
+            Premium: { adjectives: ['bespoke', 'meticulous', 'high-end', 'elite'], verb: 'craft premium experiences and compound brand value', intro: 'I deliver high-caliber solutions for selective clients who refuse to compromise on quality.' },
+            Technical: { adjectives: ['data-driven', 'robust', 'optimized', 'architected'], verb: 'engineer high-performance workflows and eliminate technical debt', intro: 'I focus on clean architecture, precise metrics, and systems that scale without friction.' }
+        };
+        const state = { tone: 'Professional', activeTab: 'Upwork' };
+        const ids = ['platform','experienceLevel','primaryService','targetClient','biggestStrength','resultsMetrics','certifications'];
+        function value(id) { return (document.getElementById(id).value || '').trim(); }
+        function escapeHtml(text) { return String(text).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char])); }
+        function inputs() {
+            return {
+                platform: value('platform'),
+                experienceLevel: value('experienceLevel'),
+                primaryService: value('primaryService') || 'Freelance Service',
+                targetClient: value('targetClient') || 'target clients',
+                biggestStrength: value('biggestStrength') || 'reliable delivery',
+                resultsMetrics: value('resultsMetrics') || 'delivered reliable project outcomes',
+                certifications: value('certifications'),
+                tone: state.tone
+            };
+        }
+        function calculateStrengthScore(data) {
+            let score = 30;
+            const checks = {
+                nicheClarity: data.primaryService.length > 5 && data.targetClient.length > 4,
+                valueProp: data.biggestStrength.length > 5,
+                measurableProof: /\d+/.test(data.resultsMetrics) && data.resultsMetrics.length > 8,
+                clientFocus: data.targetClient && data.targetClient.toLowerCase() !== 'anyone',
+                ctaQuality: data.resultsMetrics.length > 5
+            };
+            if (checks.nicheClarity) score += 15;
+            if (checks.valueProp) score += 15;
+            if (checks.measurableProof) score += 20;
+            if (checks.clientFocus) score += 10;
+            if (checks.ctaQuality) score += 10;
+            return { score: Math.min(score, 100), checks };
+        }
+        function generateProfiles(data) {
+            const t = toneDetails[data.tone] || toneDetails.Professional;
+            const adj = t.adjectives;
+            const metrics = data.resultsMetrics || 'reliable milestones and optimized results';
+            const certText = data.certifications ? `With credentials in ${data.certifications},` : 'With practical, industry-standard expertise,';
+            const commonSkills = [data.primaryService, `${data.biggestStrength.split(' ')[0]} Delivery`, 'Client Positioning', 'Outcome Optimization', data.certifications ? data.certifications.split(',')[0].trim() : 'Strategic Consulting', 'Workflow Design'].filter(Boolean);
+            return {
+                Upwork: {
+                    headline: `${data.tone === 'Premium' ? 'Premium' : adj[0][0].toUpperCase() + adj[0].slice(1)} ${data.primaryService} Specialist for ${data.targetClient} | ${data.biggestStrength}`,
+                    bio: [
+                        `Are you a decision-maker in the ${data.targetClient} space looking for a focused ${data.primaryService} expert? I provide ${adj[0]} and ${adj[1]} ${data.primaryService} designed to ${t.verb}.`,
+                        `My work is built around client outcomes, not generic task completion. Recent proof includes: ${metrics}. I translate complex problems into clean, high-performing deliverables.`,
+                        `What you get when we work together:\n- Strategic alignment for ${data.targetClient}\n- Clear milestones and dependable communication\n- Delivery shaped around ${data.biggestStrength}`,
+                        `${certText} I keep the process clear, practical, and focused on business results.`,
+                        `Send me a message with your project goals and I will map the fastest path to a strong first milestone.`
+                    ],
+                    elevatorPitch: `I help ${data.targetClient} improve outcomes through ${data.primaryService}, combining ${data.biggestStrength} with proof such as ${metrics}. If you need a specialist who can move from strategy to delivery, I can help map the next step.`,
+                    skills: [...commonSkills, 'Upwork Contract Delivery'],
+                    valueProp: `Instead of generic execution, I deliver specialized ${data.primaryService} for ${data.targetClient} with a focus on ${data.biggestStrength}.`,
+                    cta: `Message me today and let's map your project scope.`
+                },
+                Fiverr: {
+                    headline: `I will be your professional ${data.primaryService} expert for ${data.targetClient}`,
+                    bio: [
+                        `Welcome. If you need ${adj[2]} ${data.primaryService} support for ${data.targetClient}, this service is built around clear deliverables, responsive communication, and outcome-focused execution.`,
+                        `Unlike template-driven sellers, I shape each project around your specific bottleneck. Client proof includes: ${metrics}.`,
+                        `This service includes:\n- Custom deliverables for your target audience\n- Clear review points and communication\n- Professional handoff assets ready for use`,
+                        `${certText} I complete each project with practical attention to detail and platform-ready quality.`,
+                        `Send me your project details before ordering so we can align on the best package and timeline.`
+                    ],
+                    elevatorPitch: `Looking for strong ${data.primaryService} support for ${data.targetClient}? I deliver custom work with ${data.biggestStrength}, backed by proof like ${metrics}. Send a message and I will help align the right package.`,
+                    skills: [...commonSkills, 'Fiverr Gig Optimization'],
+                    valueProp: `Clear, professional ${data.primaryService} with structured delivery, strong communication, and results-focused execution.`,
+                    cta: `Send me a message today to align your project goals.`
+                },
+                LinkedIn: {
+                    headline: `${data.primaryService} Consultant for ${data.targetClient} | ${data.biggestStrength}`,
+                    bio: [
+                        `I help ${data.targetClient} improve business results through high-impact ${data.primaryService}. If your team needs stronger execution, cleaner systems, or better conversion from existing assets, I can help.`,
+                        `My work is measured by client outcomes. A recent highlight: ${metrics}.`,
+                        `Core focus areas:\n- Specialized ${data.primaryService} for ${data.targetClient}\n- Strategic execution around ${data.biggestStrength}\n- Clear communication with business-facing stakeholders`,
+                        `${certText} I connect practical delivery with measurable commercial value.`,
+                        `If you are exploring a project, partnership, or referral, feel free to connect or send a direct message.`
+                    ],
+                    elevatorPitch: `I help ${data.targetClient} solve high-value challenges in ${data.primaryService}. By combining ${data.biggestStrength} with measurable proof such as ${metrics}, I help teams move from unclear needs to practical execution.`,
+                    skills: [...commonSkills, 'B2B Client Strategy'],
+                    valueProp: `Helping ${data.targetClient} improve results through tailored expertise, clear positioning, and reliable delivery.`,
+                    cta: `Connect with me or send a DM to discuss potential collaboration.`
+                },
+                Website: {
+                    headline: `High-Impact ${data.primaryService} for ${data.targetClient}`,
+                    bio: [
+                        `Your business deserves ${data.primaryService} shaped around outcomes, not generic deliverables. I provide ${adj[3]} implementation for ${data.targetClient} that need practical results and clear execution.`,
+                        `I work with focused clients who value strategy, speed, and proof. Recent project outcomes include: ${metrics}.`,
+                        `My framework:\n1. Discovery and strategy aligned to your goals\n2. Execution built around ${data.biggestStrength}\n3. Launch-ready handoff with clear next steps`,
+                        `${certText} I bring structure, reliability, and conversion-aware thinking into every project.`,
+                        `Ready to improve your client-facing assets? Book a short strategy call and we will identify the highest-leverage next move.`
+                    ],
+                    elevatorPitch: `I build ${data.primaryService} solutions for ${data.targetClient} who need strong execution and measurable outcomes. With proof like ${metrics} and a focus on ${data.biggestStrength}, I help turn strategy into useful assets.`,
+                    skills: [...commonSkills, 'Conversion Rate Optimization'],
+                    valueProp: `A focused service model for clients who need strong ${data.primaryService}, clear process, and business-aware execution.`,
+                    cta: `Book a 15-minute introductory strategy call today.`
+                }
+            };
+        }
+        function currentProfile() {
+            return generateProfiles(inputs())[state.activeTab];
+        }
+        function fullText() {
+            const data = inputs();
+            const profile = currentProfile();
+            return `FREELANCER PROFILE OPTIMIZER\nPlatform: ${state.activeTab}\nTone: ${data.tone}\nExperience: ${data.experienceLevel}\n\nHEADLINE\n${profile.headline}\n\nBIO\n${profile.bio.join('\n\n')}\n\nELEVATOR PITCH\n${profile.elevatorPitch}\n\nSKILLS\n${profile.skills.join(', ')}\n\nCLIENT VALUE PROPOSITION\n${profile.valueProp}\n\nCALL TO ACTION\n${profile.cta}`;
+        }
+        function renderAudit(data, result) {
+            const rows = [
+                ['nicheClarity', 'Niche Audience Clarity', 'Targets a specific service and client market.'],
+                ['valueProp', 'Clear Value Accent', 'States the unique delivery advantage.'],
+                ['measurableProof', 'Quantifiable Proof', 'Uses numbers, revenue, volume, speed, or outcomes.'],
+                ['clientFocus', 'Client-Centric Structure', 'Focuses on buyer problems and business results.'],
+                ['ctaQuality', 'Active Call To Action', 'Gives prospects a clear next step.']
+            ];
+            document.getElementById('auditRows').innerHTML = rows.map(row => {
+                const done = result.checks[row[0]];
+                return `<div class="audit-row ${done ? 'is-done' : ''} rounded-lg border border-gray-800 bg-slate-950 p-3 flex gap-3"><span class="audit-dot mt-1 h-3 w-3 rounded-full border border-slate-700 shrink-0"></span><div><strong class="audit-title block text-xs text-slate-400">${row[1]}</strong><p class="text-[11px] text-brandTextMuted mt-1 leading-relaxed">${row[2]}</p></div></div>`;
+            }).join('');
+        }
+        function render() {
+            const data = inputs();
+            const result = calculateStrengthScore(data);
+            const profile = currentProfile();
+            const label = result.score >= 90 ? 'Elite Positioning' : result.score >= 70 ? 'Strong Positioning' : result.score >= 40 ? 'Average Positioning' : 'Weak Positioning';
+            document.getElementById('scoreValue').textContent = result.score;
+            document.querySelector('.score-ring').style.setProperty('--score-angle', `${result.score * 3.6}deg`);
+            document.getElementById('scoreLabel').textContent = label;
+            document.getElementById('scoreNote').textContent = result.score >= 90 ? 'Strong profile assets with niche clarity, proof, and a clear buyer action.' : 'Improve specificity, proof metrics, and client-facing outcomes to strengthen this profile.';
+            renderAudit(data, result);
+            document.getElementById('headlineOut').textContent = profile.headline;
+            document.getElementById('bioOut').innerHTML = profile.bio.map(p => `<p>${escapeHtml(p)}</p>`).join('');
+            document.getElementById('pitchOut').textContent = `"${profile.elevatorPitch}"`;
+            document.getElementById('skillsOut').innerHTML = profile.skills.map(skill => `<span class="rounded-full border border-brandGold/30 bg-brandGold/10 px-2.5 py-1 text-[11px] font-bold text-white">${escapeHtml(skill)}</span>`).join('');
+            document.getElementById('valueOut').textContent = profile.valueProp;
+            document.getElementById('ctaOut').textContent = profile.cta;
+            document.querySelectorAll('[data-tab]').forEach(btn => btn.classList.toggle('is-active', btn.dataset.tab === state.activeTab));
+            document.querySelectorAll('[data-choice-group="tone"] .choice').forEach(btn => btn.classList.toggle('is-active', btn.dataset.value === state.tone));
+            saveDraft();
+        }
+        function textForKey(key) {
+            const profile = currentProfile();
+            if (key === 'headline') return profile.headline;
+            if (key === 'bio') return profile.bio.join('\n\n');
+            if (key === 'pitch') return profile.elevatorPitch;
+            if (key === 'skills') return profile.skills.join(', ');
+            if (key === 'valueProp') return profile.valueProp;
+            if (key === 'cta') return profile.cta;
+            return fullText();
+        }
+        async function copyText(text, button) {
+            await navigator.clipboard.writeText(text);
+            const old = button.textContent;
+            button.textContent = 'Copied';
+            setTimeout(() => button.textContent = old, 1400);
+        }
+        function saveDraft() {
+            const data = inputs();
+            localStorage.setItem('acl_freelancer_profile_optimizer', JSON.stringify(data));
+        }
+        function loadDraft() {
+            try {
+                const data = JSON.parse(localStorage.getItem('acl_freelancer_profile_optimizer') || '{}');
+                ids.forEach(id => { if (data[id]) document.getElementById(id).value = data[id]; });
+                if (data.tone) state.tone = data.tone;
+            } catch (error) {}
+        }
+        ids.forEach(id => document.getElementById(id).addEventListener('input', render));
+        document.querySelectorAll('.preset').forEach(btn => btn.addEventListener('click', () => {
+            const target = btn.closest('[data-preset-target]').dataset.presetTarget;
+            document.getElementById(target).value = btn.dataset.value;
+            render();
+        }));
+        document.querySelectorAll('[data-choice-group="tone"] .choice').forEach(btn => btn.addEventListener('click', () => {
+            state.tone = btn.dataset.value;
+            render();
+        }));
+        document.querySelectorAll('[data-tab]').forEach(btn => btn.addEventListener('click', () => {
+            state.activeTab = btn.dataset.tab;
+            render();
+        }));
+        document.getElementById('optimizeBtn').addEventListener('click', () => {
+            render();
+            document.getElementById('generated-output').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        document.getElementById('sampleBtn').addEventListener('click', () => {
+            document.getElementById('platform').value = 'Upwork';
+            document.getElementById('experienceLevel').value = '3-5';
+            document.getElementById('primaryService').value = 'Web Design & Webflow Development';
+            document.getElementById('targetClient').value = 'SaaS Startups';
+            document.getElementById('biggestStrength').value = 'High-conversion rate focus';
+            document.getElementById('resultsMetrics').value = 'Generated $250k revenue for clients, designed 40+ responsive apps.';
+            document.getElementById('certifications').value = 'Certified Webflow Expert, Google UX Certification';
+            state.tone = 'Professional';
+            render();
+        });
+        document.querySelectorAll('.copy-btn').forEach(btn => btn.addEventListener('click', () => copyText(textForKey(btn.dataset.copy), btn)));
+        document.getElementById('copyAllBtn').addEventListener('click', event => copyText(fullText(), event.currentTarget));
+        document.getElementById('downloadBtn').addEventListener('click', () => {
+            const blob = new Blob([fullText()], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `${value('primaryService').replace(/\s+/g, '_') || 'freelancer'}_${state.activeTab}_profile.txt`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        });
+        loadDraft();
+        render();
+    </script>
+</body>
+</html>
