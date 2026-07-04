@@ -228,7 +228,12 @@
             <div class="bg-brandCard border border-gray-800 rounded-xl p-5"><span class="text-[10px] uppercase tracking-widest text-brandTextMuted font-bold">Daily Focus Leak</span><p id="dailyHoursLost" class="text-3xl font-extrabold text-white mt-2">0 hrs</p><p class="text-xs text-brandTextMuted mt-1">Lost focus and switching overhead per day.</p></div>
             <div class="bg-brandCard border border-gray-800 rounded-xl p-5"><span class="text-[10px] uppercase tracking-widest text-brandTextMuted font-bold">Weekly Hours Lost</span><p id="weeklyHoursLost" class="text-3xl font-extrabold text-white mt-2">0 hrs</p><p id="weeklyPercentNote" class="text-xs text-brandTextMuted mt-1"></p></div>
             <div class="bg-brandCard border border-gray-800 rounded-xl p-5"><span class="text-[10px] uppercase tracking-widest text-brandTextMuted font-bold">Monthly Hours Lost</span><p id="monthlyHoursLost" class="text-3xl font-extrabold text-white mt-2">0 hrs</p><p class="text-xs text-brandTextMuted mt-1">Hours pulled away from client production.</p></div>
-            <div class="bg-brandCard border border-red-500/25 rounded-xl p-5"><span class="text-[10px] uppercase tracking-widest text-red-300 font-bold">Revenue Leak</span><p id="monthlyRevenueLost" class="text-3xl font-extrabold text-red-300 mt-2">$0</p><p class="text-xs text-brandTextMuted mt-1">Estimated monthly capacity loss.</p></div>
+            <div class="bg-red-500/10 border border-red-500/40 rounded-xl p-5 shadow-lg shadow-red-950/20 relative overflow-hidden">
+                <div class="absolute right-4 top-4 h-8 w-8 rounded-full border border-red-400/30 bg-red-500/10 flex items-center justify-center text-red-300 text-sm font-extrabold">$</div>
+                <span class="text-[10px] uppercase tracking-widest text-red-300 font-bold">Revenue Leak</span>
+                <p id="monthlyRevenueLost" class="text-4xl font-extrabold text-red-300 mt-2">$0</p>
+                <p class="text-xs text-red-100/75 mt-1">Estimated monthly capacity loss.</p>
+            </div>
         </section>
 
         <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -268,22 +273,22 @@
 
         <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div class="lg:col-span-2 bg-brandCard border border-gray-800 rounded-xl p-6">
-                <span class="text-[10px] uppercase tracking-widest text-brandGold font-bold">Productivity Education</span>
+                <span class="text-[10px] uppercase tracking-widest text-brandGold font-bold">Why Productivity Debt Happens</span>
                 <h2 class="text-2xl font-extrabold text-white mt-2">Where does freelancer productivity debt come from?</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-5 text-xs text-slate-300 leading-relaxed">
-                    <div class="rounded-lg border border-gray-800 bg-slate-950 p-4"><strong class="block text-white mb-1">Unstructured Meetings</strong>Calls without agendas, async alternatives, or clear decision points quietly fragment deep work.</div>
-                    <div class="rounded-lg border border-gray-800 bg-slate-950 p-4"><strong class="block text-white mb-1">Poor Tool Systems</strong>Scattered spreadsheets, inboxes, and manual reminders turn simple admin into recurring drag.</div>
-                    <div class="rounded-lg border border-gray-800 bg-slate-950 p-4"><strong class="block text-white mb-1">Task Swapping</strong>Jumping between clients, channels, and deliverables adds mental ramp-up cost to every workday.</div>
+                    <div class="rounded-lg border border-gray-800 bg-slate-950 p-4"><strong class="block text-white mb-1">Unstructured Meetings</strong>Use agendas, default time limits, and async updates so calls create decisions instead of stealing focus blocks.</div>
+                    <div class="rounded-lg border border-gray-800 bg-slate-950 p-4"><strong class="block text-white mb-1">Poor Tool Systems</strong>Move recurring reminders, invoices, intake details, and follow-ups into one workflow so admin stops living in your head.</div>
+                    <div class="rounded-lg border border-gray-800 bg-slate-950 p-4"><strong class="block text-white mb-1">Task Swapping</strong>Group similar client work into batches so every deliverable does not require a fresh mental reset.</div>
                 </div>
             </div>
             <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
                 <h2 class="text-sm font-bold uppercase tracking-widest text-brandGold mb-3">Productivity Shield Checklist</h2>
-                <ul class="space-y-2 text-xs text-slate-300 leading-relaxed">
-                    <li>Batch similar admin, email, and prospecting work.</li>
-                    <li>Protect one 90-minute deep work block daily.</li>
-                    <li>Automate invoicing, scheduling, proposals, and follow-ups.</li>
-                    <li>Use reusable templates for repeat client workflows.</li>
-                    <li>Review workflow debt every Friday or month-end.</li>
+                <ul class="space-y-2.5 text-xs text-slate-300 leading-relaxed">
+                    <li class="flex gap-2"><span class="text-brandGreen font-bold shrink-0">&#10003;</span><span>Batch similar admin, email, and prospecting work.</span></li>
+                    <li class="flex gap-2"><span class="text-brandGreen font-bold shrink-0">&#10003;</span><span>Protect one 90-minute deep work block daily.</span></li>
+                    <li class="flex gap-2"><span class="text-brandGreen font-bold shrink-0">&#10003;</span><span>Automate invoicing, scheduling, proposals, and follow-ups.</span></li>
+                    <li class="flex gap-2"><span class="text-brandGreen font-bold shrink-0">&#10003;</span><span>Use reusable templates for repeat client workflows.</span></li>
+                    <li class="flex gap-2"><span class="text-brandGreen font-bold shrink-0">&#10003;</span><span>Review workflow debt every Friday or month-end.</span></li>
                 </ul>
             </div>
         </section>
@@ -298,11 +303,11 @@
                     </div>
                     <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         <a href="/hourly-rate-calculator/" class="rounded-lg border border-brandGold/25 bg-slate-950/40 p-4 text-sm font-extrabold text-white hover:border-brandGold hover:bg-brandGold/10 transition">Hourly Rate<br>Calculator</a>
+                        <a href="/pricing-strategy-calculator/" class="rounded-lg border border-brandGold/25 bg-slate-950/40 p-4 text-sm font-extrabold text-white hover:border-brandGold hover:bg-brandGold/10 transition">Pricing Strategy<br>Calculator</a>
                         <a href="/scope-creep-calculator/" class="rounded-lg border border-brandGold/25 bg-slate-950/40 p-4 text-sm font-extrabold text-white hover:border-brandGold hover:bg-brandGold/10 transition">Scope Creep<br>Calculator</a>
                         <a href="/proposal-calculator/" class="rounded-lg border border-brandGold/25 bg-slate-950/40 p-4 text-sm font-extrabold text-white hover:border-brandGold hover:bg-brandGold/10 transition">Proposal Win<br>Calculator</a>
                         <a href="/referral-calculator/" class="rounded-lg border border-brandGold/25 bg-slate-950/40 p-4 text-sm font-extrabold text-white hover:border-brandGold hover:bg-brandGold/10 transition">Referral Reward<br>Calculator</a>
-                        <a href="/pricing-strategy-calculator/" class="rounded-lg border border-brandGold/25 bg-slate-950/40 p-4 text-sm font-extrabold text-white hover:border-brandGold hover:bg-brandGold/10 transition">Pricing Strategy<br>Calculator</a>
-                        <a href="/freelancer-utilities/" class="rounded-lg border border-brandGold/25 bg-slate-950/40 p-4 text-sm font-extrabold text-white hover:border-brandGold hover:bg-brandGold/10 transition">Freelancer Utilities</a>
+                        <a href="/freelancer-utilities/" class="rounded-lg border border-brandGold/25 bg-slate-950/40 p-4 text-sm font-extrabold text-white hover:border-brandGold hover:bg-brandGold/10 transition">Freelancer Utilities Hub</a>
                     </div>
                 </div>
             </div>
@@ -429,6 +434,8 @@
             const automationPotentialPct = Math.max(10, Math.min(100, 100 - automationScore));
             const hiddenCostText = `You are losing approximately ${weeklyHoursLost} hours every week due to interruptions, admin tasks, and mental recovery cycles.`;
             const revenueImpactText = `At your hourly value of ${money(data.hourlyValue)}, that is approximately ${money(weeklyRevenueLost)}/week, ${money(monthlyRevenueLost)}/month, and ${money(annualRevenueLost)}/year in missed revenue capacity.`;
+            const hiddenCostHtml = `You are losing approximately <span class="text-white font-extrabold bg-red-500/10 border border-red-500/25 rounded px-1.5 py-0.5">${weeklyHoursLost} hours/week</span> due to interruptions, admin tasks, and mental recovery cycles.`;
+            const revenueImpactHtml = `At your hourly value of ${money(data.hourlyValue)}, that is approximately <span class="text-red-300 font-extrabold bg-red-500/10 border border-red-500/25 rounded px-1.5 py-0.5">${money(weeklyRevenueLost)}/week</span>, <span class="text-red-300 font-extrabold bg-red-500/10 border border-red-500/25 rounded px-1.5 py-0.5">${money(monthlyRevenueLost)}/month</span>, and <span class="text-red-300 font-extrabold bg-red-500/10 border border-red-500/25 rounded px-1.5 py-0.5">${money(annualRevenueLost)}/year</span> in missed revenue capacity.`;
             const maxSource = Math.max(weeklyInterruptionHours, weeklyAdminHours, weeklyContextSwitchingHours);
             const biggestBottleneckText = maxSource === weeklyContextSwitchingHours ? 'Context switching is currently creating the largest productivity drain. Frequent task shifts make it harder to return to deep client work.' : maxSource === weeklyAdminHours ? `Manual client administration is your biggest time sink, taking up ${weeklyAdminHours} hours of valuable focus every week.` : `Daily interruptions are fracturing your schedule. You are losing ${weeklyInterruptionHours} hours each week to recovery cycles.`;
             const recoveryMax = Math.max(recoverableAdmin, recoverableInterruptions, recoverableContextSwitching);
@@ -459,12 +466,20 @@
             }
             while (recommendations.length < 4) recommendations.push({ title: 'Define Clear Daily Priorities', desc: 'Write your top three needle-moving tasks the evening before and start with the hardest one.' });
             while (recoveryPlan.length < 4) recoveryPlan.push(['Theme your days around specific types of work.', 'Move manual scheduling to a self-serve booking link.', 'Run a Friday workflow review to remove admin friction.'][recoveryPlan.length - 1] || 'Review one recurring workflow and turn it into a template.');
-            return { score, health, healthColor, healthDescription, dailyHoursLost, weeklyHoursLost, monthlyHoursLost, annualHoursLost, weeklyRevenueLost, monthlyRevenueLost, annualRevenueLost, deepWorkScore, automationScore, recoverableHours, monthlyRevenuePotential, extraClientCapacity, currentProductivityPct, recoveredProductivityPct, automationPotentialPct, hiddenCostText, revenueImpactText, biggestBottleneckText, fastestWinText, recommendations: recommendations.slice(0, 4), recoveryPlan: recoveryPlan.slice(0, 4) };
+            return { score, health, healthColor, healthDescription, dailyHoursLost, weeklyHoursLost, monthlyHoursLost, annualHoursLost, weeklyRevenueLost, monthlyRevenueLost, annualRevenueLost, deepWorkScore, automationScore, recoverableHours, monthlyRevenuePotential, extraClientCapacity, currentProductivityPct, recoveredProductivityPct, automationPotentialPct, hiddenCostText, revenueImpactText, hiddenCostHtml, revenueImpactHtml, biggestBottleneckText, fastestWinText, recommendations: recommendations.slice(0, 4), recoveryPlan: recoveryPlan.slice(0, 4) };
         }
         function reportText(data, r) {
-            return `PRODUCTIVITY DEBT REPORT\nFreelancer Productivity Debt Calculator - AI Cash Lab\nGenerated: ${new Date().toLocaleDateString()}\n\nCURRENT STANDINGS\nHourly Value: ${money(data.hourlyValue)}/hour\nTarget Capacity: ${data.hoursWorkedPerWeek} hours/week\nProductivity Score: ${r.score}/100 (${r.health})\nDeep Work Score: ${r.deepWorkScore}/100\nAutomation Index: ${r.automationScore}/100\n\nTIME AND REVENUE DEBT\nDaily Hours Lost: ${r.dailyHoursLost} hours\nWeekly Hours Lost: ${r.weeklyHoursLost} hours (${Math.round((r.weeklyHoursLost / data.hoursWorkedPerWeek) * 100)}% of workweek)\nMonthly Hours Lost: ${r.monthlyHoursLost} hours\nAnnual Hours Lost: ${r.annualHoursLost} hours\nWeekly Revenue Lost: ${money(r.weeklyRevenueLost)}\nMonthly Revenue Lost: ${money(r.monthlyRevenueLost)}\nAnnual Revenue Lost: ${money(r.annualRevenueLost)}\n\nCORE BOTTLENECKS\nMain Issue: ${data.biggestIssue}\nBottleneck Analysis: ${r.biggestBottleneckText}\nFast Recovery Action: ${r.fastestWinText}\n\nOPTIMIZATION OPPORTUNITY\nRecoverable Focus: ${r.recoverableHours} hours/week\nRecaptured Monthly Revenue: +${money(r.monthlyRevenuePotential)}/month\nReclaimed Client Capacity: +${r.extraClientCapacity} client(s)/month\n\nRECOVERY ROADMAP\n${r.recoveryPlan.map((step, i) => `Priority ${i + 1}: ${step}`).join('\n')}\n\nSYSTEM RECOMMENDATIONS\n${r.recommendations.map((rec, i) => `${i + 1}. ${rec.title}\n   ${rec.desc}`).join('\n\n')}\n\nPrivacy notice: All calculations were performed client-side.`;
+            return `PRODUCTIVITY DEBT REPORT\nFreelancer Productivity Debt Calculator - AI Cash Lab\nGenerated: ${new Date().toLocaleDateString()}\n\nCURRENT STANDINGS\nHourly Value: ${money(data.hourlyValue)}/hour\nTarget Capacity: ${data.hoursWorkedPerWeek} hours/week\nProductivity Score: ${r.score}/100 (${r.health})\nDeep Work Score: ${r.deepWorkScore}/100\nAutomation Index: ${r.automationScore}/100\n\nTIME AND REVENUE DEBT\nDaily Hours Lost: ${r.dailyHoursLost} hours\nWeekly Hours Lost: ${r.weeklyHoursLost} hours (${Math.round((r.weeklyHoursLost / data.hoursWorkedPerWeek) * 100)}% of workweek)\nMonthly Hours Lost: ${r.monthlyHoursLost} hours\nAnnual Hours Lost: ${r.annualHoursLost} hours\nWeekly Revenue Lost: ${money(r.weeklyRevenueLost)}\nMonthly Revenue Lost: ${money(r.monthlyRevenueLost)}\nAnnual Revenue Lost: ${money(r.annualRevenueLost)}\n\nCORE BOTTLENECKS\nMain Issue: ${data.biggestIssue}\nBottleneck Analysis: ${r.biggestBottleneckText}\nFast Recovery Action: ${r.fastestWinText}\n\nOPTIMIZATION OPPORTUNITY\nRecoverable Focus: ${r.recoverableHours} hours/week\nRecaptured Monthly Revenue: +${money(r.monthlyRevenuePotential)}/month\nReclaimed Client Capacity: +${r.extraClientCapacity} client(s)/month\n\nRECOVERY ROADMAP\n${r.recoveryPlan.map((step, i) => `Priority ${i + 1}: ${step}`).join('\n')}\n\nSYSTEM RECOMMENDATIONS\n${r.recommendations.map((rec, i) => `${i + 1}. ${rec.title}\n   ${rec.desc}`).join('\n\n')}\n\nRECOMMENDED ACTIONS\n- Time block deep work\n- Batch communication\n- Automate invoices/admin\n- Review productivity weekly\n\nPrivacy notice: All calculations were performed client-side.`;
         }
         function setText(id, value) { document.getElementById(id).textContent = value; }
+        function setHtml(id, value) { document.getElementById(id).innerHTML = value; }
+        function recommendationIcon(title) {
+            if (/Time Blocking/i.test(title)) return '&#9201;';
+            if (/Notification/i.test(title)) return '&#128276;';
+            if (/Invoicing|Tasks/i.test(title)) return '&#128179;';
+            if (/Templates/i.test(title)) return '&#128196;';
+            return '&#10003;';
+        }
         function render() {
             const data = inputs();
             const r = calculateProductivity(data);
@@ -488,8 +503,8 @@
             setText('recoverableHours', `${r.recoverableHours} hrs`);
             setText('monthlyRevenuePotential', '+' + money(r.monthlyRevenuePotential));
             setText('extraClientCapacity', `+${r.extraClientCapacity} clients`);
-            setText('hiddenCostText', r.hiddenCostText);
-            setText('revenueImpactText', r.revenueImpactText);
+            setHtml('hiddenCostText', r.hiddenCostHtml);
+            setHtml('revenueImpactText', r.revenueImpactHtml);
             setText('biggestBottleneckText', r.biggestBottleneckText);
             setText('fastestWinText', r.fastestWinText);
             setText('selectedBottleneck', data.biggestIssue);
@@ -499,8 +514,8 @@
             document.getElementById('currentProductivityBar').style.setProperty('--bar-width', `${r.currentProductivityPct}%`);
             document.getElementById('recoveredProductivityBar').style.setProperty('--bar-width', `${r.recoveredProductivityPct}%`);
             document.getElementById('automationPotentialBar').style.setProperty('--bar-width', `${r.automationPotentialPct}%`);
-            document.getElementById('recommendations').innerHTML = r.recommendations.map((rec, i) => `<div class="bg-brandCard border border-gray-800 rounded-xl p-5"><h3 class="text-sm font-bold text-white"><span class="text-brandGold">0${i + 1}</span> ${rec.title}</h3><p class="text-xs text-brandTextMuted leading-relaxed mt-2">${rec.desc}</p></div>`).join('');
-            document.getElementById('recoveryPlan').innerHTML = r.recoveryPlan.map((step, i) => `<button type="button" data-plan="${i}" class="plan-item ${state.completedPriorities[i] ? 'is-done' : ''} w-full text-left flex gap-3 rounded-lg border border-gray-800 bg-slate-950 p-3 hover:border-brandGold"><span class="plan-check mt-0.5 h-5 w-5 rounded border border-slate-700 flex items-center justify-center text-transparent shrink-0">&#10003;</span><span><span class="block text-[10px] font-bold uppercase tracking-widest text-brandGold">Priority 0${i + 1}</span><span class="plan-text block text-xs text-slate-300 leading-relaxed mt-1">${step}</span></span></button>`).join('');
+            document.getElementById('recommendations').innerHTML = r.recommendations.map((rec, i) => `<div class="bg-brandCard border border-gray-800 rounded-xl p-5 flex gap-3"><span class="h-8 w-8 rounded-lg border border-brandGold/30 bg-brandGold/10 text-brandGold flex items-center justify-center text-[10px] font-extrabold shrink-0">${recommendationIcon(rec.title)}</span><div><h3 class="text-sm font-bold text-white"><span class="text-brandGold">0${i + 1}</span> ${rec.title}</h3><p class="text-xs text-brandTextMuted leading-relaxed mt-2">${rec.desc}</p></div></div>`).join('');
+            document.getElementById('recoveryPlan').innerHTML = r.recoveryPlan.map((step, i) => `<button type="button" data-plan="${i}" class="plan-item ${state.completedPriorities[i] ? 'is-done' : ''} w-full text-left flex gap-4 rounded-lg border border-gray-800 bg-slate-950 p-4 hover:border-brandGold"><span class="plan-check mt-0.5 h-6 w-6 rounded border border-slate-700 flex items-center justify-center text-transparent shrink-0">&#10003;</span><span><span class="block text-[10px] font-bold uppercase tracking-widest text-brandGold">Priority 0${i + 1}</span><span class="plan-text block text-xs text-slate-300 leading-relaxed mt-2">${step}</span></span></button>`).join('');
             setText('reportPreview', reportText(data, r));
             document.querySelectorAll('[data-choice-group="biggestIssue"] .choice').forEach(btn => btn.classList.toggle('is-active', btn.dataset.value === state.biggestIssue));
         }
