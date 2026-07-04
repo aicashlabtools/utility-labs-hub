@@ -104,7 +104,8 @@
     </script>
     <style>
         textarea { resize: vertical; }
-        .choice.is-active { border-color: #3B82F6; background: rgba(59,130,246,.12); color: #fff; }
+        .choice.is-active { border-color: rgba(229,169,60,.9); background: linear-gradient(135deg, rgba(229,169,60,.22), rgba(59,130,246,.12)); color: #fff; box-shadow: 0 0 0 1px rgba(229,169,60,.35), 0 14px 30px rgba(229,169,60,.12); }
+        .choice.is-active span:first-child { color: #fff; }
         .pill.is-active { border-color: rgba(229,169,60,.8); background: rgba(229,169,60,.14); color: #fff; }
         .output-copy { white-space: pre-wrap; }
         .score-ring { background: conic-gradient(#E5A93C var(--score-angle), #1f2937 0); }
@@ -169,7 +170,7 @@
                     <h2 class="font-bold tracking-wide text-sm uppercase text-gray-300">Disclosure Inputs</h2>
                     <p class="text-xs text-brandTextMuted mt-1">Build clear wording for commercial relationships before publishing.</p>
                 </div>
-                <button type="button" id="sampleBtn" class="text-[11px] font-bold uppercase tracking-wide text-brandGold hover:text-white bg-brandGold/10 hover:bg-brandGold/20 border border-brandGold/40 rounded px-3 py-1.5 transition">Load Sponsor Sample</button>
+                <button type="button" id="sampleBtn" class="self-start sm:self-center text-[11px] font-bold uppercase tracking-wide text-brandGold hover:text-white bg-brandGold/10 hover:bg-brandGold/20 border border-brandGold/40 rounded px-3 py-1.5 transition">Load Sponsor Sample</button>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -201,6 +202,10 @@
                 <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-2">Disclosure Tags</h3>
                 <div id="hashtagChoices" class="flex flex-wrap gap-2"></div>
             </div>
+
+            <div class="mt-6 border-t border-gray-800 pt-5">
+                <button type="button" id="generateBtn" class="w-full rounded-xl bg-brandGold px-5 py-4 text-sm font-extrabold uppercase tracking-wide text-slate-950 shadow-lg shadow-brandGold/20 hover:bg-brandGoldHover transition">Generate FTC Disclosure</button>
+            </div>
         </section>
 
         <aside class="lg:col-span-5 space-y-6">
@@ -229,12 +234,13 @@
         </aside>
     </main>
 
-    <section class="max-w-7xl mx-auto px-4 mb-16">
+    <section id="disclosure-output" class="max-w-7xl mx-auto px-4 mb-16 scroll-mt-24">
         <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
             <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 border-b border-gray-800 pb-4 mb-5">
                 <div>
-                    <h2 class="text-sm font-bold uppercase tracking-wide text-gray-300">Generated FTC Disclosure Copy</h2>
-                    <p class="text-xs text-brandTextMuted mt-1">Switch formats based on where the disclosure needs to appear.</p>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Generated Disclosure</span>
+                    <h2 class="mt-1 text-2xl md:text-3xl font-extrabold tracking-tight text-white">FTC Disclosure Output</h2>
+                    <p class="text-sm text-brandTextMuted mt-2">Switch formats based on where the disclosure needs to appear.</p>
                 </div>
                 <div class="flex flex-wrap gap-2">
                     <button type="button" data-tab="shortCaption" class="tab is-active text-xs font-bold border border-gray-800 bg-slate-950 rounded-lg px-3 py-2 text-slate-300 hover:border-brandGold">Short Caption</button>
@@ -245,10 +251,11 @@
             </div>
             <div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
                 <div class="xl:col-span-7 bg-slate-950 border border-gray-800 rounded-xl p-5">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-5">
-                        <div class="rounded-xl border border-brandGold/35 bg-brandGold/10 p-4"><span class="block text-[10px] uppercase tracking-widest text-brandGold font-bold">Platform</span><strong id="previewPlatform" class="mt-1 block text-lg text-white">YouTube</strong></div>
-                        <div class="rounded-xl border border-brandGold/35 bg-brandGold/10 p-4"><span class="block text-[10px] uppercase tracking-widest text-brandGold font-bold">Placement</span><strong id="previewPlacement" class="mt-1 block text-lg text-white">Beginning</strong></div>
-                        <div class="rounded-xl border border-brandGold/35 bg-brandGold/10 p-4"><span class="block text-[10px] uppercase tracking-widest text-brandGold font-bold">Tag Signal</span><strong id="previewTags" class="mt-1 block text-lg text-white">#ad</strong></div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 mb-5">
+                        <div class="rounded-xl border border-brandGold/45 bg-gradient-to-br from-brandGold/20 to-slate-950 p-4 shadow-lg shadow-black/20"><span class="block text-[10px] uppercase tracking-widest text-brandGold font-bold">Platform</span><strong id="previewPlatform" class="mt-1 block text-lg text-white">YouTube</strong></div>
+                        <div class="rounded-xl border border-brandGold/45 bg-gradient-to-br from-brandGold/20 to-slate-950 p-4 shadow-lg shadow-black/20"><span class="block text-[10px] uppercase tracking-widest text-brandGold font-bold">Placement</span><strong id="previewPlacement" class="mt-1 block text-lg text-white">Beginning</strong></div>
+                        <div class="rounded-xl border border-brandGold/45 bg-gradient-to-br from-brandGold/20 to-slate-950 p-4 shadow-lg shadow-black/20"><span class="block text-[10px] uppercase tracking-widest text-brandGold font-bold">Disclosure Tags</span><strong id="previewTags" class="mt-1 block text-lg text-white">#ad</strong></div>
+                        <div class="rounded-xl border border-brandGold/45 bg-gradient-to-br from-brandGold/20 to-slate-950 p-4 shadow-lg shadow-black/20"><span class="block text-[10px] uppercase tracking-widest text-brandGold font-bold">Risk Level</span><strong id="previewRisk" class="mt-1 block text-lg text-white">Good Compliance</strong></div>
                     </div>
                     <div class="rounded-2xl border border-brandGold/40 bg-gradient-to-br from-brandGold/10 via-slate-950 to-slate-950 p-5">
                         <span class="block text-[10px] text-brandGold uppercase tracking-widest font-bold">Generated Disclosure</span>
@@ -284,10 +291,10 @@
         <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
             <h2 class="text-sm font-bold uppercase tracking-widest text-brandGold mb-3">Related Tools</h2>
             <div class="space-y-3 text-xs">
+                <a href="/creator-monetization-path-finder/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Creator Monetization Path Finder</a>
                 <a href="/viral-content-framework-generator/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Viral Content Framework Generator</a>
                 <a href="/caption-formatter/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Caption Formatter</a>
                 <a href="/youtube-description-formatter/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">YouTube Description Formatter</a>
-                <a href="/creator-monetization-path-finder/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Creator Monetization Path Finder</a>
                 <a href="/creator-utilities/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Creator Utilities Hub</a>
             </div>
         </div>
@@ -299,12 +306,28 @@
         </div>
     </section>
 
+    <section class="max-w-5xl mx-auto px-4 mb-10">
+        <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Placement SEO Guide</span>
+            <h2 class="mt-2 text-2xl font-extrabold text-white">Where should disclosures appear?</h2>
+            <div class="mt-5 grid grid-cols-1 md:grid-cols-5 gap-3 text-xs text-slate-300 leading-relaxed">
+                <div class="rounded-lg border border-gray-800 bg-slate-950 p-4"><strong class="block text-white mb-1">YouTube</strong>Say the disclosure near the start and place it before sponsor or affiliate links in the description.</div>
+                <div class="rounded-lg border border-gray-800 bg-slate-950 p-4"><strong class="block text-white mb-1">Instagram</strong>Put the disclosure before the caption truncates and use the paid partnership label when relevant.</div>
+                <div class="rounded-lg border border-gray-800 bg-slate-950 p-4"><strong class="block text-white mb-1">TikTok</strong>Use visible caption or on-screen wording early because viewers move quickly through posts.</div>
+                <div class="rounded-lg border border-gray-800 bg-slate-950 p-4"><strong class="block text-white mb-1">Blog</strong>Place the disclosure before the first affiliate link, sponsored recommendation, or product CTA.</div>
+                <div class="rounded-lg border border-gray-800 bg-slate-950 p-4"><strong class="block text-white mb-1">Newsletter</strong>Disclose before sponsored sections, affiliate links, or product recommendations inside the email.</div>
+            </div>
+        </div>
+    </section>
+
     <section class="max-w-4xl mx-auto px-4 mb-20">
         <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
             <h2 class="text-sm font-bold uppercase tracking-widest text-brandGold mb-4">Frequently Asked Questions</h2>
             <div class="space-y-5 text-sm text-slate-300 leading-relaxed">
                 <div><h3 class="font-bold text-white">Do affiliate links require disclosure?</h3><p class="text-xs text-brandTextMuted mt-1">Yes. If you may earn a commission or receive another benefit, disclose it before users click the link or make a purchase decision.</p></div>
                 <div><h3 class="font-bold text-white">Is #ad enough?</h3><p class="text-xs text-brandTextMuted mt-1">A clear #ad or #sponsored tag can help, but placement matters. It should be easy to see and not buried below "more" or hidden among many unrelated tags.</p></div>
+                <div><h3 class="font-bold text-white">Does YouTube require verbal disclosure?</h3><p class="text-xs text-brandTextMuted mt-1">For sponsored, affiliate, or compensated content, a spoken disclosure near the start is a smart practice because viewers may never open the description.</p></div>
+                <div><h3 class="font-bold text-white">Can I edit the generated disclosure?</h3><p class="text-xs text-brandTextMuted mt-1">Yes. Treat the generated copy as a clean starting point, then adjust the wording to match the exact brand relationship, platform, and campaign terms.</p></div>
                 <div><h3 class="font-bold text-white">Is this legal advice?</h3><p class="text-xs text-brandTextMuted mt-1">No. This is a practical drafting tool for clearer creator disclosures. For legal questions about a campaign or contract, consult a qualified professional.</p></div>
             </div>
         </div>
@@ -333,7 +356,7 @@
     </footer>
 
     <script>
-        const DISCLOSURES = ['Affiliate Links', 'Sponsored Post', 'Paid Partnership', 'Gifted Product', 'Brand Ambassador', 'AI Generated Content', 'Product Review', 'Free Trial Access', 'Event Invitation'];
+        const DISCLOSURES = ['Affiliate Links', 'Sponsored Post', 'Gifted Product', 'AI Generated Content', 'Paid Partnership', 'Product Review', 'Brand Ambassador', 'Free Trial Access', 'Event Invitation'];
         const HASHTAGS = ['#ad', '#sponsored', '#affiliate', '#gifted', '#paidpartnership', '#aimedia'];
         const platformTips = {
             YouTube: 'Mention the relationship verbally near the start and repeat the disclosure in the description before affiliate or sponsor links.',
@@ -489,6 +512,7 @@
             document.getElementById('previewPlatform').textContent = value('contentType');
             document.getElementById('previewPlacement').textContent = value('placement');
             document.getElementById('previewTags').textContent = state.hashtags.length ? state.hashtags.join(' ') : 'No tags';
+            document.getElementById('previewRisk').textContent = risk.label;
             saveDraft();
         }
         function saveDraft() {
@@ -527,6 +551,10 @@
         });
         document.querySelectorAll('input, select').forEach(el => el.addEventListener('input', render));
         document.querySelectorAll('[data-choice-group] .choice').forEach(btn => btn.addEventListener('click', () => setChoice(btn.closest('[data-choice-group]').dataset.choiceGroup, btn.dataset.value)));
+        document.getElementById('generateBtn').addEventListener('click', () => {
+            render();
+            document.getElementById('disclosure-output').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
         document.getElementById('sampleBtn').addEventListener('click', () => {
             document.getElementById('contentType').value = 'YouTube';
             document.getElementById('placement').value = 'Beginning';
