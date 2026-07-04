@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T7X8JFME64"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T7X8JFME64');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)}
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x6q6t5vv3a");
+</script>
+<!-- CTA click tracking -->
+<script>
+  (function () {
+    var CTA_PRODUCTS = {
+      dszjez: { name: "Freelancer Business OS", eventName: "freelancer_business_os_click" },
+      hdfde: { name: "Freelancer Invoice and Payment Reminder Toolkit", eventName: "freelancer_invoice_payment_toolkit_click" },
+      sjdzd: { name: "Freelancer Proposal Generator", eventName: "freelancer_proposal_generator_click" },
+      nqqtyr: { name: "Freelancer Pricing and Profit Calculator", eventName: "freelancer_pricing_profit_click" }
+    };
+    function getGumroadProductId(url) {
+      var match = url.match(/gumroad\.com\/l\/([^/?#]+)/i);
+      return match ? match[1] : "";
+    }
+    function sendClickEvent(eventName, params) {
+      if (typeof window.gtag === "function") window.gtag("event", eventName, params);
+      if (typeof window.clarity === "function") window.clarity("event", eventName);
+    }
+    document.addEventListener("click", function (event) {
+      var link = event.target.closest && event.target.closest("a[href]");
+      if (!link || !/gumroad\.com/i.test(link.href || "")) return;
+      var productId = getGumroadProductId(link.href);
+      var product = CTA_PRODUCTS[productId];
+      sendClickEvent(product ? product.eventName : "gumroad_store_click", {
+        event_category: "cta",
+        cta_name: product ? product.name : "Gumroad Store",
+        gumroad_product_id: productId || "storefront",
+        link_url: link.href,
+        link_text: (link.textContent || "").replace(/\s+/g, " ").trim(),
+        page_path: window.location.pathname,
+        page_title: document.title
+      });
+    });
+  })();
+</script>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Productivity Debt Calculator | Free Time & Revenue Leak Tool</title>
+    <meta name="description" content="Calculate freelancer productivity debt from interruptions, context switching, admin work, automation gaps, lost billable hours, and revenue leakage.">
+    <link rel="canonical" href="https://aicashlabtools.com/freelancer-productivity-debt-calculator/">
+    <meta property="og:title" content="Freelancer Productivity Debt Calculator">
+    <meta property="og:description" content="Estimate lost focus time, revenue leakage, recoverable hours, deep work score, automation score, and a freelancer productivity recovery plan.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aicashlabtools.com/freelancer-productivity-debt-calculator/">
+    <meta property="og:image" content="https://aicashlabtools.com/assets/ai-cash-lab-logo-600.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Freelancer Productivity Debt Calculator">
+    <meta name="twitter:description" content="Calculate lost billable hours and revenue from admin work, interruptions, and context switching.">
+    <meta name="twitter:image" content="https://aicashlabtools.com/assets/ai-cash-lab-logo-600.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Freelancer Productivity Debt Calculator","url":"https://aicashlabtools.com/freelancer-productivity-debt-calculator/","description":"Calculate freelancer productivity debt from interruptions, context switching, admin work, automation gaps, lost billable hours, and revenue leakage."},{"@type":"SoftwareApplication","name":"Freelancer Productivity Debt Calculator","applicationCategory":"BusinessApplication","operatingSystem":"Web Browser","url":"https://aicashlabtools.com/freelancer-productivity-debt-calculator/","description":"A free browser-based calculator for estimating freelancer productivity debt, lost billable hours, revenue leakage, recoverable hours, and workflow recovery priorities.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}]}</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0B0F17',
+                        brandCard: '#131926',
+                        brandGold: '#E5A93C',
+                        brandGoldHover: '#CCA130',
+                        brandBlue: '#3B82F6',
+                        brandGreen: '#10B981',
+                        brandTextMuted: '#9CA3AF'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        input[type="range"] { accent-color: #E5A93C; }
+        .score-ring { background: conic-gradient(var(--score-color, #E5A93C) var(--score-angle), #1f2937 0); }
+        .choice.is-active { border-color: rgba(229,169,60,.8); background: rgba(229,169,60,.16); color: #fff; box-shadow: 0 0 0 1px rgba(229,169,60,.22); }
+        .plan-item.is-done .plan-text { color: #64748b; text-decoration: line-through; }
+        .plan-item.is-done .plan-check { background: #E5A93C; border-color: #E5A93C; color: #0B0F17; }
+        .bar-fill { width: var(--bar-width); }
+        .report-copy { white-space: pre-wrap; }
+    </style>
+</head>
+<body class="bg-brandDark text-gray-100 font-sans min-h-screen selection:bg-brandGold selection:text-brandDark">
+
+    <header class="w-full border-b border-gray-800 bg-brandDark/90 backdrop-blur-md transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="/" class="flex items-center space-x-3 shrink-0 group" aria-label="AI Cash Lab Tools homepage">
+                <div class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center overflow-hidden shrink-0">
+                    <img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab Logo" class="w-full h-full object-contain transform group-hover:scale-105 transition-transform">
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xs font-bold text-white tracking-wider uppercase">AI Cash Lab</span>
+                    <span class="text-[9px] text-slate-400 font-medium tracking-tight -mt-0.5">Utility Ecosystem</span>
+                </div>
+            </a>
+            <nav class="hidden lg:flex items-center space-x-6 text-xs font-medium text-brandTextMuted">
+                <a href="/" class="hover:text-white transition-colors">Home</a>
+                <a href="/freelancer-utilities/" class="hover:text-white transition-colors">Freelancer Utilities</a>
+                <a href="/#freelancer-business" class="hover:text-white transition-colors">Freelancer</a>
+                <a href="/articles/" class="hover:text-white transition-colors">Articles</a>
+                <a href="/#premium-workspaces" class="text-amber-500 hover:text-amber-400 transition-colors">Premium</a>
+            </nav>
+            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="text-[11px] font-bold tracking-wide uppercase px-3.5 py-1.5 rounded bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 transition-all">Storefront -&gt;</a>
+        </div>
+    </header>
+
+    <section class="max-w-4xl mx-auto px-4 pt-12 pb-6 text-center">
+        <span class="text-xs font-semibold tracking-widest text-brandGold uppercase border border-brandGold/30 px-3 py-1 rounded-full bg-brandGold/5">FREELANCER CAPACITY TOOL</span>
+        <h1 class="text-3xl md:text-4xl font-extrabold mt-4 tracking-tight">Freelancer Productivity Debt Calculator</h1>
+        <p class="text-brandTextMuted mt-3 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">Find how many hours and dollars disappear into interruptions, context switching, admin work, and missing automation, then get a focused recovery plan.</p>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 mb-3">
+        <div class="bg-brandCard/60 border border-gray-800 rounded-lg p-3 flex flex-wrap gap-2 md:gap-4 items-center justify-center text-xs text-brandTextMuted tracking-wide uppercase">
+            <span class="text-brandGold font-semibold">QUICK START</span>
+            <span class="hidden sm:inline">-&gt;</span><span>1. Enter Rate</span>
+            <span class="hidden sm:inline">-&gt;</span><span>2. Audit Friction</span>
+            <span class="hidden sm:inline">-&gt;</span><span>3. Review Debt</span>
+            <span class="hidden sm:inline">-&gt;</span><span>4. Export Plan</span>
+        </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 mb-8">
+        <div class="bg-brandGreen/10 border border-brandGreen/30 rounded-lg px-4 py-2.5 flex items-center space-x-2 text-xs text-brandGreen">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+            <span class="font-medium">Private by default:</span>
+            <span class="text-gray-300">Your rate, schedule, and productivity inputs stay in your browser.</span>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+        <section class="lg:col-span-7 bg-brandCard border border-gray-800 rounded-xl p-6">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-gray-800 pb-3 mb-5">
+                <div>
+                    <h2 class="font-bold tracking-wide text-sm uppercase text-gray-300">Productivity Audit Inputs</h2>
+                    <p class="text-xs text-brandTextMuted mt-1">Model your weekly work capacity, interruption load, admin burden, and automation level.</p>
+                </div>
+                <button type="button" id="resetBtn" class="self-start sm:self-center text-[11px] font-bold uppercase tracking-wide text-brandGold hover:text-white bg-brandGold/10 hover:bg-brandGold/20 border border-brandGold/40 rounded px-3 py-1.5 transition">Reset Audit</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Hourly Value ($)</span><input id="hourlyValue" type="number" min="1" max="1000" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none" value="75"></label>
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Hours Worked Per Week</span><select id="hoursWorkedPerWeek" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none"><option value="20">20 hours (Part-time)</option><option value="30">30 hours (Lean-time)</option><option value="40" selected>40 hours (Standard)</option><option value="50">50 hours (Overtime)</option><option value="60">60 hours (Extreme)</option></select></label>
+            </div>
+
+            <div class="mt-6 space-y-6 border-t border-gray-800 pt-6">
+                <div>
+                    <div class="flex items-center justify-between gap-4 mb-2"><label class="text-xs font-bold uppercase tracking-wider text-gray-300">Interruptions Per Day</label><span id="interruptionsLabel" class="text-sm font-bold font-mono text-brandGold bg-brandGold/10 border border-brandGold/25 rounded px-2.5 py-0.5">8 / day</span></div>
+                    <input id="interruptionsPerDay" type="range" min="0" max="25" step="1" value="8" class="w-full h-1.5 cursor-pointer">
+                    <div class="flex justify-between text-[10px] text-brandTextMuted mt-1"><span>0</span><span>12 average</span><span>25 chaos</span></div>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between gap-4 mb-2"><label class="text-xs font-bold uppercase tracking-wider text-gray-300">Minutes Lost Per Interruption</label><span id="minutesLabel" class="text-sm font-bold font-mono text-brandGold bg-brandGold/10 border border-brandGold/25 rounded px-2.5 py-0.5">7 mins</span></div>
+                    <input id="minutesPerInterruption" type="range" min="1" max="20" step="1" value="7" class="w-full h-1.5 cursor-pointer">
+                    <div class="flex justify-between text-[10px] text-brandTextMuted mt-1"><span>1 quick ping</span><span>10 switch</span><span>20 full break</span></div>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between gap-4 mb-2"><div><label class="text-xs font-bold uppercase tracking-wider text-gray-300">Admin Hours Per Week</label><p class="text-[10px] text-brandTextMuted mt-0.5">Invoices, emails, scheduling, follow-ups, manual tasks.</p></div><span id="adminLabel" class="text-sm font-bold font-mono text-brandGold bg-brandGold/10 border border-brandGold/25 rounded px-2.5 py-0.5 shrink-0">8 hrs</span></div>
+                    <input id="adminHoursPerWeek" type="range" min="0" max="20" step="1" value="8" class="w-full h-1.5 cursor-pointer">
+                    <div class="flex justify-between text-[10px] text-brandTextMuted mt-1"><span>0</span><span>10</span><span>20 admin bloat</span></div>
+                </div>
+            </div>
+
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 border-t border-gray-800 pt-6">
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Context Switching</span><select id="contextSwitching" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none"><option value="low">Low (Deep, focused blocks)</option><option value="medium">Medium (Moderate pivoting)</option><option value="high" selected>High (Frequent chat checking)</option><option value="extreme">Extreme (Fire fighting)</option></select></label>
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Automation Level</span><select id="automationLevel" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none"><option value="none" selected>None (Entirely manual)</option><option value="basic">Basic (Templates)</option><option value="moderate">Moderate (Some workflows)</option><option value="highly">Highly Automated</option></select></label>
+            </div>
+
+            <div class="mt-6 border-t border-gray-800 pt-6">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-3">Biggest Productivity Bottleneck</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3" data-choice-group="biggestIssue">
+                    <button type="button" data-value="Email" class="choice rounded-lg border border-gray-800 bg-slate-950 p-3 text-xs text-slate-300">Email</button>
+                    <button type="button" data-value="Meetings" class="choice rounded-lg border border-gray-800 bg-slate-950 p-3 text-xs text-slate-300">Meetings</button>
+                    <button type="button" data-value="Context Switching" class="choice is-active rounded-lg border border-gray-800 bg-slate-950 p-3 text-xs text-slate-300">Context Switching</button>
+                    <button type="button" data-value="Client Admin" class="choice rounded-lg border border-gray-800 bg-slate-950 p-3 text-xs text-slate-300">Client Admin</button>
+                    <button type="button" data-value="Manual Work" class="choice rounded-lg border border-gray-800 bg-slate-950 p-3 text-xs text-slate-300">Manual Work</button>
+                    <button type="button" data-value="Social Media" class="choice rounded-lg border border-gray-800 bg-slate-950 p-3 text-xs text-slate-300">Social Media</button>
+                    <button type="button" data-value="Poor Planning" class="choice rounded-lg border border-gray-800 bg-slate-950 p-3 text-xs text-slate-300">Poor Planning</button>
+                    <button type="button" data-value="Multitasking" class="choice rounded-lg border border-gray-800 bg-slate-950 p-3 text-xs text-slate-300">Multitasking</button>
+                </div>
+            </div>
+        </section>
+
+        <aside class="lg:col-span-5 space-y-6">
+            <section class="bg-brandCard border border-gray-800 rounded-xl p-6 lg:sticky lg:top-6">
+                <div class="flex items-center gap-5">
+                    <div class="score-ring w-28 h-28 rounded-full p-2 shrink-0" style="--score-angle:0deg">
+                        <div class="w-full h-full rounded-full bg-brandCard flex flex-col items-center justify-center border border-gray-800">
+                            <span id="scoreValue" class="text-3xl font-extrabold text-white">0</span>
+                            <span class="text-[9px] uppercase tracking-wider text-brandTextMuted">Score</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Live Productivity Audit</span>
+                        <h2 id="healthLabel" class="text-xl font-extrabold text-white mt-1">Calculating</h2>
+                        <p id="healthDescription" class="text-xs text-brandTextMuted leading-relaxed mt-2"></p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3 mt-6">
+                    <div class="rounded-lg border border-red-500/20 bg-red-500/10 p-4"><span class="text-[10px] uppercase tracking-widest text-red-300 font-bold">Weekly Lost</span><p id="weeklyRevenueLost" class="text-2xl font-extrabold text-red-300 mt-1">$0</p></div>
+                    <div class="rounded-lg border border-brandGold/25 bg-brandGold/10 p-4"><span class="text-[10px] uppercase tracking-widest text-brandGold font-bold">Annual Debt</span><p id="annualRevenueLost" class="text-2xl font-extrabold text-brandGold mt-1">$0</p></div>
+                </div>
+                <div class="mt-5 space-y-3">
+                    <div><div class="flex justify-between text-[10px] uppercase tracking-wider text-slate-400 font-bold mb-1"><span>Current Productivity</span><span id="currentProductivityPct">0%</span></div><div class="h-2 bg-slate-950 rounded-full overflow-hidden"><div id="currentProductivityBar" class="bar-fill h-full bg-brandGold rounded-full" style="--bar-width:0%"></div></div></div>
+                    <div><div class="flex justify-between text-[10px] uppercase tracking-wider text-slate-400 font-bold mb-1"><span>Recovered Potential</span><span id="recoveredProductivityPct">0%</span></div><div class="h-2 bg-slate-950 rounded-full overflow-hidden"><div id="recoveredProductivityBar" class="bar-fill h-full bg-brandGreen rounded-full" style="--bar-width:0%"></div></div></div>
+                    <div><div class="flex justify-between text-[10px] uppercase tracking-wider text-slate-400 font-bold mb-1"><span>Automation Gap</span><span id="automationPotentialPct">0%</span></div><div class="h-2 bg-slate-950 rounded-full overflow-hidden"><div id="automationPotentialBar" class="bar-fill h-full bg-brandBlue rounded-full" style="--bar-width:0%"></div></div></div>
+                </div>
+            </section>
+        </aside>
+    </main>
+
+    <section class="max-w-7xl mx-auto px-4 mb-16 space-y-8">
+        <section class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="bg-brandCard border border-gray-800 rounded-xl p-5"><span class="text-[10px] uppercase tracking-widest text-brandTextMuted font-bold">Daily Focus Leak</span><p id="dailyHoursLost" class="text-3xl font-extrabold text-white mt-2">0 hrs</p><p class="text-xs text-brandTextMuted mt-1">Lost focus and switching overhead per day.</p></div>
+            <div class="bg-brandCard border border-gray-800 rounded-xl p-5"><span class="text-[10px] uppercase tracking-widest text-brandTextMuted font-bold">Weekly Hours Lost</span><p id="weeklyHoursLost" class="text-3xl font-extrabold text-white mt-2">0 hrs</p><p id="weeklyPercentNote" class="text-xs text-brandTextMuted mt-1"></p></div>
+            <div class="bg-brandCard border border-gray-800 rounded-xl p-5"><span class="text-[10px] uppercase tracking-widest text-brandTextMuted font-bold">Monthly Hours Lost</span><p id="monthlyHoursLost" class="text-3xl font-extrabold text-white mt-2">0 hrs</p><p class="text-xs text-brandTextMuted mt-1">Hours pulled away from client production.</p></div>
+            <div class="bg-brandCard border border-red-500/25 rounded-xl p-5"><span class="text-[10px] uppercase tracking-widest text-red-300 font-bold">Revenue Leak</span><p id="monthlyRevenueLost" class="text-3xl font-extrabold text-red-300 mt-2">$0</p><p class="text-xs text-brandTextMuted mt-1">Estimated monthly capacity loss.</p></div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-brandCard border border-gray-800 rounded-xl p-5 flex items-center justify-between gap-5"><div><h3 class="font-bold text-white uppercase tracking-wide text-sm">Deep Work Score</h3><p class="text-xs text-brandTextMuted mt-1">Ability to hold focused work cycles without context disruptions.</p></div><div class="text-right"><span id="deepWorkScore" class="text-4xl font-extrabold text-brandGreen">0</span><span class="block text-xs text-brandTextMuted">/ 100</span></div></div>
+            <div class="bg-brandCard border border-gray-800 rounded-xl p-5 flex items-center justify-between gap-5"><div><h3 class="font-bold text-white uppercase tracking-wide text-sm">Automation Index</h3><p class="text-xs text-brandTextMuted mt-1">How much admin work has been delegated to templates or systems.</p></div><div class="text-right"><span id="automationScore" class="text-4xl font-extrabold text-brandBlue">0</span><span class="block text-xs text-brandTextMuted">/ 100</span></div></div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="bg-brandGold/10 border border-brandGold/30 rounded-xl p-6"><span class="text-[10px] uppercase tracking-widest text-brandGold font-bold">Reclaimable Target</span><h3 class="text-sm font-bold text-slate-300 mt-1">Hours Recoverable</h3><p id="recoverableHours" class="text-4xl font-extrabold text-white mt-4">0 hrs</p><p class="text-xs text-slate-300 mt-3">Potential weekly hours recovered through batching, templates, and automation.</p></div>
+            <div class="bg-brandGold/10 border border-brandGold/30 rounded-xl p-6"><span class="text-[10px] uppercase tracking-widest text-brandGold font-bold">Financial Advantage</span><h3 class="text-sm font-bold text-slate-300 mt-1">Monthly Revenue Potential</h3><p id="monthlyRevenuePotential" class="text-4xl font-extrabold text-white mt-4">$0</p><p class="text-xs text-slate-300 mt-3">Recovered hours reinvested into billable client work.</p></div>
+            <div class="bg-brandGold/10 border border-brandGold/30 rounded-xl p-6"><span class="text-[10px] uppercase tracking-widest text-brandGold font-bold">Capacity Advantage</span><h3 class="text-sm font-bold text-slate-300 mt-1">Extra Client Capacity</h3><p id="extraClientCapacity" class="text-4xl font-extrabold text-white mt-4">0 clients</p><p class="text-xs text-slate-300 mt-3">Estimated extra monthly capacity after recovering focus time.</p></div>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="bg-brandCard border border-gray-800 rounded-xl p-6"><span class="text-[10px] uppercase tracking-widest text-red-300 font-bold">Cost & Financial Impact</span><h3 class="text-xl font-extrabold text-white mt-1">Hidden Time Leak & Revenue Capacity</h3><p id="hiddenCostText" class="text-sm text-slate-300 leading-relaxed mt-4"></p><p id="revenueImpactText" class="text-sm text-slate-300 leading-relaxed mt-3"></p></div>
+            <div class="bg-brandCard border border-gray-800 rounded-xl p-6"><span class="text-[10px] uppercase tracking-widest text-brandGold font-bold">Strategic Recovery Path</span><h3 class="text-xl font-extrabold text-white mt-1">Bottleneck Breakdown & Fastest Win</h3><p id="biggestBottleneckText" class="text-sm text-slate-300 leading-relaxed mt-4"></p><p id="fastestWinText" class="text-sm text-slate-300 leading-relaxed mt-3"></p><p class="text-xs text-brandTextMuted mt-4">Selected bottleneck: <span id="selectedBottleneck" class="font-bold text-white">Context Switching</span></p></div>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div class="lg:col-span-7">
+                <h2 class="text-sm font-bold uppercase tracking-widest text-brandGold mb-4">Optimization Recommendations</h2>
+                <div id="recommendations" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+            </div>
+            <div class="lg:col-span-5">
+                <h2 class="text-sm font-bold uppercase tracking-widest text-brandGold mb-4">Productivity Recovery Plan</h2>
+                <div id="recoveryPlan" class="bg-brandCard border border-gray-800 rounded-xl p-5 space-y-3"></div>
+            </div>
+        </section>
+
+        <section class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-5">
+                <div><span class="text-[10px] uppercase tracking-widest text-brandGold font-bold">Generated Audit Report</span><h2 class="text-2xl font-extrabold text-white mt-1">Productivity Debt Report</h2><p class="text-sm text-brandTextMuted mt-1">Copy or download a formatted report for your workflow review.</p></div>
+                <div class="flex flex-wrap gap-2"><button id="copyReportBtn" type="button" class="text-xs font-bold border border-gray-800 bg-slate-950 rounded-lg px-3 py-2 text-slate-300 hover:border-brandGold">Copy Report</button><button id="downloadReportBtn" type="button" class="text-xs font-bold rounded-lg px-3 py-2 bg-brandGold text-slate-950 hover:bg-brandGoldHover">Download TXT</button></div>
+            </div>
+            <pre id="reportPreview" class="report-copy max-h-80 overflow-auto rounded-xl border border-gray-800 bg-slate-950 p-5 text-xs leading-relaxed text-slate-300"></pre>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 bg-brandCard border border-gray-800 rounded-xl p-6">
+                <span class="text-[10px] uppercase tracking-widest text-brandGold font-bold">Productivity Education</span>
+                <h2 class="text-2xl font-extrabold text-white mt-2">Where does freelancer productivity debt come from?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-5 text-xs text-slate-300 leading-relaxed">
+                    <div class="rounded-lg border border-gray-800 bg-slate-950 p-4"><strong class="block text-white mb-1">Unstructured Meetings</strong>Calls without agendas, async alternatives, or clear decision points quietly fragment deep work.</div>
+                    <div class="rounded-lg border border-gray-800 bg-slate-950 p-4"><strong class="block text-white mb-1">Poor Tool Systems</strong>Scattered spreadsheets, inboxes, and manual reminders turn simple admin into recurring drag.</div>
+                    <div class="rounded-lg border border-gray-800 bg-slate-950 p-4"><strong class="block text-white mb-1">Task Swapping</strong>Jumping between clients, channels, and deliverables adds mental ramp-up cost to every workday.</div>
+                </div>
+            </div>
+            <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+                <h2 class="text-sm font-bold uppercase tracking-widest text-brandGold mb-3">Productivity Shield Checklist</h2>
+                <ul class="space-y-2 text-xs text-slate-300 leading-relaxed">
+                    <li>Batch similar admin, email, and prospecting work.</li>
+                    <li>Protect one 90-minute deep work block daily.</li>
+                    <li>Automate invoicing, scheduling, proposals, and follow-ups.</li>
+                    <li>Use reusable templates for repeat client workflows.</li>
+                    <li>Review workflow debt every Friday or month-end.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+                <h2 class="text-sm font-bold uppercase tracking-widest text-brandGold mb-3">Related Tools</h2>
+                <div class="space-y-3 text-xs">
+                    <a href="/hourly-rate-calculator/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Hourly Rate Calculator</a>
+                    <a href="/freedom-rate-calculator/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Freedom Rate Calculator</a>
+                    <a href="/retainer-calculator/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Retainer Pricing Calculator</a>
+                    <a href="/proposal-calculator/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Proposal Win Probability Calculator</a>
+                    <a href="/free-invoice-generator/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Free Invoice Generator</a>
+                    <a href="/freelancer-utilities/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Freelancer Utilities Hub</a>
+                </div>
+            </div>
+            <div class="lg:col-span-2 bg-brandGold/10 border border-brandGold/35 rounded-xl p-6">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Premium Freelancer Workflow</span>
+                <h2 class="text-2xl font-extrabold text-white mt-2">Turn recovered hours into a cleaner client system.</h2>
+                <p class="text-sm text-slate-300 leading-relaxed mt-3">Use the free Freelancer Productivity Debt Calculator to find your leaks, then use Freelancer Business OS to organize proposals, invoices, client policies, follow-ups, and repeatable delivery workflows.</p>
+                <a href="https://aicashlabofficial.gumroad.com/l/dszjez?layout=productivity" target="_blank" rel="noopener noreferrer" class="inline-block mt-5 rounded-lg bg-brandGold px-5 py-3 text-xs font-extrabold uppercase tracking-wide text-slate-950 hover:bg-brandGoldHover transition">View Freelancer Business OS -&gt;</a>
+            </div>
+        </section>
+
+        <section class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <h2 class="text-sm font-bold uppercase tracking-widest text-brandGold mb-4">Frequently Asked Questions</h2>
+            <div class="space-y-5 text-sm text-slate-300 leading-relaxed">
+                <div><h3 class="font-bold text-white">How is productivity debt calculated?</h3><p class="text-xs text-brandTextMuted mt-1">This calculator combines interruption recovery time, weekly admin work, and a context-switching penalty, then compares the result with your weekly capacity and hourly value.</p></div>
+                <div><h3 class="font-bold text-white">What counts as freelancer productivity debt?</h3><p class="text-xs text-brandTextMuted mt-1">Productivity debt is unpaid or low-leverage friction that reduces billable output, including manual admin, scattered communication, duplicated tasks, and recovery time after interruptions.</p></div>
+                <div><h3 class="font-bold text-white">Can automation recover billable hours?</h3><p class="text-xs text-brandTextMuted mt-1">Yes. Invoicing systems, scheduling links, proposal templates, intake forms, and reusable follow-up workflows can recover hours that were previously spent on repeat admin.</p></div>
+                <div><h3 class="font-bold text-white">How often should freelancers review productivity debt?</h3><p class="text-xs text-brandTextMuted mt-1">Review it monthly or whenever your client load changes. Admin bloat often appears gradually as more clients, channels, and recurring tasks accumulate.</p></div>
+                <div><h3 class="font-bold text-white">Is my calculator data saved?</h3><p class="text-xs text-brandTextMuted mt-1">No account is required. The calculator runs in your browser and does not need to send your productivity inputs to a server.</p></div>
+            </div>
+        </section>
+    </section>
+
+    <footer class="w-full bg-[#111827] border-t border-gray-800 py-10 mt-12 text-[11px] text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+            <div class="md:col-span-4 space-y-3">
+                <div class="flex items-center space-x-3"><div class="w-6 h-6 rounded bg-slate-950 border border-slate-800 flex items-center justify-center overflow-hidden shrink-0"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab Footer Logo" class="w-full h-full object-contain"></div><span class="text-xs font-bold text-white uppercase tracking-wider">AI Cash Lab Tools</span></div>
+                <p class="text-[11px] text-slate-400 max-w-sm leading-relaxed">Simple business tools for freelancers, creators, and digital service providers.</p>
+            </div>
+            <div class="md:col-span-3 space-y-2.5 text-[11px]">
+                <span class="font-bold text-amber-500 uppercase tracking-wider block">Newest Tools</span>
+                <ul class="space-y-1.5 text-slate-400 font-medium">
+                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-amber-500"></span><a href="/freelancer-productivity-debt-calculator/" class="hover:text-slate-300 transition-colors">Freelancer Productivity Debt Calculator</a></li>
+                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-amber-500"></span><a href="/freelancer-profile-optimizer/" class="hover:text-slate-300 transition-colors">Freelancer Profile Optimizer</a></li>
+                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-amber-500"></span><a href="/creator-ftc-disclosure-generator/" class="hover:text-slate-300 transition-colors">Creator FTC Disclosure Generator</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-5 grid grid-cols-2 gap-6 text-[11px]">
+                <div class="space-y-2.5"><span class="font-bold text-slate-100 uppercase tracking-wider block">Production Hub</span><div class="flex flex-col space-y-1.5 text-slate-400"><a href="/creator-utilities/" class="hover:text-slate-300 transition-colors">Creator Utilities</a><a href="/freelancer-utilities/" class="hover:text-slate-300 transition-colors">Freelancer Utilities</a><a href="/articles/" class="hover:text-slate-300 transition-colors">Articles</a></div></div>
+                <div class="space-y-2.5"><span class="font-bold text-slate-100 uppercase tracking-wider block">Commercial Engine</span><div class="flex flex-col space-y-1.5 text-slate-400"><a href="/#premium-workspaces" class="text-amber-500 hover:text-amber-400 transition-colors">Premium Workspaces</a><a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-400 transition-colors">Storefront Hub -&gt;</a></div></div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 mt-8 border-t border-slate-900/80 text-center text-[10px] text-slate-500">&copy; 2026 AI Cash Lab. All Rights Reserved.</div>
+    </footer>
+
+    <script>
+        const state = {
+            biggestIssue: 'Context Switching',
+            completedPriorities: {}
+        };
+        const defaults = {
+            hourlyValue: 75,
+            hoursWorkedPerWeek: 40,
+            interruptionsPerDay: 8,
+            minutesPerInterruption: 7,
+            adminHoursPerWeek: 8,
+            contextSwitching: 'high',
+            automationLevel: 'none'
+        };
+        const ids = Object.keys(defaults);
+        function numberValue(id) { return Number(document.getElementById(id).value || defaults[id]); }
+        function money(value) { return '$' + Math.round(value).toLocaleString(); }
+        function inputs() {
+            return {
+                hourlyValue: Math.max(1, numberValue('hourlyValue')),
+                hoursWorkedPerWeek: numberValue('hoursWorkedPerWeek'),
+                interruptionsPerDay: numberValue('interruptionsPerDay'),
+                minutesPerInterruption: numberValue('minutesPerInterruption'),
+                adminHoursPerWeek: numberValue('adminHoursPerWeek'),
+                contextSwitching: document.getElementById('contextSwitching').value,
+                automationLevel: document.getElementById('automationLevel').value,
+                biggestIssue: state.biggestIssue
+            };
+        }
+        function calculateProductivity(data) {
+            const weeklyInterruptionHours = Number(((data.interruptionsPerDay * data.minutesPerInterruption * 5) / 60).toFixed(1));
+            const weeklyAdminHours = data.adminHoursPerWeek;
+            const contextMap = { low: 1.5, medium: 3.5, high: 7, extreme: 12 };
+            const weeklyContextSwitchingHours = contextMap[data.contextSwitching] || 7;
+            const rawWeeklyHoursLost = weeklyInterruptionHours + weeklyAdminHours + weeklyContextSwitchingHours;
+            const weeklyHoursLost = Number(Math.min(data.hoursWorkedPerWeek, rawWeeklyHoursLost).toFixed(1));
+            const dailyHoursLost = Number((weeklyHoursLost / 5).toFixed(1));
+            const monthlyHoursLost = Number((weeklyHoursLost * 4.33).toFixed(1));
+            const annualHoursLost = Number((weeklyHoursLost * 52).toFixed(1));
+            const weeklyRevenueLost = Math.round(weeklyHoursLost * data.hourlyValue);
+            const monthlyRevenueLost = Math.round(weeklyRevenueLost * 4.33);
+            const annualRevenueLost = Math.round(weeklyRevenueLost * 52);
+            const productiveHoursRemaining = Math.max(0, data.hoursWorkedPerWeek - weeklyHoursLost);
+            const score = Math.max(0, Math.min(100, Math.round((productiveHoursRemaining / data.hoursWorkedPerWeek) * 100)));
+            let health = 'Good';
+            let healthColor = '#E5A93C';
+            let healthDescription = 'Solid output, but recurring interruptions and admin are eating into your weekly capacity.';
+            if (score >= 85) {
+                health = 'Excellent';
+                healthColor = '#10B981';
+                healthDescription = 'Outstanding structure. You have minimized friction and protected billable deep work.';
+            } else if (score < 50) {
+                health = 'Critical';
+                healthColor = '#ef4444';
+                healthDescription = 'Severe productivity leakage. Admin work, context switching, and interruptions are overwhelming core focus.';
+            } else if (score < 70) {
+                health = 'Needs Improvement';
+                healthColor = '#f97316';
+                healthDescription = 'Substantial capacity drain. You are losing a large share of your week to non-productive overhead.';
+            }
+            const deepWorkImpact = weeklyInterruptionHours * 2.2 + weeklyContextSwitchingHours * 2.8;
+            const deepWorkScore = Math.max(5, Math.min(100, Math.round(100 - (deepWorkImpact / data.hoursWorkedPerWeek) * 100)));
+            const automationBase = { none: 15, basic: 42, moderate: 68, highly: 92 }[data.automationLevel] || 15;
+            const automationScore = Math.max(5, Math.min(95, Math.round(automationBase - (weeklyAdminHours / data.hoursWorkedPerWeek) * 35)));
+            const recoverableInterruptions = weeklyInterruptionHours * 0.65;
+            const recoverableContextSwitching = weeklyContextSwitchingHours * 0.60;
+            const adminRecoveryFactor = data.automationLevel === 'basic' ? 0.50 : data.automationLevel === 'moderate' ? 0.30 : data.automationLevel === 'highly' ? 0.12 : 0.70;
+            const recoverableAdmin = weeklyAdminHours * adminRecoveryFactor;
+            const recoverableHours = Number(Math.min(weeklyHoursLost, recoverableInterruptions + recoverableAdmin + recoverableContextSwitching).toFixed(1));
+            const monthlyRevenuePotential = Math.round(recoverableHours * data.hourlyValue * 4.33);
+            const extraClientCapacity = Math.max(1, Math.round((recoverableHours * 4.33) / 13));
+            const currentProductivityPct = score;
+            const recoveredProductivityPct = Math.min(100, score + Math.round((recoverableHours / data.hoursWorkedPerWeek) * 100));
+            const automationPotentialPct = Math.max(10, Math.min(100, 100 - automationScore));
+            const hiddenCostText = `You are losing approximately ${weeklyHoursLost} hours every week due to interruptions, admin tasks, and mental recovery cycles.`;
+            const revenueImpactText = `At your hourly value of ${money(data.hourlyValue)}, that is approximately ${money(weeklyRevenueLost)}/week, ${money(monthlyRevenueLost)}/month, and ${money(annualRevenueLost)}/year in missed revenue capacity.`;
+            const maxSource = Math.max(weeklyInterruptionHours, weeklyAdminHours, weeklyContextSwitchingHours);
+            const biggestBottleneckText = maxSource === weeklyContextSwitchingHours ? 'Context switching is currently creating the largest productivity drain. Frequent task shifts make it harder to return to deep client work.' : maxSource === weeklyAdminHours ? `Manual client administration is your biggest time sink, taking up ${weeklyAdminHours} hours of valuable focus every week.` : `Daily interruptions are fracturing your schedule. You are losing ${weeklyInterruptionHours} hours each week to recovery cycles.`;
+            const recoveryMax = Math.max(recoverableAdmin, recoverableInterruptions, recoverableContextSwitching);
+            const fastestWinText = recoveryMax === recoverableAdmin && weeklyAdminHours > 2 ? `Automating recurring client administration, templates, and billing could recover approximately ${recoverableAdmin.toFixed(1)} hours each week.` : recoveryMax === recoverableInterruptions && weeklyInterruptionHours > 2 ? `Strict deep work blocks and notification controls could claw back approximately ${recoverableInterruptions.toFixed(1)} hours each week.` : `Batching tasks and scheduling dedicated communication windows could save up to ${recoverableContextSwitching.toFixed(1)} hours every week.`;
+            const recommendations = [];
+            const recoveryPlan = [];
+            if (weeklyInterruptionHours > 3) {
+                recommendations.push({ title: 'Lead with Time Blocking', desc: 'Protect a 90-to-120 minute deep work block every morning and treat it as non-negotiable.' });
+                recommendations.push({ title: 'Reduce Notification Checks', desc: 'Turn off email, Slack, and social push notifications outside planned review windows.' });
+                recoveryPlan.push('Silence phone and desktop notifications between 9:00 AM and 11:00 AM daily.');
+            } else {
+                recommendations.push({ title: 'Schedule Meeting Windows', desc: 'Group calls into specific afternoons so deep mornings stay protected.' });
+                recoveryPlan.push('Move recurring client syncs to designated afternoon blocks.');
+            }
+            if (weeklyAdminHours > 4) {
+                recommendations.push({ title: 'Automate Invoicing & Tasks', desc: 'Set up recurring billing, invoice reminders, scheduling links, and reusable admin workflows.' });
+                recommendations.push({ title: 'Use Reusable Templates', desc: 'Create standard structures for proposals, briefs, onboarding emails, and common follow-ups.' });
+                recoveryPlan.push('Create canned email responses for frequent client onboarding questions.');
+                recoveryPlan.push('Set up recurring auto-invoicing or payment reminder workflows.');
+            } else {
+                recommendations.push({ title: 'Create Repeatable Workflows', desc: 'Document delivery checklists so recurring client work takes less mental setup.' });
+                recoveryPlan.push('Document a checklist for weekly deliveries to minimize setup time.');
+            }
+            if (data.contextSwitching === 'high' || data.contextSwitching === 'extreme') {
+                recommendations.push({ title: 'Batch Client Communication', desc: 'Answer client messages twice daily instead of staying reactive all day.' });
+                recommendations.push({ title: 'Eliminate Duplicate Task Switching', desc: 'Group similar client tasks into mini-sprints instead of bouncing between work modes.' });
+                recoveryPlan.push('Close inboxes and communication apps until the morning deep work block is finished.');
+            }
+            while (recommendations.length < 4) recommendations.push({ title: 'Define Clear Daily Priorities', desc: 'Write your top three needle-moving tasks the evening before and start with the hardest one.' });
+            while (recoveryPlan.length < 4) recoveryPlan.push(['Theme your days around specific types of work.', 'Move manual scheduling to a self-serve booking link.', 'Run a Friday workflow review to remove admin friction.'][recoveryPlan.length - 1] || 'Review one recurring workflow and turn it into a template.');
+            return { score, health, healthColor, healthDescription, dailyHoursLost, weeklyHoursLost, monthlyHoursLost, annualHoursLost, weeklyRevenueLost, monthlyRevenueLost, annualRevenueLost, deepWorkScore, automationScore, recoverableHours, monthlyRevenuePotential, extraClientCapacity, currentProductivityPct, recoveredProductivityPct, automationPotentialPct, hiddenCostText, revenueImpactText, biggestBottleneckText, fastestWinText, recommendations: recommendations.slice(0, 4), recoveryPlan: recoveryPlan.slice(0, 4) };
+        }
+        function reportText(data, r) {
+            return `PRODUCTIVITY DEBT REPORT\nFreelancer Productivity Debt Calculator - AI Cash Lab\nGenerated: ${new Date().toLocaleDateString()}\n\nCURRENT STANDINGS\nHourly Value: ${money(data.hourlyValue)}/hour\nTarget Capacity: ${data.hoursWorkedPerWeek} hours/week\nProductivity Score: ${r.score}/100 (${r.health})\nDeep Work Score: ${r.deepWorkScore}/100\nAutomation Index: ${r.automationScore}/100\n\nTIME AND REVENUE DEBT\nDaily Hours Lost: ${r.dailyHoursLost} hours\nWeekly Hours Lost: ${r.weeklyHoursLost} hours (${Math.round((r.weeklyHoursLost / data.hoursWorkedPerWeek) * 100)}% of workweek)\nMonthly Hours Lost: ${r.monthlyHoursLost} hours\nAnnual Hours Lost: ${r.annualHoursLost} hours\nWeekly Revenue Lost: ${money(r.weeklyRevenueLost)}\nMonthly Revenue Lost: ${money(r.monthlyRevenueLost)}\nAnnual Revenue Lost: ${money(r.annualRevenueLost)}\n\nCORE BOTTLENECKS\nMain Issue: ${data.biggestIssue}\nBottleneck Analysis: ${r.biggestBottleneckText}\nFast Recovery Action: ${r.fastestWinText}\n\nOPTIMIZATION OPPORTUNITY\nRecoverable Focus: ${r.recoverableHours} hours/week\nRecaptured Monthly Revenue: +${money(r.monthlyRevenuePotential)}/month\nReclaimed Client Capacity: +${r.extraClientCapacity} client(s)/month\n\nRECOVERY ROADMAP\n${r.recoveryPlan.map((step, i) => `Priority ${i + 1}: ${step}`).join('\n')}\n\nSYSTEM RECOMMENDATIONS\n${r.recommendations.map((rec, i) => `${i + 1}. ${rec.title}\n   ${rec.desc}`).join('\n\n')}\n\nPrivacy notice: All calculations were performed client-side.`;
+        }
+        function setText(id, value) { document.getElementById(id).textContent = value; }
+        function render() {
+            const data = inputs();
+            const r = calculateProductivity(data);
+            setText('interruptionsLabel', `${data.interruptionsPerDay} / day`);
+            setText('minutesLabel', `${data.minutesPerInterruption} mins`);
+            setText('adminLabel', `${data.adminHoursPerWeek} hrs`);
+            setText('scoreValue', r.score);
+            document.querySelector('.score-ring').style.setProperty('--score-angle', `${r.score * 3.6}deg`);
+            document.querySelector('.score-ring').style.setProperty('--score-color', r.healthColor);
+            setText('healthLabel', r.health);
+            setText('healthDescription', r.healthDescription);
+            setText('weeklyRevenueLost', money(r.weeklyRevenueLost));
+            setText('annualRevenueLost', money(r.annualRevenueLost));
+            setText('dailyHoursLost', `${r.dailyHoursLost} hrs`);
+            setText('weeklyHoursLost', `${r.weeklyHoursLost} hrs`);
+            setText('weeklyPercentNote', `Equivalent to ${Math.round((r.weeklyHoursLost / data.hoursWorkedPerWeek) * 100)}% of your target workweek.`);
+            setText('monthlyHoursLost', `${r.monthlyHoursLost} hrs`);
+            setText('monthlyRevenueLost', money(r.monthlyRevenueLost));
+            setText('deepWorkScore', r.deepWorkScore);
+            setText('automationScore', r.automationScore);
+            setText('recoverableHours', `${r.recoverableHours} hrs`);
+            setText('monthlyRevenuePotential', '+' + money(r.monthlyRevenuePotential));
+            setText('extraClientCapacity', `+${r.extraClientCapacity} clients`);
+            setText('hiddenCostText', r.hiddenCostText);
+            setText('revenueImpactText', r.revenueImpactText);
+            setText('biggestBottleneckText', r.biggestBottleneckText);
+            setText('fastestWinText', r.fastestWinText);
+            setText('selectedBottleneck', data.biggestIssue);
+            setText('currentProductivityPct', `${r.currentProductivityPct}%`);
+            setText('recoveredProductivityPct', `${r.recoveredProductivityPct}%`);
+            setText('automationPotentialPct', `${r.automationPotentialPct}%`);
+            document.getElementById('currentProductivityBar').style.setProperty('--bar-width', `${r.currentProductivityPct}%`);
+            document.getElementById('recoveredProductivityBar').style.setProperty('--bar-width', `${r.recoveredProductivityPct}%`);
+            document.getElementById('automationPotentialBar').style.setProperty('--bar-width', `${r.automationPotentialPct}%`);
+            document.getElementById('recommendations').innerHTML = r.recommendations.map((rec, i) => `<div class="bg-brandCard border border-gray-800 rounded-xl p-5"><h3 class="text-sm font-bold text-white"><span class="text-brandGold">0${i + 1}</span> ${rec.title}</h3><p class="text-xs text-brandTextMuted leading-relaxed mt-2">${rec.desc}</p></div>`).join('');
+            document.getElementById('recoveryPlan').innerHTML = r.recoveryPlan.map((step, i) => `<button type="button" data-plan="${i}" class="plan-item ${state.completedPriorities[i] ? 'is-done' : ''} w-full text-left flex gap-3 rounded-lg border border-gray-800 bg-slate-950 p-3 hover:border-brandGold"><span class="plan-check mt-0.5 h-5 w-5 rounded border border-slate-700 flex items-center justify-center text-transparent shrink-0">&#10003;</span><span><span class="block text-[10px] font-bold uppercase tracking-widest text-brandGold">Priority 0${i + 1}</span><span class="plan-text block text-xs text-slate-300 leading-relaxed mt-1">${step}</span></span></button>`).join('');
+            setText('reportPreview', reportText(data, r));
+            document.querySelectorAll('[data-choice-group="biggestIssue"] .choice').forEach(btn => btn.classList.toggle('is-active', btn.dataset.value === state.biggestIssue));
+        }
+        ids.forEach(id => document.getElementById(id).addEventListener('input', render));
+        ids.forEach(id => document.getElementById(id).addEventListener('change', render));
+        document.querySelectorAll('[data-choice-group="biggestIssue"] .choice').forEach(btn => btn.addEventListener('click', () => { state.biggestIssue = btn.dataset.value; render(); }));
+        document.getElementById('recoveryPlan').addEventListener('click', event => {
+            const btn = event.target.closest('[data-plan]');
+            if (!btn) return;
+            state.completedPriorities[btn.dataset.plan] = !state.completedPriorities[btn.dataset.plan];
+            render();
+        });
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            ids.forEach(id => { document.getElementById(id).value = defaults[id]; });
+            state.biggestIssue = 'Context Switching';
+            state.completedPriorities = {};
+            render();
+        });
+        document.getElementById('copyReportBtn').addEventListener('click', async event => {
+            await navigator.clipboard.writeText(document.getElementById('reportPreview').textContent);
+            const old = event.currentTarget.textContent;
+            event.currentTarget.textContent = 'Copied';
+            setTimeout(() => event.currentTarget.textContent = old, 1400);
+        });
+        document.getElementById('downloadReportBtn').addEventListener('click', () => {
+            const blob = new Blob([document.getElementById('reportPreview').textContent], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `productivity_debt_report_${new Date().toISOString().slice(0, 10)}.txt`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        });
+        render();
+    </script>
+</body>
+</html>
