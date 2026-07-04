@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T7X8JFME64"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T7X8JFME64');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x6q6t5vv3a");
+</script>
+<!-- CTA click tracking -->
+<script>
+  (function () {
+    var CTA_PRODUCTS = {
+      dszjez: { name: "Freelancer Business OS", eventName: "freelancer_business_os_click" },
+      iwyunk: { name: "Simple Lead CRM", eventName: "simple_lead_crm_click" },
+      sjdzd: { name: "Freelancer Proposal Generator", eventName: "freelancer_proposal_generator_click" },
+      fexjpq: { name: "Freelancer Contract and Policy Toolkit", eventName: "freelancer_contract_policy_toolkit_click" },
+      bfsqt: { name: "Client Onboarding Toolkit", eventName: "client_onboarding_toolkit_click" },
+      ltrbh: { name: "Client Portal and Project Dashboard Toolkit", eventName: "client_portal_project_dashboard_click" },
+      hdfde: { name: "Freelancer Invoice and Payment Reminder Toolkit", eventName: "freelancer_invoice_payment_toolkit_click" },
+      nqqtyr: { name: "Freelancer Pricing and Profit Calculator", eventName: "freelancer_pricing_profit_click" },
+      qshwvb: { name: "Freelancer Scope Creep Calculator", eventName: "freelancer_scope_creep_calculator_click" },
+      xnlfai: { name: "Creator Monetization OS", eventName: "creator_monetization_os_click" },
+      yckpyo: { name: "Creator Content OS", eventName: "creator_content_os_click" },
+      nemfmj: { name: "Creator Launch OS", eventName: "creator_launch_os_click" },
+      zagils: { name: "Creator Analytics OS", eventName: "creator_analytics_os_click" }
+    };
+    function getGumroadProductId(url) {
+      var match = url.match(/gumroad\.com\/l\/([^/?#]+)/i);
+      return match ? match[1] : "";
+    }
+    function resolveProduct(productId, linkText) {
+      if (productId === "nqqtyr" && /boundary|communication/i.test(linkText)) {
+        return { name: "Freelancer Boundary and Client Communication Toolkit", eventName: "freelancer_boundary_communication_click" };
+      }
+      return CTA_PRODUCTS[productId];
+    }
+    function sendClickEvent(eventName, params) {
+      if (typeof window.gtag === "function") window.gtag("event", eventName, params);
+      if (typeof window.clarity === "function") window.clarity("event", eventName);
+    }
+    document.addEventListener("click", function (event) {
+      var link = event.target.closest && event.target.closest("a[href]");
+      if (!link) return;
+      var href = link.href || "";
+      if (!/gumroad\.com/i.test(href)) return;
+      var productId = getGumroadProductId(href);
+      var linkText = (link.textContent || "").replace(/\s+/g, " ").trim();
+      var product = resolveProduct(productId, linkText);
+      sendClickEvent(product ? product.eventName : "gumroad_store_click", {
+        event_category: "cta",
+        cta_name: product ? product.name : "Gumroad Store",
+        gumroad_product_id: productId || "storefront",
+        link_url: href,
+        link_text: linkText,
+        page_path: window.location.pathname,
+        page_title: document.title
+      });
+    });
+  })();
+</script>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creator FTC Disclosure Generator | Free Affiliate & Sponsored Post Tool</title>
+    <meta name="description" content="Generate FTC-compliant disclosure wording for YouTube, TikTok, Instagram, blogs, newsletters and affiliate marketing.">
+    <link rel="canonical" href="https://aicashlabtools.com/creator-ftc-disclosure-generator/">
+    <meta property="og:title" content="Creator FTC Disclosure Generator">
+    <meta property="og:description" content="Generate FTC-compliant disclosure wording for YouTube, TikTok, Instagram, blogs, newsletters and affiliate marketing.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aicashlabtools.com/creator-ftc-disclosure-generator/">
+    <meta property="og:image" content="https://aicashlabtools.com/assets/ai-cash-lab-logo-600.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Creator FTC Disclosure Generator">
+    <meta name="twitter:description" content="Generate FTC-compliant disclosure wording for sponsored posts, affiliate links, gifted products, and AI-assisted content.">
+    <meta name="twitter:image" content="https://aicashlabtools.com/assets/ai-cash-lab-logo-600.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Creator FTC Disclosure Generator","url":"https://aicashlabtools.com/creator-ftc-disclosure-generator/","description":"Generate FTC-compliant disclosure wording for YouTube, TikTok, Instagram, blogs, newsletters and affiliate marketing."},{"@type":"SoftwareApplication","name":"Creator FTC Disclosure Generator","applicationCategory":"BusinessApplication","operatingSystem":"Web Browser","url":"https://aicashlabtools.com/creator-ftc-disclosure-generator/","description":"A free browser-based disclosure generator for sponsored posts, affiliate marketing, gifted products, paid partnerships, product reviews, and AI-assisted content.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}]}</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0B0F17',
+                        brandCard: '#131926',
+                        brandGold: '#E5A93C',
+                        brandGoldHover: '#CCA130',
+                        brandBlue: '#3B82F6',
+                        brandGreen: '#10B981',
+                        brandTextMuted: '#9CA3AF'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        textarea { resize: vertical; }
+        .choice.is-active { border-color: #3B82F6; background: rgba(59,130,246,.12); color: #fff; }
+        .pill.is-active { border-color: rgba(229,169,60,.8); background: rgba(229,169,60,.14); color: #fff; }
+        .output-copy { white-space: pre-wrap; }
+        .score-ring { background: conic-gradient(#E5A93C var(--score-angle), #1f2937 0); }
+        .tab.is-active { background: rgba(229,169,60,.18); border-color: rgba(229,169,60,.55); color: #fff; }
+    </style>
+</head>
+<body class="bg-brandDark text-gray-100 font-sans min-h-screen selection:bg-brandGold selection:text-brandDark">
+
+    <header class="w-full border-b border-gray-800 bg-brandDark/90 backdrop-blur-md transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="/" class="flex items-center space-x-3 shrink-0 group" aria-label="AI Cash Lab Tools homepage">
+                <div class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center overflow-hidden shrink-0">
+                    <img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab Logo" class="w-full h-full object-contain transform group-hover:scale-105 transition-transform">
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xs font-bold text-white tracking-wider uppercase">AI Cash Lab</span>
+                    <span class="text-[9px] text-slate-400 font-medium tracking-tight -mt-0.5">Utility Ecosystem</span>
+                </div>
+            </a>
+            <nav class="hidden lg:flex items-center space-x-6 text-xs font-medium text-brandTextMuted">
+                <a href="/" class="hover:text-white transition-colors">Home</a>
+                <a href="/#creator-production" class="hover:text-white transition-colors">Production</a>
+                <a href="/#creator-monetization" class="hover:text-white transition-colors">Monetization</a>
+                <a href="/#product-launch" class="hover:text-white transition-colors">Launch</a>
+                <a href="/creator-utilities/" class="hover:text-white transition-colors">Creator Utilities</a>
+                <a href="/#premium-workspaces" class="text-amber-500 hover:text-amber-400 transition-colors">Premium</a>
+            </nav>
+            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="text-[11px] font-bold tracking-wide uppercase px-3.5 py-1.5 rounded bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 transition-all">Storefront -&gt;</a>
+        </div>
+    </header>
+
+    <section class="max-w-4xl mx-auto px-4 pt-12 pb-6 text-center">
+        <span class="text-xs font-semibold tracking-widest text-brandGold uppercase border border-brandGold/30 px-3 py-1 rounded-full bg-brandGold/5">DISCLOSURE COMPLIANCE TOOL</span>
+        <h1 class="text-3xl md:text-4xl font-extrabold mt-4 tracking-tight">Creator FTC Disclosure Generator</h1>
+        <p class="text-brandTextMuted mt-3 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">Generate FTC-compliant disclosure wording for YouTube, TikTok, Instagram, blogs, newsletters and affiliate marketing.</p>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 mb-3">
+        <div class="bg-brandCard/60 border border-gray-800 rounded-lg p-3 flex flex-wrap gap-2 md:gap-4 items-center justify-center text-xs text-brandTextMuted tracking-wide uppercase">
+            <span class="text-brandGold font-semibold">QUICK START</span>
+            <span class="hidden sm:inline">-&gt;</span><span>1. Choose Platform</span>
+            <span class="hidden sm:inline">-&gt;</span><span>2. Select Relationship</span>
+            <span class="hidden sm:inline">-&gt;</span><span>3. Add Brand & Tags</span>
+            <span class="hidden sm:inline">-&gt;</span><span>4. Copy Disclosure</span>
+        </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 mb-8">
+        <div class="bg-brandGreen/10 border border-brandGreen/30 rounded-lg px-4 py-2.5 flex items-center space-x-2 text-xs text-brandGreen">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            <span class="font-medium">Private by default:</span>
+            <span class="text-gray-300">Your brand names, platform choices, and disclosure drafts stay in your browser.</span>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+        <section class="lg:col-span-7 bg-brandCard border border-gray-800 rounded-xl p-6">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-gray-800 pb-3 mb-5">
+                <div>
+                    <h2 class="font-bold tracking-wide text-sm uppercase text-gray-300">Disclosure Inputs</h2>
+                    <p class="text-xs text-brandTextMuted mt-1">Build clear wording for commercial relationships before publishing.</p>
+                </div>
+                <button type="button" id="sampleBtn" class="text-[11px] font-bold uppercase tracking-wide text-brandGold hover:text-white bg-brandGold/10 hover:bg-brandGold/20 border border-brandGold/40 rounded px-3 py-1.5 transition">Load Sponsor Sample</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Content Platform</span><select id="contentType" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none"><option>YouTube</option><option>TikTok</option><option>Instagram</option><option>Blog</option><option>Newsletter</option><option>Podcast</option></select></label>
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Disclosure Placement</span><select id="placement" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none"><option>Beginning</option><option>Middle</option><option>End</option><option>Caption only</option><option>Description only</option></select></label>
+            </div>
+
+            <div class="mt-5">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-2">Disclosure Scenario</h3>
+                <div id="disclosureChoices" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2"></div>
+            </div>
+
+            <div class="mt-5">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-2">Tone</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2" data-choice-group="tone">
+                    <button type="button" data-value="Professional" class="choice text-left border border-gray-800 rounded-lg p-3 bg-slate-950 text-gray-300"><span class="text-xs font-bold block">Professional</span><span class="text-[11px] text-brandTextMuted">Clear, practical.</span></button>
+                    <button type="button" data-value="Friendly" class="choice text-left border border-gray-800 rounded-lg p-3 bg-slate-950 text-gray-300"><span class="text-xs font-bold block">Friendly</span><span class="text-[11px] text-brandTextMuted">Warm creator voice.</span></button>
+                    <button type="button" data-value="Short" class="choice text-left border border-gray-800 rounded-lg p-3 bg-slate-950 text-gray-300"><span class="text-xs font-bold block">Short</span><span class="text-[11px] text-brandTextMuted">Fast captions.</span></button>
+                    <button type="button" data-value="Formal" class="choice text-left border border-gray-800 rounded-lg p-3 bg-slate-950 text-gray-300"><span class="text-xs font-bold block">Formal</span><span class="text-[11px] text-brandTextMuted">More legalistic.</span></button>
+                </div>
+            </div>
+
+            <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Brand / Partner Name</span><input id="brandName" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none" value="Northstar Gear"></label>
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Include Brand Name?</span><select id="includeBrand" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none"><option value="yes">Yes</option><option value="no">No</option></select></label>
+            </div>
+
+            <div class="mt-5">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-2">Disclosure Tags</h3>
+                <div id="hashtagChoices" class="flex flex-wrap gap-2"></div>
+            </div>
+        </section>
+
+        <aside class="lg:col-span-5 space-y-6">
+            <section class="bg-brandCard border border-gray-800 rounded-xl p-6 lg:sticky lg:top-6">
+                <div class="flex items-center gap-5">
+                    <div class="score-ring w-24 h-24 rounded-full p-2 shrink-0" style="--score-angle:0deg">
+                        <div class="w-full h-full rounded-full bg-brandCard flex flex-col items-center justify-center border border-gray-800">
+                            <span id="scoreValue" class="text-2xl font-extrabold text-white">0</span>
+                            <span class="text-[9px] uppercase tracking-wider text-brandTextMuted">Score</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 id="scoreLabel" class="text-sm font-bold text-white uppercase tracking-wide">Disclosure Audit</h2>
+                        <p id="scoreNote" class="text-xs text-brandTextMuted leading-relaxed mt-2">Select a disclosure scenario to see placement and clarity guidance.</p>
+                    </div>
+                </div>
+                <div class="mt-6 border-t border-gray-800 pt-5">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-3">Risk Factors</h3>
+                    <div id="riskFactors" class="space-y-3"></div>
+                </div>
+                <div class="mt-6 border-t border-gray-800 pt-5">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-3">Platform Tip</h3>
+                    <div id="platformTip" class="rounded-lg border border-gray-800 bg-slate-950 p-3 text-xs text-slate-300 leading-relaxed"></div>
+                </div>
+            </section>
+        </aside>
+    </main>
+
+    <section class="max-w-7xl mx-auto px-4 mb-16">
+        <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 border-b border-gray-800 pb-4 mb-5">
+                <div>
+                    <h2 class="text-sm font-bold uppercase tracking-wide text-gray-300">Generated FTC Disclosure Copy</h2>
+                    <p class="text-xs text-brandTextMuted mt-1">Switch formats based on where the disclosure needs to appear.</p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <button type="button" data-tab="shortCaption" class="tab is-active text-xs font-bold border border-gray-800 bg-slate-950 rounded-lg px-3 py-2 text-slate-300 hover:border-brandGold">Short Caption</button>
+                    <button type="button" data-tab="longCaption" class="tab text-xs font-bold border border-gray-800 bg-slate-950 rounded-lg px-3 py-2 text-slate-300 hover:border-brandGold">Long Caption</button>
+                    <button type="button" data-tab="description" class="tab text-xs font-bold border border-gray-800 bg-slate-950 rounded-lg px-3 py-2 text-slate-300 hover:border-brandGold">Description</button>
+                    <button type="button" data-tab="website" class="tab text-xs font-bold border border-gray-800 bg-slate-950 rounded-lg px-3 py-2 text-slate-300 hover:border-brandGold">Blog / Website</button>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
+                <div class="xl:col-span-7 bg-slate-950 border border-gray-800 rounded-xl p-5">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-5">
+                        <div class="rounded-xl border border-brandGold/35 bg-brandGold/10 p-4"><span class="block text-[10px] uppercase tracking-widest text-brandGold font-bold">Platform</span><strong id="previewPlatform" class="mt-1 block text-lg text-white">YouTube</strong></div>
+                        <div class="rounded-xl border border-brandGold/35 bg-brandGold/10 p-4"><span class="block text-[10px] uppercase tracking-widest text-brandGold font-bold">Placement</span><strong id="previewPlacement" class="mt-1 block text-lg text-white">Beginning</strong></div>
+                        <div class="rounded-xl border border-brandGold/35 bg-brandGold/10 p-4"><span class="block text-[10px] uppercase tracking-widest text-brandGold font-bold">Tag Signal</span><strong id="previewTags" class="mt-1 block text-lg text-white">#ad</strong></div>
+                    </div>
+                    <div class="rounded-2xl border border-brandGold/40 bg-gradient-to-br from-brandGold/10 via-slate-950 to-slate-950 p-5">
+                        <span class="block text-[10px] text-brandGold uppercase tracking-widest font-bold">Generated Disclosure</span>
+                        <p id="previewText" class="output-copy mt-3 text-base leading-8 text-white font-semibold"></p>
+                    </div>
+                </div>
+                <div class="xl:col-span-5">
+                    <div class="rounded-xl border border-brandGold/25 bg-gradient-to-b from-slate-900 to-slate-950 shadow-xl shadow-black/25 overflow-hidden">
+                        <div class="flex items-center justify-between border-b border-brandGold/15 bg-brandGold/10 px-4 py-3">
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-widest text-brandGold">Generated Document</span>
+                                <p class="mt-0.5 text-[11px] text-slate-400">Copy-ready disclosure wording.</p>
+                            </div>
+                            <button type="button" id="copyBtn" class="text-[11px] font-bold uppercase tracking-wide text-slate-200 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-700 rounded px-3 py-1.5 transition">Copy</button>
+                        </div>
+                        <pre id="outputText" class="output-copy min-h-[320px] max-h-[560px] overflow-auto bg-[linear-gradient(180deg,#020617,#07111f)] p-5 text-xs leading-7 text-slate-200 font-mono"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 mb-16 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <h2 class="text-sm font-bold uppercase tracking-widest text-brandGold mb-3">Disclosure Checklist</h2>
+            <ul class="space-y-2 text-xs text-slate-300 leading-relaxed">
+                <li>Place the disclosure before affiliate links, offer CTAs, or purchase prompts.</li>
+                <li>Use clear terms such as "ad", "sponsored", "affiliate link", or "gifted".</li>
+                <li>Do not bury disclosure tags inside a long hashtag block.</li>
+                <li>For video and podcast content, disclose verbally as well as in the description.</li>
+            </ul>
+        </div>
+        <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <h2 class="text-sm font-bold uppercase tracking-widest text-brandGold mb-3">Related Tools</h2>
+            <div class="space-y-3 text-xs">
+                <a href="/viral-content-framework-generator/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Viral Content Framework Generator</a>
+                <a href="/caption-formatter/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Caption Formatter</a>
+                <a href="/youtube-description-formatter/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">YouTube Description Formatter</a>
+                <a href="/creator-monetization-path-finder/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Creator Monetization Path Finder</a>
+                <a href="/creator-utilities/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Creator Utilities Hub</a>
+            </div>
+        </div>
+        <div class="bg-brandGold/10 border border-brandGold/35 rounded-xl p-6">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Premium Creator Workflow</span>
+            <h2 class="text-xl font-extrabold text-white mt-2">Build repeatable content systems around compliant posts.</h2>
+            <p class="text-sm text-slate-300 leading-relaxed mt-3">Use the free disclosure generator for publishing transparency, then organize hooks, captions, content planning, and repurposing inside Creator Content OS.</p>
+            <a href="https://aicashlabofficial.gumroad.com/l/yckpyo?layout=profile" target="_blank" rel="noopener noreferrer" class="inline-block mt-5 rounded-lg bg-brandGold px-5 py-3 text-xs font-extrabold uppercase tracking-wide text-slate-950 hover:bg-brandGoldHover transition">View Creator Content OS -&gt;</a>
+        </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto px-4 mb-20">
+        <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <h2 class="text-sm font-bold uppercase tracking-widest text-brandGold mb-4">Frequently Asked Questions</h2>
+            <div class="space-y-5 text-sm text-slate-300 leading-relaxed">
+                <div><h3 class="font-bold text-white">Do affiliate links require disclosure?</h3><p class="text-xs text-brandTextMuted mt-1">Yes. If you may earn a commission or receive another benefit, disclose it before users click the link or make a purchase decision.</p></div>
+                <div><h3 class="font-bold text-white">Is #ad enough?</h3><p class="text-xs text-brandTextMuted mt-1">A clear #ad or #sponsored tag can help, but placement matters. It should be easy to see and not buried below "more" or hidden among many unrelated tags.</p></div>
+                <div><h3 class="font-bold text-white">Is this legal advice?</h3><p class="text-xs text-brandTextMuted mt-1">No. This is a practical drafting tool for clearer creator disclosures. For legal questions about a campaign or contract, consult a qualified professional.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="w-full bg-[#111827] border-t border-gray-800 py-10 mt-12 text-[11px] text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+            <div class="md:col-span-4 space-y-3">
+                <div class="flex items-center space-x-3"><div class="w-6 h-6 rounded bg-slate-950 border border-slate-800 flex items-center justify-center overflow-hidden shrink-0"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab Footer Logo" class="w-full h-full object-contain"></div><span class="text-xs font-bold text-white uppercase tracking-wider">AI Cash Lab Tools</span></div>
+                <p class="text-[11px] text-slate-400 max-w-sm leading-relaxed">Simple business tools for freelancers, creators, and digital service providers.</p>
+            </div>
+            <div class="md:col-span-3 space-y-2.5 text-[11px]">
+                <span class="font-bold text-amber-500 uppercase tracking-wider block">Newest Tools</span>
+                <ul class="space-y-1.5 text-slate-400 font-medium">
+                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-amber-500"></span><a href="/creator-ftc-disclosure-generator/" class="hover:text-slate-300 transition-colors">Creator FTC Disclosure Generator</a></li>
+                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-amber-500"></span><a href="/case-study-outline-generator/" class="hover:text-slate-300 transition-colors">Case Study Outline Generator</a></li>
+                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-amber-500"></span><a href="/testimonial-request-generator/" class="hover:text-slate-300 transition-colors">Testimonial Request Generator</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-5 grid grid-cols-2 gap-6 text-[11px]">
+                <div class="space-y-2.5"><span class="font-bold text-slate-100 uppercase tracking-wider block">Production Hub</span><div class="flex flex-col space-y-1.5 text-slate-400"><a href="/creator-utilities/" class="hover:text-slate-300 transition-colors">Creator Utilities</a><a href="/freelancer-utilities/" class="hover:text-slate-300 transition-colors">Freelancer Utilities</a><a href="/articles/" class="hover:text-slate-300 transition-colors">Articles</a></div></div>
+                <div class="space-y-2.5"><span class="font-bold text-slate-100 uppercase tracking-wider block">Commercial Engine</span><div class="flex flex-col space-y-1.5 text-slate-400"><a href="/#premium-workspaces" class="text-amber-500 hover:text-amber-400 transition-colors">Premium Workspaces</a><a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-400 transition-colors">Storefront Hub -&gt;</a></div></div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 mt-8 border-t border-slate-900/80 text-center text-[10px] text-slate-500">&copy; 2026 AI Cash Lab. All Rights Reserved.</div>
+    </footer>
+
+    <script>
+        const DISCLOSURES = ['Affiliate Links', 'Sponsored Post', 'Paid Partnership', 'Gifted Product', 'Brand Ambassador', 'AI Generated Content', 'Product Review', 'Free Trial Access', 'Event Invitation'];
+        const HASHTAGS = ['#ad', '#sponsored', '#affiliate', '#gifted', '#paidpartnership', '#aimedia'];
+        const platformTips = {
+            YouTube: 'Mention the relationship verbally near the start and repeat the disclosure in the description before affiliate or sponsor links.',
+            TikTok: 'Put #ad or #sponsored at the start of the caption and consider visible on-screen text because viewers swipe quickly.',
+            Instagram: 'Keep disclosure visible before the caption truncates and use the built-in paid partnership label when it applies.',
+            Blog: 'Place disclosure above the first affiliate link or sponsored recommendation, not only in a footer.',
+            Newsletter: 'Disclose before sponsored sections or affiliate product recommendations so readers know before clicking.',
+            Podcast: 'Disclose verbally in the episode and repeat key details in show notes when links are included.'
+        };
+        const templates = {
+            'Affiliate Links': {
+                Professional: brand => `This content contains affiliate links${brand ? ` associated with ${brand}` : ''}. If you purchase through these links, I may earn a commission at no additional cost to you.`,
+                Friendly: brand => `Heads up: some links here are affiliate links${brand ? ` for ${brand}` : ''}. If you buy through them, I may earn a commission at no extra cost to you.`,
+                Short: brand => `Contains affiliate links${brand ? ` for ${brand}` : ''}. I may earn a commission at no extra cost to you.`,
+                Formal: brand => `This publication includes affiliate links${brand ? ` in connection with ${brand}` : ''}. The creator may receive compensation from qualifying transactions.`
+            },
+            'Sponsored Post': {
+                Professional: brand => `This content is sponsored by ${brand || 'a brand partner'}. Opinions and creative direction remain my own.`,
+                Friendly: brand => `This post is sponsored by ${brand || 'a brand partner'}. I only share partnerships that fit my audience, and the opinions are mine.`,
+                Short: brand => `Sponsored by ${brand || 'partner'}. Opinions are my own.`,
+                Formal: brand => `This material was produced in sponsorship with ${brand || 'the designated partner'}. Editorial opinions remain under creator discretion.`
+            },
+            'Paid Partnership': {
+                Professional: brand => `Created in paid partnership with ${brand || 'the partnering brand'}. This relationship is disclosed for transparency.`,
+                Friendly: brand => `Paid partnership with ${brand || 'this brand'}! This collaboration helps support my work, and all opinions are my own.`,
+                Short: brand => `Paid partnership with ${brand || 'partner'}.`,
+                Formal: brand => `This content was produced pursuant to a paid partnership with ${brand || 'the partnering brand'}.`
+            },
+            'Gifted Product': {
+                Professional: brand => `The product featured here was gifted by ${brand || 'the brand'} for review. No guarantee of positive coverage was provided.`,
+                Friendly: brand => `${brand || 'The brand'} sent me this product for free to try. These are my honest thoughts.`,
+                Short: brand => `Gifted product from ${brand || 'brand'}. Honest review.`,
+                Formal: brand => `The referenced product was supplied on a complimentary basis by ${brand || 'the provider'} for evaluation.`
+            },
+            'Brand Ambassador': {
+                Professional: brand => `I am a brand ambassador for ${brand || 'this brand'} and may receive compensation, products, or other incentives.`,
+                Friendly: brand => `I am a brand ambassador for ${brand || 'this brand'}, so you may see me share their products regularly.`,
+                Short: brand => `Brand ambassador for ${brand || 'brand'}.`,
+                Formal: brand => `The creator maintains an ambassador relationship with ${brand || 'the brand'}, which may include compensation or product benefits.`
+            },
+            'AI Generated Content': {
+                Professional: brand => `Portions of this content were generated, edited, or assisted using AI tools${brand ? ` such as ${brand}` : ''}. Final review and editing were completed by the creator.`,
+                Friendly: brand => `Transparency note: I used AI tools${brand ? ` like ${brand}` : ''} to help brainstorm, draft, or edit parts of this content.`,
+                Short: brand => `AI-assisted content${brand ? ` via ${brand}` : ''}. Reviewed by creator.`,
+                Formal: brand => `Portions of this media were synthesized or enhanced using generative AI tools${brand ? ` (${brand})` : ''}.`
+            },
+            'Product Review': {
+                Professional: brand => `This is an independent review of ${brand || 'the product'}. No compensation was received unless otherwise stated.`,
+                Friendly: brand => `Here is my honest review of ${brand || 'this product'}. I will tell you what worked and what did not.`,
+                Short: brand => `Independent review${brand ? ` of ${brand}` : ''}.`,
+                Formal: brand => `This content constitutes an independent product evaluation${brand ? ` of ${brand}` : ''}.`
+            },
+            'Free Trial Access': {
+                Professional: brand => `I received complimentary trial access to ${brand || 'this service'} for evaluation. No ongoing compensation is included unless stated.`,
+                Friendly: brand => `${brand || 'The brand'} gave me free trial access so I could test the product and share my honest take.`,
+                Short: brand => `Complimentary trial access from ${brand || 'brand'}.`,
+                Formal: brand => `The creator received temporary complimentary access to ${brand || 'the service'} for evaluation purposes.`
+            },
+            'Event Invitation': {
+                Professional: brand => `I attended this event as an invited guest of ${brand || 'the host'}, which may have covered entry, travel, or related costs.`,
+                Friendly: brand => `${brand || 'The host'} invited me to this event and may have covered access or travel. I am sharing my real experience.`,
+                Short: brand => `Event guest of ${brand || 'host'}.`,
+                Formal: brand => `Attendance was facilitated by invitation from ${brand || 'the host organization'}, potentially including admission or travel support.`
+            }
+        };
+        const state = {
+            selectedDisclosures: ['Sponsored Post', 'Affiliate Links'],
+            hashtags: ['#ad', '#affiliate'],
+            tone: 'Professional'
+        };
+        let activeTab = 'shortCaption';
+
+        function value(id) {
+            return (document.getElementById(id).value || '').trim();
+        }
+        function brand() {
+            return value('includeBrand') === 'yes' ? value('brandName') : '';
+        }
+        function escapeHtml(text) {
+            return String(text).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char]));
+        }
+        function renderPills() {
+            document.getElementById('disclosureChoices').innerHTML = DISCLOSURES.map(item => `<button type="button" data-disclosure="${item}" class="pill ${state.selectedDisclosures.includes(item) ? 'is-active' : ''} text-left border border-gray-800 rounded-lg p-3 bg-slate-950 text-gray-300"><span class="text-xs font-bold block">${item}</span><span class="text-[11px] text-brandTextMuted">${item === 'Affiliate Links' ? 'Commissions' : item === 'Sponsored Post' ? 'Paid content' : item === 'AI Generated Content' ? 'Synthetic media' : 'Transparency'}</span></button>`).join('');
+            document.getElementById('hashtagChoices').innerHTML = HASHTAGS.map(tag => `<button type="button" data-hashtag="${tag}" class="pill ${state.hashtags.includes(tag) ? 'is-active' : ''} border border-gray-800 rounded-full bg-slate-950 px-3 py-1.5 text-xs font-bold text-slate-300">${tag}</button>`).join('');
+        }
+        function setChoice(group, selected) {
+            state[group] = selected;
+            document.querySelectorAll(`[data-choice-group="${group}"] .choice`).forEach(btn => btn.classList.toggle('is-active', btn.dataset.value === selected));
+            render();
+        }
+        function activeSentences(toneOverride) {
+            const tone = toneOverride || state.tone;
+            const resolvedBrand = brand();
+            return state.selectedDisclosures.map(type => templates[type][tone](resolvedBrand)).filter(Boolean);
+        }
+        function generateOutputs() {
+            if (!state.selectedDisclosures.length) {
+                const empty = 'Select at least one disclosure scenario to generate copy.';
+                return { website: empty, shortCaption: empty, longCaption: empty, description: empty };
+            }
+            const placement = value('placement');
+            const hashtags = state.hashtags.join(' ');
+            const tagBlock = hashtags ? ` ${hashtags}` : '';
+            const leadingTag = state.hashtags.includes('#ad') ? '#ad ' : state.hashtags.includes('#sponsored') ? '#sponsored ' : '';
+            const main = activeSentences().join(' ');
+            const shortMain = activeSentences('Short').join(' ');
+            const shortCaption = `${leadingTag}${shortMain} ${state.hashtags.filter(tag => tag !== '#ad' && tag !== '#sponsored').join(' ')}`.trim();
+            let longCaption;
+            if (placement === 'Beginning') longCaption = `Disclosure: ${main}${tagBlock}\n\n[Your post content goes here...]`;
+            else if (placement === 'End') longCaption = `[Your post content goes here...]\n\nDisclosure: ${main}${tagBlock}`;
+            else longCaption = `[Your content intro...]\n\nDisclosure: ${main}${tagBlock}\n\n[Rest of your content...]`;
+            const website = placement === 'Beginning' ? `[Disclosure] ${main}${tagBlock}` : `Disclosure: ${main}${tagBlock}`;
+            const description = `TRANSPARENCY & FTC DISCLOSURES\n\n${activeSentences('Professional').join('\n\n')}${tagBlock ? `\n\nTags: ${hashtags}` : ''}`;
+            return { website, shortCaption, longCaption, description };
+        }
+        function assessRisk() {
+            if (!state.selectedDisclosures.length) return { score: 0, label: 'No Disclosure Active', note: 'Select at least one commercial relationship.', factors: [{ severity: 'high', message: 'No disclosure scenario selected.', recommendation: 'Choose affiliate, sponsored, gifted, or another relevant relationship.' }] };
+            let score = 70;
+            const factors = [];
+            const placement = value('placement');
+            const platform = value('contentType');
+            const needsCommercialTag = state.selectedDisclosures.some(item => ['Sponsored Post', 'Paid Partnership', 'Brand Ambassador'].includes(item));
+            const needsAffiliateTag = state.selectedDisclosures.includes('Affiliate Links');
+            const hasAd = state.hashtags.includes('#ad') || state.hashtags.includes('#sponsored') || state.hashtags.includes('#paidpartnership');
+            const hasAffiliate = state.hashtags.includes('#affiliate');
+            if (placement === 'Beginning') { score += 20; factors.push({ severity: 'low', message: 'Strong placement at the beginning.', recommendation: 'Keep the disclosure visible before links and buying prompts.' }); }
+            if (placement === 'Middle' || placement === 'Caption only') { score += 5; factors.push({ severity: 'medium', message: 'Moderate placement.', recommendation: 'Make sure it appears before any affiliate link or purchase prompt.' }); }
+            if (placement === 'End' || placement === 'Description only') { score -= 20; factors.push({ severity: 'high', message: 'Risky late placement.', recommendation: 'Move the disclosure earlier so viewers see it before acting.' }); }
+            if (value('includeBrand') === 'yes' && value('brandName')) { score += 10; factors.push({ severity: 'low', message: `Brand relationship names ${value('brandName')}.`, recommendation: 'Specific brand naming improves transparency.' }); }
+            if (needsCommercialTag && !hasAd) { score -= 15; factors.push({ severity: 'high', message: 'Commercial post lacks #ad, #sponsored, or #paidpartnership.', recommendation: 'Add a clear sponsored content tag.' }); }
+            if (needsCommercialTag && hasAd) { score += 10; factors.push({ severity: 'low', message: 'Clear commercial hashtag present.', recommendation: 'Keep it close to the beginning of the caption or description.' }); }
+            if (needsAffiliateTag && !hasAffiliate && !hasAd) { score -= 10; factors.push({ severity: 'medium', message: 'Affiliate relationship lacks a supporting tag.', recommendation: 'Add #affiliate or #ad.' }); }
+            if (platform === 'YouTube' || platform === 'Podcast') factors.push({ severity: 'medium', message: `${platform} should include verbal disclosure.`, recommendation: 'Say the relationship out loud as well as writing it in notes or descriptions.' });
+            if ((platform === 'TikTok' || platform === 'Instagram') && placement === 'End') score -= 5;
+            const finalScore = Math.min(100, Math.max(10, score));
+            const label = finalScore >= 90 ? 'Excellent Transparency' : finalScore >= 70 ? 'Good Compliance' : finalScore < 50 ? 'High Risk Warning' : 'Needs Improvement';
+            return { score: finalScore, label, note: finalScore >= 90 ? 'Strong disclosure structure for this creator format.' : finalScore >= 70 ? 'Good base. Check placement and platform-specific visibility.' : 'Improve tag clarity and placement before publishing.', factors };
+        }
+        function render() {
+            const outputs = generateOutputs();
+            const risk = assessRisk();
+            document.getElementById('scoreValue').textContent = risk.score;
+            document.querySelector('.score-ring').style.setProperty('--score-angle', `${risk.score * 3.6}deg`);
+            document.getElementById('scoreLabel').textContent = risk.label;
+            document.getElementById('scoreNote').textContent = risk.note;
+            document.getElementById('riskFactors').innerHTML = risk.factors.map(f => {
+                const color = f.severity === 'high' ? 'text-red-300 border-red-500/30 bg-red-500/10' : f.severity === 'medium' ? 'text-yellow-200 border-yellow-500/30 bg-yellow-500/10' : 'text-emerald-200 border-emerald-500/30 bg-emerald-500/10';
+                return `<div class="rounded-lg border ${color} p-3"><strong class="block text-xs uppercase tracking-wide">${f.message}</strong><p class="mt-1 text-xs text-slate-300">${f.recommendation}</p></div>`;
+            }).join('');
+            document.getElementById('platformTip').textContent = platformTips[value('contentType')];
+            document.getElementById('outputText').textContent = outputs[activeTab];
+            document.getElementById('previewText').textContent = outputs[activeTab];
+            document.getElementById('previewPlatform').textContent = value('contentType');
+            document.getElementById('previewPlacement').textContent = value('placement');
+            document.getElementById('previewTags').textContent = state.hashtags.length ? state.hashtags.join(' ') : 'No tags';
+            saveDraft();
+        }
+        function saveDraft() {
+            localStorage.setItem('acl_creator_ftc_disclosure_generator', JSON.stringify({
+                contentType: value('contentType'), placement: value('placement'), includeBrand: value('includeBrand'), brandName: value('brandName'), tone: state.tone, selectedDisclosures: state.selectedDisclosures, hashtags: state.hashtags
+            }));
+        }
+        function loadDraft() {
+            try {
+                const data = JSON.parse(localStorage.getItem('acl_creator_ftc_disclosure_generator') || '{}');
+                ['contentType', 'placement', 'includeBrand', 'brandName'].forEach(id => { if (data[id]) document.getElementById(id).value = data[id]; });
+                if (data.tone) state.tone = data.tone;
+                if (Array.isArray(data.selectedDisclosures)) state.selectedDisclosures = data.selectedDisclosures;
+                if (Array.isArray(data.hashtags)) state.hashtags = data.hashtags;
+            } catch (error) {}
+        }
+        document.addEventListener('click', event => {
+            const disclosure = event.target.closest('[data-disclosure]');
+            if (disclosure) {
+                const value = disclosure.dataset.disclosure;
+                state.selectedDisclosures = state.selectedDisclosures.includes(value) ? state.selectedDisclosures.filter(item => item !== value) : state.selectedDisclosures.concat(value);
+                renderPills(); render();
+            }
+            const hashtag = event.target.closest('[data-hashtag]');
+            if (hashtag) {
+                const value = hashtag.dataset.hashtag;
+                state.hashtags = state.hashtags.includes(value) ? state.hashtags.filter(item => item !== value) : state.hashtags.concat(value);
+                renderPills(); render();
+            }
+            const tab = event.target.closest('[data-tab]');
+            if (tab) {
+                activeTab = tab.dataset.tab;
+                document.querySelectorAll('[data-tab]').forEach(btn => btn.classList.toggle('is-active', btn === tab));
+                render();
+            }
+        });
+        document.querySelectorAll('input, select').forEach(el => el.addEventListener('input', render));
+        document.querySelectorAll('[data-choice-group] .choice').forEach(btn => btn.addEventListener('click', () => setChoice(btn.closest('[data-choice-group]').dataset.choiceGroup, btn.dataset.value)));
+        document.getElementById('sampleBtn').addEventListener('click', () => {
+            document.getElementById('contentType').value = 'YouTube';
+            document.getElementById('placement').value = 'Beginning';
+            document.getElementById('brandName').value = 'Northstar Gear';
+            document.getElementById('includeBrand').value = 'yes';
+            state.selectedDisclosures = ['Sponsored Post', 'Affiliate Links'];
+            state.hashtags = ['#ad', '#affiliate'];
+            state.tone = 'Professional';
+            renderPills(); setChoice('tone', state.tone);
+        });
+        document.getElementById('copyBtn').addEventListener('click', async () => {
+            await navigator.clipboard.writeText(document.getElementById('outputText').textContent);
+            document.getElementById('copyBtn').textContent = 'Copied';
+            setTimeout(() => document.getElementById('copyBtn').textContent = 'Copy', 1400);
+        });
+        loadDraft();
+        renderPills();
+        setChoice('tone', state.tone);
+        render();
+    </script>
+</body>
+</html>
