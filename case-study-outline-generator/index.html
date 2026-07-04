@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T7X8JFME64"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T7X8JFME64');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x6q6t5vv3a");
+</script>
+<!-- CTA click tracking -->
+<script>
+  (function () {
+    var CTA_PRODUCTS = {
+      dszjez: { name: "Freelancer Business OS", eventName: "freelancer_business_os_click" },
+      iwyunk: { name: "Simple Lead CRM", eventName: "simple_lead_crm_click" },
+      sjdzd: { name: "Freelancer Proposal Generator", eventName: "freelancer_proposal_generator_click" },
+      fexjpq: { name: "Freelancer Contract and Policy Toolkit", eventName: "freelancer_contract_policy_toolkit_click" },
+      bfsqt: { name: "Client Onboarding Toolkit", eventName: "client_onboarding_toolkit_click" },
+      ltrbh: { name: "Client Portal and Project Dashboard Toolkit", eventName: "client_portal_project_dashboard_click" },
+      hdfde: { name: "Freelancer Invoice and Payment Reminder Toolkit", eventName: "freelancer_invoice_payment_toolkit_click" },
+      nqqtyr: { name: "Freelancer Pricing and Profit Calculator", eventName: "freelancer_pricing_profit_click" },
+      qshwvb: { name: "Freelancer Scope Creep Calculator", eventName: "freelancer_scope_creep_calculator_click" },
+      xnlfai: { name: "Creator Monetization OS", eventName: "creator_monetization_os_click" },
+      yckpyo: { name: "Creator Content OS", eventName: "creator_content_os_click" },
+      nemfmj: { name: "Creator Launch OS", eventName: "creator_launch_os_click" },
+      zagils: { name: "Creator Analytics OS", eventName: "creator_analytics_os_click" }
+    };
+    function getGumroadProductId(url) {
+      var match = url.match(/gumroad\.com\/l\/([^/?#]+)/i);
+      return match ? match[1] : "";
+    }
+    function resolveProduct(productId, linkText) {
+      if (productId === "nqqtyr" && /boundary|communication/i.test(linkText)) {
+        return { name: "Freelancer Boundary and Client Communication Toolkit", eventName: "freelancer_boundary_communication_click" };
+      }
+      return CTA_PRODUCTS[productId];
+    }
+    function sendClickEvent(eventName, params) {
+      if (typeof window.gtag === "function") window.gtag("event", eventName, params);
+      if (typeof window.clarity === "function") window.clarity("event", eventName);
+    }
+    document.addEventListener("click", function (event) {
+      var link = event.target.closest && event.target.closest("a[href]");
+      if (!link) return;
+      var href = link.href || "";
+      if (!/gumroad\.com/i.test(href)) return;
+      var productId = getGumroadProductId(href);
+      var linkText = (link.textContent || "").replace(/\s+/g, " ").trim();
+      var product = resolveProduct(productId, linkText);
+      sendClickEvent(product ? product.eventName : "gumroad_store_click", {
+        event_category: "cta",
+        cta_name: product ? product.name : "Gumroad Store",
+        gumroad_product_id: productId || "storefront",
+        link_url: href,
+        link_text: linkText,
+        page_path: window.location.pathname,
+        page_title: document.title
+      });
+    });
+  })();
+</script>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study Outline Generator | Free Freelancer Portfolio Tool</title>
+    <meta name="description" content="Generate a client case study outline with before-and-after metrics, proof points, SEO headings, LinkedIn copy, proposal snippets, and portfolio card text.">
+    <link rel="canonical" href="https://aicashlabtools.com/case-study-outline-generator/">
+    <meta property="og:title" content="Case Study Outline Generator">
+    <meta property="og:description" content="Turn project results into a polished case study outline, LinkedIn post, proposal proof snippet, and portfolio card.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aicashlabtools.com/case-study-outline-generator/">
+    <meta property="og:image" content="https://aicashlabtools.com/assets/ai-cash-lab-logo-600.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Case Study Outline Generator">
+    <meta name="twitter:description" content="Generate client case study outlines, before-and-after proof points, and reusable portfolio copy.">
+    <meta name="twitter:image" content="https://aicashlabtools.com/assets/ai-cash-lab-logo-600.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Case Study Outline Generator","url":"https://aicashlabtools.com/case-study-outline-generator/","description":"Generate a client case study outline with before-and-after metrics, proof points, SEO headings, LinkedIn copy, proposal snippets, and portfolio card text."},{"@type":"SoftwareApplication","name":"Case Study Outline Generator","applicationCategory":"BusinessApplication","operatingSystem":"Web Browser","url":"https://aicashlabtools.com/case-study-outline-generator/","description":"A free browser-based generator for turning client project results into reusable case study and portfolio copy.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}]}</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0B0F17',
+                        brandCard: '#131926',
+                        brandGold: '#E5A93C',
+                        brandGoldHover: '#CCA130',
+                        brandBlue: '#3B82F6',
+                        brandGreen: '#10B981',
+                        brandTextMuted: '#9CA3AF'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        textarea { resize: vertical; }
+        .choice.is-active { border-color: #3B82F6; background: rgba(59,130,246,.12); color: #fff; }
+        .output-copy { white-space: pre-wrap; }
+        .score-ring { background: conic-gradient(#E5A93C var(--score-angle), #1f2937 0); }
+        .tab.is-active { background: rgba(229,169,60,.18); border-color: rgba(229,169,60,.55); color: #fff; }
+        .check-item.is-done .check-dot { background: #10B981; border-color: #10B981; }
+        .check-item.is-done p { color: #d1d5db; }
+    </style>
+</head>
+<body class="bg-brandDark text-gray-100 font-sans min-h-screen selection:bg-brandGold selection:text-brandDark">
+
+    <header class="w-full border-b border-gray-800 bg-brandDark/90 backdrop-blur-md transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="/" class="flex items-center space-x-3 shrink-0 group" aria-label="AI Cash Lab Tools homepage">
+                <div class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center overflow-hidden shrink-0">
+                    <img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab Logo" class="w-full h-full object-contain transform group-hover:scale-105 transition-transform">
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xs font-bold text-white tracking-wider uppercase">AI Cash Lab</span>
+                    <span class="text-[9px] text-slate-400 font-medium tracking-tight -mt-0.5">Utility Ecosystem</span>
+                </div>
+            </a>
+            <nav class="hidden lg:flex items-center space-x-6 text-xs font-medium text-brandTextMuted">
+                <a href="/" class="hover:text-white transition-colors">Home</a>
+                <a href="/#creator-production" class="hover:text-white transition-colors">Production</a>
+                <a href="/#creator-monetization" class="hover:text-white transition-colors">Monetization</a>
+                <a href="/#product-launch" class="hover:text-white transition-colors">Launch</a>
+                <a href="/freelancer-utilities/" class="hover:text-white transition-colors">Freelancer Utilities</a>
+                <a href="/#premium-workspaces" class="text-amber-500 hover:text-amber-400 transition-colors">Premium</a>
+            </nav>
+            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="text-[11px] font-bold tracking-wide uppercase px-3.5 py-1.5 rounded bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 transition-all">Storefront -&gt;</a>
+        </div>
+    </header>
+
+    <section class="max-w-4xl mx-auto px-4 pt-12 pb-6 text-center">
+        <span class="text-xs font-semibold tracking-widest text-brandGold uppercase border border-brandGold/30 px-3 py-1 rounded-full bg-brandGold/5">PORTFOLIO PROOF TOOL</span>
+        <h1 class="text-3xl md:text-4xl font-extrabold mt-4 tracking-tight">Case Study Outline Generator</h1>
+        <p class="text-brandTextMuted mt-3 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">Turn client results into a scannable case study outline, before-and-after proof grid, LinkedIn post, proposal proof snippet, and compact portfolio card.</p>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 mb-3">
+        <div class="bg-brandCard/60 border border-gray-800 rounded-lg p-3 flex flex-wrap gap-2 md:gap-4 items-center justify-center text-xs text-brandTextMuted tracking-wide uppercase">
+            <span class="text-brandGold font-semibold">QUICK START</span>
+            <span class="hidden sm:inline">-&gt;</span><span>1. Add Project Inputs</span>
+            <span class="hidden sm:inline">-&gt;</span><span>2. Add Proof Metrics</span>
+            <span class="hidden sm:inline">-&gt;</span><span>3. Pick Output Format</span>
+            <span class="hidden sm:inline">-&gt;</span><span>4. Copy Outline</span>
+        </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 mb-8">
+        <div class="bg-brandGreen/10 border border-brandGreen/30 rounded-lg px-4 py-2.5 flex items-center space-x-2 text-xs text-brandGreen">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            <span class="font-medium">Private by default:</span>
+            <span class="text-gray-300">Your client details, metrics, and generated drafts stay in your browser.</span>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+        <section class="lg:col-span-7 bg-brandCard border border-gray-800 rounded-xl p-6">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-gray-800 pb-3 mb-5">
+                <div>
+                    <h2 class="font-bold tracking-wide text-sm uppercase text-gray-300">Case Study Inputs</h2>
+                    <p class="text-xs text-brandTextMuted mt-1">Use one finished project, one measurable result, and one clear next step.</p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <button type="button" id="sampleBtn" class="text-[11px] font-bold uppercase tracking-wide text-brandGold hover:text-white bg-brandGold/10 hover:bg-brandGold/20 border border-brandGold/40 rounded px-3 py-1.5 transition">Load Sample</button>
+                    <button type="button" id="clearBtn" class="text-[11px] font-bold uppercase tracking-wide text-red-300 hover:text-white bg-red-500/10 hover:bg-red-500/20 border border-red-500/45 hover:border-red-400 rounded px-3 py-1.5 transition">Clear</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Project Type</span><input id="projectType" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none" value="SaaS landing page revamp"></label>
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Client Industry</span><input id="clientIndustry" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none" value="B2B fintech platform"></label>
+            </div>
+
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Permission Level</span><select id="permissionLevel" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none"><option value="anonymous">Anonymous</option><option value="firstname">First Name Only</option><option value="company" selected>Company/Public</option></select></label>
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Client Label</span><input id="permissionDetail" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none" value="ApexFlow Solutions"></label>
+            </div>
+
+            <div class="mt-4 space-y-4">
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Biggest Challenge</span><textarea id="biggestChallenge" rows="4" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none">High bounce rate of 68% and low visitor conversion of 1.1% because the product value proposition was too complex for non-technical buyers.</textarea></label>
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Solution Delivered</span><textarea id="solutionDelivered" rows="4" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none">Redesigned the messaging hierarchy, added an interactive product tour, simplified technical jargon into benefit-led copy, and streamlined the demo booking form.</textarea></label>
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Key Results</span><textarea id="keyResults" rows="3" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none">Increased conversion rate by 180% from 1.1% to 3.1%, reduced bounce rate to 35%, and generated 42 qualified demo bookings in the first 14 days.</textarea></label>
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Client Quote</span><textarea id="clientQuote" rows="3" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none">The new landing page changed how we pitch our product. Leads now arrive at demo calls pre-educated, which saves our sales team hours of explanation.</textarea></label>
+            </div>
+
+            <div class="mt-5">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold">Before / After Proof Rows</h3>
+                    <button type="button" id="addRowBtn" class="text-[11px] font-bold uppercase tracking-wide text-slate-200 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-700 rounded px-3 py-1.5 transition">Add Row</button>
+                </div>
+                <div id="rows" class="space-y-2"></div>
+            </div>
+
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Lessons Learned</span><textarea id="lessonsLearned" rows="4" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none">Complex technical products sell better when the page focuses on user outcomes rather than raw feature lists.</textarea></label>
+                <label class="block"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Call To Action</span><textarea id="callToAction" rows="4" class="mt-2 w-full bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none">Want to improve your B2B conversions? Book a free 20-minute conversion audit to find quick wins on your landing page.</textarea></label>
+            </div>
+        </section>
+
+        <aside class="lg:col-span-5 space-y-6">
+            <section class="bg-brandCard border border-gray-800 rounded-xl p-6 lg:sticky lg:top-6">
+                <div class="flex items-center gap-5">
+                    <div class="score-ring w-24 h-24 rounded-full p-2 shrink-0" style="--score-angle:0deg">
+                        <div class="w-full h-full rounded-full bg-brandCard flex flex-col items-center justify-center border border-gray-800">
+                            <span id="scoreValue" class="text-2xl font-extrabold text-white">0</span>
+                            <span class="text-[9px] uppercase tracking-wider text-brandTextMuted">Strength</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 id="scoreLabel" class="text-sm font-bold text-white uppercase tracking-wide">Audit Ready</h2>
+                        <p id="scoreNote" class="text-xs text-brandTextMuted leading-relaxed mt-2">Add enough proof, metrics, and client context to build a stronger case study outline.</p>
+                    </div>
+                </div>
+
+                <div class="mt-6 border-t border-gray-800 pt-5">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-3">Element Audit</h3>
+                    <div id="auditList" class="space-y-3"></div>
+                </div>
+
+                <div class="mt-6 border-t border-gray-800 pt-5">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-3">SEO Angles</h3>
+                    <div id="seoTips" class="space-y-2 text-xs text-slate-300"></div>
+                </div>
+            </section>
+        </aside>
+    </main>
+
+    <section class="max-w-7xl mx-auto px-4 mb-16">
+        <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 border-b border-gray-800 pb-4 mb-5">
+                <div>
+                    <h2 class="text-sm font-bold uppercase tracking-wide text-gray-300">Generated Deliverables</h2>
+                    <p class="text-xs text-brandTextMuted mt-1">Switch formats, then copy or download the active draft.</p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <button type="button" data-tab="website" class="tab is-active text-xs font-bold border border-gray-800 bg-slate-950 rounded-lg px-3 py-2 text-slate-300 hover:border-brandGold">Website Case Study</button>
+                    <button type="button" data-tab="linkedin" class="tab text-xs font-bold border border-gray-800 bg-slate-950 rounded-lg px-3 py-2 text-slate-300 hover:border-brandGold">LinkedIn Post</button>
+                    <button type="button" data-tab="proposal" class="tab text-xs font-bold border border-gray-800 bg-slate-950 rounded-lg px-3 py-2 text-slate-300 hover:border-brandGold">Proposal Snippet</button>
+                    <button type="button" data-tab="portfolio" class="tab text-xs font-bold border border-gray-800 bg-slate-950 rounded-lg px-3 py-2 text-slate-300 hover:border-brandGold">Portfolio Card</button>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
+                <div class="xl:col-span-7 bg-slate-950 border border-gray-800 rounded-xl p-5">
+                    <div class="pb-4 border-b border-gray-800 mb-4">
+                        <span class="text-[10px] text-brandGold uppercase tracking-widest font-bold">Case Study Title</span>
+                        <h3 id="previewHeadline" class="text-lg font-bold text-white mt-1 leading-snug"></h3>
+                    </div>
+                    <div id="previewHtml" class="space-y-4 text-sm text-slate-300 leading-relaxed"></div>
+                </div>
+                <div class="xl:col-span-5">
+                    <div class="rounded-xl border border-brandGold/25 bg-gradient-to-b from-slate-900 to-slate-950 shadow-xl shadow-black/25 overflow-hidden">
+                    <div class="flex items-center justify-between border-b border-brandGold/15 bg-brandGold/10 px-4 py-3">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-brandGold">Generated Document</span>
+                            <p class="mt-0.5 text-[11px] text-slate-400">Formatted copy for your selected deliverable.</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <button type="button" id="copyBtn" class="text-[11px] font-bold uppercase tracking-wide text-slate-200 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-700 rounded px-3 py-1.5 transition">Copy</button>
+                            <button type="button" id="downloadBtn" class="text-[11px] font-bold uppercase tracking-wide text-slate-200 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-700 rounded px-3 py-1.5 transition">Download</button>
+                        </div>
+                    </div>
+                    <pre id="outputText" class="output-copy min-h-[420px] max-h-[680px] overflow-auto bg-[linear-gradient(180deg,#020617,#07111f)] p-5 text-xs leading-7 text-slate-200 font-mono"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 mb-16 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <h2 class="text-sm font-bold uppercase tracking-widest text-brandGold mb-3">Portfolio Growth Plan</h2>
+            <div class="space-y-4 text-xs text-slate-300 leading-relaxed">
+                <p><strong class="text-white">Week 1:</strong> collect metrics, confirm permission, and request one client quote.</p>
+                <p><strong class="text-white">Week 2:</strong> polish the outline into a short website case study with a strong proof table.</p>
+                <p><strong class="text-white">Week 3:</strong> repurpose the story into LinkedIn, proposals, and portfolio tiles.</p>
+                <p><strong class="text-white">Week 4:</strong> send the case study to five warm prospects and add it to your proposal workflow.</p>
+            </div>
+        </div>
+        <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <h2 class="text-sm font-bold uppercase tracking-widest text-brandGold mb-3">Case Study Checklist</h2>
+            <ul class="space-y-2 text-xs text-slate-300 leading-relaxed">
+                <li>Include percentages, dollar values, time saved, or before/after counts.</li>
+                <li>Use an approved client label before naming a company publicly.</li>
+                <li>Lead with the best result, then explain challenge and solution.</li>
+                <li>End with one relevant call to action for similar clients.</li>
+            </ul>
+        </div>
+        <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <h2 class="text-sm font-bold uppercase tracking-widest text-brandGold mb-3">Related Tools</h2>
+            <div class="space-y-3 text-xs">
+                <a href="/testimonial-request-generator/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Testimonial Request Generator</a>
+                <a href="/proposal-calculator/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Proposal Win Probability Calculator</a>
+                <a href="/client-referral-value-calculator/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Client Referral Value Calculator</a>
+                <a href="/freelancer-utilities/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Freelancer Utilities Hub</a>
+                <a href="/articles/how-to-write-a-case-study-outline/" class="block rounded-lg border border-gray-800 bg-slate-950 p-3 text-slate-300 hover:border-brandGold hover:text-white transition">Guide: How To Write A Case Study Outline</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 mb-16">
+        <div class="bg-brandGold/10 border border-brandGold/35 rounded-xl p-6 md:p-8">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Premium Proposal Workflow</span>
+            <h2 class="text-xl md:text-2xl font-extrabold text-white mt-2">Turn the case study into a stronger paid proposal.</h2>
+            <p class="text-sm text-slate-300 leading-relaxed mt-3 max-w-3xl">Use this free outline to shape the proof, then plug the strongest result into a complete proposal structure with positioning, offer framing, pricing logic, and client-ready copy.</p>
+            <a href="https://aicashlabofficial.gumroad.com/l/sjdzd?layout=profile" target="_blank" rel="noopener noreferrer" class="inline-block mt-5 rounded-lg bg-brandGold px-5 py-3 text-xs font-extrabold uppercase tracking-wide text-slate-950 hover:bg-brandGoldHover transition">View Freelancer Proposal Generator -&gt;</a>
+        </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto px-4 mb-20">
+        <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <h2 class="text-sm font-bold uppercase tracking-widest text-brandGold mb-4">Frequently Asked Questions</h2>
+            <div class="space-y-5 text-sm text-slate-300 leading-relaxed">
+                <div><h3 class="font-bold text-white">What if the client will not let me share their name?</h3><p class="text-xs text-brandTextMuted mt-1">Use the anonymous permission setting and describe the client by market, size, or business type. Replace sensitive figures with approved percentages when possible.</p></div>
+                <div><h3 class="font-bold text-white">Do I need perfect metrics?</h3><p class="text-xs text-brandTextMuted mt-1">No, but measurable proof makes the case study stronger. Time saved, error reduction, faster delivery, conversion lift, response rate, or reduced admin work can all be useful.</p></div>
+                <div><h3 class="font-bold text-white">Where should I publish the finished case study?</h3><p class="text-xs text-brandTextMuted mt-1">Start with your portfolio or proposal template, then repurpose the same story into LinkedIn, email follow-up, and platform portfolio cards.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="w-full bg-[#111827] border-t border-gray-800 py-10 mt-12 text-[11px] text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+            <div class="md:col-span-4 space-y-3">
+                <div class="flex items-center space-x-3"><div class="w-6 h-6 rounded bg-slate-950 border border-slate-800 flex items-center justify-center overflow-hidden shrink-0"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab Footer Logo" class="w-full h-full object-contain"></div><span class="text-xs font-bold text-white uppercase tracking-wider">AI Cash Lab Tools</span></div>
+                <p class="text-[11px] text-slate-400 max-w-sm leading-relaxed">Simple business tools for freelancers, creators, and digital service providers.</p>
+            </div>
+            <div class="md:col-span-3 space-y-2.5 text-[11px]">
+                <span class="font-bold text-amber-500 uppercase tracking-wider block">Newest Tools</span>
+                <ul class="space-y-1.5 text-slate-400 font-medium">
+                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-amber-500"></span><a href="/case-study-outline-generator/" class="hover:text-slate-300 transition-colors">Case Study Outline Generator</a></li>
+                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-amber-500"></span><a href="/testimonial-request-generator/" class="hover:text-slate-300 transition-colors">Testimonial Request Generator</a></li>
+                    <li class="flex items-center gap-1.5"><span class="w-1 h-1 rounded-full bg-amber-500"></span><a href="/client-referral-value-calculator/" class="hover:text-slate-300 transition-colors">Client Referral Value Calculator</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-5 grid grid-cols-2 gap-6 text-[11px]">
+                <div class="space-y-2.5"><span class="font-bold text-slate-100 uppercase tracking-wider block">Production Hub</span><div class="flex flex-col space-y-1.5 text-slate-400"><a href="/creator-utilities/" class="hover:text-slate-300 transition-colors">Creator Utilities</a><a href="/freelancer-utilities/" class="hover:text-slate-300 transition-colors">Freelancer Utilities</a><a href="/articles/" class="hover:text-slate-300 transition-colors">Articles</a></div></div>
+                <div class="space-y-2.5"><span class="font-bold text-slate-100 uppercase tracking-wider block">Commercial Engine</span><div class="flex flex-col space-y-1.5 text-slate-400"><a href="/#premium-workspaces" class="text-amber-500 hover:text-amber-400 transition-colors">Premium Workspaces</a><a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-400 transition-colors">Storefront Hub -&gt;</a></div></div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 mt-8 border-t border-slate-900/80 text-center text-[10px] text-slate-500">&copy; 2026 AI Cash Lab. All Rights Reserved.</div>
+    </footer>
+
+    <script>
+        const sampleRows = [
+            { before: "68% visitor bounce rate", after: "35% visitor bounce rate" },
+            { before: "1.1% demo conversion rate", after: "3.1% demo conversion rate" },
+            { before: "Confusing 4-step contact form", after: "One-click demo booking path" }
+        ];
+        let proofRows = sampleRows.map(row => ({ ...row }));
+        let activeTab = "website";
+
+        const fields = ["projectType","clientIndustry","biggestChallenge","solutionDelivered","keyResults","clientQuote","permissionLevel","permissionDetail","lessonsLearned","callToAction"];
+        const sample = {
+            projectType: "SaaS landing page revamp",
+            clientIndustry: "B2B fintech platform",
+            biggestChallenge: "High bounce rate of 68% and low visitor conversion of 1.1% because the product value proposition was too complex for non-technical buyers.",
+            solutionDelivered: "Redesigned the messaging hierarchy, added an interactive product tour, simplified technical jargon into benefit-led copy, and streamlined the demo booking form.",
+            keyResults: "Increased conversion rate by 180% from 1.1% to 3.1%, reduced bounce rate to 35%, and generated 42 qualified demo bookings in the first 14 days.",
+            clientQuote: "The new landing page changed how we pitch our product. Leads now arrive at demo calls pre-educated, which saves our sales team hours of explanation.",
+            permissionLevel: "company",
+            permissionDetail: "ApexFlow Solutions",
+            lessonsLearned: "Complex technical products sell better when the page focuses on user outcomes rather than raw feature lists.",
+            callToAction: "Want to improve your B2B conversions? Book a free 20-minute conversion audit to find quick wins on your landing page."
+        };
+
+        function value(id) {
+            return (document.getElementById(id).value || "").trim();
+        }
+
+        function clientLabel() {
+            const level = value("permissionLevel");
+            const detail = value("permissionDetail");
+            if (level === "company" && detail) return detail;
+            if (level === "firstname" && detail) return detail.split(/\s+/)[0];
+            if (detail) return detail;
+            return "An anonymous client";
+        }
+
+        function headline() {
+            const project = value("projectType") || "client project";
+            const industry = value("clientIndustry") || "client";
+            const results = value("keyResults");
+            const metric = (results.match(/(?:\$?\d[\d,.]*\s?%?|\d+x)/i) || ["measurable results"])[0];
+            return `How ${clientLabel()} improved ${industry} results with a ${project} (${metric})`;
+        }
+
+        function rowsText() {
+            const clean = proofRows.filter(row => row.before.trim() || row.after.trim());
+            if (!clean.length) return "- Before: [add starting point]\n  After: [add final result]";
+            return clean.map(row => `- Before: ${row.before || "[starting point]"}\n  After: ${row.after || "[final result]"}`).join("\n");
+        }
+
+        function generateOutputs() {
+            const project = value("projectType") || "[project type]";
+            const industry = value("clientIndustry") || "[client industry]";
+            const challenge = value("biggestChallenge") || "[describe the client challenge]";
+            const solution = value("solutionDelivered") || "[describe the work delivered]";
+            const results = value("keyResults") || "[list measurable results]";
+            const quote = value("clientQuote");
+            const lessons = value("lessonsLearned") || "[add strategic takeaway]";
+            const cta = value("callToAction") || "[add one next step]";
+            const client = clientLabel();
+            const title = headline();
+            const quoteBlock = quote ? `\nCLIENT QUOTE\n"${quote}"\n` : "";
+
+            return {
+                website: `${title}\n\nCLIENT OVERVIEW\n${client} operates in the ${industry} space and needed help with ${project}.\n\nTHE CHALLENGE\n${challenge}\n\nBEFORE / AFTER PROOF\n${rowsText()}\n\nTHE SOLUTION\n${solution}\n\nMEASURABLE OUTCOMES\n${results}${quoteBlock}\nSTRATEGIC TAKEAWAY\n${lessons}\n\nCALL TO ACTION\n${cta}`,
+                linkedin: `I recently delivered a ${project} for ${client} in the ${industry} space.\n\nThe challenge:\n${challenge}\n\nThe work:\n${solution}\n\nThe results:\n${results}\n\nBefore vs after:\n${rowsText()}\n\nTakeaway: ${lessons}\n\n${cta}`,
+                proposal: `Relevant proof: I helped ${client} with a ${project} in the ${industry} space.\n\nProblem: ${challenge}\n\nSolution: ${solution}\n\nResult: ${results}\n\nWhy it matters for this project: ${lessons}`,
+                portfolio: `${project} for ${industry}\n\nClient: ${client}\nResult: ${results}\n\nChallenge: ${challenge}\n\nSolution: ${solution}\n\nCTA: ${cta}`
+            };
+        }
+
+        function renderRows() {
+            const rows = document.getElementById("rows");
+            rows.innerHTML = "";
+            proofRows.forEach((row, index) => {
+                const wrap = document.createElement("div");
+                wrap.className = "grid grid-cols-1 md:grid-cols-[1fr_1fr_auto] gap-2";
+                wrap.innerHTML = `
+                    <input data-row="${index}" data-key="before" class="row-input bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none" placeholder="Before metric" value="${escapeAttr(row.before)}">
+                    <input data-row="${index}" data-key="after" class="row-input bg-slate-950 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white focus:border-brandBlue focus:outline-none" placeholder="After result" value="${escapeAttr(row.after)}">
+                    <button type="button" data-remove-row="${index}" class="text-[11px] font-bold uppercase tracking-wide text-red-300 hover:text-white bg-red-500/10 hover:bg-red-500/20 border border-red-500/45 rounded px-3 py-2 transition">Remove</button>
+                `;
+                rows.appendChild(wrap);
+            });
+        }
+
+        function escapeHtml(text) {
+            return String(text).replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[char]));
+        }
+
+        function escapeAttr(text) {
+            return escapeHtml(text).replace(/\n/g, " ");
+        }
+
+        function auditItems() {
+            const beforeAfterCount = proofRows.filter(row => row.before.trim() && row.after.trim()).length;
+            return [
+                { label: "Project type and client industry defined", done: value("projectType").length > 2 && value("clientIndustry").length > 2 },
+                { label: "Challenge explains the real business problem", done: value("biggestChallenge").length >= 40 },
+                { label: "Solution describes the work delivered", done: value("solutionDelivered").length >= 40 },
+                { label: "Key results include numbers, percentages, or money", done: /[\d%$]/.test(value("keyResults")) && value("keyResults").length >= 10 },
+                { label: "At least two before/after proof rows", done: beforeAfterCount >= 2 },
+                { label: "Client quote or testimonial proof included", done: value("clientQuote").length >= 20 },
+                { label: "Strategic takeaway and CTA included", done: value("lessonsLearned").length >= 20 && value("callToAction").length >= 20 }
+            ];
+        }
+
+        function renderAudit() {
+            const items = auditItems();
+            const score = Math.round(items.filter(item => item.done).length / items.length * 100);
+            document.getElementById("scoreValue").textContent = score;
+            document.querySelector(".score-ring").style.setProperty("--score-angle", `${score * 3.6}deg`);
+            document.getElementById("scoreLabel").textContent = score >= 85 ? "Portfolio Ready" : score >= 60 ? "Strong Draft" : "Needs Proof";
+            document.getElementById("scoreNote").textContent = score >= 85 ? "This outline has enough proof to repurpose into a portfolio page, proposal snippet, and LinkedIn post." : score >= 60 ? "Good structure. Add stronger proof rows, a client quote, or a sharper CTA before publishing." : "Add metrics, a clearer challenge, and before/after rows to make the case study convincing.";
+            document.getElementById("auditList").innerHTML = items.map(item => `
+                <div class="check-item ${item.done ? "is-done" : ""} flex items-start gap-2.5">
+                    <span class="check-dot mt-0.5 h-4 w-4 rounded-full border border-gray-700 bg-slate-950 shrink-0"></span>
+                    <p class="text-xs text-slate-400">${item.label}</p>
+                </div>
+            `).join("");
+            document.getElementById("seoTips").innerHTML = [
+                `Target phrase: <strong class="text-white">${escapeHtml(value("clientIndustry") || "Industry")} ${escapeHtml(value("projectType") || "Project")} Case Study</strong>`,
+                `Slug idea: <strong class="text-white">${escapeHtml((value("clientIndustry") + " " + value("projectType") + " case study").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""))}</strong>`,
+                `Use headings for Challenge, Solution, Before/After, Results, and Takeaway.`
+            ].map(tip => `<p class="rounded-lg border border-gray-800 bg-slate-950 p-3">${tip}</p>`).join("");
+        }
+
+        function metricCards() {
+            const metrics = (value("keyResults").match(/(?:\$?\d[\d,.]*\s?%?|\d+(?:\.\d+)?x)/gi) || []).slice(0, 3);
+            const labels = ["Primary Proof", "Secondary Lift", "Outcome Signal"];
+            if (!metrics.length) {
+                return '<div class="rounded-2xl border border-brandGold/40 bg-gradient-to-br from-brandGold/20 via-slate-950 to-slate-950 p-5 shadow-lg shadow-black/25"><span class="block text-[10px] uppercase tracking-widest text-brandGold font-bold">Metric Needed</span><strong class="mt-2 block text-3xl text-white">Add proof</strong><p class="mt-2 text-xs text-slate-300">Use percentages, revenue, time saved, or conversion movement.</p></div>';
+            }
+            return metrics.map((metric, index) => `
+                <div class="relative overflow-hidden rounded-2xl border border-brandGold/45 bg-gradient-to-br from-brandGold/25 via-slate-950 to-slate-950 p-5 shadow-lg shadow-black/25">
+                    <div class="absolute right-0 top-0 h-20 w-20 rounded-bl-full bg-brandGold/10"></div>
+                    <span class="relative block text-[10px] uppercase tracking-widest text-brandGold font-bold">${labels[index]}</span>
+                    <strong class="relative mt-2 block text-3xl font-black text-white">${escapeHtml(metric.trim())}</strong>
+                    <p class="relative mt-2 text-xs text-slate-300">${index === 0 ? "Lead with this in the headline." : "Use this as supporting proof."}</p>
+                </div>
+            `).join("");
+        }
+
+        function renderPreview() {
+            const outputs = generateOutputs();
+            const output = outputs[activeTab];
+            document.getElementById("previewHeadline").textContent = headline();
+            document.getElementById("outputText").textContent = output;
+            document.getElementById("previewHtml").innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    ${metricCards()}
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div class="rounded-lg border border-gray-800 bg-brandDark p-3"><span class="block text-[9px] uppercase tracking-widest text-brandTextMuted">Client</span><strong class="text-xs text-white">${escapeHtml(clientLabel())}</strong></div>
+                    <div class="rounded-lg border border-gray-800 bg-brandDark p-3"><span class="block text-[9px] uppercase tracking-widest text-brandTextMuted">Industry</span><strong class="text-xs text-white">${escapeHtml(value("clientIndustry") || "Client industry")}</strong></div>
+                    <div class="rounded-lg border border-gray-800 bg-brandDark p-3"><span class="block text-[9px] uppercase tracking-widest text-brandTextMuted">Permission</span><strong class="text-xs text-brandGold capitalize">${escapeHtml(value("permissionLevel"))}</strong></div>
+                </div>
+                <section class="rounded-xl border border-gray-800 bg-brandDark/80 p-5">
+                    <span class="block text-[10px] text-brandGold uppercase tracking-widest font-bold">The Challenge</span>
+                    <p class="mt-2 text-slate-300">${escapeHtml(value("biggestChallenge") || "Add the client challenge.")}</p>
+                </section>
+                <section class="rounded-2xl border border-brandGold/60 bg-gradient-to-br from-brandGold/15 via-slate-950 to-slate-950 p-5 shadow-xl shadow-black/30">
+                    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 mb-4">
+                        <div><span class="block text-[10px] text-brandGold uppercase tracking-widest font-bold">Visual Proof Centerpiece</span><h4 class="mt-1 text-lg font-extrabold text-white">Before vs After</h4></div>
+                        <span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Client-visible transformation</span>
+                    </div>
+                    <div class="overflow-hidden rounded-xl border border-brandGold/45 bg-slate-950 shadow-inner shadow-black/40">
+                        <table class="w-full text-left text-xs">
+                            <thead><tr><th class="w-1/2 bg-red-500/20 p-3 text-red-100 uppercase tracking-widest">Before</th><th class="w-1/2 bg-brandGreen/20 p-3 text-emerald-100 uppercase tracking-widest">After</th></tr></thead>
+                            <tbody>${proofRows.map(row => `<tr class="border-t border-gray-800"><td class="p-4 bg-red-500/5 text-slate-300">${escapeHtml(row.before || "-")}</td><td class="p-4 bg-brandGreen/10 text-white font-bold">${escapeHtml(row.after || "-")}</td></tr>`).join("")}</tbody>
+                        </table>
+                    </div>
+                </section>
+                <section class="rounded-xl border border-gray-800 bg-brandDark/80 p-5">
+                    <span class="block text-[10px] text-brandGold uppercase tracking-widest font-bold">Strategic Solution</span>
+                    <p class="mt-2 text-slate-300">${escapeHtml(value("solutionDelivered") || "Add the solution delivered.")}</p>
+                </section>
+                <section class="rounded-xl border border-brandGold/35 bg-slate-950 p-5">
+                    <span class="block text-[10px] text-brandGold uppercase tracking-widest font-bold">Measured Results</span>
+                    <p class="mt-2 text-white font-semibold">${escapeHtml(value("keyResults") || "Add measurable results.")}</p>
+                </section>
+                <section class="rounded-2xl border border-brandGreen/40 bg-brandGreen/10 p-5">
+                    <span class="block text-[10px] text-brandGreen uppercase tracking-widest font-bold">Conversion CTA</span>
+                    <h4 class="mt-1 text-base font-extrabold text-white">Next step for similar clients</h4>
+                    <p class="mt-2 text-slate-200">${escapeHtml(value("callToAction") || "Add one clear next step for similar clients.")}</p>
+                </section>
+            `;
+        }
+
+        function renderAll() {
+            renderRows();
+            renderAudit();
+            renderPreview();
+            saveDraft();
+        }
+
+        function saveDraft() {
+            const data = { rows: proofRows, fields: {} };
+            fields.forEach(id => data.fields[id] = value(id));
+            localStorage.setItem("acl_case_study_outline_generator", JSON.stringify(data));
+        }
+
+        function loadDraft() {
+            const saved = localStorage.getItem("acl_case_study_outline_generator");
+            if (!saved) return;
+            try {
+                const data = JSON.parse(saved);
+                if (data.fields) fields.forEach(id => {
+                    if (data.fields[id] !== undefined) document.getElementById(id).value = data.fields[id];
+                });
+                if (Array.isArray(data.rows) && data.rows.length) proofRows = data.rows;
+            } catch (error) {}
+        }
+
+        document.addEventListener("input", event => {
+            if (event.target.classList.contains("row-input")) {
+                const index = Number(event.target.dataset.row);
+                const key = event.target.dataset.key;
+                proofRows[index][key] = event.target.value;
+                renderAudit();
+                renderPreview();
+                saveDraft();
+                return;
+            }
+            if (fields.includes(event.target.id)) {
+                renderAudit();
+                renderPreview();
+                saveDraft();
+            }
+        });
+
+        document.addEventListener("click", event => {
+            const tab = event.target.closest("[data-tab]");
+            if (tab) {
+                activeTab = tab.dataset.tab;
+                document.querySelectorAll("[data-tab]").forEach(btn => btn.classList.toggle("is-active", btn === tab));
+                renderPreview();
+            }
+            const remove = event.target.closest("[data-remove-row]");
+            if (remove) {
+                proofRows.splice(Number(remove.dataset.removeRow), 1);
+                if (!proofRows.length) proofRows.push({ before: "", after: "" });
+                renderAll();
+            }
+        });
+
+        document.getElementById("addRowBtn").addEventListener("click", () => {
+            proofRows.push({ before: "", after: "" });
+            renderAll();
+        });
+
+        document.getElementById("sampleBtn").addEventListener("click", () => {
+            fields.forEach(id => document.getElementById(id).value = sample[id]);
+            proofRows = sampleRows.map(row => ({ ...row }));
+            renderAll();
+        });
+
+        document.getElementById("clearBtn").addEventListener("click", () => {
+            fields.forEach(id => document.getElementById(id).value = id === "permissionLevel" ? "anonymous" : "");
+            proofRows = [{ before: "", after: "" }];
+            renderAll();
+        });
+
+        document.getElementById("copyBtn").addEventListener("click", async () => {
+            const text = document.getElementById("outputText").textContent;
+            await navigator.clipboard.writeText(text);
+            document.getElementById("copyBtn").textContent = "Copied";
+            setTimeout(() => document.getElementById("copyBtn").textContent = "Copy", 1400);
+        });
+
+        document.getElementById("downloadBtn").addEventListener("click", () => {
+            const blob = new Blob([document.getElementById("outputText").textContent], { type: "text/plain" });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = "case-study-outline.txt";
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            URL.revokeObjectURL(url);
+        });
+
+        loadDraft();
+        renderAll();
+    </script>
+</body>
+</html>
