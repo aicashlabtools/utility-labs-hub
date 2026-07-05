@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T7X8JFME64"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T7X8JFME64');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)}
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x6q6t5vv3a");
+</script>
+<!-- CTA click tracking -->
+<script>
+  (function () {
+    var CTA_PRODUCTS = {
+      dszjez: { name: "Freelancer Business OS", eventName: "freelancer_business_os_click" },
+      hdfde: { name: "Freelancer Invoice and Payment Reminder Toolkit", eventName: "freelancer_invoice_payment_toolkit_click" },
+      sjdzd: { name: "Freelancer Proposal Generator", eventName: "freelancer_proposal_generator_click" },
+      nqqtyr: { name: "Freelancer Pricing and Profit Calculator", eventName: "freelancer_pricing_profit_click" }
+    };
+    function getGumroadProductId(url) {
+      var match = url.match(/gumroad\.com\/l\/([^/?#]+)/i);
+      return match ? match[1] : "";
+    }
+    function sendClickEvent(eventName, params) {
+      if (typeof window.gtag === "function") window.gtag("event", eventName, params);
+      if (typeof window.clarity === "function") window.clarity("event", eventName);
+    }
+    document.addEventListener("click", function (event) {
+      var link = event.target.closest && event.target.closest("a[href]");
+      if (!link || !/gumroad\.com/i.test(link.href || "")) return;
+      var productId = getGumroadProductId(link.href);
+      var product = CTA_PRODUCTS[productId];
+      sendClickEvent(product ? product.eventName : "gumroad_store_click", {
+        event_category: "cta",
+        cta_name: product ? product.name : "Gumroad Store",
+        gumroad_product_id: productId || "storefront",
+        link_url: link.href,
+        link_text: (link.textContent || "").replace(/\s+/g, " ").trim(),
+        page_path: window.location.pathname,
+        page_title: document.title
+      });
+    });
+  })();
+</script>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer SaaS Subscription Cost Leak Detector | Free Software Audit Tool</title>
+    <meta name="description" content="Audit freelancer SaaS subscriptions, find unused software, duplicate tools, overlapping categories, subscription bloat, and potential monthly savings.">
+    <link rel="canonical" href="https://aicashlabtools.com/freelancer-saas-subscription-cost-leak-detector/">
+    <meta property="og:title" content="Freelancer SaaS Subscription Cost Leak Detector">
+    <meta property="og:description" content="Find unused subscriptions, duplicate tools, software overlap, monthly savings, and a practical SaaS cleanup plan for freelancers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aicashlabtools.com/freelancer-saas-subscription-cost-leak-detector/">
+    <meta property="og:image" content="https://aicashlabtools.com/assets/ai-cash-lab-logo-600.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Freelancer SaaS Subscription Cost Leak Detector">
+    <meta name="twitter:description" content="Free SaaS cost audit for freelancers: detect unused software, duplicate subscriptions, and hidden monthly leaks.">
+    <meta name="twitter:image" content="https://aicashlabtools.com/assets/ai-cash-lab-logo-600.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Freelancer SaaS Subscription Cost Leak Detector","url":"https://aicashlabtools.com/freelancer-saas-subscription-cost-leak-detector/","description":"Audit freelancer SaaS subscriptions, find unused software, duplicate tools, overlapping categories, subscription bloat, and potential monthly savings."},{"@type":"SoftwareApplication","name":"Freelancer SaaS Subscription Cost Leak Detector","applicationCategory":"BusinessApplication","operatingSystem":"Web Browser","url":"https://aicashlabtools.com/freelancer-saas-subscription-cost-leak-detector/","description":"A free browser-based SaaS subscription cost audit tool for freelancers that estimates software spend, duplicate tools, underused subscriptions, efficiency score, and recoverable monthly savings.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}]}</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: {
+                brandDark: '#0B0F17',
+                brandCard: '#131926',
+                brandGold: '#E5A93C',
+                brandGoldHover: '#CCA130',
+                brandBlue: '#3B82F6',
+                brandGreen: '#10B981',
+                brandTextMuted: '#9CA3AF'
+            }}}
+        }
+    </script>
+    <style>
+        .score-ring { background: conic-gradient(var(--score-color, #E5A93C) var(--score-angle), #1f2937 0); }
+        .bar-fill { width: var(--bar-width); }
+        .report-copy { white-space: pre-wrap; }
+        .table-scroll { scrollbar-color: #334155 #020617; }
+        .field { background:#020617; border:1px solid #1f2937; border-radius:.5rem; color:#fff; font-size:.875rem; padding:.55rem .65rem; width:100%; outline:none; }
+        .field:focus { border-color:#3B82F6; box-shadow:0 0 0 1px rgba(59,130,246,.25); }
+    </style>
+</head>
+<body class="bg-brandDark text-gray-100 font-sans min-h-screen selection:bg-brandGold selection:text-brandDark">
+
+    <header class="w-full border-b border-gray-800 bg-brandDark/90 backdrop-blur-md transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="/" class="flex items-center space-x-3 shrink-0 group" aria-label="AI Cash Lab Tools homepage">
+                <div class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center overflow-hidden shrink-0">
+                    <img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab Logo" class="w-full h-full object-contain transform group-hover:scale-105 transition-transform">
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xs font-bold text-white tracking-wider uppercase">AI Cash Lab</span>
+                    <span class="text-[9px] text-slate-400 font-medium tracking-tight -mt-0.5">Utility Ecosystem</span>
+                </div>
+            </a>
+            <nav class="hidden lg:flex items-center space-x-6 text-xs font-medium text-brandTextMuted">
+                <a href="/" class="hover:text-white transition-colors">Home</a>
+                <a href="/freelancer-utilities/" class="hover:text-white transition-colors">Freelancer Utilities</a>
+                <a href="/#freelancer-business" class="hover:text-white transition-colors">Freelancer</a>
+                <a href="/articles/" class="hover:text-white transition-colors">Articles</a>
+                <a href="/#premium-workspaces" class="text-amber-500 hover:text-amber-400 transition-colors">Premium</a>
+            </nav>
+            <a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="text-[11px] font-bold tracking-wide uppercase px-3.5 py-1.5 rounded bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 transition-all">Storefront -&gt;</a>
+        </div>
+    </header>
+
+    <section class="max-w-4xl mx-auto px-4 pt-12 pb-6 text-center">
+        <span class="text-xs font-semibold tracking-widest text-brandGold uppercase border border-brandGold/30 px-3 py-1 rounded-full bg-brandGold/5">FREELANCER COST AUDIT TOOL</span>
+        <h1 class="text-3xl md:text-4xl font-extrabold mt-4 tracking-tight">Freelancer SaaS Subscription Cost Leak Detector</h1>
+        <p class="text-brandTextMuted mt-3 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">Audit monthly software spend, spot duplicate tools, flag underused subscriptions, and turn hidden SaaS leaks into a practical cleanup plan.</p>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 mb-3">
+        <div class="bg-brandCard/60 border border-gray-800 rounded-lg p-3 flex flex-wrap gap-2 md:gap-4 items-center justify-center text-xs text-brandTextMuted tracking-wide uppercase">
+            <span class="text-brandGold font-semibold">QUICK START</span>
+            <span class="hidden sm:inline">-&gt;</span><span>1. Add Tools</span>
+            <span class="hidden sm:inline">-&gt;</span><span>2. Mark Usage</span>
+            <span class="hidden sm:inline">-&gt;</span><span>3. Find Leaks</span>
+            <span class="hidden sm:inline">-&gt;</span><span>4. Export Audit</span>
+        </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 mb-8">
+        <div class="bg-brandGreen/10 border border-brandGreen/30 rounded-lg px-4 py-2.5 flex items-center space-x-2 text-xs text-brandGreen">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+            <span class="font-medium">Private by default:</span>
+            <span class="text-gray-300">Your subscriptions and audit results stay in your browser.</span>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+        <section class="lg:col-span-7 bg-brandCard border border-gray-800 rounded-xl p-6">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-gray-800 pb-3 mb-5">
+                <div>
+                    <h2 class="font-bold tracking-wide text-sm uppercase text-gray-300">Subscription Audit Workspace</h2>
+                    <p class="text-xs text-brandTextMuted mt-1">Add each paid software subscription, usage frequency, and replacement risk.</p>
+                </div>
+                <div class="flex gap-2">
+                    <button type="button" id="sampleBtn" class="text-[11px] font-bold uppercase tracking-wide text-brandGold hover:text-white bg-brandGold/10 hover:bg-brandGold/20 border border-brandGold/40 rounded px-3 py-1.5 transition">Load Sample</button>
+                    <button type="button" id="resetBtn" class="text-[11px] font-bold uppercase tracking-wide text-slate-300 hover:text-white bg-slate-950 border border-gray-800 rounded px-3 py-1.5 transition">Reset</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-3">
+                <label class="md:col-span-4"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Tool Name</span><input id="toolName" class="field mt-2" value="Claude Pro"></label>
+                <label class="md:col-span-2"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Monthly Cost</span><input id="monthlyCost" type="number" min="0" step="1" class="field mt-2" value="20"></label>
+                <label class="md:col-span-3"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Category</span><select id="category" class="field mt-2"></select></label>
+                <label class="md:col-span-3"><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Billing</span><select id="billingFrequency" class="field mt-2"><option>Monthly</option><option>Annual</option></select></label>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-3">
+                <label><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Business Critical?</span><select id="businessCritical" class="field mt-2"><option>Yes</option><option>No</option></select></label>
+                <label><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Used Weekly?</span><select id="usedWeekly" class="field mt-2"><option>Yes</option><option>Sometimes</option><option>Rarely</option><option>Never</option></select></label>
+                <label><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Replacement Available?</span><select id="replacementAvailable" class="field mt-2"><option>No</option><option>Yes</option><option>Unsure</option></select></label>
+            </div>
+            <button type="button" id="addToolBtn" class="mt-4 w-full bg-brandGold hover:bg-brandGoldHover text-brandDark font-extrabold text-xs tracking-wide uppercase py-3 rounded-lg transition">Add Subscription To Audit</button>
+
+            <div class="mt-6">
+                <div class="flex items-center justify-between gap-3 mb-3">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold">Active Subscription List</h3>
+                    <span id="toolCountNote" class="text-[11px] text-brandTextMuted">0 tools</span>
+                </div>
+                <div id="subscriptionList" class="space-y-3"></div>
+            </div>
+        </section>
+
+        <aside class="lg:col-span-5 space-y-6">
+            <section class="bg-brandCard border border-gray-800 rounded-xl p-6 lg:sticky lg:top-6">
+                <div class="flex items-center gap-5">
+                    <div class="score-ring w-28 h-28 rounded-full p-2 shrink-0" style="--score-angle:0deg">
+                        <div class="w-full h-full rounded-full bg-brandCard flex flex-col items-center justify-center border border-gray-800">
+                            <span id="healthScore" class="text-3xl font-extrabold text-white">0</span>
+                            <span class="text-[9px] uppercase tracking-wider text-brandTextMuted">Health</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Live SaaS Cost Audit</span>
+                        <h2 id="healthRating" class="text-xl font-extrabold text-white mt-1">Calculating</h2>
+                        <p id="healthDescription" class="text-xs text-brandTextMuted leading-relaxed mt-2"></p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3 mt-6">
+                    <div class="rounded-lg border border-brandGold/25 bg-brandGold/10 p-4"><span class="text-[10px] uppercase tracking-widest text-brandGold font-bold">Monthly Spend</span><p id="totalMonthlySpend" class="text-2xl font-extrabold text-white mt-1">$0</p></div>
+                    <div class="rounded-lg border border-red-500/30 bg-red-500/10 p-4"><span class="text-[10px] uppercase tracking-widest text-red-300 font-bold">Monthly Leak</span><p id="potentialMonthlySavings" class="text-3xl font-extrabold text-red-300 mt-1">$0</p></div>
+                    <div class="rounded-lg border border-gray-800 bg-slate-950 p-4"><span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Annual Spend</span><p id="totalAnnualSpend" class="text-2xl font-extrabold text-slate-100 mt-1">$0</p></div>
+                    <div class="rounded-lg border border-brandGreen/25 bg-brandGreen/10 p-4"><span class="text-[10px] uppercase tracking-widest text-brandGreen font-bold">Annual Recovery</span><p id="potentialAnnualSavings" class="text-2xl font-extrabold text-brandGreen mt-1">$0</p></div>
+                </div>
+                <div class="mt-5 space-y-3">
+                    <div><div class="flex justify-between text-[10px] uppercase tracking-wider text-slate-400 font-bold mb-1"><span>Software Efficiency</span><span id="efficiencyScore">0%</span></div><div class="h-2 bg-slate-950 rounded-full overflow-hidden"><div id="efficiencyBar" class="bar-fill h-full bg-brandGold rounded-full" style="--bar-width:0%"></div></div></div>
+                    <div><div class="flex justify-between text-[10px] uppercase tracking-wider text-slate-400 font-bold mb-1"><span>Duplicate Drag</span><span id="duplicateCount">0 tools</span></div><div class="h-2 bg-slate-950 rounded-full overflow-hidden"><div id="duplicateBar" class="bar-fill h-full bg-red-400 rounded-full" style="--bar-width:0%"></div></div></div>
+                    <div><div class="flex justify-between text-[10px] uppercase tracking-wider text-slate-400 font-bold mb-1"><span>Underused Tools</span><span id="unusedCount">0 tools</span></div><div class="h-2 bg-slate-950 rounded-full overflow-hidden"><div id="unusedBar" class="bar-fill h-full bg-brandBlue rounded-full" style="--bar-width:0%"></div></div></div>
+                </div>
+            </section>
+        </aside>
+    </main>
+
+    <section class="max-w-7xl mx-auto px-4 mb-16 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <article class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">SaaS Recovery Plan</span>
+            <h2 class="text-2xl font-extrabold text-white mt-2">Cut subscription waste in the right order.</h2>
+            <div id="recoveryPlan" class="mt-5 space-y-3"></div>
+        </article>
+        <article class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Leak Warnings</span>
+            <h2 class="text-2xl font-extrabold text-white mt-2">Duplicate and underused tools.</h2>
+            <div id="leakWarnings" class="mt-5 space-y-3"></div>
+        </article>
+        <article class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Category Breakdown</span>
+            <h2 class="text-2xl font-extrabold text-white mt-2">Where the spend is stacking up.</h2>
+            <div id="categoryBreakdown" class="mt-5 space-y-3"></div>
+        </article>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 mb-16">
+        <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Generated SaaS Audit Report</span>
+                    <h2 class="text-2xl font-extrabold text-white mt-2">Copy the cleanup plan into your quarterly business review.</h2>
+                </div>
+                <div class="flex gap-2">
+                    <button type="button" id="copyReportBtn" class="text-xs font-bold uppercase tracking-wide text-brandGold hover:text-white bg-brandGold/10 border border-brandGold/40 rounded px-4 py-2 transition">Copy Report</button>
+                    <button type="button" id="downloadReportBtn" class="text-xs font-bold uppercase tracking-wide text-slate-200 hover:text-white bg-slate-950 border border-gray-800 rounded px-4 py-2 transition">Download TXT</button>
+                </div>
+            </div>
+            <pre id="reportPreview" class="report-copy mt-5 bg-slate-950 border border-gray-800 rounded-xl p-5 text-xs leading-relaxed text-slate-300 overflow-auto max-h-[520px]"></pre>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 mb-16 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <article class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Why SaaS Leaks Happen</span>
+            <h2 class="text-xl font-extrabold text-white mt-2">Small monthly tools feel harmless.</h2>
+            <p class="text-sm text-brandTextMuted leading-relaxed mt-3">Freelancers often buy tools one problem at a time. The leak appears later when AI, design, storage, automation, finance, and admin tools overlap.</p>
+        </article>
+        <article class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Audit Habit</span>
+            <h2 class="text-xl font-extrabold text-white mt-2">Review subscriptions every 90 days.</h2>
+            <p class="text-sm text-brandTextMuted leading-relaxed mt-3">Quarterly reviews catch free trials, annual renewals, duplicate categories, and tools that stopped being useful after a client project ended.</p>
+        </article>
+        <article class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Decision Rule</span>
+            <h2 class="text-xl font-extrabold text-white mt-2">Keep tools that protect revenue.</h2>
+            <p class="text-sm text-brandTextMuted leading-relaxed mt-3">A tool is easier to defend when it is business-critical, used every week, and hard to replace. Everything else should justify its monthly cost.</p>
+        </article>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 mb-20">
+        <div class="rounded-xl border border-gray-800 bg-brandCard p-6 md:p-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-5">
+                    <span class="text-xs font-bold uppercase tracking-widest text-brandGold">RELATED FREELANCER TOOLS</span>
+                    <h2 class="text-2xl font-extrabold text-white mt-3">Build the rest of the cost control workflow.</h2>
+                    <p class="text-sm text-slate-300 leading-relaxed mt-3">Use these tools to recover time, set profitable rates, price work, and turn software savings into a cleaner freelancer system.</p>
+                </div>
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <a href="/freelancer-productivity-debt-calculator/" class="rounded-lg border border-brandGold/25 bg-slate-950/40 p-4 hover:border-brandGold transition"><span class="font-bold text-white">Productivity Debt Calculator</span></a>
+                    <a href="/hourly-rate-calculator/" class="rounded-lg border border-brandGold/25 bg-slate-950/40 p-4 hover:border-brandGold transition"><span class="font-bold text-white">Hourly Rate Calculator</span></a>
+                    <a href="/pricing-strategy-calculator/" class="rounded-lg border border-brandGold/25 bg-slate-950/40 p-4 hover:border-brandGold transition"><span class="font-bold text-white">Pricing Strategy Calculator</span></a>
+                    <a href="/scope-creep-calculator/" class="rounded-lg border border-brandGold/25 bg-slate-950/40 p-4 hover:border-brandGold transition"><span class="font-bold text-white">Scope Creep Calculator</span></a>
+                    <a href="/free-invoice-generator/" class="rounded-lg border border-brandGold/25 bg-slate-950/40 p-4 hover:border-brandGold transition"><span class="font-bold text-white">Free Invoice Generator</span></a>
+                    <a href="/freelancer-utilities/" class="rounded-lg border border-brandGold/25 bg-slate-950/40 p-4 hover:border-brandGold transition"><span class="font-bold text-white">Freelancer Utilities</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 mb-16">
+        <div class="rounded-xl border border-brandGold/45 bg-brandCard p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div class="lg:col-span-8">
+                <span class="text-xs font-bold uppercase tracking-widest text-brandGold">RECOMMENDED OPERATING UPGRADE</span>
+                <h2 class="text-2xl font-extrabold text-white mt-3">Turn lower software waste into a cleaner client system.</h2>
+                <p class="text-sm text-slate-300 leading-relaxed mt-3">Use Freelancer Business OS to organize proposals, invoices, client policies, follow-ups, and repeatable delivery workflows.</p>
+            </div>
+            <div class="lg:col-span-4 lg:text-right">
+                <a href="https://aicashlabofficial.gumroad.com/l/dszjez?layout=saas" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center w-full lg:w-auto bg-brandGold hover:bg-brandGoldHover text-brandDark font-extrabold text-xs tracking-wide uppercase px-7 py-4 rounded-lg transition">Explore Freelancer Business OS -&gt;</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 mb-16">
+        <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
+            <h2 class="text-2xl font-extrabold text-white">FAQ</h2>
+            <div class="mt-5 space-y-5">
+                <div><h3 class="font-bold text-white">What is a SaaS subscription cost leak?</h3><p class="text-sm text-brandTextMuted mt-1">It is recurring software spend that no longer supports active client work, revenue, delivery quality, or essential operations.</p></div>
+                <div><h3 class="font-bold text-white">How often should freelancers audit subscriptions?</h3><p class="text-sm text-brandTextMuted mt-1">A quarterly audit works well because client tools, AI apps, storage, and trial subscriptions change quickly.</p></div>
+                <div><h3 class="font-bold text-white">Should I cancel every rarely used tool?</h3><p class="text-sm text-brandTextMuted mt-1">Not automatically. Keep a rarely used tool if it is business-critical, protects revenue, or is expensive to replace during active delivery.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="w-full bg-[#111827] border-t border-gray-800 py-10 mt-12 text-[11px] text-slate-400">
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div><div class="flex items-center gap-2 mb-3"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab logo" class="w-7 h-7 rounded bg-slate-900 border border-slate-800"><span class="font-bold text-slate-200 uppercase tracking-wider">AI Cash Lab Tools</span></div><p class="leading-relaxed">Free calculators and workflow tools for freelancers, creators, and digital business owners.</p></div>
+            <div><span class="font-bold text-amber-500 uppercase tracking-wider block">Newest Tools</span><ul class="space-y-2 mt-3"><li><a href="/freelancer-saas-subscription-cost-leak-detector/" class="hover:text-slate-300 transition-colors">Freelancer SaaS Subscription Cost Leak Detector</a></li><li><a href="/freelancer-productivity-debt-calculator/" class="hover:text-slate-300 transition-colors">Freelancer Productivity Debt Calculator</a></li><li><a href="/freelancer-profile-optimizer/" class="hover:text-slate-300 transition-colors">Freelancer Profile Optimizer</a></li></ul></div>
+            <div><span class="font-bold text-amber-500 uppercase tracking-wider block">Explore</span><ul class="space-y-2 mt-3"><li><a href="/" class="hover:text-slate-300 transition-colors">All Tools</a></li><li><a href="/freelancer-utilities/" class="hover:text-slate-300 transition-colors">Freelancer Utilities</a></li><li><a href="/articles/" class="hover:text-slate-300 transition-colors">Articles</a></li><li><a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors">Storefront Hub -&gt;</a></li></ul></div>
+        </div>
+        <div class="max-w-6xl mx-auto px-4 mt-8 pt-5 border-t border-slate-800 text-center text-[10px] text-slate-500">&copy; 2026 AI Cash Lab. All Rights Reserved.</div>
+    </footer>
+
+    <script>
+        const categories = ['AI','Design','Video','Writing','CRM','Marketing','Hosting','Domains','Automation','Cloud Storage','Finance','Communication','Development','Productivity','Other'];
+        const defaults = [
+            { id:'s1', name:'ChatGPT Plus', monthlyCost:20, category:'AI', billingFrequency:'Monthly', businessCritical:'Yes', usedWeekly:'Yes', replacementAvailable:'No' },
+            { id:'s2', name:'Canva Pro', monthlyCost:15, category:'Design', billingFrequency:'Monthly', businessCritical:'No', usedWeekly:'Sometimes', replacementAvailable:'Yes' },
+            { id:'s3', name:'Dropbox Pro', monthlyCost:12, category:'Cloud Storage', billingFrequency:'Monthly', businessCritical:'No', usedWeekly:'Rarely', replacementAvailable:'Yes' },
+            { id:'s4', name:'Calendly Professional', monthlyCost:10, category:'Productivity', billingFrequency:'Monthly', businessCritical:'Yes', usedWeekly:'Yes', replacementAvailable:'Yes' },
+            { id:'s5', name:'Adobe Creative Cloud', monthlyCost:60, category:'Design', billingFrequency:'Monthly', businessCritical:'Yes', usedWeekly:'Sometimes', replacementAvailable:'Yes' },
+            { id:'s6', name:'Google Workspace', monthlyCost:18, category:'Productivity', billingFrequency:'Monthly', businessCritical:'Yes', usedWeekly:'Yes', replacementAvailable:'No' }
+        ];
+        let subscriptions = loadSaved() || defaults.map(copySub);
+        function copySub(sub) { return Object.assign({}, sub); }
+        function money(amount) { return new Intl.NumberFormat('en-US', { style:'currency', currency:'USD', maximumFractionDigits:0 }).format(Number(amount) || 0); }
+        function id() { return 's' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+        function loadSaved() {
+            try { return JSON.parse(localStorage.getItem('aclSaasAudit') || 'null'); } catch (error) { return null; }
+        }
+        function save() { localStorage.setItem('aclSaasAudit', JSON.stringify(subscriptions)); }
+        function usageScore(value) { return { Yes:3, Sometimes:2, Rarely:1, Never:0 }[value] || 0; }
+        function detectDuplicates(list) {
+            const groups = {};
+            list.forEach(sub => { (groups[sub.category] = groups[sub.category] || []).push(sub); });
+            return Object.keys(groups).filter(cat => groups[cat].length > 1).map(cat => {
+                const sorted = groups[cat].slice().sort((a, b) => {
+                    const crit = (b.businessCritical === 'Yes' ? 2 : 0) - (a.businessCritical === 'Yes' ? 2 : 0);
+                    return crit || usageScore(b.usedWeekly) - usageScore(a.usedWeekly);
+                });
+                return { category:cat, tools:groups[cat], primary:sorted[0], duplicates:sorted.slice(1), potentialSavings:sorted.slice(1).reduce((sum, item) => sum + item.monthlyCost, 0) };
+            });
+        }
+        function getUnderused(list) {
+            return list.filter(sub => sub.usedWeekly === 'Rarely' || sub.usedWeekly === 'Never').map(sub => ({
+                id: sub.id,
+                name: sub.name,
+                monthlyCost: sub.monthlyCost,
+                usedWeekly: sub.usedWeekly,
+                annualWaste: sub.usedWeekly === 'Never' ? sub.monthlyCost * 12 : Math.round(sub.monthlyCost * 12 * .75)
+            })).sort((a, b) => b.annualWaste - a.annualWaste);
+        }
+        function metrics() {
+            const totalMonthlySpend = subscriptions.reduce((sum, sub) => sum + sub.monthlyCost, 0);
+            const totalAnnualSpend = totalMonthlySpend * 12;
+            const activeToolsCount = subscriptions.length;
+            if (!activeToolsCount) return { totalMonthlySpend:0,totalAnnualSpend:0,averageCost:0,activeToolsCount:0,potentialMonthlySavings:0,potentialAnnualSavings:0,healthScore:100,healthRating:'Excellent',unusedCount:0,duplicateCount:0,efficiencyScore:100 };
+            let totalEfficiencyWeightedValue = 0;
+            let unusedCount = 0;
+            subscriptions.forEach(sub => {
+                let efficiency = 1;
+                if (sub.usedWeekly === 'Never') { efficiency -= .8; unusedCount++; }
+                else if (sub.usedWeekly === 'Rarely') { efficiency -= .5; unusedCount++; }
+                else if (sub.usedWeekly === 'Sometimes') efficiency -= .2;
+                if (sub.businessCritical === 'No') efficiency -= (sub.usedWeekly === 'Rarely' || sub.usedWeekly === 'Never') ? .15 : .05;
+                if (sub.replacementAvailable === 'Yes') efficiency -= .05;
+                totalEfficiencyWeightedValue += Math.max(0, Math.min(1, efficiency)) * sub.monthlyCost;
+            });
+            const duplicates = detectDuplicates(subscriptions);
+            const duplicateCount = duplicates.reduce((sum, group) => sum + group.duplicates.length, 0);
+            const duplicateSavings = duplicates.reduce((sum, group) => sum + group.potentialSavings, 0);
+            const rawEfficiency = totalMonthlySpend ? totalEfficiencyWeightedValue / totalMonthlySpend : 1;
+            let healthScore = rawEfficiency * 100 - (totalMonthlySpend ? (duplicateSavings / totalMonthlySpend) * 15 : 0);
+            healthScore = Math.max(0, Math.min(100, Math.round(healthScore)));
+            const efficiencyScore = Math.max(0, Math.round(rawEfficiency * 100));
+            let potentialMonthlySavings = 0;
+            const flagged = new Set();
+            subscriptions.forEach(sub => {
+                if (sub.usedWeekly === 'Never') { potentialMonthlySavings += sub.monthlyCost; flagged.add(sub.id); }
+            });
+            subscriptions.forEach(sub => {
+                if (!flagged.has(sub.id) && sub.usedWeekly === 'Rarely' && sub.businessCritical === 'No') { potentialMonthlySavings += sub.monthlyCost; flagged.add(sub.id); }
+                else if (!flagged.has(sub.id) && sub.usedWeekly === 'Rarely') potentialMonthlySavings += sub.monthlyCost * .5;
+            });
+            duplicates.forEach(group => {
+                group.duplicates.forEach(sub => {
+                    if (!flagged.has(sub.id)) { potentialMonthlySavings += sub.monthlyCost; flagged.add(sub.id); }
+                });
+            });
+            potentialMonthlySavings = Math.min(totalMonthlySpend, Math.round(potentialMonthlySavings));
+            const healthRating = healthScore >= 85 ? 'Excellent' : healthScore >= 70 ? 'Healthy' : healthScore >= 50 ? 'Needs Review' : 'High Waste';
+            return { totalMonthlySpend, totalAnnualSpend, averageCost:totalMonthlySpend / activeToolsCount, activeToolsCount, potentialMonthlySavings, potentialAnnualSavings:potentialMonthlySavings * 12, healthScore, healthRating, unusedCount, duplicateCount, efficiencyScore };
+        }
+        function categorySpend() {
+            const total = subscriptions.reduce((sum, sub) => sum + sub.monthlyCost, 0);
+            const groups = {};
+            subscriptions.forEach(sub => {
+                groups[sub.category] = groups[sub.category] || { spend:0, count:0 };
+                groups[sub.category].spend += sub.monthlyCost;
+                groups[sub.category].count += 1;
+            });
+            return Object.keys(groups).map(category => ({ category, spend:groups[category].spend, count:groups[category].count, percentage:total ? Math.round(groups[category].spend / total * 100) : 0 })).sort((a, b) => b.spend - a.spend);
+        }
+        function reportText(m) {
+            const duplicates = detectDuplicates(subscriptions);
+            const underused = getUnderused(subscriptions);
+            const cats = categorySpend();
+            const lines = [];
+            lines.push('FREELANCER SAAS SUBSCRIPTION COST LEAK AUDIT REPORT');
+            lines.push('AI Cash Lab - Freelancer SaaS Subscription Cost Leak Detector');
+            lines.push('Generated: ' + new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' }));
+            lines.push('');
+            lines.push('EXECUTIVE OVERVIEW');
+            lines.push('- Subscription Health Score: ' + m.healthScore + '/100 (' + m.healthRating + ')');
+            lines.push('- Total Active Tools: ' + m.activeToolsCount);
+            lines.push('- Total Monthly SaaS Spend: ' + money(m.totalMonthlySpend) + '/mo');
+            lines.push('- Total Annual SaaS Spend: ' + money(m.totalAnnualSpend) + '/yr');
+            lines.push('- Average Cost Per Tool: ' + money(m.averageCost) + '/mo');
+            lines.push('- Software Efficiency Score: ' + m.efficiencyScore + '%');
+            lines.push('');
+            lines.push('RECOVERY OPPORTUNITY');
+            lines.push('- Potential Monthly Savings: ' + money(m.potentialMonthlySavings) + '/mo');
+            lines.push('- Potential Annual Savings: ' + money(m.potentialAnnualSavings) + '/yr');
+            lines.push('- Subscriptions To Review: ' + (underused.length + m.duplicateCount) + ' items');
+            lines.push('');
+            lines.push('SPENDING BREAKDOWN BY CATEGORY');
+            cats.forEach(cat => lines.push('- ' + cat.category + ': ' + money(cat.spend) + '/mo (' + cat.percentage + '%) - ' + cat.count + ' tool(s)'));
+            lines.push('');
+            lines.push('CRITICAL FLAGS');
+            lines.push('Underused tools:');
+            if (!underused.length) lines.push('- No rarely or never used tools detected.');
+            underused.forEach(item => lines.push('- ' + item.name + ' (' + item.usedWeekly + ') - ' + money(item.monthlyCost) + '/mo, est. annual waste ' + money(item.annualWaste)));
+            lines.push('');
+            lines.push('Duplicate or overlapping categories:');
+            if (!duplicates.length) lines.push('- No duplicate categories detected.');
+            duplicates.forEach(group => lines.push('- ' + group.category + ': ' + group.tools.map(t => t.name).join(' vs ') + ' - possible consolidation savings ' + money(group.potentialSavings) + '/mo'));
+            lines.push('');
+            lines.push('RECOMMENDED ACTIONS');
+            lines.push('- Cancel software marked never used');
+            lines.push('- Downgrade rarely used non-critical tools');
+            lines.push('- Consolidate duplicate categories');
+            lines.push('- Move stable critical tools to annual billing only after confirming weekly use');
+            lines.push('- Schedule a 15-minute SaaS audit every 90 days');
+            lines.push('');
+            lines.push('Privacy notice: All calculations were performed client-side.');
+            return lines.join('\n');
+        }
+        function setText(id, value) { document.getElementById(id).textContent = value; }
+        function fillSelects() {
+            document.getElementById('category').innerHTML = categories.map(cat => `<option>${cat}</option>`).join('');
+        }
+        function fieldRow(sub) {
+            return `<div class="rounded-xl border border-gray-800 bg-slate-950/60 p-4" data-id="${sub.id}">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-3">
+                    <input class="field md:col-span-3" data-field="name" value="${sub.name.replace(/"/g, '&quot;')}" aria-label="Tool name">
+                    <input class="field md:col-span-2" data-field="monthlyCost" type="number" min="0" step="1" value="${sub.monthlyCost}" aria-label="Monthly cost">
+                    <select class="field md:col-span-2" data-field="category" aria-label="Category">${categories.map(cat => `<option ${cat === sub.category ? 'selected' : ''}>${cat}</option>`).join('')}</select>
+                    <select class="field md:col-span-1" data-field="usedWeekly" aria-label="Used weekly">${['Yes','Sometimes','Rarely','Never'].map(v => `<option ${v === sub.usedWeekly ? 'selected' : ''}>${v}</option>`).join('')}</select>
+                    <select class="field md:col-span-1" data-field="businessCritical" aria-label="Business critical">${['Yes','No'].map(v => `<option ${v === sub.businessCritical ? 'selected' : ''}>${v}</option>`).join('')}</select>
+                    <select class="field md:col-span-2" data-field="replacementAvailable" aria-label="Replacement available">${['No','Yes','Unsure'].map(v => `<option ${v === sub.replacementAvailable ? 'selected' : ''}>${v}</option>`).join('')}</select>
+                    <button type="button" data-delete="${sub.id}" class="rounded-lg border border-red-500/25 bg-red-500/10 text-red-300 text-xs font-bold uppercase tracking-wide hover:bg-red-500/20">Delete</button>
+                </div>
+            </div>`;
+        }
+        function render() {
+            const m = metrics();
+            save();
+            setText('toolCountNote', m.activeToolsCount + (m.activeToolsCount === 1 ? ' tool' : ' tools'));
+            document.getElementById('subscriptionList').innerHTML = subscriptions.length ? subscriptions.map(fieldRow).join('') : '<div class="rounded-xl border border-dashed border-gray-700 p-6 text-sm text-brandTextMuted text-center">Add subscriptions to start the audit.</div>';
+            setText('healthScore', m.healthScore);
+            setText('healthRating', m.healthRating);
+            document.querySelector('.score-ring').style.setProperty('--score-angle', (m.healthScore * 3.6) + 'deg');
+            document.querySelector('.score-ring').style.setProperty('--score-color', m.healthScore < 50 ? '#ef4444' : m.healthScore < 70 ? '#f97316' : '#10B981');
+            setText('healthDescription', m.healthScore >= 85 ? 'Your software stack is lean, used, and defensible.' : m.healthScore >= 70 ? 'Your stack is mostly healthy, but a few tools deserve review.' : m.healthScore >= 50 ? 'There is meaningful waste from underused or overlapping software.' : 'Subscription bloat is likely reducing freelancer profit every month.');
+            setText('totalMonthlySpend', money(m.totalMonthlySpend));
+            setText('totalAnnualSpend', money(m.totalAnnualSpend));
+            setText('potentialMonthlySavings', money(m.potentialMonthlySavings));
+            setText('potentialAnnualSavings', money(m.potentialAnnualSavings));
+            setText('efficiencyScore', m.efficiencyScore + '%');
+            setText('duplicateCount', m.duplicateCount + (m.duplicateCount === 1 ? ' tool' : ' tools'));
+            setText('unusedCount', m.unusedCount + (m.unusedCount === 1 ? ' tool' : ' tools'));
+            document.getElementById('efficiencyBar').style.setProperty('--bar-width', m.efficiencyScore + '%');
+            document.getElementById('duplicateBar').style.setProperty('--bar-width', Math.min(100, m.duplicateCount * 20) + '%');
+            document.getElementById('unusedBar').style.setProperty('--bar-width', Math.min(100, m.unusedCount * 20) + '%');
+            const duplicates = detectDuplicates(subscriptions);
+            const underused = getUnderused(subscriptions);
+            const plan = [];
+            if (underused.some(item => item.usedWeekly === 'Never')) plan.push(['Cancel unused software', 'Remove tools marked never used before the next billing cycle.']);
+            if (duplicates.length) plan.push(['Consolidate overlapping services', 'Choose one primary tool in duplicated categories and cancel the weaker fit.']);
+            if (underused.some(item => item.usedWeekly === 'Rarely')) plan.push(['Downgrade rarely used tools', 'Move occasional-use tools to a lower tier or on-demand alternative.']);
+            plan.push(['Protect critical weekly tools', 'Keep the apps used weekly for revenue delivery, then negotiate annual pricing only after confirming usage.']);
+            document.getElementById('recoveryPlan').innerHTML = plan.slice(0, 4).map((item, i) => `<div class="rounded-lg border border-gray-800 bg-slate-950 p-4"><span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Priority 0${i + 1}</span><h3 class="text-sm font-bold text-white mt-2">${item[0]}</h3><p class="text-xs text-brandTextMuted leading-relaxed mt-2">${item[1]}</p></div>`).join('');
+            const warnings = [];
+            duplicates.forEach(group => warnings.push(`<div class="rounded-lg border border-red-500/25 bg-red-500/10 p-4"><h3 class="text-sm font-bold text-red-200">${group.category} overlap</h3><p class="text-xs text-slate-300 mt-2">${group.tools.map(t => t.name).join(' vs ')}. Potential consolidation: <strong>${money(group.potentialSavings)}/mo</strong>.</p></div>`));
+            underused.slice(0, 4).forEach(item => warnings.push(`<div class="rounded-lg border border-brandGold/25 bg-brandGold/10 p-4"><h3 class="text-sm font-bold text-brandGold">${item.name}</h3><p class="text-xs text-slate-300 mt-2">${item.usedWeekly} used. Estimated annual waste: <strong>${money(item.annualWaste)}</strong>.</p></div>`));
+            document.getElementById('leakWarnings').innerHTML = warnings.length ? warnings.join('') : '<div class="rounded-lg border border-brandGreen/25 bg-brandGreen/10 p-4 text-sm text-brandGreen">No major duplicate or underused software leaks detected.</div>';
+            const cats = categorySpend();
+            document.getElementById('categoryBreakdown').innerHTML = cats.length ? cats.map(cat => `<div><div class="flex justify-between text-xs font-bold text-slate-300"><span>${cat.category}</span><span>${money(cat.spend)}/mo</span></div><div class="mt-1 h-2 bg-slate-950 rounded-full overflow-hidden"><div class="h-full bg-brandGold rounded-full" style="width:${cat.percentage}%"></div></div><p class="text-[10px] text-brandTextMuted mt-1">${cat.count} tool(s), ${cat.percentage}% of spend</p></div>`).join('') : '<p class="text-sm text-brandTextMuted">No category spend yet.</p>';
+            setText('reportPreview', reportText(m));
+        }
+        fillSelects();
+        document.getElementById('addToolBtn').addEventListener('click', () => {
+            const name = document.getElementById('toolName').value.trim() || 'New subscription';
+            const monthlyCost = Math.max(0, Number(document.getElementById('monthlyCost').value) || 0);
+            subscriptions.push({ id:id(), name, monthlyCost, category:document.getElementById('category').value, billingFrequency:document.getElementById('billingFrequency').value, businessCritical:document.getElementById('businessCritical').value, usedWeekly:document.getElementById('usedWeekly').value, replacementAvailable:document.getElementById('replacementAvailable').value });
+            render();
+        });
+        document.getElementById('subscriptionList').addEventListener('input', event => {
+            const card = event.target.closest('[data-id]');
+            if (!card || !event.target.dataset.field) return;
+            const sub = subscriptions.find(item => item.id === card.dataset.id);
+            if (!sub) return;
+            const key = event.target.dataset.field;
+            sub[key] = key === 'monthlyCost' ? Math.max(0, Number(event.target.value) || 0) : event.target.value;
+            render();
+        });
+        document.getElementById('subscriptionList').addEventListener('change', event => {
+            const card = event.target.closest('[data-id]');
+            if (!card || !event.target.dataset.field) return;
+            const sub = subscriptions.find(item => item.id === card.dataset.id);
+            if (!sub) return;
+            const key = event.target.dataset.field;
+            sub[key] = key === 'monthlyCost' ? Math.max(0, Number(event.target.value) || 0) : event.target.value;
+            render();
+        });
+        document.getElementById('subscriptionList').addEventListener('click', event => {
+            const btn = event.target.closest('[data-delete]');
+            if (!btn) return;
+            subscriptions = subscriptions.filter(sub => sub.id !== btn.dataset.delete);
+            render();
+        });
+        document.getElementById('sampleBtn').addEventListener('click', () => { subscriptions = defaults.map(copySub); render(); });
+        document.getElementById('resetBtn').addEventListener('click', () => { subscriptions = []; render(); });
+        document.getElementById('copyReportBtn').addEventListener('click', async event => {
+            await navigator.clipboard.writeText(document.getElementById('reportPreview').textContent);
+            const old = event.currentTarget.textContent;
+            event.currentTarget.textContent = 'Copied';
+            setTimeout(() => event.currentTarget.textContent = old, 1400);
+        });
+        document.getElementById('downloadReportBtn').addEventListener('click', () => {
+            const blob = new Blob([document.getElementById('reportPreview').textContent], { type:'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'freelancer_saas_cost_leak_audit_' + new Date().toISOString().slice(0, 10) + '.txt';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        });
+        render();
+    </script>
+</body>
+</html>
