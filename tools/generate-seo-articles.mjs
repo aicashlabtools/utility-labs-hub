@@ -5,6 +5,18 @@ import { standardFooterCss, standardFooterHtml } from "./footer-template.mjs";
 const root = process.cwd();
 const site = "https://aicashlabtools.com";
 
+async function writeWithRetry(file, content) {
+  for (let attempt = 1; attempt <= 4; attempt++) {
+    try {
+      await fs.writeFile(file, content, "utf8");
+      return;
+    } catch (error) {
+      if (attempt === 4 || !["EBUSY", "EPERM", "UNKNOWN"].includes(error.code)) throw error;
+      await new Promise((resolve) => setTimeout(resolve, attempt * 250));
+    }
+  }
+}
+
 const tracking = `<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-T7X8JFME64"></script>
 <script>
@@ -24,7 +36,7 @@ const tracking = `<!-- Google tag (gtag.js) -->
 </script>`;
 
 const tools = [
-  ["brand-deal-calculator", "how-to-calculate-brand-deal-rates", "How To Calculate Brand Deal Rates For Sponsored Content", "Estimate fair creator sponsorship pricing from audience size, deliverables, usage rights, and campaign complexity."],
+  ["brand-deal-calculator", "how-to-calculate-brand-deal-rates", "How To Calculate Brand Deal Rates", "Learn how to estimate fair sponsorship pricing using audience size, engagement, deliverables, usage rights, and licensing."],
   ["caption-line-splitter", "how-to-split-caption-lines-for-short-form-video", "How To Split Caption Lines For Short-Form Videos", "Turn scripts into short readable subtitle lines for TikTok, Reels, Shorts, and fast video edits."],
   ["cpm-conversion-pivot", "cpm-vs-product-revenue-calculator-guide", "CPM Vs Product Revenue: How To Compare Creator Income Paths", "Compare ad revenue against digital product revenue so views and sales targets make financial sense."],
   ["creator-rpm-calculator", "how-to-calculate-creator-rpm", "How To Calculate Creator RPM From Views And Revenue", "Use RPM to understand revenue per 1,000 views and compare monetization performance across channels."],
@@ -84,6 +96,7 @@ const css = `*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;b
 const metaCss = `.article-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin:-10px 0 18px;color:#94a3b8;font-size:12px;font-weight:800}.article-meta span,.article-meta a{display:inline-flex;align-items:center;gap:6px}.article-meta a{color:#f59e0b;text-decoration:none}.article-meta a:hover{text-decoration:underline}.tool-icon{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}.meta-dot{width:3px;height:3px;border-radius:999px;background:#475569}.tool-cta{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:18px;border:1px solid rgba(245,158,11,.38);background:linear-gradient(135deg,rgba(245,158,11,.1),#111827 65%);border-radius:14px;padding:20px 22px;margin:0 0 22px}.tool-cta-label{display:block;color:#f59e0b;font-size:10px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;margin-bottom:4px}.tool-cta strong{display:block;color:#fff;font-size:1.05rem}.tool-cta p{color:#aab4c3;font-size:.9rem;line-height:1.55;margin:5px 0 0}.tool-cta a{display:inline-block;white-space:nowrap;background:#f59e0b;color:#111827;border-radius:8px;padding:10px 15px;font-size:12px;font-weight:900;text-decoration:none}.tool-cta a:hover{background:#fbbf24}@media(max-width:640px){.tool-cta{grid-template-columns:1fr}.tool-cta a{text-align:center}}`;
 
 const articleEnhancementCss = `.article-meta{gap:8px 16px}.article-meta span,.article-meta a{padding:5px 0}.tool-cta-copy strong{font-size:1.1rem}.cluster-links{margin-top:34px;padding-top:4px}.cluster-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}.cluster-card{display:flex;min-height:145px;flex-direction:column;justify-content:space-between;border:1px solid rgba(148,163,184,.18);border-radius:11px;background:#0f141f;padding:17px;text-decoration:none!important;transition:border-color .18s ease,transform .18s ease}.cluster-card:hover{border-color:rgba(245,158,11,.45);transform:translateY(-2px)}.cluster-card strong{display:block;color:#fff;font-size:.98rem;line-height:1.35}.cluster-card p{margin:7px 0 14px;color:#94a3b8;font-size:.82rem;line-height:1.5}.cluster-card span{color:#f59e0b;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em}.related-tools-list{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none}.related-tools-list li{margin:0}.related-tools-list a{display:block;border:1px solid rgba(148,163,184,.16);border-radius:999px;background:#0f141f;padding:7px 11px;font-size:.78rem;text-decoration:none}.guide-sequence{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08)}.sequence-link{display:flex;min-height:92px;flex-direction:column;border:1px solid rgba(148,163,184,.17);border-radius:10px;background:#0f141f;padding:14px;text-decoration:none!important}.sequence-link.next{text-align:right}.sequence-label{color:#f59e0b;font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em}.sequence-title{margin-top:6px;color:#fff;font-size:.88rem;font-weight:800;line-height:1.35}@media(max-width:640px){.cluster-card-grid,.guide-sequence{grid-template-columns:1fr}.sequence-link.next{text-align:left}}`;
+const trustCss = `.review-note{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:28px;border-top:1px solid rgba(255,255,255,.08);padding-top:18px;color:#94a3b8;font-size:.78rem}.review-note strong{color:#e2e8f0}.related-searches{margin-top:28px}.related-searches ul{display:flex;flex-wrap:wrap;gap:9px;margin:0;padding:0;list-style:none}.related-searches li{margin:0}.related-searches a{display:block;border-bottom:1px solid rgba(96,165,250,.35);padding:5px 0;color:#93c5fd;font-size:.84rem;text-decoration:none}.related-searches a:hover{color:#f59e0b;border-color:#f59e0b}`;
 
 function esc(value) {
   return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -141,6 +154,7 @@ function topicName(tool) {
 }
 
 function toolCtaDescription(tool) {
+  if (tool.tool === "brand-deal-calculator") return "estimate fair pricing based on audience size, engagement, deliverables, usage rights, and licensing.";
   if (tool.tool === "youtube-title-preview") return "Preview your title exactly how it appears on desktop and mobile before publishing.";
   return tool.desc;
 }
@@ -184,8 +198,8 @@ function clusterFor(tool) {
     ["youtube-title-seo-length", "YouTube Title SEO: Does Length Matter?", ["YouTube title SEO", "YouTube SEO title length", "YouTube title keywords", "video title SEO", "YouTube title ranking"]]
   ] : [
     [tool.slug, tool.title, [`${name} guide`, `how to use ${name}`, `${name} tips`, `free ${name}`, `${name} best practices`]],
-    [`how-to-improve-${base}`, `How To Use ${name}: A Step-By-Step Guide`, [`how to use ${name}`, `${name} tutorial`, `${name} steps`, `${name} workflow`, `free ${name}`]],
-    [`${base}-examples`, `${name} Examples And Real-World Scenarios`, [`${name} examples`, `${name} use cases`, `${name} ideas`, `${name} template`, `${name} real scenarios`]],
+    [`how-to-improve-${base}`, `How To Use The ${titleFromSlug(tool.tool)}: Step-By-Step`, [`how to use ${name}`, `${name} tutorial`, `${name} steps`, `${name} workflow`, `free ${name}`]],
+    [`${base}-examples`, tool.tool === "brand-deal-calculator" ? "Brand Deal Examples And Real-World Scenarios" : `Real ${name} Examples And Scenarios`, [`${name} examples`, `${name} use cases`, `${name} ideas`, `${name} template`, `${name} real scenarios`]],
     [`common-${base}-mistakes`, `Common ${name} Mistakes And How To Avoid Them`, [`${name} mistakes`, `${name} problems`, `fix ${name}`, `${name} errors`, `${name} troubleshooting`]],
     [`${base}-best-practices`, `${name} FAQ And Best Practices`, [`${name} best practices`, `${name} FAQ`, `${name} checklist`, `${name} tips`, `advanced ${name} advice`]]
   ];
@@ -200,9 +214,48 @@ function relatedTools(tool) {
   return tools.filter((candidate) => candidate.tool !== tool.tool).map((candidate) => ({ candidate, score: (`${candidate.title} ${candidate.desc}`.toLowerCase().match(/[a-z]{4,}/g) || []).filter((word) => words.has(word)).length })).sort((a, b) => b.score - a.score).slice(0, 3).map(({ candidate }) => candidate);
 }
 
+function relatedSearches(tool, cluster) {
+  if (tool.tool === "brand-deal-calculator") {
+    return [
+      ["Brand Deal Pricing Calculator", "/brand-deal-calculator/"],
+      ["Instagram Sponsorship Rates", "/creator-sponsorship-rate-calculator/"],
+      ["Creator Pricing Guide", `/articles/${cluster[0].slug}/`],
+      ["Influencer Pricing Examples", `/articles/${cluster[2].slug}/`],
+      ["Brand Deal Proposal Template", "/proposal-calculator/"]
+    ];
+  }
+  const related = relatedTools(tool);
+  return [
+    [`${titleFromSlug(tool.tool)} Guide`, `/${tool.tool}/`],
+    [cluster[1].title, `/articles/${cluster[1].slug}/`],
+    [cluster[2].title, `/articles/${cluster[2].slug}/`],
+    [titleFromSlug(related[0].tool), `/${related[0].tool}/`],
+    [titleFromSlug(related[1].tool), `/${related[1].tool}/`]
+  ];
+}
+
+function faqHtml(tool, toolName) {
+  if (tool.tool === "brand-deal-calculator") {
+    return `<section class="faq"><h2>FAQ</h2><h3>Is the Brand Deal Calculator free?</h3><p>Yes. The Brand Deal Calculator runs entirely in your browser, requires no account, and can be used as many times as you need without uploading any project information.</p><h3>When should I use it?</h3><p>Use it before sending a sponsorship proposal, when a brand changes the campaign scope, or when you want to compare two sets of deliverables and usage rights.</p><h3>Should I save my estimate?</h3><p>Yes. Save the estimate with the campaign brief and note which deliverables, licensing terms, and assumptions you used. That record makes later negotiations and scope changes easier to compare.</p></section>`;
+  }
+  return `<section class="faq"><h2>FAQ</h2><h3>Is the ${esc(toolName)} free?</h3><p>Yes. It runs in your browser, requires no account, and can be used again whenever you need to check a new project or revision.</p><h3>When should I use it?</h3><p>Use it when you have enough real information to compare options or check a draft, but before the work is final.</p><h3>${/calculator|estimator/i.test(toolName) ? "Should I save my estimate?" : "Should I save the result?"}</h3><p>Save it with the project when the inputs, assumptions, or decision may be useful again.</p></section>`;
+}
+
 function articleBody(tool, article) {
   const toolName = titleFromSlug(tool.tool);
   const topic = topicName(tool);
+  if (tool.tool === "brand-deal-calculator" && article.kind === "guide") {
+    return `<p>If you have never priced a brand deal before, it can be difficult to know what to charge. This guide explains the factors that affect sponsorship pricing and shows you how to estimate a fair rate using the free Brand Deal Calculator.</p><h2>What You'll Learn</h2><p>The Brand Deal Calculator helps you estimate a fair sponsorship rate based on the details of your campaign. Rather than guessing, you can compare audience size, engagement, deliverables, usage rights, licensing, exclusivity, and production requirements to arrive at a more realistic starting price.</p><h2>How to Use the Calculator</h2><ol><li><strong>Enter your audience size and engagement.</strong> Use current platform data rather than an old media-kit figure.</li><li><strong>Select the deliverables and campaign details.</strong> Include licensing, usage rights, exclusivity, production requirements, and turnaround time.</li><li><strong>Review the suggested pricing range.</strong> Use it as a starting point for the conversation, not a guaranteed market rate.</li><li><strong>Adjust your proposal for the brand's requirements.</strong> Raise or lower the final quote when the scope, rights, or timeline changes.</li></ol><h2>How to Use Your Estimate</h2><p>Compare the estimate with the full campaign brief before sending a quote. Confirm exactly what the brand can do with the content, how long it can use it, where it will appear, and whether the agreement limits your work with competitors. Those details can change the value of a deal substantially.</p>`;
+  }
+  if (tool.tool === "brand-deal-calculator") {
+    const brandBodies = {
+      "how-to": `<p>Pricing a brand deal is easier when you separate the campaign into a few clear decisions. Start with what the brand wants you to create, then account for where the content will appear, how long it can be used, and whether the agreement limits other partnerships.</p><h2>Step 1: Add your audience and engagement</h2><p>Enter current audience and engagement figures for the platform where the sponsored content will run. A recent average is more useful than one unusually successful post.</p><h2>Step 2: List every deliverable</h2><p>Include each Reel, story, video, photo, or round of revisions. If the brand wants raw footage or multiple formats, treat that as additional work rather than part of the original post.</p><h2>Step 3: Check licensing and exclusivity</h2><p>Imagine a brand requests one Instagram Reel for organic use, then asks to run it as a paid ad for six months. The content has not changed, but the brand is receiving more value from it. Add the paid usage period before reviewing the estimate.</p><h2>Step 4: Review the pricing range</h2><p>Use the suggested range as a starting point. Compare it with your production costs, the campaign timeline, and the amount of negotiation room you want to leave in the proposal.</p><h2>Step 5: Update the quote when the scope changes</h2><p>If the brand adds another platform, a faster turnaround, or category exclusivity, update those details and calculate again. This keeps the revised quote tied to the work being requested.</p>`,
+      examples: `<p>Not every sponsorship deal looks the same. A small local business and a global brand will usually have very different budgets, deliverables, and licensing terms. These examples show how the Brand Deal Calculator can help compare different situations before sending a proposal.</p><h2>Example 1: Organic use versus paid advertising</h2><p>Brand A wants one Instagram Reel that will appear only on the creator's account. Brand B wants the same Reel plus six months of paid advertising rights. Although the content is similar, the licensing changes its value considerably. Enter each scenario separately to see how the added usage affects the starting price.</p><h2>Example 2: A local campaign versus a national launch</h2><p>A local restaurant asks for one short video with a flexible deadline. A national food brand requests three videos, raw footage, two revision rounds, and category exclusivity. The second campaign involves more production and limits other paid work, so comparing the full scope is more useful than comparing follower count alone.</p><h2>Example 3: A one-off post versus a package</h2><p>A brand may offer one sponsored post now or a three-month package with recurring deliverables. Calculate the single post first, then the package. A longer agreement can justify a package rate, but it should still cover the total work, licensing, and time involved.</p><h2>What these examples show</h2><p>The audience may stay the same while the value of the deal changes. Deliverables, paid usage, exclusivity, production requirements, and turnaround often explain why two campaigns should not receive the same quote.</p>`,
+      mistakes: `<p>Many pricing mistakes happen before the proposal is even sent. Creators often rely on rough estimates, forget to account for usage rights, or change several variables at once. Here are some of the most common mistakes—and how to avoid them.</p><h2>Pricing from follower count alone</h2><p>Audience size matters, but it does not describe the entire campaign. Engagement, production work, deliverables, and licensing can make two offers to the same creator worth very different amounts.</p><h2>Leaving paid usage out of the quote</h2><p>Suppose a skincare brand asks for one TikTok and later adds permission to run that video as an ad for 90 days. If the quote covers only content creation, the brand receives advertising rights without paying for them. Confirm the duration, platforms, and territory before finalizing the rate.</p><h2>Bundling extra work into one deliverable</h2><p>Raw footage, alternate edits, reshoots, and extra revision rounds all take time. List them separately so the estimate reflects what you will actually produce.</p><h2>Forgetting exclusivity</h2><p>A three-month restriction on working with competing brands can close off other income. Add exclusivity to the campaign details instead of treating it as standard wording in the contract.</p><h2>Treating the estimate as a guaranteed rate</h2><p>The calculator gives you a defensible starting point, not a promise that every brand has the same budget. Use the result to shape your proposal, then adjust it for the brief, relationship, and negotiating context.</p>`,
+      "best-practices": `<p>A useful brand deal estimate depends on the details behind it. These answers cover the questions creators should settle before turning a calculated range into a proposal.</p><h2>Brand deal pricing FAQ</h2><h3>What has the biggest effect on a sponsorship rate?</h3><p>Audience and engagement establish a baseline, but deliverables, production demands, licensing, paid usage, exclusivity, and turnaround can change the final quote substantially.</p><h3>Should organic and paid usage cost the same?</h3><p>No. Organic usage usually means the content appears on the creator's or brand's normal channels. Paid usage lets the brand turn that content into advertising, often for a set period. That additional commercial use should be reflected in the price.</p><h3>How should I price exclusivity?</h3><p>Consider the length of the restriction, the number of competitors it covers, and the work you may have to decline. A broad six-month restriction is more valuable than a narrow 30-day restriction.</p><h3>What if the brand changes the brief?</h3><p>Recalculate when the brand adds deliverables, platforms, usage rights, revisions, or a faster deadline. For example, adding raw footage and three months of ad rights turns a simple sponsored post into a broader licensing agreement.</p><h2>Before you send the proposal</h2><ul><li>Confirm every deliverable and revision round.</li><li>Write down the usage period, platforms, and territory.</li><li>Check whether paid advertising or whitelisting is included.</li><li>Define any category exclusivity and its duration.</li><li>Make sure the rate covers production time and outside costs.</li></ul>`
+    };
+    if (brandBodies[article.kind]) return brandBodies[article.kind];
+  }
   const openings = {
     guide: `<p>${esc(tool.desc)} The useful result is the one that helps you make a specific change or confirm that the current version is ready.</p>`,
     "best-practices": `<p>Good ${esc(topic.toLowerCase())} work starts with accurate inputs and a clear reason for checking them. A few disciplined habits make the result easier to trust and act on.</p>`,
@@ -211,7 +264,7 @@ function articleBody(tool, article) {
     "how-to": `<p>Use this process when you want to move from a rough input to a result you can explain and act on. Each step has a different job, so work through them in order.</p>`
   };
   const bodies = {
-    guide: `<h2>What the tool helps you check</h2><p>${esc(toolName)} gives you a quick way to review ${esc(topic.toLowerCase())}. Use it when you have real inputs ready and need a clear result before you publish, quote, send, record, or launch.</p><h2>How to use it</h2><ol><li>Open <a href="/${tool.tool}/">${esc(toolName)}</a> and enter the information from the actual project.</li><li>Review the result and identify the one issue most likely to affect the outcome.</li><li>Change one input at a time so you can see what improves or weakens the result.</li><li>Save the final numbers or wording with your project notes.</li></ol><h2>What to do with the result</h2><p>Treat the output as a decision aid, not a guarantee. Compare it with the platform rules, client agreement, campaign brief, or business costs that apply to your situation. If the result exposes a weak assumption, correct that assumption before moving forward.</p>`,
+    guide: `<h2>What This Tool Does</h2><p>The ${esc(toolName)} gives you a quick way to review ${esc(topic.toLowerCase())}. Use it when you have real inputs ready and need a clear result before you publish, quote, send, record, or launch.</p><h2>How to Use It</h2><ol><li>Open <a href="/${tool.tool}/">the ${esc(toolName)}</a> and enter information from the actual project.</li><li>Review the result and identify the issue most likely to affect the outcome.</li><li>Change one input at a time so you can see what improves or weakens the result.</li><li>Save the final numbers or wording with your project notes.</li></ol><h2>Using Your Result</h2><p>Treat the output as a decision aid, not a guarantee. Compare it with the platform rules, client agreement, campaign brief, or business costs that apply to your situation. If the result exposes a weak assumption, correct it before moving forward.</p>`,
     "best-practices": `<h2>Quick answers</h2><h3>Should I use estimates or final numbers?</h3><p>Estimates are fine for an early comparison. Before committing to a price, plan, or published asset, replace them with the most current information available.</p><h3>How many versions should I test?</h3><p>Start with the expected case and one conservative alternative. Add another version only when it represents a decision you might realistically make.</p><h3>What matters most in the result?</h3><p>Focus on the finding that could change the decision. Minor differences are less useful than a clear issue with cost, clarity, timing, or fit.</p><h2>Best-practice checklist</h2><ul><li>Use inputs from the same time period, currency, format, and platform context.</li><li>Keep one variable fixed when comparing alternatives.</li><li>Check the result against client terms, platform rules, or actual business costs.</li><li>Run a final check after the draft or numbers change.</li></ul>`,
     mistakes: `<h2>Using guesses as final inputs</h2><p>Early estimates are useful for planning, but they should not quietly become final assumptions. Replace guesses with current project information before making a commitment.</p><h2>Changing several variables at once</h2><p>If everything changes between checks, you will not know what caused the result to move. Adjust one meaningful input, review the difference, and then continue.</p><h2>Ignoring the surrounding context</h2><p>${esc(topic)} does not exist in isolation. Platform limits, audience expectations, client terms, costs, and timing can all change what a good result looks like.</p><h2>Running the check but taking no action</h2><p>The useful part is the correction that follows. Update the draft, price, plan, asset, or agreement while the finding is still clear.</p>`,
     examples: `<h2>Use case: checking a draft</h2><p>Run the current version through ${esc(toolName)} before it is final. If the result shows a clear weakness, correct that issue first and compare the revised version.</p><h2>Use case: comparing two options</h2><p>Keep the shared inputs fixed and change only the option you are comparing. This makes the tradeoff easier to see and explain to a client, collaborator, or team member.</p><h2>Use case: testing a conservative scenario</h2><p>Lower the optimistic assumptions or allow for more time and cost. A plan that still works under a cautious scenario is usually easier to rely on.</p><h2>Use case: building a repeatable check</h2><p>Save the inputs and decision that worked. The next similar project can start with a tested reference instead of a blank page.</p>`,
@@ -260,7 +313,7 @@ function articleHtml(tool, article, cluster, audit) {
     "@graph": [
       { "@type": "Article", headline: article.title, description: meta, keywords: article.keywords.join(", "), mainEntityOfPage: url, author: { "@type": "Organization", name: "AI Cash Lab Tools" }, publisher: { "@type": "Organization", name: "AI Cash Lab Tools" } },
       { "@type": "FAQPage", mainEntity: [
-        { "@type": "Question", name: `What is the best free tool for ${toolName.toLowerCase()}?`, acceptedAnswer: { "@type": "Answer", text: `AI Cash Lab Tools offers a free browser-based ${toolName} that runs in your browser and links directly from this guide.` } },
+        { "@type": "Question", name: `Is the ${toolName} free?`, acceptedAnswer: { "@type": "Answer", text: `Yes. The ${toolName} runs in your browser and does not require an account.` } },
         { "@type": "Question", name: "Do I need to create an account?", acceptedAnswer: { "@type": "Answer", text: "No. The related free tool is designed for quick browser use without mandatory setup." } }
       ] },
       { "@type": "BreadcrumbList", itemListElement: [
@@ -282,20 +335,22 @@ ${tracking}
 <meta name="keywords" content="${esc(article.keywords.join(", "))}">
 <link rel="canonical" href="${url}">
 <script type="application/ld+json">${schemaJson(schema)}</script>
-<style>${css}${metaCss}${articleEnhancementCss}${standardFooterCss}</style>
+<style>${css}${metaCss}${articleEnhancementCss}${trustCss}${standardFooterCss}</style>
 </head>
 <body>
 ${header()}
 <main class="shell">
   <div class="breadcrumb"><a href="/articles/">Articles</a> / ${esc(toolName)}</div>
   <section class="hero"><div class="kicker">${esc(toolName)} Guide</div><h1>${esc(article.title)}</h1><p>${esc(article.desc)}</p></section>
-  <div class="article-meta"><span aria-label="Estimated reading time">&#128214; 3 min read</span><a href="/${tool.tool}/">&#128736; Uses: ${esc(toolName)}</a><span>&#128197; Updated July 2026</span></div>
+  <div class="article-meta"><span aria-label="Estimated reading time">&#128214; 3 min read</span><a href="/${tool.tool}/">&#128736; Tool used: ${esc(toolName)}</a><span>&#128197; Updated July 2026</span></div>
   <aside class="tool-cta" aria-label="Try the free ${esc(toolName)}"><div class="tool-cta-copy"><span class="tool-cta-label">Try the Free Tool</span><strong>${esc(toolCtaHeadline(tool))}</strong><p>Use the free ${esc(toolName)} to ${esc(toolCtaDescription(tool).replace(/^[A-Z]/, (letter) => letter.toLowerCase()))}</p></div><a href="/${tool.tool}/">${esc(toolLaunchLabel(tool))} &rarr;</a></aside>
   <article class="article">
     ${articleBody(tool, article)}
-    <div class="cta"><strong>Use the related free tool:</strong><p>${esc(toolName)} helps you apply this guide directly in your browser.</p><a href="/${tool.tool}/">Open ${esc(toolName)} &rarr;</a></div>
+    <div class="cta"><strong>Try it with your own project</strong><p>Open the ${esc(toolName)} and check your current draft, numbers, or plan.</p><a href="/${tool.tool}/">Try the ${esc(toolName)} &rarr;</a></div>
     <section class="cluster-links"><h2>Continue Reading</h2><div class="cluster-card-grid">${cluster.filter((item) => item.slug !== article.slug).map((item) => `<a class="cluster-card" href="/articles/${item.slug}/"><div><strong>${esc(item.title)}</strong><p>${esc(clusterCardDescription(item))}</p></div><span>Read Guide &rarr;</span></a>`).join("")}</div><h2>Related Free Tools</h2><ul class="related-tools-list">${relatedTools(tool).map((item) => `<li><a href="/${item.tool}/">${esc(titleFromSlug(item.tool))}</a></li>`).join("")}</ul></section>
-    <section class="faq"><h2>FAQ</h2><h3>Is ${esc(toolName)} free?</h3><p>Yes. It runs in the browser and does not require an account.</p><h3>When should I use it?</h3><p>Use it when you have enough real information to compare options or check a draft, but before the work is final.</p><h3>Should I keep the result?</h3><p>Keep it with the project when the inputs or decision may be useful again.</p></section>
+    ${faqHtml(tool, toolName)}
+    <div class="review-note" aria-label="Article review details"><span><strong>Last reviewed:</strong> July 2026</span><span><strong>Reading time:</strong> 3 minutes</span><span>Updated whenever the ${esc(toolName)} changes.</span></div>
+    <section class="related-searches"><h2>Related Searches</h2><ul>${relatedSearches(tool, cluster).map(([label, href]) => `<li><a href="${href}">${esc(label)}</a></li>`).join("")}</ul></section>
     <nav class="guide-sequence" aria-label="Guide sequence">${previousArticle ? `<a class="sequence-link previous" href="/articles/${previousArticle.slug}/"><span class="sequence-label">&larr; Previous Guide</span><span class="sequence-title">${esc(previousArticle.title)}</span></a>` : `<span></span>`}${nextArticle ? `<a class="sequence-link next" href="/articles/${nextArticle.slug}/"><span class="sequence-label">Next Guide &rarr;</span><span class="sequence-title">${esc(nextArticle.title)}</span></a>` : ""}</nav>
   </article>
 </main>
@@ -338,7 +393,7 @@ async function writeSitemap() {
   const topUrls = ["", ...tools.map((tool) => tool.tool), "articles"];
   const articleUrls = tools.flatMap((tool) => clusterFor(tool).map((article) => `articles/${article.slug}`));
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${topUrls.map((url) => `  <url>\n    <loc>${site}/${url ? `${url}/` : ""}</loc>\n    <priority>${url === "" ? "1.0" : url === "articles" ? "0.7" : "0.8"}</priority>\n  </url>`).join("\n")}\n${articleUrls.map((url) => `  <url>\n    <loc>${site}/${url}/</loc>\n    <priority>0.6</priority>\n  </url>`).join("\n")}\n</urlset>\n`;
-  await fs.writeFile(path.join(root, "sitemap.xml"), xml, "utf8");
+  await writeWithRetry(path.join(root, "sitemap.xml"), xml);
 }
 
 const audit = await loadAudit();
@@ -349,11 +404,11 @@ for (const tool of tools) {
   for (const article of cluster) {
     const dir = path.join(root, "articles", article.slug);
     await fs.mkdir(dir, { recursive: true });
-    await fs.writeFile(path.join(dir, "index.html"), articleHtml(tool, article, cluster, audit), "utf8");
+    await writeWithRetry(path.join(dir, "index.html"), articleHtml(tool, article, cluster, audit));
   }
 }
 
-await fs.writeFile(path.join(root, "articles", "index.html"), indexHtml(), "utf8");
+await writeWithRetry(path.join(root, "articles", "index.html"), indexHtml());
 await writeSitemap();
 
 console.log(`Generated ${tools.length * 5} article pages across ${tools.length} tool clusters, updated articles/index.html, and updated sitemap.xml.`);
