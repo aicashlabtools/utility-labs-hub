@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { standardFooterCss, standardFooterHtml } from "./footer-template.mjs";
 
 const root = process.cwd();
 const site = "https://aicashlabtools.com";
@@ -82,6 +83,8 @@ const css = `*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;b
 
 const metaCss = `.article-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin:-10px 0 18px;color:#94a3b8;font-size:12px;font-weight:800}.article-meta span,.article-meta a{display:inline-flex;align-items:center;gap:6px}.article-meta a{color:#f59e0b;text-decoration:none}.article-meta a:hover{text-decoration:underline}.tool-icon{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}.meta-dot{width:3px;height:3px;border-radius:999px;background:#475569}.tool-cta{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:18px;border:1px solid rgba(245,158,11,.38);background:linear-gradient(135deg,rgba(245,158,11,.1),#111827 65%);border-radius:14px;padding:20px 22px;margin:0 0 22px}.tool-cta-label{display:block;color:#f59e0b;font-size:10px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;margin-bottom:4px}.tool-cta strong{display:block;color:#fff;font-size:1.05rem}.tool-cta p{color:#aab4c3;font-size:.9rem;line-height:1.55;margin:5px 0 0}.tool-cta a{display:inline-block;white-space:nowrap;background:#f59e0b;color:#111827;border-radius:8px;padding:10px 15px;font-size:12px;font-weight:900;text-decoration:none}.tool-cta a:hover{background:#fbbf24}@media(max-width:640px){.tool-cta{grid-template-columns:1fr}.tool-cta a{text-align:center}}`;
 
+const articleEnhancementCss = `.article-meta{gap:8px 16px}.article-meta span,.article-meta a{padding:5px 0}.tool-cta-copy strong{font-size:1.1rem}.cluster-links{margin-top:34px;padding-top:4px}.cluster-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}.cluster-card{display:flex;min-height:145px;flex-direction:column;justify-content:space-between;border:1px solid rgba(148,163,184,.18);border-radius:11px;background:#0f141f;padding:17px;text-decoration:none!important;transition:border-color .18s ease,transform .18s ease}.cluster-card:hover{border-color:rgba(245,158,11,.45);transform:translateY(-2px)}.cluster-card strong{display:block;color:#fff;font-size:.98rem;line-height:1.35}.cluster-card p{margin:7px 0 14px;color:#94a3b8;font-size:.82rem;line-height:1.5}.cluster-card span{color:#f59e0b;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em}.related-tools-list{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none}.related-tools-list li{margin:0}.related-tools-list a{display:block;border:1px solid rgba(148,163,184,.16);border-radius:999px;background:#0f141f;padding:7px 11px;font-size:.78rem;text-decoration:none}.guide-sequence{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08)}.sequence-link{display:flex;min-height:92px;flex-direction:column;border:1px solid rgba(148,163,184,.17);border-radius:10px;background:#0f141f;padding:14px;text-decoration:none!important}.sequence-link.next{text-align:right}.sequence-label{color:#f59e0b;font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em}.sequence-title{margin-top:6px;color:#fff;font-size:.88rem;font-weight:800;line-height:1.35}@media(max-width:640px){.cluster-card-grid,.guide-sequence{grid-template-columns:1fr}.sequence-link.next{text-align:left}}`;
+
 function esc(value) {
   return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
@@ -142,6 +145,34 @@ function toolCtaDescription(tool) {
   return tool.desc;
 }
 
+function toolCtaHeadline(tool) {
+  if (tool.tool === "brand-deal-calculator" || tool.tool === "creator-sponsorship-rate-calculator") return "Ready to calculate your sponsorship rate?";
+  const name = titleFromSlug(tool.tool);
+  if (/calculator/i.test(name)) return `Ready to run the numbers?`;
+  if (/generator/i.test(name)) return `Ready to create yours?`;
+  if (/checker|detector|analyzer/i.test(name)) return `Ready to check your work?`;
+  return `Ready to use the ${name}?`;
+}
+
+function toolLaunchLabel(tool) {
+  const name = titleFromSlug(tool.tool);
+  if (/calculator/i.test(name)) return "Launch Free Calculator";
+  if (/generator/i.test(name)) return "Launch Free Generator";
+  if (/checker|detector|analyzer/i.test(name)) return "Launch Free Checker";
+  return "Launch Free Tool";
+}
+
+function clusterCardDescription(article) {
+  const descriptions = {
+    guide: "Start with the core guide and use the tool with clearer inputs.",
+    "best-practices": "See what to check before you publish, send, price, or launch.",
+    mistakes: "Catch the common errors that weaken the result or lead to the wrong decision.",
+    examples: "See practical situations where this check is useful.",
+    "how-to": "Follow the process step by step, from the first input to the final decision."
+  };
+  return descriptions[article.kind];
+}
+
 function clusterFor(tool) {
   const name = topicName(tool);
   const base = tool.tool.replace(/-(tool|calculator|generator|checker|estimator|analyzer|formatter|preview)$/i, "");
@@ -149,17 +180,19 @@ function clusterFor(tool) {
     [tool.slug, "How Long Should A YouTube Title Be?", ["YouTube title length", "YouTube title character limit", "best YouTube title length", "YouTube title word count", "mobile YouTube title length"]],
     ["why-youtube-titles-get-cut-off", "Why YouTube Titles Get Cut Off", ["YouTube title cut off", "YouTube title truncation", "truncated YouTube title", "YouTube mobile title preview", "YouTube title character limit"]],
     ["high-ctr-youtube-title-examples", "25 High-CTR YouTube Title Examples", ["YouTube title examples", "high CTR YouTube titles", "clickable YouTube titles", "best YouTube titles", "YouTube title ideas"]],
-    ["youtube-title-seo-length", "YouTube Title SEO: Does Length Matter?", ["YouTube title SEO", "YouTube SEO title length", "YouTube title keywords", "video title SEO", "YouTube title ranking"]],
-    ["common-youtube-title-mistakes", "Common YouTube Title Mistakes", ["YouTube title mistakes", "bad YouTube titles", "improve YouTube titles", "YouTube click-through rate", "YouTube title best practices"]]
+    ["common-youtube-title-mistakes", "Common YouTube Title Mistakes", ["YouTube title mistakes", "bad YouTube titles", "improve YouTube titles", "YouTube click-through rate", "YouTube title best practices"]],
+    ["youtube-title-seo-length", "YouTube Title SEO: Does Length Matter?", ["YouTube title SEO", "YouTube SEO title length", "YouTube title keywords", "video title SEO", "YouTube title ranking"]]
   ] : [
     [tool.slug, tool.title, [`${name} guide`, `how to use ${name}`, `${name} tips`, `free ${name}`, `${name} best practices`]],
-    [`${base}-best-practices`, `${name} Best Practices: What To Check Before You Publish`, [`${name} best practices`, `${name} checklist`, `${name} tips`, `improve ${name}`, `${name} workflow`]],
+    [`how-to-improve-${base}`, `How To Use ${name}: A Step-By-Step Guide`, [`how to use ${name}`, `${name} tutorial`, `${name} steps`, `${name} workflow`, `free ${name}`]],
+    [`${base}-examples`, `${name} Examples And Real-World Scenarios`, [`${name} examples`, `${name} use cases`, `${name} ideas`, `${name} template`, `${name} real scenarios`]],
     [`common-${base}-mistakes`, `Common ${name} Mistakes And How To Avoid Them`, [`${name} mistakes`, `${name} problems`, `fix ${name}`, `${name} errors`, `${name} troubleshooting`]],
-    [`${base}-examples`, `${name} Examples And Practical Use Cases`, [`${name} examples`, `${name} use cases`, `${name} ideas`, `${name} template`, `${name} workflow examples`]],
-    [`how-to-improve-${base}`, `How To Improve ${name}: A Practical Checklist`, [`how to improve ${name}`, `${name} optimization`, `${name} checklist`, `better ${name}`, `${name} strategy`]]
+    [`${base}-best-practices`, `${name} FAQ And Best Practices`, [`${name} best practices`, `${name} FAQ`, `${name} checklist`, `${name} tips`, `advanced ${name} advice`]]
   ];
-  const kinds = ["guide", "best-practices", "mistakes", "examples", "improve"];
-  return definitions.map(([slug, title, keywords], index) => ({ slug, title, keywords, kind: kinds[index], desc: index === 0 ? tool.desc : `${title} A straightforward look at what works, what to avoid, and what to check next.` }));
+  return definitions.map(([slug, title, keywords], index) => {
+    const kind = index === 0 ? "guide" : /examples/i.test(title) ? "examples" : /mistakes/i.test(title) ? "mistakes" : /best practices|SEO:/i.test(title) ? "best-practices" : "how-to";
+    return { slug, title, keywords, kind, desc: index === 0 ? tool.desc : clusterCardDescription({ kind }) };
+  });
 }
 
 function relatedTools(tool) {
@@ -175,14 +208,14 @@ function articleBody(tool, article) {
     "best-practices": `<p>Good ${esc(topic.toLowerCase())} work starts with accurate inputs and a clear reason for checking them. A few disciplined habits make the result easier to trust and act on.</p>`,
     mistakes: `<p>Most ${esc(topic.toLowerCase())} problems come from weak assumptions, missing context, or a result that never leads to a correction. These are the mistakes worth checking first.</p>`,
     examples: `<p>${esc(toolName)} can help at several points in a project. The examples below show where a quick check is useful and how to compare the result without muddying the decision.</p>`,
-    improve: `<p>Improving ${esc(topic.toLowerCase())} is easier when you keep a baseline, change one important variable, and compare the result. This checklist keeps that review focused.</p>`
+    "how-to": `<p>Use this process when you want to move from a rough input to a result you can explain and act on. Each step has a different job, so work through them in order.</p>`
   };
   const bodies = {
     guide: `<h2>What the tool helps you check</h2><p>${esc(toolName)} gives you a quick way to review ${esc(topic.toLowerCase())}. Use it when you have real inputs ready and need a clear result before you publish, quote, send, record, or launch.</p><h2>How to use it</h2><ol><li>Open <a href="/${tool.tool}/">${esc(toolName)}</a> and enter the information from the actual project.</li><li>Review the result and identify the one issue most likely to affect the outcome.</li><li>Change one input at a time so you can see what improves or weakens the result.</li><li>Save the final numbers or wording with your project notes.</li></ol><h2>What to do with the result</h2><p>Treat the output as a decision aid, not a guarantee. Compare it with the platform rules, client agreement, campaign brief, or business costs that apply to your situation. If the result exposes a weak assumption, correct that assumption before moving forward.</p>`,
-    "best-practices": `<h2>Start with real inputs</h2><p>Use current numbers, final draft copy, or the actual media file whenever possible. Placeholder information can hide the exact issue you are trying to catch.</p><h2>Check the result in context</h2><p>A technically correct result can still be a poor fit for a specific audience, platform, client, or offer. Review the output alongside the goal of the project and any constraints that cannot be changed.</p><h2>A short review checklist</h2><ul><li>Confirm that every input uses the same time period, currency, format, or platform context.</li><li>Test a conservative case as well as the expected case.</li><li>Look for the largest risk or constraint instead of polishing minor details first.</li><li>Run a final check after making changes.</li></ul>`,
+    "best-practices": `<h2>Quick answers</h2><h3>Should I use estimates or final numbers?</h3><p>Estimates are fine for an early comparison. Before committing to a price, plan, or published asset, replace them with the most current information available.</p><h3>How many versions should I test?</h3><p>Start with the expected case and one conservative alternative. Add another version only when it represents a decision you might realistically make.</p><h3>What matters most in the result?</h3><p>Focus on the finding that could change the decision. Minor differences are less useful than a clear issue with cost, clarity, timing, or fit.</p><h2>Best-practice checklist</h2><ul><li>Use inputs from the same time period, currency, format, and platform context.</li><li>Keep one variable fixed when comparing alternatives.</li><li>Check the result against client terms, platform rules, or actual business costs.</li><li>Run a final check after the draft or numbers change.</li></ul>`,
     mistakes: `<h2>Using guesses as final inputs</h2><p>Early estimates are useful for planning, but they should not quietly become final assumptions. Replace guesses with current project information before making a commitment.</p><h2>Changing several variables at once</h2><p>If everything changes between checks, you will not know what caused the result to move. Adjust one meaningful input, review the difference, and then continue.</p><h2>Ignoring the surrounding context</h2><p>${esc(topic)} does not exist in isolation. Platform limits, audience expectations, client terms, costs, and timing can all change what a good result looks like.</p><h2>Running the check but taking no action</h2><p>The useful part is the correction that follows. Update the draft, price, plan, asset, or agreement while the finding is still clear.</p>`,
     examples: `<h2>Use case: checking a draft</h2><p>Run the current version through ${esc(toolName)} before it is final. If the result shows a clear weakness, correct that issue first and compare the revised version.</p><h2>Use case: comparing two options</h2><p>Keep the shared inputs fixed and change only the option you are comparing. This makes the tradeoff easier to see and explain to a client, collaborator, or team member.</p><h2>Use case: testing a conservative scenario</h2><p>Lower the optimistic assumptions or allow for more time and cost. A plan that still works under a cautious scenario is usually easier to rely on.</p><h2>Use case: building a repeatable check</h2><p>Save the inputs and decision that worked. The next similar project can start with a tested reference instead of a blank page.</p>`,
-    improve: `<h2>Set a baseline first</h2><p>Record the current result before changing anything. A baseline keeps the review honest and shows whether the revision produced a meaningful improvement.</p><h2>Fix the biggest constraint</h2><p>Do not spread attention across every possible refinement. Find the issue most likely to affect clarity, cost, fit, or performance and address it first.</p><h2>Compare the revised result</h2><p>Run the same check again with the updated input. If the result barely changes, the adjustment may not be worth the added effort or complexity.</p><h2>Keep the final decision</h2><p>Save the selected version and a short note explaining why it won. That record makes future ${esc(topic.toLowerCase())} decisions faster and more consistent.</p>`
+    "how-to": `<h2>Step 1: prepare the real input</h2><p>Gather the current draft, numbers, dimensions, or project terms. Remove placeholders that would make the result look better or worse than the real situation.</p><h2>Step 2: run the first check</h2><p>Open <a href="/${tool.tool}/">${esc(toolName)}</a>, enter the information, and keep the first result as your baseline.</p><h2>Step 3: identify the deciding factor</h2><p>Find the one output most likely to change what you do next. That may be a limit, cost, rate, format issue, or weak assumption.</p><h2>Step 4: test one revision</h2><p>Change only the input connected to that factor, then run the check again. A single-variable comparison makes the effect easier to understand.</p><h2>Step 5: save the decision</h2><p>Keep the selected result with a short note explaining why it was chosen. You will have a useful reference when a similar ${esc(topic.toLowerCase())} decision comes up again.</p>`
   };
   return openings[article.kind] + bodies[article.kind];
 }
@@ -208,7 +241,7 @@ function header() {
 }
 
 function footer() {
-  return `<footer class="site-footer"><div class="footer-inner"><div><div class="footer-brand"><span class="logo-frame"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab footer logo"></span><span>AI Cash Lab Tools</span></div><p class="footer-copy">Simple business tools for freelancers, creators, and digital service providers.</p></div><div><span class="footer-title">Popular Tools</span><div class="footer-links"><a href="/caption-line-splitter/">Caption Line Splitter</a><a href="/free-invoice-generator/">Free Invoice Generator</a><a href="/scope-creep-calculator/">Scope Creep Calculator</a></div></div><div><span class="footer-title">Explore</span><div class="footer-links"><a href="/">All Tools</a><a href="/creator-utilities/">Creator Utilities</a><a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener">Storefront Hub &rarr;</a></div></div></div><div class="copyright">&copy; 2026 AI Cash Lab. All Rights Reserved.</div></footer>`;
+  return standardFooterHtml;
 }
 
 function schemaJson(value) {
@@ -217,6 +250,9 @@ function schemaJson(value) {
 
 function articleHtml(tool, article, cluster, audit) {
   const toolName = titleFromSlug(tool.tool);
+  const articleIndex = cluster.findIndex((item) => item.slug === article.slug);
+  const previousArticle = articleIndex > 0 ? cluster[articleIndex - 1] : null;
+  const nextArticle = articleIndex < cluster.length - 1 ? cluster[articleIndex + 1] : null;
   const url = `${site}/articles/${article.slug}/`;
   const meta = article.desc.length > 155 ? `${article.desc.slice(0, 152)}...` : article.desc;
   const schema = {
@@ -246,20 +282,21 @@ ${tracking}
 <meta name="keywords" content="${esc(article.keywords.join(", "))}">
 <link rel="canonical" href="${url}">
 <script type="application/ld+json">${schemaJson(schema)}</script>
-<style>${css}${metaCss}</style>
+<style>${css}${metaCss}${articleEnhancementCss}${standardFooterCss}</style>
 </head>
 <body>
 ${header()}
 <main class="shell">
   <div class="breadcrumb"><a href="/articles/">Articles</a> / ${esc(toolName)}</div>
   <section class="hero"><div class="kicker">${esc(toolName)} Guide</div><h1>${esc(article.title)}</h1><p>${esc(article.desc)}</p></section>
-  <div class="article-meta"><span>3 min read</span><span class="meta-dot" aria-hidden="true"></span><a href="/${tool.tool}/">${toolIcon()}Uses: ${esc(toolName)}</a></div>
-  <aside class="tool-cta" aria-label="Try the free ${esc(toolName)}"><div><span class="tool-cta-label">Try the Free Tool</span><strong>${esc(toolName)}</strong><p>${esc(toolCtaDescription(tool))}</p></div><a href="/${tool.tool}/">Launch Free Tool &rarr;</a></aside>
+  <div class="article-meta"><span aria-label="Estimated reading time">&#128214; 3 min read</span><a href="/${tool.tool}/">&#128736; Uses: ${esc(toolName)}</a><span>&#128197; Updated July 2026</span></div>
+  <aside class="tool-cta" aria-label="Try the free ${esc(toolName)}"><div class="tool-cta-copy"><span class="tool-cta-label">Try the Free Tool</span><strong>${esc(toolCtaHeadline(tool))}</strong><p>Use the free ${esc(toolName)} to ${esc(toolCtaDescription(tool).replace(/^[A-Z]/, (letter) => letter.toLowerCase()))}</p></div><a href="/${tool.tool}/">${esc(toolLaunchLabel(tool))} &rarr;</a></aside>
   <article class="article">
     ${articleBody(tool, article)}
     <div class="cta"><strong>Use the related free tool:</strong><p>${esc(toolName)} helps you apply this guide directly in your browser.</p><a href="/${tool.tool}/">Open ${esc(toolName)} &rarr;</a></div>
-    <section class="cluster-links"><h2>More ${esc(topicName(tool))} Guides</h2><ul>${cluster.filter((item) => item.slug !== article.slug).map((item) => `<li><a href="/articles/${item.slug}/">${esc(item.title)}</a></li>`).join("")}</ul><h2>Related Free Tools</h2><ul>${relatedTools(tool).map((item) => `<li><a href="/${item.tool}/">${esc(titleFromSlug(item.tool))}</a></li>`).join("")}</ul></section>
+    <section class="cluster-links"><h2>Continue Reading</h2><div class="cluster-card-grid">${cluster.filter((item) => item.slug !== article.slug).map((item) => `<a class="cluster-card" href="/articles/${item.slug}/"><div><strong>${esc(item.title)}</strong><p>${esc(clusterCardDescription(item))}</p></div><span>Read Guide &rarr;</span></a>`).join("")}</div><h2>Related Free Tools</h2><ul class="related-tools-list">${relatedTools(tool).map((item) => `<li><a href="/${item.tool}/">${esc(titleFromSlug(item.tool))}</a></li>`).join("")}</ul></section>
     <section class="faq"><h2>FAQ</h2><h3>Is ${esc(toolName)} free?</h3><p>Yes. It runs in the browser and does not require an account.</p><h3>When should I use it?</h3><p>Use it when you have enough real information to compare options or check a draft, but before the work is final.</p><h3>Should I keep the result?</h3><p>Keep it with the project when the inputs or decision may be useful again.</p></section>
+    <nav class="guide-sequence" aria-label="Guide sequence">${previousArticle ? `<a class="sequence-link previous" href="/articles/${previousArticle.slug}/"><span class="sequence-label">&larr; Previous Guide</span><span class="sequence-title">${esc(previousArticle.title)}</span></a>` : `<span></span>`}${nextArticle ? `<a class="sequence-link next" href="/articles/${nextArticle.slug}/"><span class="sequence-label">Next Guide &rarr;</span><span class="sequence-title">${esc(nextArticle.title)}</span></a>` : ""}</nav>
   </article>
 </main>
 ${footer()}
@@ -283,7 +320,7 @@ ${tracking}
 <meta name="description" content="Practical guides for AI Cash Lab free tools, including calculators, formatters, safe-zone checkers, and creator workflow utilities.">
 <link rel="canonical" href="${site}/articles/">
 <script type="application/ld+json">${schemaJson(schema)}</script>
-<style>${indexCss}</style>
+<style>${indexCss}${standardFooterCss}</style>
 </head>
 <body>
 ${header()}
