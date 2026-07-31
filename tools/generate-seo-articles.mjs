@@ -290,7 +290,7 @@ async function loadAudit() {
 }
 
 function header() {
-  return `<header class="site-header"><div class="header-inner"><a class="brand" href="/" aria-label="AI Cash Lab Tools homepage"><span class="logo-frame"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab logo"></span><span class="brand-copy"><strong>AI Cash Lab</strong><small>Utility Ecosystem</small></span></a><nav class="nav" aria-label="Site navigation"><a href="/">All Tools</a><a href="/creator-utilities/">Creator Utilities</a><a href="/articles/">Articles</a><a class="store" href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener">Storefront &rarr;</a></nav></div></header>`;
+  return `<header class="site-header"><div class="header-inner"><a class="brand" href="/" aria-label="AI Cash Lab Tools homepage"><span class="logo-frame"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab logo"></span><span class="brand-copy"><strong>AI Cash Lab</strong><small>Utility Ecosystem</small></span></a><nav class="nav" aria-label="Site navigation"><a href="/">All Tools</a><a href="/creator-utilities/">Creator Utilities</a><a href="/freelancer-utilities/">Freelancer Utilities</a><a href="/articles/">Articles</a><a class="store" href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener">Storefront &rarr;</a></nav></div></header>`;
 }
 
 function footer() {
@@ -381,7 +381,7 @@ ${tracking}
 ${header()}
 <main class="shell">
   <section class="hero"><div class="kicker">Guides</div><h1>Creator And Freelancer Guides</h1><p>Practical guides for every free AI Cash Lab tool, built to help you make faster decisions, clean up workflows, and apply each tool with more confidence.</p></section>
-  <section class="article-group"><div class="group-heading"><h2>Free Tool Guides</h2><p>53 primary guides. Each guide links to four focused supporting articles.</p></div><div class="grid">${sections}</div></section>
+  <section class="article-group"><div class="group-heading"><h2>Free Tool Guides</h2></div><div class="grid">${sections}</div></section>
 </main>
 ${footer()}
 </body>
