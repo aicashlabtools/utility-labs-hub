@@ -54,7 +54,7 @@
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creator Sponsorship Rate Calculator | Free Brand Deal Pricing Tool</title>
-    <meta name="description" content="Calculate creator sponsorship rates for TikTok, Instagram, YouTube, newsletters, podcasts, usage rights, paid ads, exclusivity, and rush delivery.">
+    <meta name="description" content="Free creator sponsorship and influencer rate calculator for Instagram, YouTube, TikTok, newsletters, and podcasts. Estimate brand-deal pricing, usage rights, paid ads, exclusivity, and rush fees.">
     <link rel="canonical" href="https://aicashlabtools.com/creator-sponsorship-rate-calculator/">
     <meta property="og:title" content="Creator Sponsorship Rate Calculator">
     <meta property="og:description" content="Estimate fair brand-deal pricing from audience size, engagement, platform, deliverables, usage rights, paid ads, exclusivity, and production complexity.">
@@ -82,6 +82,8 @@
         input[type="range"] { accent-color: #E5A93C; }
         textarea { resize: vertical; }
         .choice.is-active { border-color: rgba(229,169,60,.82); background: rgba(229,169,60,.15); color:#fff; box-shadow: 0 0 0 1px rgba(229,169,60,.25); }
+        .preset.is-active { border-color: rgba(229,169,60,.82); background: rgba(229,169,60,.15); color:#fff; }
+        .proposal-highlight { color:#fff; font-weight:800; }
         .output-copy { white-space: pre-wrap; }
         .field { background:#020617; border:1px solid #1f2937; border-radius:.5rem; color:#fff; font-size:.875rem; padding:.6rem .7rem; width:100%; outline:none; }
         .field:focus { border-color:#3B82F6; box-shadow:0 0 0 1px rgba(59,130,246,.25); }
@@ -136,8 +138,8 @@
         </div>
     </section>
 
-    <main class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
-        <section class="lg:col-span-7 bg-brandCard border border-gray-800 rounded-xl p-6">
+    <main class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-8">
+        <section class="bg-brandCard border border-gray-800 rounded-xl p-5 h-full">
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-gray-800 pb-3 mb-5">
                 <div>
                     <h2 class="font-bold tracking-wide text-sm uppercase text-gray-300">Sponsorship Parameters</h2>
@@ -149,42 +151,41 @@
                 </div>
             </div>
 
-            <div class="mb-6">
+            <div class="mb-5">
                 <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-3">Primary Platform</h3>
                 <div id="platformChoices" class="grid grid-cols-2 md:grid-cols-3 gap-3"></div>
                 <p id="platformDescription" class="text-[11px] text-brandTextMuted mt-2"></p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <label><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Audience Size</span><input id="audienceSize" type="number" min="100" max="50000000" class="field mt-2" value="25000"></label>
-                <label><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Engagement Rate (%)</span><input id="engagementRate" type="number" min="0.1" max="100" step="0.1" class="field mt-2" value="4.5"></label>
+                <div><label><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Audience Size</span><input id="audienceSize" type="number" min="100" max="50000000" class="field mt-2" value="25000"></label><div class="flex flex-wrap gap-2 mt-2" id="audiencePresets"></div></div>
+                <div><label><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Engagement Rate (%)</span><input id="engagementRate" type="number" min="0.1" max="100" step="0.1" class="field mt-2" value="4.5"></label><input id="engagementSlider" type="range" min="0.1" max="10" step="0.1" value="4.5" class="w-full mt-3" aria-label="Engagement rate slider"><div id="engagementPresets" class="flex flex-wrap gap-1.5 mt-2"></div></div>
             </div>
-            <div class="flex flex-wrap gap-2 mt-3" id="audiencePresets"></div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
                 <label><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Creator Niche</span><select id="niche" class="field mt-2"></select></label>
                 <label><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Primary Deliverable</span><select id="deliverable" class="field mt-2"></select></label>
                 <label><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Number of Deliverables</span><input id="quantity" type="number" min="1" max="10" class="field mt-2" value="1"></label>
                 <label><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Production Complexity</span><select id="production" class="field mt-2"></select></label>
                 <label><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Usage Rights</span><select id="usageRights" class="field mt-2"></select></label>
                 <label><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Paid Advertising Rights</span><select id="paidAds" class="field mt-2"></select></label>
-                <label><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Category Exclusivity</span><select id="exclusivity" class="field mt-2"></select></label>
+                <label><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Industry Exclusivity</span><select id="exclusivity" class="field mt-2"></select></label>
                 <label><span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Turnaround Speed</span><select id="turnaround" class="field mt-2"></select></label>
             </div>
-            <button type="button" id="calculateBtn" class="mt-6 w-full bg-brandGold hover:bg-brandGoldHover text-brandDark font-extrabold text-xs tracking-wide uppercase py-3 rounded-lg transition">Calculate Sponsorship Rate</button>
+            <button type="button" id="calculateBtn" class="mt-5 w-full bg-brandGold hover:bg-brandGoldHover text-brandDark font-extrabold text-xs tracking-wide uppercase py-3 rounded-lg transition">Calculate Sponsorship Rate</button>
         </section>
 
-        <aside class="lg:col-span-5 space-y-6">
-            <section class="bg-brandCard border border-brandGold/30 rounded-xl p-6 lg:sticky lg:top-6">
+        <aside class="flex flex-col gap-6 h-full">
+            <section class="bg-brandCard border border-brandGold/30 rounded-xl p-6 flex-1">
                 <div class="text-center border-b border-gray-800 pb-5">
                     <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Recommended Campaign Rate</span>
-                    <p id="recommendedRate" class="text-5xl md:text-6xl font-black text-white mt-2">$0</p>
+                    <p id="recommendedRate" class="text-6xl md:text-7xl font-black text-white mt-3 tracking-tight">$0</p>
                     <p id="rateContext" class="text-xs text-brandTextMuted mt-2"></p>
+                    <p class="max-w-md mx-auto text-[11px] leading-relaxed text-slate-400 mt-4">Estimated using audience size, engagement rate, deliverables, commercial rights, and industry pricing heuristics. Actual brand budgets vary.</p>
                 </div>
-                <div class="grid grid-cols-3 gap-3 mt-5 text-center">
-                    <div class="rounded-lg border border-gray-800 bg-slate-950 p-3"><span class="text-[9px] uppercase tracking-widest text-slate-500 font-bold">Minimum</span><p id="minimumRate" class="text-sm font-bold text-slate-200 mt-1">$0</p></div>
-                    <div class="rounded-lg border border-brandGold/25 bg-brandGold/10 p-3"><span class="text-[9px] uppercase tracking-widest text-brandGold font-bold">Target</span><p id="targetRate" class="text-sm font-extrabold text-white mt-1">$0</p></div>
-                    <div class="rounded-lg border border-gray-800 bg-slate-950 p-3"><span class="text-[9px] uppercase tracking-widest text-slate-500 font-bold">Premium</span><p id="premiumRate" class="text-sm font-bold text-amber-300 mt-1">$0</p></div>
+                <div class="mt-5 text-center rounded-xl border border-brandGold/25 bg-brandGold/10 p-4">
+                    <span class="text-[10px] uppercase tracking-widest text-brandGold font-bold">Suggested Range</span>
+                    <p id="suggestedRange" class="text-2xl md:text-3xl font-extrabold text-white mt-1">$0 — $0</p>
                 </div>
                 <div class="mt-5 rounded-lg border border-brandBlue/25 bg-brandBlue/10 p-4">
                     <span id="negotiationStatus" class="text-[10px] font-bold uppercase tracking-widest text-brandBlue">Ready to Pitch</span>
@@ -194,12 +195,18 @@
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brandGold mb-3">Rate Breakdown</h3>
                     <div id="breakdownList" class="space-y-2 text-xs"></div>
                 </div>
+                <p class="mt-4 text-[11px] leading-relaxed text-slate-500">Planning estimate only. Actual sponsorship pricing also varies by audience quality, geography, content performance, production requirements, and negotiation terms.</p>
+            </section>
+            <section class="bg-brandCard border border-gray-800 rounded-xl p-5">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Campaign Add-ons</span>
+                <h2 class="text-xl font-extrabold text-white mt-1">Add optional pricing.</h2>
+                <div id="addonsList" class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
             </section>
         </aside>
     </main>
 
-    <section class="max-w-7xl mx-auto px-4 mb-16 grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <article class="bg-brandCard border border-gray-800 rounded-xl p-6 lg:col-span-2">
+    <section class="max-w-7xl mx-auto px-4 mb-16">
+        <article class="bg-brandCard border border-gray-800 rounded-xl p-6">
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <div>
                     <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Ready-To-Send Brand Proposal</span>
@@ -207,15 +214,10 @@
                 </div>
                 <div class="flex gap-2">
                     <button type="button" id="copyQuoteBtn" class="text-xs font-bold uppercase tracking-wide text-brandGold hover:text-white bg-brandGold/10 border border-brandGold/40 rounded px-4 py-2 transition">Copy Proposal</button>
-                    <button type="button" id="downloadQuoteBtn" class="text-xs font-bold uppercase tracking-wide text-slate-200 hover:text-white bg-slate-950 border border-gray-800 rounded px-4 py-2 transition">Download TXT</button>
+                    <button type="button" id="downloadQuoteBtn" class="text-xs font-bold uppercase tracking-wide text-slate-400 hover:text-slate-200 bg-black/30 border border-gray-900 rounded px-4 py-2 transition">Download TXT</button>
                 </div>
             </div>
-            <textarea id="proposalText" class="mt-5 w-full h-80 bg-slate-950 border border-gray-800 rounded-xl p-5 text-xs leading-relaxed text-slate-300 focus:outline-none focus:border-brandBlue"></textarea>
-        </article>
-        <article class="bg-brandCard border border-gray-800 rounded-xl p-6">
-            <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Campaign Add-ons</span>
-            <h2 class="text-2xl font-extrabold text-white mt-2">Price common upsells.</h2>
-            <div id="addonsList" class="mt-5 space-y-3"></div>
+            <div id="proposalText" class="output-copy mt-5 w-full min-h-[380px] bg-slate-950 border border-gray-800 rounded-xl p-5 text-sm md:text-base leading-relaxed text-slate-300" tabindex="0" aria-label="Generated sponsorship proposal"></div>
         </article>
     </section>
 
@@ -227,13 +229,13 @@
         </article>
         <article class="bg-brandCard border border-gray-800 rounded-xl p-6">
             <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Payment Terms</span>
-            <h2 class="text-xl font-extrabold text-white mt-2">Ask for a 50% deposit.</h2>
-            <p class="text-sm text-brandTextMuted leading-relaxed mt-3">A deposit protects production time and makes brand campaigns feel professional before scripting, filming, or editing starts.</p>
+            <h2 id="paymentAdviceTitle" class="text-xl font-extrabold text-white mt-2">Ask for a 50% deposit.</h2>
+            <p id="paymentAdviceText" class="text-sm text-brandTextMuted leading-relaxed mt-3">A deposit protects production time and makes brand campaigns feel professional before scripting, filming, or editing starts.</p>
         </article>
         <article class="bg-brandCard border border-gray-800 rounded-xl p-6">
             <span class="text-[10px] font-bold uppercase tracking-widest text-brandGold">Negotiation Rule</span>
-            <h2 class="text-xl font-extrabold text-white mt-2">Use the minimum rate privately.</h2>
-            <p class="text-sm text-brandTextMuted leading-relaxed mt-3">Pitch from the recommended or premium rate. Treat the minimum as your internal walkaway floor, not the first number you send.</p>
+            <h2 id="negotiationAdviceTitle" class="text-xl font-extrabold text-white mt-2">Use the minimum rate privately.</h2>
+            <p id="negotiationAdviceText" class="text-sm text-brandTextMuted leading-relaxed mt-3">Pitch from the recommended or premium rate. Treat the minimum as your internal walkaway floor, not the first number you send.</p>
         </article>
     </section>
 
@@ -274,6 +276,7 @@
         <div class="bg-brandCard border border-gray-800 rounded-xl p-6">
             <h2 class="text-2xl font-extrabold text-white">FAQ</h2>
             <div class="mt-5 space-y-5">
+                <div><h3 class="font-bold text-white">How does this influencer rate calculator work?</h3><p class="text-sm text-brandTextMuted mt-1">It combines audience size, engagement, platform, production effort, deliverables, and licensing terms to estimate Instagram, YouTube, TikTok, newsletter, and podcast sponsorship pricing.</p></div>
                 <div><h3 class="font-bold text-white">How much should creators charge for sponsorships?</h3><p class="text-sm text-brandTextMuted mt-1">Start with platform CPM, audience size, engagement, niche value, deliverables, production complexity, and commercial rights, then compare the recommended rate against brand budget and creator demand.</p></div>
                 <div><h3 class="font-bold text-white">Should usage rights cost extra?</h3><p class="text-sm text-brandTextMuted mt-1">Yes. Organic posting is different from allowing the brand to reuse your content on its own website, social channels, emails, or ads.</p></div>
                 <div><h3 class="font-bold text-white">What are paid advertising rights?</h3><p class="text-sm text-brandTextMuted mt-1">Paid advertising rights let a brand run your sponsored content as paid media, such as whitelisting, dark posts, or Spark Ads. That should be priced separately.</p></div>
@@ -321,9 +324,17 @@
         const PAID_ADS = { none:{name:'No Paid Advertising',premium:0.00}, '30day':{name:'30 Days',premium:0.25}, '90day':{name:'90 Days',premium:0.45}, '6month':{name:'6 Months',premium:0.75} };
         const EXCLUSIVITIES = { none:{name:'None',premium:0.00}, '30day':{name:'30 Days',premium:0.20}, '90day':{name:'90 Days',premium:0.40}, '6month':{name:'6 Months',premium:0.70} };
         const TURNAROUNDS = { standard:{name:'Standard',premium:0.00}, '7day':{name:'Within 7 Days',premium:0.10}, '72hr':{name:'Within 72 Hours',premium:0.25}, '24hr':{name:'Within 24 Hours',premium:0.50} };
+        const ADDONS = {
+            revision:{name:'Additional revision',premium:0.12},
+            rush:{name:'Rush delivery',premium:0.30},
+            raw:{name:'Raw footage',premium:0.35},
+            paidExtension:{name:'Paid-ad extension',premium:0.25},
+            exclusivityExtension:{name:'Exclusivity extension',premium:0.30}
+        };
         const DEFAULTS = { platform:'instagram', audienceSize:25000, engagementRate:4.5, niche:'lifestyle', deliverable:'feed_post', quantity:1, production:'standard', usageRights:'organic', paidAds:'none', exclusivity:'none', turnaround:'standard' };
         const SAMPLE = { platform:'tiktok', audienceSize:25000, engagementRate:5.8, niche:'tech', deliverable:'short_video', quantity:1, production:'custom', usageRights:'30day', paidAds:'none', exclusivity:'none', turnaround:'standard' };
         let state = Object.assign({}, DEFAULTS);
+        let selectedAddons = {};
         function money(v){ return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(v || 0); }
         function roundToNearest(val){ if(val < 100) return Math.round(val/5)*5; if(val < 1000) return Math.round(val/10)*10; return Math.round(val/25)*25; }
         function options(obj, withPremium){ return Object.keys(obj).map(key => `<option value="${key}">${obj[key].name}${withPremium && obj[key].premium ? ' (+' + Math.round(obj[key].premium * 100) + '%)' : obj[key].multiplier ? ' (x' + obj[key].multiplier.toFixed(2) + ')' : ''}</option>`).join(''); }
@@ -344,13 +355,31 @@
             const paidAdFee = totalBaseRate * PAID_ADS[state.paidAds].premium;
             const exclusivityFee = totalBaseRate * EXCLUSIVITIES[state.exclusivity].premium;
             const rushFee = totalBaseRate * TURNAROUNDS[state.turnaround].premium;
-            const recommendedRate = roundToNearest(totalBaseRate + usageFee + paidAdFee + exclusivityFee + rushFee);
+            const campaignSubtotal = totalBaseRate + usageFee + paidAdFee + exclusivityFee + rushFee;
+            const addonFees = Object.keys(ADDONS).reduce((fees, key) => { fees[key] = selectedAddons[key] ? campaignSubtotal * ADDONS[key].premium : 0; return fees; }, {});
+            const addonsTotal = Object.values(addonFees).reduce((sum, fee) => sum + fee, 0);
+            const recommendedRate = roundToNearest(campaignSubtotal + addonsTotal);
             const minimumRate = roundToNearest(recommendedRate * 0.72);
             const premiumRate = roundToNearest(recommendedRate * 1.38);
-            return { recommendedRate, minimumRate, premiumRate, breakdown:{ baseRateForPlatform:Math.round(baseRateForPlatform), engagementAdjustment:Math.round(baseRateForPlatform * (engagementFactor - 1)), nicheAdjustment:Math.round((baseRateForPlatform * engagementFactor) * (nicheFactor - 1)), deliverableAdjustment:Math.round((baseRateForPlatform * engagementFactor * nicheFactor) * (deliverableFactor - 1)), productionAdjustment:Math.round((baseRateForPlatform * engagementFactor * nicheFactor * deliverableFactor) * (productionFactor - 1)), totalBaseRate:Math.round(totalBaseRate), usageFee:Math.round(usageFee), paidAdFee:Math.round(paidAdFee), exclusivityFee:Math.round(exclusivityFee), rushFee:Math.round(rushFee), quantity } };
+            return { recommendedRate, minimumRate, premiumRate, campaignSubtotal, addonFees, addonsTotal, breakdown:{ baseRateForPlatform:Math.round(baseRateForPlatform), engagementAdjustment:Math.round(baseRateForPlatform * (engagementFactor - 1)), nicheAdjustment:Math.round((baseRateForPlatform * engagementFactor) * (nicheFactor - 1)), deliverableAdjustment:Math.round((baseRateForPlatform * engagementFactor * nicheFactor) * (deliverableFactor - 1)), productionAdjustment:Math.round((baseRateForPlatform * engagementFactor * nicheFactor * deliverableFactor) * (productionFactor - 1)), totalBaseRate:Math.round(totalBaseRate), usageFee:Math.round(usageFee), paidAdFee:Math.round(paidAdFee), exclusivityFee:Math.round(exclusivityFee), rushFee:Math.round(rushFee), quantity } };
         }
-        function proposal(r){
-            return `Hi,\n\nThanks for reaching out regarding a potential partnership.\n\nBased on the campaign requirements discussed, here is my proposed sponsorship package for ${PLATFORMS[state.platform].name}:\n\n- Deliverables: ${state.quantity}x ${DELIVERABLES[state.deliverable].name} (${PRODUCTIONS[state.production].name})\n- Organic Usage Rights: ${USAGE_RIGHTS[state.usageRights].name}\n- Paid Advertising Rights: ${PAID_ADS[state.paidAds].name}\n- Category Exclusivity: ${EXCLUSIVITIES[state.exclusivity].name}\n- Turnaround Timeline: ${TURNAROUNDS[state.turnaround].name}\n\nCampaign Proposal Fee: ${money(r.recommendedRate)} USD\nSuggested terms: 50% deposit (${money(r.recommendedRate * 0.5)} USD) due upfront to secure production slot, with the 50% balance (${money(r.recommendedRate * 0.5)} USD) paid upon final publication.\n\nThis includes one formal round of minor revisions. Raw footage, paid advertising rights, whitelisting, or long-term exclusivity can be added separately if requested.\n\nBest,`;
+        function proposal(r, asHtml){
+            const rush = state.turnaround !== 'standard' || selectedAddons.rush;
+            const depositPercent = rush ? .6 : .5;
+            const activeAddons = Object.keys(ADDONS).filter(key => selectedAddons[key]).map(key => ADDONS[key].name).join(', ') || 'None selected';
+            const rows = [
+                ['text','Hi,'], ['blank',''], ['text','Thanks for reaching out regarding a potential partnership.'], ['blank',''],
+                ['text',`Based on the campaign requirements discussed, here is my proposed sponsorship package for ${PLATFORMS[state.platform].name}:`], ['blank',''],
+                ['highlight',`Deliverables: ${state.quantity}x ${DELIVERABLES[state.deliverable].name} (${PRODUCTIONS[state.production].name})`],
+                ['highlight',`Included rights: ${USAGE_RIGHTS[state.usageRights].name}; paid advertising: ${PAID_ADS[state.paidAds].name}; industry exclusivity: ${EXCLUSIVITIES[state.exclusivity].name}`],
+                ['text',`Turnaround: ${TURNAROUNDS[state.turnaround].name}`], ['text',`Optional add-ons: ${activeAddons}`], ['blank',''],
+                ['highlight',`Campaign proposal fee: ${money(r.recommendedRate)} USD`],
+                ['highlight',`Deposit due (${Math.round(depositPercent * 100)}%): ${money(r.recommendedRate * depositPercent)} USD`],
+                ['highlight',`Remaining balance: ${money(r.recommendedRate * (1 - depositPercent))} USD`], ['blank',''],
+                ['text','This includes one formal round of minor revisions unless an additional revision add-on is selected. Licensing and exclusivity are priced only for the terms listed above.'], ['blank',''], ['text','Best,']
+            ];
+            if(!asHtml) return rows.map(row => row[1]).join('\n');
+            return rows.map(row => row[0] === 'highlight' ? `<span class="proposal-highlight">${row[1]}</span>` : row[1]).join('\n');
         }
         function negotiation(r){
             const p = PLATFORMS[state.platform];
@@ -366,26 +395,44 @@
         function render(){
             readState();
             document.querySelectorAll('[data-platform]').forEach(btn => btn.classList.toggle('is-active', btn.dataset.platform === state.platform));
+            document.querySelectorAll('[data-audience]').forEach(btn => btn.classList.toggle('is-active', Number(btn.dataset.audience) === state.audienceSize));
+            document.querySelectorAll('[data-engagement]').forEach(btn => btn.classList.toggle('is-active', Number(btn.dataset.engagement) === state.engagementRate));
+            document.getElementById('engagementSlider').value = Math.min(10, state.engagementRate);
             document.getElementById('platformDescription').textContent = PLATFORMS[state.platform].description;
             const r = calculate();
             document.getElementById('recommendedRate').textContent = money(r.recommendedRate);
-            document.getElementById('minimumRate').textContent = money(r.minimumRate);
-            document.getElementById('targetRate').textContent = money(r.recommendedRate);
-            document.getElementById('premiumRate').textContent = money(r.premiumRate);
+            document.getElementById('suggestedRange').textContent = `${money(r.minimumRate)} — ${money(r.premiumRate)}`;
             document.getElementById('rateContext').textContent = `Suggested starting proposal for this ${state.quantity > 1 ? state.quantity + '-deliverable' : 'single-deliverable'} package.`;
             const n = negotiation(r);
             document.getElementById('negotiationStatus').textContent = n[0];
             document.getElementById('negotiationExplanation').textContent = n[1];
             const b = r.breakdown;
-            const lines = [['Base Platform Rate', money(b.baseRateForPlatform)], ['Engagement Adjustment', (b.engagementAdjustment >= 0 ? '+' : '') + money(b.engagementAdjustment)], ['Niche Adjustment', b.nicheAdjustment ? '+' + money(b.nicheAdjustment) : 'Included'], ['Deliverable Adjustment', b.deliverableAdjustment ? (b.deliverableAdjustment > 0 ? '+' : '') + money(b.deliverableAdjustment) : 'Standard'], ['Production Adjustment', b.productionAdjustment ? (b.productionAdjustment > 0 ? '+' : '') + money(b.productionAdjustment) : 'Included'], ['Base Content Fee', money(b.totalBaseRate)], ['Usage Rights', b.usageFee ? '+' + money(b.usageFee) : 'Included'], ['Paid Ads', b.paidAdFee ? '+' + money(b.paidAdFee) : 'None'], ['Exclusivity', b.exclusivityFee ? '+' + money(b.exclusivityFee) : 'None'], ['Rush Fee', b.rushFee ? '+' + money(b.rushFee) : 'None']];
+            const audienceDetail = `${money(b.baseRateForPlatform)} base · ${b.engagementAdjustment >= 0 ? '+' : ''}${money(b.engagementAdjustment)} engagement`;
+            const lines = [
+                ['Audience', audienceDetail],
+                ['Creative Package', money(b.totalBaseRate)],
+                ['Usage Rights', b.usageFee ? '+' + money(b.usageFee) : 'Included'],
+                ['Paid Ads', b.paidAdFee ? '+' + money(b.paidAdFee) : 'None'],
+                ['Industry Exclusivity', b.exclusivityFee ? '+' + money(b.exclusivityFee) : 'None'],
+                ['Rush', b.rushFee ? '+' + money(b.rushFee) : 'None'],
+                ['Add-ons', r.addonsTotal ? '+' + money(r.addonsTotal) : 'None']
+            ];
             document.getElementById('breakdownList').innerHTML = lines.map(row => `<div class="flex justify-between gap-3 border-b border-gray-800 pb-2"><span class="text-slate-400">${row[0]}</span><strong class="text-white font-mono">${row[1]}</strong></div>`).join('');
-            document.getElementById('proposalText').value = proposal(r);
-            const addons = [['Additional Revision Round', r.recommendedRate * .12], ['24-Hour Rush Spec', r.recommendedRate * .50], ['Raw Footage Delivery', r.recommendedRate * .35], ['30-Day Paid Ad Sublicense', r.recommendedRate * .25], ['90-Day Brand Usage Extension', r.recommendedRate * .30]];
-            document.getElementById('addonsList').innerHTML = addons.map(a => `<div class="rounded-lg border border-gray-800 bg-slate-950 p-3 flex justify-between gap-3"><span class="text-xs text-slate-300">${a[0]}</span><strong class="text-brandGold font-mono text-xs">+${money(roundToNearest(a[1]))}</strong></div>`).join('');
+            document.getElementById('proposalText').innerHTML = proposal(r, true);
+            document.getElementById('addonsList').innerHTML = Object.keys(ADDONS).map(key => `<label class="cursor-pointer rounded-lg border ${selectedAddons[key] ? 'border-brandGold bg-brandGold/10' : 'border-gray-800 bg-slate-950'} p-4 flex items-center justify-between gap-4"><span class="flex items-center gap-2"><input type="checkbox" data-addon="${key}" ${selectedAddons[key] ? 'checked' : ''}><span class="text-xs text-slate-200">${ADDONS[key].name}</span></span><strong class="text-brandGold font-mono text-xs">+${money(roundToNearest(r.campaignSubtotal * ADDONS[key].premium))}</strong></label>`).join('');
+            document.querySelectorAll('[data-addon]').forEach(input => input.addEventListener('change', () => { selectedAddons[input.dataset.addon] = input.checked; render(); }));
+            const rush = state.turnaround !== 'standard' || selectedAddons.rush;
+            document.getElementById('paymentAdviceTitle').textContent = rush ? 'Request a 60% rush deposit.' : 'Ask for a 50% deposit.';
+            document.getElementById('paymentAdviceText').textContent = rush ? 'Compressed timelines reserve immediate production capacity, so collect a larger upfront deposit before work begins.' : 'A deposit protects production time and makes brand campaigns feel professional before scripting, filming, or editing starts.';
+            const paid = state.paidAds !== 'none' || selectedAddons.paidExtension;
+            const exclusive = state.exclusivity !== 'none' || selectedAddons.exclusivityExtension;
+            document.getElementById('negotiationAdviceTitle').textContent = exclusive ? 'Price lost brand opportunities.' : paid ? 'Separate creative and licensing.' : 'Use the minimum rate privately.';
+            document.getElementById('negotiationAdviceText').textContent = exclusive ? 'Industry exclusivity can block competing-brand income. Charge for that opportunity cost and limit the term in writing.' : paid ? 'Paid advertising creates extra commercial value. Show the content fee and advertising license as separate line items.' : 'Pitch from the recommended or premium rate. Treat the minimum as your internal walkaway floor, not the first number you send.';
         }
         function init(){
             document.getElementById('platformChoices').innerHTML = Object.keys(PLATFORMS).map(id => `<button type="button" data-platform="${id}" class="choice rounded-lg border border-gray-800 bg-slate-950 p-3 text-sm font-bold text-slate-300 hover:border-brandGold transition">${PLATFORMS[id].name}</button>`).join('');
-            document.getElementById('audiencePresets').innerHTML = [10000,25000,50000,100000,250000,500000].map(v => `<button type="button" data-audience="${v}" class="rounded bg-slate-950 border border-gray-800 px-2 py-1 text-[10px] font-bold text-slate-400 hover:text-white hover:border-brandGold">${v/1000}k</button>`).join('');
+            document.getElementById('audiencePresets').innerHTML = [10000,25000,50000,100000,250000,500000].map(v => `<button type="button" data-audience="${v}" class="preset rounded bg-slate-950 border border-gray-800 px-2 py-1 text-[10px] font-bold text-slate-400 hover:text-white hover:border-brandGold">${v/1000}k</button>`).join('');
+            document.getElementById('engagementPresets').innerHTML = [1,3,5,8,10].map(v => `<button type="button" data-engagement="${v}" class="preset rounded bg-slate-950 border border-gray-800 px-2 py-1 text-[10px] font-bold text-slate-400 hover:text-white hover:border-brandGold">${v}${v === 10 ? '%+' : '%'}</button>`).join('');
             document.getElementById('niche').innerHTML = options(NICHES);
             document.getElementById('deliverable').innerHTML = options(DELIVERABLES);
             document.getElementById('production').innerHTML = options(PRODUCTIONS);
@@ -396,12 +443,14 @@
             Object.keys(DEFAULTS).forEach(key => { if(document.getElementById(key)) document.getElementById(key).value = DEFAULTS[key]; });
             document.querySelectorAll('[data-platform]').forEach(btn => btn.addEventListener('click', () => { state.platform = btn.dataset.platform; render(); }));
             document.querySelectorAll('[data-audience]').forEach(btn => btn.addEventListener('click', () => { document.getElementById('audienceSize').value = btn.dataset.audience; render(); }));
-            document.querySelectorAll('input, select').forEach(el => { el.addEventListener('input', render); el.addEventListener('change', render); });
-            document.getElementById('sampleBtn').addEventListener('click', () => { state = Object.assign({}, SAMPLE); Object.keys(SAMPLE).forEach(key => { if(document.getElementById(key)) document.getElementById(key).value = SAMPLE[key]; }); render(); });
-            document.getElementById('resetBtn').addEventListener('click', () => { state = Object.assign({}, DEFAULTS); Object.keys(DEFAULTS).forEach(key => { if(document.getElementById(key)) document.getElementById(key).value = DEFAULTS[key]; }); render(); });
+            document.querySelectorAll('[data-engagement]').forEach(btn => btn.addEventListener('click', () => { document.getElementById('engagementRate').value = btn.dataset.engagement; render(); }));
+            document.getElementById('engagementSlider').addEventListener('input', e => { document.getElementById('engagementRate').value = e.target.value; render(); });
+            document.querySelectorAll('input:not(#engagementSlider), select').forEach(el => { el.addEventListener('input', render); el.addEventListener('change', render); });
+            document.getElementById('sampleBtn').addEventListener('click', () => { state = Object.assign({}, SAMPLE); selectedAddons = {}; Object.keys(SAMPLE).forEach(key => { if(document.getElementById(key)) document.getElementById(key).value = SAMPLE[key]; }); render(); });
+            document.getElementById('resetBtn').addEventListener('click', () => { state = Object.assign({}, DEFAULTS); selectedAddons = {}; Object.keys(DEFAULTS).forEach(key => { if(document.getElementById(key)) document.getElementById(key).value = DEFAULTS[key]; }); render(); });
             document.getElementById('calculateBtn').addEventListener('click', render);
-            document.getElementById('copyQuoteBtn').addEventListener('click', async e => { await navigator.clipboard.writeText(document.getElementById('proposalText').value); const old=e.currentTarget.textContent; e.currentTarget.textContent='Copied'; setTimeout(()=>e.currentTarget.textContent=old,1400); });
-            document.getElementById('downloadQuoteBtn').addEventListener('click', () => { const blob = new Blob([document.getElementById('proposalText').value], {type:'text/plain;charset=utf-8'}); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href=url; a.download='creator_sponsorship_rate_quote.txt'; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url); });
+            document.getElementById('copyQuoteBtn').addEventListener('click', async e => { await navigator.clipboard.writeText(proposal(calculate())); const old=e.currentTarget.textContent; e.currentTarget.textContent='Copied'; setTimeout(()=>e.currentTarget.textContent=old,1400); });
+            document.getElementById('downloadQuoteBtn').addEventListener('click', () => { const blob = new Blob([proposal(calculate())], {type:'text/plain;charset=utf-8'}); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href=url; a.download='creator_sponsorship_rate_quote.txt'; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url); });
             render();
         }
         init();
