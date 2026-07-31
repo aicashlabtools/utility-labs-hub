@@ -9,9 +9,9 @@ export const standardFooterHtml = `<footer class="acl-standard-footer no-print">
     <div class="acl-standard-footer-newest">
       <span class="acl-standard-footer-heading is-gold">Newest Tools</span>
       <ul>
+        <li><span class="acl-standard-footer-dot"></span><a href="/digital-product-break-even-calculator/">Digital Product Break-Even Calculator</a></li>
         <li><span class="acl-standard-footer-dot"></span><a href="/creator-sponsorship-rate-calculator/">Creator Sponsorship Rate Calculator</a></li>
         <li><span class="acl-standard-footer-dot"></span><a href="/freelancer-saas-subscription-cost-leak-detector/">Freelancer SaaS Subscription Cost Leak Detector</a></li>
-        <li><span class="acl-standard-footer-dot"></span><a href="/freelancer-productivity-debt-calculator/">Freelancer Productivity Debt Calculator</a></li>
       </ul>
     </div>
     <div class="acl-standard-footer-links">
