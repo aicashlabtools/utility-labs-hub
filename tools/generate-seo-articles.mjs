@@ -62,6 +62,7 @@ const tools = [
   ["tiktok-safe-zone", "tiktok-safe-zone-guide", "TikTok Safe Zone Guide For Captions, Text, And Product Shots", "Preview TikTok interface overlays so key text, faces, and CTAs stay visible in vertical videos."],
   ["video-script-time-calculator", "how-to-calculate-video-script-time", "How To Calculate Video Script Time From Word Count", "Estimate video duration from script length, speaking speed, platform format, and pacing."],
   ["youtube-description-formatter", "how-to-format-youtube-descriptions", "How To Format YouTube Descriptions With Timestamps And Links", "Structure YouTube descriptions with hooks, links, chapters, resources, and calls to action."],
+  ["youtube-title-preview", "how-to-write-better-youtube-titles", "How To Write Better YouTube Titles That Earn More Clicks", "Improve YouTube title length, keyword placement, curiosity, readability, and mobile display before publishing."],
   ["youtube-shorts-safe-zone", "youtube-shorts-safe-zone-guide", "YouTube Shorts Safe Zone Guide For Text, Logos, And Captions", "Check that captions, logos, faces, and calls to action stay visible inside YouTube Shorts UI overlays."]
 ].map(([tool, slug, title, desc]) => ({ tool, slug, title, desc }));
 
@@ -114,6 +115,7 @@ function titleFromSlug(slug) {
     "tiktok-safe-zone": "TikTok Safe Zone Checker",
     "video-script-time-calculator": "Video Script Time Calculator",
     "youtube-description-formatter": "YouTube Description Formatter",
+    "youtube-title-preview": "YouTube Title Preview Tool",
     "youtube-shorts-safe-zone": "YouTube Shorts Safe Zone Checker"
   };
   return labels[slug] || slug.split("-").map((word) => word ? word[0].toUpperCase() + word.slice(1) : word).join(" ");
@@ -214,7 +216,7 @@ function indexHtml() {
   const groups = [
     ["Freelancer Business", ["hourly-rate-calculator", "freedom-rate-calculator", "scope-creep-calculator", "free-invoice-generator", "late-fee-calculator", "free-nda-generator", "statement-of-work-generator", "meeting-notes-formatter"]],
     ["Creator Production", ["caption-formatter", "caption-line-splitter", "instagram-line-break-generator", "linkedin-post-formatter", "youtube-description-formatter", "video-script-time-calculator", "teleprompter", "repurposing-matrix", "image-color-picker"]],
-    ["Short-Form And Visual Checks", ["short-form-hook-analyzer", "thumbnail-text-checker", "resolution-checker", "tiktok-safe-zone", "instagram-reels-safe-zone", "youtube-shorts-safe-zone", "retention-diagnostic-tool"]],
+    ["Short-Form And Visual Checks", ["short-form-hook-analyzer", "thumbnail-text-checker", "youtube-title-preview", "resolution-checker", "tiktok-safe-zone", "instagram-reels-safe-zone", "youtube-shorts-safe-zone", "retention-diagnostic-tool"]],
     ["Monetization And Launch", ["brand-deal-calculator", "creator-rpm-calculator", "cpm-conversion-pivot", "gumroad-profit-calculator", "subscriber-ltv-calculator", "lead-magnet-estimator", "monetization-gap-calculator", "paid-traffic-profit-calculator", "pricing-strategy-calculator", "product-profit-calculator", "product-idea-validator", "presale-validation-tester", "product-launch-calculator", "product-launch-goal-calculator", "creator-runway-calculator", "creator-utilities"]]
   ];
   const byTool = new Map(tools.map((tool) => [tool.tool, tool]));

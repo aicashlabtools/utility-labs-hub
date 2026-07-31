@@ -271,6 +271,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://aicashlabtools.com/youtube-title-preview/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://aicashlabtools.com/youtube-description-formatter/</loc>
     <lastmod>2026-06-19</lastmod>
     <priority>0.8</priority>
@@ -478,6 +483,11 @@
   <url>
     <loc>https://aicashlabtools.com/articles/how-to-check-thumbnail-text-readability/</loc>
     <lastmod>2026-06-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-write-better-youtube-titles/</loc>
+    <lastmod>2026-07-31</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
