@@ -98,6 +98,7 @@ const metaCss = `.article-meta{display:flex;flex-wrap:wrap;align-items:center;ga
 
 const articleEnhancementCss = `.article-meta{gap:8px 16px}.article-meta span,.article-meta a{padding:5px 0}.tool-cta-copy strong{font-size:1.1rem}.cluster-links{margin-top:34px;padding-top:4px}.cluster-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}.cluster-card{display:flex;min-height:145px;flex-direction:column;justify-content:space-between;border:1px solid rgba(148,163,184,.18);border-radius:11px;background:#0f141f;padding:17px;text-decoration:none!important;transition:border-color .18s ease,transform .18s ease}.cluster-card:hover{border-color:rgba(245,158,11,.45);transform:translateY(-2px)}.cluster-card strong{display:block;color:#fff;font-size:.98rem;line-height:1.35}.cluster-card p{margin:7px 0 14px;color:#94a3b8;font-size:.82rem;line-height:1.5}.cluster-card span{color:#f59e0b;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em}.related-tools-list{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none}.related-tools-list li{margin:0}.related-tools-list a{display:block;border:1px solid rgba(148,163,184,.16);border-radius:999px;background:#0f141f;padding:7px 11px;font-size:.78rem;text-decoration:none}.guide-sequence{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08)}.sequence-link{display:flex;min-height:92px;flex-direction:column;border:1px solid rgba(148,163,184,.17);border-radius:10px;background:#0f141f;padding:14px;text-decoration:none!important}.sequence-link.next{text-align:right}.sequence-label{color:#f59e0b;font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em}.sequence-title{margin-top:6px;color:#fff;font-size:.88rem;font-weight:800;line-height:1.35}@media(max-width:640px){.cluster-card-grid,.guide-sequence{grid-template-columns:1fr}.sequence-link.next{text-align:left}}`;
 const trustCss = `.review-note{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:28px;border-top:1px solid rgba(255,255,255,.08);padding-top:18px;color:#94a3b8;font-size:.78rem}.review-note strong{color:#e2e8f0}.related-searches{margin-top:28px}.related-searches ul{display:flex;flex-wrap:wrap;gap:9px;margin:0;padding:0;list-style:none}.related-searches li{margin:0}.related-searches a{display:block;border-bottom:1px solid rgba(96,165,250,.35);padding:5px 0;color:#93c5fd;font-size:.84rem;text-decoration:none}.related-searches a:hover{color:#f59e0b;border-color:#f59e0b}`;
+const premiumCtaCss = `.premium-product-cta{margin:34px 0 0;border:1px solid rgba(245,158,11,.32);border-radius:14px;background:linear-gradient(135deg,rgba(245,158,11,.09),#0f141f 58%,#111827);padding:clamp(22px,4vw,30px)}.premium-product-eyebrow{display:block;margin-bottom:8px;color:#f59e0b;font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.premium-product-cta h2{margin:0 0 9px;color:#fff;font-size:1.35rem;line-height:1.25}.premium-product-cta p{max-width:760px;margin:0;color:#aab4c3;line-height:1.65}.premium-product-cta a{display:inline-block;margin-top:17px;border-radius:9px;background:#f59e0b;padding:11px 16px;color:#111827;font-size:12px;font-weight:900;text-decoration:none}.premium-product-cta a:hover{background:#fbbf24;text-decoration:none}`;
 
 function esc(value) {
   return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -176,6 +177,61 @@ function toolLaunchLabel(tool) {
   if (/generator/i.test(name)) return "Launch Free Generator";
   if (/checker|detector|analyzer/i.test(name)) return "Launch Free Checker";
   return "Launch Free Tool";
+}
+
+const premiumOffers = {
+  content: {
+    name: "Creator Content OS",
+    url: "https://aicashlabofficial.gumroad.com/l/yckpyo?layout=profile",
+    headline: "Want to turn this into a complete content workflow?",
+    description: "This free tool solves one part of content production. Creator Content OS brings hooks, scripts, planning, packaging, publishing, and repurposing workflows into one workspace.",
+    button: "View Creator Content OS"
+  },
+  launch: {
+    name: "Creator Launch OS",
+    url: "https://aicashlabofficial.gumroad.com/l/nemfmj?layout=profile",
+    headline: "Planning the full product launch?",
+    description: "This free tool helps with one launch decision. Creator Launch OS helps you validate demand, shape the offer, plan traffic, set revenue goals, and track the launch from one workspace.",
+    button: "See Creator Launch OS"
+  },
+  analytics: {
+    name: "Creator Analytics OS",
+    url: "https://aicashlabofficial.gumroad.com/l/zagils?layout=profile",
+    headline: "Want a clearer view of what is driving creator revenue?",
+    description: "This free tool answers one performance question. Creator Analytics OS brings revenue, audience, content, and campaign metrics together so you can see what is working and what needs attention.",
+    button: "View Creator Analytics OS"
+  },
+  monetization: {
+    name: "Creator Monetization OS",
+    url: "https://aicashlabofficial.gumroad.com/l/xnlfai?layout=profile",
+    headline: "Ready to build the complete monetization plan?",
+    description: "This free tool helps with one income decision. Creator Monetization OS helps you compare revenue paths, shape offers, price partnerships, and build a more deliberate creator income system.",
+    button: "View Creator Monetization OS"
+  },
+  freelancer: {
+    name: "Freelancer Business OS",
+    url: "https://aicashlabofficial.gumroad.com/l/dszjez?layout=profile",
+    headline: "Need more than a single calculator or template?",
+    description: "This free tool solves one part of running a freelance business. Freelancer Business OS brings pricing, profit tracking, proposals, client onboarding, and practical business calculators into one workspace.",
+    button: "Explore Freelancer Business OS"
+  }
+};
+
+const premiumOfferGroups = {
+  content: new Set(["caption-line-splitter", "creator-ftc-disclosure-generator", "image-color-picker", "instagram-line-break-generator", "instagram-reels-safe-zone", "linkedin-post-formatter", "meeting-notes-formatter", "repurposing-matrix", "resolution-checker", "short-form-hook-analyzer", "teleprompter", "thumbnail-text-checker", "tiktok-safe-zone", "video-script-time-calculator", "viral-content-framework-generator", "youtube-description-formatter", "youtube-shorts-safe-zone", "youtube-title-preview"]),
+  launch: new Set(["creator-runway-calculator", "digital-product-break-even-calculator", "gumroad-profit-calculator", "lead-magnet-estimator", "presale-validation-tester", "pricing-strategy-calculator", "product-idea-validator", "product-launch-calculator", "product-launch-goal-calculator", "product-profit-calculator"]),
+  analytics: new Set(["brand-deal-calculator", "cpm-conversion-pivot", "creator-rpm-calculator", "paid-traffic-profit-calculator", "retention-diagnostic-tool", "subscriber-ltv-calculator"]),
+  monetization: new Set(["creator-monetization-path-finder", "creator-sponsorship-rate-calculator", "monetization-gap-calculator"])
+};
+
+function premiumOfferFor(tool) {
+  const group = Object.entries(premiumOfferGroups).find(([, toolSet]) => toolSet.has(tool.tool));
+  return premiumOffers[group ? group[0] : "freelancer"];
+}
+
+function premiumProductCta(tool) {
+  const offer = premiumOfferFor(tool);
+  return `<aside class="premium-product-cta" aria-label="${esc(offer.name)}"><span class="premium-product-eyebrow">Complete System</span><h2>${esc(offer.headline)}</h2><p>${esc(offer.description)}</p><a href="${offer.url}" target="_blank" rel="noopener noreferrer">${esc(offer.button)} &rarr;</a></aside>`;
 }
 
 function clusterCardDescription(article) {
@@ -347,7 +403,7 @@ ${tracking}
 <meta name="keywords" content="${esc(article.keywords.join(", "))}">
 <link rel="canonical" href="${url}">
 <script type="application/ld+json">${schemaJson(schema)}</script>
-<style>${css}${metaCss}${articleEnhancementCss}${trustCss}${standardFooterCss}</style>
+<style>${css}${metaCss}${articleEnhancementCss}${trustCss}${premiumCtaCss}${standardFooterCss}</style>
 </head>
 <body>
 ${header()}
@@ -358,11 +414,11 @@ ${header()}
   <aside class="tool-cta" aria-label="Try the free ${esc(toolName)}"><div class="tool-cta-copy"><span class="tool-cta-label">Try the Free Tool</span><strong>${esc(toolCtaHeadline(tool))}</strong><p>Use the free ${esc(toolName)} to ${esc(toolCtaDescription(tool).replace(/^[A-Z]/, (letter) => letter.toLowerCase()))}</p></div><a href="/${tool.tool}/">${esc(toolLaunchLabel(tool))} &rarr;</a></aside>
   <article class="article">
     ${articleBody(tool, article)}
-    <div class="cta"><strong>Try it with your own project</strong><p>Open the ${esc(toolName)} and check your current draft, numbers, or plan.</p><a href="/${tool.tool}/">Try the ${esc(toolName)} &rarr;</a></div>
-    <section class="cluster-links"><h2>Continue Reading</h2><div class="cluster-card-grid">${cluster.filter((item) => item.slug !== article.slug).map((item) => `<a class="cluster-card" href="/articles/${item.slug}/"><div><strong>${esc(item.title)}</strong><p>${esc(clusterCardDescription(item))}</p></div><span>Read Guide &rarr;</span></a>`).join("")}</div><h2>Related Free Tools</h2><ul class="related-tools-list">${relatedTools(tool).map((item) => `<li><a href="/${item.tool}/">${esc(titleFromSlug(item.tool))}</a></li>`).join("")}</ul></section>
     ${faqHtml(tool, toolName)}
     <div class="review-note" aria-label="Article review details"><span><strong>Last reviewed:</strong> July 2026</span><span><strong>Reading time:</strong> 3 minutes</span><span>Updated whenever the ${esc(toolName)} changes.</span></div>
     <section class="related-searches"><h2>Related Searches</h2><ul>${relatedSearches(tool, cluster).map(([label, href]) => `<li><a href="${href}">${esc(label)}</a></li>`).join("")}</ul></section>
+    ${premiumProductCta(tool)}
+    <section class="cluster-links"><h2>Continue Reading</h2><div class="cluster-card-grid">${cluster.filter((item) => item.slug !== article.slug).map((item) => `<a class="cluster-card" href="/articles/${item.slug}/"><div><strong>${esc(item.title)}</strong><p>${esc(clusterCardDescription(item))}</p></div><span>Read Guide &rarr;</span></a>`).join("")}</div><h2>Related Free Tools</h2><ul class="related-tools-list">${relatedTools(tool).map((item) => `<li><a href="/${item.tool}/">${esc(titleFromSlug(item.tool))}</a></li>`).join("")}</ul></section>
     <nav class="guide-sequence" aria-label="Guide sequence">${previousArticle ? `<a class="sequence-link previous" href="/articles/${previousArticle.slug}/"><span class="sequence-label">&larr; Previous Guide</span><span class="sequence-title">${esc(previousArticle.title)}</span></a>` : `<span></span>`}${nextArticle ? `<a class="sequence-link next" href="/articles/${nextArticle.slug}/"><span class="sequence-label">Next Guide &rarr;</span><span class="sequence-title">${esc(nextArticle.title)}</span></a>` : ""}</nav>
   </article>
 </main>
