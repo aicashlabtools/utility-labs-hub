@@ -1,0 +1,19 @@
+export const standardHeaderCss = `.acl-standard-header{position:sticky;top:0;z-index:50;width:100%;border-bottom:1px solid #1f2937;background:rgba(11,15,25,.96);color:#e5e7eb;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.acl-standard-header *{box-sizing:border-box}.acl-standard-header-inner{max-width:1536px;height:66px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}.acl-standard-header-brand{display:flex;align-items:center;gap:14px;min-width:190px;color:#fff;text-decoration:none;flex-shrink:0}.acl-standard-header-logo{width:40px;height:40px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid #1e293b;border-radius:9px;background:#111827}.acl-standard-header-logo img{width:100%;height:100%;object-fit:contain;display:block}.acl-standard-header-brand-copy{display:flex;flex-direction:column;line-height:1.08}.acl-standard-header-brand-copy strong{color:#fff;font-size:15px;font-weight:800;letter-spacing:.045em;text-transform:uppercase}.acl-standard-header-brand-copy small{margin-top:3px;color:#94a3b8;font-size:10px;font-weight:600}.acl-standard-header-nav{display:flex;align-items:center;justify-content:center;gap:30px;margin:0 auto}.acl-standard-header-nav a{color:#94a3b8;font-size:15px;font-weight:600;line-height:1;text-decoration:none;transition:color .18s ease}.acl-standard-header-nav a:hover{color:#fff}.acl-standard-header-nav a.is-premium{color:#f59e0b}.acl-standard-header-nav a.is-premium:hover{color:#fbbf24}.acl-standard-header-store{min-width:190px;display:flex;justify-content:flex-end}.acl-standard-header-store a{display:inline-flex;align-items:center;justify-content:center;border:1px solid #f59e0b;border-radius:6px;background:#f59e0b;padding:10px 16px;color:#111827;font-size:13px;font-weight:900;line-height:1;text-decoration:none;text-transform:uppercase;box-shadow:0 6px 18px rgba(245,158,11,.16);transition:background .18s ease,border-color .18s ease,transform .18s ease}.acl-standard-header-store a:hover{border-color:#fbbf24;background:#fbbf24;color:#111827;transform:translateY(-1px)}@media(max-width:1023px){.acl-standard-header-inner{height:62px;padding:0 16px}.acl-standard-header-nav{display:none}.acl-standard-header-brand,.acl-standard-header-store{min-width:0}.acl-standard-header-logo{width:36px;height:36px}.acl-standard-header-store a{padding:9px 12px;font-size:11px}}@media(max-width:479px){.acl-standard-header-inner{gap:10px;padding:0 12px}.acl-standard-header-brand{gap:9px}.acl-standard-header-logo{width:34px;height:34px}.acl-standard-header-brand-copy strong{font-size:12px}.acl-standard-header-brand-copy small{font-size:8px}.acl-standard-header-store a{padding:8px 9px;font-size:10px}}`;
+
+export const standardHeaderHtml = `<header class="acl-standard-header no-print">
+  <div class="acl-standard-header-inner">
+    <a class="acl-standard-header-brand" href="/" aria-label="AI Cash Lab Tools homepage">
+      <span class="acl-standard-header-logo"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab logo"></span>
+      <span class="acl-standard-header-brand-copy"><strong>AI Cash Lab</strong><small>Utility Ecosystem</small></span>
+    </a>
+    <nav class="acl-standard-header-nav" aria-label="Primary navigation">
+      <a href="/">All Tools</a>
+      <a href="/#creator-production">Production</a>
+      <a href="/#creator-monetization">Monetization</a>
+      <a href="/#product-launch">Launch</a>
+      <a href="/#freelancer-business">Freelancer</a>
+      <a class="is-premium" href="/#premium-workspaces">Premium</a>
+    </nav>
+    <div class="acl-standard-header-store"><a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Storefront -&gt;</a></div>
+  </div>
+</header>`;

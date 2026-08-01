@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { standardFooterCss, standardFooterHtml } from "./footer-template.mjs";
+import { standardHeaderCss, standardHeaderHtml } from "./header-template.mjs";
 
 const root = process.cwd();
 const site = "https://aicashlabtools.com";
@@ -376,7 +377,7 @@ async function loadAudit() {
 }
 
 function header() {
-  return `<header class="site-header"><div class="header-inner"><a class="brand" href="/" aria-label="AI Cash Lab Tools homepage"><span class="logo-frame"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab logo"></span><span class="brand-copy"><strong>AI Cash Lab</strong><small>Utility Ecosystem</small></span></a><nav class="nav" aria-label="Site navigation"><a href="/">All Tools</a><a href="/creator-utilities/">Creator Utilities</a><a href="/freelancer-utilities/">Freelancer Utilities</a><a href="/articles/">Articles</a><a class="store" href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener">Storefront &rarr;</a></nav></div></header>`;
+  return standardHeaderHtml;
 }
 
 function footer() {
@@ -421,7 +422,7 @@ ${tracking}
 <meta name="keywords" content="${esc(article.keywords.join(", "))}">
 <link rel="canonical" href="${url}">
 <script type="application/ld+json">${schemaJson(schema)}</script>
-<style>${css}${metaCss}${articleEnhancementCss}${trustCss}${premiumCtaCss}${standardFooterCss}</style>
+<style>${css}${metaCss}${articleEnhancementCss}${trustCss}${premiumCtaCss}${standardHeaderCss}${standardFooterCss}</style>
 </head>
 <body>
 ${header()}
@@ -461,7 +462,7 @@ ${tracking}
 <meta name="description" content="Practical guides for AI Cash Lab free tools, including calculators, formatters, safe-zone checkers, and creator workflow utilities.">
 <link rel="canonical" href="${site}/articles/">
 <script type="application/ld+json">${schemaJson(schema)}</script>
-<style>${indexCss}${standardFooterCss}</style>
+<style>${indexCss}${standardHeaderCss}${standardFooterCss}</style>
 </head>
 <body>
 ${header()}
