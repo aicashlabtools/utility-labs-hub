@@ -125,6 +125,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://aicashlabtools.com/rush-project-calculator/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://aicashlabtools.com/short-form-hook-analyzer/</loc>
     <priority>0.8</priority>
   </url>
@@ -822,6 +826,26 @@
   </url>
   <url>
     <loc>https://aicashlabtools.com/articles/scope-creep-best-practices/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-price-rush-projects/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-calculate-a-rush-fee/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/rush-project-pricing-examples/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/common-rush-fee-pricing-mistakes/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/rush-project-pricing-faq/</loc>
     <priority>0.6</priority>
   </url>
   <url>
