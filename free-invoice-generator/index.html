@@ -860,6 +860,10 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
     color: #ffffff !important;
 }
 @media (max-width: 700px) {
+    .address-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
     .acl-seo-intro,
     .seo-content {
         margin-top: 36px !important;
@@ -1429,7 +1433,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
                 </head>
                 <body>
                     <main class="print-invoice">${getCleanInvoiceMarkupForPrint()}</main>
-                <script src="/assets/standard-tool-closing-sections.js" defer></script></body>
+                </body>
                 </html>
             `;
 
@@ -1482,6 +1486,7 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
         }
     </script>
 
+<script src="/assets/standard-tool-closing-sections.js" defer></script>
 </body>
 </html>
 
