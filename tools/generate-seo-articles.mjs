@@ -39,6 +39,7 @@ const tracking = `<!-- Google tag (gtag.js) -->
 const tools = [
   ["brand-deal-calculator", "how-to-calculate-brand-deal-rates", "How To Calculate Brand Deal Rates", "Learn how to estimate fair sponsorship pricing using audience size, engagement, deliverables, usage rights, and licensing."],
   ["caption-line-splitter", "how-to-split-caption-lines-for-short-form-video", "How To Split Caption Lines For Short-Form Videos", "Turn scripts into short readable subtitle lines for TikTok, Reels, Shorts, and fast video edits."],
+  ["caption-formatter", "how-to-format-instagram-and-tiktok-captions", "How To Format Instagram And TikTok Captions Before Posting", "Format social captions with platform-aware spacing, clean paragraphs, hashtag separation, and reusable publishing outputs."],
   ["cpm-conversion-pivot", "cpm-vs-product-revenue-calculator-guide", "CPM Vs Product Revenue: How To Compare Creator Income Paths", "Compare ad revenue against digital product revenue so views and sales targets make financial sense."],
   ["creator-rpm-calculator", "how-to-calculate-creator-rpm", "How To Calculate Creator RPM From Views And Revenue", "Use RPM to understand revenue per 1,000 views and compare monetization performance across channels."],
   ["creator-runway-calculator", "how-to-calculate-business-runway", "How To Calculate Business Runway Before Cash Gets Tight", "Estimate how many months your creator or solo business can operate from cash reserves and monthly burn."],
@@ -111,7 +112,7 @@ function esc(value) {
 function titleFromSlug(slug) {
   const labels = {
     "brand-deal-calculator": "Brand Deal Calculator",
-    "caption-formatter": "Caption Formatter",
+    "caption-formatter": "Social Media Caption Formatter",
     "caption-line-splitter": "Caption Line Splitter",
     "cpm-conversion-pivot": "CPM Conversion Pivot",
     "creator-rpm-calculator": "Creator RPM Calculator",
@@ -223,7 +224,7 @@ const premiumOffers = {
 };
 
 const premiumOfferGroups = {
-  content: new Set(["caption-line-splitter", "creator-ftc-disclosure-generator", "image-color-picker", "instagram-line-break-generator", "instagram-reels-safe-zone", "linkedin-post-formatter", "meeting-notes-formatter", "repurposing-matrix", "resolution-checker", "short-form-hook-analyzer", "teleprompter", "thumbnail-text-checker", "tiktok-safe-zone", "video-script-time-calculator", "viral-content-framework-generator", "youtube-description-formatter", "youtube-shorts-safe-zone", "youtube-title-preview"]),
+  content: new Set(["caption-formatter", "caption-line-splitter", "creator-ftc-disclosure-generator", "image-color-picker", "instagram-line-break-generator", "instagram-reels-safe-zone", "linkedin-post-formatter", "meeting-notes-formatter", "repurposing-matrix", "resolution-checker", "short-form-hook-analyzer", "teleprompter", "thumbnail-text-checker", "tiktok-safe-zone", "video-script-time-calculator", "viral-content-framework-generator", "youtube-description-formatter", "youtube-shorts-safe-zone", "youtube-title-preview"]),
   launch: new Set(["creator-runway-calculator", "digital-product-break-even-calculator", "gumroad-profit-calculator", "lead-magnet-estimator", "presale-validation-tester", "pricing-strategy-calculator", "product-idea-validator", "product-launch-calculator", "product-launch-goal-calculator", "product-profit-calculator"]),
   analytics: new Set(["brand-deal-calculator", "cpm-conversion-pivot", "creator-rpm-calculator", "paid-traffic-profit-calculator", "retention-diagnostic-tool", "subscriber-ltv-calculator"]),
   monetization: new Set(["creator-monetization-path-finder", "creator-sponsorship-rate-calculator", "monetization-gap-calculator"])

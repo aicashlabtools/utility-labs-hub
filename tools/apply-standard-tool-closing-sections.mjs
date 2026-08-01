@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 const root=process.cwd();
-const excluded=new Set(["articles","assets","creator-utilities","freelancer-utilities","tools","caption-formatter"]);
+const excluded=new Set(["articles","assets","creator-utilities","freelancer-utilities","tools"]);
 const styleTag='<link rel="stylesheet" href="/assets/standard-tool-closing-sections.css">';
 const scriptTag='<script src="/assets/standard-tool-closing-sections.js" defer></script>';
 const articleMap=new Map();
@@ -19,12 +19,6 @@ for(const entry of await fs.readdir(articleRoot,{withFileTypes:true})){
 function insertBeforeFooter(html,markup){const index=html.search(/<footer\b/i);return index>=0?html.slice(0,index)+markup+html.slice(index):html.replace('</body>',markup+'</body>')}
 function cleanTitle(html,slug){return (html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1]||slug.replace(/-/g,' ')).replace(/<[^>]+>/g,'').trim()}
 let changed=0;
-const legacyCaption=path.join(root,"caption-formatter","index.html");
-try{
-  let legacy=await fs.readFile(legacyCaption,"utf8"),before=legacy;
-  legacy=legacy.replace('<link rel="stylesheet" href="/assets/standard-tool-closing-sections.css">','').replace('<script src="/assets/standard-tool-closing-sections.js" defer></script>','').replace(/<section data-acl-generated-(?:guides|related|faq)>[\s\S]*?<\/section>/gi,'');
-  if(legacy!==before)await fs.writeFile(legacyCaption,legacy,"utf8");
-}catch{}
 for(const entry of await fs.readdir(root,{withFileTypes:true})){
   if(!entry.isDirectory()||excluded.has(entry.name)||entry.name.startsWith('.'))continue;
   const file=path.join(root,entry.name,"index.html");
@@ -32,8 +26,13 @@ for(const entry of await fs.readdir(root,{withFileTypes:true})){
   try{html=await fs.readFile(file,"utf8")}catch{continue}
   if(!/SoftwareApplication|WebApplication|calculator|generator|checker|formatter|analyzer/i.test(html))continue;
   const before=html;
+  if(entry.name==="caption-formatter")html=html.replace(/<section data-acl-generated-guides>[\s\S]*?<\/section>/gi,'');
   html=html.replace(/<section data-acl-generated-faq>[\s\S]*?<\/section>/gi,'');
   const title=cleanTitle(html,entry.name),beforeFooter=html.split(/<footer\b/i)[0];
+  if(!/<section[^>]*(?:data-acl-generated-premium|class=["'][^"']*(?:premium|cta))/i.test(beforeFooter)&&!/<a[^>]+href=["']https?:\/\/[^"']*gumroad\.com/i.test(beforeFooter)){
+    html=insertBeforeFooter(html,`<section data-acl-generated-premium><span>Creator Publishing System</span><h2>Turn formatted content into a repeatable publishing workflow</h2><p>Use AI Cash Lab premium workspaces to connect content planning, production, publishing, and monetization.</p><a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Explore Premium Workspaces →</a></section>`);
+  }
+  if(entry.name==="caption-formatter"&&!html.includes('data-acl-generated-premium'))html=insertBeforeFooter(html,`<section data-acl-generated-premium><span>Creator Publishing System</span><h2>Turn formatted content into a repeatable publishing workflow</h2><p>Use AI Cash Lab premium workspaces to connect content planning, production, publishing, and monetization.</p><a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Explore Premium Workspaces →</a></section>`);
   if(!/<section[^>]*(?:related-tool|data-acl-generated-related)/i.test(beforeFooter)&&!/<h[23][^>]*>[^<]*(?:related .*tools|keep building|next .*tool|plan the next .*step)/i.test(beforeFooter)){
     const paragraph=Array.from(beforeFooter.matchAll(/<p[^>]*>[\s\S]*?related tools:[\s\S]*?<\/p>/gi)).pop()?.[0]||'';
     const related=Array.from(paragraph.matchAll(/<a[^>]+href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)).slice(0,6).map(match=>({href:match[1],title:match[2].replace(/<[^>]+>/g,'').trim()}));
