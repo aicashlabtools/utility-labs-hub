@@ -113,6 +113,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://aicashlabtools.com/client-lifetime-value-calculator/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://aicashlabtools.com/repurposing-matrix/</loc>
     <priority>0.8</priority>
   </url>
@@ -770,6 +774,26 @@
   </url>
   <url>
     <loc>https://aicashlabtools.com/articles/profit-margin-guard-best-practices/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-calculate-client-lifetime-value/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/client-retainer-revenue-strategy/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-client-referrals-increase-lifetime-value/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/client-retention-vs-acquisition-cost/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/freelance-client-upsell-strategies/</loc>
     <priority>0.6</priority>
   </url>
   <url>

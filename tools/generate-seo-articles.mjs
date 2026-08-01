@@ -64,6 +64,7 @@ const tools = [
   ["product-launch-goal-calculator", "how-to-set-product-launch-goals", "How To Set Product Launch Goals From Traffic And Conversion Rates", "Turn a revenue target into required visitors, buyers, conversion rate, and daily launch milestones."],
   ["product-profit-calculator", "how-to-calculate-digital-product-profit", "How To Calculate Digital Product Profit And Break-Even Point", "Calculate margin, platform fees, costs, break-even sales, and profit for digital products."],
   ["profit-margin-guard", "how-to-protect-freelance-profit-margins", "How To Protect Freelance Profit Margins Before Sending A Quote", "Calculate net profit, true hourly earnings, break-even pricing, and the minimum safe quote for freelance projects."],
+  ["client-lifetime-value-calculator", "how-to-calculate-client-lifetime-value", "How To Calculate Client Lifetime Value For Freelance Accounts", "Calculate project, retainer, upsell, and referral revenue while comparing client retention with replacement cost."],
   ["repurposing-matrix", "how-to-repurpose-content", "How To Repurpose One Content Idea Across Multiple Platforms", "Plan how one idea becomes short videos, captions, posts, newsletters, and platform-specific assets."],
   ["resolution-checker", "how-to-check-video-resolution-and-aspect-ratio", "How To Check Video Resolution And Aspect Ratio Before Uploading", "Confirm pixel size, aspect ratio, and platform fit before uploading short-form or social content."],
   ["retention-diagnostic-tool", "how-to-diagnose-content-retention", "How To Diagnose Audience Retention Problems In Creator Content", "Find likely drop-off points, weak hooks, pacing issues, and friction in videos or content sequences."],
@@ -252,7 +253,13 @@ function clusterCardDescription(article) {
 function clusterFor(tool) {
   const name = topicName(tool);
   const base = tool.tool.replace(/-(tool|calculator|generator|checker|estimator|analyzer|formatter|preview)$/i, "");
-  const definitions = tool.tool === "rush-project-calculator" ? [
+  const definitions = tool.tool === "client-lifetime-value-calculator" ? [
+    [tool.slug, tool.title, ["client lifetime value calculator", "freelance client lifetime value", "customer lifetime value freelancer", "client value calculator", "CLV formula"]],
+    ["client-retainer-revenue-strategy", "The Retainer Advantage: Building Recurring Client Revenue", ["freelance retainer strategy", "recurring client revenue", "retainer client value", "monthly retainer benefits", "increase client lifetime value"]],
+    ["how-client-referrals-increase-lifetime-value", "How Client Referrals Increase Lifetime Value", ["client referral value", "referral revenue", "client lifetime value referrals", "freelance referral strategy", "measure referral value"]],
+    ["client-retention-vs-acquisition-cost", "Client Retention vs Acquisition Cost For Freelancers", ["client retention cost", "client acquisition cost freelancer", "replace vs retain client", "cost of client churn", "freelance retention strategy"]],
+    ["freelance-client-upsell-strategies", "Freelance Client Upsell Strategies That Add Real Value", ["freelance upsell strategies", "client expansion revenue", "upsell existing clients", "increase client value", "freelance account growth"]]
+  ] : tool.tool === "rush-project-calculator" ? [
     [tool.slug, tool.title, ["rush project calculator", "rush fee calculator", "freelance rush fee", "rush pricing calculator", "how much to charge for rush work"]],
     ["how-to-calculate-a-rush-fee", "How To Calculate A Rush Fee Step By Step", ["how to calculate a rush fee", "freelance rush fee percentage", "expedited project fee", "rush fee formula", "rush pricing policy"]],
     ["rush-project-pricing-examples", "Rush Project Pricing Examples And Scenarios", ["rush fee examples", "rush project pricing examples", "freelance rush rate examples", "same day project fee", "rush job quote"]],
