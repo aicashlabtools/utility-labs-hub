@@ -1,0 +1,814 @@
+[
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "caption-line-splitter"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "product-idea-validator"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "brand-deal-calculator"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "retention-diagnostic-tool"
+  },
+  {
+    "closing": [
+      1200,
+      1200,
+      1200,
+      1200
+    ],
+    "count": 4,
+    "expected": 1200,
+    "overflow": -15,
+    "privacy": 1200,
+    "reference": 1200,
+    "slug": "caption-formatter"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "short-form-hook-analyzer"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "viral-content-framework-generator"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "thumbnail-text-checker"
+  },
+  {
+    "closing": [
+      1280,
+      1280,
+      1280,
+      1280
+    ],
+    "count": 4,
+    "expected": 1280,
+    "overflow": -15,
+    "privacy": 1280,
+    "reference": 1280,
+    "slug": "youtube-title-preview"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "video-script-time-calculator"
+  },
+  {
+    "closing": [
+      1072,
+      1072,
+      1072,
+      1072
+    ],
+    "count": 4,
+    "expected": 1072,
+    "overflow": -10,
+    "privacy": 1072,
+    "reference": 1072,
+    "slug": "teleprompter"
+  },
+  {
+    "closing": [
+      1072,
+      1072,
+      1072,
+      1072
+    ],
+    "count": 4,
+    "expected": 1072,
+    "overflow": -10,
+    "privacy": 1072,
+    "reference": 1072,
+    "slug": "meeting-notes-formatter"
+  },
+  {
+    "closing": [
+      1072,
+      1072,
+      1072,
+      1072
+    ],
+    "count": 4,
+    "expected": 1072,
+    "overflow": -10,
+    "privacy": 1072,
+    "reference": 1072,
+    "slug": "linkedin-post-formatter"
+  },
+  {
+    "closing": [
+      1072,
+      1072,
+      1072,
+      1072
+    ],
+    "count": 4,
+    "expected": 1072,
+    "overflow": -10,
+    "privacy": 1072,
+    "reference": 1072,
+    "slug": "youtube-description-formatter"
+  },
+  {
+    "closing": [
+      1280,
+      1280,
+      1280,
+      1280
+    ],
+    "count": 4,
+    "expected": 1280,
+    "overflow": -15,
+    "privacy": 1280,
+    "reference": 1280,
+    "slug": "creator-ftc-disclosure-generator"
+  },
+  {
+    "closing": [
+      1072,
+      1072,
+      1072,
+      1072
+    ],
+    "count": 4,
+    "expected": 1072,
+    "overflow": -10,
+    "privacy": 1072,
+    "reference": 1072,
+    "slug": "instagram-line-break-generator"
+  },
+  {
+    "closing": [
+      1072,
+      1072,
+      1072,
+      1072
+    ],
+    "count": 4,
+    "expected": 1072,
+    "overflow": -10,
+    "privacy": 1072,
+    "reference": 1072,
+    "slug": "image-color-picker"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "repurposing-matrix"
+  },
+  {
+    "closing": [
+      1800,
+      1800,
+      1800,
+      1800
+    ],
+    "count": 4,
+    "expected": 1800,
+    "overflow": -10,
+    "privacy": 1800,
+    "reference": 1800,
+    "slug": "tiktok-safe-zone"
+  },
+  {
+    "closing": [
+      1800,
+      1800,
+      1800,
+      1800
+    ],
+    "count": 4,
+    "expected": 1800,
+    "overflow": -10,
+    "privacy": 1800,
+    "reference": 1800,
+    "slug": "youtube-shorts-safe-zone"
+  },
+  {
+    "closing": [
+      1800,
+      1800,
+      1800,
+      1800
+    ],
+    "count": 4,
+    "expected": 1800,
+    "overflow": -10,
+    "privacy": 1800,
+    "reference": 1800,
+    "slug": "instagram-reels-safe-zone"
+  },
+  {
+    "closing": [
+      1200,
+      1200,
+      1200,
+      1200
+    ],
+    "count": 4,
+    "expected": 1200,
+    "overflow": -10,
+    "privacy": 1200,
+    "reference": 1200,
+    "slug": "resolution-checker"
+  },
+  {
+    "closing": [
+      1280,
+      1280,
+      1280,
+      1280
+    ],
+    "count": 4,
+    "expected": 1280,
+    "overflow": -15,
+    "privacy": 1280,
+    "reference": 1280,
+    "slug": "client-lifetime-value-calculator"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "subscriber-ltv-calculator"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "monetization-gap-calculator"
+  },
+  {
+    "closing": [
+      1873,
+      1873,
+      1873,
+      1873
+    ],
+    "count": 4,
+    "expected": 1873,
+    "overflow": -15,
+    "privacy": 1873,
+    "reference": 1905,
+    "slug": "creator-monetization-path-finder"
+  },
+  {
+    "closing": [
+      1280,
+      1280,
+      1280,
+      1280
+    ],
+    "count": 4,
+    "expected": 1280,
+    "overflow": -15,
+    "privacy": 1280,
+    "reference": 1280,
+    "slug": "creator-sponsorship-rate-calculator"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "cpm-conversion-pivot"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "creator-rpm-calculator"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "lead-magnet-estimator"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "product-profit-calculator"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "paid-traffic-profit-calculator"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "presale-validation-tester"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "product-launch-calculator"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "product-launch-goal-calculator"
+  },
+  {
+    "closing": [
+      1200,
+      1200,
+      1200,
+      1200
+    ],
+    "count": 4,
+    "expected": 1200,
+    "overflow": -10,
+    "privacy": 1200,
+    "reference": 1200,
+    "slug": "pricing-strategy-calculator"
+  },
+  {
+    "closing": [
+      1180,
+      1180,
+      1180,
+      1180
+    ],
+    "count": 4,
+    "expected": 1180,
+    "overflow": -15,
+    "privacy": 1180,
+    "reference": 1180,
+    "slug": "digital-product-break-even-calculator"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "gumroad-profit-calculator"
+  },
+  {
+    "closing": [
+      1280,
+      1280,
+      1280,
+      1280
+    ],
+    "count": 4,
+    "expected": 1280,
+    "overflow": -15,
+    "privacy": 1280,
+    "reference": 1280,
+    "slug": "profit-margin-guard"
+  },
+  {
+    "closing": [
+      1280,
+      1280,
+      1280,
+      1280
+    ],
+    "count": 4,
+    "expected": 1280,
+    "overflow": -15,
+    "privacy": 1280,
+    "reference": 1280,
+    "slug": "rush-project-calculator"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "freedom-rate-calculator"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "hourly-rate-calculator"
+  },
+  {
+    "closing": [
+      1280,
+      1280,
+      1280,
+      1280
+    ],
+    "count": 4,
+    "expected": 1280,
+    "overflow": -15,
+    "privacy": 1280,
+    "reference": 1280,
+    "slug": "freelancer-productivity-debt-calculator"
+  },
+  {
+    "closing": [
+      1280,
+      1280,
+      1280,
+      1280
+    ],
+    "count": 4,
+    "expected": 1280,
+    "overflow": -15,
+    "privacy": 1280,
+    "reference": 1280,
+    "slug": "freelancer-saas-subscription-cost-leak-detector"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "scope-creep-calculator"
+  },
+  {
+    "closing": [
+      1024,
+      1024,
+      1024,
+      1024
+    ],
+    "count": 4,
+    "expected": 1024,
+    "overflow": -15,
+    "privacy": 1024,
+    "reference": 1024,
+    "slug": "retainer-calculator"
+  },
+  {
+    "closing": [
+      1024,
+      1024,
+      1024,
+      1024
+    ],
+    "count": 4,
+    "expected": 1024,
+    "overflow": -15,
+    "privacy": 1024,
+    "reference": 1024,
+    "slug": "referral-calculator"
+  },
+  {
+    "closing": [
+      1024,
+      1024,
+      1024,
+      1024
+    ],
+    "count": 4,
+    "expected": 1024,
+    "overflow": -15,
+    "privacy": 1024,
+    "reference": 1024,
+    "slug": "client-referral-value-calculator"
+  },
+  {
+    "closing": [
+      1280,
+      1280,
+      1280,
+      1280
+    ],
+    "count": 4,
+    "expected": 1280,
+    "overflow": -15,
+    "privacy": 1280,
+    "reference": 1280,
+    "slug": "freelancer-profile-optimizer"
+  },
+  {
+    "closing": [
+      1152,
+      1152,
+      1152,
+      1152
+    ],
+    "count": 4,
+    "expected": 1152,
+    "overflow": -15,
+    "privacy": 1152,
+    "reference": 1152,
+    "slug": "testimonial-request-generator"
+  },
+  {
+    "closing": [
+      1280,
+      1280,
+      1280,
+      1280
+    ],
+    "count": 4,
+    "expected": 1280,
+    "overflow": -15,
+    "privacy": 1280,
+    "reference": 1280,
+    "slug": "case-study-outline-generator"
+  },
+  {
+    "closing": [
+      1152,
+      1152,
+      1152,
+      1152
+    ],
+    "count": 4,
+    "expected": 1152,
+    "overflow": -15,
+    "privacy": 1152,
+    "reference": 1152,
+    "slug": "client-scam-detector"
+  },
+  {
+    "closing": [
+      1024,
+      1024,
+      1024,
+      1024
+    ],
+    "count": 4,
+    "expected": 1024,
+    "overflow": -15,
+    "privacy": 1024,
+    "reference": 1024,
+    "slug": "proposal-calculator"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "late-fee-calculator"
+  },
+  {
+    "closing": [
+      1072,
+      1072,
+      1072,
+      1072
+    ],
+    "count": 4,
+    "expected": 1072,
+    "overflow": -10,
+    "privacy": 1072,
+    "reference": 1072,
+    "slug": "free-invoice-generator"
+  },
+  {
+    "closing": [
+      1072,
+      1072,
+      1072,
+      1072
+    ],
+    "count": 4,
+    "expected": 1072,
+    "overflow": -10,
+    "privacy": 1072,
+    "reference": 1072,
+    "slug": "free-nda-generator"
+  },
+  {
+    "closing": [
+      1072,
+      1072,
+      1072,
+      1072
+    ],
+    "count": 4,
+    "expected": 1072,
+    "overflow": -10,
+    "privacy": 1072,
+    "reference": 1072,
+    "slug": "statement-of-work-generator"
+  },
+  {
+    "closing": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "count": 4,
+    "expected": 1120,
+    "overflow": -10,
+    "privacy": 1120,
+    "reference": 1120,
+    "slug": "creator-runway-calculator"
+  }
+]

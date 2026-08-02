@@ -13,12 +13,16 @@ Targeted result after the shared fixes: **58 of 58 pass** for the following chec
 - Premium CTA → Related Tools → Guides → FAQ order.
 - One visible premium CTA label treatment, without an injected duplicate heading.
 - One premium CTA frame, without a redundant framed inner wrapper.
-- Closing sections constrained to the 1120 px tool shell on desktop and the mobile content width at 390 px.
+- Closing sections aligned to each page's own rendered hero/Quick Start/calculator shell rather than a universal pixel width.
 - Supporting Guides rendered as styled cards rather than raw links.
 - No page-level horizontal overflow at either tested viewport.
 - Tool-area desktop screenshots reviewed for obvious left/right top-alignment regressions.
 
 The systemic cause was 57 tool pages using root-relative shared assets. Those references now use tool-relative paths so the standard CSS, runtime ordering, logos, and Guides styling also load when a tool HTML file is opened locally. The shared component stylesheet and runtime now enforce the approved width and prevent duplicate premium labels and nested CTA frames.
+
+### Corrective shell-alignment pass
+
+A later manual review showed that the fixed 1120 px rule was itself incorrect for tools with wider or narrower calculator shells. The shared runtime now measures the rendered tool shell on each page and applies that exact width and horizontal position to the privacy strip, premium CTA, Related Tools, Guides, and FAQ. Testing was repeated at 1920 × 1080 to cover the wider desktop layout shown in the manual screenshots. All 58 pages matched their detected shell after the correction, with the viewport edge gap used only when a page's main container is wider than the available screen.
 
 Evidence:
 

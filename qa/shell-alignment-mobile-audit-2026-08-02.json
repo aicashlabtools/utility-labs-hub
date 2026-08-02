@@ -1,0 +1,814 @@
+[
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "caption-line-splitter"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "product-idea-validator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "brand-deal-calculator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "retention-diagnostic-tool"
+  },
+  {
+    "closing": [
+      335,
+      335,
+      335,
+      335
+    ],
+    "count": 4,
+    "expected": 335,
+    "overflow": -15,
+    "privacy": 335,
+    "reference": 335,
+    "slug": "caption-formatter"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "short-form-hook-analyzer"
+  },
+  {
+    "closing": [
+      353,
+      353,
+      353,
+      353
+    ],
+    "count": 4,
+    "expected": 353,
+    "overflow": -9,
+    "privacy": 353,
+    "reference": 357,
+    "slug": "viral-content-framework-generator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "thumbnail-text-checker"
+  },
+  {
+    "closing": [
+      347,
+      347,
+      347,
+      347
+    ],
+    "count": 4,
+    "expected": 347,
+    "overflow": -15,
+    "privacy": 347,
+    "reference": 375,
+    "slug": "youtube-title-preview"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "video-script-time-calculator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "teleprompter"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "meeting-notes-formatter"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "linkedin-post-formatter"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "youtube-description-formatter"
+  },
+  {
+    "closing": [
+      347,
+      347,
+      347,
+      347
+    ],
+    "count": 4,
+    "expected": 347,
+    "overflow": -15,
+    "privacy": 347,
+    "reference": 375,
+    "slug": "creator-ftc-disclosure-generator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "instagram-line-break-generator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "image-color-picker"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "repurposing-matrix"
+  },
+  {
+    "closing": [
+      352,
+      352,
+      352,
+      352
+    ],
+    "count": 4,
+    "expected": 352,
+    "overflow": -10,
+    "privacy": 352,
+    "reference": 380,
+    "slug": "tiktok-safe-zone"
+  },
+  {
+    "closing": [
+      352,
+      352,
+      352,
+      352
+    ],
+    "count": 4,
+    "expected": 352,
+    "overflow": -10,
+    "privacy": 352,
+    "reference": 380,
+    "slug": "youtube-shorts-safe-zone"
+  },
+  {
+    "closing": [
+      352,
+      352,
+      352,
+      352
+    ],
+    "count": 4,
+    "expected": 352,
+    "overflow": -10,
+    "privacy": 352,
+    "reference": 380,
+    "slug": "instagram-reels-safe-zone"
+  },
+  {
+    "closing": [
+      353,
+      353,
+      353,
+      353
+    ],
+    "count": 4,
+    "expected": 353,
+    "overflow": -9,
+    "privacy": 353,
+    "reference": 381,
+    "slug": "resolution-checker"
+  },
+  {
+    "closing": [
+      347,
+      347,
+      347,
+      347
+    ],
+    "count": 4,
+    "expected": 347,
+    "overflow": -15,
+    "privacy": 347,
+    "reference": 375,
+    "slug": "client-lifetime-value-calculator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "subscriber-ltv-calculator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "monetization-gap-calculator"
+  },
+  {
+    "closing": [
+      347,
+      347,
+      347,
+      347
+    ],
+    "count": 4,
+    "expected": 347,
+    "overflow": -15,
+    "privacy": 347,
+    "reference": 375,
+    "slug": "creator-monetization-path-finder"
+  },
+  {
+    "closing": [
+      347,
+      347,
+      347,
+      347
+    ],
+    "count": 4,
+    "expected": 347,
+    "overflow": -15,
+    "privacy": 347,
+    "reference": 375,
+    "slug": "creator-sponsorship-rate-calculator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "cpm-conversion-pivot"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "creator-rpm-calculator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "lead-magnet-estimator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "product-profit-calculator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "paid-traffic-profit-calculator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "presale-validation-tester"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "product-launch-calculator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "product-launch-goal-calculator"
+  },
+  {
+    "closing": [
+      353,
+      353,
+      353,
+      353
+    ],
+    "count": 4,
+    "expected": 353,
+    "overflow": -9,
+    "privacy": 353,
+    "reference": 381,
+    "slug": "pricing-strategy-calculator"
+  },
+  {
+    "closing": [
+      343,
+      343,
+      343,
+      343
+    ],
+    "count": 4,
+    "expected": 343,
+    "overflow": -15,
+    "privacy": 343,
+    "reference": 343,
+    "slug": "digital-product-break-even-calculator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "gumroad-profit-calculator"
+  },
+  {
+    "closing": [
+      347,
+      347,
+      347,
+      347
+    ],
+    "count": 4,
+    "expected": 347,
+    "overflow": -15,
+    "privacy": 347,
+    "reference": 375,
+    "slug": "profit-margin-guard"
+  },
+  {
+    "closing": [
+      347,
+      347,
+      347,
+      347
+    ],
+    "count": 4,
+    "expected": 347,
+    "overflow": -15,
+    "privacy": 347,
+    "reference": 375,
+    "slug": "rush-project-calculator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "freedom-rate-calculator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "hourly-rate-calculator"
+  },
+  {
+    "closing": [
+      347,
+      347,
+      347,
+      347
+    ],
+    "count": 4,
+    "expected": 347,
+    "overflow": -15,
+    "privacy": 347,
+    "reference": 375,
+    "slug": "freelancer-productivity-debt-calculator"
+  },
+  {
+    "closing": [
+      347,
+      347,
+      347,
+      347
+    ],
+    "count": 4,
+    "expected": 347,
+    "overflow": -15,
+    "privacy": 347,
+    "reference": 375,
+    "slug": "freelancer-saas-subscription-cost-leak-detector"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "scope-creep-calculator"
+  },
+  {
+    "closing": [
+      347,
+      347,
+      347,
+      347
+    ],
+    "count": 4,
+    "expected": 347,
+    "overflow": -15,
+    "privacy": 347,
+    "reference": 375,
+    "slug": "retainer-calculator"
+  },
+  {
+    "closing": [
+      347,
+      347,
+      347,
+      347
+    ],
+    "count": 4,
+    "expected": 347,
+    "overflow": -15,
+    "privacy": 347,
+    "reference": 375,
+    "slug": "referral-calculator"
+  },
+  {
+    "closing": [
+      347,
+      347,
+      347,
+      347
+    ],
+    "count": 4,
+    "expected": 347,
+    "overflow": -15,
+    "privacy": 347,
+    "reference": 375,
+    "slug": "client-referral-value-calculator"
+  },
+  {
+    "closing": [
+      347,
+      347,
+      347,
+      347
+    ],
+    "count": 4,
+    "expected": 347,
+    "overflow": -15,
+    "privacy": 347,
+    "reference": 375,
+    "slug": "freelancer-profile-optimizer"
+  },
+  {
+    "closing": [
+      347,
+      347,
+      347,
+      347
+    ],
+    "count": 4,
+    "expected": 347,
+    "overflow": -15,
+    "privacy": 347,
+    "reference": 375,
+    "slug": "testimonial-request-generator"
+  },
+  {
+    "closing": [
+      347,
+      347,
+      347,
+      347
+    ],
+    "count": 4,
+    "expected": 347,
+    "overflow": -15,
+    "privacy": 347,
+    "reference": 375,
+    "slug": "case-study-outline-generator"
+  },
+  {
+    "closing": [
+      347,
+      347,
+      347,
+      347
+    ],
+    "count": 4,
+    "expected": 347,
+    "overflow": -15,
+    "privacy": 347,
+    "reference": 375,
+    "slug": "client-scam-detector"
+  },
+  {
+    "closing": [
+      347,
+      347,
+      347,
+      347
+    ],
+    "count": 4,
+    "expected": 347,
+    "overflow": -15,
+    "privacy": 347,
+    "reference": 375,
+    "slug": "proposal-calculator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "late-fee-calculator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "free-invoice-generator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "free-nda-generator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "statement-of-work-generator"
+  },
+  {
+    "closing": [
+      349,
+      349,
+      349,
+      349
+    ],
+    "count": 4,
+    "expected": 349,
+    "overflow": -9,
+    "privacy": 349,
+    "reference": 349,
+    "slug": "creator-runway-calculator"
+  }
+]
