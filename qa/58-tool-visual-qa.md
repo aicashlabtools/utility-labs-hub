@@ -4,6 +4,30 @@ Generated: 2026-08-02
 
 This is a separate visual baseline. It does **not** treat the earlier structural regression audit as visual approval.
 
+## Targeted closing-section re-audit after manual review
+
+The original visual-pass labels are not approval for the defects later identified manually. A second targeted pass rendered all 58 official tools again at 1440 × 900 and 390 × 844, plus a desktop tool-area screenshot for every page.
+
+Targeted result after the shared fixes: **58 of 58 pass** for the following checks:
+
+- Premium CTA → Related Tools → Guides → FAQ order.
+- One visible premium CTA label treatment, without an injected duplicate heading.
+- One premium CTA frame, without a redundant framed inner wrapper.
+- Closing sections constrained to the 1120 px tool shell on desktop and the mobile content width at 390 px.
+- Supporting Guides rendered as styled cards rather than raw links.
+- No page-level horizontal overflow at either tested viewport.
+- Tool-area desktop screenshots reviewed for obvious left/right top-alignment regressions.
+
+The systemic cause was 57 tool pages using root-relative shared assets. Those references now use tool-relative paths so the standard CSS, runtime ordering, logos, and Guides styling also load when a tool HTML file is opened locally. The shared component stylesheet and runtime now enforce the approved width and prevent duplicate premium labels and nested CTA frames.
+
+Evidence:
+
+- `qa/screenshots/tool-area-desktop-contact-sheet.png`
+- `qa/screenshots/closing-audit-desktop-contact-sheet.png`
+- `qa/screenshots/closing-audit-mobile-contact-sheet.png`
+- `qa/screenshots/closing-audit-2026-08-02/` (174 individual rendered screenshots)
+- `qa/closing-section-visual-audit-2026-08-02.json`
+
 ## Method
 
 - Rendered and visually reviewed all 58 official tool pages at 1440 × 900 desktop and 390 × 844 mobile.
@@ -27,8 +51,8 @@ This is a separate visual baseline. It does **not** treat the earlier structural
 
 ## Summary
 
-- Visual Pass: 55
-- Fixed: 3
+- Visual Pass: 54
+- Fixed: 4
 - Visual Issue Found and left unresolved: 0
 
 ## Fixes made during this pass
@@ -62,6 +86,13 @@ Evidence: `qa/screenshots/digital-product-break-even-mobile-fixed.png`
 - Restored the standard six-link Related Tools grid and removed the unrelated seventh link.
 - A second manual review exposed that the source still used the wrong closing-section order and relied on root-relative shared assets to repair it at runtime. The source now uses Premium CTA → Related Tools → Guides → FAQ, the Guides include their standard card classes directly, and shared assets resolve when the page is opened locally.
 
+### Short-Form Hook Analyzer — Fixed after manual review
+
+- The original screenshot review incorrectly approved oversized closing sections and a nested premium CTA frame.
+- Constrained the premium CTA, Related Tools, Supporting Guides, and FAQ to the 1120 px tool shell.
+- Removed the redundant premium CTA inner frame.
+- Removed the hidden-view spacing offset so the left input controls and right result panel begin at the same vertical position.
+
 ## Per-tool visual log
 
 | Tool | Desktop | Mobile 390 × 844 | Status | Notes |
@@ -71,7 +102,7 @@ Evidence: `qa/screenshots/digital-product-break-even-mobile-fixed.png`
 | Brand Deal Calculator | Pass | Pass | Visual Pass | Result/input cards and typography remain balanced. |
 | Retention Diagnostic Tool | Pass | Pass | Visual Pass | Selected state and gold accents are consistent. |
 | Social Media Caption Formatter | Pass after fix | Pass after fix | Fixed | Header, hero, FAQ, related tools, and premium CTA corrected. |
-| Short-Form Hook Analyzer | Pass | Pass | Visual Pass | Tabs, cards, and closing sections remain proportionate. |
+| Short-Form Hook Analyzer | Pass after fix | Pass after fix | Fixed | Closing widths, nested premium frame, and left/right workspace top alignment corrected after manual review. |
 | Viral Content Framework Generator | Pass | Pass | Visual Pass | Long labels wrap without breaking the mobile layout. |
 | Thumbnail Text Checker | Pass | Pass | Visual Pass | Preview and form controls remain readable. |
 | YouTube Title Preview Tool | Pass | Pass | Visual Pass | Presets, title field, and result framing remain clear. |

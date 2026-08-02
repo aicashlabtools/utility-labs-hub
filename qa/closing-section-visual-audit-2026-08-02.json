@@ -1,0 +1,2520 @@
+[
+  {
+    "slug": "caption-line-splitter",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Content OS",
+      "Related Creator Tools",
+      "Caption Line Splitter Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR CONTENT OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "product-idea-validator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Launch OS",
+      "Related Launch Tools",
+      "Product Idea Validator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR LAUNCH OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "brand-deal-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Analytics OS",
+      "Related Revenue Tools",
+      "Brand Deal Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR ANALYTICS OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "retention-diagnostic-tool",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Analytics OS",
+      "Related Creator Tools",
+      "Retention Diagnostic Tool Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR ANALYTICS OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "caption-formatter",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Turn formatted content into a repeatable publishing workflow",
+      "Continue with a related tool",
+      "Social Media Caption Formatter Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumLabels": [
+      "Premium Workspace"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "short-form-hook-analyzer",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Content OS",
+      "Related Creator Tools",
+      "Short-Form Hook Analyzer Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR CONTENT OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "viral-content-framework-generator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Content OS",
+      "Related Creator Tools",
+      "Free Viral Content Framework Generator for Creators",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR CONTENT OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "thumbnail-text-checker",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Content OS",
+      "Related Creator Tools",
+      "Thumbnail Text Checker Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR CONTENT OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "youtube-title-preview",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Turn better titles into a repeatable content system.",
+      null,
+      "Supporting Guides",
+      "YouTube Title Preview FAQ"
+    ],
+    "overflow": -15,
+    "premiumLabels": [],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "video-script-time-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Content OS",
+      "Related Creator Tools",
+      "Video Script Time Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR CONTENT OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "teleprompter",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Content OS",
+      "Continue with a related tool",
+      "Free Online Teleprompter Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR CONTENT OS"
+    ],
+    "widths": [
+      1032,
+      1032,
+      1032,
+      1032
+    ]
+  },
+  {
+    "slug": "meeting-notes-formatter",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Content OS",
+      "Continue with a related tool",
+      "Free Meeting Notes Formatter for Freelancers Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR CONTENT OS"
+    ],
+    "widths": [
+      1032,
+      1032,
+      1032,
+      1032
+    ]
+  },
+  {
+    "slug": "linkedin-post-formatter",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Content OS",
+      "Continue with a related tool",
+      "Free LinkedIn Post Formatter & Readability Checker Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR CONTENT OS"
+    ],
+    "widths": [
+      1032,
+      1032,
+      1032,
+      1032
+    ]
+  },
+  {
+    "slug": "youtube-description-formatter",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Content OS",
+      "Continue with a related tool",
+      "Free YouTube Description Formatter Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR CONTENT OS"
+    ],
+    "widths": [
+      1032,
+      1032,
+      1032,
+      1032
+    ]
+  },
+  {
+    "slug": "creator-ftc-disclosure-generator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Disclosure Checklist",
+      "Related Tools",
+      "Creator FTC Disclosure Generator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumLabels": [
+      "Premium Creator Workflow"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "instagram-line-break-generator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Content OS",
+      "Continue with a related tool",
+      "Format Instagram Captions With Clean Line Breaks",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR CONTENT OS"
+    ],
+    "widths": [
+      1032,
+      1032,
+      1032,
+      1032
+    ]
+  },
+  {
+    "slug": "image-color-picker",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Content OS",
+      "Continue with a related tool",
+      "Extract Hex Colors From Image Online Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR CONTENT OS"
+    ],
+    "widths": [
+      1032,
+      1032,
+      1032,
+      1032
+    ]
+  },
+  {
+    "slug": "repurposing-matrix",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Content OS",
+      "Related Creator Tools",
+      "Repurposing Matrix Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR CONTENT OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "tiktok-safe-zone",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Content OS",
+      "Related Creator Tools",
+      "TikTok Safe Zone Checker Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR CONTENT OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "youtube-shorts-safe-zone",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      null,
+      "Related Creator Tools",
+      "YouTube Shorts Safe Zone Grid Tool Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "Awaiting Upload"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "instagram-reels-safe-zone",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      null,
+      "Related Creator Tools",
+      "Instagram Reels Safe Zone Checker Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "Awaiting Upload"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "resolution-checker",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Content OS",
+      "Related Creator Tools",
+      "Video Resolution & Aspect Ratio Checker Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR CONTENT OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "client-lifetime-value-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Turn valuable relationships into a repeatable client system",
+      "Related freelancer tools",
+      "Build more valuable client relationships",
+      "Client Lifetime Value FAQ"
+    ],
+    "overflow": -15,
+    "premiumLabels": [
+      "Premium Freelancer Workspace"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "subscriber-ltv-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Analytics OS",
+      "Related Revenue Tools",
+      "Subscriber LTV Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR ANALYTICS OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "monetization-gap-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Premium Creator Workspace",
+      "Related Revenue Tools",
+      "Creator Monetization Gap Analyzer Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "PREMIUM CREATOR WORKSPACE"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "creator-monetization-path-finder",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Monetization OS",
+      "Related Creator Monetization Tools",
+      "Creator Monetization Path Finder Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumLabels": [
+      "CREATOR MONETIZATION OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "creator-sponsorship-rate-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Turn brand-deal pricing into a sponsorship system.",
+      "Build the rest of the brand-deal workflow.",
+      "Creator Sponsorship Rate Calculator Guides",
+      "FAQ"
+    ],
+    "overflow": -15,
+    "premiumLabels": [],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "cpm-conversion-pivot",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Analytics OS",
+      "Related Revenue Tools",
+      "CPM vs Product Revenue Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR ANALYTICS OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "creator-rpm-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Analytics OS",
+      "Related Revenue Tools",
+      "Creator RPM Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR ANALYTICS OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "lead-magnet-estimator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Launch OS",
+      "Related Revenue Tools",
+      "Lead Magnet Estimator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR LAUNCH OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "product-profit-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Launch OS",
+      "Related Revenue Tools",
+      "Product Profit Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR LAUNCH OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "paid-traffic-profit-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Analytics OS",
+      "Related Revenue Tools",
+      "Paid Traffic Profit Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR ANALYTICS OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "presale-validation-tester",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Launch OS",
+      "Related Launch Tools",
+      "Presale Validation Tester Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR LAUNCH OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "product-launch-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Launch OS",
+      "Related Launch Tools",
+      "Product Launch Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR LAUNCH OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "product-launch-goal-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Launch OS",
+      "Related Launch Tools",
+      "Product Launch Goal Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR LAUNCH OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "pricing-strategy-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Launch OS",
+      "Related Revenue Tools",
+      "Pricing Strategy Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR LAUNCH OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "digital-product-break-even-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Launch OS",
+      "Keep planning a stronger launch.",
+      "Digital Product Break-Even Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumLabels": [
+      "Creator Launch OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "gumroad-profit-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Creator Launch OS",
+      "Related Revenue Tools",
+      "Gumroad Profit Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [
+      "CREATOR LAUNCH OS"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "profit-margin-guard",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Turn profitable quotes into a complete client system",
+      "Related freelancer tools",
+      "Price projects with the full cost visible",
+      "Profit Margin Guard FAQ"
+    ],
+    "overflow": -15,
+    "premiumLabels": [
+      "Premium Freelancer Workspace"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "rush-project-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Turn one rush quote into a complete client system",
+      "Related freelancer tools",
+      "Learn the reasoning behind the quote",
+      "Rush Project Pricing FAQ"
+    ],
+    "overflow": -15,
+    "premiumLabels": [
+      "Premium Freelancer Workspace"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "freedom-rate-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Freelancer premium toolkits",
+      "Related Freelancer Tools",
+      "Free Freedom Rate Calculator for Freelancers",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "hourly-rate-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Freelancer premium toolkits",
+      "Related Freelancer Tools",
+      "Hourly Rate Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "freelancer-productivity-debt-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Build the rest of the capacity workflow.",
+      "Related Tools",
+      "Freelancer Productivity Debt Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumLabels": [],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "freelancer-saas-subscription-cost-leak-detector",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Turn lower software waste into a cleaner client system.",
+      "Recover even more freelancer profit.",
+      "Freelancer SaaS Subscription Cost Leak Detector Guides",
+      "FAQ"
+    ],
+    "overflow": -15,
+    "premiumLabels": [],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "scope-creep-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Freelancer premium toolkits",
+      "Related Freelancer Tools",
+      "Free Scope Creep Calculator for Freelancers",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "retainer-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      null,
+      "Build the rest of the revenue workflow.",
+      "Freelancer Monthly Retainer Pricing Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumLabels": [],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "referral-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      null,
+      null,
+      "Freelancer Referral Reward Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumLabels": [],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "client-referral-value-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      null,
+      "Build the rest of the client revenue workflow.",
+      "Client Referral Value Calculator Guides",
+      "Client Referral Value Calculator FAQ"
+    ],
+    "overflow": -15,
+    "premiumLabels": [],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "freelancer-profile-optimizer",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "High-Converting Profile Checklist",
+      "Related Tools",
+      "Freelancer Profile Optimizer Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumLabels": [
+      "Premium Freelancer Workflow"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "testimonial-request-generator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      null,
+      "Build the rest of the client proof workflow.",
+      "Free Testimonial Request Generator",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumLabels": [],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "case-study-outline-generator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Turn the case study into a stronger paid proposal.",
+      "Portfolio Growth Plan",
+      "Supporting Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumLabels": [
+      "Premium Proposal Workflow"
+    ],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "client-scam-detector",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      null,
+      "Protect the rest of the client workflow.",
+      "Supporting Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumLabels": [],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "proposal-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      null,
+      "Improve the rest of the client workflow.",
+      "Freelancer Proposal Win Probability Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumLabels": [],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "late-fee-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "solid",
+    "order": [
+      "Freelancer premium toolkits",
+      "Related Freelancer Tools",
+      "Late Fee Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "free-invoice-generator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Freelancer premium toolkits",
+      "Continue with a related tool",
+      "Free Invoice Generator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [],
+    "widths": [
+      1032,
+      1032,
+      1032,
+      1032
+    ]
+  },
+  {
+    "slug": "free-nda-generator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Freelancer premium toolkits",
+      "Continue with a related tool",
+      "Free NDA Generator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [],
+    "widths": [
+      1032,
+      1032,
+      1032,
+      1032
+    ]
+  },
+  {
+    "slug": "statement-of-work-generator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Freelancer premium toolkits",
+      "Continue with a related tool",
+      "Free Statement of Work (SOW) Generator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [],
+    "widths": [
+      1032,
+      1032,
+      1032,
+      1032
+    ]
+  },
+  {
+    "slug": "creator-runway-calculator",
+    "viewport": "desktop",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerBorder": "none",
+    "order": [
+      "Freelancer premium toolkits",
+      "Related Freelancer Tools",
+      "Business Runway Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumLabels": [],
+    "widths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ]
+  },
+  {
+    "slug": "caption-line-splitter",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Content OS",
+      "Related Creator Tools",
+      "Caption Line Splitter Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "product-idea-validator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Launch OS",
+      "Related Launch Tools",
+      "Product Idea Validator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "brand-deal-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Analytics OS",
+      "Related Revenue Tools",
+      "Brand Deal Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "retention-diagnostic-tool",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Analytics OS",
+      "Related Creator Tools",
+      "Retention Diagnostic Tool Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "caption-formatter",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Turn formatted content into a repeatable publishing workflow",
+      "Continue with a related tool",
+      "Social Media Caption Formatter Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumGenericLabels": [
+      "Premium Workspace"
+    ],
+    "widths": [
+      347,
+      347,
+      347,
+      347
+    ]
+  },
+  {
+    "slug": "short-form-hook-analyzer",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Content OS",
+      "Related Creator Tools",
+      "Short-Form Hook Analyzer Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "viral-content-framework-generator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Content OS",
+      "Related Creator Tools",
+      "Free Viral Content Framework Generator for Creators",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "thumbnail-text-checker",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Content OS",
+      "Related Creator Tools",
+      "Thumbnail Text Checker Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "youtube-title-preview",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Turn better titles into a repeatable content system.",
+      null,
+      "Supporting Guides",
+      "YouTube Title Preview FAQ"
+    ],
+    "overflow": -15,
+    "premiumGenericLabels": [],
+    "widths": [
+      347,
+      347,
+      347,
+      347
+    ]
+  },
+  {
+    "slug": "video-script-time-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Content OS",
+      "Related Creator Tools",
+      "Video Script Time Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "teleprompter",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Content OS",
+      "Continue with a related tool",
+      "Free Online Teleprompter Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      321,
+      321,
+      321,
+      321
+    ]
+  },
+  {
+    "slug": "meeting-notes-formatter",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Content OS",
+      "Continue with a related tool",
+      "Free Meeting Notes Formatter for Freelancers Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      321,
+      321,
+      321,
+      321
+    ]
+  },
+  {
+    "slug": "linkedin-post-formatter",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Content OS",
+      "Continue with a related tool",
+      "Free LinkedIn Post Formatter & Readability Checker Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      321,
+      321,
+      321,
+      321
+    ]
+  },
+  {
+    "slug": "youtube-description-formatter",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Content OS",
+      "Continue with a related tool",
+      "Free YouTube Description Formatter Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      321,
+      321,
+      321,
+      321
+    ]
+  },
+  {
+    "slug": "creator-ftc-disclosure-generator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Disclosure Checklist",
+      "Related Tools",
+      "Creator FTC Disclosure Generator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumGenericLabels": [],
+    "widths": [
+      347,
+      347,
+      347,
+      347
+    ]
+  },
+  {
+    "slug": "instagram-line-break-generator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Content OS",
+      "Continue with a related tool",
+      "Format Instagram Captions With Clean Line Breaks",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      321,
+      321,
+      321,
+      321
+    ]
+  },
+  {
+    "slug": "image-color-picker",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Content OS",
+      "Continue with a related tool",
+      "Extract Hex Colors From Image Online Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      321,
+      321,
+      321,
+      321
+    ]
+  },
+  {
+    "slug": "repurposing-matrix",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Content OS",
+      "Related Creator Tools",
+      "Repurposing Matrix Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "tiktok-safe-zone",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Content OS",
+      "Related Creator Tools",
+      "TikTok Safe Zone Checker Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumGenericLabels": [],
+    "widths": [
+      352,
+      352,
+      352,
+      352
+    ]
+  },
+  {
+    "slug": "youtube-shorts-safe-zone",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      null,
+      "Related Creator Tools",
+      "YouTube Shorts Safe Zone Grid Tool Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumGenericLabels": [],
+    "widths": [
+      352,
+      352,
+      352,
+      352
+    ]
+  },
+  {
+    "slug": "instagram-reels-safe-zone",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      null,
+      "Related Creator Tools",
+      "Instagram Reels Safe Zone Checker Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -10,
+    "premiumGenericLabels": [],
+    "widths": [
+      352,
+      352,
+      352,
+      352
+    ]
+  },
+  {
+    "slug": "resolution-checker",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Content OS",
+      "Related Creator Tools",
+      "Video Resolution & Aspect Ratio Checker Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "client-lifetime-value-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Turn valuable relationships into a repeatable client system",
+      "Related freelancer tools",
+      "Build more valuable client relationships",
+      "Client Lifetime Value FAQ"
+    ],
+    "overflow": -15,
+    "premiumGenericLabels": [],
+    "widths": [
+      347,
+      347,
+      347,
+      347
+    ]
+  },
+  {
+    "slug": "subscriber-ltv-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Analytics OS",
+      "Related Revenue Tools",
+      "Subscriber LTV Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "monetization-gap-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Premium Creator Workspace",
+      "Related Revenue Tools",
+      "Creator Monetization Gap Analyzer Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "creator-monetization-path-finder",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Monetization OS",
+      "Related Creator Monetization Tools",
+      "Creator Monetization Path Finder Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumGenericLabels": [],
+    "widths": [
+      347,
+      347,
+      347,
+      347
+    ]
+  },
+  {
+    "slug": "creator-sponsorship-rate-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Turn brand-deal pricing into a sponsorship system.",
+      "Build the rest of the brand-deal workflow.",
+      "Creator Sponsorship Rate Calculator Guides",
+      "FAQ"
+    ],
+    "overflow": -15,
+    "premiumGenericLabels": [],
+    "widths": [
+      347,
+      347,
+      347,
+      347
+    ]
+  },
+  {
+    "slug": "cpm-conversion-pivot",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Analytics OS",
+      "Related Revenue Tools",
+      "CPM vs Product Revenue Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "creator-rpm-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Analytics OS",
+      "Related Revenue Tools",
+      "Creator RPM Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "lead-magnet-estimator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Launch OS",
+      "Related Revenue Tools",
+      "Lead Magnet Estimator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "product-profit-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Launch OS",
+      "Related Revenue Tools",
+      "Product Profit Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "paid-traffic-profit-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Analytics OS",
+      "Related Revenue Tools",
+      "Paid Traffic Profit Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "presale-validation-tester",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Launch OS",
+      "Related Launch Tools",
+      "Presale Validation Tester Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "product-launch-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Launch OS",
+      "Related Launch Tools",
+      "Product Launch Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "product-launch-goal-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Launch OS",
+      "Related Launch Tools",
+      "Product Launch Goal Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "pricing-strategy-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Launch OS",
+      "Related Revenue Tools",
+      "Pricing Strategy Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "digital-product-break-even-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Launch OS",
+      "Keep planning a stronger launch.",
+      "Digital Product Break-Even Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumGenericLabels": [],
+    "widths": [
+      347,
+      347,
+      347,
+      347
+    ]
+  },
+  {
+    "slug": "gumroad-profit-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Creator Launch OS",
+      "Related Revenue Tools",
+      "Gumroad Profit Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "profit-margin-guard",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Turn profitable quotes into a complete client system",
+      "Related freelancer tools",
+      "Price projects with the full cost visible",
+      "Profit Margin Guard FAQ"
+    ],
+    "overflow": -15,
+    "premiumGenericLabels": [],
+    "widths": [
+      347,
+      347,
+      347,
+      347
+    ]
+  },
+  {
+    "slug": "rush-project-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Turn one rush quote into a complete client system",
+      "Related freelancer tools",
+      "Learn the reasoning behind the quote",
+      "Rush Project Pricing FAQ"
+    ],
+    "overflow": -15,
+    "premiumGenericLabels": [],
+    "widths": [
+      347,
+      347,
+      347,
+      347
+    ]
+  },
+  {
+    "slug": "freedom-rate-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Freelancer premium toolkits",
+      "Related Freelancer Tools",
+      "Free Freedom Rate Calculator for Freelancers",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "hourly-rate-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Freelancer premium toolkits",
+      "Related Freelancer Tools",
+      "Hourly Rate Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "freelancer-productivity-debt-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Build the rest of the capacity workflow.",
+      "Related Tools",
+      "Freelancer Productivity Debt Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumGenericLabels": [],
+    "widths": [
+      347,
+      347,
+      347,
+      347
+    ]
+  },
+  {
+    "slug": "freelancer-saas-subscription-cost-leak-detector",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Turn lower software waste into a cleaner client system.",
+      "Recover even more freelancer profit.",
+      "Freelancer SaaS Subscription Cost Leak Detector Guides",
+      "FAQ"
+    ],
+    "overflow": -15,
+    "premiumGenericLabels": [],
+    "widths": [
+      347,
+      347,
+      347,
+      347
+    ]
+  },
+  {
+    "slug": "scope-creep-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Freelancer premium toolkits",
+      "Related Freelancer Tools",
+      "Free Scope Creep Calculator for Freelancers",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "retainer-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      null,
+      "Build the rest of the revenue workflow.",
+      "Freelancer Monthly Retainer Pricing Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumGenericLabels": [],
+    "widths": [
+      347,
+      347,
+      347,
+      347
+    ]
+  },
+  {
+    "slug": "referral-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      null,
+      null,
+      "Freelancer Referral Reward Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumGenericLabels": [],
+    "widths": [
+      347,
+      347,
+      347,
+      347
+    ]
+  },
+  {
+    "slug": "client-referral-value-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      null,
+      "Build the rest of the client revenue workflow.",
+      "Client Referral Value Calculator Guides",
+      "Client Referral Value Calculator FAQ"
+    ],
+    "overflow": -15,
+    "premiumGenericLabels": [],
+    "widths": [
+      347,
+      347,
+      347,
+      347
+    ]
+  },
+  {
+    "slug": "freelancer-profile-optimizer",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "High-Converting Profile Checklist",
+      "Related Tools",
+      "Freelancer Profile Optimizer Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumGenericLabels": [],
+    "widths": [
+      347,
+      347,
+      347,
+      347
+    ]
+  },
+  {
+    "slug": "testimonial-request-generator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      null,
+      "Build the rest of the client proof workflow.",
+      "Free Testimonial Request Generator",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumGenericLabels": [],
+    "widths": [
+      347,
+      347,
+      347,
+      347
+    ]
+  },
+  {
+    "slug": "case-study-outline-generator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Turn the case study into a stronger paid proposal.",
+      "Portfolio Growth Plan",
+      "Supporting Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumGenericLabels": [],
+    "widths": [
+      347,
+      347,
+      347,
+      347
+    ]
+  },
+  {
+    "slug": "client-scam-detector",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      null,
+      "Protect the rest of the client workflow.",
+      "Supporting Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumGenericLabels": [],
+    "widths": [
+      347,
+      347,
+      347,
+      347
+    ]
+  },
+  {
+    "slug": "proposal-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      null,
+      "Improve the rest of the client workflow.",
+      "Freelancer Proposal Win Probability Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -15,
+    "premiumGenericLabels": [],
+    "widths": [
+      347,
+      347,
+      347,
+      347
+    ]
+  },
+  {
+    "slug": "late-fee-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Freelancer premium toolkits",
+      "Related Freelancer Tools",
+      "Late Fee Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  },
+  {
+    "slug": "free-invoice-generator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Freelancer premium toolkits",
+      "Continue with a related tool",
+      "Free Invoice Generator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      321,
+      321,
+      321,
+      321
+    ]
+  },
+  {
+    "slug": "free-nda-generator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Freelancer premium toolkits",
+      "Continue with a related tool",
+      "Free NDA Generator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      321,
+      321,
+      321,
+      321
+    ]
+  },
+  {
+    "slug": "statement-of-work-generator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Freelancer premium toolkits",
+      "Continue with a related tool",
+      "Free Statement of Work (SOW) Generator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      321,
+      321,
+      321,
+      321
+    ]
+  },
+  {
+    "slug": "creator-runway-calculator",
+    "viewport": "mobile",
+    "count": 4,
+    "guideGrid": "grid",
+    "innerFrames": 0,
+    "order": [
+      "Freelancer premium toolkits",
+      "Related Freelancer Tools",
+      "Business Runway Calculator Guides",
+      "Frequently Asked Questions"
+    ],
+    "overflow": -9,
+    "premiumGenericLabels": [],
+    "widths": [
+      353,
+      353,
+      353,
+      353
+    ]
+  }
+]

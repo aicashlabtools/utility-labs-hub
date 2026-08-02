@@ -3,8 +3,8 @@ import path from "node:path";
 
 const root=process.cwd();
 const excluded=new Set(["articles","assets","creator-utilities","freelancer-utilities","tools"]);
-const styleTag='<link rel="stylesheet" href="/assets/standard-tool-closing-sections.css">';
-const scriptTag='<script src="/assets/standard-tool-closing-sections.js" defer></script>';
+const styleTag='<link rel="stylesheet" href="../assets/standard-tool-closing-sections.css">';
+const scriptTag='<script src="../assets/standard-tool-closing-sections.js" defer></script>';
 const articleMap=new Map();
 const articleRoot=path.join(root,"articles");
 for(const entry of await fs.readdir(articleRoot,{withFileTypes:true})){
@@ -52,8 +52,8 @@ for(const entry of await fs.readdir(root,{withFileTypes:true})){
     const faq=`<section data-acl-generated-faq><h2>${title} FAQ</h2><details><summary>Is the ${title} free?</summary><p>Yes. You can use this tool free in your browser.</p></details><details><summary>Do I need to create an account?</summary><p>No account or signup is required.</p></details><details><summary>Is my information uploaded?</summary><p>No. The tool is designed to process your inputs locally in the browser.</p></details><details><summary>Does it work on mobile?</summary><p>Yes. The interface adapts to phones, tablets, and desktop screens.</p></details></section>`;
     html=insertBeforeFooter(html,faq);
   }
-  if(!html.includes('/assets/standard-tool-closing-sections.css'))html=html.replace('</head>',`${styleTag}</head>`);
-  if(!html.includes('/assets/standard-tool-closing-sections.js'))html=html.replace('</body>',`${scriptTag}</body>`);
+  if(!html.includes('assets/standard-tool-closing-sections.css'))html=html.replace('</head>',`${styleTag}</head>`);
+  if(!html.includes('assets/standard-tool-closing-sections.js'))html=html.replace('</body>',`${scriptTag}</body>`);
   if(html!==before){await fs.writeFile(file,html,"utf8");changed++}
 }
 console.log(`Applied standard closing sections to ${changed} tool pages.`);
