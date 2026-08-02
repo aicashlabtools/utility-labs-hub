@@ -701,15 +701,24 @@
         width: calc(100% - 24px);
     }
 }
+.tool-header {
+    margin: 0 auto 22px;
+    padding: clamp(30px, 5vw, 52px);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), #101827 62%, #0b1019);
+    text-align: center;
+}
+.tool-header .header-meta { color: #f59e0b; }
+.tool-header .header-title { font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.05; }
+.tool-header .header-subtitle { margin: 0 auto; color: #cbd5e1; font-size: clamp(1rem, 2vw, 1.16rem); }
 </style>
 <style id="acl-standard-footer-styles">.acl-standard-footer{width:100%;margin-top:48px;padding:40px 20px 24px;border-top:1px solid #1f2937;background:#111827;color:#94a3b8;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.acl-standard-footer *{box-sizing:border-box}.acl-standard-footer a{text-decoration:none}.acl-standard-footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:4fr 3fr 5fr;gap:32px;align-items:start}.acl-standard-footer-brand-main{display:flex;align-items:center;gap:12px;color:#fff;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.acl-standard-footer-logo{width:24px;height:24px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid #1e293b;border-radius:5px;background:#020617}.acl-standard-footer-logo img{width:100%;height:100%;object-fit:contain}.acl-standard-footer-copy{max-width:390px;margin:12px 0 0;color:#94a3b8;font-size:11px;line-height:1.7}.acl-standard-footer-heading{display:block;margin-bottom:10px;color:#f8fafc;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.acl-standard-footer-heading.is-gold{color:#f59e0b}.acl-standard-footer-newest ul{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none}.acl-standard-footer-newest li{display:flex;align-items:flex-start;gap:7px}.acl-standard-footer-dot{width:4px;height:4px;margin-top:7px;border-radius:999px;background:#f59e0b;flex:0 0 auto}.acl-standard-footer a{color:#94a3b8;font-size:11px;font-weight:600;line-height:1.55}.acl-standard-footer a:hover{color:#dbeafe}.acl-standard-footer-links{display:grid;grid-template-columns:1fr 1fr;gap:24px}.acl-standard-footer-stack{display:flex;flex-direction:column;gap:7px}.acl-standard-footer a.is-gold{color:#f59e0b}.acl-standard-footer a.is-gold:hover{color:#fbbf24}.acl-standard-footer-bottom{max-width:1280px;margin:30px auto 0;padding-top:20px;border-top:1px solid #0f172a;color:#64748b;text-align:center;font-size:10px}@media(max-width:820px){.acl-standard-footer-inner{grid-template-columns:1fr}.acl-standard-footer-links{grid-template-columns:1fr 1fr}}@media(max-width:520px){.acl-standard-footer-links{grid-template-columns:1fr}}</style>
 <style id="acl-standard-header-styles">.acl-standard-header{position:sticky;top:0;z-index:50;width:100%;border-bottom:1px solid #1f2937;background:rgba(11,15,25,.96);color:#e5e7eb;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.acl-standard-header *{box-sizing:border-box}.acl-standard-header-inner{max-width:1536px;height:66px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}.acl-standard-header-brand{display:flex;align-items:center;gap:14px;min-width:190px;color:#fff;text-decoration:none;flex-shrink:0}.acl-standard-header-logo{width:40px;height:40px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid #1e293b;border-radius:9px;background:#111827}.acl-standard-header-logo img{width:100%;height:100%;object-fit:contain;display:block}.acl-standard-header-brand-copy{display:flex;flex-direction:column;line-height:1.08}.acl-standard-header-brand-copy strong{color:#fff;font-size:15px;font-weight:800;letter-spacing:.045em;text-transform:uppercase}.acl-standard-header-brand-copy small{margin-top:3px;color:#94a3b8;font-size:10px;font-weight:600}.acl-standard-header-nav{display:flex;align-items:center;justify-content:center;gap:30px;margin:0 auto}.acl-standard-header-nav a{color:#94a3b8;font-size:15px;font-weight:600;line-height:1;text-decoration:none;transition:color .18s ease}.acl-standard-header-nav a:hover{color:#fff}.acl-standard-header-nav a.is-premium{color:#f59e0b}.acl-standard-header-nav a.is-premium:hover{color:#fbbf24}.acl-standard-header-store{min-width:190px;display:flex;justify-content:flex-end}.acl-standard-header-store a{display:inline-flex;align-items:center;justify-content:center;border:1px solid #f59e0b;border-radius:6px;background:#f59e0b;padding:10px 16px;color:#111827;font-size:13px;font-weight:900;line-height:1;text-decoration:none;text-transform:uppercase;box-shadow:0 6px 18px rgba(245,158,11,.16);transition:background .18s ease,border-color .18s ease,transform .18s ease}.acl-standard-header-store a:hover{border-color:#fbbf24;background:#fbbf24;color:#111827;transform:translateY(-1px)}@media(max-width:1023px){.acl-standard-header-inner{height:62px;padding:0 16px}.acl-standard-header-nav{display:none}.acl-standard-header-brand,.acl-standard-header-store{min-width:0}.acl-standard-header-logo{width:36px;height:36px}.acl-standard-header-store a{padding:9px 12px;font-size:11px}}@media(max-width:479px){.acl-standard-header-inner{gap:10px;padding:0 12px}.acl-standard-header-brand{gap:9px}.acl-standard-header-logo{width:34px;height:34px}.acl-standard-header-brand-copy strong{font-size:12px}.acl-standard-header-brand-copy small{font-size:8px}.acl-standard-header-store a{padding:8px 9px;font-size:10px}}</style>
 <link rel="stylesheet" href="/assets/standard-tool-closing-sections.css"></head>
 <body>
-    <div class="container">
-        
         <!-- Creator Suite Header Module -->
-        <header class="acl-standard-header no-print">
+<header class="acl-standard-header no-print">
   <div class="acl-standard-header-inner">
     <a class="acl-standard-header-brand" href="/" aria-label="AI Cash Lab Tools homepage">
       <span class="acl-standard-header-logo"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab logo"></span>
@@ -726,6 +735,7 @@
     <div class="acl-standard-header-store"><a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Storefront -&gt;</a></div>
   </div>
 </header>
+    <div class="container">
 <header class="tool-header">
             <div class="header-meta">Distribution Formatting Engine</div>
             <h1 class="header-title">Social Media Caption Formatter</h1>
@@ -825,28 +835,6 @@
             </aside>
         </div>
 
-        <!-- RE-CALIBRATED NATURAL UPSELL TRANSITION JUNCTION DECK -->
-        <section class="conversion-deck">
-            <div class="deck-badge">Content Ecosystem Amplification</div>
-            <h3 class="deck-title">Need better metrics across your publishing pipelines?</h3>
-            <p class="deck-subtitle">The free caption spacing utilities optimize formatting boundaries instantly. To maximize scaling velocity across your entire channel ecosystem, connect your deployment assets with our core operational pipelines:</p>
-            
-            <div class="upsell-matrix-row">
-                <a href="/short-form-hook-analyzer/" class="upsell-route-card">
-                    <h4>1. Optimize Hook Retention</h4>
-                    <p>Score the immediate opening psychological triggers of viral drafts using the Short-Form Hook Analyzer tool.</p>
-                </a>
-                <a href="/teleprompter/" class="upsell-route-card">
-                    <h4>2. Streamline Video Scripts</h4>
-                    <p>Maintain continuous eye contact metrics smoothly using the browser-based Creator Teleprompter.</p>
-                </a>
-                <a href="/creator-utilities/" class="upsell-route-card">
-                    <h4>3. Scale Traffic Architecture</h4>
-                    <p>Unlock structured monetization systems completely with the complete AI Traffic Playbook.</p>
-                </a>
-            </div>
-        </section>
-
         <!-- PERMANENT INTEGRATED FIVE-STAGE PUBLISHING SEQUENCE PATHWAY FOOTER -->
         <section class="acl-seo-intro no-print">
     <h2>Free Instagram and TikTok Caption Formatter</h2>
@@ -855,39 +843,37 @@
     <p>For a more platform-specific workflow, use the related formatting tools below.</p>
     <p>Related tools: <a href="/instagram-line-break-generator/">Instagram Line Break Generator</a>, <a href="/linkedin-post-formatter/">LinkedIn Post Formatter</a>, and <a href="/caption-line-splitter/">Caption Line Splitter</a>.</p>
 </section>
+</div>
 <section class="acl-faq-section no-print" aria-label="Frequently Asked Questions">
     <h2>Frequently Asked Questions</h2>
     <div class="acl-faq-grid">
-        <article class="acl-faq-item">
-            <h3>Is the Instagram &amp; TikTok Caption Formatter free?</h3>
+        <details>
+            <summary>Is the Instagram &amp; TikTok Caption Formatter free?</summary>
             <p>Yes. This tool is free to use in your browser.</p>
-        </article>
-        <article class="acl-faq-item">
-            <h3>Do I need to sign up?</h3>
+        </details>
+        <details>
+            <summary>Do I need to sign up?</summary>
             <p>No signup is required. Open the tool, enter your details, and use the result right away.</p>
-        </article>
-        <article class="acl-faq-item">
-            <h3>Is my data uploaded?</h3>
+        </details>
+        <details>
+            <summary>Is my data uploaded?</summary>
             <p>No. The tool is designed to run locally in your browser whenever possible, so your inputs are not saved or sent to our servers.</p>
-        </article>
-        <article class="acl-faq-item">
-            <h3>Can I use this for Instagram captions, TikTok posts, Reels descriptions, and short social updates?</h3>
+        </details>
+        <details>
+            <summary>Can I use this for Instagram captions, TikTok posts, Reels descriptions, and short social updates?</summary>
             <p>Yes. It is designed for Instagram captions, TikTok posts, Reels descriptions, and short social updates.</p>
-        </article>
-        <article class="acl-faq-item">
-            <h3>Can I copy, export, or save the result?</h3>
+        </details>
+        <details>
+            <summary>Can I copy, export, or save the result?</summary>
             <p>Yes. You can copy the formatted caption and paste it into your social platform.</p>
-        </article>
-        <article class="acl-faq-item">
-            <h3>Does this work on mobile?</h3>
+        </details>
+        <details>
+            <summary>Does this work on mobile?</summary>
             <p>Yes. The layout is responsive, though larger screens are usually easier for detailed editing or review.</p>
-        </article>
+        </details>
     </div>
 </section>
-<section data-acl-generated-related><h2>Continue with a related tool</h2><p>Use the next utility that matches your workflow.</p><div><a href="/short-form-hook-analyzer/">1. Optimize Hook Retention
-                    Score the immediate opening psychological triggers of viral drafts using the Short-Form Hook Analyzer tool.</a><a href="/teleprompter/">2. Streamline Video Scripts
-                    Maintain continuous eye contact metrics smoothly using the browser-based Creator Teleprompter.</a><a href="/creator-utilities/">3. Scale Traffic Architecture
-                    Unlock structured monetization systems completely with the complete AI Traffic Playbook.</a><a href="/instagram-line-break-generator/">Instagram Line Break Generator</a><a href="/linkedin-post-formatter/">LinkedIn Post Formatter</a><a href="/caption-line-splitter/">Caption Line Splitter</a></div></section><section data-acl-generated-premium><span>Creator Publishing System</span><h2>Turn formatted content into a repeatable publishing workflow</h2><p>Use AI Cash Lab premium workspaces to connect content planning, production, publishing, and monetization.</p><a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Explore Premium Workspaces →</a></section><section data-acl-generated-guides><h2>Social Media Caption Formatter Guides</h2><p>Use these supporting articles to apply the result with more context.</p><div><a href="/articles/caption-best-practices/"><strong>Social Media Caption FAQ And Best Practices</strong><p>Practical guidance connected to this free tool.</p></a><a href="/articles/caption-examples/"><strong>Real Social Media Caption Examples And Scenarios</strong><p>Practical guidance connected to this free tool.</p></a><a href="/articles/common-caption-mistakes/"><strong>Common Social Media Caption Mistakes And How To Avoid Them</strong><p>Practical guidance connected to this free tool.</p></a><a href="/articles/how-to-format-instagram-and-tiktok-captions/"><strong>How To Format Instagram And TikTok Captions Before Posting</strong><p>Practical guidance connected to this free tool.</p></a><a href="/articles/how-to-improve-caption/"><strong>How To Use The Social Media Caption Formatter: Step-By-Step</strong><p>Practical guidance connected to this free tool.</p></a></div></section><footer class="acl-standard-footer no-print">
+<section data-acl-generated-related><h2>Continue with a related tool</h2><p>Use the next utility that matches your workflow.</p><div><a href="/short-form-hook-analyzer/">Short-Form Hook Analyzer</a><a href="/teleprompter/">Creator Teleprompter</a><a href="/creator-ftc-disclosure-generator/">Creator FTC Disclosure Generator</a><a href="/instagram-line-break-generator/">Instagram Line Break Generator</a><a href="/linkedin-post-formatter/">LinkedIn Post Formatter</a><a href="/caption-line-splitter/">Caption Line Splitter</a></div></section><section data-acl-generated-premium><h2>Turn formatted content into a repeatable publishing workflow</h2><p>Use AI Cash Lab premium workspaces to connect content planning, production, publishing, and monetization.</p><a href="https://aicashlabofficial.gumroad.com" target="_blank" rel="noopener noreferrer">Explore Premium Workspaces →</a></section><section data-acl-generated-guides><h2>Social Media Caption Formatter Guides</h2><p>Use these supporting articles to apply the result with more context.</p><div><a href="/articles/caption-best-practices/"><strong>Social Media Caption FAQ And Best Practices</strong><p>Practical guidance connected to this free tool.</p></a><a href="/articles/caption-examples/"><strong>Real Social Media Caption Examples And Scenarios</strong><p>Practical guidance connected to this free tool.</p></a><a href="/articles/common-caption-mistakes/"><strong>Common Social Media Caption Mistakes And How To Avoid Them</strong><p>Practical guidance connected to this free tool.</p></a><a href="/articles/how-to-format-instagram-and-tiktok-captions/"><strong>How To Format Instagram And TikTok Captions Before Posting</strong><p>Practical guidance connected to this free tool.</p></a><a href="/articles/how-to-improve-caption/"><strong>How To Use The Social Media Caption Formatter: Step-By-Step</strong><p>Practical guidance connected to this free tool.</p></a></div></section><footer class="acl-standard-footer no-print">
   <div class="acl-standard-footer-inner">
     <div>
       <div class="acl-standard-footer-brand-main"><span class="acl-standard-footer-logo"><img src="/assets/ai-cash-lab-logo-600.png" alt="AI Cash Lab footer logo"></span><span>AI Cash Lab Tools</span></div>
@@ -908,7 +894,6 @@
   </div>
   <div class="acl-standard-footer-bottom">&copy; 2026 AI Cash Lab. All Rights Reserved.</div>
 </footer>
-    </div>
 
 
 
@@ -1143,7 +1128,7 @@
             });
         }
     </script>
-<script src="/assets/standard-tool-closing-sections.js" defer></script></body>
+<script src="/assets/standard-tool-closing-sections.js?v=20260802" defer></script></body>
 </html>
 
 
