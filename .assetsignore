@@ -1,0 +1,17 @@
+.git/
+.github/
+.codex/
+.wrangler/
+node_modules/
+qa/
+scripts/
+tools/
+AI Cash Lab Website Notes/
+.gitignore
+.assetsignore
+README.md
+wrangler.jsonc
+Homepage index.txt
+index.htm
+resolution-checker/notes.txt
+*.zip
