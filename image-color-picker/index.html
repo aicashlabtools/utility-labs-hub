@@ -1192,6 +1192,9 @@ body { background: #0d0f13 !important; color: #f8fafc; padding: 0 !important; sc
             loadSampleImage();
         });
 
+        // Start with the bundled sample visible so the picker never opens as an empty workspace.
+        loadSampleImage();
+
         btnClearImage.addEventListener('click', resetImagePicker);
 
         function updateVaultDisplayViewTray() {
