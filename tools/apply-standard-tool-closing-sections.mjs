@@ -38,7 +38,7 @@ for(const entry of await fs.readdir(root,{withFileTypes:true})){
     const related=Array.from(paragraph.matchAll(/<a[^>]+href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)).slice(0,6).map(match=>({href:match[1],title:match[2].replace(/<[^>]+>/g,'').trim()}));
     if(related.length){
       const links=related.map(item=>`<a href="${item.href}">${item.title}</a>`).join('');
-      html=insertBeforeFooter(html,`<section data-acl-generated-related><h2>Continue with a related tool</h2><p>Use the next utility that matches your workflow.</p><div>${links}</div></section>`);
+      html=insertBeforeFooter(html,`<section data-acl-generated-related><span class="acl-closing-kicker">Related Tools</span><h2>Continue building your workflow.</h2><p>Choose the next AI Cash Lab utility that fits the work you are doing.</p><div>${links}</div></section>`);
     }
   }
   if(!/href=["']\/articles\//i.test(beforeFooter)){

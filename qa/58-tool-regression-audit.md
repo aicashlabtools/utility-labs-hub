@@ -48,6 +48,14 @@ Summary: 58 official tools audited. 58 pass the repeatable static checks. Browse
 - Closing sections: Header, privacy strip, premium CTA, related tools, guides/articles, FAQ, and footer render once in the browser audit.
 - Notes: No console, duplicate-ID, broken-link, or component-count regression detected.
 
+## Locked Related Tools component standard
+
+- The section anatomy is fixed: one kicker, one contextual heading, one short contextual description, and exactly six tool-name links when six relevant tools are available.
+- Desktop uses the shared 5/7 copy-to-links layout with a full three-column by two-row link grid. Tablet uses two link columns; mobile uses one.
+- Tool-specific headings and descriptions may change to fit the workflow, but card width, spacing, typography, button sizing, borders, and responsive behavior must not vary.
+- Legacy page-level `.acl-related-tools` grid rules must not override the shared component.
+- Generic placeholder copy such as “Use the next utility that matches your workflow” is not approved final copy.
+
 ### Brand Deal Calculator
 
 - Tool: `/brand-deal-calculator/`
