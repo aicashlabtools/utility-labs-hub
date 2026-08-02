@@ -8,6 +8,13 @@ Browser coverage: rendered desktop and 390 × 844 mobile checks, main-control in
 
 Notes: upload-only tools were checked for a working visible upload entry point without transmitting a personal file. Custom range-slider tools were verified through their rendered control state and source event wiring where automated dragging was not reliable.
 
+## Locked tool-shell alignment standard
+
+- The hero, Quick Start strip, visible privacy strip, and complete calculator/tool workspace must share the same left and right boundaries.
+- For two-column tools, alignment is measured against the outer workspace grid containing both the left input panel and right result panel, not against either individual panel.
+- The visible privacy border must align with the shared shell; wrapper padding introduced by normalization scripts must not create an inset strip.
+- This alignment must be verified from rendered desktop and 390 × 844 mobile views, not inferred only from matching source-level width declarations.
+
 Summary: 58 official tools audited. 58 pass the repeatable static checks. Browser QA found and repaired the regressions documented below.
 
 ## Regressions fixed during this pass
@@ -23,12 +30,12 @@ Summary: 58 official tools audited. 58 pass the repeatable static checks. Browse
 
 - Tool: `/caption-line-splitter/`
 - Status: Pass
-- Issue: None remaining in the repeatable checks.
+- Issue: Fixed mismatched hero, Quick Start, privacy-strip, and two-panel workspace boundaries.
 - Desktop: Pass
 - Mobile: Pass — no page-level horizontal overflow at 390 px.
 - Interactive controls: 7 controls detected; copy, reset, clear, export, upload, print capability signals present.
 - Closing sections: Header, privacy strip, premium CTA, related tools, guides/articles, FAQ, and footer render once in the browser audit.
-- Notes: No console, duplicate-ID, broken-link, or component-count regression detected.
+- Notes: Shared shell edges now align in rendered desktop and mobile checks; no console, duplicate-ID, broken-link, or component-count regression detected.
 
 ### Product Idea Validator
 
@@ -67,12 +74,12 @@ Summary: 58 official tools audited. 58 pass the repeatable static checks. Browse
 
 - Tool: `/caption-formatter/`
 - Status: Pass
-- Issue: None remaining in the repeatable checks.
+- Issue: Added the missing Quick Start strip and aligned the hero, Quick Start, visible privacy strip, platform rail, and two-panel workspace.
 - Desktop: Pass
 - Mobile: Pass — no page-level horizontal overflow at 390 px.
 - Interactive controls: 7 controls detected; copy, clear, download, export, upload, print capability signals present.
 - Closing sections: Header, privacy strip, premium CTA, related tools, guides/articles, FAQ, and footer render once in the browser audit.
-- Notes: No literal Quick Start label in source; retained the tool’s existing interaction entry pattern.
+- Notes: Standard Quick Start is now present; shared shell edges align in rendered desktop and mobile checks.
 
 ### Short-Form Hook Analyzer
 
