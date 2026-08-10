@@ -1,0 +1,3453 @@
+[
+  {
+    "slug": "caption-line-splitter",
+    "title": "Caption Line Splitter",
+    "issues": [],
+    "quick": {
+      "left": 120,
+      "right": 1320,
+      "top": 370,
+      "bottom": 420,
+      "width": 1200,
+      "height": 50
+    },
+    "privacy": {
+      "left": 120,
+      "right": 1320,
+      "top": 436,
+      "bottom": 479,
+      "width": 1200,
+      "height": 43
+    },
+    "closingWidths": [
+      1200,
+      1200,
+      1200,
+      1200
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1488
+      },
+      {
+        "name": "related",
+        "top": 1764
+      },
+      {
+        "name": "guides",
+        "top": 1998
+      },
+      {
+        "name": "faq",
+        "top": 2488
+      },
+      {
+        "name": "footer",
+        "top": 3022
+      }
+    ],
+    "relatedLinks": [
+      "Short-Form Hook Analyzer",
+      "Instagram & TikTok Caption Formatter",
+      "Retention Diagnostic Tool",
+      "Video Script Time Calculator",
+      "Video Resolution & Aspect Ratio Checker",
+      "Creator Safe Zone Previewer"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "product-idea-validator",
+    "title": "Product Idea Validator",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 418,
+      "width": 1120,
+      "height": 48
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 434,
+      "bottom": 477,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2227
+      },
+      {
+        "name": "related",
+        "top": 2527
+      },
+      {
+        "name": "guides",
+        "top": 2728
+      },
+      {
+        "name": "faq",
+        "top": 3218
+      },
+      {
+        "name": "footer",
+        "top": 3773
+      }
+    ],
+    "relatedLinks": [
+      "Presale Validation Tester",
+      "Product Launch Calculator",
+      "Product Launch Goal Calculator",
+      "Pricing Strategy Calculator",
+      "Gumroad Profit Calculator",
+      "Paid Traffic Profit Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "brand-deal-calculator",
+    "title": "Brand Deal Calculator",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 418,
+      "width": 1120,
+      "height": 48
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 434,
+      "bottom": 477,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2246
+      },
+      {
+        "name": "related",
+        "top": 2546
+      },
+      {
+        "name": "guides",
+        "top": 2781
+      },
+      {
+        "name": "faq",
+        "top": 3270
+      },
+      {
+        "name": "footer",
+        "top": 3826
+      }
+    ],
+    "relatedLinks": [
+      "Subscriber LTV Calculator",
+      "Monetization Gap Calculator",
+      "Product Launch Goal Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "retention-diagnostic-tool",
+    "title": "Retention Diagnostic Tool",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 418,
+      "width": 1120,
+      "height": 48
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 434,
+      "bottom": 477,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2082
+      },
+      {
+        "name": "related",
+        "top": 2382
+      },
+      {
+        "name": "guides",
+        "top": 2616
+      },
+      {
+        "name": "faq",
+        "top": 3106
+      },
+      {
+        "name": "footer",
+        "top": 3661
+      }
+    ],
+    "relatedLinks": [
+      "Caption Line Splitter",
+      "Short-Form Hook Analyzer",
+      "Video Script Time Calculator",
+      "Video Resolution & Aspect Ratio Checker",
+      "Creator Safe Zone Previewer",
+      "Paid Traffic Profit Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "caption-formatter",
+    "title": "Social Media Caption Formatter",
+    "issues": [],
+    "quick": {
+      "left": 120,
+      "right": 1320,
+      "top": 375,
+      "bottom": 425,
+      "width": 1200,
+      "height": 50
+    },
+    "privacy": {
+      "left": 120,
+      "right": 1320,
+      "top": 441,
+      "bottom": 484,
+      "width": 1200,
+      "height": 43
+    },
+    "closingWidths": [
+      1200,
+      1200,
+      1200,
+      1200
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1405
+      },
+      {
+        "name": "related",
+        "top": 1661
+      },
+      {
+        "name": "guides",
+        "top": 1894
+      },
+      {
+        "name": "faq",
+        "top": 2394
+      },
+      {
+        "name": "footer",
+        "top": 2928
+      }
+    ],
+    "relatedLinks": [
+      "Short-Form Hook Analyzer",
+      "Creator Teleprompter",
+      "Creator FTC Disclosure Generator",
+      "Instagram Line Break Generator",
+      "LinkedIn Post Formatter",
+      "Caption Line Splitter"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "short-form-hook-analyzer",
+    "title": "Short-Form Hook Analyzer",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 418,
+      "width": 1120,
+      "height": 48
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 434,
+      "bottom": 477,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1545
+      },
+      {
+        "name": "related",
+        "top": 1845
+      },
+      {
+        "name": "guides",
+        "top": 2079
+      },
+      {
+        "name": "faq",
+        "top": 2569
+      },
+      {
+        "name": "footer",
+        "top": 3124
+      }
+    ],
+    "relatedLinks": [
+      "Caption Line Splitter",
+      "Retention Diagnostic Tool",
+      "Video Script Time Calculator",
+      "Video Resolution & Aspect Ratio Checker",
+      "Creator Safe Zone Previewer",
+      "Paid Traffic Profit Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "viral-content-framework-generator",
+    "title": "Viral Content Framework Generator",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 418,
+      "width": 1120,
+      "height": 48
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 434,
+      "bottom": 477,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1969
+      },
+      {
+        "name": "related",
+        "top": 2245
+      },
+      {
+        "name": "guides",
+        "top": 2479
+      },
+      {
+        "name": "faq",
+        "top": 2988
+      },
+      {
+        "name": "footer",
+        "top": 3501
+      }
+    ],
+    "relatedLinks": [
+      "Short-Form Hook Analyzer",
+      "Video Script Time Calculator",
+      "Content Repurposing Matrix",
+      "Caption Line Splitter",
+      "Teleprompter",
+      "Retention Diagnostic Tool"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "thumbnail-text-checker",
+    "title": "Thumbnail Text Checker",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 420,
+      "width": 1120,
+      "height": 50
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 436,
+      "bottom": 479,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1544
+      },
+      {
+        "name": "related",
+        "top": 1844
+      },
+      {
+        "name": "guides",
+        "top": 2078
+      },
+      {
+        "name": "faq",
+        "top": 2568
+      },
+      {
+        "name": "footer",
+        "top": 3123
+      }
+    ],
+    "relatedLinks": [
+      "Caption Line Splitter",
+      "Short-Form Hook Analyzer",
+      "Retention Diagnostic Tool",
+      "Video Script Time Calculator",
+      "Video Resolution & Aspect Ratio Checker",
+      "Creator Safe Zone Previewer"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "youtube-title-preview",
+    "title": "YouTube Title Preview Tool",
+    "issues": [],
+    "quick": {
+      "left": 208,
+      "right": 1232,
+      "top": 279,
+      "bottom": 321,
+      "width": 1024,
+      "height": 42
+    },
+    "privacy": {
+      "left": 208,
+      "right": 1232,
+      "top": 333,
+      "bottom": 376,
+      "width": 1024,
+      "height": 43
+    },
+    "closingWidths": [
+      1280,
+      1280,
+      1280,
+      1280
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1912
+      },
+      {
+        "name": "related",
+        "top": 2168
+      },
+      {
+        "name": "guides",
+        "top": 2369
+      },
+      {
+        "name": "faq",
+        "top": 2771
+      },
+      {
+        "name": "footer",
+        "top": 3306
+      }
+    ],
+    "relatedLinks": [
+      "Thumbnail Text Checker",
+      "YouTube Description Formatter",
+      "YouTube Shorts Safe Zone",
+      "Short-Form Hook Analyzer",
+      "Video Script Time Calculator",
+      "Creator Utilities"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "video-script-time-calculator",
+    "title": "Video Script Time Calculator",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 420,
+      "width": 1120,
+      "height": 50
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 436,
+      "bottom": 479,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1791
+      },
+      {
+        "name": "related",
+        "top": 2091
+      },
+      {
+        "name": "guides",
+        "top": 2326
+      },
+      {
+        "name": "faq",
+        "top": 2815
+      },
+      {
+        "name": "footer",
+        "top": 3371
+      }
+    ],
+    "relatedLinks": [
+      "Caption Line Splitter",
+      "Short-Form Hook Analyzer",
+      "Retention Diagnostic Tool",
+      "Video Resolution & Aspect Ratio Checker",
+      "Creator Safe Zone Previewer",
+      "Paid Traffic Profit Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "teleprompter",
+    "title": "Free Online Teleprompter",
+    "issues": [],
+    "quick": {
+      "left": 184,
+      "right": 1256,
+      "top": 364,
+      "bottom": 414,
+      "width": 1072,
+      "height": 50
+    },
+    "privacy": {
+      "left": 184,
+      "right": 1256,
+      "top": 430,
+      "bottom": 474,
+      "width": 1072,
+      "height": 43
+    },
+    "closingWidths": [
+      1072,
+      1072,
+      1072,
+      1072
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1611
+      },
+      {
+        "name": "related",
+        "top": 1942
+      },
+      {
+        "name": "guides",
+        "top": 2175
+      },
+      {
+        "name": "faq",
+        "top": 2654
+      },
+      {
+        "name": "footer",
+        "top": 3209
+      }
+    ],
+    "relatedLinks": [
+      "Video Script Time Calculator",
+      "Caption Line Splitter",
+      "Short-Form Hook Analyzer",
+      "Retention Diagnostic Tool",
+      "YouTube Title Preview Tool",
+      "Creator Utilities"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "meeting-notes-formatter",
+    "title": "Free Meeting Notes Formatter for Freelancers",
+    "issues": [],
+    "quick": {
+      "left": 184,
+      "right": 1256,
+      "top": 415,
+      "bottom": 465,
+      "width": 1072,
+      "height": 50
+    },
+    "privacy": {
+      "left": 184,
+      "right": 1256,
+      "top": 481,
+      "bottom": 524,
+      "width": 1072,
+      "height": 43
+    },
+    "closingWidths": [
+      1072,
+      1072,
+      1072,
+      1072
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2175
+      },
+      {
+        "name": "related",
+        "top": 2505
+      },
+      {
+        "name": "guides",
+        "top": 2738
+      },
+      {
+        "name": "faq",
+        "top": 3217
+      },
+      {
+        "name": "footer",
+        "top": 3773
+      }
+    ],
+    "relatedLinks": [
+      "Statement of Work Generator",
+      "Free NDA Generator",
+      "Free Invoice Generator",
+      "Proposal Calculator",
+      "Scope Creep Calculator",
+      "Testimonial Request Generator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "linkedin-post-formatter",
+    "title": "Free LinkedIn Post Formatter & Readability Checker",
+    "issues": [],
+    "quick": {
+      "left": 184,
+      "right": 1256,
+      "top": 427,
+      "bottom": 477,
+      "width": 1072,
+      "height": 50
+    },
+    "privacy": {
+      "left": 184,
+      "right": 1256,
+      "top": 493,
+      "bottom": 536,
+      "width": 1072,
+      "height": 43
+    },
+    "closingWidths": [
+      1072,
+      1072,
+      1072,
+      1072
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1818
+      },
+      {
+        "name": "related",
+        "top": 2149
+      },
+      {
+        "name": "guides",
+        "top": 2409
+      },
+      {
+        "name": "faq",
+        "top": 2888
+      },
+      {
+        "name": "footer",
+        "top": 3443
+      }
+    ],
+    "relatedLinks": [
+      "Short-Form Hook Analyzer",
+      "Instagram Line Break Generator",
+      "Caption Line Splitter",
+      "Social Media Caption Formatter",
+      "Creator FTC Disclosure Generator",
+      "Creator Teleprompter"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "youtube-description-formatter",
+    "title": "Free YouTube Description Formatter",
+    "issues": [],
+    "quick": {
+      "left": 184,
+      "right": 1256,
+      "top": 364,
+      "bottom": 414,
+      "width": 1072,
+      "height": 50
+    },
+    "privacy": {
+      "left": 184,
+      "right": 1256,
+      "top": 430,
+      "bottom": 474,
+      "width": 1072,
+      "height": 43
+    },
+    "closingWidths": [
+      1072,
+      1072,
+      1072,
+      1072
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2232
+      },
+      {
+        "name": "related",
+        "top": 2563
+      },
+      {
+        "name": "guides",
+        "top": 2796
+      },
+      {
+        "name": "faq",
+        "top": 3275
+      },
+      {
+        "name": "footer",
+        "top": 3830
+      }
+    ],
+    "relatedLinks": [
+      "YouTube Title Preview Tool",
+      "Thumbnail Text Checker",
+      "YouTube Shorts Safe Zone",
+      "Video Script Time Calculator",
+      "Creator Teleprompter",
+      "Caption Line Splitter"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "creator-ftc-disclosure-generator",
+    "title": "Creator FTC Disclosure Generator",
+    "issues": [],
+    "quick": {
+      "left": 208,
+      "right": 1232,
+      "top": 279,
+      "bottom": 321,
+      "width": 1024,
+      "height": 42
+    },
+    "privacy": {
+      "left": 208,
+      "right": 1232,
+      "top": 333,
+      "bottom": 376,
+      "width": 1024,
+      "height": 43
+    },
+    "closingWidths": [
+      1280,
+      1280,
+      1280,
+      1280
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2452
+      },
+      {
+        "name": "related",
+        "top": 2709
+      },
+      {
+        "name": "guides",
+        "top": 2943
+      },
+      {
+        "name": "faq",
+        "top": 3393
+      },
+      {
+        "name": "footer",
+        "top": 3928
+      }
+    ],
+    "relatedLinks": [
+      "Creator Monetization Path Finder",
+      "Viral Content Framework Generator",
+      "Social Media Caption Formatter",
+      "YouTube Description Formatter",
+      "Creator Sponsorship Rate Calculator",
+      "Creator Utilities"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "instagram-line-break-generator",
+    "title": "Instagram Line Break Generator",
+    "issues": [],
+    "quick": {
+      "left": 184,
+      "right": 1256,
+      "top": 364,
+      "bottom": 414,
+      "width": 1072,
+      "height": 50
+    },
+    "privacy": {
+      "left": 184,
+      "right": 1256,
+      "top": 430,
+      "bottom": 474,
+      "width": 1072,
+      "height": 43
+    },
+    "closingWidths": [
+      1072,
+      1072,
+      1072,
+      1072
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1380
+      },
+      {
+        "name": "related",
+        "top": 1710
+      },
+      {
+        "name": "guides",
+        "top": 1970
+      },
+      {
+        "name": "faq",
+        "top": 2454
+      },
+      {
+        "name": "footer",
+        "top": 3009
+      }
+    ],
+    "relatedLinks": [
+      "Social Media Caption Formatter",
+      "LinkedIn Post Formatter",
+      "Caption Line Splitter",
+      "YouTube Description Formatter",
+      "Short-Form Hook Analyzer",
+      "Creator FTC Disclosure Generator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "image-color-picker",
+    "title": "Extract Hex Colors From Image Online",
+    "issues": [],
+    "quick": {
+      "left": 184,
+      "right": 1256,
+      "top": 364,
+      "bottom": 414,
+      "width": 1072,
+      "height": 50
+    },
+    "privacy": {
+      "left": 184,
+      "right": 1256,
+      "top": 430,
+      "bottom": 474,
+      "width": 1072,
+      "height": 43
+    },
+    "closingWidths": [
+      1072,
+      1072,
+      1072,
+      1072
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1777
+      },
+      {
+        "name": "related",
+        "top": 2074
+      },
+      {
+        "name": "guides",
+        "top": 2334
+      },
+      {
+        "name": "faq",
+        "top": 2813
+      },
+      {
+        "name": "footer",
+        "top": 3368
+      }
+    ],
+    "relatedLinks": [
+      "Thumbnail Text Checker",
+      "Video Resolution & Aspect Ratio Checker",
+      "Instagram Reels Safe Zone",
+      "TikTok Safe Zone",
+      "YouTube Shorts Safe Zone",
+      "YouTube Title Preview Tool"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "repurposing-matrix",
+    "title": "Repurposing Matrix",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 343,
+      "bottom": 391,
+      "width": 1120,
+      "height": 48
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 407,
+      "bottom": 450,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2186
+      },
+      {
+        "name": "related",
+        "top": 2486
+      },
+      {
+        "name": "guides",
+        "top": 2720
+      },
+      {
+        "name": "faq",
+        "top": 3210
+      },
+      {
+        "name": "footer",
+        "top": 3785
+      }
+    ],
+    "relatedLinks": [
+      "Caption Line Splitter",
+      "Short-Form Hook Analyzer",
+      "Retention Diagnostic Tool",
+      "Creator Safe Zone Previewer",
+      "Video Script Time Calculator",
+      "Video Resolution & Aspect Ratio Checker"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "tiktok-safe-zone",
+    "title": "TikTok Safe Zone Checker",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 438,
+      "bottom": 486,
+      "width": 1120,
+      "height": 48
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 522,
+      "bottom": 565,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2664
+      },
+      {
+        "name": "related",
+        "top": 2964
+      },
+      {
+        "name": "guides",
+        "top": 3198
+      },
+      {
+        "name": "faq",
+        "top": 3712
+      },
+      {
+        "name": "footer",
+        "top": 4267
+      }
+    ],
+    "relatedLinks": [
+      "Video Resolution & Aspect Ratio Checker",
+      "Creator Safe Zone Previewer",
+      "YouTube Shorts Safe Zone Checker",
+      "Instagram Reels Safe Zone Checker",
+      "Thumbnail Text Checker",
+      "Paid Traffic Profit Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "youtube-shorts-safe-zone",
+    "title": "YouTube Shorts Safe Zone Grid Tool",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 438,
+      "bottom": 486,
+      "width": 1120,
+      "height": 48
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 522,
+      "bottom": 565,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2499
+      },
+      {
+        "name": "related",
+        "top": 2763
+      },
+      {
+        "name": "guides",
+        "top": 2998
+      },
+      {
+        "name": "faq",
+        "top": 3512
+      },
+      {
+        "name": "footer",
+        "top": 4067
+      }
+    ],
+    "relatedLinks": [
+      "Video Resolution & Aspect Ratio Checker",
+      "Creator Safe Zone Previewer",
+      "TikTok Safe Zone Checker",
+      "Instagram Reels Safe Zone Checker",
+      "Thumbnail Text Checker",
+      "Paid Traffic Profit Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "instagram-reels-safe-zone",
+    "title": "Instagram Reels Safe Zone Checker",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 438,
+      "bottom": 486,
+      "width": 1120,
+      "height": 48
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 522,
+      "bottom": 565,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2473
+      },
+      {
+        "name": "related",
+        "top": 2737
+      },
+      {
+        "name": "guides",
+        "top": 2972
+      },
+      {
+        "name": "faq",
+        "top": 3486
+      },
+      {
+        "name": "footer",
+        "top": 4041
+      }
+    ],
+    "relatedLinks": [
+      "Video Resolution & Aspect Ratio Checker",
+      "Creator Safe Zone Previewer",
+      "TikTok Safe Zone Checker",
+      "YouTube Shorts Safe Zone Checker",
+      "Thumbnail Text Checker",
+      "Paid Traffic Profit Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "resolution-checker",
+    "title": "Video Resolution & Aspect Ratio Checker",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 333,
+      "bottom": 383,
+      "width": 1120,
+      "height": 50
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 399,
+      "bottom": 442,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1884
+      },
+      {
+        "name": "related",
+        "top": 2185
+      },
+      {
+        "name": "guides",
+        "top": 2419
+      },
+      {
+        "name": "faq",
+        "top": 2909
+      },
+      {
+        "name": "footer",
+        "top": 3464
+      }
+    ],
+    "relatedLinks": [
+      "Creator Safe Zone Previewer",
+      "TikTok Safe Zone Checker",
+      "YouTube Shorts Safe Zone Checker",
+      "Instagram Reels Safe Zone Checker",
+      "Thumbnail Text Checker",
+      "Video Script Time Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "client-lifetime-value-calculator",
+    "title": "Client Lifetime Value Calculator",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 388,
+      "bottom": 438,
+      "width": 1120,
+      "height": 50
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 454,
+      "bottom": 498,
+      "width": 1120,
+      "height": 45
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1810
+      },
+      {
+        "name": "related",
+        "top": 2043
+      },
+      {
+        "name": "guides",
+        "top": 2244
+      },
+      {
+        "name": "faq",
+        "top": 2860
+      },
+      {
+        "name": "footer",
+        "top": 3438
+      }
+    ],
+    "relatedLinks": [
+      "Client Referral Value Calculator",
+      "Retainer Calculator",
+      "Proposal Calculator",
+      "Profit Margin Guard"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "subscriber-ltv-calculator",
+    "title": "Subscriber LTV Calculator",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 418,
+      "width": 1120,
+      "height": 48
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 434,
+      "bottom": 477,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2019
+      },
+      {
+        "name": "related",
+        "top": 2319
+      },
+      {
+        "name": "guides",
+        "top": 2553
+      },
+      {
+        "name": "faq",
+        "top": 3067
+      },
+      {
+        "name": "footer",
+        "top": 3622
+      }
+    ],
+    "relatedLinks": [
+      "Product Profit Calculator",
+      "Monetization Gap Calculator",
+      "Product Launch Goal Calculator",
+      "CPM vs Product Revenue Calculator",
+      "Lead Magnet Estimator",
+      "Paid Traffic Profit Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "monetization-gap-calculator",
+    "title": "Creator Monetization Gap Analyzer",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 418,
+      "width": 1120,
+      "height": 48
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 434,
+      "bottom": 477,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2018
+      },
+      {
+        "name": "related",
+        "top": 2318
+      },
+      {
+        "name": "guides",
+        "top": 2579
+      },
+      {
+        "name": "faq",
+        "top": 3069
+      },
+      {
+        "name": "footer",
+        "top": 3624
+      }
+    ],
+    "relatedLinks": [
+      "Lead Magnet Estimator",
+      "Subscriber LTV Calculator",
+      "Product Profit Calculator",
+      "Product Launch Goal Calculator",
+      "CPM vs Product Revenue Calculator",
+      "Product Idea Validator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "creator-monetization-path-finder",
+    "title": "Creator Monetization Path Finder",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 347,
+      "bottom": 393,
+      "width": 1120,
+      "height": 46
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 411,
+      "bottom": 454,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 3064
+      },
+      {
+        "name": "related",
+        "top": 3364
+      },
+      {
+        "name": "guides",
+        "top": 3599
+      },
+      {
+        "name": "faq",
+        "top": 4113
+      },
+      {
+        "name": "footer",
+        "top": 4648
+      }
+    ],
+    "relatedLinks": [
+      "Monetization Gap Calculator",
+      "Subscriber LTV Calculator",
+      "Lead Magnet Estimator",
+      "Brand Deal Calculator",
+      "Creator RPM Calculator",
+      "Creator Utilities"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "creator-sponsorship-rate-calculator",
+    "title": "Creator Sponsorship Rate Calculator",
+    "issues": [],
+    "quick": {
+      "left": 208,
+      "right": 1232,
+      "top": 279,
+      "bottom": 321,
+      "width": 1024,
+      "height": 42
+    },
+    "privacy": {
+      "left": 208,
+      "right": 1232,
+      "top": 333,
+      "bottom": 376,
+      "width": 1024,
+      "height": 43
+    },
+    "closingWidths": [
+      1280,
+      1280,
+      1280,
+      1280
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2541
+      },
+      {
+        "name": "related",
+        "top": 2774
+      },
+      {
+        "name": "guides",
+        "top": 3002
+      },
+      {
+        "name": "faq",
+        "top": 3452
+      },
+      {
+        "name": "footer",
+        "top": 4009
+      }
+    ],
+    "relatedLinks": [
+      "Monetization Path Finder",
+      "FTC Disclosure Generator",
+      "Creator RPM Calculator",
+      "Brand Deal Calculator",
+      "Viral Content Framework",
+      "Creator Utilities"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "cpm-conversion-pivot",
+    "title": "CPM vs Product Revenue Calculator",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 420,
+      "width": 1120,
+      "height": 50
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 436,
+      "bottom": 479,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1893
+      },
+      {
+        "name": "related",
+        "top": 2193
+      },
+      {
+        "name": "guides",
+        "top": 2428
+      },
+      {
+        "name": "faq",
+        "top": 2942
+      },
+      {
+        "name": "footer",
+        "top": 3497
+      }
+    ],
+    "relatedLinks": [
+      "Product Profit Calculator",
+      "Monetization Gap Calculator",
+      "Subscriber LTV Calculator",
+      "Product Launch Goal Calculator",
+      "Lead Magnet Estimator",
+      "Paid Traffic Profit Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "creator-rpm-calculator",
+    "title": "Creator RPM Calculator",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 418,
+      "width": 1120,
+      "height": 48
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 434,
+      "bottom": 477,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2048
+      },
+      {
+        "name": "related",
+        "top": 2348
+      },
+      {
+        "name": "guides",
+        "top": 2583
+      },
+      {
+        "name": "faq",
+        "top": 3096
+      },
+      {
+        "name": "footer",
+        "top": 3651
+      }
+    ],
+    "relatedLinks": [
+      "Product Profit Calculator",
+      "Monetization Gap Calculator",
+      "Subscriber LTV Calculator",
+      "Product Launch Goal Calculator",
+      "CPM vs Product Revenue Calculator",
+      "Lead Magnet Estimator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "lead-magnet-estimator",
+    "title": "Lead Magnet Estimator",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 420,
+      "width": 1120,
+      "height": 50
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 436,
+      "bottom": 479,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1710
+      },
+      {
+        "name": "related",
+        "top": 2010
+      },
+      {
+        "name": "guides",
+        "top": 2244
+      },
+      {
+        "name": "faq",
+        "top": 2734
+      },
+      {
+        "name": "footer",
+        "top": 3289
+      }
+    ],
+    "relatedLinks": [
+      "Product Profit Calculator",
+      "Monetization Gap Calculator",
+      "Subscriber LTV Calculator",
+      "Product Launch Goal Calculator",
+      "CPM vs Product Revenue Calculator",
+      "Paid Traffic Profit Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "product-profit-calculator",
+    "title": "Product Profit Calculator",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 420,
+      "width": 1120,
+      "height": 50
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 436,
+      "bottom": 479,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1645
+      },
+      {
+        "name": "related",
+        "top": 1945
+      },
+      {
+        "name": "guides",
+        "top": 2179
+      },
+      {
+        "name": "faq",
+        "top": 2669
+      },
+      {
+        "name": "footer",
+        "top": 3224
+      }
+    ],
+    "relatedLinks": [
+      "Monetization Gap Calculator",
+      "Subscriber LTV Calculator",
+      "Product Launch Goal Calculator",
+      "CPM vs Product Revenue Calculator",
+      "Lead Magnet Estimator",
+      "Paid Traffic Profit Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "paid-traffic-profit-calculator",
+    "title": "Paid Traffic Profit Calculator",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 420,
+      "width": 1120,
+      "height": 50
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 436,
+      "bottom": 479,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1705
+      },
+      {
+        "name": "related",
+        "top": 2005
+      },
+      {
+        "name": "guides",
+        "top": 2240
+      },
+      {
+        "name": "faq",
+        "top": 2729
+      },
+      {
+        "name": "footer",
+        "top": 3285
+      }
+    ],
+    "relatedLinks": [
+      "Product Profit Calculator",
+      "Creator Monetization Gap Analyzer",
+      "Subscriber LTV Calculator",
+      "Product Launch Goal Calculator",
+      "CPM vs Product Revenue Calculator",
+      "Lead Magnet Estimator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "presale-validation-tester",
+    "title": "Presale Validation Tester",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 420,
+      "width": 1120,
+      "height": 50
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 436,
+      "bottom": 479,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1513
+      },
+      {
+        "name": "related",
+        "top": 1813
+      },
+      {
+        "name": "guides",
+        "top": 2014
+      },
+      {
+        "name": "faq",
+        "top": 2504
+      },
+      {
+        "name": "footer",
+        "top": 3059
+      }
+    ],
+    "relatedLinks": [
+      "Product Idea Validator",
+      "Product Launch Goal Calculator",
+      "Gumroad Profit Calculator",
+      "Product Profit Calculator",
+      "Pricing Strategy Calculator",
+      "Lead Magnet Estimator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "product-launch-calculator",
+    "title": "Product Launch Calculator",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 418,
+      "width": 1120,
+      "height": 48
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 434,
+      "bottom": 477,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1705
+      },
+      {
+        "name": "related",
+        "top": 2005
+      },
+      {
+        "name": "guides",
+        "top": 2206
+      },
+      {
+        "name": "faq",
+        "top": 2696
+      },
+      {
+        "name": "footer",
+        "top": 3251
+      }
+    ],
+    "relatedLinks": [
+      "Product Idea Validator",
+      "Presale Validation Tester",
+      "Product Launch Goal Calculator",
+      "Pricing Strategy Calculator",
+      "Gumroad Profit Calculator",
+      "Paid Traffic Profit Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "product-launch-goal-calculator",
+    "title": "Product Launch Goal Calculator",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 418,
+      "width": 1120,
+      "height": 48
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 434,
+      "bottom": 477,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2016
+      },
+      {
+        "name": "related",
+        "top": 2316
+      },
+      {
+        "name": "guides",
+        "top": 2517
+      },
+      {
+        "name": "faq",
+        "top": 3007
+      },
+      {
+        "name": "footer",
+        "top": 3562
+      }
+    ],
+    "relatedLinks": [
+      "Product Idea Validator",
+      "Presale Validation Tester",
+      "Product Launch Calculator",
+      "Pricing Strategy Calculator",
+      "Gumroad Profit Calculator",
+      "Paid Traffic Profit Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "pricing-strategy-calculator",
+    "title": "Pricing Strategy Calculator",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 422,
+      "bottom": 461,
+      "width": 1120,
+      "height": 39
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 471,
+      "bottom": 514,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1200,
+      1200,
+      1200,
+      1200
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2496
+      },
+      {
+        "name": "related",
+        "top": 2796
+      },
+      {
+        "name": "guides",
+        "top": 3030
+      },
+      {
+        "name": "faq",
+        "top": 3520
+      },
+      {
+        "name": "footer",
+        "top": 4054
+      }
+    ],
+    "relatedLinks": [
+      "Product Profit Calculator",
+      "Monetization Gap Calculator",
+      "Subscriber LTV Calculator",
+      "Product Launch Goal Calculator",
+      "CPM vs Product Revenue Calculator",
+      "Lead Magnet Estimator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "digital-product-break-even-calculator",
+    "title": "Digital Product Break-Even Calculator",
+    "issues": [],
+    "quick": {
+      "left": 130,
+      "right": 1310,
+      "top": 430,
+      "bottom": 478,
+      "width": 1180,
+      "height": 49
+    },
+    "privacy": {
+      "left": 130,
+      "right": 1310,
+      "top": 494,
+      "bottom": 538,
+      "width": 1180,
+      "height": 43
+    },
+    "closingWidths": [
+      1180,
+      1180,
+      1180,
+      1180
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2318
+      },
+      {
+        "name": "related",
+        "top": 2619
+      },
+      {
+        "name": "guides",
+        "top": 2906
+      },
+      {
+        "name": "faq",
+        "top": 3407
+      },
+      {
+        "name": "footer",
+        "top": 3942
+      }
+    ],
+    "relatedLinks": [
+      "Product Profit Calculator",
+      "Pricing Strategy Calculator",
+      "Product Launch Calculator",
+      "Gumroad Profit Calculator",
+      "Product Idea Validator",
+      "Paid Traffic Profit Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "gumroad-profit-calculator",
+    "title": "Gumroad Profit Calculator",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 397,
+      "bottom": 447,
+      "width": 1120,
+      "height": 50
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 463,
+      "bottom": 506,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1628
+      },
+      {
+        "name": "related",
+        "top": 1929
+      },
+      {
+        "name": "guides",
+        "top": 2163
+      },
+      {
+        "name": "faq",
+        "top": 2677
+      },
+      {
+        "name": "footer",
+        "top": 3232
+      }
+    ],
+    "relatedLinks": [
+      "Product Profit Calculator",
+      "Pricing Strategy Calculator",
+      "Product Launch Goal Calculator",
+      "Subscriber LTV Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "profit-margin-guard",
+    "title": "Profit Margin Guard",
+    "issues": [],
+    "quick": {
+      "left": 170,
+      "right": 1270,
+      "top": 298,
+      "bottom": 342,
+      "width": 1100,
+      "height": 44
+    },
+    "privacy": {
+      "left": 170,
+      "right": 1270,
+      "top": 354,
+      "bottom": 397,
+      "width": 1100,
+      "height": 43
+    },
+    "closingWidths": [
+      1280,
+      1280,
+      1280,
+      1280
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1504
+      },
+      {
+        "name": "related",
+        "top": 1742
+      },
+      {
+        "name": "guides",
+        "top": 1926
+      },
+      {
+        "name": "faq",
+        "top": 2426
+      },
+      {
+        "name": "footer",
+        "top": 2832
+      }
+    ],
+    "relatedLinks": [
+      "Hourly Rate Calculator",
+      "Rush Project Calculator",
+      "Scope Creep Calculator",
+      "Proposal Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "rush-project-calculator",
+    "title": "Rush Project Calculator",
+    "issues": [],
+    "quick": {
+      "left": 208,
+      "right": 1232,
+      "top": 295,
+      "bottom": 337,
+      "width": 1024,
+      "height": 42
+    },
+    "privacy": {
+      "left": 208,
+      "right": 1232,
+      "top": 349,
+      "bottom": 392,
+      "width": 1024,
+      "height": 43
+    },
+    "closingWidths": [
+      1280,
+      1280,
+      1280,
+      1280
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2122
+      },
+      {
+        "name": "related",
+        "top": 2355
+      },
+      {
+        "name": "guides",
+        "top": 2539
+      },
+      {
+        "name": "faq",
+        "top": 2980
+      },
+      {
+        "name": "footer",
+        "top": 3386
+      }
+    ],
+    "relatedLinks": [
+      "",
+      "Hourly Rate Calculator",
+      "Scope Creep Calculator",
+      "Proposal Calculator",
+      "Statement of Work Generator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "freedom-rate-calculator",
+    "title": "Freedom Rate Calculator",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 420,
+      "width": 1120,
+      "height": 50
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 436,
+      "bottom": 479,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1580
+      },
+      {
+        "name": "related",
+        "top": 2052
+      },
+      {
+        "name": "guides",
+        "top": 2253
+      },
+      {
+        "name": "faq",
+        "top": 2763
+      },
+      {
+        "name": "footer",
+        "top": 3319
+      }
+    ],
+    "relatedLinks": [
+      "Hourly Rate Calculator",
+      "Scope Creep Calculator",
+      "Late Fee Calculator",
+      "Business Runway Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "hourly-rate-calculator",
+    "title": "Hourly Rate Calculator",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 420,
+      "width": 1120,
+      "height": 50
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 436,
+      "bottom": 479,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2047
+      },
+      {
+        "name": "related",
+        "top": 2498
+      },
+      {
+        "name": "guides",
+        "top": 2699
+      },
+      {
+        "name": "faq",
+        "top": 3189
+      },
+      {
+        "name": "footer",
+        "top": 3744
+      }
+    ],
+    "relatedLinks": [
+      "Freedom Rate Calculator",
+      "Scope Creep Calculator",
+      "Late Fee Calculator",
+      "Business Runway Calculator",
+      "Brand Deal Calculator",
+      "Paid Traffic Profit Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "freelancer-productivity-debt-calculator",
+    "title": "Freelancer Productivity Debt Calculator",
+    "issues": [],
+    "quick": {
+      "left": 208,
+      "right": 1232,
+      "top": 279,
+      "bottom": 321,
+      "width": 1024,
+      "height": 42
+    },
+    "privacy": {
+      "left": 208,
+      "right": 1232,
+      "top": 333,
+      "bottom": 376,
+      "width": 1024,
+      "height": 43
+    },
+    "closingWidths": [
+      1280,
+      1280,
+      1280,
+      1280
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 3435
+      },
+      {
+        "name": "related",
+        "top": 3814
+      },
+      {
+        "name": "guides",
+        "top": 3998
+      },
+      {
+        "name": "faq",
+        "top": 4472
+      },
+      {
+        "name": "footer",
+        "top": 5007
+      }
+    ],
+    "relatedLinks": [
+      "Hourly RateCalculator",
+      "Pricing StrategyCalculator",
+      "Scope CreepCalculator",
+      "Proposal WinCalculator",
+      "Referral RewardCalculator",
+      "Freelancer Utilities Hub"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "freelancer-saas-subscription-cost-leak-detector",
+    "title": "Freelancer SaaS Subscription Cost Leak Detector",
+    "issues": [],
+    "quick": {
+      "left": 208,
+      "right": 1232,
+      "top": 279,
+      "bottom": 321,
+      "width": 1024,
+      "height": 42
+    },
+    "privacy": {
+      "left": 208,
+      "right": 1232,
+      "top": 333,
+      "bottom": 376,
+      "width": 1024,
+      "height": 43
+    },
+    "closingWidths": [
+      1280,
+      1280,
+      1280,
+      1280
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 3159
+      },
+      {
+        "name": "related",
+        "top": 3392
+      },
+      {
+        "name": "guides",
+        "top": 3620
+      },
+      {
+        "name": "faq",
+        "top": 4094
+      },
+      {
+        "name": "footer",
+        "top": 4629
+      }
+    ],
+    "relatedLinks": [
+      "Productivity Debt Calculator",
+      "Hourly Rate Calculator",
+      "Pricing Strategy Calculator",
+      "Scope Creep Calculator",
+      "Free Invoice Generator",
+      "Freelancer Utilities"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "scope-creep-calculator",
+    "title": "Scope Creep Calculator",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 420,
+      "width": 1120,
+      "height": 50
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 436,
+      "bottom": 479,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1814
+      },
+      {
+        "name": "related",
+        "top": 2285
+      },
+      {
+        "name": "guides",
+        "top": 2486
+      },
+      {
+        "name": "faq",
+        "top": 2997
+      },
+      {
+        "name": "footer",
+        "top": 3552
+      }
+    ],
+    "relatedLinks": [
+      "Freedom Rate Calculator",
+      "Hourly Rate Calculator",
+      "Late Fee Calculator",
+      "Business Runway Calculator",
+      "Brand Deal Calculator",
+      "Paid Traffic Profit Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "retainer-calculator",
+    "title": "Freelancer Monthly Retainer Pricing Calculator",
+    "issues": [],
+    "quick": {
+      "left": 208,
+      "right": 1232,
+      "top": 279,
+      "bottom": 321,
+      "width": 1024,
+      "height": 42
+    },
+    "privacy": {
+      "left": 208,
+      "right": 1232,
+      "top": 333,
+      "bottom": 376,
+      "width": 1024,
+      "height": 43
+    },
+    "closingWidths": [
+      1024,
+      1024,
+      1024,
+      1024
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1742
+      },
+      {
+        "name": "related",
+        "top": 1954
+      },
+      {
+        "name": "guides",
+        "top": 2182
+      },
+      {
+        "name": "faq",
+        "top": 2672
+      },
+      {
+        "name": "footer",
+        "top": 3291
+      }
+    ],
+    "relatedLinks": [
+      "Hourly Rate Calculator",
+      "Scope Creep Calculator",
+      "Proposal Win Calculator",
+      "Referral Reward Calculator",
+      "Pricing Strategy Calculator",
+      "Freelancer Utilities"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "referral-calculator",
+    "title": "Freelancer Referral Reward Calculator",
+    "issues": [],
+    "quick": {
+      "left": 208,
+      "right": 1232,
+      "top": 279,
+      "bottom": 321,
+      "width": 1024,
+      "height": 42
+    },
+    "privacy": {
+      "left": 208,
+      "right": 1232,
+      "top": 333,
+      "bottom": 376,
+      "width": 1024,
+      "height": 43
+    },
+    "closingWidths": [
+      1024,
+      1024,
+      1024,
+      1024
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1788
+      },
+      {
+        "name": "related",
+        "top": 2001
+      },
+      {
+        "name": "guides",
+        "top": 2199
+      },
+      {
+        "name": "faq",
+        "top": 2689
+      },
+      {
+        "name": "footer",
+        "top": 3224
+      }
+    ],
+    "relatedLinks": [
+      "Freelancer Hourly Rate Calculator",
+      "Scope Creep Calculator",
+      "Late Fee Calculator",
+      "Proposal Win Probability Calculator",
+      "Retainer Pricing Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "client-referral-value-calculator",
+    "title": "Client Referral Value Calculator",
+    "issues": [],
+    "quick": {
+      "left": 208,
+      "right": 1232,
+      "top": 279,
+      "bottom": 321,
+      "width": 1024,
+      "height": 42
+    },
+    "privacy": {
+      "left": 208,
+      "right": 1232,
+      "top": 333,
+      "bottom": 376,
+      "width": 1024,
+      "height": 43
+    },
+    "closingWidths": [
+      1024,
+      1024,
+      1024,
+      1024
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1860
+      },
+      {
+        "name": "related",
+        "top": 2073
+      },
+      {
+        "name": "guides",
+        "top": 2301
+      },
+      {
+        "name": "faq",
+        "top": 2814
+      },
+      {
+        "name": "footer",
+        "top": 3177
+      }
+    ],
+    "relatedLinks": [
+      "Retainer Pricing Calculator",
+      "Scope Creep Calculator",
+      "Proposal Win Calculator",
+      "Referral Reward Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "freelancer-profile-optimizer",
+    "title": "Freelancer Profile Optimizer",
+    "issues": [],
+    "quick": {
+      "left": 208,
+      "right": 1232,
+      "top": 279,
+      "bottom": 321,
+      "width": 1024,
+      "height": 42
+    },
+    "privacy": {
+      "left": 208,
+      "right": 1232,
+      "top": 333,
+      "bottom": 376,
+      "width": 1024,
+      "height": 43
+    },
+    "closingWidths": [
+      1280,
+      1280,
+      1280,
+      1280
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2767
+      },
+      {
+        "name": "related",
+        "top": 3152
+      },
+      {
+        "name": "guides",
+        "top": 3343
+      },
+      {
+        "name": "faq",
+        "top": 3769
+      },
+      {
+        "name": "footer",
+        "top": 4304
+      }
+    ],
+    "relatedLinks": [
+      "Freelancer Productivity Debt Calculator",
+      "Proposal Win Probability Calculator",
+      "Testimonial Request Generator",
+      "Case Study Outline Generator",
+      "Client Scam Detector",
+      "Freelancer Utilities Hub"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "testimonial-request-generator",
+    "title": "Testimonial Request Generator",
+    "issues": [],
+    "quick": {
+      "left": 208,
+      "right": 1232,
+      "top": 303,
+      "bottom": 345,
+      "width": 1024,
+      "height": 42
+    },
+    "privacy": {
+      "left": 208,
+      "right": 1232,
+      "top": 357,
+      "bottom": 400,
+      "width": 1024,
+      "height": 43
+    },
+    "closingWidths": [
+      1152,
+      1152,
+      1152,
+      1152
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2543
+      },
+      {
+        "name": "related",
+        "top": 2755
+      },
+      {
+        "name": "guides",
+        "top": 2983
+      },
+      {
+        "name": "faq",
+        "top": 3515
+      },
+      {
+        "name": "footer",
+        "top": 3942
+      }
+    ],
+    "relatedLinks": [
+      "Proposal Win Calculator",
+      "Client Referral Value Calculator",
+      "Referral Reward Calculator",
+      "Statement of Work Generator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "case-study-outline-generator",
+    "title": "Case Study Outline Generator",
+    "issues": [],
+    "quick": {
+      "left": 208,
+      "right": 1232,
+      "top": 279,
+      "bottom": 321,
+      "width": 1024,
+      "height": 42
+    },
+    "privacy": {
+      "left": 208,
+      "right": 1232,
+      "top": 333,
+      "bottom": 376,
+      "width": 1024,
+      "height": 43
+    },
+    "closingWidths": [
+      1280,
+      1280,
+      1280,
+      1280
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 3046
+      },
+      {
+        "name": "related",
+        "top": 3347
+      },
+      {
+        "name": "guides",
+        "top": 3608
+      },
+      {
+        "name": "faq",
+        "top": 4034
+      },
+      {
+        "name": "footer",
+        "top": 4440
+      }
+    ],
+    "relatedLinks": [
+      "Testimonial Request Generator",
+      "Proposal Win Probability Calculator",
+      "Client Referral Value Calculator",
+      "Freelancer Utilities Hub"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "client-scam-detector",
+    "title": "Client Scam Detector",
+    "issues": [],
+    "quick": {
+      "left": 208,
+      "right": 1232,
+      "top": 279,
+      "bottom": 321,
+      "width": 1024,
+      "height": 42
+    },
+    "privacy": {
+      "left": 208,
+      "right": 1232,
+      "top": 333,
+      "bottom": 376,
+      "width": 1024,
+      "height": 43
+    },
+    "closingWidths": [
+      1152,
+      1152,
+      1152,
+      1152
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1899
+      },
+      {
+        "name": "related",
+        "top": 2112
+      },
+      {
+        "name": "guides",
+        "top": 2340
+      },
+      {
+        "name": "faq",
+        "top": 2829
+      },
+      {
+        "name": "footer",
+        "top": 3235
+      }
+    ],
+    "relatedLinks": [
+      "Proposal Win Calculator",
+      "Referral Reward Calculator",
+      "Client Referral Value Calculator",
+      "Scope Creep Calculator",
+      "Free NDA Generator",
+      "Freelancer Utilities"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "proposal-calculator",
+    "title": "Freelancer Proposal Win Probability Calculator",
+    "issues": [],
+    "quick": {
+      "left": 208,
+      "right": 1232,
+      "top": 279,
+      "bottom": 321,
+      "width": 1024,
+      "height": 42
+    },
+    "privacy": {
+      "left": 208,
+      "right": 1232,
+      "top": 333,
+      "bottom": 376,
+      "width": 1024,
+      "height": 43
+    },
+    "closingWidths": [
+      1024,
+      1024,
+      1024,
+      1024
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 1696
+      },
+      {
+        "name": "related",
+        "top": 1908
+      },
+      {
+        "name": "guides",
+        "top": 2136
+      },
+      {
+        "name": "faq",
+        "top": 2626
+      },
+      {
+        "name": "footer",
+        "top": 3224
+      }
+    ],
+    "relatedLinks": [
+      "Referral Reward Calculator",
+      "Hourly Rate Calculator",
+      "Scope Creep Calculator",
+      "Retainer Pricing Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "late-fee-calculator",
+    "title": "Late Fee Calculator",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 418,
+      "width": 1120,
+      "height": 48
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 434,
+      "bottom": 477,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 6300
+      },
+      {
+        "name": "related",
+        "top": 6772
+      },
+      {
+        "name": "guides",
+        "top": 6973
+      },
+      {
+        "name": "faq",
+        "top": 7438
+      },
+      {
+        "name": "footer",
+        "top": 7994
+      }
+    ],
+    "relatedLinks": [
+      "Freedom Rate Calculator",
+      "Hourly Rate Calculator",
+      "Scope Creep Calculator",
+      "Business Runway Calculator",
+      "Brand Deal Calculator",
+      "Paid Traffic Profit Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "free-invoice-generator",
+    "title": "Free Invoice Generator",
+    "issues": [],
+    "quick": {
+      "left": 184,
+      "right": 1256,
+      "top": 364,
+      "bottom": 414,
+      "width": 1072,
+      "height": 50
+    },
+    "privacy": {
+      "left": 184,
+      "right": 1256,
+      "top": 430,
+      "bottom": 474,
+      "width": 1072,
+      "height": 43
+    },
+    "closingWidths": [
+      1072,
+      1072,
+      1072,
+      1072
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2225
+      },
+      {
+        "name": "related",
+        "top": 2694
+      },
+      {
+        "name": "guides",
+        "top": 2885
+      },
+      {
+        "name": "faq",
+        "top": 3385
+      },
+      {
+        "name": "footer",
+        "top": 3940
+      }
+    ],
+    "relatedLinks": [
+      "Check Your Rate >",
+      "Late Fee Calculator",
+      "Freedom Rate Calculator",
+      "Statement of Work Generator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "free-nda-generator",
+    "title": "Free NDA Generator",
+    "issues": [],
+    "quick": {
+      "left": 184,
+      "right": 1256,
+      "top": 364,
+      "bottom": 414,
+      "width": 1072,
+      "height": 50
+    },
+    "privacy": {
+      "left": 184,
+      "right": 1256,
+      "top": 430,
+      "bottom": 474,
+      "width": 1072,
+      "height": 43
+    },
+    "closingWidths": [
+      1072,
+      1072,
+      1072,
+      1072
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2438
+      },
+      {
+        "name": "related",
+        "top": 2882
+      },
+      {
+        "name": "guides",
+        "top": 3055
+      },
+      {
+        "name": "faq",
+        "top": 3534
+      },
+      {
+        "name": "footer",
+        "top": 4089
+      }
+    ],
+    "relatedLinks": [
+      "Statement of Work Generator",
+      "Free Invoice Generator",
+      "Meeting Notes Formatter"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "statement-of-work-generator",
+    "title": "Free Statement of Work (SOW) Generator",
+    "issues": [],
+    "quick": {
+      "left": 184,
+      "right": 1256,
+      "top": 364,
+      "bottom": 414,
+      "width": 1072,
+      "height": 50
+    },
+    "privacy": {
+      "left": 184,
+      "right": 1256,
+      "top": 430,
+      "bottom": 474,
+      "width": 1072,
+      "height": 43
+    },
+    "closingWidths": [
+      1072,
+      1072,
+      1072,
+      1072
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 3112
+      },
+      {
+        "name": "related",
+        "top": 3581
+      },
+      {
+        "name": "guides",
+        "top": 3754
+      },
+      {
+        "name": "faq",
+        "top": 4233
+      },
+      {
+        "name": "footer",
+        "top": 4809
+      }
+    ],
+    "relatedLinks": [
+      "Free NDA Generator",
+      "Free Invoice Generator",
+      "Meeting Notes Formatter"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  },
+  {
+    "slug": "creator-runway-calculator",
+    "title": "Business Runway Calculator",
+    "issues": [],
+    "quick": {
+      "left": 160,
+      "right": 1280,
+      "top": 370,
+      "bottom": 420,
+      "width": 1120,
+      "height": 50
+    },
+    "privacy": {
+      "left": 160,
+      "right": 1280,
+      "top": 436,
+      "bottom": 479,
+      "width": 1120,
+      "height": 43
+    },
+    "closingWidths": [
+      1120,
+      1120,
+      1120,
+      1120
+    ],
+    "sectionOrder": [
+      {
+        "name": "premium",
+        "top": 2365
+      },
+      {
+        "name": "related",
+        "top": 2793
+      },
+      {
+        "name": "guides",
+        "top": 2994
+      },
+      {
+        "name": "faq",
+        "top": 3507
+      },
+      {
+        "name": "footer",
+        "top": 4063
+      }
+    ],
+    "relatedLinks": [
+      "Freedom Rate Calculator",
+      "Hourly Rate Calculator",
+      "Scope Creep Calculator",
+      "Monetization Gap Calculator",
+      "Product Launch Goal Calculator",
+      "Subscriber LTV Calculator"
+    ],
+    "guideCount": 5,
+    "consoleErrors": [],
+    "failedResources": []
+  }
+]
