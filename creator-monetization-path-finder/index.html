@@ -268,7 +268,9 @@
       }
       @media (max-width:900px){.acl-shell-inner{align-items:flex-start;flex-direction:column;height:auto;padding-bottom:14px;padding-top:14px}.acl-shell-nav{justify-content:flex-start;overflow-x:auto;padding-bottom:4px;width:100%}.acl-related-tools{grid-template-columns:1fr}.acl-related-grid,.acl-faq-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
       @media (max-width:640px){.acl-shell-inner{padding-left:16px;padding-right:16px}.acl-shell-nav a,.acl-back-link,.acl-footer-links a{font-size:11px}.acl-privacy-trust,.acl-seo-intro,.acl-faq-section,.acl-related-tools,.acl-content-os-cta{width:calc(100% - 24px)}.acl-privacy-trust{align-items:flex-start}.acl-related-grid,.acl-faq-grid{grid-template-columns:1fr}.acl-content-os-card a{display:block;width:100%}.acl-shell-footer{padding:28px 0}}
-      .cmpf-workspace{box-sizing:border-box;margin-inline:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
+      .cmpf-workspace,.cmpf-quick-start{box-sizing:border-box;margin-inline:auto;max-width:1120px;width:min(calc(100% - 32px),1120px)}
+      .cmpf-quick-start{margin-top:16px}
+      .cmpf-quick-start + .acl-privacy-section{margin-top:18px!important}
       .cmpf-grid{align-items:stretch;display:grid;gap:clamp(24px,2.4vw,34px);grid-template-columns:minmax(0,1fr)}
       .cmpf-panel{background:#08080a;border:1px solid #242428;border-radius:24px;box-shadow:0 26px 72px rgba(0,0,0,.42);display:flex;flex-direction:column;padding:clamp(26px,2.7vw,34px)}
       .cmpf-panel-header{align-items:center;border-bottom:1px solid rgba(255,255,255,.09);display:flex;gap:18px;justify-content:space-between;margin-bottom:28px;padding-bottom:20px}
@@ -280,7 +282,7 @@
       .cmpf-rule-section{border-top:1px solid rgba(255,255,255,.55);padding-top:28px}
       .cmpf-section-title{color:#8b8b95;display:block;font-family:Space Grotesk,Inter,sans-serif;font-size:14px;font-weight:900;letter-spacing:.14em;margin-bottom:14px;text-transform:uppercase}
       @media (min-width:1180px){.cmpf-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
-      @media (max-width:900px){.cmpf-workspace{width:calc(100% - 24px)}.cmpf-panel{padding:22px}.cmpf-kicker{font-size:15px}.cmpf-label{font-size:13px}.cmpf-form-note{margin-top:24px}}
+      @media (max-width:900px){.cmpf-workspace,.cmpf-quick-start{width:calc(100% - 24px)}.cmpf-panel{padding:22px}.cmpf-kicker{font-size:15px}.cmpf-label{font-size:13px}.cmpf-form-note{margin-top:24px}}
     </style>
     <script type="application/ld+json" data-acl-seo-schema>
     {"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://aicashlabtools.com/creator-monetization-path-finder/#webpage","url":"https://aicashlabtools.com/creator-monetization-path-finder/","name":"Creator Monetization Calculator | Revenue Path Finder For Digital Products","description":"Use this creator monetization calculator to choose a revenue path, digital product offer, pricing direction, and audience monetization framework.","isPartOf":{"@type":"WebSite","name":"AI Cash Lab Tools","url":"https://aicashlabtools.com/"}},{"@type":"SoftwareApplication","@id":"https://aicashlabtools.com/creator-monetization-path-finder/#software","name":"Creator Monetization Path Finder","applicationCategory":"WebApplication","operatingSystem":"Web Browser","url":"https://aicashlabtools.com/creator-monetization-path-finder/","description":"Find a creator monetization path based on platform, audience size, niche, skills, time, digital products, and income goals.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","@id":"https://aicashlabtools.com/creator-monetization-path-finder/#faq","mainEntity":[{"@type":"Question","name":"Is the Creator Monetization Path Finder free?","acceptedAnswer":{"@type":"Answer","text":"Yes. This tool is free to use in your browser."}},{"@type":"Question","name":"Do I need to sign up?","acceptedAnswer":{"@type":"Answer","text":"No signup is required. Open the tool, choose your details, and copy the plan."}},{"@type":"Question","name":"Are my inputs uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. Your inputs stay in your browser and are never uploaded or stored."}}]}]}
@@ -329,7 +331,7 @@
       </section>
 
       <!-- Quick Start Rail Indicator -->
-      <section class="no-print mx-auto mt-4 px-4 w-full max-w-6xl">
+      <section class="cmpf-quick-start no-print">
         <div class="bg-[#0a0a0a] border border-zinc-800 rounded-xl px-5 py-3.5 flex flex-wrap gap-x-6 gap-y-2 items-center overflow-x-auto select-none">
           <h2 class="text-white text-xs font-black tracking-wider uppercase flex items-center gap-1.5 shrink-0">
             <svg class="w-3.5 h-3.5 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -364,7 +366,7 @@
       <section class="acl-privacy-trust no-print" aria-label="Privacy notice"><span aria-hidden="true">&#128274;</span><p><strong>Private by default:</strong> Your inputs stay in your browser and are never uploaded or stored.</p></section>
 
       <!-- Desktop/Two Column Split Input / Output -->
-      <section class="cmpf-workspace mt-8">
+      <section class="acl-tool-hero cmpf-workspace mt-8">
         <div class="cmpf-grid">
           
           <!-- Column left: Creator Inputs Form -->
