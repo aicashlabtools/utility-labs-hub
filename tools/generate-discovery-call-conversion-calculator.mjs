@@ -31,7 +31,16 @@ function articlePage([s,t,d]){let as=JSON.stringify({"@context":"https://schema.
 const finalTool=tool
  .replace('<div class="metric"><span>Funnel health</span><strong id="health" class="health">—</strong></div></div>','<div class="metric"><span>Funnel health</span><strong id="health" class="health">—</strong></div><div class="metric"><span>Sales time / client</span><strong id="timePerClient">0 hr</strong></div></div>')
  .replace("b=Math.min(q||Infinity,num('booked')),c=Math.min(b||Infinity,num('completed'))","b=Math.min(q,num('booked')),c=Math.min(b,num('completed'))")
- .replace("$('health').textContent=score>=75?'Strong':score>=55?'Healthy':'Needs attention';","$('health').textContent=score>=75?'Strong':score>=55?'Healthy':'Needs attention';$('timePerClient').textContent=closed?((c*num('duration')/60)/closed).toFixed(1)+' hr':'—';");
+ .replace("$('health').textContent=score>=75?'Strong':score>=55?'Healthy':'Needs attention';","$('health').textContent=score>=75?'Strong':score>=55?'Healthy':'Needs attention';$('timePerClient').textContent=closed?((c*num('duration')/60)/closed).toFixed(1)+' hr':'—';")
+ .replace('<section class="section block"><div><span class="kicker">Revenue comparison</span>','<section class="section revenue-emphasis block"><div><span class="kicker">Revenue comparison</span>')
+ .replace('Copy Funnel Summary</button>','Copy Analysis</button>')
+ .replace("$('copy').textContent='Copy Funnel Summary'","$('copy').textContent='Copy Analysis'")
+ .replace("rec.push(['Reduce no-shows','Add a 24-hour reminder and a simple reschedule link.'])","rec.push(['Recover missed-call revenue','Reducing no-shows protects roughly '+money(lostNo)+' in modeled opportunity. Add reminders and easy rescheduling.'])")
+ .replace("rec.push(['Tighten qualification','Confirm urgency, fit, and decision process before the call.'])","rec.push(['Improve qualified-call revenue','Confirm urgency, fit, and decision process so completed calls have more revenue potential.'])")
+ .replace("rec.push(['Use a follow-up cadence','Plan three concise touches with a clear next step.'])","rec.push(['Recover stalled revenue','A three-touch follow-up cadence could protect about '+money(lostFollow)+' in modeled opportunity.'])")
+ .replace("rec.push(['Send proposals faster','Recap the agreed problem and next step within 48 hours.'])","rec.push(['Shorten time to revenue','Send the decision-ready recap and proposal within 48 hours while intent is strongest.'])")
+ .replace("rec.push(['Create a second engagement','Offer a logical follow-on service after the first win.'])","rec.push(['Increase revenue per client','Offer a logical follow-on service after the first measurable win.'])")
+ .replace('</style></head>',' .health{color:#6ee7b7!important;text-shadow:0 0 14px rgba(110,231,183,.25)}.revenue-emphasis{border-color:#f59e0b99;box-shadow:0 18px 48px rgba(245,158,11,.10);background:linear-gradient(135deg,rgba(245,158,11,.10),var(--panel) 42%)}.revenue-emphasis h2{font-size:clamp(1.45rem,3vw,2rem)}.fill,.bar i{transition:width .45s cubic-bezier(.2,.75,.25,1)}</style></head>');
 await fs.mkdir(path.join(root,slug),{recursive:true});await fs.writeFile(path.join(root,slug,'index.html'),finalTool);
 for(const g of guides){let dir=path.join(root,'articles',g[0]);await fs.mkdir(dir,{recursive:true});await fs.writeFile(path.join(dir,'index.html'),articlePage(g));}
 async function insertOnce(file,needle,content,position='before'){
