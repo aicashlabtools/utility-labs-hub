@@ -40,6 +40,7 @@ const finalTool=tool
  .replace("rec.push(['Use a follow-up cadence','Plan three concise touches with a clear next step.'])","rec.push(['Recover stalled revenue','A three-touch follow-up cadence could protect about '+money(lostFollow)+' in modeled opportunity.'])")
  .replace("rec.push(['Send proposals faster','Recap the agreed problem and next step within 48 hours.'])","rec.push(['Shorten time to revenue','Send the decision-ready recap and proposal within 48 hours while intent is strongest.'])")
  .replace("rec.push(['Create a second engagement','Offer a logical follow-on service after the first win.'])","rec.push(['Increase revenue per client','Offer a logical follow-on service after the first measurable win.'])")
+ .replaceAll('<details><summary>','<details open><summary>')
  .replace('</style></head>',' .health{color:#6ee7b7!important;text-shadow:0 0 14px rgba(110,231,183,.25)}.revenue-emphasis{border-color:#f59e0b99;box-shadow:0 18px 48px rgba(245,158,11,.10);background:linear-gradient(135deg,rgba(245,158,11,.10),var(--panel) 42%)}.revenue-emphasis h2{font-size:clamp(1.45rem,3vw,2rem)}.fill,.bar i{transition:width .45s cubic-bezier(.2,.75,.25,1)}</style></head>');
 await fs.mkdir(path.join(root,slug),{recursive:true});await fs.writeFile(path.join(root,slug,'index.html'),finalTool);
 for(const g of guides){let dir=path.join(root,'articles',g[0]);await fs.mkdir(dir,{recursive:true});await fs.writeFile(path.join(dir,'index.html'),articlePage(g));}
