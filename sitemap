@@ -643,4 +643,28 @@
     <loc>https://aicashlabtools.com/articles/discovery-call-scripts/</loc>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://aicashlabtools.com/value-pricing-vs-hourly-calculator/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/value-pricing-vs-hourly-guide/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-calculate-value-based-pricing/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/how-to-estimate-client-value/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/when-to-use-hourly-pricing/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aicashlabtools.com/articles/hybrid-pricing-for-freelancers/</loc>
+    <priority>0.6</priority>
+  </url>
 </urlset>
